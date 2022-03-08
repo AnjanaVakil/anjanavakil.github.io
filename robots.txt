@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://anjanavakil.github.io/sitemap.xml
