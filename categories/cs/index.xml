@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CS💻 on Anjana</title>
+    <link>https://anjanavakil.github.io/categories/cs/</link>
+    <description>Recent content in CS💻 on Anjana</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 04 Mar 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《编写可读代码的艺术》</title>
+      <link>https://anjanavakil.github.io/post/the_art_of_readable_code/</link>
+      <pubDate>Fri, 04 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/the_art_of_readable_code/</guid>
+      <description>豆瓣🔗：《编写可读代码的艺术》 关于编码规范和编写高质量代码类的书籍，印象中第一本看完的应该是《阿里巴巴Java开发手册》，《编写可读代码的艺</description>
+    </item>
+    
+  </channel>
+</rss>
