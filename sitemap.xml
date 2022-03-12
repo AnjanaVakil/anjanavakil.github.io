@@ -9,13 +9,6 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/post/read_summary_2022/</loc>
-    <lastmod>2022-02-01T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://anjanavakil.github.io/post/cs_book_recommendation/</loc>
     <lastmod>2022-01-15T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -31,7 +24,56 @@
   
   <url>
     <loc>https://anjanavakil.github.io/</loc>
-    <lastmod>2022-03-04T14:15:48+08:00</lastmod>
+    <lastmod>2022-03-12T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/categories/</loc>
+    <lastmod>2022-03-12T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/cs/</loc>
+    <lastmod>2022-03-12T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/categories/cs/</loc>
+    <lastmod>2022-03-12T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/java%EF%B8%8F/</loc>
+    <lastmod>2022-03-12T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/lambda_expression/</loc>
+    <lastmod>2022-03-12T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/</loc>
+    <lastmod>2022-03-12T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/</loc>
+    <lastmod>2022-03-12T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -45,41 +87,6 @@
   
   <url>
     <loc>https://anjanavakil.github.io/tags/book/</loc>
-    <lastmod>2022-03-04T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/categories/</loc>
-    <lastmod>2022-03-04T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/cs/</loc>
-    <lastmod>2022-03-04T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/categories/cs/</loc>
-    <lastmod>2022-03-04T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/post/</loc>
-    <lastmod>2022-03-04T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/</loc>
     <lastmod>2022-03-04T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -171,6 +178,13 @@
   
   <url>
     <loc>https://anjanavakil.github.io/categories/growth/</loc>
+    <lastmod>2022-02-01T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/read_summary_2022/</loc>
     <lastmod>2022-02-01T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

@@ -6,7 +6,16 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 04 Mar 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Mar 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lambda表达式</title>
+      <link>https://anjanavakil.github.io/post/lambda_expression/</link>
+      <pubDate>Sat, 12 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/lambda_expression/</guid>
+      <description>之前技术博客都是在CSDN上发表的，好久没用了，登录上去居然有人给我以前的博客点赞评论，尽管很少但发现还是有人看的。看了一下之前写的博客，发</description>
+    </item>
+    
     <item>
       <title>《编写可读代码的艺术》</title>
       <link>https://anjanavakil.github.io/post/the_art_of_readable_code/</link>

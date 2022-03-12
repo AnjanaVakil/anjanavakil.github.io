@@ -6,7 +6,7 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 04 Mar 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Mar 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Code: The Hidden Language of Computer Hardware and Software</title>
       <link>https://anjanavakil.github.io/post/code/</link>
@@ -17,21 +17,21 @@
     </item>
     
     <item>
-      <title>关于阅读</title>
-      <link>https://anjanavakil.github.io/post/read_summary_2022/</link>
-      <pubDate>Tue, 01 Feb 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/read_summary_2022/</guid>
-      <description>一直觉得阅读也只不过是排解人生无聊的陪伴，不太喜欢阅读如何如何好之类的说辞，但是有次在微读看到有书友这样写： 读书和思考是一件辛苦的事，像暗夜</description>
-    </item>
-    
-    <item>
       <title>CS基础知识书籍推荐(已读)</title>
       <link>https://anjanavakil.github.io/post/cs_book_recommendation/</link>
       <pubDate>Sat, 15 Jan 2022 14:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/cs_book_recommendation/</guid>
       <description>豆瓣🔗： 《编码：隐匿在计算机软硬件背后的语言》 Code: The Hidden Language of Computer Hardware and Software 《计算机是怎样跑起来的》 《程序是怎样跑起来的》 《网络是怎样连接的》 《计算机系</description>
+    </item>
+    
+    <item>
+      <title>Lambda表达式</title>
+      <link>https://anjanavakil.github.io/post/lambda_expression/</link>
+      <pubDate>Sat, 12 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/lambda_expression/</guid>
+      <description>之前技术博客都是在CSDN上发表的，好久没用了，登录上去居然有人给我以前的博客点赞评论，尽管很少但发现还是有人看的。看了一下之前写的博客，发</description>
     </item>
     
     <item>
@@ -68,6 +68,15 @@
       
       <guid>https://anjanavakil.github.io/post/50_business_must_reads/</guid>
       <description>豆瓣🔗：《影响商业的50本书》 算是作者对商业书籍的书评汇总起来的解说式的书籍，收获颇丰。 1、对一些事物不同维度和方向的思考：作为金融商业领域</description>
+    </item>
+    
+    <item>
+      <title>关于阅读</title>
+      <link>https://anjanavakil.github.io/post/read_summary_2022/</link>
+      <pubDate>Tue, 01 Feb 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/read_summary_2022/</guid>
+      <description>一直觉得阅读也只不过是排解人生无聊的陪伴，不太喜欢阅读如何如何好之类的说辞，但是有次在微读看到有书友这样写： 读书和思考是一件辛苦的事，像暗夜</description>
     </item>
     
     <item>
