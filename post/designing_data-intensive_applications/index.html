@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Anjana</title>
+  <title>Designing Data-Intensive Applications Notes - Anjana</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,10 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="Anjana&#39;s personal website." />
+  <meta name="description" content="atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.
+In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.
+REST REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP." />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -34,8 +37,8 @@
 <meta name="generator" content="Hugo 0.93.0" />
 
 
-<link rel="canonical" href="https://anjanavakil.github.io/" />
-<link href="/index.xml" rel="alternate" type="application/rss+xml" title="Anjana" />
+<link rel="canonical" href="https://anjanavakil.github.io/post/designing_data-intensive_applications/" />
+
 
 
 
@@ -58,15 +61,26 @@
 
 
 
-<meta property="og:title" content="Anjana" />
-<meta property="og:description" content="Anjana&#39;s personal website." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://anjanavakil.github.io/" />
+<meta property="og:title" content="Designing Data-Intensive Applications Notes" />
+<meta property="og:description" content="atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.
+In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.
+REST REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/designing_data-intensive_applications/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-17T22:15:48+08:00" />
+<meta property="article:modified_time" content="2022-03-17T22:15:48+08:00" />
 
-<meta itemprop="name" content="Anjana">
-<meta itemprop="description" content="Anjana&#39;s personal website."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Anjana"/>
-<meta name="twitter:description" content="Anjana&#39;s personal website."/>
+<meta itemprop="name" content="Designing Data-Intensive Applications Notes">
+<meta itemprop="description" content="atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.
+In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.
+REST REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP."><meta itemprop="datePublished" content="2022-03-17T22:15:48+08:00" />
+<meta itemprop="dateModified" content="2022-03-17T22:15:48+08:00" />
+<meta itemprop="wordCount" content="265">
+<meta itemprop="keywords" content="CS💻,BOOK-SUMMARY📑," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Designing Data-Intensive Applications Notes"/>
+<meta name="twitter:description" content="atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.
+In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.
+REST REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -283,182 +297,153 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="posts" class="posts">
-  
-  
+          <article class="post bg-white">
     
-  
-  
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+    <header class="post-header">
+      <h1 class="post-title">Designing Data-Intensive Applications Notes</h1>
       
-      <a class="post-link" href="/post/mindset_the_new_psychology_of_success/">《终身成长》</a>
-    </h1>
+      <div class="post-meta">
+        <time datetime="2022-03-17" class="post-time">
+          2022-03-17
+        </time>
+        <div class="post-category">
+            <a href="https://anjanavakil.github.io/categories/cs/"> CS💻 </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
     
-    <div class="post-meta">
-      <time datetime="2022-01-06" class="post-time">
-        2022-01-06
-      </time>
-      <div class="post-category">
-          <a href="https://anjanavakil.github.io/categories/book-review/"> BOOK-REVIEW📖 </a>
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#atomic">atomic</a></li>
+        <li><a href="#rest">REST</a></li>
+        <li><a href="#message-brokermessage-queuemessage-oriented-middleware">message broker/message queue/message-oriented middleware</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h3 id="atomic">atomic</h3>
+<p>In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.</p>
+<p>In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.</p>
+<h3 id="rest">REST</h3>
+<p>REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP. It emphasizes simple data formats, using URLs for identifying resources and using HTTP features for cache control, authentication, and content type negotiation. REST has been gaining popularity compared to SOAP, at least in the context of cross-organizational service integration, and is often associated with microservices. An API designed according to the principles of REST is called RESTful.</p>
+<h3 id="message-brokermessage-queuemessage-oriented-middleware">message broker/message queue/message-oriented middleware</h3>
+<p>Using a message broker has several advantages compared to direct RPC:</p>
+<p>It can act as a buffer if the recipient is unavailable or overloaded, and thus improve system reliability.</p>
+<p>It can automatically redeliver messages to a process that has crashed, and thus prevent messages from being lost.</p>
+<p>It avoids the sender needing to know the IP address and port number of the recipient (which is particularly useful in a cloud deployment where virtual machines often come and go).</p>
+<p>It allows one message to be sent to several recipients. It logically decouples the sender from the recipient (the sender just publishes messages and doesn’t care who consumes them).</p>
+<h3 id="references">References</h3>
+<p>Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems by Martin Kleppmann</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Anjana</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2022-03-17
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a href="https://github.com/gohugoio/hugoBasicExample" rel="noopener" target="_blank">See origin</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
+          <a href="https://anjanavakil.github.io/tags/book-summary/">BOOK-SUMMARY📑</a>
           
         </div>
+
       
-      
-      
-    </div>
-  </header>
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/cs_book_recommendation/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">CS基础知识书籍推荐(已读)</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/show_your_work/">
+            <span class="next-text nav-default">Show Your Work!</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
   
-  <div class="post-content">
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
     
-    <div class="post-summary">
-      豆瓣🔗：《终身成长》 2021年1月9日读了《终身成长》这本书（感谢微信读书让我方便地查看每本书的开始阅读时间和阅读时长，大概也算电子书的优点
-    </div>
-    <div class="read-more">
-      <a href="/post/mindset_the_new_psychology_of_success/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
 
   
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/briefe_an_einen_jungen_dichter/">《给青年诗人的信》</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2022-01-02" class="post-time">
-        2022-01-02
-      </time>
-      <div class="post-category">
-          <a href="https://anjanavakil.github.io/categories/book-review/"> BOOK-REVIEW📖 </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      豆瓣🔗：《给青年诗人的信》。 作者：莱内·马利亚·里尔克 译者：冯至 读这本书的过程就是一种享受，每个文字每句话像流进心里的感觉，很轻松。 这本优秀
-    </div>
-    <div class="read-more">
-      <a href="/post/briefe_an_einen_jungen_dichter/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/savior_far_away/">《遥远的救世主》</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2022-01-02" class="post-time">
-        2022-01-02
-      </time>
-      <div class="post-category">
-          <a href="https://anjanavakil.github.io/categories/book-review/"> BOOK-REVIEW📖 </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      豆瓣🔗：《遥远的救世主》 首先是朋友圈一个姐姐推荐这本书，很佩服很喜欢的一个姐姐，当时就想着2021忙完了就看这本书。因为当时在bilibil
-    </div>
-    <div class="read-more">
-      <a href="/post/savior_far_away/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-</section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
-      
-      <li >
-        <a href="/">1</a>
-      </li>
-      
-      <li >
-        <a href="/page/2/">2</a>
-      </li>
-      
-      <li >
-        <a href="/page/3/">3</a>
-      </li>
-      
-      <li >
-        <a href="/page/4/">4</a>
-      </li>
-      
-      <li >
-        <a href="/page/5/">5</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/page/6/">6</a>
-      </li>
-      
-      <li >
-        <a href="/page/7/">7</a>
-      </li>
-      
-      <li >
-        <a href="/page/8/">8</a>
-      </li>
-      
-    </ul>
-  </nav>
-
-  
-  
-
-
-
-
 
         </div>
       </div>

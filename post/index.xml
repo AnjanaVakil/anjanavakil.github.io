@@ -6,7 +6,7 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 16 Mar 2022 21:00:00 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Mar 2022 22:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Code: The Hidden Language of Computer Hardware and Software</title>
       <link>https://anjanavakil.github.io/post/code/</link>
@@ -23,6 +23,17 @@
       
       <guid>https://anjanavakil.github.io/post/cs_book_recommendation/</guid>
       <description>豆瓣🔗： 《编码：隐匿在计算机软硬件背后的语言》 Code: The Hidden Language of Computer Hardware and Software 《计算机是怎样跑起来的》 《程序是怎样跑起来的》 《网络是怎样连接的》 《计算机系</description>
+    </item>
+    
+    <item>
+      <title>Designing Data-Intensive Applications Notes</title>
+      <link>https://anjanavakil.github.io/post/designing_data-intensive_applications/</link>
+      <pubDate>Thu, 17 Mar 2022 22:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/designing_data-intensive_applications/</guid>
+      <description>atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.
+In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.
+REST REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP.</description>
     </item>
     
     <item>
@@ -177,15 +188,6 @@ The book is brief and there is not a lot of unfamiliar vocabulary so I read it i
       
       <guid>https://anjanavakil.github.io/post/nanjing_massacre/</guid>
       <description>豆瓣🔗：《南京大屠杀》 两天内断断续续花了3h读完，这大概是高一结束历史学科学习后第一次读南京大屠杀相关的历史。深刻体会到读书可以了解历史事件</description>
-    </item>
-    
-    <item>
-      <title>《操作系统导论》OSTEP</title>
-      <link>https://anjanavakil.github.io/post/ostep/</link>
-      <pubDate>Tue, 28 Dec 2021 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/ostep/</guid>
-      <description>豆瓣🔗：《操作系统导论》 Operating Systems: Three Easy Pieces 十分推荐的一本好书，10月3号开始阅读，大概花了13h看完，做了大约200多条笔记（后面学习到读书过程中不</description>
     </item>
     
   </channel>

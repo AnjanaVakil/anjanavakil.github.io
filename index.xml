@@ -6,7 +6,7 @@
     <description>Recent content on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 16 Mar 2022 21:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 17 Mar 2022 22:15:48 +0800</lastBuildDate>
     
         <atom:link href="https://anjanavakil.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -263,6 +263,30 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/wechat.jpg&#34; alt=&#34;Keep&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如果春天要来，大地就使它一点点地完成🍃。&lt;/p&gt;
 &lt;p&gt;“Think before you speak. Read before you think.” —Fran Lebowitz&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Designing Data-Intensive Applications Notes</title>
+      <link>https://anjanavakil.github.io/post/designing_data-intensive_applications/</link>
+      <pubDate>Thu, 17 Mar 2022 22:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/designing_data-intensive_applications/</guid>
+      
+        <description>&lt;h3 id=&#34;atomic&#34;&gt;atomic&lt;/h3&gt;
+&lt;p&gt;In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.&lt;/p&gt;
+&lt;p&gt;In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.&lt;/p&gt;
+&lt;h3 id=&#34;rest&#34;&gt;REST&lt;/h3&gt;
+&lt;p&gt;REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP. It emphasizes simple data formats, using URLs for identifying resources and using HTTP features for cache control, authentication, and content type negotiation. REST has been gaining popularity compared to SOAP, at least in the context of cross-organizational service integration, and is often associated with microservices. An API designed according to the principles of REST is called RESTful.&lt;/p&gt;
+&lt;h3 id=&#34;message-brokermessage-queuemessage-oriented-middleware&#34;&gt;message broker/message queue/message-oriented middleware&lt;/h3&gt;
+&lt;p&gt;Using a message broker has several advantages compared to direct RPC:&lt;/p&gt;
+&lt;p&gt;It can act as a buffer if the recipient is unavailable or overloaded, and thus improve system reliability.&lt;/p&gt;
+&lt;p&gt;It can automatically redeliver messages to a process that has crashed, and thus prevent messages from being lost.&lt;/p&gt;
+&lt;p&gt;It avoids the sender needing to know the IP address and port number of the recipient (which is particularly useful in a cloud deployment where virtual machines often come and go).&lt;/p&gt;
+&lt;p&gt;It allows one message to be sent to several recipients. It logically decouples the sender from the recipient (the sender just publishes messages and doesn’t care who consumes them).&lt;/p&gt;
+&lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
+&lt;p&gt;Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems by Martin Kleppmann&lt;/p&gt;
 </description>
       
     </item>
@@ -1460,28 +1484,6 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;p&gt;最后，这两本书质量蛮高的原因之一就是作者就一些问题分析时给出了详细的截图。的确，发现某些好的书籍就擅于使用大量的图片，更易于读者理解，纯文本有些时候对于计算机类这种实践性强的专业反而不如图片更加直观易懂。&lt;/p&gt;
 &lt;p&gt;总的来说，两本书值得后面遇到相关问题第二次阅读查阅，再次体会每类问题的解决思路和方案。&lt;/p&gt;
 &lt;p&gt;3、一年以来比较深入（可能只是自己以为的深入，其实还是浅尝辄止，浮于表面，但比自己大学刚开始学习的时候进步很大）的学习计算机基础知识，尤其是计算机底层的一些东西，改变了我的一些看法。大一大二的时候认为敲代码是一件很玄学的事，有时候一个配置、一行代码，可能就是跑通和跑不通两种完全不同的结果，以至于那时候认为敲代码要靠运气，我的电脑上跑不通的到了其他人电脑上就可以跑通了。可是慢慢学习底层的一些东西，理解到所有的代码，最后都要通过一系列的预处理编译汇编链接或者是解释转换为机器代码执行，最后机器执行的只是二进制的01序列，所以写出来的代码有问题肯定是某方面出了问题，绝不是玄学的事。可是当自己的理解不够深入时，有时候很小的问题对自己来说也可能是一团乱麻，所以，面对问题，首先不要慌张，头脑清晰的分析问题，思考背后深层次的原因，或许就可以找到解决bug的方法。提高解决问题的能力需要在实践中慢慢提高。&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>《南京大屠杀》</title>
-      <link>https://anjanavakil.github.io/post/nanjing_massacre/</link>
-      <pubDate>Tue, 28 Dec 2021 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/nanjing_massacre/</guid>
-      
-        <description>&lt;ul&gt;
-&lt;li&gt;豆瓣🔗：&lt;a href=&#34;https://book.douban.com/subject/26545308/&#34;&gt;《南京大屠杀》&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;两天内断断续续花了3h读完，这大概是高一结束历史学科学习后第一次读南京大屠杀相关的历史。深刻体会到读书可以了解历史事件的真相，对朦朦胧胧的概念有一个更清晰的认识。初高中学历史会学到南京大屠杀关于日军的残酷暴行。大概是因为教科书的原因，笼统的文字和一些描述，可这仍让人惊讶但幼稚的心灵不敢去想象这可怕的历史场景。读这本书的过程中，比教科书来的更深刻更真实的描述，想着认真看文字可是又不忍于在一个个过于残酷的真相上停留太久，一个个数字自己不敢去想是什么概念。&lt;/p&gt;
-&lt;p&gt;作者按时间顺序来书写，发生时的南京大屠杀，抗战胜利后的日本对此犯罪的作为，现在被遗忘的大屠杀。&lt;/p&gt;
-&lt;p&gt;一本好的书应该是启发读者多维度的思考，在读本书的过程中，深感自己思考维度的单一化。&lt;/p&gt;
-&lt;p&gt;1、作者对南京大屠杀前日本的发展状况、军国主义、训练士兵等的介绍，看完不难理解日军后来的非人类行为。&lt;/p&gt;
-&lt;p&gt;2、关于“南京安全区”的“中国的辛德勒”，提醒我多方面思考；&lt;/p&gt;
-&lt;p&gt;3、关于”幸存者的命运“和“被遗忘的大屠杀：再次凌辱”，幸存者记忆中的创伤已无法抹去，历史不应该被遗忘和歪曲。&lt;/p&gt;
-&lt;p&gt;书籍的前面作者是用文字控诉日军邪恶行为的，没想到在书籍的末尾最后几页看到了照片，看着一张张黑白照片，脑海中唤醒前面读过的文字，让人窒息。&lt;/p&gt;
-&lt;p&gt;落后就要挨打，铭记历史，以史为鉴，知古鉴今。&lt;/p&gt;
 </description>
       
     </item>
