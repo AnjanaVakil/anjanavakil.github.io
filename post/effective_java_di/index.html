@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Coders At Work 编程人生 - Anjana</title>
+  <title>Effective Java: Dependency Injection - Anjana</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="豆瓣🔗: Coders At Work 《编程人生：15位软件先驱访谈录》 第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获" />
+  <meta name="description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility - inflexible &amp;amp; untestable! 1 2 3 4" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.93.0" />
 
 
-<link rel="canonical" href="https://anjanavakil.github.io/post/coders_at_work/" />
+<link rel="canonical" href="https://anjanavakil.github.io/post/effective_java_di/" />
 
 
 
@@ -59,20 +59,20 @@
 
 
 
-<meta property="og:title" content="Coders At Work 编程人生" />
-<meta property="og:description" content="豆瓣🔗: Coders At Work 《编程人生：15位软件先驱访谈录》 第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获" />
+<meta property="og:title" content="Effective Java: Dependency Injection" />
+<meta property="og:description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility - inflexible &amp; untestable! 1 2 3 4" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://anjanavakil.github.io/post/coders_at_work/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-03-20T14:15:48+08:00" />
-<meta property="article:modified_time" content="2022-03-20T14:15:48+08:00" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/effective_java_di/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-21T14:15:48+08:00" />
+<meta property="article:modified_time" content="2022-03-21T14:15:48+08:00" />
 
-<meta itemprop="name" content="Coders At Work 编程人生">
-<meta itemprop="description" content="豆瓣🔗: Coders At Work 《编程人生：15位软件先驱访谈录》 第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获"><meta itemprop="datePublished" content="2022-03-20T14:15:48+08:00" />
-<meta itemprop="dateModified" content="2022-03-20T14:15:48+08:00" />
-<meta itemprop="wordCount" content="2815">
-<meta itemprop="keywords" content="BOOK📚,Coders⌨️,CS💻," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Coders At Work 编程人生"/>
-<meta name="twitter:description" content="豆瓣🔗: Coders At Work 《编程人生：15位软件先驱访谈录》 第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获"/>
+<meta itemprop="name" content="Effective Java: Dependency Injection">
+<meta itemprop="description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility - inflexible &amp; untestable! 1 2 3 4"><meta itemprop="datePublished" content="2022-03-21T14:15:48+08:00" />
+<meta itemprop="dateModified" content="2022-03-21T14:15:48+08:00" />
+<meta itemprop="wordCount" content="500">
+<meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Effective Java: Dependency Injection"/>
+<meta name="twitter:description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility - inflexible &amp; untestable! 1 2 3 4"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -292,11 +292,11 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">Coders At Work 编程人生</h1>
+      <h1 class="post-title">Effective Java: Dependency Injection</h1>
       
       <div class="post-meta">
-        <time datetime="2022-03-20" class="post-time">
-          2022-03-20
+        <time datetime="2022-03-21" class="post-time">
+          2022-03-21
         </time>
         <div class="post-category">
             <a href="https://anjanavakil.github.io/categories/cs/"> CS💻 </a>
@@ -319,19 +319,13 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#jamie-zawinski">Jamie Zawinski</a></li>
-    <li><a href="#brad-fitzpatrick">Brad Fitzpatrick</a>
+    <li><a href="#item-5-prefer-dependency-injection-to-hardwiring-resources">Item 5: Prefer dependency injection to hardwiring resources</a>
       <ul>
-        <li><a href="#1学习东西">1、学习东西</a></li>
-        <li><a href="#2当代程序员是否有必要学习汇编语言芯片等">2、当代程序员是否有必要学习汇编语言/芯片等</a></li>
-        <li><a href="#3学校课程的批判">3、学校课程的批判</a></li>
-        <li><a href="#4学术界和工业界paper的交界处">4、学术界和工业界paper的交界处</a></li>
-        <li><a href="#5设计软件">5、设计软件</a></li>
-        <li><a href="#6先做hard的事">6、先做hard的事</a></li>
-        <li><a href="#7招聘和辨识优秀的程序员">7、招聘和辨识优秀的程序员</a></li>
-        <li><a href="#8提高编程能力">8、提高编程能力</a></li>
-        <li><a href="#9编程能力之外的能力">9、编程能力之外的能力</a></li>
-        <li><a href="#10编程是年轻人的游戏">10、编程是年轻人的游戏？</a></li>
+        <li><a href="#condition">Condition</a></li>
+        <li><a href="#inappropriate-use-of-static-utility---inflexible--untestable">Inappropriate use of static utility - inflexible &amp; untestable!</a></li>
+        <li><a href="#inappropriate-use-of-singleton---inflexible--untestable">Inappropriate use of singleton - inflexible &amp; untestable!</a></li>
+        <li><a href="#dependency-injection-provides-flexibility-and-testability">Dependency injection provides flexibility and testability</a></li>
+        <li><a href="#summary">Summary</a></li>
       </ul>
     </li>
   </ul>
@@ -341,99 +335,95 @@
 
     
     <div class="post-content">
-      <ul>
-<li>
-<p>豆瓣🔗:</p>
-<p><a href="https://book.douban.com/subject/3673223/">Coders At Work</a></p>
-<p><a href="https://book.douban.com/subject/5355285/">《编程人生：15位软件先驱访谈录》</a></p>
-</li>
-</ul>
-<p>第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获。第二次重新拾起中文版，再对照英文版，还是学到了蛮多东西的。通过计算机行业顶级程序员的谈话，对编程、程序员有了更多的理解。</p>
-<h2 id="jamie-zawinski">Jamie Zawinski</h2>
-<p>Lisp程序员，XEmacs开发者，Netscape浏览器和Mozilla核心开发者。</p>
-<p>看了第一篇Jamie Zawinski的访谈，就带给我很多的思考：</p>
-<p>1、每个人都有自己的路，对于人生的意义我想只有个人才知道是不是这短暂一生想要追求的。Zawinski只有大概高中的学历，但并不妨碍他在计算机领域的贡献和对于编程的热爱。他读书很少，但是他有着好奇心，通过看源码和官方的手册学习。</p>
-<p>2、他强调了“完成比完美重要” 。<code>“公司付你钱不是为了让你来写代码，而是要发布产品”</code>商业就是这样，一个产品更重要的是时间和时机。</p>
-<p>3、提到一些比较古老的编程语言，并没有学过，所以对于自己有点陌生。倒是让我想起<code>Alan J. Perlis</code>说过的<code>“A language that doesn't affect the way you think about programming, is not worth knowing. ”</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
-<p>所以每年接触学习一种不同的语言，不依赖于已有的思维定式，转换思维。（和Brad Fitzpatrick提高编程能力的方法不谋而合：下文Brad Fitzpatrick部分的第8点）</p>
-<p>Being totally outside the comfort zone.</p>
-<p>4、动手实践的重要性：自己动手太少，多实践。Talk is cheap. Show me the code.</p>
-<p>5、大佬对于C++的抨击，这倒是让我有些惊讶。自己的潜意识认为C++因为难所以比较高不可攀的感觉，自己的固化思维真是害自己不浅。</p>
-<p>6、“不要害怕自己的无知”：本来自己是不怕问问题的，但后来不知道为什么怕暴露自己的缺点和无知，渐渐问人问题也犹犹豫豫磕磕巴巴的，所以勇敢地问出来。“不知道某件东西并不代表你笨，只是暂时还不知道罢了”。</p>
-<h2 id="brad-fitzpatrick">Brad Fitzpatrick</h2>
-<p>书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。</p>
-<h3 id="1学习东西">1、学习东西</h3>
+      <p>Effective Java 的笔记，以代码为主，批注为辅。</p>
+<h2 id="item-5-prefer-dependency-injection-to-hardwiring-resources">Item 5: Prefer dependency injection to hardwiring resources</h2>
+<p>优先考虑依赖注入来引入资源</p>
+<h3 id="condition">Condition</h3>
 <blockquote>
-<p>Seibel: It does seem that while you were writing all this stuff because you needed it, you also enjoyed doing it.</p>
-<p>Fitzpatrick: Oh, yeah. I definitely try to find an excuse to use anything, to learn it. Because you never learn something until you have to write something in it, until you have to live and breathe it. It&rsquo;s one thing to go learn a language for fun, but until you write some big, complex system in it, you don&rsquo;t really learn it.</p>
+<p>Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary.</p>
 </blockquote>
-<p>发现自己学习计算机的一些技术时就是三分钟热度，入门然后就没了，导致没有对哪一门语言/技术精通。认识到了大学本科的一些弊端，知道了很多技术，但10,000小时约等于3年，大学4年只是入门了。人生的路很长，大部分人的大部分时间都是要在工作中度过的，所以选择自己热爱的然后精进技术。就像费曼说的：<code>仅仅知道一个事物的名称其实等同于对其一无所知</code>。简单知道一门语言和技术的名称，仅仅只是信息而已。对于我这样的普通人，10,000小时的训练必不可少。</p>
-<h3 id="2当代程序员是否有必要学习汇编语言芯片等">2、当代程序员是否有必要学习汇编语言/芯片等</h3>
+<h3 id="inappropriate-use-of-static-utility---inflexible--untestable">Inappropriate use of static utility - inflexible &amp; untestable!</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// Inappropriate use of static utility - inflexible &amp; untestable!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpellChecker</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Lexicon</span> <span class="n">dictionary</span> <span class="o">=</span> <span class="o">...;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="nf">SpellChecker</span><span class="o">()</span> <span class="o">{}</span> <span class="c1">// Noninstantiable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isValid</span><span class="o">(</span><span class="n">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">suggestions</span><span class="o">(</span><span class="n">String</span> <span class="n">typo</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="inappropriate-use-of-singleton---inflexible--untestable">Inappropriate use of singleton - inflexible &amp; untestable!</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// Inappropriate use of singleton - inflexible &amp; untestable!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpellChecker</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Lexicon</span> <span class="n">dictionary</span> <span class="o">=</span> <span class="o">...;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="nf">SpellChecker</span><span class="o">(...)</span> <span class="o">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SpellChecker</span><span class="o">(...);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isValid</span><span class="o">(</span><span class="n">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">suggestions</span><span class="o">(</span><span class="n">String</span> <span class="n">typo</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Neither of these approaches is satisfactory, because they assume that there is only one dictionary worth using. In practice, each language has its own dictionary, and special dictionaries are used for special vocabularies. Also, it may be desirable to use a special dictionary for testing. It is wishful thinking to assume that a single dictionary will suffice for all time.</p>
+<p>// wishful：这边应该可以理解成“痴心妄想”。</p>
+</blockquote>
+<p><code>Static utility classes and singletons are inappropriate for classes whose behavior is parameterized by an underlying resource.</code></p>
+<h3 id="dependency-injection-provides-flexibility-and-testability">Dependency injection provides flexibility and testability</h3>
 <blockquote>
-<p>We were getting a lot of wins for really low-level stuff. I had somebody recently tell me about something: “Java takes care of that; we don&rsquo;t have to deal with that.” I was like, “No, Java can&rsquo;t take care of this because I know what kernel version you&rsquo;re using and the kernel doesn&rsquo;t support it. Your virtual machine may be hiding that from you and giving you some abstraction that makes it look like that&rsquo;s efficient, but it&rsquo;s only efficient when you&rsquo;re running it on this kernel.” I get frustrated if people don&rsquo;t understand at least the surface of the whole stack.</p>
-<p>In practice, nothing works. There are all these beautiful abstractions that are backed by shit. The implementation of libraries that look like they could be beautiful are shit. And so if you&rsquo;re the one responsible for the cost of buying servers, or reliability—if you&rsquo;re on call for pages—it helps to actually know what&rsquo;s going on under the covers and not trust everyone else&rsquo;s libraries, and code, and interfaces.</p>
+<p>What is required is the ability to support multiple instances of the class (in our example, SpellChecker), each of which uses the resource desired by the client (in our example, the dictionary). A simple pattern that satisfies this requirement is to pass the resource into the constructor when creating a new instance. This is one form of dependency injection: the dictionary is a dependency of the spell checker and is injected into the spell checker when it is created.</p>
 </blockquote>
+<p>the dependency of the spell checker(dictionary) is injected into the spell checker when it is created.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="c1">// Dependency injection provides flexibility and testability
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpellChecker</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Lexicon</span> <span class="n">dictionary</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">SpellChecker</span><span class="o">(</span><span class="n">Lexicon</span> <span class="n">dictionary</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">dictionary</span> <span class="o">=</span> <span class="n">Objects</span><span class="o">.</span><span class="na">requireNonNull</span><span class="o">(</span><span class="n">dictionary</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isValid</span><span class="o">(</span><span class="n">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">suggestions</span><span class="o">(</span><span class="n">String</span> <span class="n">typo</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="summary">Summary</h3>
 <blockquote>
-<p>Actually the JVM isn&rsquo;t that bad. I guess it&rsquo;s when people have blind faith in their abstractions without understanding what&rsquo;s going on.</p>
+<p>In summary, do not use a singleton or static utility class to implement a class that depends on one or more underlying resources whose behavior affects that of the class, and do not have the class create these resources directly. Instead, pass the resources, or factories to create them, into the constructor (or static factory or builder). This practice, known as dependency injection, will greatly enhance the flexibility, reusability, and testability of a class.</p>
 </blockquote>
-<h3 id="3学校课程的批判">3、学校课程的批判</h3>
-<blockquote>
-<p>Seibel: You had a lot of programming experience by the time you got to college and studied computer science. How did that work out?</p>
-<p>Fitzpatrick: I skipped a lot of my early C.S. classes, because they were just really boring. I would go and take the tests. Then towards the end they got kind of fun, once you get to the 300- and 400-level classes. But right when it got interesting, I graduated. And they wouldn&rsquo;t let me take the fun grad-level classes, because I wasn&rsquo;t a grad student.</p>
-</blockquote>
-<p>说实话，现在互联网的资源太多了。MIT、Stanford、CMU等大学的课程视频、lab都可以找到资源，所以更加开放的世界，当下的我们应该好好珍惜利用。</p>
-<blockquote>
-<p>I remember in the compiler class, the final project was we had to take this existing language that we had been playing with and add a whole bunch of features, including one feature of our own choosing as the bonus part of the project. So I chose to implement run-time array bounds checking. Anyway, the professor took our compiled binary and ran his test suite against it, and it failed a couple of his tests. He was like, “Sorry, you get a C because you failed my unit test,” When I went to look at it, I was like, “You have off-by-﻿ones in your test suite.” So he gave me the grade back and I got an A, but I never got the bonus points for adding a feature to the language. I was angry at school at that point.</p>
-<p>And I remember our database class was taught by someone who, it seemed, had no real-world experience with databases. At this point I&rsquo;d worked with Oracle, Microsoft Server, and tons of MySQL. So I was asking all these real-world questions I actually wanted answers to—things that were melting right now—they would just give me some textbook answer. I&rsquo;m like, “No, no. That doesn&rsquo;t work.”</p>
-</blockquote>
-<p>一直认为美国的课程老师都会比较灵活，没想到还是遭到了大佬的批判与吐槽。</p>
-<h3 id="4学术界和工业界paper的交界处">4、学术界和工业界paper的交界处</h3>
-<blockquote>
-<p>Seibel: You just mentioned papers from the academy and from industry. Do you have any sense of whether those two meet in the right place these days?</p>
-<p>Fitzpatrick: They kind of feel about the same to me. But it&rsquo;s more interesting, a lot of times, to read the industry ones because you know they did it to solve a problem and their solution works as opposed to, “We&rsquo;d think it would be cool if—” There&rsquo;s a lot of crazier stuff that comes out of academia and it doesn&rsquo;t actually work, so it&rsquo;s just a crazy idea. Maybe they turn it into commercial things later.</p>
-</blockquote>
-<h3 id="5设计软件">5、设计软件</h3>
-<blockquote>
-<p>Seibel: How do you design software?</p>
-<p>Fitzpatrick: I start with interfaces between things. What are the common methods, or the common RPCs, or the common queries. If it&rsquo;s storage, I try to think, what are the common queries? What indexes do we need? How are the data going to be laid out on disk? Then I write dummy mocks for different parts and flesh it out over time.</p>
-</blockquote>
-<h3 id="6先做hard的事">6、先做hard的事</h3>
-<blockquote>
-<p>Seibel: After you write a bunch of code do you ever discover that you really need to reconsider your original plan?</p>
-<p>Fitzpatrick: Sometimes. But I&rsquo;ve started with the hard bits or the parts I was unsure of, and tried to implement those parts first. I try not to put off anything hard or surprising to the end; I enjoy doing the hard things first. The projects that I never finish—my friends give me shit that it&rsquo;s a whole bunch—it&rsquo;s because I did the hard part and I learned what I wanted to learn and I never got around to doing the boring stuff.</p>
-</blockquote>
-<p>先做hard的事，学习想要学习的东西，至于boring的事留给别人做就好。</p>
-<h3 id="7招聘和辨识优秀的程序员">7、招聘和辨识优秀的程序员</h3>
-<blockquote>
-<p>Seibel: So you&rsquo;ve hired for your own company, and I assume you&rsquo;ve been involved in hiring at Google. How do you recognize a great programmer?</p>
-<p>Fitzpatrick: I often look for people that have done, like, a lot of stuff on their own that wasn&rsquo;t asked of them. Not just their school project or just what their previous employer had them do. Somebody who was passionate about something and had some side project. How did they maintain it and how serious did they get with it? Or do they do a lot of quick hacks and abandon them?</p>
-</blockquote>
-<h3 id="8提高编程能力">8、提高编程能力</h3>
-<blockquote>
-<p>Seibel: Is there anything that you did specifically to improve your skill as a programmer?</p>
-<p>Fitzpatrick: Sometimes I&rsquo;ll go out of my way to write something in a language that I would rather not write it in—and I know it&rsquo;ll take me longer to write in that language—because I know I&rsquo;ll be better in the end. Like when I got to Google, there were a lot of times where I was writing one-off things and I&rsquo;d go to write it in Perl. Then I&rsquo;d be like, “Ah, no, I should write this in Python.” Now I write tons of Python and it doesn&rsquo;t bother me—I barely have to look things up. Perlbal was originally written in C# just to learn that.</p>
-</blockquote>
-<h3 id="9编程能力之外的能力">9、编程能力之外的能力</h3>
-<blockquote>
-<p>Seibel: And are there skills apart from programming itself that you think would-be programmers should develop?</p>
-<p>Fitzpatrick: There&rsquo;s communication, but I&rsquo;m not sure that&rsquo;s something you can really practice. Deal with people on mailing lists a lot. Written communication style goes a long way. But that&rsquo;s a general life thing, right? There was some study about who was successful after high school. Was it the smart kids or the social kids? It turned out that it was the social kids who ended up making all the money in life, not the people with the good grades. I thought that was interesting.</p>
-</blockquote>
-<h3 id="10编程是年轻人的游戏">10、编程是年轻人的游戏？</h3>
-<blockquote>
-<p>Seibel: You&rsquo;re 28 now. Do you have any worries that programming is sort of a young person&rsquo;s game, that you&rsquo;re going to lose a step as you get older?</p>
-<p>Fitzpatrick: No. The worst case, I could always just stop and work on fun things on my own. I don&rsquo;t feel like I&rsquo;m competing with anyone right now and I don&rsquo;t really care if other people are better because I feel like there are tons of people who are better already. I figure we are always in the middle anyway, so I&rsquo;m happy to stay in the middle.</p>
-</blockquote>
-<p>全文采访的人物中就 Fitzpatrick 最年轻了，提问者居然问了年龄这件事，难道是因为年轻的缘故吗😳？</p>
-<p>尤其喜欢这句<code>I don't really care if other people are better because I feel like there are tons of people who are better already. </code>好率性🙌🏻。</p>
-<p>15位软件先驱的访谈，暂时看完了前两位。未完待续&hellip;&hellip;.</p>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p>Epigrams on Programming (<a href="http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html">http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html</a>)&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
 
     </div>
 
@@ -447,7 +437,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2022-03-20
+      2022-03-21
       
     </span>
   </p>
@@ -464,7 +454,6 @@
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="https://anjanavakil.github.io/tags/book/">BOOK📚</a>
           <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
           
         </div>
@@ -472,7 +461,7 @@
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/effective_java_di/">
+          <a class="prev" href="/post/effective_java_builder/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -482,12 +471,12 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Effective Java: Dependency Injection</span>
+            <span class="prev-text nav-default">Effective Java: Builder</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/designing_data-intensive_applications/">
-            <span class="next-text nav-default">Designing Data-Intensive Applications Notes</span>
+          <a class="next" href="/post/coders_at_work/">
+            <span class="next-text nav-default">Coders At Work 编程人生</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

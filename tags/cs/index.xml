@@ -6,14 +6,32 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 21 Mar 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Mar 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Effective Java Notes: Builder</title>
-      <link>https://anjanavakil.github.io/post/effective_java/</link>
+      <title>Effective Java: Garbage Collect</title>
+      <link>https://anjanavakil.github.io/post/effective_java_gc/</link>
+      <pubDate>Tue, 22 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective_java_gc/</guid>
+      <description>Effective Java 的笔记，以代码为主，批注为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20</description>
+    </item>
+    
+    <item>
+      <title>Effective Java: Builder</title>
+      <link>https://anjanavakil.github.io/post/effective_java_builder/</link>
       <pubDate>Mon, 21 Mar 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/effective_java/</guid>
-      <description>豆瓣🔗: Effective Java 《Effective Java中文版（第3版）》 Effective Java 的笔记，主要以代码为主，批注为辅。 Chapter 2. Creating and Destroying Objects 创建和销毁对象 Item 1: Consider static factory methods instead of constructors</description>
+      <guid>https://anjanavakil.github.io/post/effective_java_builder/</guid>
+      <description>豆瓣🔗: Effective Java 《Effective Java中文版（第3版）》 Effective Java 的笔记，以代码为主，批注为辅。 Item 1: Consider static factory methods instead of constructors 考虑以静态工厂方法代替构造函数</description>
+    </item>
+    
+    <item>
+      <title>Effective Java: Dependency Injection</title>
+      <link>https://anjanavakil.github.io/post/effective_java_di/</link>
+      <pubDate>Mon, 21 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective_java_di/</guid>
+      <description>Effective Java 的笔记，以代码为主，批注为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility - inflexible &amp;amp; untestable! 1 2 3 4</description>
     </item>
     
     <item>
