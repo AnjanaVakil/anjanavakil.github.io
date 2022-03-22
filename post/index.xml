@@ -6,7 +6,7 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 17 Mar 2022 22:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Mar 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Code: The Hidden Language of Computer Hardware and Software</title>
       <link>https://anjanavakil.github.io/post/code/</link>
@@ -17,12 +17,12 @@
     </item>
     
     <item>
-      <title>CS基础知识书籍推荐(已读)</title>
-      <link>https://anjanavakil.github.io/post/cs_book_recommendation/</link>
-      <pubDate>Sat, 15 Jan 2022 14:15:48 +0800</pubDate>
+      <title>Coders At Work 编程人生</title>
+      <link>https://anjanavakil.github.io/post/coders_at_work/</link>
+      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/cs_book_recommendation/</guid>
-      <description>豆瓣🔗： 《编码：隐匿在计算机软硬件背后的语言》 Code: The Hidden Language of Computer Hardware and Software 《计算机是怎样跑起来的》 《程序是怎样跑起来的》 《网络是怎样连接的》 《计算机系</description>
+      <guid>https://anjanavakil.github.io/post/coders_at_work/</guid>
+      <description>豆瓣🔗: Coders At Work 《编程人生：15位软件先驱访谈录》 第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获</description>
     </item>
     
     <item>
@@ -42,7 +42,7 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
       <pubDate>Wed, 16 Mar 2022 21:00:00 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/show_your_work/</guid>
-      <description>douban&amp;rsquo;s link🔗: Show Your Work! 10 Ways to Share Your Creativity and Get Discovered  This is my first English book review for the second English book I entirely finished reading in 2022!
+      <description>douban🔗: Show Your Work! 10 Ways to Share Your Creativity and Get Discovered  This is my first English book review for the second English book I entirely finished reading in 2022!
 The book is brief and there is not a lot of unfamiliar vocabulary so I read it in two hours. The author listed 10 approaches for ordinary individuals to share creativity and get discovered. The book demonstrated how to think about one&amp;rsquo;s work as a never-ending process, how to share one&amp;rsquo;s process in a way that attracts people who might be interested in what they do, and how to deal with the ups and downs of putting oneself and one&amp;rsquo;s work out in the world.</description>
     </item>
     
@@ -107,6 +107,15 @@ The book is brief and there is not a lot of unfamiliar vocabulary so I read it i
       
       <guid>https://anjanavakil.github.io/post/the_power_of_now/</guid>
       <description>豆瓣🔗：《当下的力量》 2021年10月份开始阅读，只读了1/3，2022年1月9日书友推荐，很快就接着读完了。一直拖着没写书评，正好是隔离D</description>
+    </item>
+    
+    <item>
+      <title>CS基础知识书籍推荐(已读)</title>
+      <link>https://anjanavakil.github.io/post/cs_book_recommendation/</link>
+      <pubDate>Sat, 15 Jan 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/cs_book_recommendation/</guid>
+      <description>豆瓣🔗： 《编码：隐匿在计算机软硬件背后的语言》 Code: The Hidden Language of Computer Hardware and Software 《计算机是怎样跑起来的》 《程序是怎样跑起来的》 《网络是怎样连接的》 《计算机系</description>
     </item>
     
     <item>
@@ -179,15 +188,6 @@ The book is brief and there is not a lot of unfamiliar vocabulary so I read it i
       
       <guid>https://anjanavakil.github.io/post/wireshark_network_analyse/</guid>
       <description>豆瓣🔗： 《Wireshark网络分析就这么简单》 《Wireshark网络分析的艺术》 林沛满先生关于Wireshark的两本书：《Wiresh</description>
-    </item>
-    
-    <item>
-      <title>《南京大屠杀》</title>
-      <link>https://anjanavakil.github.io/post/nanjing_massacre/</link>
-      <pubDate>Tue, 28 Dec 2021 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/nanjing_massacre/</guid>
-      <description>豆瓣🔗：《南京大屠杀》 两天内断断续续花了3h读完，这大概是高一结束历史学科学习后第一次读南京大屠杀相关的历史。深刻体会到读书可以了解历史事件</description>
     </item>
     
   </channel>

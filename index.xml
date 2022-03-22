@@ -6,7 +6,7 @@
     <description>Recent content on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 17 Mar 2022 22:15:48 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Mar 2022 14:15:48 +0800</lastBuildDate>
     
         <atom:link href="https://anjanavakil.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -217,35 +217,6 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     </item>
     
     <item>
-      <title>CS基础知识书籍推荐(已读)</title>
-      <link>https://anjanavakil.github.io/post/cs_book_recommendation/</link>
-      <pubDate>Sat, 15 Jan 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/cs_book_recommendation/</guid>
-      
-        <description>&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;豆瓣🔗：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/4822685/&#34;&gt;《编码：隐匿在计算机软硬件背后的语言》&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/1494026/&#34;&gt;&lt;em&gt;Code: The Hidden Language of Computer Hardware and Software&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/26397183/&#34;&gt;《计算机是怎样跑起来的》&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/26365491/&#34;&gt;《程序是怎样跑起来的》&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/26941639/&#34;&gt;《网络是怎样连接的》&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/26600183/&#34;&gt;《计算机系统基础》&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/26912767/&#34;&gt;《深入理解计算机系统》&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;好的专业书籍可以帮助读者透过现象看本质，将复杂的事物简单化。&lt;/p&gt;
-&lt;p&gt;2021年才开始真正阅读，前半年通过&lt;/p&gt;
-&lt;p&gt;1、阅读微读的&lt;code&gt;《编码：隐匿在计算机软硬件背后的语言》&lt;/code&gt; &lt;code&gt;《计算机是怎样跑起来的》&lt;/code&gt; &lt;code&gt;《程序是怎样跑起来的》&lt;/code&gt; &lt;code&gt;《网络是怎样连接的》&lt;/code&gt;：都是入门级别的书籍，通过书籍可以系统的思考，为之后的学习打下了较好的基础。&lt;/p&gt;
-&lt;p&gt;2、学习&lt;code&gt;南大袁春风老师&lt;/code&gt;的“&lt;code&gt;计算机系统基础&lt;/code&gt;”课程和阅读她的书&lt;code&gt;《计算机系统基础》&lt;/code&gt;：当时这门课对自己真的是醍醐灌顶，课程有很多干货，PPT详细，老师的讲授又有很多新知识，感觉打通了自己对计算机底层认识的任督二脉。还记得当时听完这门课很激动的给朋友疯狂推荐。&lt;/p&gt;
-&lt;p&gt;3、学习&lt;code&gt;CMU 15-213&lt;/code&gt;和阅读&lt;code&gt;CSAPP&lt;/code&gt;纸质书：CSAPP刚开始对自己来说阅读真的很艰难，一两个小时也看不了多少页，还得在早晨注意力非常集中的时间阅读，但正是难才让自己转动大脑思考，才有挑战有意思。很多事情做起来没有想象的难，后面也该慢慢过渡到大黑书的阅读中去了。
-大概就是这循序渐进的学习对计算机底层有了很多的认识，也不再那么惧怕硬件底层的东西了，反而感觉这才是知识啊（还记得当时慨叹于&lt;code&gt;IEEE 754&lt;/code&gt;浮点数算术标准设计的精妙，二进制世界的奇妙），基础的东西历久弥新。&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
       <title>About</title>
       <link>https://anjanavakil.github.io/about/</link>
       <pubDate>Sat, 01 Jan 2022 21:38:52 +0800</pubDate>
@@ -263,6 +234,110 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/wechat.jpg&#34; alt=&#34;Keep&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如果春天要来，大地就使它一点点地完成🍃。&lt;/p&gt;
 &lt;p&gt;“Think before you speak. Read before you think.” —Fran Lebowitz&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Coders At Work 编程人生</title>
+      <link>https://anjanavakil.github.io/post/coders_at_work/</link>
+      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/coders_at_work/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;豆瓣🔗:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/3673223/&#34;&gt;Coders At Work&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/5355285/&#34;&gt;《编程人生：15位软件先驱访谈录》&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获。第二次重新拾起中文版，再对照英文版，还是学到了蛮多东西的。通过计算机行业顶级程序员的谈话，对编程、程序员有了更多的理解。&lt;/p&gt;
+&lt;h2 id=&#34;jamie-zawinski&#34;&gt;Jamie Zawinski&lt;/h2&gt;
+&lt;p&gt;Lisp程序员，XEmacs开发者，Netscape浏览器和Mozilla核心开发者。&lt;/p&gt;
+&lt;p&gt;看了第一篇Jamie Zawinski的访谈，就带给我很多的思考：&lt;/p&gt;
+&lt;p&gt;1、每个人都有自己的路，对于人生的意义我想只有个人才知道是不是这短暂一生想要追求的。Zawinski只有大概高中的学历，但并不妨碍他在计算机领域的贡献和对于编程的热爱。他读书很少，但是他有着好奇心，通过看源码和官方的手册学习。&lt;/p&gt;
+&lt;p&gt;2、他强调了“完成比完美重要” 。&lt;code&gt;“公司付你钱不是为了让你来写代码，而是要发布产品”&lt;/code&gt;商业就是这样，一个产品更重要的是时间和时机。&lt;/p&gt;
+&lt;p&gt;3、提到一些比较古老的编程语言，并没有学过，所以对于自己有点陌生。倒是让我想起&lt;code&gt;Alan J. Perlis&lt;/code&gt;说过的&lt;code&gt;“A language that doesn&#39;t affect the way you think about programming, is not worth knowing. ”&lt;/code&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;所以每年接触学习一种不同的语言，不依赖于已有的思维定式，转换思维。（和Brad Fitzpatrick提高编程能力的方法不谋而合：下文Brad Fitzpatrick部分的第8点）&lt;/p&gt;
+&lt;p&gt;Being totally outside the comfort zone.&lt;/p&gt;
+&lt;p&gt;4、动手实践的重要性：自己动手太少，多实践。Talk is cheap. Show me the code.&lt;/p&gt;
+&lt;p&gt;5、大佬对于C++的抨击，这倒是让我有些惊讶。自己的潜意识认为C++因为难所以比较高不可攀的感觉，自己的固化思维真是害自己不浅。&lt;/p&gt;
+&lt;p&gt;6、“不要害怕自己的无知”：本来自己是不怕问问题的，但后来不知道为什么怕暴露自己的缺点和无知，渐渐问人问题也犹犹豫豫磕磕巴巴的，所以勇敢的问出来。“不知道某件东西并不代表你笨，只是暂时还不知道罢了”。&lt;/p&gt;
+&lt;h2 id=&#34;brad-fitzpatrick&#34;&gt;Brad Fitzpatrick&lt;/h2&gt;
+&lt;p&gt;书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。&lt;/p&gt;
+&lt;h3 id=&#34;1学习东西&#34;&gt;1、学习东西&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: It does seem that while you were writing all this stuff because you needed it, you also enjoyed doing it.&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: Oh, yeah. I definitely try to find an excuse to use anything, to learn it. Because you never learn something until you have to write something in it, until you have to live and breathe it. It&amp;rsquo;s one thing to go learn a language for fun, but until you write some big, complex system in it, you don&amp;rsquo;t really learn it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;发现自己学习计算机的一些技术时就是三分钟热度，入门然后就没了，导致没有对哪一门语言/技术精通。认识到了大学本科的一些弊端，知道了很多技术，但10,000小时约等于3年，大学4年只是入门了。人生的路很长，大部分人的大部分时间都是要在工作中度过的，所以选择自己热爱的然后精进技术。就像费曼说的：&lt;code&gt;仅仅知道一个事物的名称其实等同于对其一无所知&lt;/code&gt;。简单知道一门语言和技术的名称，仅仅只是信息而已。对于我这样的普通人，10,000小时的训练必不可少。&lt;/p&gt;
+&lt;h3 id=&#34;2当代程序员是否有必要学习汇编语言芯片等&#34;&gt;2、当代程序员是否有必要学习汇编语言/芯片等&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We were getting a lot of wins for really low-level stuff. I had somebody recently tell me about something: “Java takes care of that; we don&amp;rsquo;t have to deal with that.” I was like, “No, Java can&amp;rsquo;t take care of this because I know what kernel version you&amp;rsquo;re using and the kernel doesn&amp;rsquo;t support it. Your virtual machine may be hiding that from you and giving you some abstraction that makes it look like that&amp;rsquo;s efficient, but it&amp;rsquo;s only efficient when you&amp;rsquo;re running it on this kernel.” I get frustrated if people don&amp;rsquo;t understand at least the surface of the whole stack.&lt;/p&gt;
+&lt;p&gt;In practice, nothing works. There are all these beautiful abstractions that are backed by shit. The implementation of libraries that look like they could be beautiful are shit. And so if you&amp;rsquo;re the one responsible for the cost of buying servers, or reliability—if you&amp;rsquo;re on call for pages—it helps to actually know what&amp;rsquo;s going on under the covers and not trust everyone else&amp;rsquo;s libraries, and code, and interfaces.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Actually the JVM isn&amp;rsquo;t that bad. I guess it&amp;rsquo;s when people have blind faith in their abstractions without understanding what&amp;rsquo;s going on.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;3学校课程的批判&#34;&gt;3、学校课程的批判&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: You had a lot of programming experience by the time you got to college and studied computer science. How did that work out?&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: I skipped a lot of my early C.S. classes, because they were just really boring. I would go and take the tests. Then towards the end they got kind of fun, once you get to the 300- and 400-level classes. But right when it got interesting, I graduated. And they wouldn&amp;rsquo;t let me take the fun grad-level classes, because I wasn&amp;rsquo;t a grad student.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;说实话，现在互联网的资源太多了。MIT、Stanford、CMU等大学的课程视频、lab都可以找到资源，所以更加开放的世界，当下的我们应该好好珍惜利用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I remember in the compiler class, the final project was we had to take this existing language that we had been playing with and add a whole bunch of features, including one feature of our own choosing as the bonus part of the project. So I chose to implement run-time array bounds checking. Anyway, the professor took our compiled binary and ran his test suite against it, and it failed a couple of his tests. He was like, “Sorry, you get a C because you failed my unit test,” When I went to look at it, I was like, “You have off-by-﻿ones in your test suite.” So he gave me the grade back and I got an A, but I never got the bonus points for adding a feature to the language. I was angry at school at that point.&lt;/p&gt;
+&lt;p&gt;And I remember our database class was taught by someone who, it seemed, had no real-world experience with databases. At this point I&amp;rsquo;d worked with Oracle, Microsoft Server, and tons of MySQL. So I was asking all these real-world questions I actually wanted answers to—things that were melting right now—they would just give me some textbook answer. I&amp;rsquo;m like, “No, no. That doesn&amp;rsquo;t work.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一直认为美国的课程老师都会比较灵活，没想到还是遭到了大佬的批判与吐槽。&lt;/p&gt;
+&lt;h3 id=&#34;4学术界和工业界paper的交界处&#34;&gt;4、学术界和工业界paper的交界处&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: You just mentioned papers from the academy and from industry. Do you have any sense of whether those two meet in the right place these days?&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: They kind of feel about the same to me. But it&amp;rsquo;s more interesting, a lot of times, to read the industry ones because you know they did it to solve a problem and their solution works as opposed to, “We&amp;rsquo;d think it would be cool if—” There&amp;rsquo;s a lot of crazier stuff that comes out of academia and it doesn&amp;rsquo;t actually work, so it&amp;rsquo;s just a crazy idea. Maybe they turn it into commercial things later.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;5设计软件&#34;&gt;5、设计软件&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: How do you design software?&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: I start with interfaces between things. What are the common methods, or the common RPCs, or the common queries. If it&amp;rsquo;s storage, I try to think, what are the common queries? What indexes do we need? How are the data going to be laid out on disk? Then I write dummy mocks for different parts and flesh it out over time.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;6先做hard的事&#34;&gt;6、先做hard的事&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: After you write a bunch of code do you ever discover that you really need to reconsider your original plan?&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: Sometimes. But I&amp;rsquo;ve started with the hard bits or the parts I was unsure of, and tried to implement those parts first. I try not to put off anything hard or surprising to the end; I enjoy doing the hard things first. The projects that I never finish—my friends give me shit that it&amp;rsquo;s a whole bunch—it&amp;rsquo;s because I did the hard part and I learned what I wanted to learn and I never got around to doing the boring stuff.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;先做hard的事，学习想要学习的东西，至于boring的事留给别人做就好。&lt;/p&gt;
+&lt;h3 id=&#34;7招聘和辨识优秀的程序员&#34;&gt;7、招聘和辨识优秀的程序员&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: So you&amp;rsquo;ve hired for your own company, and I assume you&amp;rsquo;ve been involved in hiring at Google. How do you recognize a great programmer?&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: I often look for people that have done, like, a lot of stuff on their own that wasn&amp;rsquo;t asked of them. Not just their school project or just what their previous employer had them do. Somebody who was passionate about something and had some side project. How did they maintain it and how serious did they get with it? Or do they do a lot of quick hacks and abandon them?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;8提高编程能力&#34;&gt;8、提高编程能力&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: Is there anything that you did specifically to improve your skill as a programmer?&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: Sometimes I&amp;rsquo;ll go out of my way to write something in a language that I would rather not write it in—and I know it&amp;rsquo;ll take me longer to write in that language—because I know I&amp;rsquo;ll be better in the end. Like when I got to Google, there were a lot of times where I was writing one-off things and I&amp;rsquo;d go to write it in Perl. Then I&amp;rsquo;d be like, “Ah, no, I should write this in Python.” Now I write tons of Python and it doesn&amp;rsquo;t bother me—I barely have to look things up. Perlbal was originally written in C# just to learn that.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;9编程能力之外的能力&#34;&gt;9、编程能力之外的能力&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: And are there skills apart from programming itself that you think would-be programmers should develop?&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: There&amp;rsquo;s communication, but I&amp;rsquo;m not sure that&amp;rsquo;s something you can really practice. Deal with people on mailing lists a lot. Written communication style goes a long way. But that&amp;rsquo;s a general life thing, right? There was some study about who was successful after high school. Was it the smart kids or the social kids? It turned out that it was the social kids who ended up making all the money in life, not the people with the good grades. I thought that was interesting.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;10编程是年轻人的游戏&#34;&gt;10、编程是年轻人的游戏？&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: You&amp;rsquo;re 28 now. Do you have any worries that programming is sort of a young person&amp;rsquo;s game, that you&amp;rsquo;re going to lose a step as you get older?&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: No. The worst case, I could always just stop and work on fun things on my own. I don&amp;rsquo;t feel like I&amp;rsquo;m competing with anyone right now and I don&amp;rsquo;t really care if other people are better because I feel like there are tons of people who are better already. I figure we are always in the middle anyway, so I&amp;rsquo;m happy to stay in the middle.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;全文采访的人物中就 Fitzpatrick 最年轻了，提问者居然问了年龄这件事，难道是因为年轻的缘故吗😳？&lt;/p&gt;
+&lt;p&gt;尤其喜欢这句&lt;code&gt;I don&#39;t really care if other people are better because I feel like there are tons of people who are better already. &lt;/code&gt;好率性🙌🏻。&lt;/p&gt;
+&lt;p&gt;15位软件先驱的访谈，暂时看完了前两位。未完待续&amp;hellip;&amp;hellip;.&lt;/p&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Epigrams on Programming (&lt;a href=&#34;http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html&#34;&gt;http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html&lt;/a&gt;)&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
 </description>
       
     </item>
@@ -299,7 +374,7 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
       <guid>https://anjanavakil.github.io/post/show_your_work/</guid>
       
         <description>&lt;ul&gt;
-&lt;li&gt;douban&amp;rsquo;s link🔗: &lt;a href=&#34;https://book.douban.com/subject/25857796/&#34;&gt;Show Your Work! 10 Ways to Share Your Creativity and Get Discovered&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;douban🔗: &lt;a href=&#34;https://book.douban.com/subject/25857796/&#34;&gt;Show Your Work! 10 Ways to Share Your Creativity and Get Discovered&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This is my first English book review for the second English book I entirely finished reading in 2022!&lt;/p&gt;
 &lt;p&gt;The book is brief and there is not a lot of unfamiliar vocabulary so I read it in two hours. The author listed 10 approaches for ordinary individuals to share creativity and get discovered. The book demonstrated how to think about one&amp;rsquo;s work as a never-ending process, how to share one&amp;rsquo;s process in a way that attracts people who might be interested in what they do, and how to deal with the ups and downs of putting oneself and one&amp;rsquo;s work out in the world.&lt;/p&gt;
@@ -326,17 +401,17 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The world is changing at such a rapid rate that it&amp;rsquo;s turning us all into amateurs. Even for professionals, the best way to flourish is to retain an amateur&amp;rsquo;s spirit and embrace uncertainty and the unknown.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;I am majoring in software engineering, and I am convinced that I need to learn new technology with an open mind and curiosity.&lt;/p&gt;
+&lt;p&gt;I am majoring in Software Engineering, and I am convinced that I need to learn many cutting-edge technologies with an open mind and curiosity.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Small thing, over time. can get big.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Despite the fact that there is so much to learn, I intend to do so openly.&lt;/p&gt;
+&lt;p&gt;In this fast-paced world of technology, it is important to stay curious and open to learn and apply leading-edge software and methods.&lt;/p&gt;
 &lt;p&gt;There are serval sentences in the book that I learned something from:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;If you look back closely at history, many of the people who we think of as lone geniuses were actually part of “a whole scene of people who were supporting each other, looking at each other’s work, copying from each other, stealing ideas, and contributing ideas.”&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Scenius doesn’t take away from the achievements of those great individuals; it just acknowledges that good work isn’t created in a vacuum, and that creativity is always, in some sense, a collaboration, the result of a mind connected to other minds.&lt;/p&gt;
+&lt;p&gt;Scenius doesn’t take away from the achievements of those great individuals; it just acknowledges that good work isn’t created in a vacuum and that creativity is always, in some sense, a collaboration, the result of a mind connected to other minds.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Amateurs might lack formal training, but they’re all lifelong learners, and they make a point of learning in the open, so that others can learn from their failures and successes.&lt;/p&gt;
@@ -1233,6 +1308,35 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     </item>
     
     <item>
+      <title>CS基础知识书籍推荐(已读)</title>
+      <link>https://anjanavakil.github.io/post/cs_book_recommendation/</link>
+      <pubDate>Sat, 15 Jan 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/cs_book_recommendation/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;豆瓣🔗：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/4822685/&#34;&gt;《编码：隐匿在计算机软硬件背后的语言》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/1494026/&#34;&gt;&lt;em&gt;Code: The Hidden Language of Computer Hardware and Software&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/26397183/&#34;&gt;《计算机是怎样跑起来的》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/26365491/&#34;&gt;《程序是怎样跑起来的》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/26941639/&#34;&gt;《网络是怎样连接的》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/26600183/&#34;&gt;《计算机系统基础》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/26912767/&#34;&gt;《深入理解计算机系统》&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;好的专业书籍可以帮助读者透过现象看本质，将复杂的事物简单化。&lt;/p&gt;
+&lt;p&gt;2021年才开始真正阅读，前半年通过&lt;/p&gt;
+&lt;p&gt;1、阅读微读的&lt;code&gt;《编码：隐匿在计算机软硬件背后的语言》&lt;/code&gt; &lt;code&gt;《计算机是怎样跑起来的》&lt;/code&gt; &lt;code&gt;《程序是怎样跑起来的》&lt;/code&gt; &lt;code&gt;《网络是怎样连接的》&lt;/code&gt;：都是入门级别的书籍，通过书籍可以系统的思考，为之后的学习打下了较好的基础。&lt;/p&gt;
+&lt;p&gt;2、学习&lt;code&gt;南大袁春风老师&lt;/code&gt;的“&lt;code&gt;计算机系统基础&lt;/code&gt;”课程和阅读她的书&lt;code&gt;《计算机系统基础》&lt;/code&gt;：当时这门课对自己真的是醍醐灌顶，课程有很多干货，PPT详细，老师的讲授又有很多新知识，感觉打通了自己对计算机底层认识的任督二脉。还记得当时听完这门课很激动的给朋友疯狂推荐。&lt;/p&gt;
+&lt;p&gt;3、学习&lt;code&gt;CMU 15-213&lt;/code&gt;和阅读&lt;code&gt;CSAPP&lt;/code&gt;纸质书：CSAPP刚开始对自己来说阅读真的很艰难，一两个小时也看不了多少页，还得在早晨注意力非常集中的时间阅读，但正是难才让自己转动大脑思考，才有挑战有意思。很多事情做起来没有想象的难，后面也该慢慢过渡到大黑书的阅读中去了。
+大概就是这循序渐进的学习对计算机底层有了很多的认识，也不再那么惧怕硬件底层的东西了，反而感觉这才是知识啊（还记得当时慨叹于&lt;code&gt;IEEE 754&lt;/code&gt;浮点数算术标准设计的精妙，二进制世界的奇妙），基础的东西历久弥新。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>《沉思录》</title>
       <link>https://anjanavakil.github.io/post/meditations/</link>
       <pubDate>Sat, 15 Jan 2022 14:15:48 +0800</pubDate>
@@ -1460,30 +1564,6 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;p&gt;值得细细品味，尤其那句“那穷困潦倒就是我的价值”。&lt;/p&gt;
 &lt;p&gt;4、只要不是自己觉到的、悟到的，别人给不了你，给了也拿不住。只有自己觉到、悟到的，你才有可能做到，能做到才是自己的。依然是书中芮小丹的话语思想。&lt;/p&gt;
 &lt;p&gt;大概是自己没能领会丁元英的思想所以有感的大都是芮小丹的话语思想，起码能稍微看懂一点点。全书倒像是作者豆豆经由本书丁元英传达出来的知识体系，感觉人物塑造不是很丰满。或许是自己阅历不够吧，所以书评也仅仅都只是围绕自己在转，并没有深刻的思想见地，一点一点会进步吧。&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>《Wireshark网络分析XXX》</title>
-      <link>https://anjanavakil.github.io/post/wireshark_network_analyse/</link>
-      <pubDate>Thu, 30 Dec 2021 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/wireshark_network_analyse/</guid>
-      
-        <description>&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;豆瓣🔗：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/26268767/&#34;&gt;《Wireshark网络分析就这么简单》&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/26710788/&#34;&gt;《Wireshark网络分析的艺术》&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;林沛满先生关于&lt;code&gt;Wireshark&lt;/code&gt;的两本书：《Wireshark网络分析就这么简单》《Wireshark网络分析的艺术》，都很不错。可惜自己读的时候并没有就一些知识在自己电脑上实践，只是一股脑读完了，但是也有很大收获。&lt;/p&gt;
-&lt;p&gt;1、认知感受方面：从实践方面一张张的截图，让我学习中遇到的&lt;code&gt;TCP&lt;/code&gt;报文中的一些字段（&lt;code&gt;SYN、ACK、Seq、Ack、Win、Len、MSS&lt;/code&gt;）不再停留在教科书上，有了更直观的感受和理解；还有&lt;code&gt;MSS&lt;/code&gt;和&lt;code&gt;MTU&lt;/code&gt;，之前分不清的概念也渐渐清晰起来（话说这两个概念是我在几本书中遇到多次才搞清楚的，后来每一次再遇到更多一些理解和深刻，完全不是一本书一次性搞懂的。这或许就是对我而言知识获取的难度吧，理解了发现很简单的概念，但不理解的时候脑子一团浆糊）；然后，就是WireShark软件的一些使用技巧。记得大二学CN的时候电脑上下载了WireShark，印象中根本就没自己动手尝试和验证书中的理论知识，只是用它完成了老师布置的作业而已。对，犹记得当时自己的主动学习的能力是有多差。&lt;/p&gt;
-&lt;p&gt;2、一些边角料的知识：了解到OSI七层模型是一个没有市场的笨重模型，市场上广泛使用的是TCP/IP四层模型，我们教科书一般使用的是两者结合的五层模型，可考试还是会考OSI七层模型的知识点，难怪作者说：“大学的应试教育可见一斑”。才知道&lt;code&gt;SUN&lt;/code&gt;公司居然是源自“&lt;code&gt;Stanford University Network&lt;/code&gt;”的首字母，奇怪的知识又增加了。&lt;/p&gt;
-&lt;p&gt;最后，这两本书质量蛮高的原因之一就是作者就一些问题分析时给出了详细的截图。的确，发现某些好的书籍就擅于使用大量的图片，更易于读者理解，纯文本有些时候对于计算机类这种实践性强的专业反而不如图片更加直观易懂。&lt;/p&gt;
-&lt;p&gt;总的来说，两本书值得后面遇到相关问题第二次阅读查阅，再次体会每类问题的解决思路和方案。&lt;/p&gt;
-&lt;p&gt;3、一年以来比较深入（可能只是自己以为的深入，其实还是浅尝辄止，浮于表面，但比自己大学刚开始学习的时候进步很大）的学习计算机基础知识，尤其是计算机底层的一些东西，改变了我的一些看法。大一大二的时候认为敲代码是一件很玄学的事，有时候一个配置、一行代码，可能就是跑通和跑不通两种完全不同的结果，以至于那时候认为敲代码要靠运气，我的电脑上跑不通的到了其他人电脑上就可以跑通了。可是慢慢学习底层的一些东西，理解到所有的代码，最后都要通过一系列的预处理编译汇编链接或者是解释转换为机器代码执行，最后机器执行的只是二进制的01序列，所以写出来的代码有问题肯定是某方面出了问题，绝不是玄学的事。可是当自己的理解不够深入时，有时候很小的问题对自己来说也可能是一团乱麻，所以，面对问题，首先不要慌张，头脑清晰的分析问题，思考背后深层次的原因，或许就可以找到解决bug的方法。提高解决问题的能力需要在实践中慢慢提高。&lt;/p&gt;
 </description>
       
     </item>
