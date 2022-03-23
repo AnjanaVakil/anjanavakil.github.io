@@ -337,12 +337,12 @@
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/effective_java_gc/">Effective Java: Memory Leaks &#43; Garbage Collect</a>
+      <a class="post-link" href="/post/effective_java_comparable/">Effective Java: implement Comparable</a>
     </h1>
     
     <div class="post-meta">
-      <time datetime="2022-03-22" class="post-time">
-        2022-03-22
+      <time datetime="2022-03-23" class="post-time">
+        2022-03-23
       </time>
       <div class="post-category">
           <a href="https://anjanavakil.github.io/categories/cs/"> CS💻 </a>
@@ -357,10 +357,10 @@
   <div class="post-content">
     
     <div class="post-summary">
-      Effective Java 的笔记，以代码为主，批注为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+      Effective Java 的笔记，以代码为主，批注为辅。 Item 14: Consider implementing Comparable 考虑实现 Comparable 接口 Virtually all of the value classes in the Java platform libraries, as well as all enum types, implement Comparable. If you are writing a value class with an obvious natural ordering, such as alphabetical order, numerical order, or chronological order, you
     </div>
     <div class="read-more">
-      <a href="/post/effective_java_gc/" class="read-more-link">Read more</a>
+      <a href="/post/effective_java_comparable/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -371,7 +371,7 @@
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/effective_java_try_with_resources/">Effective Java: Prefer try-with-resources to try-finally</a>
+      <a class="post-link" href="/post/effective_java_overriding_equals/">Effective Java: Override equals</a>
     </h1>
     
     <div class="post-meta">
@@ -391,10 +391,10 @@
   <div class="post-content">
     
     <div class="post-summary">
-      Effective Java 的笔记，以代码为主，批注为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path)); try { return br.readLine(); } finally {
+      Effective Java 的笔记，以代码为主，批注为辅。 Item 10: Obey the general contract when overriding equals 覆盖 equals 方法时请遵守通用约定 Not to override the equals method 1. Each instance of the class is inherently unique. This is true for classes such as Thread that represent active entities rather than values. The
     </div>
     <div class="read-more">
-      <a href="/post/effective_java_try_with_resources/" class="read-more-link">Read more</a>
+      <a href="/post/effective_java_overriding_equals/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -460,6 +460,10 @@
       
       <li >
         <a href="/page/9/">9</a>
+      </li>
+      
+      <li >
+        <a href="/page/10/">10</a>
       </li>
       
     </ul>

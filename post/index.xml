@@ -6,7 +6,7 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 22 Mar 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Mar 2022 13:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Code: The Hidden Language of Computer Hardware and Software</title>
       <link>https://anjanavakil.github.io/post/code/</link>
@@ -14,6 +14,24 @@
       
       <guid>https://anjanavakil.github.io/post/code/</guid>
       <description>豆瓣🔗：Code: The Hidden Language of Computer Hardware and Software 第一遍读的是中文版，寒假期间重读了英文版。这应该是第一本读完的英文专业书籍。读的过程中还是稍微有些困难的，</description>
+    </item>
+    
+    <item>
+      <title>Effective Java: implement Comparable</title>
+      <link>https://anjanavakil.github.io/post/effective_java_comparable/</link>
+      <pubDate>Wed, 23 Mar 2022 13:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective_java_comparable/</guid>
+      <description>Effective Java 的笔记，以代码为主，批注为辅。 Item 14: Consider implementing Comparable 考虑实现 Comparable 接口 Virtually all of the value classes in the Java platform libraries, as well as all enum types, implement Comparable. If you are writing a value class with an obvious natural ordering, such as alphabetical order, numerical order, or chronological order, you</description>
+    </item>
+    
+    <item>
+      <title>Effective Java: Override equals</title>
+      <link>https://anjanavakil.github.io/post/effective_java_overriding_equals/</link>
+      <pubDate>Tue, 22 Mar 2022 15:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective_java_overriding_equals/</guid>
+      <description>Effective Java 的笔记，以代码为主，批注为辅。 Item 10: Obey the general contract when overriding equals 覆盖 equals 方法时请遵守通用约定 Not to override the equals method 1. Each instance of the class is inherently unique. This is true for classes such as Thread that represent active entities rather than values. The</description>
     </item>
     
     <item>
@@ -170,24 +188,6 @@ The book is brief and there is not a lot of unfamiliar vocabulary so I read it i
       
       <guid>https://anjanavakil.github.io/post/the_revolutionary_new_science_of_exercise_and_the_brain/</guid>
       <description>豆瓣🔗：《运动改造大脑》 Wendy Suzuki: The brain-changing benefits of exercise | TED TED🔗：wendy_suzuki_the_brain_changing_benefits_of_</description>
-    </item>
-    
-    <item>
-      <title>《深度工作：如何有效使用每一点脑力》</title>
-      <link>https://anjanavakil.github.io/post/deep_work_rules/</link>
-      <pubDate>Mon, 10 Jan 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/deep_work_rules/</guid>
-      <description>豆瓣🔗：《深度工作：如何有效使用每一点脑力》 因为知道手机对注意力极其有害，所以备考期间就会尽量要求自己只在吃饭、晚上的时间看手机，当时大部分</description>
-    </item>
-    
-    <item>
-      <title>《资本论》马克思</title>
-      <link>https://anjanavakil.github.io/post/das_kapital/</link>
-      <pubDate>Fri, 07 Jan 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/das_kapital/</guid>
-      <description>豆瓣🔗： 《资本论》 《用得上的资本论：当代社会人生存指南》 《一篇读罢头飞雪，重读马克思》 《邓小平时代》 《资本论》 作为经典的《资本论》，可惜自己</description>
     </item>
     
   </channel>

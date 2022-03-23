@@ -17,28 +17,63 @@
   
   <url>
     <loc>https://anjanavakil.github.io/</loc>
-    <lastmod>2022-03-23T14:15:48+08:00</lastmod>
+    <lastmod>2022-03-23T13:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/categories/</loc>
-    <lastmod>2022-03-23T14:15:48+08:00</lastmod>
+    <lastmod>2022-03-23T13:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/tags/cs/</loc>
-    <lastmod>2022-03-23T14:15:48+08:00</lastmod>
+    <lastmod>2022-03-23T13:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/categories/cs/</loc>
-    <lastmod>2022-03-23T14:15:48+08:00</lastmod>
+    <lastmod>2022-03-23T13:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/effective_java_comparable/</loc>
+    <lastmod>2022-03-23T13:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/java%EF%B8%8F/</loc>
+    <lastmod>2022-03-23T13:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/</loc>
+    <lastmod>2022-03-23T13:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/</loc>
+    <lastmod>2022-03-23T13:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/effective_java_overriding_equals/</loc>
+    <lastmod>2022-03-22T15:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -52,28 +87,7 @@
   
   <url>
     <loc>https://anjanavakil.github.io/post/effective_java_try_with_resources/</loc>
-    <lastmod>2022-03-23T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/java%EF%B8%8F/</loc>
-    <lastmod>2022-03-23T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/post/</loc>
-    <lastmod>2022-03-23T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/</loc>
-    <lastmod>2022-03-23T14:15:48+08:00</lastmod>
+    <lastmod>2022-03-22T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
