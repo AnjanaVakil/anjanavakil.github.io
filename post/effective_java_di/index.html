@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Effective Java: Dependency Injection">
 <meta itemprop="description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility - inflexible &amp; untestable! 1 2 3 4"><meta itemprop="datePublished" content="2022-03-21T14:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-03-21T14:15:48+08:00" />
-<meta itemprop="wordCount" content="500">
+<meta itemprop="wordCount" content="502">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Effective Java: Dependency Injection"/>
 <meta name="twitter:description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility - inflexible &amp; untestable! 1 2 3 4"/>
@@ -319,15 +319,12 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#item-5-prefer-dependency-injection-to-hardwiring-resources">Item 5: Prefer dependency injection to hardwiring resources</a>
-      <ul>
-        <li><a href="#condition">Condition</a></li>
-        <li><a href="#inappropriate-use-of-static-utility---inflexible--untestable">Inappropriate use of static utility - inflexible &amp; untestable!</a></li>
-        <li><a href="#inappropriate-use-of-singleton---inflexible--untestable">Inappropriate use of singleton - inflexible &amp; untestable!</a></li>
-        <li><a href="#dependency-injection-provides-flexibility-and-testability">Dependency injection provides flexibility and testability</a></li>
-        <li><a href="#summary">Summary</a></li>
-      </ul>
-    </li>
+    <li><a href="#condition">Condition</a></li>
+    <li><a href="#inappropriate-use-of-static-utility---inflexible--untestable">Inappropriate use of static utility - inflexible &amp; untestable!</a></li>
+    <li><a href="#inappropriate-use-of-singleton---inflexible--untestable">Inappropriate use of singleton - inflexible &amp; untestable!</a></li>
+    <li><a href="#why-inappropriate">Why Inappropriate?</a></li>
+    <li><a href="#dependency-injection-provides-flexibility-and-testability">Dependency injection provides flexibility and testability</a></li>
+    <li><a href="#summary">Summary</a></li>
   </ul>
 </nav>
   </div>
@@ -336,13 +333,13 @@
     
     <div class="post-content">
       <p>Effective Java 的笔记，以代码为主，批注为辅。</p>
-<h2 id="item-5-prefer-dependency-injection-to-hardwiring-resources">Item 5: Prefer dependency injection to hardwiring resources</h2>
+<h1 id="item-5-prefer-dependency-injection-to-hardwiring-resources">Item 5: Prefer dependency injection to hardwiring resources</h1>
 <p>优先考虑依赖注入来引入资源</p>
-<h3 id="condition">Condition</h3>
+<h2 id="condition">Condition</h2>
 <blockquote>
 <p>Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary.</p>
 </blockquote>
-<h3 id="inappropriate-use-of-static-utility---inflexible--untestable">Inappropriate use of static utility - inflexible &amp; untestable!</h3>
+<h2 id="inappropriate-use-of-static-utility---inflexible--untestable">Inappropriate use of static utility - inflexible &amp; untestable!</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -363,7 +360,7 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="inappropriate-use-of-singleton---inflexible--untestable">Inappropriate use of singleton - inflexible &amp; untestable!</h3>
+</div><h2 id="inappropriate-use-of-singleton---inflexible--untestable">Inappropriate use of singleton - inflexible &amp; untestable!</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -386,12 +383,13 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><blockquote>
+</div><h2 id="why-inappropriate">Why Inappropriate?</h2>
+<blockquote>
 <p>Neither of these approaches is satisfactory, because they assume that there is only one dictionary worth using. In practice, each language has its own dictionary, and special dictionaries are used for special vocabularies. Also, it may be desirable to use a special dictionary for testing. It is wishful thinking to assume that a single dictionary will suffice for all time.</p>
 <p>// wishful：这边应该可以理解成“痴心妄想”。</p>
 </blockquote>
 <p><code>Static utility classes and singletons are inappropriate for classes whose behavior is parameterized by an underlying resource.</code></p>
-<h3 id="dependency-injection-provides-flexibility-and-testability">Dependency injection provides flexibility and testability</h3>
+<h2 id="dependency-injection-provides-flexibility-and-testability">Dependency injection provides flexibility and testability</h2>
 <blockquote>
 <p>What is required is the ability to support multiple instances of the class (in our example, SpellChecker), each of which uses the resource desired by the client (in our example, the dictionary). A simple pattern that satisfies this requirement is to pass the resource into the constructor when creating a new instance. This is one form of dependency injection: the dictionary is a dependency of the spell checker and is injected into the spell checker when it is created.</p>
 </blockquote>
@@ -420,7 +418,7 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="summary">Summary</h3>
+</div><h2 id="summary">Summary</h2>
 <blockquote>
 <p>In summary, do not use a singleton or static utility class to implement a class that depends on one or more underlying resources whose behavior affects that of the class, and do not have the class create these resources directly. Instead, pass the resources, or factories to create them, into the constructor (or static factory or builder). This practice, known as dependency injection, will greatly enhance the flexibility, reusability, and testability of a class.</p>
 </blockquote>

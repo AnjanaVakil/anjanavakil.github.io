@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Effective Java: Builder">
 <meta itemprop="description" content="豆瓣🔗: Effective Java 《Effective Java中文版（第3版）》 Effective Java 的笔记，以代码为主，批注为辅。 Item 1: Consider static factory methods instead of constructors 考虑以静态工厂方法代替构造函数"><meta itemprop="datePublished" content="2022-03-21T14:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-03-21T14:15:48+08:00" />
-<meta itemprop="wordCount" content="1319">
+<meta itemprop="wordCount" content="1322">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Effective Java: Builder"/>
 <meta name="twitter:description" content="豆瓣🔗: Effective Java 《Effective Java中文版（第3版）》 Effective Java 的笔记，以代码为主，批注为辅。 Item 1: Consider static factory methods instead of constructors 考虑以静态工厂方法代替构造函数"/>
@@ -319,15 +319,9 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#item-1-consider-static-factory-methods-instead-of-constructors">Item 1: Consider static factory methods instead of constructors</a></li>
-    <li><a href="#item-2-consider-a-builder-when-faced-with-many-constructor-parameters">Item 2: Consider a builder when faced with many constructor parameters</a>
-      <ul>
-        <li><a href="#1telescoping-constructor-pattern---does-not-scale-well">1.Telescoping constructor pattern - does not scale well!</a></li>
-        <li><a href="#2javabeans-pattern---allows-inconsistency-mandates-mutability">2.JavaBeans Pattern - allows inconsistency, mandates mutability</a></li>
-        <li><a href="#3builder-pattern">3.Builder Pattern</a></li>
-        <li><a href="#summary">Summary</a></li>
-      </ul>
-    </li>
+    <li><a href="#1-telescoping-constructor-pattern---does-not-scale-well">1. Telescoping constructor pattern - does not scale well!</a></li>
+    <li><a href="#2-javabeans-pattern---allows-inconsistency-mandates-mutability">2. JavaBeans Pattern - allows inconsistency, mandates mutability</a></li>
+    <li><a href="#3-builder-pattern">3. Builder Pattern</a></li>
   </ul>
 </nav>
   </div>
@@ -343,11 +337,11 @@
 </li>
 </ul>
 <p>Effective Java 的笔记，以代码为主，批注为辅。</p>
-<h2 id="item-1-consider-static-factory-methods-instead-of-constructors">Item 1: Consider static factory methods instead of constructors</h2>
+<h1 id="item-1-consider-static-factory-methods-instead-of-constructors">Item 1: Consider static factory methods instead of constructors</h1>
 <p>考虑以静态工厂方法代替构造函数</p>
-<h2 id="item-2-consider-a-builder-when-faced-with-many-constructor-parameters">Item 2: Consider a builder when faced with many constructor parameters</h2>
+<h1 id="item-2-consider-a-builder-when-faced-with-many-constructor-parameters">Item 2: Consider a builder when faced with many constructor parameters</h1>
 <p>当构造函数有多个参数时，考虑使用builder模式</p>
-<h3 id="1telescoping-constructor-pattern---does-not-scale-well">1.Telescoping constructor pattern - does not scale well!</h3>
+<h2 id="1-telescoping-constructor-pattern---does-not-scale-well">1. Telescoping constructor pattern - does not scale well!</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -452,7 +446,7 @@
 <li>难以阅读</li>
 </ul>
 <p>没记错的话我之前做的项目中写的代码就是这样的，使用了大量不同参数的构造方法😅。</p>
-<h3 id="2javabeans-pattern---allows-inconsistency-mandates-mutability">2.JavaBeans Pattern - allows inconsistency, mandates mutability</h3>
+<h2 id="2-javabeans-pattern---allows-inconsistency-mandates-mutability">2. JavaBeans Pattern - allows inconsistency, mandates mutability</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -528,7 +522,7 @@
 <p>A related disadvantage is that the JavaBeans pattern precludes the possibility of making a class immutable and requires added effort on the part of the programmer to ensure thread safety.</p>
 </blockquote>
 <p>JavaBeans 模式会使类可变，导致线程不安全的情况。</p>
-<h3 id="3builder-pattern">3.Builder Pattern</h3>
+<h2 id="3-builder-pattern">3. Builder Pattern</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -685,7 +679,7 @@
 <p>3、注意点：</p>
 <p><code>NutritionFacts</code> 不可变。</p>
 <p><code>public static class Builder</code> Builder是类的静态成员类。</p>
-<h3 id="summary">Summary</h3>
+<h1 id="summary">Summary</h1>
 <blockquote>
 <p>In summary, the Builder pattern is a good choice when designing classes whose constructors or static factories would have more than a handful of parameters, especially if many of the parameters are optional or of identical type. Client code is much easier to read and write with builders than with telescoping constructors, and builders are much safer than JavaBeans.</p>
 </blockquote>
@@ -727,7 +721,7 @@
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/effective_java_gc/">
+          <a class="prev" href="/post/effective_java_try_with_resources/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -737,7 +731,7 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Effective Java: Garbage Collect</span>
+            <span class="prev-text nav-default">Effective Java: Prefer try-with-resources to try-finally</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         

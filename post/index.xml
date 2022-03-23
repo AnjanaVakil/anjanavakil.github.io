@@ -17,12 +17,21 @@
     </item>
     
     <item>
-      <title>Effective Java: Garbage Collect</title>
+      <title>Effective Java: Memory Leaks &#43; Garbage Collect</title>
       <link>https://anjanavakil.github.io/post/effective_java_gc/</link>
       <pubDate>Tue, 22 Mar 2022 14:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/effective_java_gc/</guid>
-      <description>Effective Java 的笔记，以代码为主，批注为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20</description>
+      <description>Effective Java 的笔记，以代码为主，批注为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20</description>
+    </item>
+    
+    <item>
+      <title>Effective Java: Prefer try-with-resources to try-finally</title>
+      <link>https://anjanavakil.github.io/post/effective_java_try_with_resources/</link>
+      <pubDate>Tue, 22 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective_java_try_with_resources/</guid>
+      <description>Effective Java 的笔记，以代码为主，批注为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path)); try { return br.readLine(); } finally {</description>
     </item>
     
     <item>
@@ -179,15 +188,6 @@ The book is brief and there is not a lot of unfamiliar vocabulary so I read it i
       
       <guid>https://anjanavakil.github.io/post/das_kapital/</guid>
       <description>豆瓣🔗： 《资本论》 《用得上的资本论：当代社会人生存指南》 《一篇读罢头飞雪，重读马克思》 《邓小平时代》 《资本论》 作为经典的《资本论》，可惜自己</description>
-    </item>
-    
-    <item>
-      <title>《终身成长》</title>
-      <link>https://anjanavakil.github.io/post/mindset_the_new_psychology_of_success/</link>
-      <pubDate>Thu, 06 Jan 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/mindset_the_new_psychology_of_success/</guid>
-      <description>豆瓣🔗：《终身成长》 2021年1月9日读了《终身成长》这本书（感谢微信读书让我方便地查看每本书的开始阅读时间和阅读时长，大概也算电子书的优点</description>
     </item>
     
   </channel>
