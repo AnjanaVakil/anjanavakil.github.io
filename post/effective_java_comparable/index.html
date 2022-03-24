@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 14: Consider implementing Comparable 考虑实现 Comparable 接口 Virtually all of the value classes in the Java platform libraries, as well as all enum types, implement Comparable. If you are writing a value class with an obvious natural ordering, such as alphabetical order, numerical order, or chronological order, you" />
+  <meta name="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 14: Consider implementing Comparable 考虑实现 Comparable 接口 Virtually all of the value classes in the Java platform libraries, as well as all enum types, implement Comparable. If you are writing a value class with an obvious natural ordering, such as alphabetical" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,19 +60,19 @@
 
 
 <meta property="og:title" content="Effective Java: implement Comparable" />
-<meta property="og:description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 14: Consider implementing Comparable 考虑实现 Comparable 接口 Virtually all of the value classes in the Java platform libraries, as well as all enum types, implement Comparable. If you are writing a value class with an obvious natural ordering, such as alphabetical order, numerical order, or chronological order, you" />
+<meta property="og:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 14: Consider implementing Comparable 考虑实现 Comparable 接口 Virtually all of the value classes in the Java platform libraries, as well as all enum types, implement Comparable. If you are writing a value class with an obvious natural ordering, such as alphabetical" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/effective_java_comparable/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-03-23T13:15:48+08:00" />
 <meta property="article:modified_time" content="2022-03-23T13:15:48+08:00" />
 
 <meta itemprop="name" content="Effective Java: implement Comparable">
-<meta itemprop="description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 14: Consider implementing Comparable 考虑实现 Comparable 接口 Virtually all of the value classes in the Java platform libraries, as well as all enum types, implement Comparable. If you are writing a value class with an obvious natural ordering, such as alphabetical order, numerical order, or chronological order, you"><meta itemprop="datePublished" content="2022-03-23T13:15:48+08:00" />
+<meta itemprop="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 14: Consider implementing Comparable 考虑实现 Comparable 接口 Virtually all of the value classes in the Java platform libraries, as well as all enum types, implement Comparable. If you are writing a value class with an obvious natural ordering, such as alphabetical"><meta itemprop="datePublished" content="2022-03-23T13:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-03-23T13:15:48+08:00" />
-<meta itemprop="wordCount" content="1003">
+<meta itemprop="wordCount" content="1010">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Effective Java: implement Comparable"/>
-<meta name="twitter:description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 14: Consider implementing Comparable 考虑实现 Comparable 接口 Virtually all of the value classes in the Java platform libraries, as well as all enum types, implement Comparable. If you are writing a value class with an obvious natural ordering, such as alphabetical order, numerical order, or chronological order, you"/>
+<meta name="twitter:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 14: Consider implementing Comparable 考虑实现 Comparable 接口 Virtually all of the value classes in the Java platform libraries, as well as all enum types, implement Comparable. If you are writing a value class with an obvious natural ordering, such as alphabetical"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -334,12 +334,16 @@
 
     
     <div class="post-content">
-      <p>Effective Java 的笔记，以代码为主，批注为辅。</p>
+      <p>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。</p>
 <h1 id="item-14-consider-implementing-comparable">Item 14: Consider implementing Comparable</h1>
 <p>考虑实现 Comparable 接口</p>
+<blockquote>
 <p>Virtually all of the <code>value classes</code> in the Java platform libraries, as well as all <code>enum types</code>, <code>implement Comparable</code>. If you are writing a value class with an obvious natural ordering, such as alphabetical order, numerical order, or chronological order, you should implement the Comparable interface.</p>
+</blockquote>
 <h2 id="multiple-field-comparable-with-primitive-fields">Multiple-field Comparable with primitive fields</h2>
+<blockquote>
 <p>If a class has multiple significant fields, the order in which you compare them is critical. Start with the most significant field and work your way down. If a comparison results in anything other than zero (which represents equality), you’re done; just return the result. If the most significant field is equal, compare the next-most-significant field, and so on, until you find an unequal field or compare the least significant field.</p>
+</blockquote>
 <p>Here is a compareTo method for the PhoneNumber class demonstrating this technique:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -368,7 +372,9 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="comparable-with-comparator-construction-methods">Comparable with comparator construction methods</h2>
+<blockquote>
 <p>In Java 8, the Comparator interface was outfitted with a set of <code>comparator construction</code> methods, which enable fluent construction of comparators. These comparators can then be used to implement a compareTo method, as required by the Comparable interface. Many programmers prefer the conciseness of this approach, though it does come at a modest performance cost: sorting arrays of PhoneNumber instances is about 10% slower on my machine. When using this approach, consider using Java’s <code>static import facility</code> so you can refer to static comparator construction methods by their simple names for clarity and brevity.</p>
+</blockquote>
 <p>Here’s how the compareTo method for PhoneNumber looks using this approach:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -397,14 +403,26 @@
 </div><p>This implementation builds a <code>comparator at class initialization time</code>, using <code>two comparator construction methods</code>.</p>
 <h3 id="two-comparator-construction-methods">Two comparator construction methods</h3>
 <h4 id="comparingint">comparingInt</h4>
+<blockquote>
 <p>The first is <code>comparingInt</code>. It is a <code>static</code>method that takes a key extractor function that maps an object reference to a key of type int and returns a <code>comparator</code> that orders instances according to that key. In the previous example, comparingInt takes a lambda () that extracts the area code from a PhoneNumber and returns a <code>Comparator&lt;PhoneNumber&gt;</code> that orders phone numbers according to their area codes.</p>
+</blockquote>
+<blockquote>
 <p>Note that the lambda <code>explicitly specifies the type of its input parameter (PhoneNumber pn)</code>. It turns out that in this situation, Java’s type inference isn’t powerful enough to figure the type out for itself, so we’re forced to help it in order to make the program compile.</p>
+</blockquote>
 <h4 id="thencomparingint">thenComparingInt</h4>
+<blockquote>
 <p>If two phone numbers have the same area code, we need to further refine the comparison, and that’s exactly what the second comparator construction method, <code>thenComparingInt</code>, does.</p>
+</blockquote>
+<blockquote>
 <p>It is an instance method on Comparator that takes an int key extractor function, and returns a comparator that first applies the original comparator and then uses the extracted key to break ties. You can stack up as many calls to thenComparingInt as you like, resulting in a lexicographic ordering. In the example above, we stack up two calls to thenComparingInt, resulting in an ordering whose secondary key is the prefix and whose tertiary key is the line number.</p>
+</blockquote>
+<blockquote>
 <p>Note that we <code>did not have to specify the parameter type of the key extractor function</code> passed to either of the calls to thenComparingInt: Java’s type inference was smart enough to figure this one out for itself.</p>
+</blockquote>
 <h4 id="summary">summary</h4>
+<blockquote>
 <p>The <code>Comparator</code> class has a full complement of construction methods. There are analogues to comparingInt and thenComparingInt for the <code>primitive types</code> long and double. The int versions can also be used for narrower integral types, such as short, as in our PhoneNumber example. The double versions can also be used for float. <strong>This provides coverage of all of Java’s numerical primitive types.</strong></p>
+</blockquote>
 <p><img src="/image/ej_comparator.png" alt="comparator construction methods"></p>
 <h3 id="comparator-construction-methods-for-object-reference-types">Comparator construction methods for object reference types</h3>
 <p>There are also comparator construction methods for object reference types.</p>
@@ -452,8 +470,12 @@
 </span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="na">comparingInt</span><span class="o">(</span><span class="n">o</span> <span class="o">-&gt;</span> <span class="n">o</span><span class="o">.</span><span class="na">hashCode</span><span class="o">());</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>In summary, whenever you implement a value class that has a sensible ordering, you should have the class <code>implement the Comparable interface</code> so that its instances can be easily sorted, searched, and used in comparison-based collections.</p>
+</div><blockquote>
+<p>In summary, whenever you implement a value class that has a sensible ordering, you should have the class <code>implement the Comparable interface</code> so that its instances can be easily sorted, searched, and used in comparison-based collections.</p>
+</blockquote>
+<blockquote>
 <p>When comparing field values in the implementations of the compareTo methods, avoid the use of the &lt; and &gt; operators. Instead, use the <code>static compare methods</code> in the boxed primitive classes or the <code>comparator construction methods</code> in the <code>Comparator interface</code>.</p>
+</blockquote>
 
     </div>
 
@@ -491,7 +513,7 @@
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/code/">
+          <a class="prev" href="/post/effective_java_serialization/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -501,12 +523,12 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Code: The Hidden Language of Computer Hardware and Software</span>
+            <span class="prev-text nav-default">Effective Java: Serialization</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
           <a class="next" href="/post/effective_java_overriding_equals/">
-            <span class="next-text nav-default">Effective Java: Override equals</span>
+            <span class="next-text nav-default">Effective Java: override equals</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

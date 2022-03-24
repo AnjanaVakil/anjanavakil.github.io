@@ -6,23 +6,32 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Mar 2022 13:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Mar 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Effective Java: Serialization</title>
+      <link>https://anjanavakil.github.io/post/effective_java_serialization/</link>
+      <pubDate>Wed, 23 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective_java_serialization/</guid>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data representation such as JSON or</description>
+    </item>
+    
     <item>
       <title>Effective Java: implement Comparable</title>
       <link>https://anjanavakil.github.io/post/effective_java_comparable/</link>
       <pubDate>Wed, 23 Mar 2022 13:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/effective_java_comparable/</guid>
-      <description>Effective Java 的笔记，以代码为主，批注为辅。 Item 14: Consider implementing Comparable 考虑实现 Comparable 接口 Virtually all of the value classes in the Java platform libraries, as well as all enum types, implement Comparable. If you are writing a value class with an obvious natural ordering, such as alphabetical order, numerical order, or chronological order, you</description>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 14: Consider implementing Comparable 考虑实现 Comparable 接口 Virtually all of the value classes in the Java platform libraries, as well as all enum types, implement Comparable. If you are writing a value class with an obvious natural ordering, such as alphabetical</description>
     </item>
     
     <item>
-      <title>Effective Java: Override equals</title>
+      <title>Effective Java: override equals</title>
       <link>https://anjanavakil.github.io/post/effective_java_overriding_equals/</link>
       <pubDate>Tue, 22 Mar 2022 15:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/effective_java_overriding_equals/</guid>
-      <description>Effective Java 的笔记，以代码为主，批注为辅。 Item 10: Obey the general contract when overriding equals 覆盖 equals 方法时请遵守通用约定 Not to override the equals method 1. Each instance of the class is inherently unique. This is true for classes such as Thread that represent active entities rather than values. The</description>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 10: Obey the general contract when overriding equals 覆盖 equals 方法时请遵守通用约定 Not to override the equals method 1. Each instance of the class is inherently unique. This is true for classes such as Thread that</description>
     </item>
     
     <item>
@@ -31,7 +40,7 @@
       <pubDate>Tue, 22 Mar 2022 14:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/effective_java_gc/</guid>
-      <description>Effective Java 的笔记，以代码为主，批注为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20</description>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13</description>
     </item>
     
     <item>
@@ -40,7 +49,7 @@
       <pubDate>Tue, 22 Mar 2022 14:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/effective_java_try_with_resources/</guid>
-      <description>Effective Java 的笔记，以代码为主，批注为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path)); try { return br.readLine(); } finally {</description>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path));</description>
     </item>
     
     <item>
@@ -49,7 +58,7 @@
       <pubDate>Mon, 21 Mar 2022 14:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/effective_java_builder/</guid>
-      <description>豆瓣🔗: Effective Java 《Effective Java中文版（第3版）》 Effective Java 的笔记，以代码为主，批注为辅。 Item 1: Consider static factory methods instead of constructors 考虑以静态工厂方法代替构造函数</description>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 2: Consider a builder when faced with many constructor parameters 当构造函数有多个参数时，考虑使用builder模式 1. Telescoping constructor pattern - does not scale well! 1</description>
     </item>
     
     <item>
@@ -58,7 +67,7 @@
       <pubDate>Mon, 21 Mar 2022 14:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/effective_java_di/</guid>
-      <description>Effective Java 的笔记，以代码为主，批注为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility - inflexible &amp;amp; untestable! 1 2 3 4</description>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility -</description>
     </item>
     
     <item>
@@ -68,6 +77,15 @@
       
       <guid>https://anjanavakil.github.io/post/coders_at_work/</guid>
       <description>豆瓣🔗: Coders At Work 《编程人生：15位软件先驱访谈录》 第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获</description>
+    </item>
+    
+    <item>
+      <title>Effective Java: static factory method VS constructor</title>
+      <link>https://anjanavakil.github.io/post/effective-java-static-factory-method/</link>
+      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective-java-static-factory-method/</guid>
+      <description>豆瓣🔗: Effective Java 《Effective Java中文版（第3版）》 Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 1: Consider static factory methods instead of constructors 考虑以静态工厂方</description>
     </item>
     
     <item>

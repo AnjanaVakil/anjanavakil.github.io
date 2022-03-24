@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path)); try { return br.readLine(); } finally {" />
+  <meta name="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path));" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,19 +60,19 @@
 
 
 <meta property="og:title" content="Effective Java: Prefer try-with-resources to try-finally" />
-<meta property="og:description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path)); try { return br.readLine(); } finally {" />
+<meta property="og:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path));" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/effective_java_try_with_resources/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-03-22T14:15:48+08:00" />
 <meta property="article:modified_time" content="2022-03-22T14:15:48+08:00" />
 
 <meta itemprop="name" content="Effective Java: Prefer try-with-resources to try-finally">
-<meta itemprop="description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path)); try { return br.readLine(); } finally {"><meta itemprop="datePublished" content="2022-03-22T14:15:48+08:00" />
+<meta itemprop="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path));"><meta itemprop="datePublished" content="2022-03-22T14:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-03-22T14:15:48+08:00" />
-<meta itemprop="wordCount" content="1942">
+<meta itemprop="wordCount" content="1946">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Effective Java: Prefer try-with-resources to try-finally"/>
-<meta name="twitter:description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path)); try { return br.readLine(); } finally {"/>
+<meta name="twitter:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path));"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -323,7 +323,7 @@
     <li><a href="#why-try-finally-is-ugly">Why try-finally is ugly?</a></li>
     <li><a href="#try-with-resources">try-with-resources</a>
       <ul>
-        <li><a href="#java源码">Java源码</a></li>
+        <li><a href="#java-source-code">Java source code</a></li>
         <li><a href="#examples-using-try-with-resources">examples using try-with-resources</a></li>
         <li><a href="#put-catch-clauses-on-try-with-resources-statements">put catch clauses on try-with-resources statements</a></li>
       </ul>
@@ -336,7 +336,7 @@
 
     
     <div class="post-content">
-      <p>Effective Java 的笔记，以代码为主，批注为辅。</p>
+      <p>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。</p>
 <h1 id="item-9-prefer-try-with-resources-to-try-finally">Item 9: Prefer try-with-resources to try-finally</h1>
 <p>使用 try-with-resources 优于 try-finally</p>
 <h2 id="try-finally">try-finally</h2>
@@ -418,7 +418,7 @@
 <p>All of these problems were solved in one fell swoop when Java 7 introduced the try-with-resources statement.</p>
 </blockquote>
 <p>To be usable with this construct, a resource must implement the AutoCloseable interface, which consists of a single <code>void-returning close</code> method. Many classes and interfaces in the Java libraries and in third-party libraries now <code>implement or extend AutoCloseable</code>. If you write a class that represents a resource that must be closed, your class should implement AutoCloseable too.</p>
-<h3 id="java源码">Java源码</h3>
+<h3 id="java-source-code">Java source code</h3>
 <p>interface AutoCloseable 的源码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

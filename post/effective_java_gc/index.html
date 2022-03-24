@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20" />
+  <meta name="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,19 +60,19 @@
 
 
 <meta property="og:title" content="Effective Java: Memory Leaks &#43; Garbage Collect" />
-<meta property="og:description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20" />
+<meta property="og:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/effective_java_gc/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-03-22T14:15:48+08:00" />
 <meta property="article:modified_time" content="2022-03-22T14:15:48+08:00" />
 
 <meta itemprop="name" content="Effective Java: Memory Leaks &#43; Garbage Collect">
-<meta itemprop="description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"><meta itemprop="datePublished" content="2022-03-22T14:15:48+08:00" />
+<meta itemprop="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13"><meta itemprop="datePublished" content="2022-03-22T14:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-03-22T14:15:48+08:00" />
-<meta itemprop="wordCount" content="1050">
+<meta itemprop="wordCount" content="1052">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Effective Java: Memory Leaks &#43; Garbage Collect"/>
-<meta name="twitter:description" content="Effective Java 的笔记，以代码为主，批注为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"/>
+<meta name="twitter:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -321,7 +321,7 @@
   <ul>
     <li><a href="#incorrect-version">Incorrect Version</a></li>
     <li><a href="#corrected-version">Corrected Version</a></li>
-    <li><a href="#java源码分析">Java源码分析</a></li>
+    <li><a href="#java-source-code">Java source code</a></li>
     <li><a href="#when-should-you-null-out-a-reference">when should you null out a reference?</a></li>
     <li><a href="#another-common-source-of-memory-leaks-is-caches">Another common source of memory leaks is caches.</a></li>
     <li><a href="#a-third-common-source-of-memory-leaks-is-listeners-and-other-callbacks">A third common source of memory leaks is listeners and other callbacks.</a></li>
@@ -332,7 +332,7 @@
 
     
     <div class="post-content">
-      <p>Effective Java 的笔记，以代码为主，批注为辅。</p>
+      <p>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。</p>
 <h1 id="item-7-eliminate-obsolete-object-references">Item 7: Eliminate obsolete object references</h1>
 <p>消除过时的对象引用</p>
 <h2 id="incorrect-version">Incorrect Version</h2>
@@ -440,7 +440,7 @@
 </div><blockquote>
 <p>An added benefit of nulling out obsolete references is that if they are subsequently dereferenced by mistake, the program will immediately fail with a NullPointerException, rather than quietly doing the wrong thing. It is always beneficial to detect programming errors as quickly as possible.</p>
 </blockquote>
-<h2 id="java源码分析">Java源码分析</h2>
+<h2 id="java-source-code">Java source code</h2>
 <p>Stack类的pop()方法：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -585,7 +585,7 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Effective Java: Override equals</span>
+            <span class="prev-text nav-default">Effective Java: override equals</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         

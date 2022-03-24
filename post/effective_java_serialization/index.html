@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Effective Java: override equals - Anjana</title>
+  <title>Effective Java: Serialization - Anjana</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 10: Obey the general contract when overriding equals 覆盖 equals 方法时请遵守通用约定 Not to override the equals method 1. Each instance of the class is inherently unique. This is true for classes such as Thread that" />
+  <meta name="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data representation such as JSON or" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.93.0" />
 
 
-<link rel="canonical" href="https://anjanavakil.github.io/post/effective_java_overriding_equals/" />
+<link rel="canonical" href="https://anjanavakil.github.io/post/effective_java_serialization/" />
 
 
 
@@ -59,20 +59,20 @@
 
 
 
-<meta property="og:title" content="Effective Java: override equals" />
-<meta property="og:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 10: Obey the general contract when overriding equals 覆盖 equals 方法时请遵守通用约定 Not to override the equals method 1. Each instance of the class is inherently unique. This is true for classes such as Thread that" />
+<meta property="og:title" content="Effective Java: Serialization" />
+<meta property="og:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data representation such as JSON or" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://anjanavakil.github.io/post/effective_java_overriding_equals/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-03-22T15:15:48+08:00" />
-<meta property="article:modified_time" content="2022-03-22T15:15:48+08:00" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/effective_java_serialization/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-23T14:15:48+08:00" />
+<meta property="article:modified_time" content="2022-03-23T14:15:48+08:00" />
 
-<meta itemprop="name" content="Effective Java: override equals">
-<meta itemprop="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 10: Obey the general contract when overriding equals 覆盖 equals 方法时请遵守通用约定 Not to override the equals method 1. Each instance of the class is inherently unique. This is true for classes such as Thread that"><meta itemprop="datePublished" content="2022-03-22T15:15:48+08:00" />
-<meta itemprop="dateModified" content="2022-03-22T15:15:48+08:00" />
-<meta itemprop="wordCount" content="427">
+<meta itemprop="name" content="Effective Java: Serialization">
+<meta itemprop="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data representation such as JSON or"><meta itemprop="datePublished" content="2022-03-23T14:15:48+08:00" />
+<meta itemprop="dateModified" content="2022-03-23T14:15:48+08:00" />
+<meta itemprop="wordCount" content="431">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Effective Java: override equals"/>
-<meta name="twitter:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 10: Obey the general contract when overriding equals 覆盖 equals 方法时请遵守通用约定 Not to override the equals method 1. Each instance of the class is inherently unique. This is true for classes such as Thread that"/>
+<meta name="twitter:title" content="Effective Java: Serialization"/>
+<meta name="twitter:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data representation such as JSON or"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -292,11 +292,11 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">Effective Java: override equals</h1>
+      <h1 class="post-title">Effective Java: Serialization</h1>
       
       <div class="post-meta">
-        <time datetime="2022-03-22" class="post-time">
-          2022-03-22
+        <time datetime="2022-03-23" class="post-time">
+          2022-03-23
         </time>
         <div class="post-category">
             <a href="https://anjanavakil.github.io/categories/cs/"> CS💻 </a>
@@ -317,65 +317,31 @@
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#not-to-override-the-equals-method">Not to override the equals method</a>
-      <ul>
-        <li><a href="#1-each-instance-of-the-class-is-inherently-unique">1. Each instance of the class is inherently unique.</a></li>
-        <li><a href="#2-there-is-no-need-for-the-class-to-provide-a-logical-equality-test">2. There is no need for the class to provide a “logical equality” test.</a></li>
-        <li><a href="#3-a-superclass-has-already-overridden-equals-and-the-superclass-behavior-is-appropriate-for-this-class">3. A superclass has already overridden equals, and the superclass behavior is appropriate for this class.</a></li>
-        <li><a href="#4-the-class-is-private-or-package-private-and-you-are-certain-that-its-equals-method-will-never-be-invoked">4. The class is private or package-private, and you are certain that its equals method will never be invoked.</a></li>
-        <li><a href="#5-a-class-that-uses-instance-control-to-ensure-that-at-most-one-object-exists-with-each-value">5. a class that uses instance control to ensure that at most one object exists with each value.</a></li>
-      </ul>
-    </li>
-    <li><a href="#when-is-it-appropriate-to-override-equals">when is it appropriate to override equals?</a></li>
-  </ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
       <p>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。</p>
-<h1 id="item-10-obey-the-general-contract-when-overriding-equals">Item 10: Obey the general contract when overriding equals</h1>
-<p>覆盖 equals 方法时请遵守通用约定</p>
-<h2 id="not-to-override-the-equals-method">Not to override the equals method</h2>
-<h3 id="1-each-instance-of-the-class-is-inherently-unique">1. Each instance of the class is inherently unique.</h3>
+<h1 id="item-85-prefer-alternatives-to-java-serialization">Item 85: Prefer alternatives to Java serialization</h1>
+<p>其他方法优于Java序列化</p>
 <blockquote>
-<p>This is true for classes such as <code>Thread</code> that represent <code>active entities</code> rather than values. The equals implementation provided by Object has exactly the right behavior for these classes.</p>
+<p>In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a <code>cross-platform structured-data representation</code> such as JSON or protobuf instead. <code>Do not deserialize untrusted data.</code> If you must do so, use <code>object deserialization filtering</code>, but be aware that it is not guaranteed to thwart all attacks. Avoid writing serializable classes. If you must do so, exercise great caution.</p>
 </blockquote>
-<h3 id="2-there-is-no-need-for-the-class-to-provide-a-logical-equality-test">2. There is no need for the class to provide a “logical equality” test.</h3>
+<h1 id="item-86-implement-serializable-with-great-caution">Item 86: Implement Serializable with great caution</h1>
+<p>非常谨慎地实现 Serializable</p>
 <blockquote>
-<p>For example, <code>java.util.regex.Pattern</code> could have overridden equals to check whether two Pattern instances represented exactly the same regular expression, but the designers didn’t think that clients would need or want this functionality. Under these circumstances, the equals implementation <code>inherited from Object</code> is ideal.</p>
+<p>A simple example of the constraints on evolution imposed by serializability concerns stream unique identifiers, more commonly known as <code>serial version UIDs</code>. Every serializable class has a unique identification number associated with it. If you do not specify this number by declaring a <code>static final long field</code> named <code>serialVersionUID</code>, the system automatically generates it <code>at runtime</code> by applying <code>a cryptographic hash function (SHA-1)</code> to the structure of the class. This value is affected by <code>the names of the class, the interfaces it implements, and most of its members, including synthetic members generated by the compiler</code>. If you change ﻿any of these things, for example, by adding a convenience method, the generated serial version UID changes. If you fail to declare a serial version UID, compatibility will be broken, resulting in an <code>InvalidClassException</code> at runtime.</p>
 </blockquote>
-<h3 id="3-a-superclass-has-already-overridden-equals-and-the-superclass-behavior-is-appropriate-for-this-class">3. A superclass has already overridden equals, and the superclass behavior is appropriate for this class.</h3>
 <blockquote>
-<p>For example, most Set implementations <code>inherit their equals</code> implementation from AbstractSet, List implementations from AbstractList, and Map implementations from AbstractMap.</p>
+<p>Normally, objects are created with constructors; <code>serialization is an extralinguistic mechanism for creating objects.</code> Whether you accept the default behavior or override it, deserialization is a “hidden constructor” with all of the same issues as other constructors. Because there is no explicit constructor associated with deserialization, it is easy to forget that you must ensure that it guarantees all of the invariants established by the constructors and that it does not allow an attacker to gain access to the internals of the object under construction. Relying on the default deserialization mechanism can easily leave objects open to invariant corruption and illegal access (Item 88).</p>
 </blockquote>
-<h3 id="4-the-class-is-private-or-package-private-and-you-are-certain-that-its-equals-method-will-never-be-invoked">4. The class is private or package-private, and you are certain that its equals method will never be invoked.</h3>
-<p>If you are extremely risk-averse, you can override the equals method to ensure that it isn’t invoked accidentally:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="nd">@Override</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">throw</span> <span class="k">new</span> <span class="n">AssertionError</span><span class="o">();</span> <span class="c1">// Method is never called
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="5-a-class-that-uses-instance-control-to-ensure-that-at-most-one-object-exists-with-each-value">5. a class that uses instance control to ensure that at most one object exists with each value.</h3>
 <blockquote>
-<p><code>Enum types</code> fall into this category. For these classes, logical equality is the same as object identity, so Object’s equals method functions as a logical equals method.</p>
+<p>Historically, value classes such as <code>BigInteger</code> and <code>Instant</code> implemented Serializable, and <code>collection</code> classes did too. <code>Classes representing active entities</code>, such as <code>thread pools</code>, should rarely implement Serializable.</p>
 </blockquote>
-<h2 id="when-is-it-appropriate-to-override-equals">when is it appropriate to override equals?</h2>
-<blockquote>
-<p>It is when a class has a notion of <code>logical equality</code> that differs from <code>mere object identity</code> and a superclass has not already overridden equals. This is generally the case for <code>value classes</code>. A value class is simply a class that represents a value, such as <code>Integer</code> or<code> String</code>. A programmer who compares references to value objects using the equals method expects to find out whether they are <code>logically equivalent</code>, not whether they refer to the same object. Not only is overriding the equals method necessary to satisfy programmer expectations, it enables instances to serve as <code>map keys</code> or <code>set elements</code> with predictable, desirable behavior.</p>
-</blockquote>
+<h1 id="item-87-consider-using-a-custom-serialized-form">Item 87: Consider using a custom serialized form</h1>
+<p>考虑使用自定义的序列化形式</p>
 
     </div>
 
@@ -389,7 +355,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2022-03-22
+      2022-03-23
       
     </span>
   </p>
@@ -413,7 +379,7 @@
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/effective_java_comparable/">
+          <a class="prev" href="/post/code/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -423,12 +389,12 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Effective Java: implement Comparable</span>
+            <span class="prev-text nav-default">Code: The Hidden Language of Computer Hardware and Software</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/effective_java_gc/">
-            <span class="next-text nav-default">Effective Java: Memory Leaks &#43; Garbage Collect</span>
+          <a class="next" href="/post/effective_java_comparable/">
+            <span class="next-text nav-default">Effective Java: implement Comparable</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">
