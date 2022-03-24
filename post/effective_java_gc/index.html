@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Effective Java: Memory Leaks &#43; Garbage Collect - Anjana</title>
+  <title>Memory Leaks &#43; Garbage Collect - Anjana</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -59,19 +59,19 @@
 
 
 
-<meta property="og:title" content="Effective Java: Memory Leaks &#43; Garbage Collect" />
+<meta property="og:title" content="Memory Leaks &#43; Garbage Collect" />
 <meta property="og:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/effective_java_gc/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-03-22T14:15:48+08:00" />
 <meta property="article:modified_time" content="2022-03-22T14:15:48+08:00" />
 
-<meta itemprop="name" content="Effective Java: Memory Leaks &#43; Garbage Collect">
+<meta itemprop="name" content="Memory Leaks &#43; Garbage Collect">
 <meta itemprop="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13"><meta itemprop="datePublished" content="2022-03-22T14:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-03-22T14:15:48+08:00" />
 <meta itemprop="wordCount" content="1052">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Effective Java: Memory Leaks &#43; Garbage Collect"/>
+<meta name="twitter:title" content="Memory Leaks &#43; Garbage Collect"/>
 <meta name="twitter:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13"/>
 
 <!--[if lte IE 9]>
@@ -292,14 +292,14 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">Effective Java: Memory Leaks &#43; Garbage Collect</h1>
+      <h1 class="post-title">Memory Leaks &#43; Garbage Collect</h1>
       
       <div class="post-meta">
         <time datetime="2022-03-22" class="post-time">
           2022-03-22
         </time>
         <div class="post-category">
-            <a href="https://anjanavakil.github.io/categories/cs/"> CS💻 </a>
+            <a href="https://anjanavakil.github.io/categories/effective-java/"> Effective Java📕 </a>
             
           </div>
         
@@ -322,7 +322,7 @@
     <li><a href="#incorrect-version">Incorrect Version</a></li>
     <li><a href="#corrected-version">Corrected Version</a></li>
     <li><a href="#java-source-code">Java source code</a></li>
-    <li><a href="#when-should-you-null-out-a-reference">when should you null out a reference?</a></li>
+    <li><a href="#when-should-you-null-out-a-reference">When should you null out a reference?</a></li>
     <li><a href="#another-common-source-of-memory-leaks-is-caches">Another common source of memory leaks is caches.</a></li>
     <li><a href="#a-third-common-source-of-memory-leaks-is-listeners-and-other-callbacks">A third common source of memory leaks is listeners and other callbacks.</a></li>
   </ul>
@@ -406,14 +406,14 @@
 </div><p>那么是哪里出现了“内存泄漏”的问题呢？请认真思考🤔。</p>
 <p>提示：在<code>pop()</code>方法里，也可以和Java源码比较发现这个隐蔽的问题。</p>
 <blockquote>
-<p>So where is the memory leak? If a stack grows and then shrinks, the objects that were popped off the stack will not be garbage collected, even if the program using the stack has no more references to them. This is because the stack maintains obsolete references to these objects. An obsolete reference is simply a reference that will never be dereferenced again. In this case, any references outside of the “active portion” of the element array are obsolete. The active portion consists of the elements whose index is less than size.</p>
+<p>So where is the memory leak? If a stack grows and then shrinks, the objects that were popped off the stack will not be garbage collected, even if the program using the stack has no more references to them. This is because the stack maintains <code>obsolete references</code> to these objects. <code>An obsolete reference is simply a reference that will never be dereferenced again</code>. In this case, any references outside of the “active portion” of the element array are obsolete. The active portion consists of the elements whose index is less than size.</p>
 </blockquote>
 <blockquote>
-<p>Memory leaks in garbage-collected languages (more properly known as unintentional object retentions) are insidious. If an object reference is unintentionally retained, not only is that object excluded from garbage collection, but so too are any objects referenced by that object, and so on. Even if only a few object references are unintentionally retained, many, many objects may be prevented from being garbage collected, with potentially large effects on performance.</p>
+<p>Memory leaks in garbage-collected languages (more properly known as unintentional object retentions) are insidious. If an object reference is <code>unintentionally retained</code>, not only is that object excluded from garbage collection, but so too are <code>any objects referenced by that object</code>, and so on. Even if only a few object references are unintentionally retained, many, many objects may be prevented from being garbage collected, with potentially large effects on performance.</p>
 </blockquote>
 <h2 id="corrected-version">Corrected Version</h2>
 <blockquote>
-<p>The fix for this sort of problem is simple: null out references once they become obsolete. In the case of our Stack class, the reference to an item becomes obsolete as soon as it’s popped off the stack. The corrected version of the pop method looks like this:</p>
+<p>The fix for this sort of problem is simple: <code>null out references once they become obsolete</code>. In the case of our Stack class, the reference to an item becomes obsolete as soon as it’s popped off the stack. The corrected version of the pop method looks like this:</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -438,7 +438,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>An added benefit of nulling out obsolete references is that if they are subsequently dereferenced by mistake, the program will immediately fail with a NullPointerException, rather than quietly doing the wrong thing. It is always beneficial to detect programming errors as quickly as possible.</p>
+<p>An added benefit of nulling out obsolete references is that if they are subsequently dereferenced by mistake, the program will immediately fail with a <code>NullPointerException</code>, rather than quietly doing the wrong thing. <code>It is always beneficial to detect programming errors as quickly as possible.</code></p>
 </blockquote>
 <h2 id="java-source-code">Java source code</h2>
 <p>Stack类的pop()方法：</p>
@@ -527,10 +527,10 @@
 </div>
 </div><p>可以看到<code>elementData[elementCount] = null; /* to let gc do its work */</code></p>
 <p>没想到源码的注释这么详细，从源码中学习。</p>
-<h2 id="when-should-you-null-out-a-reference">when should you null out a reference?</h2>
+<h2 id="when-should-you-null-out-a-reference">When should you null out a reference?</h2>
 <p>不过作者也提到了<code>Nulling out object references should be the exception rather than the norm.</code></p>
 <blockquote>
-<p>So when should you null out a reference? What aspect of the Stack class makes it susceptible to memory leaks? Simply put, it manages its own memory. The storage pool consists of the elements of the elements array (the object reference cells, not the objects themselves). The elements in the active portion of the array (as defined earlier) are allocated, and those in the remainder of the array are free. The garbage collector has no way of knowing this; to the garbage collector, all of the object references in the elements array are equally valid. Only the programmer knows that the inactive portion of the array is unimportant. The programmer effectively communicates this fact to the garbage collector by manually nulling out array elements as soon as they become part of the inactive portion.</p>
+<p>So when should you null out a reference? What aspect of the Stack class makes it susceptible to memory leaks? Simply put, <code>it manages its own memory</code>. The storage pool consists of the elements of the elements array (the object reference cells, not the objects themselves). The elements in the active portion of the array (as defined earlier) are allocated, and those in the remainder of the array are free. <code>The garbage collector has no way of knowing this; to the garbage collector, all of the object references in the elements array are equally valid.</code> Only the programmer knows that the inactive portion of the array is unimportant. The programmer effectively communicates this fact to the garbage collector by manually nulling out array elements as soon as they become part of the inactive portion.</p>
 </blockquote>
 <p>只要类是自己管理内存，程序员就应该警惕内存泄漏问题。</p>
 <blockquote>
@@ -585,12 +585,12 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Effective Java: override equals</span>
+            <span class="prev-text nav-default">override equals</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
           <a class="next" href="/post/effective_java_try_with_resources/">
-            <span class="next-text nav-default">Effective Java: Prefer try-with-resources to try-finally</span>
+            <span class="next-text nav-default">Prefer try-with-resources to try-finally</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

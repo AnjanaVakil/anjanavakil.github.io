@@ -6,7 +6,7 @@
     <description>Recent content on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Mar 2022 14:15:48 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 23 Mar 2022 20:15:48 +0800</lastBuildDate>
     
         <atom:link href="https://anjanavakil.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -239,7 +239,166 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     </item>
     
     <item>
-      <title>Effective Java: Serialization</title>
+      <title>Generics</title>
+      <link>https://anjanavakil.github.io/post/effective_java_generic/</link>
+      <pubDate>Wed, 23 Mar 2022 20:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective_java_generic/</guid>
+      
+        <description>&lt;p&gt;Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。&lt;/p&gt;
+&lt;h1 id=&#34;item-26-dont-use-raw-types&#34;&gt;Item 26: Don’t use raw types&lt;/h1&gt;
+&lt;p&gt;请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原生态类型）&lt;/p&gt;
+&lt;h2 id=&#34;should-not-use-raw-types&#34;&gt;Should not use raw types&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;As mentioned throughout this book, it pays to discover errors as soon as possible after they are made, ideally at compile time.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Java 作为静态、强类型语言，最好在编译期间发现错误，写代码也倾向于：便于在编译期发现错误的代码，使用编译时信息协助排除大量运行时问题，越早发现错误越好。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As noted earlier, it is legal to use raw types (generic types without their type parameters), but you should never do it. If you use raw types, you lose all the safety and expressiveness benefits of generics.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果使用 raw types ，就失去了泛型在安全性和描述性方面的所有优势。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;While you shouldn’t use raw types such as List, it is fine to use types that are parameterized to allow insertion of arbitrary objects, such as &lt;code&gt;List&amp;lt;Object&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;list-vs-listobject&#34;&gt;&lt;code&gt;List&lt;/code&gt; VS &lt;code&gt;List&amp;lt;Object&amp;gt;&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Just what is the difference between the raw type &lt;code&gt;List&lt;/code&gt; and the parameterized type &lt;code&gt;List&amp;lt;Object&amp;gt;&lt;/code&gt;?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Loosely speaking, the former has opted out of the generic type system, while the latter has explicitly told the compiler that it is capable of holding objects of any type. While you can pass a &lt;code&gt;List&amp;lt;String&amp;gt;&lt;/code&gt; to a parameter of type List, you can’t pass it to a parameter of type &lt;code&gt;List&amp;lt;Object&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;raw type &lt;code&gt;List&lt;/code&gt;: 逃避了泛型检查。&lt;/p&gt;
+&lt;p&gt;parameterized type &lt;code&gt;List&amp;lt;Object&amp;gt;&lt;/code&gt;: 明确告知编译器能够持有任意类型的对象。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;List&amp;lt;String&amp;gt;&lt;/code&gt; 可以传递给 &lt;code&gt;List&lt;/code&gt; 的参数，但不能传给 &lt;code&gt;List&amp;lt;Object&amp;gt;&lt;/code&gt; 的参数。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There are &lt;code&gt;sub-typing&lt;/code&gt; rules for generics, and List&lt;!-- raw HTML omitted --&gt; is a subtype of the raw type List, but not of the parameterized type &lt;code&gt;List&amp;lt;Object&amp;gt;&lt;/code&gt; .&lt;/p&gt;
+&lt;p&gt;As a consequence, you lose type safety if you use a raw type such as List, but not if you use a parameterized type such as &lt;code&gt;List&amp;lt;Object&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Java&#34; data-lang=&#34;Java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Fails at runtime - unsafeAdd method uses a raw type (List)! 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Raw&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;strings&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ArrayList&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;unsafeAdd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;strings&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;valueOf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;42&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;strings&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Has compiler-generated cast
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;unsafeAdd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;List&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Object&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;IntelliJ IDEA报错：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Exception in thread &amp;#34;main&amp;#34; java.lang.ClassCastException: class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader &amp;#39;bootstrap&amp;#39;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;covariant-vs-invariant&#34;&gt;Covariant VS Invariant&lt;/h2&gt;
+&lt;p&gt;Arrays are covariant. Generics are invariant.&lt;/p&gt;
+&lt;p&gt;数组是协变(covariant)的，泛型、集合是不变(invariant)的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;covariant:&lt;/p&gt;
+&lt;p&gt;This scary-sounding word means simply that if Sub is a subtype of Super, then the array type Sub[] is a subtype of the array type Super[].&lt;/p&gt;
+&lt;p&gt;invariant:&lt;/p&gt;
+&lt;p&gt;for any two distinct types Type1 and Type2,&lt;code&gt; List&amp;lt;Type1&amp;gt;&lt;/code&gt; is neither a subtype nor a supertype of &lt;code&gt;List&amp;lt;Type2&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;e.g. P=C —&amp;gt; P[ ]=C[ ]&lt;/p&gt;
+&lt;p&gt;不变的举例：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/ej_generic.png&#34; alt=&#34;invariant&#34;&gt;&lt;/p&gt;
+&lt;p&gt;泛型的优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;更好的安全性：编译期就发现错误，保证类型安全&lt;/li&gt;
+&lt;li&gt;更好的可读性：省去强制类型转换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;must-use-raw-types&#34;&gt;Must use raw types&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There are a few minor exceptions to the rule that you should not use raw types. &lt;strong&gt;You must use raw types in class literals.&lt;/strong&gt; The specification does not permit the use of parameterized types (though it does permit array types and primitive types). In other words, &lt;code&gt;List.class, String[].class, and int.class&lt;/code&gt; are all legal, but &lt;code&gt;List&amp;lt;String&amp;gt;.class and List&amp;lt;?&amp;gt;.class&lt;/code&gt; are not.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In summary, using raw types can lead to exceptions at runtime, so don’t use them. They are provided only for compatibility and interoperability with legacy code that predates the introduction of generics.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As a quick review, &lt;code&gt;Set&amp;lt;Object&amp;gt;&lt;/code&gt; is a parameterized type representing a set that can contain objects of any type, &lt;code&gt;Set&amp;lt;?&amp;gt;&lt;/code&gt; is a wildcard type representing a set that can contain only objects of some unknown type, and &lt;code&gt;Set&lt;/code&gt; is a raw type, which opts out of the generic type system. The first two are safe, and the last is not.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;For quick reference, the terms are summarized in the following table:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Term&lt;/th&gt;
+&lt;th&gt;Example&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Parameterized type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;List&amp;lt;String&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Actual type Parameter&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;String &lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Generic type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;List&amp;lt;E&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Formal type parameter&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;E&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Unbounded wildcard type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;List&amp;lt;?&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Raw type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;List&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bounded type parameter&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;E extends Number&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Recursive type bound&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;T extends Comparable&amp;lt;T&amp;gt;&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bounded wildcard type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;List&amp;lt;? extends Number&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Generic method&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;static &amp;lt;E&amp;gt; List&amp;lt;E&amp;gt; asList(E[] a)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Type token&lt;/td&gt;
+&lt;td&gt;&lt;code&gt; String.class&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Serialization</title>
       <link>https://anjanavakil.github.io/post/effective_java_serialization/</link>
       <pubDate>Wed, 23 Mar 2022 14:15:48 +0800</pubDate>
       
@@ -269,7 +428,7 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     </item>
     
     <item>
-      <title>Effective Java: implement Comparable</title>
+      <title>implement Comparable</title>
       <link>https://anjanavakil.github.io/post/effective_java_comparable/</link>
       <pubDate>Wed, 23 Mar 2022 13:15:48 +0800</pubDate>
       
@@ -422,7 +581,7 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     </item>
     
     <item>
-      <title>Effective Java: override equals</title>
+      <title>override equals</title>
       <link>https://anjanavakil.github.io/post/effective_java_overriding_equals/</link>
       <pubDate>Tue, 22 Mar 2022 15:15:48 +0800</pubDate>
       
@@ -473,7 +632,7 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     </item>
     
     <item>
-      <title>Effective Java: Memory Leaks &#43; Garbage Collect</title>
+      <title>Memory Leaks &#43; Garbage Collect</title>
       <link>https://anjanavakil.github.io/post/effective_java_gc/</link>
       <pubDate>Tue, 22 Mar 2022 14:15:48 +0800</pubDate>
       
@@ -553,14 +712,14 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;/div&gt;&lt;p&gt;那么是哪里出现了“内存泄漏”的问题呢？请认真思考🤔。&lt;/p&gt;
 &lt;p&gt;提示：在&lt;code&gt;pop()&lt;/code&gt;方法里，也可以和Java源码比较发现这个隐蔽的问题。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;So where is the memory leak? If a stack grows and then shrinks, the objects that were popped off the stack will not be garbage collected, even if the program using the stack has no more references to them. This is because the stack maintains obsolete references to these objects. An obsolete reference is simply a reference that will never be dereferenced again. In this case, any references outside of the “active portion” of the element array are obsolete. The active portion consists of the elements whose index is less than size.&lt;/p&gt;
+&lt;p&gt;So where is the memory leak? If a stack grows and then shrinks, the objects that were popped off the stack will not be garbage collected, even if the program using the stack has no more references to them. This is because the stack maintains &lt;code&gt;obsolete references&lt;/code&gt; to these objects. &lt;code&gt;An obsolete reference is simply a reference that will never be dereferenced again&lt;/code&gt;. In this case, any references outside of the “active portion” of the element array are obsolete. The active portion consists of the elements whose index is less than size.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Memory leaks in garbage-collected languages (more properly known as unintentional object retentions) are insidious. If an object reference is unintentionally retained, not only is that object excluded from garbage collection, but so too are any objects referenced by that object, and so on. Even if only a few object references are unintentionally retained, many, many objects may be prevented from being garbage collected, with potentially large effects on performance.&lt;/p&gt;
+&lt;p&gt;Memory leaks in garbage-collected languages (more properly known as unintentional object retentions) are insidious. If an object reference is &lt;code&gt;unintentionally retained&lt;/code&gt;, not only is that object excluded from garbage collection, but so too are &lt;code&gt;any objects referenced by that object&lt;/code&gt;, and so on. Even if only a few object references are unintentionally retained, many, many objects may be prevented from being garbage collected, with potentially large effects on performance.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;corrected-version&#34;&gt;Corrected Version&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;The fix for this sort of problem is simple: null out references once they become obsolete. In the case of our Stack class, the reference to an item becomes obsolete as soon as it’s popped off the stack. The corrected version of the pop method looks like this:&lt;/p&gt;
+&lt;p&gt;The fix for this sort of problem is simple: &lt;code&gt;null out references once they become obsolete&lt;/code&gt;. In the case of our Stack class, the reference to an item becomes obsolete as soon as it’s popped off the stack. The corrected version of the pop method looks like this:&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -585,7 +744,7 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;An added benefit of nulling out obsolete references is that if they are subsequently dereferenced by mistake, the program will immediately fail with a NullPointerException, rather than quietly doing the wrong thing. It is always beneficial to detect programming errors as quickly as possible.&lt;/p&gt;
+&lt;p&gt;An added benefit of nulling out obsolete references is that if they are subsequently dereferenced by mistake, the program will immediately fail with a &lt;code&gt;NullPointerException&lt;/code&gt;, rather than quietly doing the wrong thing. &lt;code&gt;It is always beneficial to detect programming errors as quickly as possible.&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;java-source-code&#34;&gt;Java source code&lt;/h2&gt;
 &lt;p&gt;Stack类的pop()方法：&lt;/p&gt;
@@ -674,10 +833,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;可以看到&lt;code&gt;elementData[elementCount] = null; /* to let gc do its work */&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;没想到源码的注释这么详细，从源码中学习。&lt;/p&gt;
-&lt;h2 id=&#34;when-should-you-null-out-a-reference&#34;&gt;when should you null out a reference?&lt;/h2&gt;
+&lt;h2 id=&#34;when-should-you-null-out-a-reference&#34;&gt;When should you null out a reference?&lt;/h2&gt;
 &lt;p&gt;不过作者也提到了&lt;code&gt;Nulling out object references should be the exception rather than the norm.&lt;/code&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;So when should you null out a reference? What aspect of the Stack class makes it susceptible to memory leaks? Simply put, it manages its own memory. The storage pool consists of the elements of the elements array (the object reference cells, not the objects themselves). The elements in the active portion of the array (as defined earlier) are allocated, and those in the remainder of the array are free. The garbage collector has no way of knowing this; to the garbage collector, all of the object references in the elements array are equally valid. Only the programmer knows that the inactive portion of the array is unimportant. The programmer effectively communicates this fact to the garbage collector by manually nulling out array elements as soon as they become part of the inactive portion.&lt;/p&gt;
+&lt;p&gt;So when should you null out a reference? What aspect of the Stack class makes it susceptible to memory leaks? Simply put, &lt;code&gt;it manages its own memory&lt;/code&gt;. The storage pool consists of the elements of the elements array (the object reference cells, not the objects themselves). The elements in the active portion of the array (as defined earlier) are allocated, and those in the remainder of the array are free. &lt;code&gt;The garbage collector has no way of knowing this; to the garbage collector, all of the object references in the elements array are equally valid.&lt;/code&gt; Only the programmer knows that the inactive portion of the array is unimportant. The programmer effectively communicates this fact to the garbage collector by manually nulling out array elements as soon as they become part of the inactive portion.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;只要类是自己管理内存，程序员就应该警惕内存泄漏问题。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -690,7 +849,7 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     </item>
     
     <item>
-      <title>Effective Java: Prefer try-with-resources to try-finally</title>
+      <title>Prefer try-with-resources to try-finally</title>
       <link>https://anjanavakil.github.io/post/effective_java_try_with_resources/</link>
       <pubDate>Tue, 22 Mar 2022 14:15:48 +0800</pubDate>
       
@@ -771,13 +930,13 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;why-try-finally-is-ugly&#34;&gt;Why try-finally is ugly?&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Even the correct code for closing resources with try-finally statements, as illustrated in the previous two code examples, has a subtle deficiency. The code in both the try block and the finally block is capable of throwing exceptions. For example, in the firstLineOfFile method, the call to readLine could throw an exception due to a failure in the underlying physical device, and the call to close could then fail for the same reason. Under these circumstances, the second exception completely obliterates the first one. There is no record of the first exception in the exception stack trace, which can greatly complicate debugging in real systems—usually it’s the first exception that you want to see in order to diagnose the problem. While it is possible to write code to suppress the second exception in favor of the first, virtually no one did because it’s just too verbose.&lt;/p&gt;
+&lt;p&gt;Even the correct code for closing resources with try-finally statements, as illustrated in the previous two code examples, has a &lt;code&gt;subtle deficiency&lt;/code&gt;. The code in both the try block and the finally block is capable of throwing exceptions. For example, in the firstLineOfFile method, the call to readLine could throw an exception due to a failure in the underlying physical device, and the call to close could then fail for the same reason. Under these circumstances, &lt;code&gt;the second exception completely obliterates the first one&lt;/code&gt;. &lt;code&gt;There is no record of the first exception in the exception stack trace&lt;/code&gt;, which can greatly complicate debugging in real systems—&lt;code&gt;usually it’s the first exception that you want to see in order to diagnose the problem.&lt;/code&gt; While it is possible to write code to suppress the second exception in favor of the first, virtually no one did because it’s just too verbose.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;try-with-resources&#34;&gt;try-with-resources&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;All of these problems were solved in one fell swoop when Java 7 introduced the try-with-resources statement.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;To be usable with this construct, a resource must implement the AutoCloseable interface, which consists of a single &lt;code&gt;void-returning close&lt;/code&gt; method. Many classes and interfaces in the Java libraries and in third-party libraries now &lt;code&gt;implement or extend AutoCloseable&lt;/code&gt;. If you write a class that represents a resource that must be closed, your class should implement AutoCloseable too.&lt;/p&gt;
+&lt;p&gt;To be usable with this construct, a resource must &lt;code&gt;implement the AutoCloseable interface&lt;/code&gt;, which consists of a single &lt;code&gt;void-returning close&lt;/code&gt; method. Many classes and interfaces in the Java libraries and in third-party libraries now &lt;code&gt;implement or extend AutoCloseable&lt;/code&gt;. If you write a class that represents a resource that must be closed, your class should implement AutoCloseable too.&lt;/p&gt;
 &lt;h3 id=&#34;java-source-code&#34;&gt;Java source code&lt;/h3&gt;
 &lt;p&gt;interface AutoCloseable 的源码：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -1054,7 +1213,7 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;Not only are the try-with-resources versions shorter and more readable than the originals, but they provide far better diagnostics. Consider the firstLineOfFile ﻿method. If exceptions are thrown by both the readLine call and the (invisible) close, the latter exception is suppressed in favor of the former. In fact, multiple exceptions may be suppressed in order to preserve the exception that you actually want to see. These suppressed exceptions are not merely discarded; they are printed in the stack trace with a notation saying that they were suppressed.&lt;/p&gt;
+&lt;p&gt;Not only are the try-with-resources versions shorter and more readable than the originals, but they provide far better diagnostics. Consider the firstLineOfFile ﻿method. If exceptions are thrown by both the readLine call and the (invisible) close, &lt;code&gt;the latter exception is suppressed in favor of the former&lt;/code&gt;. In fact, multiple exceptions may be suppressed in order to preserve the exception that you actually want to see. These suppressed exceptions are not merely discarded; they are printed in the stack trace with a notation saying that they were suppressed.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;code&gt;You can also access them programmatically with the getSuppressed method, which was added to Throwable in Java 7.&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -1137,13 +1296,21 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The lesson is clear: Always use try-with-resources in preference to try-finally when working with resources that must be closed. The resulting code is shorter and clearer, and the exceptions that it generates are more useful. The try-with-resources statement makes it easy to write correct code using resources that must be closed, which was practically impossible using try-finally.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;对，上课老师教异常处理的时候也只是教了try-finally😅，但是印象中看网上开源项目代码时就没有看到try-finally的影子。正好昨晚睡前看到一本书中说：“&lt;code&gt;学校本身就像是博物馆——他们只呈现那些过去的旧物，并不塑造未来。&lt;/code&gt;”不过既然无力改变，就该从自身出发，利用好资源，主动学习。&lt;/p&gt;
+&lt;p&gt;对，上课老师教异常处理的时候也只是教了try-finally😅，但是印象中看网上开源项目代码时就没有看到try-finally的影子。正好昨晚睡前看到一本书中说：“&lt;code&gt;学校本身就像是博物馆——他们只呈现那些过去的旧物，并不塑造未来。&lt;/code&gt;”&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;不过既然无力改变，就该从自身出发，利用好资源，主动学习。&lt;/p&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;《那些让你更聪明的科学新概念》 [美] 约翰·布罗克曼: PROMOTING A SCIENTIFIC LIFESTYLE  科学的生活方式 马克斯·泰格马克（Max Tegmark）&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
 </description>
       
     </item>
     
     <item>
-      <title>Effective Java: Builder</title>
+      <title>Builder</title>
       <link>https://anjanavakil.github.io/post/effective_java_builder/</link>
       <pubDate>Mon, 21 Mar 2022 14:15:48 +0800</pubDate>
       
@@ -1483,14 +1650,14 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;In summary, the Builder pattern is a good choice when designing classes whose constructors or static factories would have more than a handful of parameters, especially if many of the parameters are &lt;code&gt;optional or of identical type&lt;/code&gt;. Client code is much easier to read and write with builders than with telescoping constructors, and builders are much safer than JavaBeans.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;所以既然学习了Builder模式，在编码的时候应该灵活使用，而不是使用之前蹩脚的代码了。&lt;/p&gt;
+&lt;p&gt;所以既然学习了Builder模式，在编码的时候应该灵活使用，而不是再写之前蹩脚的代码了。&lt;/p&gt;
 &lt;p&gt;设计模式果然是有实际应用的，自己学这门课程的时候，感觉例子枯燥，也没有实际应用。果然还是要看书看书📚，使用设计模式编码设计好的代码。&lt;/p&gt;
 </description>
       
     </item>
     
     <item>
-      <title>Effective Java: Dependency Injection</title>
+      <title>Dependency Injection</title>
       <link>https://anjanavakil.github.io/post/effective_java_di/</link>
       <pubDate>Mon, 21 Mar 2022 14:15:48 +0800</pubDate>
       
@@ -1695,7 +1862,7 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     </item>
     
     <item>
-      <title>Effective Java: static factory method VS constructor</title>
+      <title>static factory method VS constructor</title>
       <link>https://anjanavakil.github.io/post/effective-java-static-factory-method/</link>
       <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
       
@@ -2902,36 +3069,6 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;p&gt;从心理学开始读起，阅读题材开始更加广泛，什么都读，小说倒是读的很少很少了（临近毕业尽管告诉自己要慢慢来但真的没有静下心来读小说的那份宁静了），专业知识也渐渐通过读书学习。渐渐开始写书评，渐渐有了这个属于自己的小空间。&lt;/p&gt;
 &lt;p&gt;通过阅读，看见了更广阔的世界，知道如何与自己和解，如何慢慢不再与别人比较，对原生家庭有了更多的理解。有些看起来都是对世俗前途无用的事情，可我越发觉得人活一世的意义就在此吧。&lt;/p&gt;
 &lt;p&gt;低谷的时候是阅读一直在陪伴着我，希望一直阅读，一直进步，一直成长在路上。&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>《当下的力量》</title>
-      <link>https://anjanavakil.github.io/post/the_power_of_now/</link>
-      <pubDate>Wed, 19 Jan 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/the_power_of_now/</guid>
-      
-        <description>&lt;ul&gt;
-&lt;li&gt;豆瓣🔗：&lt;a href=&#34;https://book.douban.com/subject/24758481/&#34;&gt;《当下的力量》&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;2021年10月份开始阅读，只读了1/3，2022年1月9日书友推荐，很快就接着读完了。一直拖着没写书评，正好是隔离DAY 2，就想着复习《当下的力量》这本书，完成书评。&lt;/p&gt;
-&lt;p&gt;重新读完整本书，还是有很大收获：&lt;/p&gt;
-&lt;p&gt;1、对大脑思维的觉知：之前很少反思自己的思维会错，但是这本书告诉大脑的思维是有误的。&lt;/p&gt;
-&lt;p&gt;当下所产生的痛苦是源自对现状某种形式的不接受、某种形式的无意识抗拒。从思维的层面来说，这种抗拒以批判的形式存在；从情绪的层面来说，它又以负面情绪的形式显现。痛苦的程度取决于对当下的抗拒程度以及对思维的认同程度。思维通常否认当下，并试图逃离当下。是我们的大脑在思考我们的过去，担忧我们的未来。&lt;/p&gt;
-&lt;p&gt;为了从思维中解放出来，我们需要变成思维和行为的沉默的观察者，尤其是观察思维的重复模式和小我所扮演的角色。&lt;/p&gt;
-&lt;p&gt;2、“钟表时间”与“心理时间”：“钟表时间”，将注意力集中在当下并利用当下时间；“心理时间”，认同过去，并且持续地、强迫性地投射到未来。&lt;/p&gt;
-&lt;p&gt;在过去犯了错误并且现在汲取了教训，利用的就是钟表时间。如果在心理上不断地回忆过去的错误，进行自我批评或感觉悔恨，错误将融入了“我”以及“我的”之中，就变成了心理时间。我们应该保持警惕，这样就不会在不自觉的情况下，将钟表时间转变成心理时间。&lt;/p&gt;
-&lt;p&gt;3、对压力和对未来设想的重新看待：压力的产生是由于我们在“这里”却想到“那里”去，或我们在当下却想去未来，这是一种让内在分裂的方式。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;等待是一种思维状态，意味着你需要未来，而不要现在；你不要你所拥有的，而要你所没有的。任何一种形式的等待，都让你无意识地在你的此时此刻创造了一种内心的冲突：你不要此时此刻，你把希望寄托于未来。丧失对当下时刻的意识，会大大降低你的生命质量。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;4、对痛苦难受的应对：如果不能接受外在的状况，那么就接受内心状况。不要去抗拒痛苦，允许它的存在。向悲伤、绝望、恐惧、孤单或者任何形式的痛苦臣服。在不贴心理标签的情况下去观察它，拥抱它。然后，观察臣服的奇迹是如何将深深的痛苦转化为深深的宁静的。这是磨难，但也是复活和提升的契机。&lt;/p&gt;
-&lt;p&gt;庆幸的是，自己10月份读了这本书的一部分，后来真的有慢慢实践。看到之前备忘录中自我鼓励的话：&lt;/p&gt;
-&lt;p&gt;“害怕未来有用吗？你现在当下此时此刻能抓住的只有一直在向前走的每分每秒，未来的事留给未来，只做好当下该做的事！换一种思维，这种有挑战的事不应该是自己追求的吗？正是难才让过程更加有意思。一切都会随之飘去，有什么是一成不变的呢？现在很难受是吗？焦虑无法放松，那就与你的难受共存，把当下的难受当作你必须前进成长的负担，负重前行，总会一步步走过去的。”&lt;/p&gt;
-&lt;p&gt;读书，更多地觉知到自己的行为和思维。当下时刻是所能拥有的一切。从来没有一刻生命是不在当下的。&lt;/p&gt;
-&lt;p&gt;当痛苦的时候读读灵修类的心灵读物，也不失为从泥淖中快速走出来的方法之一。&lt;/p&gt;
 </description>
       
     </item>

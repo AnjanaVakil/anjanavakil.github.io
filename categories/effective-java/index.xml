@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Java☕️ on Anjana</title>
-    <link>https://anjanavakil.github.io/tags/java%EF%B8%8F/</link>
-    <description>Recent content in Java☕️ on Anjana</description>
+    <title>Effective Java📕 on Anjana</title>
+    <link>https://anjanavakil.github.io/categories/effective-java/</link>
+    <description>Recent content in Effective Java📕 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/java%EF%B8%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/effective-java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Generics</title>
       <link>https://anjanavakil.github.io/post/effective_java_generic/</link>
@@ -71,30 +71,12 @@
     </item>
     
     <item>
-      <title>Dependency Injection</title>
-      <link>https://anjanavakil.github.io/post/effective_java_di/</link>
-      <pubDate>Mon, 21 Mar 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective_java_di/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility -</description>
-    </item>
-    
-    <item>
       <title>static factory method VS constructor</title>
       <link>https://anjanavakil.github.io/post/effective-java-static-factory-method/</link>
       <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/effective-java-static-factory-method/</guid>
       <description>豆瓣🔗: Effective Java 《Effective Java中文版（第3版）》 Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 1: Consider static factory methods instead of constructors 考虑以静态工厂方</description>
-    </item>
-    
-    <item>
-      <title>Lambda表达式</title>
-      <link>https://anjanavakil.github.io/post/lambda_expression/</link>
-      <pubDate>Sat, 12 Mar 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/lambda_expression/</guid>
-      <description>之前技术博客都是在CSDN上发表的，好久没用了，登录上去居然有人给我以前的博客点赞评论，尽管很少但发现还是有人看的。看了一下之前写的博客，发</description>
     </item>
     
   </channel>

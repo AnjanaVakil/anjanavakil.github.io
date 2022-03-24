@@ -6,7 +6,7 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Mar 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Code: The Hidden Language of Computer Hardware and Software</title>
       <link>https://anjanavakil.github.io/post/code/</link>
@@ -17,7 +17,16 @@
     </item>
     
     <item>
-      <title>Effective Java: Serialization</title>
+      <title>Generics</title>
+      <link>https://anjanavakil.github.io/post/effective_java_generic/</link>
+      <pubDate>Wed, 23 Mar 2022 20:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective_java_generic/</guid>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原</description>
+    </item>
+    
+    <item>
+      <title>Serialization</title>
       <link>https://anjanavakil.github.io/post/effective_java_serialization/</link>
       <pubDate>Wed, 23 Mar 2022 14:15:48 +0800</pubDate>
       
@@ -26,7 +35,7 @@
     </item>
     
     <item>
-      <title>Effective Java: implement Comparable</title>
+      <title>implement Comparable</title>
       <link>https://anjanavakil.github.io/post/effective_java_comparable/</link>
       <pubDate>Wed, 23 Mar 2022 13:15:48 +0800</pubDate>
       
@@ -35,7 +44,7 @@
     </item>
     
     <item>
-      <title>Effective Java: override equals</title>
+      <title>override equals</title>
       <link>https://anjanavakil.github.io/post/effective_java_overriding_equals/</link>
       <pubDate>Tue, 22 Mar 2022 15:15:48 +0800</pubDate>
       
@@ -44,7 +53,7 @@
     </item>
     
     <item>
-      <title>Effective Java: Memory Leaks &#43; Garbage Collect</title>
+      <title>Memory Leaks &#43; Garbage Collect</title>
       <link>https://anjanavakil.github.io/post/effective_java_gc/</link>
       <pubDate>Tue, 22 Mar 2022 14:15:48 +0800</pubDate>
       
@@ -53,7 +62,7 @@
     </item>
     
     <item>
-      <title>Effective Java: Prefer try-with-resources to try-finally</title>
+      <title>Prefer try-with-resources to try-finally</title>
       <link>https://anjanavakil.github.io/post/effective_java_try_with_resources/</link>
       <pubDate>Tue, 22 Mar 2022 14:15:48 +0800</pubDate>
       
@@ -62,7 +71,7 @@
     </item>
     
     <item>
-      <title>Effective Java: Builder</title>
+      <title>Builder</title>
       <link>https://anjanavakil.github.io/post/effective_java_builder/</link>
       <pubDate>Mon, 21 Mar 2022 14:15:48 +0800</pubDate>
       
@@ -71,7 +80,7 @@
     </item>
     
     <item>
-      <title>Effective Java: Dependency Injection</title>
+      <title>Dependency Injection</title>
       <link>https://anjanavakil.github.io/post/effective_java_di/</link>
       <pubDate>Mon, 21 Mar 2022 14:15:48 +0800</pubDate>
       
@@ -89,7 +98,7 @@
     </item>
     
     <item>
-      <title>Effective Java: static factory method VS constructor</title>
+      <title>static factory method VS constructor</title>
       <link>https://anjanavakil.github.io/post/effective-java-static-factory-method/</link>
       <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
       
@@ -179,15 +188,6 @@ The book is brief and there is not a lot of unfamiliar vocabulary so I read it i
       
       <guid>https://anjanavakil.github.io/post/the_power_of_now/</guid>
       <description>豆瓣🔗：《当下的力量》 2021年10月份开始阅读，只读了1/3，2022年1月9日书友推荐，很快就接着读完了。一直拖着没写书评，正好是隔离D</description>
-    </item>
-    
-    <item>
-      <title>CS基础知识书籍推荐(已读)</title>
-      <link>https://anjanavakil.github.io/post/cs_book_recommendation/</link>
-      <pubDate>Sat, 15 Jan 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/cs_book_recommendation/</guid>
-      <description>豆瓣🔗： 《编码：隐匿在计算机软硬件背后的语言》 Code: The Hidden Language of Computer Hardware and Software 《计算机是怎样跑起来的》 《程序是怎样跑起来的》 《网络是怎样连接的》 《计算机系</description>
     </item>
     
   </channel>

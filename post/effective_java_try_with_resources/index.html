@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Effective Java: Prefer try-with-resources to try-finally - Anjana</title>
+  <title>Prefer try-with-resources to try-finally - Anjana</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -59,19 +59,19 @@
 
 
 
-<meta property="og:title" content="Effective Java: Prefer try-with-resources to try-finally" />
+<meta property="og:title" content="Prefer try-with-resources to try-finally" />
 <meta property="og:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path));" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/effective_java_try_with_resources/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-03-22T14:15:48+08:00" />
 <meta property="article:modified_time" content="2022-03-22T14:15:48+08:00" />
 
-<meta itemprop="name" content="Effective Java: Prefer try-with-resources to try-finally">
+<meta itemprop="name" content="Prefer try-with-resources to try-finally">
 <meta itemprop="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path));"><meta itemprop="datePublished" content="2022-03-22T14:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-03-22T14:15:48+08:00" />
-<meta itemprop="wordCount" content="1946">
+<meta itemprop="wordCount" content="2026">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Effective Java: Prefer try-with-resources to try-finally"/>
+<meta name="twitter:title" content="Prefer try-with-resources to try-finally"/>
 <meta name="twitter:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path));"/>
 
 <!--[if lte IE 9]>
@@ -292,14 +292,14 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">Effective Java: Prefer try-with-resources to try-finally</h1>
+      <h1 class="post-title">Prefer try-with-resources to try-finally</h1>
       
       <div class="post-meta">
         <time datetime="2022-03-22" class="post-time">
           2022-03-22
         </time>
         <div class="post-category">
-            <a href="https://anjanavakil.github.io/categories/cs/"> CS💻 </a>
+            <a href="https://anjanavakil.github.io/categories/effective-java/"> Effective Java📕 </a>
             
           </div>
         
@@ -411,13 +411,13 @@
 </div>
 </div><h2 id="why-try-finally-is-ugly">Why try-finally is ugly?</h2>
 <blockquote>
-<p>Even the correct code for closing resources with try-finally statements, as illustrated in the previous two code examples, has a subtle deficiency. The code in both the try block and the finally block is capable of throwing exceptions. For example, in the firstLineOfFile method, the call to readLine could throw an exception due to a failure in the underlying physical device, and the call to close could then fail for the same reason. Under these circumstances, the second exception completely obliterates the first one. There is no record of the first exception in the exception stack trace, which can greatly complicate debugging in real systems—usually it’s the first exception that you want to see in order to diagnose the problem. While it is possible to write code to suppress the second exception in favor of the first, virtually no one did because it’s just too verbose.</p>
+<p>Even the correct code for closing resources with try-finally statements, as illustrated in the previous two code examples, has a <code>subtle deficiency</code>. The code in both the try block and the finally block is capable of throwing exceptions. For example, in the firstLineOfFile method, the call to readLine could throw an exception due to a failure in the underlying physical device, and the call to close could then fail for the same reason. Under these circumstances, <code>the second exception completely obliterates the first one</code>. <code>There is no record of the first exception in the exception stack trace</code>, which can greatly complicate debugging in real systems—<code>usually it’s the first exception that you want to see in order to diagnose the problem.</code> While it is possible to write code to suppress the second exception in favor of the first, virtually no one did because it’s just too verbose.</p>
 </blockquote>
 <h2 id="try-with-resources">try-with-resources</h2>
 <blockquote>
 <p>All of these problems were solved in one fell swoop when Java 7 introduced the try-with-resources statement.</p>
 </blockquote>
-<p>To be usable with this construct, a resource must implement the AutoCloseable interface, which consists of a single <code>void-returning close</code> method. Many classes and interfaces in the Java libraries and in third-party libraries now <code>implement or extend AutoCloseable</code>. If you write a class that represents a resource that must be closed, your class should implement AutoCloseable too.</p>
+<p>To be usable with this construct, a resource must <code>implement the AutoCloseable interface</code>, which consists of a single <code>void-returning close</code> method. Many classes and interfaces in the Java libraries and in third-party libraries now <code>implement or extend AutoCloseable</code>. If you write a class that represents a resource that must be closed, your class should implement AutoCloseable too.</p>
 <h3 id="java-source-code">Java source code</h3>
 <p>interface AutoCloseable 的源码：</p>
 <div class="highlight"><div class="chroma">
@@ -694,7 +694,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>Not only are the try-with-resources versions shorter and more readable than the originals, but they provide far better diagnostics. Consider the firstLineOfFile ﻿method. If exceptions are thrown by both the readLine call and the (invisible) close, the latter exception is suppressed in favor of the former. In fact, multiple exceptions may be suppressed in order to preserve the exception that you actually want to see. These suppressed exceptions are not merely discarded; they are printed in the stack trace with a notation saying that they were suppressed.</p>
+<p>Not only are the try-with-resources versions shorter and more readable than the originals, but they provide far better diagnostics. Consider the firstLineOfFile ﻿method. If exceptions are thrown by both the readLine call and the (invisible) close, <code>the latter exception is suppressed in favor of the former</code>. In fact, multiple exceptions may be suppressed in order to preserve the exception that you actually want to see. These suppressed exceptions are not merely discarded; they are printed in the stack trace with a notation saying that they were suppressed.</p>
 </blockquote>
 <p><code>You can also access them programmatically with the getSuppressed method, which was added to Throwable in Java 7.</code></p>
 <div class="highlight"><div class="chroma">
@@ -777,7 +777,15 @@
 <blockquote>
 <p>The lesson is clear: Always use try-with-resources in preference to try-finally when working with resources that must be closed. The resulting code is shorter and clearer, and the exceptions that it generates are more useful. The try-with-resources statement makes it easy to write correct code using resources that must be closed, which was practically impossible using try-finally.</p>
 </blockquote>
-<p>对，上课老师教异常处理的时候也只是教了try-finally😅，但是印象中看网上开源项目代码时就没有看到try-finally的影子。正好昨晚睡前看到一本书中说：“<code>学校本身就像是博物馆——他们只呈现那些过去的旧物，并不塑造未来。</code>”不过既然无力改变，就该从自身出发，利用好资源，主动学习。</p>
+<p>对，上课老师教异常处理的时候也只是教了try-finally😅，但是印象中看网上开源项目代码时就没有看到try-finally的影子。正好昨晚睡前看到一本书中说：“<code>学校本身就像是博物馆——他们只呈现那些过去的旧物，并不塑造未来。</code>”<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>不过既然无力改变，就该从自身出发，利用好资源，主动学习。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>《那些让你更聪明的科学新概念》 [美] 约翰·布罗克曼: PROMOTING A SCIENTIFIC LIFESTYLE  科学的生活方式 马克斯·泰格马克（Max Tegmark）&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 
     </div>
 
@@ -825,12 +833,12 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Effective Java: Memory Leaks &#43; Garbage Collect</span>
+            <span class="prev-text nav-default">Memory Leaks &#43; Garbage Collect</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
           <a class="next" href="/post/effective_java_builder/">
-            <span class="next-text nav-default">Effective Java: Builder</span>
+            <span class="next-text nav-default">Builder</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">
