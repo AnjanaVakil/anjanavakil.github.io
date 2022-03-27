@@ -8,6 +8,15 @@
     <language>en</language>
     <lastBuildDate>Wed, 23 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Coders At Work 编程人生</title>
+      <link>https://anjanavakil.github.io/post/coders_at_work/</link>
+      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/coders_at_work/</guid>
+      <description>豆瓣🔗: Coders At Work 《编程人生：15位软件先驱访谈录》 第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获</description>
+    </item>
+    
+    <item>
       <title>Code: The Hidden Language of Computer Hardware and Software</title>
       <link>https://anjanavakil.github.io/post/code/</link>
       <pubDate>Fri, 25 Feb 2022 14:15:48 +0800</pubDate>
@@ -68,15 +77,6 @@
       
       <guid>https://anjanavakil.github.io/post/effective_java_builder/</guid>
       <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 2: Consider a builder when faced with many constructor parameters 当构造函数有多个参数时，考虑使用builder模式 1. Telescoping constructor pattern - does not scale well! 1</description>
-    </item>
-    
-    <item>
-      <title>Coders At Work 编程人生</title>
-      <link>https://anjanavakil.github.io/post/coders_at_work/</link>
-      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/coders_at_work/</guid>
-      <description>豆瓣🔗: Coders At Work 《编程人生：15位软件先驱访谈录》 第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获</description>
     </item>
     
     <item>
