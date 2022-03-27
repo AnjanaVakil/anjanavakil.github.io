@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Generics - Anjana</title>
+  <title>CS 基础知识笔记 - Anjana</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原" />
+  <meta name="description" content="CS 基础知识的笔记，不算是总结性的笔记，只是曾经备忘录上记录下来的和对于自己陌生的点，或许应该保存到blog上，抑或是考试教育的一种印证。 CO 1" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.93.0" />
 
 
-<link rel="canonical" href="https://anjanavakil.github.io/post/effective_java_generic/" />
+<link rel="canonical" href="https://anjanavakil.github.io/post/408/" />
 
 
 
@@ -59,20 +59,20 @@
 
 
 
-<meta property="og:title" content="Generics" />
-<meta property="og:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原" />
+<meta property="og:title" content="CS 基础知识笔记" />
+<meta property="og:description" content="CS 基础知识的笔记，不算是总结性的笔记，只是曾经备忘录上记录下来的和对于自己陌生的点，或许应该保存到blog上，抑或是考试教育的一种印证。 CO 1" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://anjanavakil.github.io/post/effective_java_generic/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-03-23T20:15:48+08:00" />
-<meta property="article:modified_time" content="2022-03-23T20:15:48+08:00" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/408/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-12T20:15:48+08:00" />
+<meta property="article:modified_time" content="2022-02-12T20:15:48+08:00" />
 
-<meta itemprop="name" content="Generics">
-<meta itemprop="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原"><meta itemprop="datePublished" content="2022-03-23T20:15:48+08:00" />
-<meta itemprop="dateModified" content="2022-03-23T20:15:48+08:00" />
-<meta itemprop="wordCount" content="925">
-<meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Generics"/>
-<meta name="twitter:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原"/>
+<meta itemprop="name" content="CS 基础知识笔记">
+<meta itemprop="description" content="CS 基础知识的笔记，不算是总结性的笔记，只是曾经备忘录上记录下来的和对于自己陌生的点，或许应该保存到blog上，抑或是考试教育的一种印证。 CO 1"><meta itemprop="datePublished" content="2022-02-12T20:15:48+08:00" />
+<meta itemprop="dateModified" content="2022-02-12T20:15:48+08:00" />
+<meta itemprop="wordCount" content="2976">
+<meta itemprop="keywords" content="CS-BASIC-KNOWLEDGE✅,CS💻," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CS 基础知识笔记"/>
+<meta name="twitter:description" content="CS 基础知识的笔记，不算是总结性的笔记，只是曾经备忘录上记录下来的和对于自己陌生的点，或许应该保存到blog上，抑或是考试教育的一种印证。 CO 1"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -292,14 +292,14 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">Generics</h1>
+      <h1 class="post-title">CS 基础知识笔记</h1>
       
       <div class="post-meta">
-        <time datetime="2022-03-23" class="post-time">
-          2022-03-23
+        <time datetime="2022-02-12" class="post-time">
+          2022-02-12
         </time>
         <div class="post-category">
-            <a href="https://anjanavakil.github.io/categories/effective-java/"> Effective Java📕 </a>
+            <a href="https://anjanavakil.github.io/categories/cs-basic-knowledge/"> CS-BASIC-KNOWLEDGE✅ </a>
             
           </div>
         
@@ -319,11 +319,16 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#should-not-use-raw-types">Should not use raw types</a></li>
-    <li><a href="#list-vs-listobject"><code>List</code> VS <code>List&lt;Object&gt;</code></a></li>
-    <li><a href="#covariant-vs-invariant">Covariant VS Invariant</a></li>
-    <li><a href="#must-use-raw-types">Must use raw types</a></li>
-    <li><a href="#summary">Summary</a></li>
+    <li><a href="#co">CO</a></li>
+    <li><a href="#cn">CN</a></li>
+    <li><a href="#os">OS</a>
+      <ul>
+        <li><a href="#文件系统">文件系统</a></li>
+        <li><a href="#硬链接-软链接">硬链接 软链接</a></li>
+        <li><a href="#ssd">SSD</a></li>
+        <li><a href="#微内核">微内核</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -331,154 +336,118 @@
 
     
     <div class="post-content">
-      <p>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。</p>
-<h1 id="item-26-dont-use-raw-types">Item 26: Don’t use raw types</h1>
-<p>请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原生态类型）</p>
-<h2 id="should-not-use-raw-types">Should not use raw types</h2>
-<p><strong>As mentioned throughout this book, it pays to discover errors as soon as possible after they are made, ideally at compile time.</strong></p>
-<p>Java 作为静态、强类型语言，最好在编译期间发现错误，写代码也倾向于：便于在编译期发现错误的代码，使用编译时信息协助排除大量运行时问题，越早发现错误越好。</p>
-<blockquote>
-<p>As noted earlier, it is legal to use raw types (generic types without their type parameters), but you should never do it. If you use raw types, you lose all the safety and expressiveness benefits of generics.</p>
-</blockquote>
-<p>如果使用 raw types ，就失去了泛型在安全性和描述性方面的所有优势。</p>
-<blockquote>
-<p>While you shouldn’t use raw types such as List, it is fine to use types that are parameterized to allow insertion of arbitrary objects, such as <code>List&lt;Object&gt;</code>.</p>
-</blockquote>
-<h2 id="list-vs-listobject"><code>List</code> VS <code>List&lt;Object&gt;</code></h2>
-<p>Just what is the difference between the raw type <code>List</code> and the parameterized type <code>List&lt;Object&gt;</code>?</p>
-<blockquote>
-<p>Loosely speaking, the former has opted out of the generic type system, while the latter has explicitly told the compiler that it is capable of holding objects of any type. While you can pass a <code>List&lt;String&gt;</code> to a parameter of type List, you can’t pass it to a parameter of type <code>List&lt;Object&gt;</code>.</p>
-</blockquote>
-<p>raw type <code>List</code>: 逃避了泛型检查。</p>
-<p>parameterized type <code>List&lt;Object&gt;</code>: 明确告知编译器能够持有任意类型的对象。</p>
-<p><code>List&lt;String&gt;</code> 可以传递给 <code>List</code> 的参数，但不能传给 <code>List&lt;Object&gt;</code> 的参数。</p>
-<blockquote>
-<p>There are <code>sub-typing</code> rules for generics, and List<!-- raw HTML omitted --> is a subtype of the raw type List, but not of the parameterized type <code>List&lt;Object&gt;</code> .</p>
-<p>As a consequence, you lose type safety if you use a raw type such as List, but not if you use a parameterized type such as <code>List&lt;Object&gt;</code>.</p>
-</blockquote>
-<p>For example:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="c1">// Fails at runtime - unsafeAdd method uses a raw type (List)! 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Raw</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">strings</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">unsafeAdd</span><span class="o">(</span><span class="n">strings</span><span class="o">,</span> <span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">42</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">strings</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">0</span><span class="o">);</span> <span class="c1">// Has compiler-generated cast
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">unsafeAdd</span><span class="o">(</span><span class="n">List</span> <span class="n">list</span><span class="o">,</span> <span class="n">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">o</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>IntelliJ IDEA报错：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Exception in thread &#34;main&#34; java.lang.ClassCastException: class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader &#39;bootstrap&#39;)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="covariant-vs-invariant">Covariant VS Invariant</h2>
-<p>Arrays are covariant. Generics are invariant.</p>
-<p>数组是协变(covariant)的，泛型、集合是不变(invariant)的。</p>
-<blockquote>
-<p>covariant:</p>
-<p>This scary-sounding word means simply that if Sub is a subtype of Super, then the array type Sub[] is a subtype of the array type Super[].</p>
-<p>invariant:</p>
-<p>for any two distinct types Type1 and Type2,<code> List&lt;Type1&gt;</code> is neither a subtype nor a supertype of <code>List&lt;Type2&gt;</code>.</p>
-</blockquote>
-<p>e.g. P=C —&gt; P[ ]=C[ ]</p>
-<p>不变的举例：</p>
-<p><img src="/image/ej_generic.png" alt="invariant"></p>
-<p>泛型的优点：</p>
+      <p>CS 基础知识的笔记，不算是总结性的笔记，只是曾经备忘录上记录下来的和对于自己陌生的点，或许应该保存到blog上，抑或是考试教育的一种印证。</p>
+<h2 id="co">CO</h2>
+<p>1、</p>
+<p>10^3 千、6 百万million、9 十亿billion、12 万亿trillion</p>
+<p>15 千万亿 PFLOPS、18 百亿亿 EPLOPS</p>
+<p>(mgtpez MGTPEZ)</p>
+<p>2、指令系统——指令集架构ISA(Instruction Set Architecture)是软硬件的交界。</p>
+<p>3、RISC只能通过load/store指令实现访存，所有运算指令都是对寄存器操作。</p>
+<p>4、工具链在编译链接应用程序时，会将代码段地址默认设置为一个相对较低的地址(但这个地址一般不会为0，地址0在多数操作系统中都会被设为不可访问的地址，以便捕获空指针访问)。</p>
+<p>5、进程的上下文切换主要由软件来完成。</p>
+<p>发生切换的时机主要有两种：</p>
 <ul>
-<li>更好的安全性：编译期就发现错误，保证类型安全</li>
-<li>更好的可读性：省去强制类型转换</li>
+<li>
+<p>进程主动调用某些<code>系统调用</code>时因出现无法继续运行的情况(如等待 IO 完成或者获得锁)而触发切换。</p>
+</li>
+<li>
+<p>进程分配到的时间片用完了或者有更高优先级的就绪进程要抢占 CPU 导致的切换。</p>
+<p>切换工作的实质是实现对 CPU 硬件资源的<code>分时复用</code>。操作系统把当前进程的运行上下文信息保存到内存中，再把选中的下一个进程的上下文信息装载到 CPU 中。</p>
+<p>特定时刻只能由一个进程使用的处理器状态信息，包括<code>通用寄存器、eflags 等用户态的专有寄存器以及当前程序计数器(PC)、处理器模式和状态、页表基址(例如 X86 指令系统的 CR3 寄存器和 LoongArch 的 PGD 寄存器)等控制信息</code>，都需要被保存起 来，以便下次运行时恢复到同样的状态。</p>
+<p>如果一些不支持共享的硬件状态信息在内存里有最新备份，切换时可以采用直接丢弃的方法。例如，有些指令系统的 TLB 不能区分不同进程的页表项(早期的X86 指令系统就是如此)，那么在进程切换时需要把已有的表项设为无效，避免被新的进程错误使用。</p>
+<p>而可以共享的硬件状态信息(如 Cache 等)，以及用内存保存的上下文信息(如页表等)， 则不需要处理。</p>
+</li>
 </ul>
-<h2 id="must-use-raw-types">Must use raw types</h2>
-<blockquote>
-<p>There are a few minor exceptions to the rule that you should not use raw types. <strong>You must use raw types in class literals.</strong> The specification does not permit the use of parameterized types (though it does permit array types and primitive types). In other words, <code>List.class, String[].class, and int.class</code> are all legal, but <code>List&lt;String&gt;.class and List&lt;?&gt;.class</code> are not.</p>
-</blockquote>
-<h2 id="summary">Summary</h2>
-<blockquote>
-<p>In summary, using raw types can lead to exceptions at runtime, so don’t use them. They are provided only for compatibility and interoperability with legacy code that predates the introduction of generics.</p>
-</blockquote>
-<blockquote>
-<p>As a quick review, <code>Set&lt;Object&gt;</code> is a parameterized type representing a set that can contain objects of any type, <code>Set&lt;?&gt;</code> is a wildcard type representing a set that can contain only objects of some unknown type, and <code>Set</code> is a raw type, which opts out of the generic type system. The first two are safe, and the last is not.</p>
-</blockquote>
-<p>For quick reference, the terms are summarized in the following table:</p>
-<table>
-<thead>
-<tr>
-<th>Term</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Parameterized type</td>
-<td><code>List&lt;String&gt;</code></td>
-</tr>
-<tr>
-<td>Actual type Parameter</td>
-<td><code>String </code></td>
-</tr>
-<tr>
-<td>Generic type</td>
-<td><code>List&lt;E&gt;</code></td>
-</tr>
-<tr>
-<td>Formal type parameter</td>
-<td><code>E</code></td>
-</tr>
-<tr>
-<td>Unbounded wildcard type</td>
-<td><code>List&lt;?&gt;</code></td>
-</tr>
-<tr>
-<td>Raw type</td>
-<td><code>List</code></td>
-</tr>
-<tr>
-<td>Bounded type parameter</td>
-<td><code>&lt;E extends Number&gt;</code></td>
-</tr>
-<tr>
-<td>Recursive type bound</td>
-<td><code>&lt;T extends Comparable&lt;T&gt;&gt;</code></td>
-</tr>
-<tr>
-<td>Bounded wildcard type</td>
-<td><code>List&lt;? extends Number&gt;</code></td>
-</tr>
-<tr>
-<td>Generic method</td>
-<td><code>static &lt;E&gt; List&lt;E&gt; asList(E[] a)</code></td>
-</tr>
-<tr>
-<td>Type token</td>
-<td><code> String.class</code></td>
-</tr>
-</tbody>
-</table>
+<p>6、线程是程序代码的一个执行路径。一个进程可以包含多个线程，这些线程之间<code>共享内存空间 和打开文件等资源</code>，但逻辑上拥有<code>独立的寄存器状态和栈</code>。</p>
+<p>现代系统的线程一般也支持<code>线程私有存储区(Thread Local Storage, 简称 TLS)</code>。例如，GCC 编译器支持用 <code>__thread int number;</code> 这样的语句来定义一个线程私有的全局变量，不同线程看到的 number 地址是不一样的。</p>
+<p>7、使用闪存技术构建的永久存储器存在一个问题，即闪存的存储单元随着擦写次数的增多存在损坏的风险。</p>
+<p>为了解决这个问题，大多数 NAND 型闪存产品内部的控制器采用<code>地址块重映射</code>的方式来分布写操作，目的是将写次数多的地址转移到写次数少的块中。该技术被称为<code>磨损均衡(Wear Leveling)</code>。闪存的平均擦写次数在 10 万次左右。这样，通过磨损均衡技术，移动电话、数码相机、 MP3 播放器等消费类产品在使用周期内就不太可能达到闪存的写次数限制。闪存产品内部的控制器还能屏蔽制造过程中损坏的块，从而提高产品的良率。</p>
+<p>8、中断源即中断的源头，比如用户敲击一下键盘，单击一下鼠标，或者 DMA 的一次传输完成了， 对应的控制器会产生一个中断信号。中断信号可以是一根信号线，也可以是一个消息包。这个中断信息会传送到中断控制器中。中断控制器是负责中断汇集、记录和转发的硬件逻辑。中断控制器一般都具有可编程功能，因此被称为可编程中断控制器(Programmable Interrupt Controller，简称 PIC)。典型的中断控制器如Intel的8259A。8259A支持中断嵌套和中断优先级，可以支持8个中断源， 并可以通过级联的方式进行扩展。</p>
+<p>键盘鼠标是低速设备，使用中断方式；DMA用于存在大量数据传输的高速设备，比如硬盘，网络，显示等设备。</p>
+<p>中断（设备产生、异步）</p>
+<ul>
+<li>可屏蔽：设备产生的信号，通过中断控制器与处理器相连，可被暂时屏蔽（如，键盘、网络事件）</li>
+<li>不可屏蔽：一些关键硬件的崩溃（如，内存校验错误）</li>
+</ul>
+<p>异常（软件产生、同步）</p>
+<ul>
+<li>错误（Fault）: 如缺页异常（可恢复）、段错误（不可恢复）等</li>
+<li>陷阱（Trap）: 无需恢复，如断点（int 3）、系统调用（int 80）</li>
+<li>中止（Abort）: 严重的错误，不可恢复（机器检查）</li>
+</ul>
+<p>注意：中断处理没有进程上下文</p>
+<ul>
+<li>中断（和异常相比）和具体的某条指令无关</li>
+<li>也和中断时正在跑的进程、用户程序无关</li>
+<li>中断处理handler不能睡眠！</li>
+</ul>
+<p>9、实模式和保护模式
+<img src="/image/co.png" alt="实模式和保护模式"></p>
+<p>10、<code>系统调用</code>提供用户程序和操作系统之间的接口</p>
+<h2 id="cn">CN</h2>
+<p>”物链网输会示用“</p>
+<p>波特：每秒传输多少个码元（B）</p>
+<p>”泄气工程“：机械 电气 功能 规程特性</p>
+<p>PCI ( Protocol Control Information): 协议控制信息</p>
+<p>SDU (Service Data Unit): 服务数据单元</p>
+<p>PDU ( Protocol Data Unit): 协议数据单元</p>
+<p>三者关系：PCI + SDU = PDU</p>
+<h2 id="os">OS</h2>
+<h3 id="文件系统">文件系统</h3>
+<p>一个磁盘对应一张FAT表</p>
+<p>每一个进程对应一个PCB和一个页表</p>
+<p>页表初始化的时候就建立了<code>页号</code>和<code>物理块号（磁盘号）</code>的映射关系</p>
+<p>页号 页框号 有效位 修改位 物理块号</p>
+<p>FAT表和根目录表常驻内存</p>
+<p>FAT支持随机访问：可以直接读入想要的逻辑块对应的物理块，不需要读入中间逻辑块对应的物理块</p>
+<p>FAT: 文件是否空闲+文件块链</p>
+<p>位示图: 文件是否空闲 + inode 文件块关系</p>
+<p>inode: index node</p>
+<p>阮一峰的这篇《理解inode》，比较简洁易懂：</p>
+<p><a href="http://www.ruanyifeng.com/blog/2011/12/inode.html">http://www.ruanyifeng.com/blog/2011/12/inode.html</a></p>
+<p>这种储存文件元信息的区域就叫做inode，中文译名为&quot;索引节点&quot;。</p>
+<p>每个inode都有一个号码，操作系统用inode号码来识别不同的文件。</p>
+<p>这里值得重复一遍，Unix/Linux系统内部不使用文件名，而使用inode号码来识别文件。对于系统来说，文件名只是inode号码便于识别的别称或者绰号。</p>
+<p>表面上，用户通过文件名，打开文件。实际上，系统内部这个过程分成三步：</p>
+<ul>
+<li>首先，系统找到这个文件名对应的inode号码；</li>
+<li>其次，通过inode号码，获取inode信息；</li>
+<li>最后，根据inode信息，找到文件数据所在的block，读出数据。</li>
+</ul>
+<h3 id="硬链接-软链接">硬链接 软链接</h3>
+<p><a href="https://linux.cn/article-12270-1.html">https://linux.cn/article-12270-1.html</a></p>
+<h3 id="ssd">SSD</h3>
+<p>传统硬盘是机械式硬盘，而 SSD 盘同U盘一样，基于闪存，也就是 Flash Memory ，它不存在机械部件，这就是它快的原因。 SSD 全称是 Solid State Disk, 翻译过来就是固态硬盘。 不过这个“固态”和“三态”无关，不是说其他硬盘是“液态”或者是“气态”的，而是突显了其优势：稳定与牢固。</p>
+<p>于是固态硬盘的优势开始显山露水，其最大的优点是速度快，但缺点也明显，容量低，价格也很贵。所以在个人电脑中很少见到 ssd 硬盘，目前主要还是运用在要求存储速度较快的生产环境中，如数据库系统、分布式管理中心 zookeeper。</p>
+<p>按照这种想法写数据：当0 面上的某磁道空间不足时，其他数据写入第 1面相同编号的磁道上。若新磁道空间还是不足，再写第2 面相同编号的磁道上，直到同一柱面上的磁道（所有盘面上的编号相同的磁道）都不够用时才会写到新的柱面上。所以，在这一点上，盘面越多，硬盘越快。</p>
+<p>之所以把 SRAM和寄存器放到一块说，是因为很多同学在感观上觉得寄存器是 CPU 直接使用的存储单元，所以寄存器比SRAM 更快，其实它们在速度上是同级别的东西，因为寄存器和 SRAM 都是用相同的存储电路实现的，用的都是触发器，它可是工作速度极快的，属于纳秒级别。</p>
+<h3 id="微内核">微内核</h3>
+<p>微内核的优缺点分析：</p>
+<p>优点</p>
+<ul>
+<li>
+<p>易于扩展：直接添加一个用户进程即可为操作系统增加服务</p>
+</li>
+<li>
+<p>易于移植：大部分模块与底层硬件无关</p>
+</li>
+<li>
+<p>更加可靠：在内核模式运行的代码量大大减少</p>
+</li>
+<li>
+<p>更加安全：即使存在漏洞，服务与服务之间存在进程粒度隔离</p>
+</li>
+<li>
+<p>更加健壮：单个模块出现问题不会影响到系统整体</p>
+</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>性能较差：内核中的模块交互由函数调用变成了进程间通信</li>
+<li>生态欠缺：尚未形成像Linux一样具有广泛开发者的社区</li>
+<li>重用问题：重用宏内核操作系统提供兼容性，带来新问题</li>
+</ul>
 
     </div>
 
@@ -492,7 +461,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2022-03-23
+      2022-02-12
       
     </span>
   </p>
@@ -509,6 +478,7 @@
 
     <footer class="post-footer">
       <div class="post-tags">
+          <a href="https://anjanavakil.github.io/tags/cs-basic-knowledge/">CS-BASIC-KNOWLEDGE✅</a>
           <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
           
         </div>
@@ -516,7 +486,7 @@
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/code/">
+          <a class="prev" href="/post/vocabulary_2022_1_2/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -526,12 +496,12 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Code: The Hidden Language of Computer Hardware and Software</span>
+            <span class="prev-text nav-default">2022年1月~2月陌生词汇</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/effective_java_comparable/">
-            <span class="next-text nav-default">implement Comparable</span>
+          <a class="next" href="/post/the_kai_fulee_story/">
+            <span class="next-text nav-default">《世界因你不同：李开复自传》</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

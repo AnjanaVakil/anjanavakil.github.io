@@ -72,13 +72,6 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/post/effective_java_serialization/</loc>
-    <lastmod>2022-03-23T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://anjanavakil.github.io/post/effective_java_comparable/</loc>
     <lastmod>2022-03-23T13:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -114,20 +107,6 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/categories/cs/</loc>
-    <lastmod>2022-03-21T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/post/effective_java_di/</loc>
-    <lastmod>2022-03-21T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://anjanavakil.github.io/tags/book/</loc>
     <lastmod>2022-03-20T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -143,6 +122,13 @@
   
   <url>
     <loc>https://anjanavakil.github.io/tags/coders%EF%B8%8F/</loc>
+    <lastmod>2022-03-20T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/categories/cs/</loc>
     <lastmod>2022-03-20T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -247,6 +233,13 @@
   </url>
   
   <url>
+    <loc>https://anjanavakil.github.io/post/408/</loc>
+    <lastmod>2022-02-12T20:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://anjanavakil.github.io/post/the_kai_fulee_story/</loc>
     <lastmod>2022-02-10T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -282,8 +275,22 @@
   </url>
   
   <url>
+    <loc>https://anjanavakil.github.io/post/effective_java_di/</loc>
+    <lastmod>2022-01-21T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://anjanavakil.github.io/post/the_power_of_now/</loc>
     <lastmod>2022-01-19T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/effective_java_serialization/</loc>
+    <lastmod>2022-01-17T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -382,6 +389,12 @@
   <url>
     <loc>https://anjanavakil.github.io/post/a_brief_history_of_america/</loc>
     <lastmod>2021-11-12T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/blogs/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

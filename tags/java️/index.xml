@@ -17,15 +17,6 @@
     </item>
     
     <item>
-      <title>Serialization</title>
-      <link>https://anjanavakil.github.io/post/effective_java_serialization/</link>
-      <pubDate>Wed, 23 Mar 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective_java_serialization/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data representation such as JSON or</description>
-    </item>
-    
-    <item>
       <title>implement Comparable</title>
       <link>https://anjanavakil.github.io/post/effective_java_comparable/</link>
       <pubDate>Wed, 23 Mar 2022 13:15:48 +0800</pubDate>
@@ -71,15 +62,6 @@
     </item>
     
     <item>
-      <title>Dependency Injection</title>
-      <link>https://anjanavakil.github.io/post/effective_java_di/</link>
-      <pubDate>Mon, 21 Mar 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective_java_di/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility -</description>
-    </item>
-    
-    <item>
       <title>static factory method VS constructor</title>
       <link>https://anjanavakil.github.io/post/effective-java-static-factory-method/</link>
       <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
@@ -95,6 +77,24 @@
       
       <guid>https://anjanavakil.github.io/post/lambda_expression/</guid>
       <description>之前技术博客都是在CSDN上发表的，好久没用了，登录上去居然有人给我以前的博客点赞评论，尽管很少但发现还是有人看的。看了一下之前写的博客，发</description>
+    </item>
+    
+    <item>
+      <title>Dependency Injection</title>
+      <link>https://anjanavakil.github.io/post/effective_java_di/</link>
+      <pubDate>Fri, 21 Jan 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective_java_di/</guid>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility -</description>
+    </item>
+    
+    <item>
+      <title>Serialization</title>
+      <link>https://anjanavakil.github.io/post/effective_java_serialization/</link>
+      <pubDate>Mon, 17 Jan 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective_java_serialization/</guid>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data representation such as JSON or</description>
     </item>
     
   </channel>

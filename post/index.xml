@@ -26,15 +26,6 @@
     </item>
     
     <item>
-      <title>Serialization</title>
-      <link>https://anjanavakil.github.io/post/effective_java_serialization/</link>
-      <pubDate>Wed, 23 Mar 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective_java_serialization/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data representation such as JSON or</description>
-    </item>
-    
-    <item>
       <title>implement Comparable</title>
       <link>https://anjanavakil.github.io/post/effective_java_comparable/</link>
       <pubDate>Wed, 23 Mar 2022 13:15:48 +0800</pubDate>
@@ -77,15 +68,6 @@
       
       <guid>https://anjanavakil.github.io/post/effective_java_builder/</guid>
       <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 2: Consider a builder when faced with many constructor parameters 当构造函数有多个参数时，考虑使用builder模式 1. Telescoping constructor pattern - does not scale well! 1</description>
-    </item>
-    
-    <item>
-      <title>Dependency Injection</title>
-      <link>https://anjanavakil.github.io/post/effective_java_di/</link>
-      <pubDate>Mon, 21 Mar 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective_java_di/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility -</description>
     </item>
     
     <item>
@@ -155,6 +137,15 @@ The book is brief and there is not a lot of unfamiliar vocabulary so I read it i
     </item>
     
     <item>
+      <title>CS 基础知识笔记</title>
+      <link>https://anjanavakil.github.io/post/408/</link>
+      <pubDate>Sat, 12 Feb 2022 20:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/408/</guid>
+      <description>CS 基础知识的笔记，不算是总结性的笔记，只是曾经备忘录上记录下来的和对于自己陌生的点，或许应该保存到blog上，抑或是考试教育的一种印证。 CO 1</description>
+    </item>
+    
+    <item>
       <title>《世界因你不同：李开复自传》</title>
       <link>https://anjanavakil.github.io/post/the_kai_fulee_story/</link>
       <pubDate>Thu, 10 Feb 2022 14:15:48 +0800</pubDate>
@@ -179,6 +170,15 @@ The book is brief and there is not a lot of unfamiliar vocabulary so I read it i
       
       <guid>https://anjanavakil.github.io/post/read_summary_2022/</guid>
       <description>一直觉得阅读也只不过是排解人生无聊的陪伴，不太喜欢阅读如何如何好之类的说辞，但是有次在微读看到有书友这样写： 读书和思考是一件辛苦的事，像暗夜</description>
+    </item>
+    
+    <item>
+      <title>Dependency Injection</title>
+      <link>https://anjanavakil.github.io/post/effective_java_di/</link>
+      <pubDate>Fri, 21 Jan 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective_java_di/</guid>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility -</description>
     </item>
     
     <item>

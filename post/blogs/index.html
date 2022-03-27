@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Generics - Anjana</title>
+  <title> - Anjana</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原" />
+  <meta name="description" content="网上优质/自认为值得一看的 BLOG 合集： 英文： 中文：" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.93.0" />
 
 
-<link rel="canonical" href="https://anjanavakil.github.io/post/effective_java_generic/" />
+<link rel="canonical" href="https://anjanavakil.github.io/post/blogs/" />
 
 
 
@@ -59,20 +59,20 @@
 
 
 
-<meta property="og:title" content="Generics" />
-<meta property="og:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原" />
+<meta property="og:title" content="" />
+<meta property="og:description" content="网上优质/自认为值得一看的 BLOG 合集： 英文： 中文：" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://anjanavakil.github.io/post/effective_java_generic/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-03-23T20:15:48+08:00" />
-<meta property="article:modified_time" content="2022-03-23T20:15:48+08:00" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/blogs/" /><meta property="article:section" content="post" />
 
-<meta itemprop="name" content="Generics">
-<meta itemprop="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原"><meta itemprop="datePublished" content="2022-03-23T20:15:48+08:00" />
-<meta itemprop="dateModified" content="2022-03-23T20:15:48+08:00" />
-<meta itemprop="wordCount" content="925">
-<meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Generics"/>
-<meta name="twitter:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原"/>
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="网上优质/自认为值得一看的 BLOG 合集： 英文： 中文：">
+
+<meta itemprop="wordCount" content="23">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="网上优质/自认为值得一看的 BLOG 合集： 英文： 中文："/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -292,16 +292,13 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">Generics</h1>
+      <h1 class="post-title"></h1>
       
       <div class="post-meta">
-        <time datetime="2022-03-23" class="post-time">
-          2022-03-23
+        <time datetime="0001-01-01" class="post-time">
+          0001-01-01
         </time>
-        <div class="post-category">
-            <a href="https://anjanavakil.github.io/categories/effective-java/"> Effective Java📕 </a>
-            
-          </div>
+        
         
 
         
@@ -317,168 +314,15 @@
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#should-not-use-raw-types">Should not use raw types</a></li>
-    <li><a href="#list-vs-listobject"><code>List</code> VS <code>List&lt;Object&gt;</code></a></li>
-    <li><a href="#covariant-vs-invariant">Covariant VS Invariant</a></li>
-    <li><a href="#must-use-raw-types">Must use raw types</a></li>
-    <li><a href="#summary">Summary</a></li>
-  </ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <p>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。</p>
-<h1 id="item-26-dont-use-raw-types">Item 26: Don’t use raw types</h1>
-<p>请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原生态类型）</p>
-<h2 id="should-not-use-raw-types">Should not use raw types</h2>
-<p><strong>As mentioned throughout this book, it pays to discover errors as soon as possible after they are made, ideally at compile time.</strong></p>
-<p>Java 作为静态、强类型语言，最好在编译期间发现错误，写代码也倾向于：便于在编译期发现错误的代码，使用编译时信息协助排除大量运行时问题，越早发现错误越好。</p>
-<blockquote>
-<p>As noted earlier, it is legal to use raw types (generic types without their type parameters), but you should never do it. If you use raw types, you lose all the safety and expressiveness benefits of generics.</p>
-</blockquote>
-<p>如果使用 raw types ，就失去了泛型在安全性和描述性方面的所有优势。</p>
-<blockquote>
-<p>While you shouldn’t use raw types such as List, it is fine to use types that are parameterized to allow insertion of arbitrary objects, such as <code>List&lt;Object&gt;</code>.</p>
-</blockquote>
-<h2 id="list-vs-listobject"><code>List</code> VS <code>List&lt;Object&gt;</code></h2>
-<p>Just what is the difference between the raw type <code>List</code> and the parameterized type <code>List&lt;Object&gt;</code>?</p>
-<blockquote>
-<p>Loosely speaking, the former has opted out of the generic type system, while the latter has explicitly told the compiler that it is capable of holding objects of any type. While you can pass a <code>List&lt;String&gt;</code> to a parameter of type List, you can’t pass it to a parameter of type <code>List&lt;Object&gt;</code>.</p>
-</blockquote>
-<p>raw type <code>List</code>: 逃避了泛型检查。</p>
-<p>parameterized type <code>List&lt;Object&gt;</code>: 明确告知编译器能够持有任意类型的对象。</p>
-<p><code>List&lt;String&gt;</code> 可以传递给 <code>List</code> 的参数，但不能传给 <code>List&lt;Object&gt;</code> 的参数。</p>
-<blockquote>
-<p>There are <code>sub-typing</code> rules for generics, and List<!-- raw HTML omitted --> is a subtype of the raw type List, but not of the parameterized type <code>List&lt;Object&gt;</code> .</p>
-<p>As a consequence, you lose type safety if you use a raw type such as List, but not if you use a parameterized type such as <code>List&lt;Object&gt;</code>.</p>
-</blockquote>
-<p>For example:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="c1">// Fails at runtime - unsafeAdd method uses a raw type (List)! 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Raw</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">strings</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">unsafeAdd</span><span class="o">(</span><span class="n">strings</span><span class="o">,</span> <span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">42</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">strings</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">0</span><span class="o">);</span> <span class="c1">// Has compiler-generated cast
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">unsafeAdd</span><span class="o">(</span><span class="n">List</span> <span class="n">list</span><span class="o">,</span> <span class="n">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">o</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>IntelliJ IDEA报错：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Exception in thread &#34;main&#34; java.lang.ClassCastException: class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader &#39;bootstrap&#39;)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="covariant-vs-invariant">Covariant VS Invariant</h2>
-<p>Arrays are covariant. Generics are invariant.</p>
-<p>数组是协变(covariant)的，泛型、集合是不变(invariant)的。</p>
-<blockquote>
-<p>covariant:</p>
-<p>This scary-sounding word means simply that if Sub is a subtype of Super, then the array type Sub[] is a subtype of the array type Super[].</p>
-<p>invariant:</p>
-<p>for any two distinct types Type1 and Type2,<code> List&lt;Type1&gt;</code> is neither a subtype nor a supertype of <code>List&lt;Type2&gt;</code>.</p>
-</blockquote>
-<p>e.g. P=C —&gt; P[ ]=C[ ]</p>
-<p>不变的举例：</p>
-<p><img src="/image/ej_generic.png" alt="invariant"></p>
-<p>泛型的优点：</p>
-<ul>
-<li>更好的安全性：编译期就发现错误，保证类型安全</li>
-<li>更好的可读性：省去强制类型转换</li>
-</ul>
-<h2 id="must-use-raw-types">Must use raw types</h2>
-<blockquote>
-<p>There are a few minor exceptions to the rule that you should not use raw types. <strong>You must use raw types in class literals.</strong> The specification does not permit the use of parameterized types (though it does permit array types and primitive types). In other words, <code>List.class, String[].class, and int.class</code> are all legal, but <code>List&lt;String&gt;.class and List&lt;?&gt;.class</code> are not.</p>
-</blockquote>
-<h2 id="summary">Summary</h2>
-<blockquote>
-<p>In summary, using raw types can lead to exceptions at runtime, so don’t use them. They are provided only for compatibility and interoperability with legacy code that predates the introduction of generics.</p>
-</blockquote>
-<blockquote>
-<p>As a quick review, <code>Set&lt;Object&gt;</code> is a parameterized type representing a set that can contain objects of any type, <code>Set&lt;?&gt;</code> is a wildcard type representing a set that can contain only objects of some unknown type, and <code>Set</code> is a raw type, which opts out of the generic type system. The first two are safe, and the last is not.</p>
-</blockquote>
-<p>For quick reference, the terms are summarized in the following table:</p>
-<table>
-<thead>
-<tr>
-<th>Term</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Parameterized type</td>
-<td><code>List&lt;String&gt;</code></td>
-</tr>
-<tr>
-<td>Actual type Parameter</td>
-<td><code>String </code></td>
-</tr>
-<tr>
-<td>Generic type</td>
-<td><code>List&lt;E&gt;</code></td>
-</tr>
-<tr>
-<td>Formal type parameter</td>
-<td><code>E</code></td>
-</tr>
-<tr>
-<td>Unbounded wildcard type</td>
-<td><code>List&lt;?&gt;</code></td>
-</tr>
-<tr>
-<td>Raw type</td>
-<td><code>List</code></td>
-</tr>
-<tr>
-<td>Bounded type parameter</td>
-<td><code>&lt;E extends Number&gt;</code></td>
-</tr>
-<tr>
-<td>Recursive type bound</td>
-<td><code>&lt;T extends Comparable&lt;T&gt;&gt;</code></td>
-</tr>
-<tr>
-<td>Bounded wildcard type</td>
-<td><code>List&lt;? extends Number&gt;</code></td>
-</tr>
-<tr>
-<td>Generic method</td>
-<td><code>static &lt;E&gt; List&lt;E&gt; asList(E[] a)</code></td>
-</tr>
-<tr>
-<td>Type token</td>
-<td><code> String.class</code></td>
-</tr>
-</tbody>
-</table>
+      <p>网上优质/自认为值得一看的 BLOG 合集：</p>
+<p>英文：</p>
+<p>中文：</p>
 
     </div>
 
@@ -492,14 +336,14 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2022-03-23
+      0001-01-01
       
     </span>
   </p>
   
   <p class="copyright-item">
     <span class="item-title">License</span>
-    <span class="item-content"><a href="https://github.com/gohugoio/hugoBasicExample" rel="noopener" target="_blank">See origin</a></span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
   </p>
 </div>
 
@@ -508,15 +352,12 @@
     
 
     <footer class="post-footer">
-      <div class="post-tags">
-          <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
-          
-        </div>
+      
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/code/">
+          <a class="prev" href="/post/a_brief_history_of_america/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -526,23 +367,10 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Code: The Hidden Language of Computer Hardware and Software</span>
+            <span class="prev-text nav-default">《美国简明史》</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/effective_java_comparable/">
-            <span class="next-text nav-default">implement Comparable</span>
-            <span class="prev-text nav-mobile">Next</span>
-            
-            <i class="iconfont">
-              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
-</svg>
-
-            </i>
-          </a>
       </nav>
     </footer>
   </article>

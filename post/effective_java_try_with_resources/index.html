@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Prefer try-with-resources to try-finally">
 <meta itemprop="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path));"><meta itemprop="datePublished" content="2022-03-22T14:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-03-22T14:15:48+08:00" />
-<meta itemprop="wordCount" content="2026">
+<meta itemprop="wordCount" content="2008">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Prefer try-with-resources to try-finally"/>
 <meta name="twitter:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path));"/>
@@ -574,7 +574,7 @@
 </div>
 </div><p>从源码可以看到：</p>
 <p>The close() method of an  AutoCloseable object is called <code>automatically</code> when exiting a <code>try-with-resources</code> block for which the object has been declared in the resource specification header.</p>
-<p>看到<code>Auther: Josh Bloch</code>，是Effective Java这本书的作者本人了🙌🏻。</p>
+<p>看到 <code>Auther: Josh Bloch</code>，是 Effective Java 这本书的作者本人了🙌。</p>
 <p>interface Closeable extends AutoCloseable 的源码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
