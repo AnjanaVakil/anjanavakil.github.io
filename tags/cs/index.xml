@@ -8,7 +8,7 @@
     <language>en</language>
     <lastBuildDate>Thu, 24 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Cracking the Oyster</title>
+      <title>Cracking the Oyster 开篇</title>
       <link>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</link>
       <pubDate>Thu, 24 Mar 2022 20:15:48 +0800</pubDate>
       
@@ -142,6 +142,15 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
       
       <guid>https://anjanavakil.github.io/post/effective_java_di/</guid>
       <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility -</description>
+    </item>
+    
+    <item>
+      <title>Recursion</title>
+      <link>https://anjanavakil.github.io/post/leetcode-recursion/</link>
+      <pubDate>Tue, 18 Jan 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/leetcode-recursion/</guid>
+      <description>自己一直还是比较努力的，不知道“摆烂”是种什么状态，但最近的自己迷茫，深深感觉到现在的自己不就处于“摆烂”的状态吗？没有目标没有计划，只失败</description>
     </item>
     
     <item>
