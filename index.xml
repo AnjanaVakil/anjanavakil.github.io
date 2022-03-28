@@ -6,122 +6,10 @@
     <description>Recent content on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Mar 2022 20:15:48 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 24 Mar 2022 20:15:48 +0800</lastBuildDate>
     
         <atom:link href="https://anjanavakil.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Coders At Work 编程人生</title>
-      <link>https://anjanavakil.github.io/post/coders_at_work/</link>
-      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/coders_at_work/</guid>
-      
-        <description>&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;豆瓣🔗:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/3673223/&#34;&gt;Coders At Work&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/5355285/&#34;&gt;《编程人生：15位软件先驱访谈录》&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获。第二次重新拾起中文版，再对照英文版，还是学到了蛮多东西的。通过计算机行业顶级程序员的谈话，对编程、程序员有了更多的理解。&lt;/p&gt;
-&lt;h2 id=&#34;jamie-zawinski&#34;&gt;Jamie Zawinski&lt;/h2&gt;
-&lt;p&gt;Lisp程序员，XEmacs开发者，Netscape浏览器和Mozilla核心开发者。&lt;/p&gt;
-&lt;p&gt;看了第一篇Jamie Zawinski的访谈，就带给我很多的思考：&lt;/p&gt;
-&lt;p&gt;1、每个人都有自己的路，对于人生的意义我想只有个人才知道是不是这短暂一生想要追求的。Zawinski只有大概高中的学历，但并不妨碍他在计算机领域的贡献和对于编程的热爱。他读书很少，但是他有着好奇心，通过看源码和官方的手册学习。&lt;/p&gt;
-&lt;p&gt;2、他强调了“完成比完美重要” 。&lt;code&gt;“公司付你钱不是为了让你来写代码，而是要发布产品”&lt;/code&gt;商业就是这样，一个产品更重要的是时间和时机。&lt;/p&gt;
-&lt;p&gt;3、提到一些比较古老的编程语言，并没有学过，所以对于自己有点陌生。倒是让我想起&lt;code&gt;Alan J. Perlis&lt;/code&gt;说过的&lt;code&gt;“A language that doesn&#39;t affect the way you think about programming, is not worth knowing. ”&lt;/code&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;所以每年接触学习一种不同的语言，不依赖于已有的思维定式，转换思维。（和Brad Fitzpatrick提高编程能力的方法不谋而合：下文Brad Fitzpatrick部分的第8点）&lt;/p&gt;
-&lt;p&gt;4、动手实践的重要性：自己动手太少，多实践。Talk is cheap. Show me the code.&lt;/p&gt;
-&lt;p&gt;5、大佬对于C++的抨击，这倒是让我有些惊讶。自己的潜意识认为C++因为难所以比较高不可攀的感觉，自己的固化思维真是害自己不浅。&lt;/p&gt;
-&lt;p&gt;6、“不要害怕自己的无知”：本来自己是不怕问问题的，但后来不知道为什么怕暴露自己的缺点和无知，渐渐问人问题也犹犹豫豫磕磕巴巴的，所以勇敢地问出来。“不知道某件东西并不代表你笨，只是暂时还不知道罢了”。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;2022.3.27添加：&lt;/p&gt;
-&lt;p&gt;今天看阮一峰的一篇文章：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.ruanyifeng.com/blog/2011/12/pain_builds_character.html&#34;&gt;痛苦造就性格（也许还造就产品）&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;正好看到对Jamie Zawinski的介绍，还发现了他的个人网站，好酷：&lt;/p&gt;
-&lt;p&gt;网站的home是这个：&lt;a href=&#34;https://www.jwz.org/blog/&#34;&gt;https://www.jwz.org/blog/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;但如果输入：&lt;a href=&#34;https://www.jwz.org/&#34;&gt;https://www.jwz.org/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;第一眼真的被吸引到，甚至是被折服。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;brad-fitzpatrick&#34;&gt;Brad Fitzpatrick&lt;/h2&gt;
-&lt;p&gt;书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。&lt;/p&gt;
-&lt;h3 id=&#34;1学习东西&#34;&gt;1、学习东西&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Seibel: It does seem that while you were writing all this stuff because you needed it, you also enjoyed doing it.&lt;/p&gt;
-&lt;p&gt;Fitzpatrick: Oh, yeah. I definitely try to find an excuse to use anything, to learn it. Because you never learn something until you have to write something in it, until you have to live and breathe it. It&amp;rsquo;s one thing to go learn a language for fun, but until you write some big, complex system in it, you don&amp;rsquo;t really learn it.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;发现自己学习计算机的一些技术时就是三分钟热度，入门然后就没了，导致没有对哪一门语言/技术精通。认识到了大学本科的一些弊端，知道了很多技术，但10,000小时约等于3年，大学4年只是入门了。人生的路很长，大部分人的大部分时间都是要在工作中度过的，所以选择自己热爱的然后精进技术。就像费曼(Feynman)说的：&lt;code&gt;仅仅知道一个事物的名称其实等同于对其一无所知&lt;/code&gt;。简单知道一门语言和技术的名称，仅仅只是信息而已。对于我这样的普通人，10,000小时的训练必不可少。&lt;/p&gt;
-&lt;h3 id=&#34;2当代程序员是否有必要学习汇编语言芯片等&#34;&gt;2、当代程序员是否有必要学习汇编语言/芯片等&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;We were getting a lot of wins for really low-level stuff. I had somebody recently tell me about something: “Java takes care of that; we don&amp;rsquo;t have to deal with that.” I was like, “No, Java can&amp;rsquo;t take care of this because I know what kernel version you&amp;rsquo;re using and the kernel doesn&amp;rsquo;t support it. Your virtual machine may be hiding that from you and giving you some abstraction that makes it look like that&amp;rsquo;s efficient, but it&amp;rsquo;s only efficient when you&amp;rsquo;re running it on this kernel.” I get frustrated if people don&amp;rsquo;t understand at least the surface of the whole stack.&lt;/p&gt;
-&lt;p&gt;In practice, nothing works. There are all these beautiful abstractions that are backed by shit. The implementation of libraries that look like they could be beautiful are shit. And so if you&amp;rsquo;re the one responsible for the cost of buying servers, or reliability—if you&amp;rsquo;re on call for pages—it helps to actually know what&amp;rsquo;s going on under the covers and not trust everyone else&amp;rsquo;s libraries, and code, and interfaces.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Actually the JVM isn&amp;rsquo;t that bad. I guess it&amp;rsquo;s when people have blind faith in their abstractions without understanding what&amp;rsquo;s going on.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;3学校课程的批判&#34;&gt;3、学校课程的批判&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Seibel: You had a lot of programming experience by the time you got to college and studied computer science. How did that work out?&lt;/p&gt;
-&lt;p&gt;Fitzpatrick: I skipped a lot of my early C.S. classes, because they were just really boring. I would go and take the tests. Then towards the end they got kind of fun, once you get to the 300- and 400-level classes. But right when it got interesting, I graduated. And they wouldn&amp;rsquo;t let me take the fun grad-level classes, because I wasn&amp;rsquo;t a grad student.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;现在互联网的资源太多了。MIT、Stanford、CMU等大学的课程recording、lab都可以找到资源，所以更加开放的世界，当下的我们应该好好珍惜利用。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;I remember in the compiler class, the final project was we had to take this existing language that we had been playing with and add a whole bunch of features, including one feature of our own choosing as the bonus part of the project. So I chose to implement run-time array bounds checking. Anyway, the professor took our compiled binary and ran his test suite against it, and it failed a couple of his tests. He was like, “Sorry, you get a C because you failed my unit test,” When I went to look at it, I was like, “You have off-by-﻿ones in your test suite.” So he gave me the grade back and I got an A, but I never got the bonus points for adding a feature to the language. I was angry at school at that point.&lt;/p&gt;
-&lt;p&gt;And I remember our database class was taught by someone who, it seemed, had no real-world experience with databases. At this point I&amp;rsquo;d worked with Oracle, Microsoft Server, and tons of MySQL. So I was asking all these real-world questions I actually wanted answers to—things that were melting right now—they would just give me some textbook answer. I&amp;rsquo;m like, “No, no. That doesn&amp;rsquo;t work.”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;一直认为美国的课程老师都会比较灵活，没想到还是遭到了大佬的批判与吐槽。&lt;/p&gt;
-&lt;h3 id=&#34;4学术界和工业界paper的交界处&#34;&gt;4、学术界和工业界paper的交界处&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Seibel: You just mentioned papers from the academy and from industry. Do you have any sense of whether those two meet in the right place these days?&lt;/p&gt;
-&lt;p&gt;Fitzpatrick: They kind of feel about the same to me. But it&amp;rsquo;s more interesting, a lot of times, to read the industry ones because you know they did it to solve a problem and their solution works as opposed to, “We&amp;rsquo;d think it would be cool if—” There&amp;rsquo;s a lot of crazier stuff that comes out of academia and it doesn&amp;rsquo;t actually work, so it&amp;rsquo;s just a crazy idea. Maybe they turn it into commercial things later.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;5设计软件&#34;&gt;5、设计软件&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Seibel: How do you design software?&lt;/p&gt;
-&lt;p&gt;Fitzpatrick: I start with interfaces between things. What are the common methods, or the common RPCs, or the common queries. If it&amp;rsquo;s storage, I try to think, what are the common queries? What indexes do we need? How are the data going to be laid out on disk? Then I write dummy mocks for different parts and flesh it out over time.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;6先做hard的事&#34;&gt;6、先做hard的事&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Seibel: After you write a bunch of code do you ever discover that you really need to reconsider your original plan?&lt;/p&gt;
-&lt;p&gt;Fitzpatrick: Sometimes. But I&amp;rsquo;ve started with the hard bits or the parts I was unsure of, and tried to implement those parts first. I try not to put off anything hard or surprising to the end; I enjoy doing the hard things first. The projects that I never finish—my friends give me shit that it&amp;rsquo;s a whole bunch—it&amp;rsquo;s because I did the hard part and I learned what I wanted to learn and I never got around to doing the boring stuff.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;先做hard的事，学习想要学习的东西，至于boring的事留给别人做就好。&lt;/p&gt;
-&lt;h3 id=&#34;7招聘和辨识优秀的程序员&#34;&gt;7、招聘和辨识优秀的程序员&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Seibel: So you&amp;rsquo;ve hired for your own company, and I assume you&amp;rsquo;ve been involved in hiring at Google. How do you recognize a great programmer?&lt;/p&gt;
-&lt;p&gt;Fitzpatrick: I often look for people that have done, like, a lot of stuff on their own that wasn&amp;rsquo;t asked of them. Not just their school project or just what their previous employer had them do. Somebody who was passionate about something and had some side project. How did they maintain it and how serious did they get with it? Or do they do a lot of quick hacks and abandon them?&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;8提高编程能力&#34;&gt;8、提高编程能力&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Seibel: Is there anything that you did specifically to improve your skill as a programmer?&lt;/p&gt;
-&lt;p&gt;Fitzpatrick: Sometimes I&amp;rsquo;ll go out of my way to write something in a language that I would rather not write it in—and I know it&amp;rsquo;ll take me longer to write in that language—because I know I&amp;rsquo;ll be better in the end. Like when I got to Google, there were a lot of times where I was writing one-off things and I&amp;rsquo;d go to write it in Perl. Then I&amp;rsquo;d be like, “Ah, no, I should write this in Python.” Now I write tons of Python and it doesn&amp;rsquo;t bother me—I barely have to look things up. Perlbal was originally written in C# just to learn that.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;9编程能力之外的能力&#34;&gt;9、编程能力之外的能力&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Seibel: And are there skills apart from programming itself that you think would-be programmers should develop?&lt;/p&gt;
-&lt;p&gt;Fitzpatrick: There&amp;rsquo;s communication, but I&amp;rsquo;m not sure that&amp;rsquo;s something you can really practice. Deal with people on mailing lists a lot. Written communication style goes a long way. But that&amp;rsquo;s a general life thing, right? There was some study about who was successful after high school. Was it the smart kids or the social kids? It turned out that it was the social kids who ended up making all the money in life, not the people with the good grades. I thought that was interesting.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;10编程是年轻人的游戏&#34;&gt;10、编程是年轻人的游戏？&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Seibel: You&amp;rsquo;re 28 now. Do you have any worries that programming is sort of a young person&amp;rsquo;s game, that you&amp;rsquo;re going to lose a step as you get older?&lt;/p&gt;
-&lt;p&gt;Fitzpatrick: No. The worst case, I could always just stop and work on fun things on my own. I don&amp;rsquo;t feel like I&amp;rsquo;m competing with anyone right now and I don&amp;rsquo;t really care if other people are better because I feel like there are tons of people who are better already. I figure we are always in the middle anyway, so I&amp;rsquo;m happy to stay in the middle.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;全文采访的人物中就 Fitzpatrick 最年轻了，提问者居然问了年龄这件事，难道是因为年轻的缘故吗😳？&lt;/p&gt;
-&lt;p&gt;尤其喜欢这句&lt;code&gt;I don&#39;t really care if other people are better because I feel like there are tons of people who are better already. &lt;/code&gt;好率性🙌。&lt;/p&gt;
-&lt;p&gt;15位软件先驱的访谈，暂时看完了前两位。未完待续&amp;hellip;&amp;hellip;.&lt;/p&gt;
-&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Epigrams on Programming (&lt;a href=&#34;http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html&#34;&gt;http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html&lt;/a&gt;)&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/section&gt;
-</description>
-      
-    </item>
     
     <item>
       <title>Code: The Hidden Language of Computer Hardware and Software</title>
@@ -346,6 +234,82 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/wechat.jpg&#34; alt=&#34;Keep&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如果春天要来，大地就使它一点点地完成🍃。&lt;/p&gt;
 &lt;p&gt;“Think before you speak. Read before you think.” —Fran Lebowitz&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Cracking the Oyster</title>
+      <link>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</link>
+      <pubDate>Thu, 24 Mar 2022 20:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</guid>
+      
+        <description>&lt;p&gt;《编程珠玑》的笔记。&lt;/p&gt;
+&lt;p&gt;作者 Jon Bentley 推荐的阅读方法，因此每次完成一章，重点是自己思考习题。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;One hint about reading the essays: don’t go too fast. &lt;code&gt;Read them carefully, one per sitting. &lt;/code&gt;Try the problems as they are posed — some of them look easy until you’ve butted your head against them for an hour or two. Afterwards, work hard on the problems at the end of each column: most of what you learn from this book will come out the end of your pencil as you scribble down your solutions. If possible, discuss your ideas with friends and colleagues before peeking at the hints and solutions in the back of the book. The further reading at the end of each chapter isn’t intended as a scholarly reference list; I’ve recommended some good books that are an important part of my personal library.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;column-1-cracking-the-oyster&#34;&gt;Column 1: Cracking the Oyster&lt;/h1&gt;
+&lt;h2 id=&#34;问题描述&#34;&gt;问题描述&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;输入：一个最多包含 n 个正整数的文件，每个数都小于 n，其中 n=10^7。如果在输入文件中有任何整数重复出现就是致命错误。没有其他数据与该整数相关联。
+输出：按升序排列的输入整数的列表。
+约束：最多有（大约）1 MB的内存空间可用，有充足的磁盘存储空间可用。运行时间最多几分钟，运行时间为10秒就不需要进一步优化了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;程序设计&#34;&gt;程序设计&lt;/h2&gt;
+&lt;p&gt;文件最多包含1千万条记录，每条记录都是7位的整数。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果每个号码都使用7个字节来存储，那么在可用的1 MB存储空间里大约可以存143 000个号码。如果每个号码都使用32位整数来表示的话，在1 MB存储空间里就可以存储250 000个号码。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;7B: 100 0000/7 = 142,857.1428571429 即143 000个号码&lt;/p&gt;
+&lt;p&gt;32b=4B: 100 0000/4=250,000&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;因此，可以使用遍历输入文件40趟的程序来完成排序。在第一趟遍历中，将0至249 999之间的任何整数都读入内存，并对这（最多）250 000 个整数进行排序，然后写到输出文件中。第二趟遍历排序250 000至499 999之间的整数，依此类推，到第40趟遍历的时候对9 750 000至9 999 999之间的整数进行排序。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;解决方法：&lt;/p&gt;
+&lt;p&gt;1、归并排序&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;读入输入文件1次&lt;/li&gt;
+&lt;li&gt;需要&lt;code&gt;工作文件&lt;/code&gt;的帮助完成排序，工作文件需要多次读写&lt;/li&gt;
+&lt;li&gt;写入输出文件1次&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2、多遍排序&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;读入输入文件多次&lt;/li&gt;
+&lt;li&gt;不需要中间文件&lt;/li&gt;
+&lt;li&gt;写入输出文件1次&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;3、神奇排序&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;读入输入文件1次&lt;/li&gt;
+&lt;li&gt;不需要中间文件&lt;/li&gt;
+&lt;li&gt;写入输出文件1次&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;只有在输入文件中的所有整数都可以在可用的1 MB内存中表示的时候才能够实现该方案。于是问题就归结为是否能够用大约800万个可用位来表示最多1 000万个互异的整数。&lt;/p&gt;
+&lt;p&gt;//1MB=10^6B=8*10^6b 即800万个可用位&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;实现概要&#34;&gt;实现概要&lt;/h2&gt;
+&lt;p&gt;800万个可用位——&amp;gt;1 000万个互异的整数&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由是观之，应该用&lt;code&gt;位图&lt;/code&gt;或&lt;code&gt;位向量&lt;/code&gt;表示集合。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;每个7位十进制整数表示一个小于1 000万的整数。我们使用一个具有1 000万个位的字符串来表示这个文件，其中，当且仅当整数i在文件中存在时，第i位为1。（那个程序员后来找到了200万个稀疏位，习题5研究了最大存储空间严格限制为1 MB的情况。）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这种表示利用了该问题的三个在排序问题中不常见的属性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;输入数据限制在相对较小的范围内；&lt;/li&gt;
+&lt;li&gt;数据没有重复；&lt;/li&gt;
+&lt;li&gt;对于每条记录而言，除了单一整数外，没有任何其他关联数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;原理&#34;&gt;原理&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;位图数据结构：&lt;/p&gt;
+&lt;p&gt;该数据结构描述了一个&lt;code&gt;有限定义域内&lt;/code&gt;的&lt;code&gt;稠密集合&lt;/code&gt;，其中的每一个元素最多出现一次并且没有其他任何数据与该元素相关联。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;习题&#34;&gt;习题&lt;/h2&gt;
 </description>
       
     </item>
@@ -1739,9 +1703,136 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     </item>
     
     <item>
+      <title>Coders At Work: Brad Fitzpatrick</title>
+      <link>https://anjanavakil.github.io/post/coders_at_work-brad-fitzpatrick/</link>
+      <pubDate>Sun, 20 Mar 2022 15:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/coders_at_work-brad-fitzpatrick/</guid>
+      
+        <description>&lt;h2 id=&#34;brad-fitzpatrick&#34;&gt;Brad Fitzpatrick&lt;/h2&gt;
+&lt;p&gt;书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。&lt;/p&gt;
+&lt;h3 id=&#34;1学习东西&#34;&gt;1、学习东西&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: It does seem that while you were writing all this stuff because you needed it, you also enjoyed doing it.&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: Oh, yeah. I definitely try to find an excuse to use anything, to learn it. Because you never learn something until you have to write something in it, until you have to live and breathe it. It&amp;rsquo;s one thing to go learn a language for fun, but until you write some big, complex system in it, you don&amp;rsquo;t really learn it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;发现自己学习计算机的一些技术时就是三分钟热度，入门然后就没了，导致没有对哪一门语言/技术精通。认识到了大学本科的一些弊端，知道了很多技术，但10,000小时约等于3年，大学4年只是入门了。人生的路很长，大部分人的大部分时间都是要在工作中度过的，所以选择自己热爱的然后精进技术。就像费曼(Feynman)说的：&lt;code&gt;仅仅知道一个事物的名称其实等同于对其一无所知&lt;/code&gt;。简单知道一门语言和技术的名称，仅仅只是信息而已。对于我这样的普通人，10,000小时的训练必不可少。&lt;/p&gt;
+&lt;h3 id=&#34;2当代程序员是否有必要学习汇编语言芯片等&#34;&gt;2、当代程序员是否有必要学习汇编语言/芯片等&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We were getting a lot of wins for really low-level stuff. I had somebody recently tell me about something: “Java takes care of that; we don&amp;rsquo;t have to deal with that.” I was like, “No, Java can&amp;rsquo;t take care of this because I know what kernel version you&amp;rsquo;re using and the kernel doesn&amp;rsquo;t support it. Your virtual machine may be hiding that from you and giving you some abstraction that makes it look like that&amp;rsquo;s efficient, but it&amp;rsquo;s only efficient when you&amp;rsquo;re running it on this kernel.” I get frustrated if people don&amp;rsquo;t understand at least the surface of the whole stack.&lt;/p&gt;
+&lt;p&gt;In practice, nothing works. There are all these beautiful abstractions that are backed by shit. The implementation of libraries that look like they could be beautiful are shit. And so if you&amp;rsquo;re the one responsible for the cost of buying servers, or reliability—if you&amp;rsquo;re on call for pages—it helps to actually know what&amp;rsquo;s going on under the covers and not trust everyone else&amp;rsquo;s libraries, and code, and interfaces.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Actually the JVM isn&amp;rsquo;t that bad. I guess it&amp;rsquo;s when people have blind faith in their abstractions without understanding what&amp;rsquo;s going on.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;3学校课程的批判&#34;&gt;3、学校课程的批判&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: You had a lot of programming experience by the time you got to college and studied computer science. How did that work out?&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: I skipped a lot of my early C.S. classes, because they were just really boring. I would go and take the tests. Then towards the end they got kind of fun, once you get to the 300- and 400-level classes. But right when it got interesting, I graduated. And they wouldn&amp;rsquo;t let me take the fun grad-level classes, because I wasn&amp;rsquo;t a grad student.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;现在互联网的资源太多了。MIT、Stanford、CMU等大学的课程recording、lab都可以找到资源，所以更加开放的世界，当下的我们应该好好珍惜利用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I remember in the compiler class, the final project was we had to take this existing language that we had been playing with and add a whole bunch of features, including one feature of our own choosing as the bonus part of the project. So I chose to implement run-time array bounds checking. Anyway, the professor took our compiled binary and ran his test suite against it, and it failed a couple of his tests. He was like, “Sorry, you get a C because you failed my unit test,” When I went to look at it, I was like, “You have off-by-﻿ones in your test suite.” So he gave me the grade back and I got an A, but I never got the bonus points for adding a feature to the language. I was angry at school at that point.&lt;/p&gt;
+&lt;p&gt;And I remember our database class was taught by someone who, it seemed, had no real-world experience with databases. At this point I&amp;rsquo;d worked with Oracle, Microsoft Server, and tons of MySQL. So I was asking all these real-world questions I actually wanted answers to—things that were melting right now—they would just give me some textbook answer. I&amp;rsquo;m like, “No, no. That doesn&amp;rsquo;t work.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一直认为美国的课程老师都会比较灵活，没想到还是遭到了大佬的批判与吐槽。&lt;/p&gt;
+&lt;h3 id=&#34;4学术界和工业界paper的交界处&#34;&gt;4、学术界和工业界paper的交界处&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: You just mentioned papers from the academy and from industry. Do you have any sense of whether those two meet in the right place these days?&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: They kind of feel about the same to me. But it&amp;rsquo;s more interesting, a lot of times, to read the industry ones because you know they did it to solve a problem and their solution works as opposed to, “We&amp;rsquo;d think it would be cool if—” There&amp;rsquo;s a lot of crazier stuff that comes out of academia and it doesn&amp;rsquo;t actually work, so it&amp;rsquo;s just a crazy idea. Maybe they turn it into commercial things later.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;5设计软件&#34;&gt;5、设计软件&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: How do you design software?&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: I start with interfaces between things. What are the common methods, or the common RPCs, or the common queries. If it&amp;rsquo;s storage, I try to think, what are the common queries? What indexes do we need? How are the data going to be laid out on disk? Then I write dummy mocks for different parts and flesh it out over time.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;6先做hard的事&#34;&gt;6、先做hard的事&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: After you write a bunch of code do you ever discover that you really need to reconsider your original plan?&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: Sometimes. But I&amp;rsquo;ve started with the hard bits or the parts I was unsure of, and tried to implement those parts first. I try not to put off anything hard or surprising to the end; I enjoy doing the hard things first. The projects that I never finish—my friends give me shit that it&amp;rsquo;s a whole bunch—it&amp;rsquo;s because I did the hard part and I learned what I wanted to learn and I never got around to doing the boring stuff.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;先做hard的事，学习想要学习的东西，至于boring的事留给别人做就好。&lt;/p&gt;
+&lt;h3 id=&#34;7招聘和辨识优秀的程序员&#34;&gt;7、招聘和辨识优秀的程序员&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: So you&amp;rsquo;ve hired for your own company, and I assume you&amp;rsquo;ve been involved in hiring at Google. How do you recognize a great programmer?&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: I often look for people that have done, like, a lot of stuff on their own that wasn&amp;rsquo;t asked of them. Not just their school project or just what their previous employer had them do. Somebody who was passionate about something and had some side project. How did they maintain it and how serious did they get with it? Or do they do a lot of quick hacks and abandon them?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;8提高编程能力&#34;&gt;8、提高编程能力&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: Is there anything that you did specifically to improve your skill as a programmer?&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: Sometimes I&amp;rsquo;ll go out of my way to write something in a language that I would rather not write it in—and I know it&amp;rsquo;ll take me longer to write in that language—because I know I&amp;rsquo;ll be better in the end. Like when I got to Google, there were a lot of times where I was writing one-off things and I&amp;rsquo;d go to write it in Perl. Then I&amp;rsquo;d be like, “Ah, no, I should write this in Python.” Now I write tons of Python and it doesn&amp;rsquo;t bother me—I barely have to look things up. Perlbal was originally written in C# just to learn that.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;9编程能力之外的能力&#34;&gt;9、编程能力之外的能力&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: And are there skills apart from programming itself that you think would-be programmers should develop?&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: There&amp;rsquo;s communication, but I&amp;rsquo;m not sure that&amp;rsquo;s something you can really practice. Deal with people on mailing lists a lot. Written communication style goes a long way. But that&amp;rsquo;s a general life thing, right? There was some study about who was successful after high school. Was it the smart kids or the social kids? It turned out that it was the social kids who ended up making all the money in life, not the people with the good grades. I thought that was interesting.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;10编程是年轻人的游戏&#34;&gt;10、编程是年轻人的游戏？&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Seibel: You&amp;rsquo;re 28 now. Do you have any worries that programming is sort of a young person&amp;rsquo;s game, that you&amp;rsquo;re going to lose a step as you get older?&lt;/p&gt;
+&lt;p&gt;Fitzpatrick: No. The worst case, I could always just stop and work on fun things on my own. I don&amp;rsquo;t feel like I&amp;rsquo;m competing with anyone right now and I don&amp;rsquo;t really care if other people are better because I feel like there are tons of people who are better already. I figure we are always in the middle anyway, so I&amp;rsquo;m happy to stay in the middle.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;全文采访的人物中就 Fitzpatrick 最年轻了，提问者居然问了年龄这件事，难道是因为年轻的缘故吗😳？&lt;/p&gt;
+&lt;p&gt;尤其喜欢这句&lt;code&gt;I don&#39;t really care if other people are better because I feel like there are tons of people who are better already. &lt;/code&gt;好率性🙌。&lt;/p&gt;
+&lt;p&gt;15位软件先驱的访谈，暂时看完了前两位。未完待续&amp;hellip;&amp;hellip;.&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Coders At Work: Jamie Zawinski</title>
+      <link>https://anjanavakil.github.io/post/coders_at_work-jamie-zawinski/</link>
+      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/coders_at_work-jamie-zawinski/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;豆瓣🔗:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/3673223/&#34;&gt;Coders At Work&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/5355285/&#34;&gt;《编程人生：15位软件先驱访谈录》&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获。第二次重新拾起中文版，再对照英文版，还是学到了蛮多东西的。通过计算机行业顶级程序员的谈话，对编程、程序员有了更多的理解。&lt;/p&gt;
+&lt;h2 id=&#34;jamie-zawinski&#34;&gt;Jamie Zawinski&lt;/h2&gt;
+&lt;p&gt;Lisp程序员，XEmacs开发者，Netscape浏览器和Mozilla核心开发者。&lt;/p&gt;
+&lt;p&gt;看了第一篇Jamie Zawinski的访谈，就带给我很多的思考：&lt;/p&gt;
+&lt;p&gt;1、每个人都有自己的路，对于人生的意义我想只有个人才知道是不是这短暂一生想要追求的。Zawinski只有大概高中的学历，但并不妨碍他在计算机领域的贡献和对于编程的热爱。他读书很少，但是他有着好奇心，通过看源码和官方的手册学习。&lt;/p&gt;
+&lt;p&gt;2、他强调了“完成比完美重要” 。&lt;code&gt;“公司付你钱不是为了让你来写代码，而是要发布产品”&lt;/code&gt;商业就是这样，一个产品更重要的是时间和时机。&lt;/p&gt;
+&lt;p&gt;3、提到一些比较古老的编程语言，并没有学过，所以对于自己有点陌生。倒是让我想起&lt;code&gt;Alan J. Perlis&lt;/code&gt;说过的&lt;code&gt;“A language that doesn&#39;t affect the way you think about programming, is not worth knowing. ”&lt;/code&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;所以每年接触学习一种不同的语言，不依赖于已有的思维定式，转换思维。（和Brad Fitzpatrick提高编程能力的方法不谋而合：下文Brad Fitzpatrick部分的第8点）&lt;/p&gt;
+&lt;p&gt;4、动手实践的重要性：自己动手太少，多实践。Talk is cheap. Show me the code.&lt;/p&gt;
+&lt;p&gt;5、大佬对于C++的抨击，这倒是让我有些惊讶。自己的潜意识认为C++因为难所以比较高不可攀的感觉，自己的固化思维真是害自己不浅。&lt;/p&gt;
+&lt;p&gt;6、“不要害怕自己的无知”：本来自己是不怕问问题的，但后来不知道为什么怕暴露自己的缺点和无知，渐渐问人问题也犹犹豫豫磕磕巴巴的，所以勇敢地问出来。“不知道某件东西并不代表你笨，只是暂时还不知道罢了”。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;2022.3.27添加：&lt;/p&gt;
+&lt;p&gt;今天看阮一峰的一篇文章：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.ruanyifeng.com/blog/2011/12/pain_builds_character.html&#34;&gt;痛苦造就性格（也许还造就产品）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;正好看到对Jamie Zawinski的介绍，还发现了他的个人网站，好酷：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jwz.org/&#34;&gt;https://www.jwz.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;第一眼真的被吸引到，甚至是被折服。刚开始不知道怎么操作，仔细一看发现左边是十六进制，右边对应着他的博客目录之类的，有些内容是可以点击的。&lt;/p&gt;
+&lt;p&gt;网站的home是这个：&lt;a href=&#34;https://www.jwz.org/blog/&#34;&gt;https://www.jwz.org/blog/&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;P.S. 这边记录下自己的一点小感想。发现自己是读过阮一峰的这篇关于Jamie Zawinski的博客的，在他的博客集结成的书《前方的路》。&lt;/p&gt;
+&lt;p&gt;1、当时是今年过年前的隔离期间看的，连续看了他的两本书&lt;a href=&#34;https://book.douban.com/subject/30259509/&#34;&gt;《未来世界的幸存者》&lt;/a&gt;&lt;a href=&#34;https://book.douban.com/subject/30234758/&#34;&gt;《前方的路》&lt;/a&gt;。也有感触但并没有看博客所带来的感触多，两本书很快看完觉得一般就没写书评之类的。但是再读blog，发现blog还是适合浏览器网络端浏览的。blog中给出了链接，并且还给出了英语原文，毕竟相当一部分计算机博客内容都会引用美国的内容和网页。所以网页端观感更好收获也较多一些。书本更厚重，对文字内容的要求就更高，所以说实话这样的博客显然是不适合出书的，在作者的网页看的效果会更好。&lt;/p&gt;
+&lt;p&gt;感叹超链接(Hyperlink)带来的便利，只需轻轻的点击就可以轻而易举访问世界各地的互联网资源。&lt;/p&gt;
+&lt;p&gt;2、第一遍读的时候我对Jamie Zawinski并没有了解，基于已有的知识和认知，文章并不足以触动我。而读过《编程人生》之后，再读感触颇多，所以这也启发我读书不在多，在精。之前看过的好书是可以多次翻看的，每次肯定会有不同的收获。&lt;/p&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Epigrams on Programming (&lt;a href=&#34;http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html&#34;&gt;http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html&lt;/a&gt;)&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>static factory method VS constructor</title>
       <link>https://anjanavakil.github.io/post/effective-java-static-factory-method/</link>
-      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
+      <pubDate>Sat, 19 Mar 2022 10:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/effective-java-static-factory-method/</guid>
       
@@ -3038,138 +3129,6 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;p&gt;1、对一些事物不同维度和方向的思考：作为金融商业领域的小白，作者对于每本书的解说分析，可以带来启发式的思考，就已经足够厉害。独立思考与深入思考正是自己所欠缺、需要耐心培养的能力。&lt;/p&gt;
 &lt;p&gt;2、从吴晓波的文字中，可以看到理性的述说，感性的评论。推荐的书籍自己读过寥寥几本，很多知识都在自己的专业知识范畴之外，但是作者加入了一些叙述性的有趣故事，再加上细腻的文笔，整本书读起来也不枯燥，反而有点喜欢，有种奇怪的知识又增加了的感觉。&lt;/p&gt;
 &lt;p&gt;以后读了这本书中的经典书籍后再回过头来看作者的分析，应该会有更深入的理解。&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>关于阅读</title>
-      <link>https://anjanavakil.github.io/post/read_summary_2022/</link>
-      <pubDate>Tue, 01 Feb 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/read_summary_2022/</guid>
-      
-        <description>&lt;p&gt;一直觉得阅读也只不过是排解人生无聊的陪伴，不太喜欢阅读如何如何好之类的说辞，但是有次在微读看到有书友这样写：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;读书和思考是一件辛苦的事，像暗夜里踽踽独行的路人，没人帮衬，也没有同伴。&lt;/p&gt;
-&lt;p&gt;小到大生活的环境，固定的思维模式，熟络的人际关系，日复一日养成地习惯，还有你不愿意颠覆的理所当然。&lt;/p&gt;
-&lt;p&gt;等到有一天，你看了一本书，它把这个坚固堡垒敲碎了一个角，有光透进来，然后你看到了外面的世界。&lt;/p&gt;
-&lt;p&gt;每一本让你思考，给你感触，逼你反刍的书，都是敲破堡垒的利器，它让你知道什么是新奇广博，什么是学海无涯。&lt;/p&gt;
-&lt;p&gt;有些书看完会心一笑，有些书看完暗自心惊，不管笑还是惊，它们都慢且坚定地带你远离无知，走近更广袤的世界。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;记录下我22岁之前的阅读之路。&lt;/p&gt;
-&lt;p&gt;高考之前的课外书都是小说居多：&lt;/p&gt;
-&lt;p&gt;《三体》《活着》《简·爱》《挪威的森林》《红楼梦》《白夜行》《嫌疑人X的献身》《解忧杂货店》《追风筝的人》《偷影子的人》《傲慢与偏见》《百年孤独》《目送》《亲爱的安德烈》《暮光之城》《穆斯林的葬礼》······都是高一高二抽时间看的。&lt;/p&gt;
-&lt;p&gt;大一上也有看小说：&lt;/p&gt;
-&lt;p&gt;《房思琪的初恋乐园》，三毛的大部分书（《撒哈拉的故事》《梦里花落知多少》《雨季不再来》《万水千山走遍》等等）《恶意》《当我谈跑步时我谈些什么》《许三观卖血记》《平凡的世界》《我们仨》《基督山伯爵》《白鹿原》《情书》······&lt;/p&gt;
-&lt;p&gt;后来基本两年的时间都花在了专业知识上：&lt;/p&gt;
-&lt;p&gt;机器学习、深度学习、数据挖掘、Java各种框架，但可惜并不是通过阅读的方式学习，而是通过视频、博客等，虽说是计算机专业敲代码很重要，可后来发现书中的知识更加系统也更经得住考验，更加值得为之抓耳挠腮，会知其然的同时知其所以然。&lt;/p&gt;
-&lt;p&gt;两年时间没有好好阅读，其实自己也慢慢发现自己的问题了，没有那份好奇心和求知心，一直在绕着专业知识打转，可惜也没有学多精通。&lt;/p&gt;
-&lt;p&gt;大三上因为迷茫开始重新阅读：&lt;/p&gt;
-&lt;p&gt;从心理学开始读起，阅读题材开始更加广泛，什么都读，小说倒是读的很少很少了（临近毕业尽管告诉自己要慢慢来但真的没有静下心来读小说的那份宁静了），专业知识也渐渐通过读书学习。渐渐开始写书评，渐渐有了这个属于自己的小空间。&lt;/p&gt;
-&lt;p&gt;通过阅读，看见了更广阔的世界，知道如何与自己和解，如何慢慢不再与别人比较，对原生家庭有了更多的理解。有些看起来都是对世俗前途无用的事情，可我越发觉得人活一世的意义就在此吧。&lt;/p&gt;
-&lt;p&gt;低谷的时候是阅读一直在陪伴着我，希望一直阅读，一直进步，一直成长在路上。&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Dependency Injection</title>
-      <link>https://anjanavakil.github.io/post/effective_java_di/</link>
-      <pubDate>Fri, 21 Jan 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective_java_di/</guid>
-      
-        <description>&lt;p&gt;Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。&lt;/p&gt;
-&lt;h1 id=&#34;item-5-prefer-dependency-injection-to-hardwiring-resources&#34;&gt;Item 5: Prefer dependency injection to hardwiring resources&lt;/h1&gt;
-&lt;p&gt;优先考虑依赖注入来引入资源&lt;/p&gt;
-&lt;h2 id=&#34;condition&#34;&gt;Condition&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;inappropriate-use-of-static-utility---inflexible--untestable&#34;&gt;Inappropriate use of static utility - inflexible &amp;amp; untestable!&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Inappropriate use of static utility - inflexible &amp;amp; untestable!
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;SpellChecker&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Lexicon&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dictionary&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;SpellChecker&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{}&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Noninstantiable
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;isValid&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;word&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;suggestions&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;typo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;inappropriate-use-of-singleton---inflexible--untestable&#34;&gt;Inappropriate use of singleton - inflexible &amp;amp; untestable!&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Inappropriate use of singleton - inflexible &amp;amp; untestable!
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;SpellChecker&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Lexicon&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dictionary&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;SpellChecker&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;INSTANCE&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SpellChecker&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(...);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;isValid&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;word&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;suggestions&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;typo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;why-inappropriate&#34;&gt;Why Inappropriate?&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Neither of these approaches is satisfactory, because they assume that there is only one dictionary worth using. In practice, each language has its own dictionary, and special dictionaries are used for special vocabularies. Also, it may be desirable to use a special dictionary for testing. It is wishful thinking to assume that a single dictionary will suffice for all time.&lt;/p&gt;
-&lt;p&gt;// wishful：这边应该可以理解成“痴心妄想”。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;code&gt;Static utility classes and singletons are inappropriate for classes whose behavior is parameterized by an underlying resource.&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;dependency-injection-provides-flexibility-and-testability&#34;&gt;Dependency injection provides flexibility and testability&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;What is required is the ability to support multiple instances of the class (in our example, SpellChecker), each of which uses the resource desired by the client (in our example, the dictionary). A simple pattern that satisfies this requirement is to pass the resource into the constructor when creating a new instance. This is one form of dependency injection: the dictionary is a dependency of the spell checker and is injected into the spell checker when it is created.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;the dependency of the spell checker(dictionary) is injected into the spell checker when it is created.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Java&#34; data-lang=&#34;Java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Dependency injection provides flexibility and testability
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;SpellChecker&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Lexicon&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dictionary&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;SpellChecker&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Lexicon&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dictionary&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;dictionary&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Objects&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;requireNonNull&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dictionary&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;isValid&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;word&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;suggestions&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;typo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;In summary, do not use a singleton or static utility class to implement a class that depends on one or more underlying resources whose behavior affects that of the class, and do not have the class create these resources directly. Instead, pass the resources, or factories to create them, into the constructor (or static factory or builder). This practice, known as dependency injection, will greatly enhance the flexibility, reusability, and testability of a class.&lt;/p&gt;
-&lt;/blockquote&gt;
 </description>
       
     </item>

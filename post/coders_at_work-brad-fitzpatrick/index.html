@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Generics - Anjana</title>
+  <title>Coders At Work: Brad Fitzpatrick - Anjana</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原" />
+  <meta name="description" content="Brad Fitzpatrick 书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。 1、学习东西 Seibel: It does seem that while you were writing all this stuff because you needed it, you" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.93.0" />
 
 
-<link rel="canonical" href="https://anjanavakil.github.io/post/effective_java_generic/" />
+<link rel="canonical" href="https://anjanavakil.github.io/post/coders_at_work-brad-fitzpatrick/" />
 
 
 
@@ -59,20 +59,20 @@
 
 
 
-<meta property="og:title" content="Generics" />
-<meta property="og:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原" />
+<meta property="og:title" content="Coders At Work: Brad Fitzpatrick" />
+<meta property="og:description" content="Brad Fitzpatrick 书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。 1、学习东西 Seibel: It does seem that while you were writing all this stuff because you needed it, you" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://anjanavakil.github.io/post/effective_java_generic/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-03-23T20:15:48+08:00" />
-<meta property="article:modified_time" content="2022-03-23T20:15:48+08:00" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/coders_at_work-brad-fitzpatrick/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-20T15:15:48+08:00" />
+<meta property="article:modified_time" content="2022-03-27T15:15:48+08:00" />
 
-<meta itemprop="name" content="Generics">
-<meta itemprop="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原"><meta itemprop="datePublished" content="2022-03-23T20:15:48+08:00" />
-<meta itemprop="dateModified" content="2022-03-23T20:15:48+08:00" />
-<meta itemprop="wordCount" content="925">
-<meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Generics"/>
-<meta name="twitter:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原"/>
+<meta itemprop="name" content="Coders At Work: Brad Fitzpatrick">
+<meta itemprop="description" content="Brad Fitzpatrick 书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。 1、学习东西 Seibel: It does seem that while you were writing all this stuff because you needed it, you"><meta itemprop="datePublished" content="2022-03-20T15:15:48+08:00" />
+<meta itemprop="dateModified" content="2022-03-27T15:15:48+08:00" />
+<meta itemprop="wordCount" content="2077">
+<meta itemprop="keywords" content="BOOK📚,CS💻," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Coders At Work: Brad Fitzpatrick"/>
+<meta name="twitter:description" content="Brad Fitzpatrick 书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。 1、学习东西 Seibel: It does seem that while you were writing all this stuff because you needed it, you"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -292,14 +292,13 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">Generics</h1>
+      <h1 class="post-title">Coders At Work: Brad Fitzpatrick</h1>
       
       <div class="post-meta">
-        <time datetime="2022-03-23" class="post-time">
-          2022-03-23
+        <time datetime="2022-03-20" class="post-time">
+          2022-03-20
         </time>
         <div class="post-category">
-            <a href="https://anjanavakil.github.io/categories/effective-java/"> Effective Java📕 </a>
             
           </div>
         
@@ -319,11 +318,20 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#should-not-use-raw-types">Should not use raw types</a></li>
-    <li><a href="#list-vs-listobject"><code>List</code> VS <code>List&lt;Object&gt;</code></a></li>
-    <li><a href="#covariant-vs-invariant">Covariant VS Invariant</a></li>
-    <li><a href="#must-use-raw-types">Must use raw types</a></li>
-    <li><a href="#summary">Summary</a></li>
+    <li><a href="#brad-fitzpatrick">Brad Fitzpatrick</a>
+      <ul>
+        <li><a href="#1学习东西">1、学习东西</a></li>
+        <li><a href="#2当代程序员是否有必要学习汇编语言芯片等">2、当代程序员是否有必要学习汇编语言/芯片等</a></li>
+        <li><a href="#3学校课程的批判">3、学校课程的批判</a></li>
+        <li><a href="#4学术界和工业界paper的交界处">4、学术界和工业界paper的交界处</a></li>
+        <li><a href="#5设计软件">5、设计软件</a></li>
+        <li><a href="#6先做hard的事">6、先做hard的事</a></li>
+        <li><a href="#7招聘和辨识优秀的程序员">7、招聘和辨识优秀的程序员</a></li>
+        <li><a href="#8提高编程能力">8、提高编程能力</a></li>
+        <li><a href="#9编程能力之外的能力">9、编程能力之外的能力</a></li>
+        <li><a href="#10编程是年轻人的游戏">10、编程是年轻人的游戏？</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -331,154 +339,72 @@
 
     
     <div class="post-content">
-      <p>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。</p>
-<h1 id="item-26-dont-use-raw-types">Item 26: Don’t use raw types</h1>
-<p>请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原生态类型）</p>
-<h2 id="should-not-use-raw-types">Should not use raw types</h2>
-<p><strong>As mentioned throughout this book, it pays to discover errors as soon as possible after they are made, ideally at compile time.</strong></p>
-<p>Java 作为静态、强类型语言，最好在编译期间发现错误，写代码也倾向于：便于在编译期发现错误的代码，使用编译时信息协助排除大量运行时问题，越早发现错误越好。</p>
+      <h2 id="brad-fitzpatrick">Brad Fitzpatrick</h2>
+<p>书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。</p>
+<h3 id="1学习东西">1、学习东西</h3>
 <blockquote>
-<p>As noted earlier, it is legal to use raw types (generic types without their type parameters), but you should never do it. If you use raw types, you lose all the safety and expressiveness benefits of generics.</p>
+<p>Seibel: It does seem that while you were writing all this stuff because you needed it, you also enjoyed doing it.</p>
+<p>Fitzpatrick: Oh, yeah. I definitely try to find an excuse to use anything, to learn it. Because you never learn something until you have to write something in it, until you have to live and breathe it. It&rsquo;s one thing to go learn a language for fun, but until you write some big, complex system in it, you don&rsquo;t really learn it.</p>
 </blockquote>
-<p>如果使用 raw types ，就失去了泛型在安全性和描述性方面的所有优势。</p>
+<p>发现自己学习计算机的一些技术时就是三分钟热度，入门然后就没了，导致没有对哪一门语言/技术精通。认识到了大学本科的一些弊端，知道了很多技术，但10,000小时约等于3年，大学4年只是入门了。人生的路很长，大部分人的大部分时间都是要在工作中度过的，所以选择自己热爱的然后精进技术。就像费曼(Feynman)说的：<code>仅仅知道一个事物的名称其实等同于对其一无所知</code>。简单知道一门语言和技术的名称，仅仅只是信息而已。对于我这样的普通人，10,000小时的训练必不可少。</p>
+<h3 id="2当代程序员是否有必要学习汇编语言芯片等">2、当代程序员是否有必要学习汇编语言/芯片等</h3>
 <blockquote>
-<p>While you shouldn’t use raw types such as List, it is fine to use types that are parameterized to allow insertion of arbitrary objects, such as <code>List&lt;Object&gt;</code>.</p>
-</blockquote>
-<h2 id="list-vs-listobject"><code>List</code> VS <code>List&lt;Object&gt;</code></h2>
-<p>Just what is the difference between the raw type <code>List</code> and the parameterized type <code>List&lt;Object&gt;</code>?</p>
-<blockquote>
-<p>Loosely speaking, the former has opted out of the generic type system, while the latter has explicitly told the compiler that it is capable of holding objects of any type. While you can pass a <code>List&lt;String&gt;</code> to a parameter of type List, you can’t pass it to a parameter of type <code>List&lt;Object&gt;</code>.</p>
-</blockquote>
-<p>raw type <code>List</code>: 逃避了泛型检查。</p>
-<p>parameterized type <code>List&lt;Object&gt;</code>: 明确告知编译器能够持有任意类型的对象。</p>
-<p><code>List&lt;String&gt;</code> 可以传递给 <code>List</code> 的参数，但不能传给 <code>List&lt;Object&gt;</code> 的参数。</p>
-<blockquote>
-<p>There are <code>sub-typing</code> rules for generics, and List<!-- raw HTML omitted --> is a subtype of the raw type List, but not of the parameterized type <code>List&lt;Object&gt;</code> .</p>
-<p>As a consequence, you lose type safety if you use a raw type such as List, but not if you use a parameterized type such as <code>List&lt;Object&gt;</code>.</p>
-</blockquote>
-<p>For example:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="c1">// Fails at runtime - unsafeAdd method uses a raw type (List)! 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Raw</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">strings</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">unsafeAdd</span><span class="o">(</span><span class="n">strings</span><span class="o">,</span> <span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">42</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">strings</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">0</span><span class="o">);</span> <span class="c1">// Has compiler-generated cast
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">unsafeAdd</span><span class="o">(</span><span class="n">List</span> <span class="n">list</span><span class="o">,</span> <span class="n">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">o</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>IntelliJ IDEA报错：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Exception in thread &#34;main&#34; java.lang.ClassCastException: class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader &#39;bootstrap&#39;)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="covariant-vs-invariant">Covariant VS Invariant</h2>
-<p>Arrays are covariant. Generics are invariant.</p>
-<p>数组是协变(covariant)的，泛型、集合是不变(invariant)的。</p>
-<blockquote>
-<p>covariant:</p>
-<p>This scary-sounding word means simply that if Sub is a subtype of Super, then the array type Sub[] is a subtype of the array type Super[].</p>
-<p>invariant:</p>
-<p>for any two distinct types Type1 and Type2,<code> List&lt;Type1&gt;</code> is neither a subtype nor a supertype of <code>List&lt;Type2&gt;</code>.</p>
-</blockquote>
-<p>e.g. P=C —&gt; P[ ]=C[ ]</p>
-<p>不变的举例：</p>
-<p><img src="/image/ej_generic.png" alt="invariant"></p>
-<p>泛型的优点：</p>
-<ul>
-<li>更好的安全性：编译期就发现错误，保证类型安全</li>
-<li>更好的可读性：省去强制类型转换</li>
-</ul>
-<h2 id="must-use-raw-types">Must use raw types</h2>
-<blockquote>
-<p>There are a few minor exceptions to the rule that you should not use raw types. <strong>You must use raw types in class literals.</strong> The specification does not permit the use of parameterized types (though it does permit array types and primitive types). In other words, <code>List.class, String[].class, and int.class</code> are all legal, but <code>List&lt;String&gt;.class and List&lt;?&gt;.class</code> are not.</p>
-</blockquote>
-<h2 id="summary">Summary</h2>
-<blockquote>
-<p>In summary, using raw types can lead to exceptions at runtime, so don’t use them. They are provided only for compatibility and interoperability with legacy code that predates the introduction of generics.</p>
+<p>We were getting a lot of wins for really low-level stuff. I had somebody recently tell me about something: “Java takes care of that; we don&rsquo;t have to deal with that.” I was like, “No, Java can&rsquo;t take care of this because I know what kernel version you&rsquo;re using and the kernel doesn&rsquo;t support it. Your virtual machine may be hiding that from you and giving you some abstraction that makes it look like that&rsquo;s efficient, but it&rsquo;s only efficient when you&rsquo;re running it on this kernel.” I get frustrated if people don&rsquo;t understand at least the surface of the whole stack.</p>
+<p>In practice, nothing works. There are all these beautiful abstractions that are backed by shit. The implementation of libraries that look like they could be beautiful are shit. And so if you&rsquo;re the one responsible for the cost of buying servers, or reliability—if you&rsquo;re on call for pages—it helps to actually know what&rsquo;s going on under the covers and not trust everyone else&rsquo;s libraries, and code, and interfaces.</p>
 </blockquote>
 <blockquote>
-<p>As a quick review, <code>Set&lt;Object&gt;</code> is a parameterized type representing a set that can contain objects of any type, <code>Set&lt;?&gt;</code> is a wildcard type representing a set that can contain only objects of some unknown type, and <code>Set</code> is a raw type, which opts out of the generic type system. The first two are safe, and the last is not.</p>
+<p>Actually the JVM isn&rsquo;t that bad. I guess it&rsquo;s when people have blind faith in their abstractions without understanding what&rsquo;s going on.</p>
 </blockquote>
-<p>For quick reference, the terms are summarized in the following table:</p>
-<table>
-<thead>
-<tr>
-<th>Term</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Parameterized type</td>
-<td><code>List&lt;String&gt;</code></td>
-</tr>
-<tr>
-<td>Actual type Parameter</td>
-<td><code>String </code></td>
-</tr>
-<tr>
-<td>Generic type</td>
-<td><code>List&lt;E&gt;</code></td>
-</tr>
-<tr>
-<td>Formal type parameter</td>
-<td><code>E</code></td>
-</tr>
-<tr>
-<td>Unbounded wildcard type</td>
-<td><code>List&lt;?&gt;</code></td>
-</tr>
-<tr>
-<td>Raw type</td>
-<td><code>List</code></td>
-</tr>
-<tr>
-<td>Bounded type parameter</td>
-<td><code>&lt;E extends Number&gt;</code></td>
-</tr>
-<tr>
-<td>Recursive type bound</td>
-<td><code>&lt;T extends Comparable&lt;T&gt;&gt;</code></td>
-</tr>
-<tr>
-<td>Bounded wildcard type</td>
-<td><code>List&lt;? extends Number&gt;</code></td>
-</tr>
-<tr>
-<td>Generic method</td>
-<td><code>static &lt;E&gt; List&lt;E&gt; asList(E[] a)</code></td>
-</tr>
-<tr>
-<td>Type token</td>
-<td><code> String.class</code></td>
-</tr>
-</tbody>
-</table>
+<h3 id="3学校课程的批判">3、学校课程的批判</h3>
+<blockquote>
+<p>Seibel: You had a lot of programming experience by the time you got to college and studied computer science. How did that work out?</p>
+<p>Fitzpatrick: I skipped a lot of my early C.S. classes, because they were just really boring. I would go and take the tests. Then towards the end they got kind of fun, once you get to the 300- and 400-level classes. But right when it got interesting, I graduated. And they wouldn&rsquo;t let me take the fun grad-level classes, because I wasn&rsquo;t a grad student.</p>
+</blockquote>
+<p>现在互联网的资源太多了。MIT、Stanford、CMU等大学的课程recording、lab都可以找到资源，所以更加开放的世界，当下的我们应该好好珍惜利用。</p>
+<blockquote>
+<p>I remember in the compiler class, the final project was we had to take this existing language that we had been playing with and add a whole bunch of features, including one feature of our own choosing as the bonus part of the project. So I chose to implement run-time array bounds checking. Anyway, the professor took our compiled binary and ran his test suite against it, and it failed a couple of his tests. He was like, “Sorry, you get a C because you failed my unit test,” When I went to look at it, I was like, “You have off-by-﻿ones in your test suite.” So he gave me the grade back and I got an A, but I never got the bonus points for adding a feature to the language. I was angry at school at that point.</p>
+<p>And I remember our database class was taught by someone who, it seemed, had no real-world experience with databases. At this point I&rsquo;d worked with Oracle, Microsoft Server, and tons of MySQL. So I was asking all these real-world questions I actually wanted answers to—things that were melting right now—they would just give me some textbook answer. I&rsquo;m like, “No, no. That doesn&rsquo;t work.”</p>
+</blockquote>
+<p>一直认为美国的课程老师都会比较灵活，没想到还是遭到了大佬的批判与吐槽。</p>
+<h3 id="4学术界和工业界paper的交界处">4、学术界和工业界paper的交界处</h3>
+<blockquote>
+<p>Seibel: You just mentioned papers from the academy and from industry. Do you have any sense of whether those two meet in the right place these days?</p>
+<p>Fitzpatrick: They kind of feel about the same to me. But it&rsquo;s more interesting, a lot of times, to read the industry ones because you know they did it to solve a problem and their solution works as opposed to, “We&rsquo;d think it would be cool if—” There&rsquo;s a lot of crazier stuff that comes out of academia and it doesn&rsquo;t actually work, so it&rsquo;s just a crazy idea. Maybe they turn it into commercial things later.</p>
+</blockquote>
+<h3 id="5设计软件">5、设计软件</h3>
+<blockquote>
+<p>Seibel: How do you design software?</p>
+<p>Fitzpatrick: I start with interfaces between things. What are the common methods, or the common RPCs, or the common queries. If it&rsquo;s storage, I try to think, what are the common queries? What indexes do we need? How are the data going to be laid out on disk? Then I write dummy mocks for different parts and flesh it out over time.</p>
+</blockquote>
+<h3 id="6先做hard的事">6、先做hard的事</h3>
+<blockquote>
+<p>Seibel: After you write a bunch of code do you ever discover that you really need to reconsider your original plan?</p>
+<p>Fitzpatrick: Sometimes. But I&rsquo;ve started with the hard bits or the parts I was unsure of, and tried to implement those parts first. I try not to put off anything hard or surprising to the end; I enjoy doing the hard things first. The projects that I never finish—my friends give me shit that it&rsquo;s a whole bunch—it&rsquo;s because I did the hard part and I learned what I wanted to learn and I never got around to doing the boring stuff.</p>
+</blockquote>
+<p>先做hard的事，学习想要学习的东西，至于boring的事留给别人做就好。</p>
+<h3 id="7招聘和辨识优秀的程序员">7、招聘和辨识优秀的程序员</h3>
+<blockquote>
+<p>Seibel: So you&rsquo;ve hired for your own company, and I assume you&rsquo;ve been involved in hiring at Google. How do you recognize a great programmer?</p>
+<p>Fitzpatrick: I often look for people that have done, like, a lot of stuff on their own that wasn&rsquo;t asked of them. Not just their school project or just what their previous employer had them do. Somebody who was passionate about something and had some side project. How did they maintain it and how serious did they get with it? Or do they do a lot of quick hacks and abandon them?</p>
+</blockquote>
+<h3 id="8提高编程能力">8、提高编程能力</h3>
+<blockquote>
+<p>Seibel: Is there anything that you did specifically to improve your skill as a programmer?</p>
+<p>Fitzpatrick: Sometimes I&rsquo;ll go out of my way to write something in a language that I would rather not write it in—and I know it&rsquo;ll take me longer to write in that language—because I know I&rsquo;ll be better in the end. Like when I got to Google, there were a lot of times where I was writing one-off things and I&rsquo;d go to write it in Perl. Then I&rsquo;d be like, “Ah, no, I should write this in Python.” Now I write tons of Python and it doesn&rsquo;t bother me—I barely have to look things up. Perlbal was originally written in C# just to learn that.</p>
+</blockquote>
+<h3 id="9编程能力之外的能力">9、编程能力之外的能力</h3>
+<blockquote>
+<p>Seibel: And are there skills apart from programming itself that you think would-be programmers should develop?</p>
+<p>Fitzpatrick: There&rsquo;s communication, but I&rsquo;m not sure that&rsquo;s something you can really practice. Deal with people on mailing lists a lot. Written communication style goes a long way. But that&rsquo;s a general life thing, right? There was some study about who was successful after high school. Was it the smart kids or the social kids? It turned out that it was the social kids who ended up making all the money in life, not the people with the good grades. I thought that was interesting.</p>
+</blockquote>
+<h3 id="10编程是年轻人的游戏">10、编程是年轻人的游戏？</h3>
+<blockquote>
+<p>Seibel: You&rsquo;re 28 now. Do you have any worries that programming is sort of a young person&rsquo;s game, that you&rsquo;re going to lose a step as you get older?</p>
+<p>Fitzpatrick: No. The worst case, I could always just stop and work on fun things on my own. I don&rsquo;t feel like I&rsquo;m competing with anyone right now and I don&rsquo;t really care if other people are better because I feel like there are tons of people who are better already. I figure we are always in the middle anyway, so I&rsquo;m happy to stay in the middle.</p>
+</blockquote>
+<p>全文采访的人物中就 Fitzpatrick 最年轻了，提问者居然问了年龄这件事，难道是因为年轻的缘故吗😳？</p>
+<p>尤其喜欢这句<code>I don't really care if other people are better because I feel like there are tons of people who are better already. </code>好率性🙌。</p>
+<p>15位软件先驱的访谈，暂时看完了前两位。未完待续&hellip;&hellip;.</p>
 
     </div>
 
@@ -492,7 +418,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2022-03-23
+      2022-03-27
       
     </span>
   </p>
@@ -509,6 +435,7 @@
 
     <footer class="post-footer">
       <div class="post-tags">
+          <a href="https://anjanavakil.github.io/tags/book/">BOOK📚</a>
           <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
           
         </div>
@@ -516,7 +443,7 @@
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/pp_cracking-the-oyster/">
+          <a class="prev" href="/post/effective_java_builder/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -526,12 +453,12 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Cracking the Oyster</span>
+            <span class="prev-text nav-default">Builder</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/effective_java_comparable/">
-            <span class="next-text nav-default">implement Comparable</span>
+          <a class="next" href="/post/coders_at_work-jamie-zawinski/">
+            <span class="next-text nav-default">Coders At Work: Jamie Zawinski</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

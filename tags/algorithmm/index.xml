@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithmm🪺 on Anjana</title>
+    <link>https://anjanavakil.github.io/tags/algorithmm/</link>
+    <description>Recent content in Algorithmm🪺 on Anjana</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 24 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/algorithmm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cracking the Oyster</title>
+      <link>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</link>
+      <pubDate>Thu, 24 Mar 2022 20:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</guid>
+      <description>《编程珠玑》的笔记。 作者 Jon Bentley 推荐的阅读方法，因此每次完成一章，重点是自己思考习题。 One hint about reading the essays: don’t go too fast. Read them carefully, one per sitting. Try the problems as they are posed — some</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,14 +6,14 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Coders At Work 编程人生</title>
-      <link>https://anjanavakil.github.io/post/coders_at_work/</link>
-      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
+      <title>Cracking the Oyster</title>
+      <link>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</link>
+      <pubDate>Thu, 24 Mar 2022 20:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/coders_at_work/</guid>
-      <description>豆瓣🔗: Coders At Work 《编程人生：15位软件先驱访谈录》 第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获</description>
+      <guid>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</guid>
+      <description>《编程珠玑》的笔记。 作者 Jon Bentley 推荐的阅读方法，因此每次完成一章，重点是自己思考习题。 One hint about reading the essays: don’t go too fast. Read them carefully, one per sitting. Try the problems as they are posed — some</description>
     </item>
     
     <item>
@@ -71,9 +71,27 @@
     </item>
     
     <item>
+      <title>Coders At Work: Brad Fitzpatrick</title>
+      <link>https://anjanavakil.github.io/post/coders_at_work-brad-fitzpatrick/</link>
+      <pubDate>Sun, 20 Mar 2022 15:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/coders_at_work-brad-fitzpatrick/</guid>
+      <description>Brad Fitzpatrick 书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。 1、学习东西 Seibel: It does seem that while you were writing all this stuff because you needed it, you</description>
+    </item>
+    
+    <item>
+      <title>Coders At Work: Jamie Zawinski</title>
+      <link>https://anjanavakil.github.io/post/coders_at_work-jamie-zawinski/</link>
+      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/coders_at_work-jamie-zawinski/</guid>
+      <description>豆瓣🔗: Coders At Work 《编程人生：15位软件先驱访谈录》 第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获</description>
+    </item>
+    
+    <item>
       <title>static factory method VS constructor</title>
       <link>https://anjanavakil.github.io/post/effective-java-static-factory-method/</link>
-      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
+      <pubDate>Sat, 19 Mar 2022 10:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/effective-java-static-factory-method/</guid>
       <description>豆瓣🔗: Effective Java 《Effective Java中文版（第3版）》 Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 1: Consider static factory methods instead of constructors 考虑以静态工厂方</description>

@@ -6,16 +6,7 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Coders At Work 编程人生</title>
-      <link>https://anjanavakil.github.io/post/coders_at_work/</link>
-      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/coders_at_work/</guid>
-      <description>豆瓣🔗: Coders At Work 《编程人生：15位软件先驱访谈录》 第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获</description>
-    </item>
-    
+    <lastBuildDate>Thu, 24 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Code: The Hidden Language of Computer Hardware and Software</title>
       <link>https://anjanavakil.github.io/post/code/</link>
@@ -23,6 +14,15 @@
       
       <guid>https://anjanavakil.github.io/post/code/</guid>
       <description>豆瓣🔗：Code: The Hidden Language of Computer Hardware and Software 第一遍读的是中文版，寒假期间重读了英文版。这应该是第一本读完的英文专业书籍。读的过程中还是稍微有些困难的，</description>
+    </item>
+    
+    <item>
+      <title>Cracking the Oyster</title>
+      <link>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</link>
+      <pubDate>Thu, 24 Mar 2022 20:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</guid>
+      <description>《编程珠玑》的笔记。 作者 Jon Bentley 推荐的阅读方法，因此每次完成一章，重点是自己思考习题。 One hint about reading the essays: don’t go too fast. Read them carefully, one per sitting. Try the problems as they are posed — some</description>
     </item>
     
     <item>
@@ -80,9 +80,27 @@
     </item>
     
     <item>
+      <title>Coders At Work: Brad Fitzpatrick</title>
+      <link>https://anjanavakil.github.io/post/coders_at_work-brad-fitzpatrick/</link>
+      <pubDate>Sun, 20 Mar 2022 15:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/coders_at_work-brad-fitzpatrick/</guid>
+      <description>Brad Fitzpatrick 书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。 1、学习东西 Seibel: It does seem that while you were writing all this stuff because you needed it, you</description>
+    </item>
+    
+    <item>
+      <title>Coders At Work: Jamie Zawinski</title>
+      <link>https://anjanavakil.github.io/post/coders_at_work-jamie-zawinski/</link>
+      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/coders_at_work-jamie-zawinski/</guid>
+      <description>豆瓣🔗: Coders At Work 《编程人生：15位软件先驱访谈录》 第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获</description>
+    </item>
+    
+    <item>
       <title>static factory method VS constructor</title>
       <link>https://anjanavakil.github.io/post/effective-java-static-factory-method/</link>
-      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
+      <pubDate>Sat, 19 Mar 2022 10:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/effective-java-static-factory-method/</guid>
       <description>豆瓣🔗: Effective Java 《Effective Java中文版（第3版）》 Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 1: Consider static factory methods instead of constructors 考虑以静态工厂方</description>
@@ -170,24 +188,6 @@ The book is brief and there is not a lot of unfamiliar vocabulary so I read it i
       
       <guid>https://anjanavakil.github.io/post/read_summary_2022/</guid>
       <description>一直觉得阅读也只不过是排解人生无聊的陪伴，不太喜欢阅读如何如何好之类的说辞，但是有次在微读看到有书友这样写： 读书和思考是一件辛苦的事，像暗夜</description>
-    </item>
-    
-    <item>
-      <title>Dependency Injection</title>
-      <link>https://anjanavakil.github.io/post/effective_java_di/</link>
-      <pubDate>Fri, 21 Jan 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective_java_di/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility -</description>
-    </item>
-    
-    <item>
-      <title>《当下的力量》</title>
-      <link>https://anjanavakil.github.io/post/the_power_of_now/</link>
-      <pubDate>Wed, 19 Jan 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/the_power_of_now/</guid>
-      <description>豆瓣🔗：《当下的力量》 2021年10月份开始阅读，只读了1/3，2022年1月9日书友推荐，很快就接着读完了。一直拖着没写书评，正好是隔离D</description>
     </item>
     
   </channel>

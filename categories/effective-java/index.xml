@@ -64,7 +64,7 @@
     <item>
       <title>static factory method VS constructor</title>
       <link>https://anjanavakil.github.io/post/effective-java-static-factory-method/</link>
-      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
+      <pubDate>Sat, 19 Mar 2022 10:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/effective-java-static-factory-method/</guid>
       <description>豆瓣🔗: Effective Java 《Effective Java中文版（第3版）》 Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 1: Consider static factory methods instead of constructors 考虑以静态工厂方</description>
