@@ -6,7 +6,16 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 24 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aha! Algorithms 啊哈！算法</title>
+      <link>https://anjanavakil.github.io/post/pp_aha-algorithms/</link>
+      <pubDate>Fri, 25 Mar 2022 20:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/pp_aha-algorithms/</guid>
+      <description>《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少</description>
+    </item>
+    
     <item>
       <title>Cracking the Oyster 开篇</title>
       <link>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</link>
@@ -142,6 +151,15 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
       
       <guid>https://anjanavakil.github.io/post/effective_java_di/</guid>
       <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility -</description>
+    </item>
+    
+    <item>
+      <title>剑指 Offer II 整数</title>
+      <link>https://anjanavakil.github.io/post/jj-offer-number/</link>
+      <pubDate>Thu, 20 Jan 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/jj-offer-number/</guid>
+      <description>《剑指Offer II》的刷题笔记。 第一章 整数 剑指 Offer II 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&amp;lt;=</description>
     </item>
     
     <item>

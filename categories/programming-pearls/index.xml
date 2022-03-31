@@ -6,7 +6,16 @@
     <description>Recent content in Programming Pearls📗 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 24 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/programming-pearls/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/programming-pearls/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aha! Algorithms 啊哈！算法</title>
+      <link>https://anjanavakil.github.io/post/pp_aha-algorithms/</link>
+      <pubDate>Fri, 25 Mar 2022 20:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/pp_aha-algorithms/</guid>
+      <description>《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少</description>
+    </item>
+    
     <item>
       <title>Cracking the Oyster 开篇</title>
       <link>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</link>

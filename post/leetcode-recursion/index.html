@@ -380,7 +380,7 @@
 <p>平均时间复杂度：O(nlogn)  二叉树高度O(h)=O(log n)</p>
 <p>最坏时间复杂度：O(n^2)  链式二叉树，二叉树高度为O(h)=O(n)</p>
 <p>空间复杂度：O(n)  递归调用的层数不会超过n</p>
-<p>可以看到自顶向下的getHeight被重复调用，时间复杂度很高。所以优化采用自底向上的递归，整个过程类似<code>后续遍历</code>。</p>
+<p>可以看到自顶向下的getHeight被重复调用，时间复杂度很高。所以优化采用自底向上的递归，整个过程类似<code>后序遍历</code>。</p>
 <p>自底向上的递归</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
