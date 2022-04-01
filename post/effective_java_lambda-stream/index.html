@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Archive - Anjana</title>
+  <title>Lambda 和 Stream - Anjana</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="Anjana&#39;s personal website." />
+  <meta name="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -34,8 +35,8 @@
 <meta name="generator" content="Hugo 0.93.0" />
 
 
-<link rel="canonical" href="https://anjanavakil.github.io/post/" />
-<link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="Anjana" />
+<link rel="canonical" href="https://anjanavakil.github.io/post/effective_java_lambda-stream/" />
+
 
 
 
@@ -58,15 +59,20 @@
 
 
 
-<meta property="og:title" content="Posts" />
-<meta property="og:description" content="Anjana&#39;s personal website." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://anjanavakil.github.io/post/" />
+<meta property="og:title" content="Lambda 和 Stream" />
+<meta property="og:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/effective_java_lambda-stream/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-24T08:15:48+08:00" />
+<meta property="article:modified_time" content="2022-01-24T08:15:48+08:00" />
 
-<meta itemprop="name" content="Posts">
-<meta itemprop="description" content="Anjana&#39;s personal website."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="Anjana&#39;s personal website."/>
+<meta itemprop="name" content="Lambda 和 Stream">
+<meta itemprop="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。"><meta itemprop="datePublished" content="2022-01-24T08:15:48+08:00" />
+<meta itemprop="dateModified" content="2022-01-24T08:15:48+08:00" />
+<meta itemprop="wordCount" content="24">
+<meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Lambda 和 Stream"/>
+<meta name="twitter:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -283,184 +289,129 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="archive" class="archive">
+          <article class="post bg-white">
     
-      <div class="collection-title">
-        <h2 class="archive-year">2022</h2>
+    <header class="post-header">
+      <h1 class="post-title">Lambda 和 Stream</h1>
+      
+      <div class="post-meta">
+        <time datetime="2022-01-24" class="post-time">
+          2022-01-24
+        </time>
+        <div class="post-category">
+            <a href="https://anjanavakil.github.io/categories/cs/"> CS💻 </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
       </div>
+    </header>
 
-    <div class="archive-post">
-      <time datetime="2022-02-01" class="archive-post-time">
-        2022-02-01
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/read_summary_2022/" class="archive-post-link">
-          关于阅读
-        </a>
-      </span>
-    </div>
     
-
-    <div class="archive-post">
-      <time datetime="2022-01-24" class="archive-post-time">
-        2022-01-24
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/effective_java_lambda-stream/" class="archive-post-link">
-          Lambda 和 Stream
-        </a>
-      </span>
-    </div>
     
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
 
-    <div class="archive-post">
-      <time datetime="2022-01-23" class="archive-post-time">
-        2022-01-23
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/jj-offer-string/" class="archive-post-link">
-          剑指 Offer II 字符串
-        </a>
-      </span>
-    </div>
     
+    <div class="post-content">
+      <p>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。</p>
 
-    <div class="archive-post">
-      <time datetime="2022-01-22" class="archive-post-time">
-        2022-01-22
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/jj-offer-array/" class="archive-post-link">
-          剑指 Offer II 数组
-        </a>
-      </span>
     </div>
+
     
-
-    <div class="archive-post">
-      <time datetime="2022-01-21" class="archive-post-time">
-        2022-01-21
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/effective_java_di/" class="archive-post-link">
-          Dependency Injection
-        </a>
-      </span>
-    </div>
     
-
-    <div class="archive-post">
-      <time datetime="2022-01-20" class="archive-post-time">
-        2022-01-20
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/jj-offer-number/" class="archive-post-link">
-          剑指 Offer II 整数
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2022-01-19" class="archive-post-time">
-        2022-01-19
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/the_power_of_now/" class="archive-post-link">
-          《当下的力量》
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2022-01-18" class="archive-post-time">
-        2022-01-18
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/leetcode-recursion/" class="archive-post-link">
-          Recursion
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2022-01-17" class="archive-post-time">
-        2022-01-17
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/effective_java_serialization/" class="archive-post-link">
-          Serialization
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2022-01-15" class="archive-post-time">
-        2022-01-15
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/meditations/" class="archive-post-link">
-          《沉思录》
-        </a>
-      </span>
-    </div></section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Anjana</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2022-01-24
       
-      <li >
-        <a href="/post/">1</a>
-      </li>
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a href="https://github.com/gohugoio/hugoBasicExample" rel="noopener" target="_blank">See origin</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
+          
+        </div>
+
       
-      <li >
-        <a href="/post/page/2/">2</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/post/page/3/">3</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/4/">4</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/5/">5</a>
-      </li>
-      
-    </ul>
-  </nav>
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/read_summary_2022/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">关于阅读</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/jj-offer-string/">
+            <span class="next-text nav-default">剑指 Offer II 字符串</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
 
   
   
 
+  
+  
 
+  
 
+  
+  
 
+  
+
+  
+
+  
+
+    
+
+  
 
         </div>
       </div>

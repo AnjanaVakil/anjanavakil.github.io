@@ -37,6 +37,15 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
     </item>
     
     <item>
+      <title>Lambda 和 Stream</title>
+      <link>https://anjanavakil.github.io/post/effective_java_lambda-stream/</link>
+      <pubDate>Mon, 24 Jan 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective_java_lambda-stream/</guid>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。</description>
+    </item>
+    
+    <item>
       <title>Dependency Injection</title>
       <link>https://anjanavakil.github.io/post/effective_java_di/</link>
       <pubDate>Fri, 21 Jan 2022 14:15:48 +0800</pubDate>

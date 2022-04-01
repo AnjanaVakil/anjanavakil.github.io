@@ -69,7 +69,7 @@
 <meta itemprop="name" content="剑指 Offer II 数组">
 <meta itemprop="description" content="《剑指Offer II》的刷题笔记。 第二章 数组 006. 排序数组中两个数字之和 剑指 Offer II 006. 排序数组中两个数字之和 二分查找 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16"><meta itemprop="datePublished" content="2022-01-22T14:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-01-22T14:15:48+08:00" />
-<meta itemprop="wordCount" content="2581">
+<meta itemprop="wordCount" content="2645">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="剑指 Offer II 数组"/>
 <meta name="twitter:description" content="《剑指Offer II》的刷题笔记。 第二章 数组 006. 排序数组中两个数字之和 剑指 Offer II 006. 排序数组中两个数字之和 二分查找 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16"/>
@@ -997,7 +997,8 @@
 <p>空间复杂度：O(n)</p>
 <h3 id="前缀和哈希表优化">前缀和+哈希表优化</h3>
 <p>数组的前i个数字之和记为x。如果存在一个j（j＜i），数组的前j个数字之和为x-k，那么数组中从第i+1个数字开始到第j个数字结束的子数组之和为k。</p>
-<p>这个题目需要计算和为k的子数组的个数。当扫描到数组的第i个数字并求得前i个数字之和是x时，需要知道在i之前存在多少个j并且前j个数字之和等于x-k。所以，对每个i，不但要保存前i个数字之和，还要保存每个和出现的次数。分析到这里就会知道我们需要一个哈希表，哈希表的键是前i个数字之和，值为每个和出现的次数。</p>
+<p>这个题目需要计算和为k的子数组的个数。当扫描到数组的第i个数字并求得前i个数字之和是x时，需要知道在i之前存在多少个j并且前j个数字之和等于x-k。所以，对每个i，不但要保存前i个数字之和，还要保存每个和出现的次数。</p>
+<p>分析到这里就会知道我们需要一个哈希表，哈希表的键是<code>前i个数字之和</code>，值为<code>每个和出现的次数</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1095,25 +1096,23 @@
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
-</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">findMaxLength</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">maxLen</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">mp</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">counter</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">mp</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="n">counter</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="k">else</span> <span class="n">counter</span><span class="o">--</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">mp</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">counter</span><span class="p">)){</span>
-</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">prevIndex</span><span class="o">=</span><span class="n">mp</span><span class="p">[</span><span class="n">counter</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">                <span class="n">maxLen</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">maxLen</span><span class="p">,</span><span class="n">i</span><span class="o">-</span><span class="n">prevIndex</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      	<span class="c1">//key:累加的数字之和 value:当前数字下标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      	<span class="c1">//当前后累加的数字之和相等即sum这个key已经在map中存在时，下标相减即为子数组的长度。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">mp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sum</span><span class="o">+=</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="o">?</span><span class="mi">1</span><span class="o">:-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">mp</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">sum</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">maxLen</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">maxLen</span><span class="p">,</span><span class="n">i</span><span class="o">-</span><span class="n">mp</span><span class="p">[</span><span class="n">sum</span><span class="p">]);</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">mp</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">mp</span><span class="p">[</span><span class="n">sum</span><span class="p">]</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">maxLen</span><span class="p">;</span>
@@ -1121,7 +1120,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>哈希表的键是从第1个数字开始累加到当前扫描到的数字之和，而值是当前扫描的数字的下标。</p>
+</div><p>哈希表的键是<code>从第1个数字开始累加到当前扫描到的数字之和</code>，而值是<code>当前扫描的数字的下标</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1207,7 +1206,7 @@
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/read_summary_2022/">
+          <a class="prev" href="/post/jj-offer-string/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -1217,7 +1216,7 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">关于阅读</span>
+            <span class="prev-text nav-default">剑指 Offer II 字符串</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         

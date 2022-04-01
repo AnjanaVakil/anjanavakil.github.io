@@ -145,6 +145,24 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
     </item>
     
     <item>
+      <title>Lambda 和 Stream</title>
+      <link>https://anjanavakil.github.io/post/effective_java_lambda-stream/</link>
+      <pubDate>Mon, 24 Jan 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective_java_lambda-stream/</guid>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。</description>
+    </item>
+    
+    <item>
+      <title>剑指 Offer II 字符串</title>
+      <link>https://anjanavakil.github.io/post/jj-offer-string/</link>
+      <pubDate>Sun, 23 Jan 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/jj-offer-string/</guid>
+      <description>《剑指Offer II》的刷题笔记。 第三章 字符串 014. 字符串中的变位词 剑指 Offer II 014. 字符串中的变位词 双指针 + 哈希表 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</description>
+    </item>
+    
+    <item>
       <title>剑指 Offer II 数组</title>
       <link>https://anjanavakil.github.io/post/jj-offer-array/</link>
       <pubDate>Sat, 22 Jan 2022 14:15:48 +0800</pubDate>
@@ -169,24 +187,6 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
       
       <guid>https://anjanavakil.github.io/post/jj-offer-number/</guid>
       <description>《剑指Offer II》的刷题笔记。 第一章 整数 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&amp;lt;=被除数的</description>
-    </item>
-    
-    <item>
-      <title>Recursion</title>
-      <link>https://anjanavakil.github.io/post/leetcode-recursion/</link>
-      <pubDate>Tue, 18 Jan 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/leetcode-recursion/</guid>
-      <description>自己一直还是比较努力的，不知道“摆烂”是种什么状态，但最近的自己迷茫，深深感觉到现在的自己不就处于“摆烂”的状态吗？没有目标没有计划，只失败</description>
-    </item>
-    
-    <item>
-      <title>Serialization</title>
-      <link>https://anjanavakil.github.io/post/effective_java_serialization/</link>
-      <pubDate>Mon, 17 Jan 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective_java_serialization/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data representation such as JSON or</description>
     </item>
     
   </channel>
