@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Aha! Algorithms 啊哈！算法">
 <meta itemprop="description" content="《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少"><meta itemprop="datePublished" content="2022-03-25T20:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-03-25T20:15:48+08:00" />
-<meta itemprop="wordCount" content="1844">
+<meta itemprop="wordCount" content="1804">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Aha! Algorithms 啊哈！算法"/>
 <meta name="twitter:description" content="《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少"/>
@@ -365,24 +365,8 @@
 <li>将余下的n－i个元素向左移动i个位置</li>
 <li>将最初的i个元素从临时数组中复制到x中余下的位置。</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"></code></pre></td></tr></table>
-</div>
-</div><p>时间复杂度：O(n)</p>
-<p>空间复杂度：O(n)</p>
 <p>2、定义一个函数将x向左旋转一个位置（其时间正比于n）然后调用该函数i次。</p>
 <p>该方法产生了过多的运行时间消耗。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"></code></pre></td></tr></table>
-</div>
-</div><p>时间复杂度：O(n)</p>
-<p>空间复杂度：O(1)</p>
 <p>3、有限的资源</p>
 <p>移动x[0]到临时变量t，然后移动x[i]至x[0]，x[2i]至x[i]，依此类推（将x中的所有下标对n取模），直至返回到取x[0]中的元素，此时改为从t取值然后终止过程。</p>
 <p>当i为3且n为12时，元素按如下顺序移动。</p>

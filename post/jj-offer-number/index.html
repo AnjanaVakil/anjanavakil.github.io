@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="《剑指Offer II》的刷题笔记。 第一章 整数 剑指 Offer II 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&amp;lt;=" />
+  <meta name="description" content="《剑指Offer II》的刷题笔记。 第一章 整数 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&amp;lt;=被除数的" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,19 +60,19 @@
 
 
 <meta property="og:title" content="剑指 Offer II 整数" />
-<meta property="og:description" content="《剑指Offer II》的刷题笔记。 第一章 整数 剑指 Offer II 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&lt;=" />
+<meta property="og:description" content="《剑指Offer II》的刷题笔记。 第一章 整数 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&lt;=被除数的" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/jj-offer-number/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-01-20T14:15:48+08:00" />
 <meta property="article:modified_time" content="2022-01-20T14:15:48+08:00" />
 
 <meta itemprop="name" content="剑指 Offer II 整数">
-<meta itemprop="description" content="《剑指Offer II》的刷题笔记。 第一章 整数 剑指 Offer II 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&lt;="><meta itemprop="datePublished" content="2022-01-20T14:15:48+08:00" />
+<meta itemprop="description" content="《剑指Offer II》的刷题笔记。 第一章 整数 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&lt;=被除数的"><meta itemprop="datePublished" content="2022-01-20T14:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-01-20T14:15:48+08:00" />
-<meta itemprop="wordCount" content="4084">
+<meta itemprop="wordCount" content="4064">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="剑指 Offer II 整数"/>
-<meta name="twitter:description" content="《剑指Offer II》的刷题笔记。 第一章 整数 剑指 Offer II 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&lt;="/>
+<meta name="twitter:description" content="《剑指Offer II》的刷题笔记。 第一章 整数 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&lt;=被除数的"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -319,23 +319,23 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#剑指-offer-ii-001-整数除法">剑指 Offer II 001. 整数除法</a></li>
-    <li><a href="#剑指-offer-ii-002-二进制加法">剑指 Offer II 002. 二进制加法</a></li>
-    <li><a href="#剑指-offer-ii-003-前-n-个数字二进制中-1-的个数">剑指 Offer II 003. 前 n 个数字二进制中 1 的个数</a>
+    <li><a href="#001-整数除法">001. 整数除法</a></li>
+    <li><a href="#002-二进制加法">002. 二进制加法</a></li>
+    <li><a href="#003-前-n-个数字二进制中-1-的个数">003. 前 n 个数字二进制中 1 的个数</a>
       <ul>
         <li><a href="#利用-i--i1-简单计算">利用 i &amp; (i−1) 简单计算</a></li>
         <li><a href="#利用-i--i1-动态规划">利用 i &amp; (i−1) 动态规划</a></li>
         <li><a href="#利用-i2-动态规划">利用 i/2 动态规划</a></li>
       </ul>
     </li>
-    <li><a href="#剑指-offer-ii-004-只出现一次的数字">剑指 Offer II 004. 只出现一次的数字</a>
+    <li><a href="#004-只出现一次的数字">004. 只出现一次的数字</a>
       <ul>
         <li><a href="#使用辅助空间unordered_map哈希表">使用辅助空间unordered_map(哈希表)</a></li>
         <li><a href="#使用辅助空间set数学方法">使用辅助空间Set(数学方法)</a></li>
         <li><a href="#使用位运算">使用位运算</a></li>
       </ul>
     </li>
-    <li><a href="#剑指-offer-ii-005-单词长度的最大乘积">剑指 Offer II 005. 单词长度的最大乘积</a>
+    <li><a href="#005-单词长度的最大乘积">005. 单词长度的最大乘积</a>
       <ul>
         <li><a href="#哈希表">哈希表</a></li>
         <li><a href="#位运算整数的二进制位">位运算：整数的二进制位</a></li>
@@ -351,7 +351,7 @@
     <div class="post-content">
       <p>《剑指Offer II》的刷题笔记。</p>
 <h1 id="第一章-整数">第一章 整数</h1>
-<h2 id="剑指-offer-ii-001-整数除法">剑指 Offer II 001. 整数除法</h2>
+<h2 id="001-整数除法">001. 整数除法</h2>
 <p><a href="https://leetcode-cn.com/problems/xoh6Oh/">剑指 Offer II 001. 整数除法</a></p>
 <p>由于是整数除法并且除数不等于0，因此商的绝对值一定<code>&lt;=</code>被除数的绝对值。因此，int型整数的除法只有一种情况会导致溢出，即：<code>-2^31/-1=2^31</code>，超出int的最大值<code>2^31-1</code>，故返回INT_MAX。</p>
 <div class="highlight"><div class="chroma">
@@ -543,7 +543,7 @@
 </div>
 </div><p>官方题：<a href="https://leetcode-cn.com/problems/divide-two-integers/">29. 两数相除</a></p>
 <p>官方解答案的特例太多了，《剑指Offer II》作者编写的代码的确是巧妙精简。</p>
-<h2 id="剑指-offer-ii-002-二进制加法">剑指 Offer II 002. 二进制加法</h2>
+<h2 id="002-二进制加法">002. 二进制加法</h2>
 <p><a href="https://leetcode-cn.com/problems/JFETK5/">剑指 Offer II 002. 二进制加法</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -726,7 +726,7 @@
 </div>
 </div><p>在Java中，int型数值可以直接append到StringBuilder上。</p>
 <p>官方题： <a href="https://leetcode-cn.com/problems/add-binary/">67. 二进制求和</a></p>
-<h2 id="剑指-offer-ii-003-前-n-个数字二进制中-1-的个数">剑指 Offer II 003. 前 n 个数字二进制中 1 的个数</h2>
+<h2 id="003-前-n-个数字二进制中-1-的个数">003. 前 n 个数字二进制中 1 的个数</h2>
 <p><a href="https://leetcode-cn.com/problems/w3tCBm/">剑指 Offer II 003. 前 n 个数字二进制中 1 的个数</a></p>
 <p>问题：求一个整数i的二进制形式中1的个数</p>
 <h3 id="利用-i--i1-简单计算">利用 i &amp; (i−1) 简单计算</h3>
@@ -870,7 +870,7 @@
 <p>时间复杂度：O(n)</p>
 <p>空间复杂度：O(1)</p>
 <p>官方题：<a href="https://leetcode-cn.com/problems/counting-bits/">338. 比特位计数</a></p>
-<h2 id="剑指-offer-ii-004-只出现一次的数字">剑指 Offer II 004. 只出现一次的数字</h2>
+<h2 id="004-只出现一次的数字">004. 只出现一次的数字</h2>
 <p><a href="https://leetcode-cn.com/problems/WGki4K/">剑指 Offer II 004. 只出现一次的数字 </a></p>
 <h3 id="使用辅助空间unordered_map哈希表">使用辅助空间unordered_map(哈希表)</h3>
 <div class="highlight"><div class="chroma">
@@ -1068,7 +1068,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="剑指-offer-ii-005-单词长度的最大乘积">剑指 Offer II 005. 单词长度的最大乘积</h2>
+</div><h2 id="005-单词长度的最大乘积">005. 单词长度的最大乘积</h2>
 <p><a href="https://leetcode-cn.com/problems/aseY1I/">剑指 Offer II 005. 单词长度的最大乘积</a></p>
 <h3 id="哈希表">哈希表</h3>
 <p>普通做法：遍历字符串数组words 中的每一对单词，判断这一对单词是否有公共字母，如果没有公共字母，则用这一对单词的长度乘积更新最大单词长度乘积。</p>

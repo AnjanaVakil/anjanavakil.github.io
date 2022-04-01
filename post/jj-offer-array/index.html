@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>剑指 Offer II 数组 - Anjana</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Anjana" />
+  <meta name="description" content="《剑指Offer II》的刷题笔记。 第二章 数组 006. 排序数组中两个数字之和 剑指 Offer II 006. 排序数组中两个数字之和 二分查找 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.93.0" />
+
+
+<link rel="canonical" href="https://anjanavakil.github.io/post/jj-offer-array/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="剑指 Offer II 数组" />
+<meta property="og:description" content="《剑指Offer II》的刷题笔记。 第二章 数组 006. 排序数组中两个数字之和 剑指 Offer II 006. 排序数组中两个数字之和 二分查找 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/jj-offer-array/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-22T14:15:48+08:00" />
+<meta property="article:modified_time" content="2022-01-22T14:15:48+08:00" />
+
+<meta itemprop="name" content="剑指 Offer II 数组">
+<meta itemprop="description" content="《剑指Offer II》的刷题笔记。 第二章 数组 006. 排序数组中两个数字之和 剑指 Offer II 006. 排序数组中两个数字之和 二分查找 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16"><meta itemprop="datePublished" content="2022-01-22T14:15:48+08:00" />
+<meta itemprop="dateModified" content="2022-01-22T14:15:48+08:00" />
+<meta itemprop="wordCount" content="2581">
+<meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="剑指 Offer II 数组"/>
+<meta name="twitter:description" content="《剑指Offer II》的刷题笔记。 第二章 数组 006. 排序数组中两个数字之和 剑指 Offer II 006. 排序数组中两个数字之和 二分查找 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Anjana</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/about/">About</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Anjana
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/about/">About</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">剑指 Offer II 数组</h1>
+      
+      <div class="post-meta">
+        <time datetime="2022-01-22" class="post-time">
+          2022-01-22
+        </time>
+        <div class="post-category">
+            <a href="https://anjanavakil.github.io/categories/leetcode/"> LeetCode🌲 </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#006-排序数组中两个数字之和">006. 排序数组中两个数字之和</a>
+      <ul>
+        <li><a href="#二分查找">二分查找</a></li>
+        <li><a href="#双指针">双指针</a></li>
+      </ul>
+    </li>
+    <li><a href="#007-数组中和为-0-的三个数">007. 数组中和为 0 的三个数</a></li>
+    <li><a href="#008-和大于等于-target-的最短子数组">008. 和大于等于 target 的最短子数组</a>
+      <ul>
+        <li><a href="#暴力法">暴力法</a></li>
+        <li><a href="#前缀和--二分查找">前缀和 + 二分查找</a></li>
+        <li><a href="#滑动窗口双指针">滑动窗口(双指针)</a></li>
+      </ul>
+    </li>
+    <li><a href="#009-乘积小于-k-的子数组">009. 乘积小于 K 的子数组</a>
+      <ul>
+        <li><a href="#滑动窗口双指针-1">滑动窗口(双指针)</a></li>
+      </ul>
+    </li>
+    <li><a href="#010-和为-k-的子数组">010. 和为 k 的子数组</a>
+      <ul>
+        <li><a href="#枚举">枚举</a></li>
+        <li><a href="#前缀和">前缀和</a></li>
+        <li><a href="#前缀和哈希表优化">前缀和+哈希表优化</a></li>
+      </ul>
+    </li>
+    <li><a href="#011-0-和-1-个数相同的子数组">011. 0 和 1 个数相同的子数组</a></li>
+    <li><a href="#012-左右两边子数组的和相等">012. 左右两边子数组的和相等</a></li>
+    <li><a href="#013-二维子矩阵的和">013. 二维子矩阵的和</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p>《剑指Offer II》的刷题笔记。</p>
+<h1 id="第二章-数组">第二章 数组</h1>
+<h2 id="006-排序数组中两个数字之和">006. 排序数组中两个数字之和</h2>
+<p><a href="https://leetcode-cn.com/problems/kLl5u1/">剑指 Offer II 006. 排序数组中两个数字之和</a></p>
+<h3 id="二分查找">二分查找</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">twoSum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">numbers</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">numbers</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">low</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">temp</span><span class="o">=</span><span class="n">target</span><span class="o">-</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span><span class="p">(</span><span class="n">low</span><span class="o">&lt;=</span><span class="n">high</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">mid</span><span class="o">=</span><span class="n">low</span><span class="o">+</span><span class="p">((</span><span class="n">high</span><span class="o">-</span><span class="n">low</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">temp</span><span class="o">==</span><span class="n">numbers</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span> <span class="k">return</span> <span class="p">{</span><span class="n">i</span><span class="p">,</span><span class="n">mid</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">temp</span><span class="o">&lt;</span><span class="n">numbers</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span> <span class="n">high</span><span class="o">=</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span> <span class="n">low</span><span class="o">=</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意：这边的<code>int mid=low+((high-low)&gt;&gt;1);</code>一定要给<code>(high-low)&gt;&gt;1</code>加<code>()</code>，否则执行代码会报错：<code>超出时间限制</code>。</p>
+<p>时间复杂度：O(nlogn)</p>
+<p>空间复杂度：O(1)</p>
+<h3 id="双指针">双指针</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">twoSum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">numbers</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="n">numbers</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="n">i</span><span class="o">!=</span><span class="n">j</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">numbers</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">sum</span><span class="o">==</span><span class="n">target</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="p">{</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span><span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">sum</span><span class="o">&gt;</span><span class="n">target</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">j</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>时间复杂度：O(n)</p>
+<p>空间复杂度：O(1)</p>
+<h2 id="007-数组中和为-0-的三个数">007. 数组中和为 0 的三个数</h2>
+<p><a href="https://leetcode-cn.com/problems/1fGaJU/">剑指 Offer II 007. 数组中和为 0 的三个数</a></p>
+<p>所有和为 <code>0</code> 且 <strong>不重复</strong> 的三元组，故难点在于如何去除重复解。</p>
+<p>前面提到需要使用两个指针来找出和为给定值的两个数字。在找到一个和为0的三元组之后，就需要移动这两个指针，以便找出其他符合条件的三元组。在移动指针的时候需要跳过所有相同的值，以便过滤掉重复的三元组。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">threeSum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">nums</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">2</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">while</span> <span class="p">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="n">sum</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">k</span><span class="p">]});</span>
+</span></span><span class="line"><span class="cl">                        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">while</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">temp</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">sum</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">k</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">temp</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>由于要避免重复的三元组，因此使用一个while循环让下标j跳过重复的数字，一个while循环让下标i跳过重复的数字。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="nf">threeSum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">&gt;=</span><span class="n">3</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span><span class="o">(</span><span class="n">i</span><span class="o">&lt;</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="n">1</span><span class="o">,</span><span class="n">k</span><span class="o">=</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">while</span><span class="o">(</span><span class="n">j</span><span class="o">&lt;</span><span class="n">k</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]+</span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]+</span><span class="n">nums</span><span class="o">[</span><span class="n">k</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span><span class="o">(</span><span class="n">sum</span><span class="o">==</span><span class="n">0</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">],</span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">],</span><span class="n">nums</span><span class="o">[</span><span class="n">k</span><span class="o">]));</span>
+</span></span><span class="line"><span class="cl">                        <span class="kt">int</span> <span class="n">temp</span><span class="o">=</span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">while</span><span class="o">(</span><span class="n">j</span><span class="o">&lt;</span><span class="n">k</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]==</span><span class="n">temp</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">j</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">                        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">sum</span><span class="o">&lt;</span><span class="n">0</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">j</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">k</span><span class="o">--;</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">temp</span><span class="o">=</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">                <span class="k">while</span><span class="o">(</span><span class="n">i</span><span class="o">&lt;</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="n">temp</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">i</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>时间复杂度：O(nlogn+n^2)即O(n^2)</p>
+<p>空间复杂度：O(1)</p>
+<h2 id="008-和大于等于-target-的最短子数组">008. 和大于等于 target 的最短子数组</h2>
+<p><a href="https://leetcode-cn.com/problems/2VG8Kg/">剑指 Offer II 008. 和大于等于 target 的最短子数组</a></p>
+<h3 id="暴力法">暴力法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">minSubArrayLen</span><span class="p">(</span><span class="kt">int</span> <span class="n">target</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//暴力法 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      	<span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">minLen</span><span class="o">=</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">sum</span><span class="o">+=</span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">sum</span><span class="o">&gt;=</span><span class="n">target</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">minLen</span><span class="o">=</span><span class="n">min</span><span class="p">(</span><span class="n">minLen</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">//注意这边有个break
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">minLen</span><span class="o">==</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">?</span><span class="mi">0</span><span class="o">:</span><span class="n">minLen</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>时间复杂度：O(n^2)</p>
+<p>空间复杂度：O(1)</p>
+<h3 id="前缀和--二分查找">前缀和 + 二分查找</h3>
+<p>给定一个含有 <code>n</code> 个正整数的数组和一个正整数 <code>target</code> 。</p>
+<p>注意这里数组中的数都是<code>正整数</code>，故前缀和一定是递增的，可以利用二分查找。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">minSubArrayLen</span><span class="p">(</span><span class="kt">int</span> <span class="n">target</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//前缀和 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">preSum</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//preSum 初始化为 n+1 大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//preSum[0] = 0 意味着前 0 个元素的前缀和为 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//preSum[i] 表示从 nums[0] 到 nums[i−1] 的元素和
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//index: 0 1 2 3 4 5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//nums:  2 3 1 2 4 3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//preSum:0 2 5 6 8 12 15
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">preSum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">preSum</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//sum[i,j]=preSum[j+1]-preSum[i]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//sum[1,3]=6=8-2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">minLen</span><span class="o">=</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">temp</span><span class="o">=</span><span class="n">target</span><span class="o">+</span><span class="n">preSum</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">auto</span> <span class="n">bound</span><span class="o">=</span><span class="n">lower_bound</span><span class="p">(</span><span class="n">preSum</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">preSum</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="n">temp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">bound</span><span class="o">!=</span><span class="n">preSum</span><span class="p">.</span><span class="n">end</span><span class="p">()){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">minLen</span><span class="o">=</span><span class="n">min</span><span class="p">(</span><span class="n">minLen</span><span class="p">,</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">((</span><span class="n">bound</span><span class="o">-</span><span class="n">preSum</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span><span class="o">-</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">minLen</span><span class="o">==</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">?</span><span class="mi">0</span><span class="o">:</span><span class="n">minLen</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以使用现成的库和函数来实现二分查找<code>大于等于&gt;=</code>某个数的第一个位置：</p>
+<ul>
+<li>
+<p>C++ 的 lower_bound</p>
+</li>
+<li>
+<p>Java 中的 Arrays.binarySearch</p>
+</li>
+<li>
+<p>C# 中的 Array.BinarySearch</p>
+</li>
+<li>
+<p>Python 中的 bisect.bisect_left</p>
+</li>
+</ul>
+<p>时间复杂度：O(nlogn)</p>
+<p>空间复杂度：O(n)，额外创建数组preSum存储前缀和。</p>
+<h3 id="滑动窗口双指针">滑动窗口(双指针)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">minSubArrayLen</span><span class="p">(</span><span class="kt">int</span> <span class="n">target</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">minLen</span><span class="o">=</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="n">end</span><span class="o">&lt;</span><span class="n">n</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sum</span><span class="o">+=</span><span class="n">nums</span><span class="p">[</span><span class="n">end</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">          	<span class="c1">//注意这里是while循环
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">while</span><span class="p">(</span><span class="n">sum</span><span class="o">&gt;=</span><span class="n">target</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">minLen</span><span class="o">=</span><span class="n">min</span><span class="p">(</span><span class="n">minLen</span><span class="p">,</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">sum</span><span class="o">-=</span><span class="n">nums</span><span class="p">[</span><span class="n">start</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="n">start</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">end</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">minLen</span><span class="o">==</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">?</span><span class="mi">0</span><span class="o">:</span><span class="n">minLen</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">minSubArrayLen</span><span class="o">(</span><span class="kt">int</span> <span class="n">target</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">minLen</span><span class="o">=</span><span class="n">n</span><span class="o">+</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">left</span><span class="o">=</span><span class="n">0</span><span class="o">,</span><span class="n">sum</span><span class="o">=</span><span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">right</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">right</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">right</span><span class="o">++){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sum</span><span class="o">+=</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">          	<span class="c1">//注意这里是while循环
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">while</span><span class="o">(</span><span class="n">sum</span><span class="o">&gt;=</span><span class="n">target</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">minLen</span><span class="o">=</span><span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">minLen</span><span class="o">,</span><span class="n">right</span><span class="o">-</span><span class="n">left</span><span class="o">+</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">sum</span><span class="o">-=</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">++];</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">minLen</span><span class="o">==</span><span class="n">n</span><span class="o">+</span><span class="n">1</span><span class="o">?</span><span class="n">0</span><span class="o">:</span><span class="n">minLen</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当指针P1和P2之间的子数组数字之和<code>小于k</code>时，<code>向右移动指针P2</code>，直到两个指针之间的子数组数字之和大于k，否则<code>向右移动指针P1</code>，直到两个指针之间的子数组数字之和小于k。</p>
+<p>时间复杂度：O(n)</p>
+<p>空间复杂度：O(1)</p>
+<h2 id="009-乘积小于-k-的子数组">009. 乘积小于 K 的子数组</h2>
+<p><a href="https://leetcode-cn.com/problems/ZVAVXX/">剑指 Offer II 009. 乘积小于 K 的子数组</a></p>
+<h3 id="滑动窗口双指针-1">滑动窗口(双指针)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">numSubarrayProductLessThanK</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//双指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">result</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">k</span><span class="o">&lt;=</span><span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">prod</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">right</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">right</span><span class="o">&lt;</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">right</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">prod</span><span class="o">*=</span><span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span><span class="p">(</span><span class="n">prod</span><span class="o">&gt;=</span><span class="n">k</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">prod</span><span class="o">/=</span><span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="o">++</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span><span class="o">+=</span><span class="p">(</span><span class="n">right</span><span class="o">-</span><span class="n">left</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>目标是求出<code>所有</code>数字乘积<code>小于k</code>的子数组的个数，一旦向右移动指针P1到某个位置时子数组的乘积小于k，就不需要再向右移动指针P1。这是因为<code>只要保持指针P2不动，向右移动指针P1形成的所有子数组的数字乘积就一定小于k</code>。此时两个指针之间有多少个数字，就找到了多少个数字乘积小于k的子数组（为<code>right−left+1</code>个）。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">numSubarrayProductLessThanK</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">long</span> <span class="n">prod</span><span class="o">=</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">left</span><span class="o">=</span><span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">count</span><span class="o">=</span><span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">right</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">right</span><span class="o">&lt;</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">right</span><span class="o">++){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">prod</span><span class="o">*=</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span><span class="o">(</span><span class="n">left</span><span class="o">&lt;=</span><span class="n">right</span> <span class="o">&amp;&amp;</span> <span class="n">prod</span><span class="o">&gt;=</span><span class="n">k</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">prod</span><span class="o">/=</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">++];</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">count</span><span class="o">+=(</span><span class="n">right</span><span class="o">-</span><span class="n">left</span><span class="o">+</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>时间复杂度：O(n)</p>
+<p>空间复杂度：O(1)</p>
+<p>使用<code>双指针</code>解决<code>子数组之和</code>的题有一个前提条件——数组中的所有数字都是<code>正数</code>。</p>
+<h2 id="010-和为-k-的子数组">010. 和为 k 的子数组</h2>
+<p><a href="https://leetcode-cn.com/problems/QTMn0o/">剑指 Offer II 010. 和为 k 的子数组</a></p>
+<h3 id="枚举">枚举</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="c1">//提交：超出时间限制
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">subarraySum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">left</span><span class="o">&lt;</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">left</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">right</span><span class="o">=</span><span class="n">left</span><span class="p">;</span><span class="n">right</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span><span class="n">right</span><span class="o">--</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">sum</span><span class="o">+=</span><span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">//[left,right] 这个子数组的和恰好为 k 。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span><span class="p">(</span><span class="n">sum</span><span class="o">==</span><span class="n">k</span><span class="p">)</span> <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>时间复杂度：O(n^2)</p>
+<p>空间复杂度：O(1)</p>
+<h3 id="前缀和">前缀和</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//提交：通过
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">subarraySum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span><span class="o">[]</span> <span class="n">preSum</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="n">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">preSum</span><span class="o">[</span><span class="n">0</span><span class="o">]=</span><span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">preSum</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="n">1</span><span class="o">]=</span><span class="n">preSum</span><span class="o">[</span><span class="n">i</span><span class="o">]+</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">count</span><span class="o">=</span><span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">right</span><span class="o">=</span><span class="n">1</span><span class="o">;</span><span class="n">right</span><span class="o">&lt;=</span><span class="n">n</span><span class="o">;</span><span class="n">right</span><span class="o">++){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">left</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">left</span><span class="o">&lt;</span><span class="n">right</span><span class="o">;</span><span class="n">left</span><span class="o">++){</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="o">(</span><span class="n">preSum</span><span class="o">[</span><span class="n">right</span><span class="o">]-</span><span class="n">preSum</span><span class="o">[</span><span class="n">left</span><span class="o">]==</span><span class="n">k</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">count</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>时间复杂度：O(n^2)</p>
+<p>空间复杂度：O(n)</p>
+<h3 id="前缀和哈希表优化">前缀和+哈希表优化</h3>
+<p>数组的前i个数字之和记为x。如果存在一个j（j＜i），数组的前j个数字之和为x-k，那么数组中从第i+1个数字开始到第j个数字结束的子数组之和为k。</p>
+<p>这个题目需要计算和为k的子数组的个数。当扫描到数组的第i个数字并求得前i个数字之和是x时，需要知道在i之前存在多少个j并且前j个数字之和等于x-k。所以，对每个i，不但要保存前i个数字之和，还要保存每个和出现的次数。分析到这里就会知道我们需要一个哈希表，哈希表的键是前i个数字之和，值为每个和出现的次数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">subarraySum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">mp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="nl">num</span><span class="p">:</span><span class="n">nums</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sum</span><span class="o">+=</span><span class="n">num</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">count</span><span class="o">+=</span><span class="n">mp</span><span class="p">[</span><span class="n">sum</span><span class="o">-</span><span class="n">k</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mp</span><span class="p">[</span><span class="n">sum</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">subarraySum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">sumToCount</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sumToCount</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">0</span><span class="o">,</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">count</span><span class="o">=</span><span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">:</span><span class="n">nums</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sum</span><span class="o">+=</span><span class="n">num</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">count</span><span class="o">+=</span><span class="n">sumToCount</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">sum</span><span class="o">-</span><span class="n">k</span><span class="o">,</span><span class="n">0</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sumToCount</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">sum</span><span class="o">,</span><span class="n">sumToCount</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">sum</span><span class="o">,</span><span class="n">0</span><span class="o">)+</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>时间复杂度：O(n)</p>
+<p>空间复杂度：O(n)</p>
+<h2 id="011-0-和-1-个数相同的子数组">011. 0 和 1 个数相同的子数组</h2>
+<p><a href="https://leetcode-cn.com/problems/A1NYOS/">剑指 Offer II 011. 0 和 1 个数相同的子数组</a></p>
+<p>由于<code>0 和 1 的数量相同</code>等价于<code>1 的数量减去 0 的数量等于 0</code>，我们可以将数组中的 <code>0 视作 −1</code>，则原问题转换成<code>求最长的连续子数组，其元素和为 0</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">findMaxLength</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">maxLen</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">mp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">counter</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mp</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="n">counter</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span> <span class="n">counter</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">mp</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">counter</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">prevIndex</span><span class="o">=</span><span class="n">mp</span><span class="p">[</span><span class="n">counter</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="n">maxLen</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">maxLen</span><span class="p">,</span><span class="n">i</span><span class="o">-</span><span class="n">prevIndex</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">mp</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">maxLen</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>哈希表的键是从第1个数字开始累加到当前扫描到的数字之和，而值是当前扫描的数字的下标。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">findMaxLength</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">sumToIndex</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sumToIndex</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">0</span><span class="o">,-</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">maxLen</span><span class="o">=</span><span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sum</span><span class="o">+=(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="n">1</span><span class="o">?</span><span class="n">1</span><span class="o">:-</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="o">(</span><span class="n">sumToIndex</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">sum</span><span class="o">)){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">maxLen</span><span class="o">=</span><span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxLen</span><span class="o">,</span><span class="n">i</span><span class="o">-</span><span class="n">sumToIndex</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">sum</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">sumToIndex</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">sum</span><span class="o">,</span><span class="n">i</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">maxLen</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>时间复杂度：O(n)</p>
+<p>空间复杂度：O(n)</p>
+<h2 id="012-左右两边子数组的和相等">012. 左右两边子数组的和相等</h2>
+<p><a href="https://leetcode-cn.com/problems/tvdfij/">剑指 Offer II 012. 左右两边子数组的和相等</a></p>
+<h2 id="013-二维子矩阵的和">013. 二维子矩阵的和</h2>
+<p><a href="https://leetcode-cn.com/problems/O4NDxx/">剑指 Offer II 013. 二维子矩阵的和</a></p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Anjana</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2022-01-22
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a href="https://github.com/gohugoio/hugoBasicExample" rel="noopener" target="_blank">See origin</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://anjanavakil.github.io/tags/algorithm/">Algorithm🪺</a>
+          <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
+          <a href="https://anjanavakil.github.io/tags/leetcode/">LeetCode🌲</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/read_summary_2022/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">关于阅读</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/effective_java_di/">
+            <span class="next-text nav-default">Dependency Injection</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:anjana.cheng@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/AnjanaVakil" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.douban.com/people/188748525/?_i=5959211pTN39WJ,5959254pTN39WJ" rel="me noopener" class="iconfont"
+      title="douban"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M926.917973 37.80608C959.65184 37.80608 986.19392 64.34816 986.19392 97.082027L986.19392 926.917973C986.19392 959.65184 959.65184 986.19392 926.917973 986.19392L97.082027 986.19392C64.34816 986.19392 37.80608 959.65184 37.80608 926.917973L37.80608 97.082027C37.80608 64.34816 64.34816 37.80608 97.082027 37.80608zM176.653653 176.19968 176.653653 252.678827 825.658027 252.678827 825.658027 176.19968zM217.719467 316.146347 217.719467 628.08064 273.524053 628.08064 341.292373 770.39616 157.259093 770.39616 157.259093 845.417813 842.949973 845.417813 842.949973 770.39616 654.226773 770.39616 722.899627 628.08064 783.67744 628.08064 783.67744 316.146347zM684.885333 392.891733 684.885333 553.987413 312.576 553.987413 312.576 392.891733zM570.770773 770.39616 426.653013 770.39616 359.621973 628.08064 639.443627 628.08064z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://anjanavakil.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2021 -
+    2022
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Anjana
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

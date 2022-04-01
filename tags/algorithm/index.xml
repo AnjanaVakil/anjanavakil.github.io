@@ -26,12 +26,21 @@
     </item>
     
     <item>
+      <title>剑指 Offer II 数组</title>
+      <link>https://anjanavakil.github.io/post/jj-offer-array/</link>
+      <pubDate>Sat, 22 Jan 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/jj-offer-array/</guid>
+      <description>《剑指Offer II》的刷题笔记。 第二章 数组 006. 排序数组中两个数字之和 剑指 Offer II 006. 排序数组中两个数字之和 二分查找 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16</description>
+    </item>
+    
+    <item>
       <title>剑指 Offer II 整数</title>
       <link>https://anjanavakil.github.io/post/jj-offer-number/</link>
       <pubDate>Thu, 20 Jan 2022 14:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/jj-offer-number/</guid>
-      <description>《剑指Offer II》的刷题笔记。 第一章 整数 剑指 Offer II 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&amp;lt;=</description>
+      <description>《剑指Offer II》的刷题笔记。 第一章 整数 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&amp;lt;=被除数的</description>
     </item>
     
     <item>
