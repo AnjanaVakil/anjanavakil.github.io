@@ -6,14 +6,23 @@
     <description>Recent content in LeetCode🌲 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 23 Jan 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Jan 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>剑指 Offer II 二分查找</title>
+      <link>https://anjanavakil.github.io/post/jj-offer-binary-search/</link>
+      <pubDate>Tue, 25 Jan 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/jj-offer-binary-search/</guid>
+      <description>《剑指Offer II》的刷题笔记。 第11章 二分查找 关于left&amp;lt;=right: 当left等于right时，查找范围是长度为1的子数组。</description>
+    </item>
+    
     <item>
       <title>剑指 Offer II 字符串</title>
       <link>https://anjanavakil.github.io/post/jj-offer-string/</link>
       <pubDate>Sun, 23 Jan 2022 14:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/jj-offer-string/</guid>
-      <description>《剑指Offer II》的刷题笔记。 第三章 字符串 014. 字符串中的变位词 剑指 Offer II 014. 字符串中的变位词 双指针 + 哈希表 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</description>
+      <description>《剑指Offer II》的刷题笔记。 第3章 字符串 014. 字符串中的变位词 剑指 Offer II 014. 字符串中的变位词 双指针 + 哈希表 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</description>
     </item>
     
     <item>
@@ -22,7 +31,7 @@
       <pubDate>Sat, 22 Jan 2022 14:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/jj-offer-array/</guid>
-      <description>《剑指Offer II》的刷题笔记。 第二章 数组 006. 排序数组中两个数字之和 剑指 Offer II 006. 排序数组中两个数字之和 二分查找 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16</description>
+      <description>《剑指Offer II》的刷题笔记。 第2章 数组 006. 排序数组中两个数字之和 剑指 Offer II 006. 排序数组中两个数字之和 二分查找 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16</description>
     </item>
     
     <item>
@@ -31,7 +40,7 @@
       <pubDate>Thu, 20 Jan 2022 14:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/jj-offer-number/</guid>
-      <description>《剑指Offer II》的刷题笔记。 第一章 整数 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&amp;lt;=被除数的</description>
+      <description>《剑指Offer II》的刷题笔记。 第1章 整数 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&amp;lt;=被除数的</description>
     </item>
     
     <item>

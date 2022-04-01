@@ -145,6 +145,15 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
     </item>
     
     <item>
+      <title>剑指 Offer II 二分查找</title>
+      <link>https://anjanavakil.github.io/post/jj-offer-binary-search/</link>
+      <pubDate>Tue, 25 Jan 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/jj-offer-binary-search/</guid>
+      <description>《剑指Offer II》的刷题笔记。 第11章 二分查找 关于left&amp;lt;=right: 当left等于right时，查找范围是长度为1的子数组。</description>
+    </item>
+    
+    <item>
       <title>Lambda 和 Stream</title>
       <link>https://anjanavakil.github.io/post/effective_java_lambda-stream/</link>
       <pubDate>Mon, 24 Jan 2022 08:15:48 +0800</pubDate>
@@ -159,7 +168,7 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
       <pubDate>Sun, 23 Jan 2022 14:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/jj-offer-string/</guid>
-      <description>《剑指Offer II》的刷题笔记。 第三章 字符串 014. 字符串中的变位词 剑指 Offer II 014. 字符串中的变位词 双指针 + 哈希表 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</description>
+      <description>《剑指Offer II》的刷题笔记。 第3章 字符串 014. 字符串中的变位词 剑指 Offer II 014. 字符串中的变位词 双指针 + 哈希表 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</description>
     </item>
     
     <item>
@@ -168,7 +177,7 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
       <pubDate>Sat, 22 Jan 2022 14:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/jj-offer-array/</guid>
-      <description>《剑指Offer II》的刷题笔记。 第二章 数组 006. 排序数组中两个数字之和 剑指 Offer II 006. 排序数组中两个数字之和 二分查找 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16</description>
+      <description>《剑指Offer II》的刷题笔记。 第2章 数组 006. 排序数组中两个数字之和 剑指 Offer II 006. 排序数组中两个数字之和 二分查找 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16</description>
     </item>
     
     <item>
@@ -178,15 +187,6 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
       
       <guid>https://anjanavakil.github.io/post/effective_java_di/</guid>
       <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility -</description>
-    </item>
-    
-    <item>
-      <title>剑指 Offer II 整数</title>
-      <link>https://anjanavakil.github.io/post/jj-offer-number/</link>
-      <pubDate>Thu, 20 Jan 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/jj-offer-number/</guid>
-      <description>《剑指Offer II》的刷题笔记。 第一章 整数 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&amp;lt;=被除数的</description>
     </item>
     
   </channel>
