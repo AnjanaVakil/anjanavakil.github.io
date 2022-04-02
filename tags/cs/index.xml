@@ -145,6 +145,24 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
     </item>
     
     <item>
+      <title>剑指 Offer II 哈希表</title>
+      <link>https://anjanavakil.github.io/post/jj-offer-hashtable/</link>
+      <pubDate>Wed, 26 Jan 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/jj-offer-hashtable/</guid>
+      <description>《剑指Offer II》的刷题笔记。 第5章 哈希表 032. 有效的变位词 剑指 Offer II 032. 有效的变位词 排序 1 2 3 4 5 6 7 8 9 10 class Solution { public: bool isAnagram(string s, string t) { if(s.length()!=t.length()) return false; if(s==t) return false; sort(s.begin(),s.end());</description>
+    </item>
+    
+    <item>
+      <title>剑指 Offer II 回溯法</title>
+      <link>https://anjanavakil.github.io/post/jj-offer-backtrack/</link>
+      <pubDate>Wed, 26 Jan 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/jj-offer-backtrack/</guid>
+      <description>《剑指Offer II》的刷题笔记。 第13章 回溯法 采用回溯法解决问题的过程实质上是在树形结构中从根节点开始进行深度优先遍历。通常，回溯法的深度</description>
+    </item>
+    
+    <item>
       <title>剑指 Offer II 二分查找</title>
       <link>https://anjanavakil.github.io/post/jj-offer-binary-search/</link>
       <pubDate>Tue, 25 Jan 2022 08:15:48 +0800</pubDate>
@@ -169,24 +187,6 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
       
       <guid>https://anjanavakil.github.io/post/jj-offer-string/</guid>
       <description>《剑指Offer II》的刷题笔记。 第3章 字符串 014. 字符串中的变位词 剑指 Offer II 014. 字符串中的变位词 双指针 + 哈希表 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</description>
-    </item>
-    
-    <item>
-      <title>剑指 Offer II 数组</title>
-      <link>https://anjanavakil.github.io/post/jj-offer-array/</link>
-      <pubDate>Sat, 22 Jan 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/jj-offer-array/</guid>
-      <description>《剑指Offer II》的刷题笔记。 第2章 数组 006. 排序数组中两个数字之和 剑指 Offer II 006. 排序数组中两个数字之和 二分查找 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16</description>
-    </item>
-    
-    <item>
-      <title>Dependency Injection</title>
-      <link>https://anjanavakil.github.io/post/effective_java_di/</link>
-      <pubDate>Fri, 21 Jan 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective_java_di/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 5: Prefer dependency injection to hardwiring resources 优先考虑依赖注入来引入资源 Condition Many classes depend on one or more underlying resources. For example, a spell checker depends on a dictionary. Inappropriate use of static utility -</description>
     </item>
     
   </channel>
