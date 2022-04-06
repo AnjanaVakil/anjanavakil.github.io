@@ -9,91 +9,91 @@
     <lastBuildDate>Fri, 25 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Aha! Algorithms 啊哈！算法</title>
-      <link>https://anjanavakil.github.io/post/pp_aha-algorithms/</link>
+      <link>https://anjanavakil.github.io/post/pp-aha-algorithms/</link>
       <pubDate>Fri, 25 Mar 2022 20:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/pp_aha-algorithms/</guid>
+      <guid>https://anjanavakil.github.io/post/pp-aha-algorithms/</guid>
       <description>《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少</description>
     </item>
     
     <item>
       <title>Cracking the Oyster 开篇</title>
-      <link>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</link>
+      <link>https://anjanavakil.github.io/post/pp-cracking-the-oyster/</link>
       <pubDate>Thu, 24 Mar 2022 20:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</guid>
+      <guid>https://anjanavakil.github.io/post/pp-cracking-the-oyster/</guid>
       <description>《编程珠玑》的笔记。 作者 Jon Bentley 推荐的阅读方法，因此每次完成一章，重点是自己思考习题。 One hint about reading the essays: don’t go too fast. Read them carefully, one per sitting. Try the problems as they are posed — some</description>
     </item>
     
     <item>
       <title>Generics</title>
-      <link>https://anjanavakil.github.io/post/effective_java_generic/</link>
+      <link>https://anjanavakil.github.io/post/effective-java-generic/</link>
       <pubDate>Wed, 23 Mar 2022 20:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/effective_java_generic/</guid>
+      <guid>https://anjanavakil.github.io/post/effective-java-generic/</guid>
       <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原</description>
     </item>
     
     <item>
       <title>implement Comparable</title>
-      <link>https://anjanavakil.github.io/post/effective_java_comparable/</link>
+      <link>https://anjanavakil.github.io/post/effective-java-comparable/</link>
       <pubDate>Wed, 23 Mar 2022 13:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/effective_java_comparable/</guid>
+      <guid>https://anjanavakil.github.io/post/effective-java-comparable/</guid>
       <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 14: Consider implementing Comparable 考虑实现 Comparable 接口 Virtually all of the value classes in the Java platform libraries, as well as all enum types, implement Comparable. If you are writing a value class with an obvious natural ordering, such as alphabetical</description>
     </item>
     
     <item>
       <title>override equals</title>
-      <link>https://anjanavakil.github.io/post/effective_java_overriding_equals/</link>
+      <link>https://anjanavakil.github.io/post/effective-java-overriding-equals/</link>
       <pubDate>Tue, 22 Mar 2022 15:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/effective_java_overriding_equals/</guid>
+      <guid>https://anjanavakil.github.io/post/effective-java-overriding-equals/</guid>
       <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 10: Obey the general contract when overriding equals 覆盖 equals 方法时请遵守通用约定 Not to override the equals method 1. Each instance of the class is inherently unique. This is true for classes such as Thread that</description>
     </item>
     
     <item>
       <title>Memory Leaks &#43; Garbage Collect</title>
-      <link>https://anjanavakil.github.io/post/effective_java_gc/</link>
+      <link>https://anjanavakil.github.io/post/effective-java-gc/</link>
       <pubDate>Tue, 22 Mar 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/effective_java_gc/</guid>
+      <guid>https://anjanavakil.github.io/post/effective-java-gc/</guid>
       <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13</description>
     </item>
     
     <item>
       <title>Prefer try-with-resources to try-finally</title>
-      <link>https://anjanavakil.github.io/post/effective_java_try_with_resources/</link>
+      <link>https://anjanavakil.github.io/post/effective-java-try-with-resources/</link>
       <pubDate>Tue, 22 Mar 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/effective_java_try_with_resources/</guid>
+      <guid>https://anjanavakil.github.io/post/effective-java-try-with-resources/</guid>
       <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path));</description>
     </item>
     
     <item>
       <title>Builder</title>
-      <link>https://anjanavakil.github.io/post/effective_java_builder/</link>
+      <link>https://anjanavakil.github.io/post/effective-java-builder/</link>
       <pubDate>Mon, 21 Mar 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/effective_java_builder/</guid>
+      <guid>https://anjanavakil.github.io/post/effective-java-builder/</guid>
       <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 2: Consider a builder when faced with many constructor parameters 当构造函数有多个参数时，考虑使用builder模式 1. Telescoping constructor pattern - does not scale well! 1</description>
     </item>
     
     <item>
       <title>Coders At Work: Brad Fitzpatrick</title>
-      <link>https://anjanavakil.github.io/post/coders_at_work-brad-fitzpatrick/</link>
+      <link>https://anjanavakil.github.io/post/coders-at-work-brad-fitzpatrick/</link>
       <pubDate>Sun, 20 Mar 2022 15:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/coders_at_work-brad-fitzpatrick/</guid>
+      <guid>https://anjanavakil.github.io/post/coders-at-work-brad-fitzpatrick/</guid>
       <description>Brad Fitzpatrick 书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。 1、学习东西 Seibel: It does seem that while you were writing all this stuff because you needed it, you</description>
     </item>
     
     <item>
       <title>Coders At Work: Jamie Zawinski</title>
-      <link>https://anjanavakil.github.io/post/coders_at_work-jamie-zawinski/</link>
+      <link>https://anjanavakil.github.io/post/coders-at-work-jamie-zawinski/</link>
       <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/coders_at_work-jamie-zawinski/</guid>
+      <guid>https://anjanavakil.github.io/post/coders-at-work-jamie-zawinski/</guid>
       <description>豆瓣🔗: Coders At Work 《编程人生：15位软件先驱访谈录》 第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获</description>
     </item>
     
@@ -108,10 +108,10 @@
     
     <item>
       <title>Designing Data-Intensive Applications Notes</title>
-      <link>https://anjanavakil.github.io/post/designing_data-intensive_applications/</link>
+      <link>https://anjanavakil.github.io/post/designing-data-intensive_applications/</link>
       <pubDate>Thu, 17 Mar 2022 22:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/designing_data-intensive_applications/</guid>
+      <guid>https://anjanavakil.github.io/post/designing-data-intensive_applications/</guid>
       <description>atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.
 In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.
 REST REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP.</description>
@@ -119,19 +119,19 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
     
     <item>
       <title>Lambda表达式</title>
-      <link>https://anjanavakil.github.io/post/lambda_expression/</link>
+      <link>https://anjanavakil.github.io/post/lambda-expression/</link>
       <pubDate>Sat, 12 Mar 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/lambda_expression/</guid>
+      <guid>https://anjanavakil.github.io/post/lambda-expression/</guid>
       <description>之前技术博客都是在CSDN上发表的，好久没用了，登录上去居然有人给我以前的博客点赞评论，尽管很少但发现还是有人看的。看了一下之前写的博客，发</description>
     </item>
     
     <item>
       <title>《编写可读代码的艺术》</title>
-      <link>https://anjanavakil.github.io/post/the_art_of_readable_code/</link>
+      <link>https://anjanavakil.github.io/post/the-art-of-readable-code/</link>
       <pubDate>Fri, 04 Mar 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/the_art_of_readable_code/</guid>
+      <guid>https://anjanavakil.github.io/post/the-art-of-readable-code/</guid>
       <description>豆瓣🔗：《编写可读代码的艺术》 关于编码规范和编写高质量代码类的书籍，印象中第一本看完的应该是《阿里巴巴Java开发手册》，《编写可读代码的艺</description>
     </item>
     
@@ -142,6 +142,15 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
       
       <guid>https://anjanavakil.github.io/post/408/</guid>
       <description>CS 基础知识的笔记，不算是总结性的笔记，只是曾经备忘录上记录下来的和对于自己陌生的点，或许应该保存到blog上，抑或是考试教育的一种印证。 CO 1</description>
+    </item>
+    
+    <item>
+      <title>剑指 Offer II 链表</title>
+      <link>https://anjanavakil.github.io/post/jj-offer-linkedlist/</link>
+      <pubDate>Fri, 28 Jan 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/jj-offer-linkedlist/</guid>
+      <description>《剑指Offer II》的刷题笔记。 第4章 链表 单向链表 定义 1 2 3 4 5 6 7 8 public class ListNode { public int val; public ListNode next; public ListNode(int val) { this.val = val; } } 链表插入 1 2 3 4 5 6 7 8 9 10 11</description>
     </item>
     
     <item>
@@ -169,15 +178,6 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
       
       <guid>https://anjanavakil.github.io/post/jj-offer-binary-search/</guid>
       <description>《剑指Offer II》的刷题笔记。 第11章 二分查找 关于left&amp;lt;=right: 当left等于right时，查找范围是长度为1的子数组。</description>
-    </item>
-    
-    <item>
-      <title>Lambda 和 Stream</title>
-      <link>https://anjanavakil.github.io/post/effective_java_lambda-stream/</link>
-      <pubDate>Mon, 24 Jan 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective_java_lambda-stream/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。</description>
     </item>
     
     <item>

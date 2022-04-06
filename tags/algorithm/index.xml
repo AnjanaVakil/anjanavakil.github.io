@@ -9,20 +9,29 @@
     <lastBuildDate>Fri, 25 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Aha! Algorithms 啊哈！算法</title>
-      <link>https://anjanavakil.github.io/post/pp_aha-algorithms/</link>
+      <link>https://anjanavakil.github.io/post/pp-aha-algorithms/</link>
       <pubDate>Fri, 25 Mar 2022 20:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/pp_aha-algorithms/</guid>
+      <guid>https://anjanavakil.github.io/post/pp-aha-algorithms/</guid>
       <description>《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少</description>
     </item>
     
     <item>
       <title>Cracking the Oyster 开篇</title>
-      <link>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</link>
+      <link>https://anjanavakil.github.io/post/pp-cracking-the-oyster/</link>
       <pubDate>Thu, 24 Mar 2022 20:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</guid>
+      <guid>https://anjanavakil.github.io/post/pp-cracking-the-oyster/</guid>
       <description>《编程珠玑》的笔记。 作者 Jon Bentley 推荐的阅读方法，因此每次完成一章，重点是自己思考习题。 One hint about reading the essays: don’t go too fast. Read them carefully, one per sitting. Try the problems as they are posed — some</description>
+    </item>
+    
+    <item>
+      <title>剑指 Offer II 链表</title>
+      <link>https://anjanavakil.github.io/post/jj-offer-linkedlist/</link>
+      <pubDate>Fri, 28 Jan 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/jj-offer-linkedlist/</guid>
+      <description>《剑指Offer II》的刷题笔记。 第4章 链表 单向链表 定义 1 2 3 4 5 6 7 8 public class ListNode { public int val; public ListNode next; public ListNode(int val) { this.val = val; } } 链表插入 1 2 3 4 5 6 7 8 9 10 11</description>
     </item>
     
     <item>

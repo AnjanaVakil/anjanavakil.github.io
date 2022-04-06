@@ -230,8 +230,6 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/weread.png&#34; alt=&#34;Weread&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Keep：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/keep.jpg&#34; alt=&#34;Keep&#34;&gt;&lt;/p&gt;
-&lt;p&gt;通过微信可以在微信读书一起交流：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/wechat.jpg&#34; alt=&#34;Keep&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如果春天要来，大地就使它一点点地完成🍃。&lt;/p&gt;
 &lt;p&gt;“Think before you speak. Read before you think.” —Fran Lebowitz&lt;/p&gt;
 </description>
@@ -240,10 +238,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     
     <item>
       <title>Aha! Algorithms 啊哈！算法</title>
-      <link>https://anjanavakil.github.io/post/pp_aha-algorithms/</link>
+      <link>https://anjanavakil.github.io/post/pp-aha-algorithms/</link>
       <pubDate>Fri, 25 Mar 2022 20:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/pp_aha-algorithms/</guid>
+      <guid>https://anjanavakil.github.io/post/pp-aha-algorithms/</guid>
       
         <description>&lt;p&gt;《编程珠玑》的笔记。&lt;/p&gt;
 &lt;h1 id=&#34;column-2-aha-algorithms&#34;&gt;Column 2: Aha! Algorithms&lt;/h1&gt;
@@ -310,10 +308,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     
     <item>
       <title>Cracking the Oyster 开篇</title>
-      <link>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</link>
+      <link>https://anjanavakil.github.io/post/pp-cracking-the-oyster/</link>
       <pubDate>Thu, 24 Mar 2022 20:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/pp_cracking-the-oyster/</guid>
+      <guid>https://anjanavakil.github.io/post/pp-cracking-the-oyster/</guid>
       
         <description>&lt;p&gt;《编程珠玑》的笔记。&lt;/p&gt;
 &lt;p&gt;作者 Jon Bentley 推荐的阅读方法，因此每次完成一章，重点是自己思考习题。&lt;/p&gt;
@@ -640,10 +638,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     
     <item>
       <title>Generics</title>
-      <link>https://anjanavakil.github.io/post/effective_java_generic/</link>
+      <link>https://anjanavakil.github.io/post/effective-java-generic/</link>
       <pubDate>Wed, 23 Mar 2022 20:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/effective_java_generic/</guid>
+      <guid>https://anjanavakil.github.io/post/effective-java-generic/</guid>
       
         <description>&lt;p&gt;Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。&lt;/p&gt;
 &lt;h1 id=&#34;item-26-dont-use-raw-types&#34;&gt;Item 26: Don’t use raw types&lt;/h1&gt;
@@ -799,10 +797,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     
     <item>
       <title>implement Comparable</title>
-      <link>https://anjanavakil.github.io/post/effective_java_comparable/</link>
+      <link>https://anjanavakil.github.io/post/effective-java-comparable/</link>
       <pubDate>Wed, 23 Mar 2022 13:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/effective_java_comparable/</guid>
+      <guid>https://anjanavakil.github.io/post/effective-java-comparable/</guid>
       
         <description>&lt;p&gt;Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。&lt;/p&gt;
 &lt;h1 id=&#34;item-14-consider-implementing-comparable&#34;&gt;Item 14: Consider implementing Comparable&lt;/h1&gt;
@@ -952,10 +950,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     
     <item>
       <title>override equals</title>
-      <link>https://anjanavakil.github.io/post/effective_java_overriding_equals/</link>
+      <link>https://anjanavakil.github.io/post/effective-java-overriding-equals/</link>
       <pubDate>Tue, 22 Mar 2022 15:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/effective_java_overriding_equals/</guid>
+      <guid>https://anjanavakil.github.io/post/effective-java-overriding-equals/</guid>
       
         <description>&lt;p&gt;Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。&lt;/p&gt;
 &lt;h1 id=&#34;item-10-obey-the-general-contract-when-overriding-equals&#34;&gt;Item 10: Obey the general contract when overriding equals&lt;/h1&gt;
@@ -1003,10 +1001,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     
     <item>
       <title>Memory Leaks &#43; Garbage Collect</title>
-      <link>https://anjanavakil.github.io/post/effective_java_gc/</link>
+      <link>https://anjanavakil.github.io/post/effective-java-gc/</link>
       <pubDate>Tue, 22 Mar 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/effective_java_gc/</guid>
+      <guid>https://anjanavakil.github.io/post/effective-java-gc/</guid>
       
         <description>&lt;p&gt;Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。&lt;/p&gt;
 &lt;h1 id=&#34;item-7-eliminate-obsolete-object-references&#34;&gt;Item 7: Eliminate obsolete object references&lt;/h1&gt;
@@ -1220,10 +1218,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     
     <item>
       <title>Prefer try-with-resources to try-finally</title>
-      <link>https://anjanavakil.github.io/post/effective_java_try_with_resources/</link>
+      <link>https://anjanavakil.github.io/post/effective-java-try-with-resources/</link>
       <pubDate>Tue, 22 Mar 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/effective_java_try_with_resources/</guid>
+      <guid>https://anjanavakil.github.io/post/effective-java-try-with-resources/</guid>
       
         <description>&lt;p&gt;Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。&lt;/p&gt;
 &lt;h1 id=&#34;item-9-prefer-try-with-resources-to-try-finally&#34;&gt;Item 9: Prefer try-with-resources to try-finally&lt;/h1&gt;
@@ -1681,10 +1679,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     
     <item>
       <title>Builder</title>
-      <link>https://anjanavakil.github.io/post/effective_java_builder/</link>
+      <link>https://anjanavakil.github.io/post/effective-java-builder/</link>
       <pubDate>Mon, 21 Mar 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/effective_java_builder/</guid>
+      <guid>https://anjanavakil.github.io/post/effective-java-builder/</guid>
       
         <description>&lt;p&gt;Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。&lt;/p&gt;
 &lt;h1 id=&#34;item-2-consider-a-builder-when-faced-with-many-constructor-parameters&#34;&gt;Item 2: Consider a builder when faced with many constructor parameters&lt;/h1&gt;
@@ -2028,10 +2026,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     
     <item>
       <title>Coders At Work: Brad Fitzpatrick</title>
-      <link>https://anjanavakil.github.io/post/coders_at_work-brad-fitzpatrick/</link>
+      <link>https://anjanavakil.github.io/post/coders-at-work-brad-fitzpatrick/</link>
       <pubDate>Sun, 20 Mar 2022 15:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/coders_at_work-brad-fitzpatrick/</guid>
+      <guid>https://anjanavakil.github.io/post/coders-at-work-brad-fitzpatrick/</guid>
       
         <description>&lt;h2 id=&#34;brad-fitzpatrick&#34;&gt;Brad Fitzpatrick&lt;/h2&gt;
 &lt;p&gt;书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。&lt;/p&gt;
@@ -2105,10 +2103,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     
     <item>
       <title>Coders At Work: Jamie Zawinski</title>
-      <link>https://anjanavakil.github.io/post/coders_at_work-jamie-zawinski/</link>
+      <link>https://anjanavakil.github.io/post/coders-at-work-jamie-zawinski/</link>
       <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/coders_at_work-jamie-zawinski/</guid>
+      <guid>https://anjanavakil.github.io/post/coders-at-work-jamie-zawinski/</guid>
       
         <description>&lt;ul&gt;
 &lt;li&gt;
@@ -2432,10 +2430,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     
     <item>
       <title>Designing Data-Intensive Applications Notes</title>
-      <link>https://anjanavakil.github.io/post/designing_data-intensive_applications/</link>
+      <link>https://anjanavakil.github.io/post/designing-data-intensive_applications/</link>
       <pubDate>Thu, 17 Mar 2022 22:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/designing_data-intensive_applications/</guid>
+      <guid>https://anjanavakil.github.io/post/designing-data-intensive_applications/</guid>
       
         <description>&lt;h3 id=&#34;atomic&#34;&gt;atomic&lt;/h3&gt;
 &lt;p&gt;In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.&lt;/p&gt;
@@ -2456,10 +2454,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     
     <item>
       <title>Show Your Work!</title>
-      <link>https://anjanavakil.github.io/post/show_your_work/</link>
+      <link>https://anjanavakil.github.io/post/show-your-work/</link>
       <pubDate>Wed, 16 Mar 2022 21:00:00 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/show_your_work/</guid>
+      <guid>https://anjanavakil.github.io/post/show-your-work/</guid>
       
         <description>&lt;ul&gt;
 &lt;li&gt;douban🔗: &lt;a href=&#34;https://book.douban.com/subject/25857796/&#34;&gt;Show Your Work! 10 Ways to Share Your Creativity and Get Discovered&lt;/a&gt;&lt;/li&gt;
@@ -2535,10 +2533,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     
     <item>
       <title>Lambda表达式</title>
-      <link>https://anjanavakil.github.io/post/lambda_expression/</link>
+      <link>https://anjanavakil.github.io/post/lambda-expression/</link>
       <pubDate>Sat, 12 Mar 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/lambda_expression/</guid>
+      <guid>https://anjanavakil.github.io/post/lambda-expression/</guid>
       
         <description>&lt;p&gt;之前技术博客都是在CSDN上发表的，好久没用了，登录上去居然有人给我以前的博客点赞评论，尽管很少但发现还是有人看的。看了一下之前写的博客，发现不是一般的烂，不知道对于他们是不是一种浪费时间的行为🤣。&lt;/p&gt;
 &lt;p&gt;最近查询问题/解决bug，发现CSDN很多博客质量不太高（包括我的），有好的博客但是真的要筛选看过几篇后才能看到好的，而且前面浪费时间浏览的几篇有些基本是抄袭的。所以还是下定决心好好写博客，不必高产，但每一篇应该认真写。自己总结学习，也尽力让有缘看到自己博客的同学有所得，而不是内心想着：这又是一篇垃圾博客🌚。&lt;/p&gt;
@@ -3005,10 +3003,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     
     <item>
       <title>《编写可读代码的艺术》</title>
-      <link>https://anjanavakil.github.io/post/the_art_of_readable_code/</link>
+      <link>https://anjanavakil.github.io/post/the-art-of-readable-code/</link>
       <pubDate>Fri, 04 Mar 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/the_art_of_readable_code/</guid>
+      <guid>https://anjanavakil.github.io/post/the-art-of-readable-code/</guid>
       
         <description>&lt;ul&gt;
 &lt;li&gt;豆瓣🔗：&lt;a href=&#34;https://book.douban.com/subject/10797189/&#34;&gt;《编写可读代码的艺术》&lt;/a&gt;&lt;/li&gt;
@@ -3118,10 +3116,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     
     <item>
       <title>2022年1月~2月陌生词汇</title>
-      <link>https://anjanavakil.github.io/post/vocabulary_2022_1_2/</link>
+      <link>https://anjanavakil.github.io/post/vocabulary-2022-1-2/</link>
       <pubDate>Mon, 28 Feb 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/vocabulary_2022_1_2/</guid>
+      <guid>https://anjanavakil.github.io/post/vocabulary-2022-1-2/</guid>
       
         <description>&lt;p&gt;每个人的基础以及敏感偏好都不同。如果每次备考都背单词书的话，对我而言总是在重复会的单词，但不会的单词并不会得到太大的重视，因此记录下每天英文阅读（包括书籍、网站）时遇见的陌生单词，形成自己的单词书。&lt;/p&gt;
 &lt;hr&gt;
@@ -3422,10 +3420,10 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
     
     <item>
       <title>《世界因你不同：李开复自传》</title>
-      <link>https://anjanavakil.github.io/post/the_kai_fulee_story/</link>
+      <link>https://anjanavakil.github.io/post/the-kai-fulee-story/</link>
       <pubDate>Thu, 10 Feb 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/the_kai_fulee_story/</guid>
+      <guid>https://anjanavakil.github.io/post/the-kai-fulee-story/</guid>
       
         <description>&lt;ul&gt;
 &lt;li&gt;豆瓣🔗：&lt;a href=&#34;https://book.douban.com/subject/4010196/&#34;&gt;《世界因你不同：李开复自传》&lt;/a&gt;&lt;/li&gt;

@@ -9,11 +9,20 @@
     <lastBuildDate>Tue, 01 Feb 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/growth/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于阅读</title>
-      <link>https://anjanavakil.github.io/post/read_summary_2022/</link>
+      <link>https://anjanavakil.github.io/post/read-summary-2022/</link>
       <pubDate>Tue, 01 Feb 2022 14:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/read_summary_2022/</guid>
+      <guid>https://anjanavakil.github.io/post/read-summary-2022/</guid>
       <description>一直觉得阅读也只不过是排解人生无聊的陪伴，不太喜欢阅读如何如何好之类的说辞，但是有次在微读看到有书友这样写： 读书和思考是一件辛苦的事，像暗夜</description>
+    </item>
+    
+    <item>
+      <title>优质 网站/个人网站/博客 合集</title>
+      <link>https://anjanavakil.github.io/post/blogs/</link>
+      <pubDate>Thu, 27 Jan 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/blogs/</guid>
+      <description>网上优质/自认为值得一看的网站/个人网站/BLOG 合集： 英文 WEBSITE Springer Link: https://link.springer.com/ Enterprise Integration Patterns: https://www.enterpriseintegrationpatterns.com/ OREILLY BLOG: https://www.oreilly.com/radar/ BLOG Jamie Zawinski: https://www.jwz.org/ Joel Spolsky: https://www.joelonsoftware.com/ Gregor Hohpe: https://architectelevator.com/ UCI教授的主页： Roy T. Fielding: https://www.ics.uci.edu/~fielding/ Padhraic Smyth: https://www.ics.uci.edu/~smyth/ Mark Steyvers: https://steyvers.socsci.uci.edu/</description>
     </item>
     
   </channel>
