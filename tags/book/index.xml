@@ -8,15 +8,6 @@
     <language>en</language>
     <lastBuildDate>Sun, 20 Mar 2022 15:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/book/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Code: The Hidden Language of Computer Hardware and Software</title>
-      <link>https://anjanavakil.github.io/post/code/</link>
-      <pubDate>Fri, 25 Feb 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/code/</guid>
-      <description>豆瓣🔗：Code: The Hidden Language of Computer Hardware and Software 第一遍读的是中文版，寒假期间重读了英文版。这应该是第一本读完的英文专业书籍。读的过程中还是稍微有些困难的，</description>
-    </item>
-    
-    <item>
       <title>Coders At Work: Brad Fitzpatrick</title>
       <link>https://anjanavakil.github.io/post/coders-at-work-brad-fitzpatrick/</link>
       <pubDate>Sun, 20 Mar 2022 15:15:48 +0800</pubDate>
@@ -51,6 +42,15 @@ The book is brief and there is not a lot of unfamiliar vocabulary so I read it i
       
       <guid>https://anjanavakil.github.io/post/the-art-of-readable-code/</guid>
       <description>豆瓣🔗：《编写可读代码的艺术》 关于编码规范和编写高质量代码类的书籍，印象中第一本看完的应该是《阿里巴巴Java开发手册》，《编写可读代码的艺</description>
+    </item>
+    
+    <item>
+      <title>Code: The Hidden Language of Computer Hardware and Software</title>
+      <link>https://anjanavakil.github.io/post/code/</link>
+      <pubDate>Fri, 25 Feb 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/code/</guid>
+      <description>豆瓣🔗：Code: The Hidden Language of Computer Hardware and Software 第一遍读的是中文版，寒假期间重读了英文版。这应该是第一本读完的英文专业书籍。读的过程中还是稍微有些困难的，</description>
     </item>
     
     <item>

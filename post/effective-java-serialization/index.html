@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Serialization">
 <meta itemprop="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data repre"><meta itemprop="datePublished" content="2022-01-17T14:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-01-17T14:15:48+08:00" />
-<meta itemprop="wordCount" content="2850">
+<meta itemprop="wordCount" content="4216">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Serialization"/>
 <meta name="twitter:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data repre"/>
@@ -330,6 +330,7 @@
         <li><a href="#an-objects-physical-representation-is-identical-to-its-logical-content">an object’s physical representation is identical to its logical content</a></li>
         <li><a href="#an-objects-physical-representation-differs-substantially-from-its-logical-data-content">an object’s physical representation differs substantially from its logical data content</a></li>
         <li><a href="#any-object-whose-invariants-are-tied-to-implementation-specific-details">any object whose invariants are tied to implementation-specific details</a></li>
+        <li><a href="#java定制序列化的机制">Java定制序列化的机制</a></li>
         <li><a href="#transient-vs-nontransient">transient VS nontransient</a></li>
         <li><a href="#impose-synchronization-on-object-serialization">impose synchronization on object serialization</a></li>
         <li><a href="#declare-an-explicit-serialversion-uid">declare an explicit serialversion UID</a></li>
@@ -382,6 +383,7 @@
 <p>实现Serializable接口并不是一个轻松的决定。</p>
 <blockquote>
 <p>Historically, value classes such as <code>BigInteger</code> and <code>Instant</code> implemented Serializable, and <code>collection classes</code>(集合类) did too.</p>
+<p>例如：String、Date、Double、ArrayList、LinkedList、HashMap、TreeMap等</p>
 <p><code>Classes representing active entities</code>, such as <code>thread pools</code>, should rarely implement Serializable.</p>
 </blockquote>
 <h4 id="inner-classes-should-not-implement-serializable">Inner classes should not implement Serializable.</h4>
@@ -607,6 +609,163 @@
 <p>For example, consider the case of a hash table. The physical representation is a sequence of hash buckets containing key-value entries. The bucket that an entry resides in is a function of the hash code of its key, which is not, in general, guaranteed to be the same from implementation to implementation. In fact, it isn’t even guaranteed to be the same from run to run.</p>
 <p>Therefore, accepting the default serialized form for a hash table would constitute a serious bug. Serializing and deserializing the hash table could yield an object whose invariants were seriously corrupt. (P.S. 中文版翻译将&quot;invariants&quot;翻译为“约束关系”)</p>
 </blockquote>
+<h3 id="java定制序列化的机制">Java定制序列化的机制</h3>
+<p>对于有些字段，它的值可能与内存位置有关，比如默认的hashCode()方法的返回值，当恢复对象后，内存位置肯定变了，基于原内存位置的值也就没有了意义。还有一些字段，可能与当前时间有关，比如表示对象创建时的时间，保存和恢复这个字段就是不正确的。</p>
+<p>如果类中的字段表示的是类的实现细节，而非逻辑信息，那默认序列化也是不适合的。为什么不适合呢？因为序列化格式表示一种契约，应该描述类的逻辑结构，而非与实现细节相绑定，绑定实现细节将使得难以修改，破坏封装。</p>
+<p>比如，容器类中介绍的LinkedList，它的默认序列化就是不适合的。为什么呢？因为LinkedList表示一个List，它的逻辑信息是列表的长度，以及列表中的每个对象，但LinkedList类中的字段表示的是链表的实现细节，如头尾节点指针，对每个节点，还有前驱和后继节点指针等。</p>
+<p>Java提供了多种定制序列化的机制，主要的有两种：</p>
+<ul>
+<li>transient关键字</li>
+<li>实现writeObject和readObject方法</li>
+</ul>
+<p>将字段声明为transient，默认序列化机制将忽略该字段，不会进行保存和恢复。</p>
+<p>比如，类LinkedList中，它的字段都声明为了transient</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkedList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">extends</span> <span class="n">AbstractSequentialList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">implements</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;,</span> <span class="n">Deque</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;,</span> <span class="n">Cloneable</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">Serializable</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">transient</span> <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * Pointer to first node.
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">transient</span> <span class="n">Node</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">first</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * Pointer to last node.
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">transient</span> <span class="n">Node</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">last</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@java.io.Serial</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="n">876323262645176354L</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>声明为了transient，不是说就不保存该字段了，而是告诉Java默认序列化机制，不要自动保存该字段了，可以实现writeObject/readObject方法来自己保存该字段。</p>
+<p>LinkedList使用如下代码序列化列表的逻辑数据：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * Saves the state of this {@code LinkedList} instance to a stream
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * (that is, serializes it).
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @serialData The size of the list (the number of elements it
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *             contains) is emitted (int), followed by all of its
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *             elements (each an Object) in the proper order.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@java.io.Serial</span>
+</span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">writeObject</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">ObjectOutputStream</span> <span class="n">s</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">throws</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">IOException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Write out any hidden serialization magic
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">s</span><span class="o">.</span><span class="na">defaultWriteObject</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Write out size
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">s</span><span class="o">.</span><span class="na">writeInt</span><span class="o">(</span><span class="n">size</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Write out all elements in the proper order.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="o">(</span><span class="n">Node</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">first</span><span class="o">;</span> <span class="n">x</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="na">next</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">x</span><span class="o">.</span><span class="na">item</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>需要注意<code>s.defaultWriteObject();</code>这一行是必需的，它会调用默认的序列化机制，默认机制会保存所有没声明为transient的字段，即使类中的所有字段都是transient，也应该写这一行，因为Java的序列化机制不仅会保存纯粹的数据信息，还会保存一些元数据描述等隐藏信息，这些隐藏的信息是序列化之所以能够神奇的重要原因。</p>
+<p>LinkedList的反序列化代码为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * Reconstitutes this {@code LinkedList} instance from a stream
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * (that is, deserializes it).
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&#34;unchecked&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@java.io.Serial</span>
+</span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">readObject</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">ObjectInputStream</span> <span class="n">s</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">throws</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">IOException</span><span class="o">,</span> <span class="n">ClassNotFoundException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Read in any hidden serialization magic
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">s</span><span class="o">.</span><span class="na">defaultReadObject</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Read in size
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">readInt</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Read in all elements in the proper order.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">linkLast</span><span class="o">((</span><span class="n">E</span><span class="o">)</span><span class="n">s</span><span class="o">.</span><span class="na">readObject</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>需要注意<code>s.defaultReadObject();</code>也是必需的。</p>
+<h4 id="总结">总结</h4>
+<p>1、如果类的字段表示的就是类的逻辑信息，如上面的Student类，那就可以使用默认序列化机制，只要声明实现Serializable接口即可。</p>
+<p>2、否则的话，如LinkedList，那就可以使用transient关键字，实现writeObject和readObject自定义序列化过程。</p>
+<p>3、Java的序列化机制可以自动处理如引用同一个对象、循环引用等情况。</p>
+<p>P.S. 以上内容部分参考自<a href="https://book.douban.com/subject/30133440/">《Java编程的逻辑》</a></p>
 <h3 id="transient-vs-nontransient">transient VS nontransient</h3>
 <blockquote>
 <p>Therefore, every instance field that can be declared transient should be.</p>
