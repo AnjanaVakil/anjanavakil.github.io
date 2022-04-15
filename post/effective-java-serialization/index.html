@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data representation such as JSON or" />
+  <meta name="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data repre" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,19 +60,19 @@
 
 
 <meta property="og:title" content="Serialization" />
-<meta property="og:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data representation such as JSON or" />
+<meta property="og:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data repre" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/effective-java-serialization/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-01-17T14:15:48+08:00" />
 <meta property="article:modified_time" content="2022-01-17T14:15:48+08:00" />
 
 <meta itemprop="name" content="Serialization">
-<meta itemprop="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data representation such as JSON or"><meta itemprop="datePublished" content="2022-01-17T14:15:48+08:00" />
+<meta itemprop="description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data repre"><meta itemprop="datePublished" content="2022-01-17T14:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-01-17T14:15:48+08:00" />
-<meta itemprop="wordCount" content="431">
+<meta itemprop="wordCount" content="2850">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Serialization"/>
-<meta name="twitter:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data representation such as JSON or"/>
+<meta name="twitter:description" content="Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data repre"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -317,31 +317,338 @@
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#item-85-prefer-alternatives-to-java-serialization">Item 85: Prefer alternatives to Java serialization</a></li>
+    <li><a href="#item-86-implement-serializable-with-great-caution">Item 86: Implement Serializable with great caution</a>
+      <ul>
+        <li><a href="#实现serializable接口的代价">实现Serializable接口的代价</a></li>
+      </ul>
+    </li>
+    <li><a href="#item-87-consider-using-a-custom-serialized-form">Item 87: Consider using a custom serialized form</a>
+      <ul>
+        <li><a href="#an-objects-physical-representation-is-identical-to-its-logical-content">an object’s physical representation is identical to its logical content</a></li>
+        <li><a href="#an-objects-physical-representation-differs-substantially-from-its-logical-data-content">an object’s physical representation differs substantially from its logical data content</a></li>
+        <li><a href="#any-object-whose-invariants-are-tied-to-implementation-specific-details">any object whose invariants are tied to implementation-specific details</a></li>
+        <li><a href="#transient-vs-nontransient">transient VS nontransient</a></li>
+        <li><a href="#impose-synchronization-on-object-serialization">impose synchronization on object serialization</a></li>
+        <li><a href="#declare-an-explicit-serialversion-uid">declare an explicit serialversion UID</a></li>
+      </ul>
+    </li>
+    <li><a href="#item-88-write-readobject-methods-defensively">Item 88: Write readObject methods defensively</a></li>
+  </ul>
+</nav>
   </div>
 </div>
 
     
     <div class="post-content">
       <p>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。</p>
-<h1 id="item-85-prefer-alternatives-to-java-serialization">Item 85: Prefer alternatives to Java serialization</h1>
+<h2 id="item-85-prefer-alternatives-to-java-serialization">Item 85: Prefer alternatives to Java serialization</h2>
 <p>其他方法优于Java序列化</p>
 <blockquote>
-<p>In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a <code>cross-platform structured-data representation</code> such as JSON or protobuf instead. <code>Do not deserialize untrusted data.</code> If you must do so, use <code>object deserialization filtering</code>, but be aware that it is not guaranteed to thwart all attacks. Avoid writing serializable classes. If you must do so, exercise great caution.</p>
+<p>In summary, serialization is dangerous and should be avoided.</p>
+<p>If you are designing a system from scratch, use a <code>cross-platform structured-data representation</code>(跨平台的结构化数据表示法) such as JSON or protobuf instead.</p>
+<p><code>Do not deserialize untrusted data.</code> If you must do so, use <code>object deserialization filtering</code>(对象反序列化过滤), but be aware that it is not guaranteed to thwart all attacks.</p>
+<p>Avoid writing serializable classes. If you must do so, exercise great caution.</p>
 </blockquote>
-<h1 id="item-86-implement-serializable-with-great-caution">Item 86: Implement Serializable with great caution</h1>
+<h2 id="item-86-implement-serializable-with-great-caution">Item 86: Implement Serializable with great caution</h2>
 <p>非常谨慎地实现 Serializable</p>
+<h3 id="实现serializable接口的代价">实现Serializable接口的代价</h3>
+<h4 id="decreases-the-flexibility-to-change-a-classs-implementation-once-it-has-been-released">decreases the flexibility to change a class’s implementation once it has been released</h4>
+<p>一旦一个类被发布，就大大降低了更改该类实现的灵活性</p>
 <blockquote>
-<p>A simple example of the constraints on evolution imposed by serializability concerns stream unique identifiers, more commonly known as <code>serial version UIDs</code>. Every serializable class has a unique identification number associated with it. If you do not specify this number by declaring a <code>static final long field</code> named <code>serialVersionUID</code>, the system automatically generates it <code>at runtime</code> by applying <code>a cryptographic hash function (SHA-1)</code> to the structure of the class. This value is affected by <code>the names of the class, the interfaces it implements, and most of its members, including synthetic members generated by the compiler</code>. If you change ﻿any of these things, for example, by adding a convenience method, the generated serial version UID changes. If you fail to declare a serial version UID, compatibility will be broken, resulting in an <code>InvalidClassException</code> at runtime.</p>
+<p>A simple example of the constraints on evolution imposed by serializability concerns <code>stream unique identifiers</code>(流的唯一标识符), more commonly known as <code>serial version UIDs</code>(序列版本UID). Every serializable class has a unique identification number associated with it.</p>
+<p>If you do not specify this number by declaring a <code>static final long field</code> named <code>serialVersionUID</code>, the system automatically generates it <code>at runtime</code> by applying <code>a cryptographic hash function (SHA-1)</code> to the structure of the class.</p>
+<p>This value is affected by <code>the names of the class, the interfaces it implements, and most of its members, including synthetic members generated by the compiler</code>.</p>
+<p>If you change ﻿any of these things, for example, by adding a convenience method(工具方法), the generated serial version UID changes. If you fail to declare a serial version UID, compatibility will be broken, resulting in an <code>InvalidClassException</code> at runtime.</p>
+</blockquote>
+<h4 id="increases-the-likelihood-of-bugs-and-security-holes">increases the likelihood of bugs and security holes</h4>
+<p>增加了出现bug和安全漏洞的可能性</p>
+<blockquote>
+<p>Normally, objects are created with constructors; <code>serialization is an extralinguistic mechanism for creating objects</code>(语言之外的对象创建机制).</p>
 </blockquote>
 <blockquote>
-<p>Normally, objects are created with constructors; <code>serialization is an extralinguistic mechanism for creating objects.</code> Whether you accept the default behavior or override it, deserialization is a “hidden constructor” with all of the same issues as other constructors. Because there is no explicit constructor associated with deserialization, it is easy to forget that you must ensure that it guarantees all of the invariants established by the constructors and that it does not allow an attacker to gain access to the internals of the object under construction. Relying on the default deserialization mechanism can easily leave objects open to invariant corruption and illegal access (Item 88).</p>
+<p>Whether you accept the default behavior or override it, deserialization is a “hidden constructor” with all of the same issues as other constructors. Because there is no explicit constructor associated with deserialization, it is easy to forget that you must ensure that it guarantees all of the invariants established by the constructors and that it does not allow an attacker to gain access to the internals of the object under construction.</p>
+<p>Relying on the default deserialization mechanism can easily leave objects open to <code>invariant corruption</code> and <code>illegal access</code>.</p>
 </blockquote>
+<h4 id="increases-the-testing-burden-associated-with-releasing-a-new-version-of-a-class">increases the testing burden associated with releasing a new version of a class.</h4>
+<p>增加了发行类新版本相关的测试负担</p>
 <blockquote>
-<p>Historically, value classes such as <code>BigInteger</code> and <code>Instant</code> implemented Serializable, and <code>collection</code> classes did too. <code>Classes representing active entities</code>, such as <code>thread pools</code>, should rarely implement Serializable.</p>
+<p>When a serializable class is revised, it is important to check that it is possible to <code>serialize an instance in the new release</code> and <code>deserialize it in old releases</code>, and vice versa.</p>
+<p>The amount of testing required is thus proportional to the product of the number of serializable classes and the number of releases, which can be large. You must ensure both that the serialization-deserialization process succeeds and that it results in a faithful replica of the original object.</p>
 </blockquote>
-<h1 id="item-87-consider-using-a-custom-serialized-form">Item 87: Consider using a custom serialized form</h1>
+<p><strong>Implementing Serializable is not a decision to be undertaken lightly.</strong></p>
+<p>实现Serializable接口并不是一个轻松的决定。</p>
+<blockquote>
+<p>Historically, value classes such as <code>BigInteger</code> and <code>Instant</code> implemented Serializable, and <code>collection classes</code>(集合类) did too.</p>
+<p><code>Classes representing active entities</code>, such as <code>thread pools</code>, should rarely implement Serializable.</p>
+</blockquote>
+<h4 id="inner-classes-should-not-implement-serializable">Inner classes should not implement Serializable.</h4>
+<p>内部类不应该实现Serializable接口。</p>
+<blockquote>
+<p>They use <code>compiler-generated synthetic fields</code>(编译器产生的合成域) to store references to <code>enclosing instances</code>(外围实例) and to store values of <code>local variables</code> from <code>enclosing scopes</code>(外围作用域). How these fields correspond to the class definition is unspecified, as are the names of anonymous and local classes. Therefore, the default serialized form of an inner class is illdefined.</p>
+<p><code>A static member class</code>(静态成员类) can, however, implement Serializable.</p>
+</blockquote>
+<p>P.S. 这边的compiler-generated synthetic fields, enclosing instances, enclosing scopes完全看不懂，不知道是自己哪部分没学过🤷‍♀️，只能做好笔记下次再看再学习了。前几天关注的一个博主说，学习东西本就是一个重复的过程。道理大家其实都知道，但实践用起来不容易，也忘记了，正好这个时间看到这些文字点醒了自己。反省自己的确是太浮躁了，很多东西只看一遍没学懂，以为是自己不适合计算机行业，殊不知只花了一点点功夫。很多经典的好书，读一遍是远远不够的，唯有多次重复才能真正掌握。</p>
+<h2 id="item-87-consider-using-a-custom-serialized-form">Item 87: Consider using a custom serialized form</h2>
 <p>考虑使用自定义的序列化形式</p>
+<h3 id="an-objects-physical-representation-is-identical-to-its-logical-content">an object’s physical representation is identical to its logical content</h3>
+<blockquote>
+<p>The default serialized form of an object is a reasonably efficient encoding of the physical representation of the <code>object graph rooted at the object</code>(对象为根的对象图). （P.S. 中文版翻译，没懂的一个点）</p>
+<p>In other words, it describes the data contained in the object and in every object that is reachable from this object.</p>
+<p>It also describes the topology by which all of these objects are interlinked.</p>
+<p>The ideal serialized form of an object contains only the logical data represented by the object. It is independent of the physical representation.</p>
+</blockquote>
+<h4 id="the-default-serialized-form-is-likely-to-be-appropriate-if-an-objects-physical-representation-is-identical-to-its-logical-content">The default serialized form is likely to be appropriate if an object’s physical representation is identical to its logical content.</h4>
+<p>For example, the default serialized form would be reasonable for the following class, which simplistically represents a person’s name:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="c1">// Good candidate for default serialized form
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Name</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">    * Last name. Must be non-null.
+</span></span></span><span class="line"><span class="cl"><span class="cm">    * @serial
+</span></span></span><span class="line"><span class="cl"><span class="cm">    */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">    * First name. Must be non-null.
+</span></span></span><span class="line"><span class="cl"><span class="cm">    * @serial
+</span></span></span><span class="line"><span class="cl"><span class="cm">    */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">firstName</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">    * Middle name, or null if there is none.
+</span></span></span><span class="line"><span class="cl"><span class="cm">    * @serial
+</span></span></span><span class="line"><span class="cl"><span class="cm">    */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">middleName</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span> <span class="c1">// Remainder omitted
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Logically speaking, a name consists of three strings that represent a last name, a first name, and a middle name. The instance fields in Name precisely mirror this logical content.</p>
+</blockquote>
+<h3 id="an-objects-physical-representation-differs-substantially-from-its-logical-data-content">an object’s physical representation differs substantially from its logical data content</h3>
+<p>Near the opposite end of the spectrum from Name, consider the following class, which represents a list of strings (ignoring for the moment that you would probably be better off using one of the standard List implementations):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="c1">// Awful candidate for default serialized form
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">StringList</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Entry</span> <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Entry</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">data</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Entry</span> <span class="n">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Entry</span> <span class="n">previous</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span> <span class="c1">// Remainder omitted
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Logically speaking, this class represents a sequence of strings.</p>
+<p>Physically, it represents the sequence as a doubly linked list. If you accept the default serialized form, the serialized form will painstakingly mirror every entry in the linked list and all the links between the entries, in both directions.</p>
+</blockquote>
+<p>Using the default serialized form when an object’s physical representation differs substantially from its logical data content has four disadvantages:</p>
+<ul>
+<li>permanently ties the exported API to the current internal representation.</li>
+<li>consume excessive space.</li>
+<li>consume excessive time.</li>
+<li>cause stack overflows.</li>
+</ul>
+<blockquote>
+<p>A reasonable serialized form for StringList is simply the number of strings in the list, followed by the strings themselves. This constitutes the logical data represented by a StringList, stripped of the details of its physical representation.</p>
+</blockquote>
+<p>Here is a revised version of StringList with writeObject and readObject methods that implement this serialized form.</p>
+<p>the <code>transient modifier</code>(transient修饰符) indicates that an instance field is to be omitted from a class’s default serialized form.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="c1">// StringList with a reasonable custom serialized form
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">StringList</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">transient</span> <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">transient</span> <span class="n">Entry</span> <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="c1">// No longer Serializable!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Entry</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">data</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Entry</span> <span class="n">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Entry</span> <span class="n">previous</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="c1">// Appends the specified string to the list
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kd">final</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">    * Serialize this {@code StringList} instance.
+</span></span></span><span class="line"><span class="cl"><span class="cm">    *
+</span></span></span><span class="line"><span class="cl"><span class="cm">    * @serialData The size of the list (the number of strings
+</span></span></span><span class="line"><span class="cl"><span class="cm">    * it contains) is emitted ({@code int}), followed by all of
+</span></span></span><span class="line"><span class="cl"><span class="cm">    * its elements (each a {@code String}), in the proper
+</span></span></span><span class="line"><span class="cl"><span class="cm">    * sequence.
+</span></span></span><span class="line"><span class="cl"><span class="cm">    */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">writeObject</span><span class="o">(</span><span class="n">ObjectOutputStream</span> <span class="n">s</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s</span><span class="o">.</span><span class="na">defaultWriteObject</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s</span><span class="o">.</span><span class="na">writeInt</span><span class="o">(</span><span class="n">size</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Write out all elements in the proper order.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="o">(</span><span class="n">Entry</span> <span class="n">e</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span> <span class="n">e</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">;</span> <span class="n">e</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="na">next</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">s</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">data</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">readObject</span><span class="o">(</span><span class="n">ObjectInputStream</span> <span class="n">s</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">ClassNotFoundException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s</span><span class="o">.</span><span class="na">defaultReadObject</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">numElements</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">readInt</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Read in all elements and insert them in list
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">numElements</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">add</span><span class="o">((</span><span class="n">String</span><span class="o">)</span> <span class="n">s</span><span class="o">.</span><span class="na">readObject</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">...</span> <span class="c1">// Remainder omitted
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>The first thing writeObject does is to invoke defaultWriteObject, and the first thing readObject does is to invoke defaultReadObject, even though <code>all of StringList’s fields are transient</code>.</p>
+<p>You may hear it said that if all of a class’s instance fields are transient, you can dispense with invoking defaultWriteObject and defaultReadObject, but the serialization specification requires you to invoke them regardless. The presence of these calls makes it possible to add nontransient instance fields in a later release while preserving backward and forward compatibility.</p>
+<p>If an instance is serialized in a later version and deserialized in an earlier version, the added fields will be ignored. Had the earlier version’s readObject method failed to invoke defaultReadObject, the deserialization would fail with a <code>StreamCorruptedException</code>.</p>
+</blockquote>
+<blockquote>
+<p>Note that there is a <code>documentation comment</code> on the writeObject method, even though it is private. This is analogous to the documentation comment on the private fields in the Name class. This private method defines a public API, which is the serialized form, and that public API should be documented.</p>
+<p>Like the @serial tag for fields, the @serialData tag for methods tells the Javadoc utility to place this documentation on the serialized forms page.</p>
+</blockquote>
+<h3 id="any-object-whose-invariants-are-tied-to-implementation-specific-details">any object whose invariants are tied to implementation-specific details</h3>
+<blockquote>
+<p>While the default serialized form would be bad for StringList, there are classes for which it would be far worse.</p>
+<p>For StringList, the default serialized form is inflexible and performs badly, but it is correct in the sense that serializing and deserializing a StringList instance yields a faithful copy of the original object with all of its <code>invariants intact</code>.</p>
+<p>This is not the case for any object whose invariants are tied to implementation-specific details.</p>
+</blockquote>
+<h4 id="the-case-of-a-hash-table">the case of a hash table</h4>
+<blockquote>
+<p>For example, consider the case of a hash table. The physical representation is a sequence of hash buckets containing key-value entries. The bucket that an entry resides in is a function of the hash code of its key, which is not, in general, guaranteed to be the same from implementation to implementation. In fact, it isn’t even guaranteed to be the same from run to run.</p>
+<p>Therefore, accepting the default serialized form for a hash table would constitute a serious bug. Serializing and deserializing the hash table could yield an object whose invariants were seriously corrupt. (P.S. 中文版翻译将&quot;invariants&quot;翻译为“约束关系”)</p>
+</blockquote>
+<h3 id="transient-vs-nontransient">transient VS nontransient</h3>
+<blockquote>
+<p>Therefore, every instance field that can be declared transient should be.</p>
+<p>This includes derived fields, whose values can be computed from primary data fields, such as a cached hash value.</p>
+<p>It also includes fields whose values are tied to one particular run of the JVM, such as a <code>long</code> field representing <code>a pointer to a native data structure</code>.</p>
+</blockquote>
+<p><strong>Before deciding to make a field <code>nontransient</code>, convince yourself that <code>its value is part of the logical state of the object</code></strong>.</p>
+<p><strong>If you use a custom serialized form, most or all of the instance fields should be labeled <code>transient</code>, as in the StringList example above.</strong></p>
+<h3 id="impose-synchronization-on-object-serialization">impose synchronization on object serialization</h3>
+<p>Whether or not you use the default serialized form, you <code>must impose any synchronization on object serialization</code> that you would impose on <code>any other method that reads the entire state of the object</code>.</p>
+<p>So, for example, if you have a thread-safe object that achieves its thread safety by synchronizing every method and you elect to use the default serialized form, use the following write-Object method:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="c1">// writeObject for synchronized class with default serialized form
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">private</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">writeObject</span><span class="o">(</span><span class="n">ObjectOutputStream</span> <span class="n">s</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s</span><span class="o">.</span><span class="na">defaultWriteObject</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If you put synchronization in the writeObject method, you must ensure that it adheres to the same lock-ordering constraints as other activities, or you risk a resource-ordering deadlock.</p>
+<h3 id="declare-an-explicit-serialversion-uid">declare an explicit serialversion UID</h3>
+<p>Regardless of what serialized form you choose, <code>declare an explicit serialversion UID</code> in <code>every serializable class</code> you write. This eliminates the serial version UID as a potential source of incompatibility. There is also a small performance benefit. If no serial version UID is provided, an expensive computation is performed to generate one at runtime.</p>
+<p>Declaring a serial version UID is simple. Just add this line to your class:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="n">randomLongValue</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>If you write a new class, it doesn’t matter what value you choose forrandomLongValue. You can generate the value by running the <code>serialver</code> utility on the class, but it’s also fine to pick a number out of thin air. It is not required that serial version UIDs be unique.</p>
+<p>If you modify an existing class that lacks a serial version UID, and you want the new version to accept existing serialized instances, you must use the value that was automatically generated for the old version. You can get this number by running the serialver utility on the old version of the class—the one for which serialized instances exist.</p>
+</blockquote>
+<h2 id="item-88-write-readobject-methods-defensively">Item 88: Write readObject methods defensively</h2>
 
     </div>
 

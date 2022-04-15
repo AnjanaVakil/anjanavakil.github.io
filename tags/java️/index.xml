@@ -6,7 +6,16 @@
     <description>Recent content in Java☕️ on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/java%EF%B8%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Mar 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/java%EF%B8%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringBoot 笔记</title>
+      <link>https://anjanavakil.github.io/post/springboot-notes/</link>
+      <pubDate>Sat, 26 Mar 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/springboot-notes/</guid>
+      <description>《SpringBoot+Vue全栈开发实战》的笔记。技术类书籍，不能说有多好，但是如果有一份好的代码和解释，对我来说就是复习SpringBo</description>
+    </item>
+    
     <item>
       <title>Generics</title>
       <link>https://anjanavakil.github.io/post/effective-java-generic/</link>
@@ -94,7 +103,7 @@
       <pubDate>Mon, 17 Jan 2022 14:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/effective-java-serialization/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data representation such as JSON or</description>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data repre</description>
     </item>
     
   </channel>

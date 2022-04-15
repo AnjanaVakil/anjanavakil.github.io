@@ -6,7 +6,7 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 25 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Mar 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Code: The Hidden Language of Computer Hardware and Software</title>
       <link>https://anjanavakil.github.io/post/code/</link>
@@ -14,6 +14,15 @@
       
       <guid>https://anjanavakil.github.io/post/code/</guid>
       <description>豆瓣🔗：Code: The Hidden Language of Computer Hardware and Software 第一遍读的是中文版，寒假期间重读了英文版。这应该是第一本读完的英文专业书籍。读的过程中还是稍微有些困难的，</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot 笔记</title>
+      <link>https://anjanavakil.github.io/post/springboot-notes/</link>
+      <pubDate>Sat, 26 Mar 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/springboot-notes/</guid>
+      <description>《SpringBoot+Vue全栈开发实战》的笔记。技术类书籍，不能说有多好，但是如果有一份好的代码和解释，对我来说就是复习SpringBo</description>
     </item>
     
     <item>
@@ -179,15 +188,6 @@ The book is brief and there is not a lot of unfamiliar vocabulary so I read it i
       
       <guid>https://anjanavakil.github.io/post/the-kai-fulee-story/</guid>
       <description>豆瓣🔗：《世界因你不同：李开复自传》 回家路上😷+在家床上🤣看完的一本自传。 1、前面读到李开复在上学时期的调皮捣蛋，记得自己当时差点在飞机上笑</description>
-    </item>
-    
-    <item>
-      <title>《影响商业的50本书》</title>
-      <link>https://anjanavakil.github.io/post/50-business-must-reads/</link>
-      <pubDate>Thu, 10 Feb 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/50-business-must-reads/</guid>
-      <description>豆瓣🔗：《影响商业的50本书》 算是作者对商业书籍的书评汇总起来的解说式的书籍，收获颇丰。 1、对一些事物不同维度和方向的思考：作为金融商业领域</description>
     </item>
     
   </channel>

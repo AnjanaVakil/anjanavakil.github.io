@@ -16,20 +16,6 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/post/pp-aha-algorithms/</loc>
-    <lastmod>2022-03-25T20:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/algorithm/</loc>
-    <lastmod>2022-03-25T20:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://anjanavakil.github.io/</loc>
     <lastmod>2022-03-27T15:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -51,6 +37,13 @@
   </url>
   
   <url>
+    <loc>https://anjanavakil.github.io/tags/java%EF%B8%8F/</loc>
+    <lastmod>2022-03-26T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://anjanavakil.github.io/post/</loc>
     <lastmod>2022-03-27T15:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -58,8 +51,15 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/categories/programming-pearls/</loc>
-    <lastmod>2022-03-25T20:15:48+08:00</lastmod>
+    <loc>https://anjanavakil.github.io/post/springboot-notes/</loc>
+    <lastmod>2022-03-26T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/categories/springboot/</loc>
+    <lastmod>2022-03-26T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -67,6 +67,27 @@
   <url>
     <loc>https://anjanavakil.github.io/tags/</loc>
     <lastmod>2022-03-27T15:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/pp-aha-algorithms/</loc>
+    <lastmod>2022-03-25T20:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/algorithm/</loc>
+    <lastmod>2022-03-25T20:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/categories/programming-pearls/</loc>
+    <lastmod>2022-03-25T20:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -87,13 +108,6 @@
   
   <url>
     <loc>https://anjanavakil.github.io/post/effective-java-generic/</loc>
-    <lastmod>2022-03-23T20:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/java%EF%B8%8F/</loc>
     <lastmod>2022-03-23T20:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

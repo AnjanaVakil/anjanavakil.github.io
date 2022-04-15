@@ -6,7 +6,7 @@
     <description>Recent content on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 25 Mar 2022 20:15:48 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 26 Mar 2022 08:15:48 +0800</lastBuildDate>
     
         <atom:link href="https://anjanavakil.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -232,6 +232,90 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/keep.jpg&#34; alt=&#34;Keep&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如果春天要来，大地就使它一点点地完成🍃。&lt;/p&gt;
 &lt;p&gt;“Think before you speak. Read before you think.” —Fran Lebowitz&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>SpringBoot 笔记</title>
+      <link>https://anjanavakil.github.io/post/springboot-notes/</link>
+      <pubDate>Sat, 26 Mar 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/springboot-notes/</guid>
+      
+        <description>&lt;p&gt;《SpringBoot+Vue全栈开发实战》的笔记。技术类书籍，不能说有多好，但是如果有一份好的代码和解释，对我来说就是复习SpringBoot的极大帮助。&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Java&#34; data-lang=&#34;Java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;groupId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;org&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;springframework&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;boot&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;groupId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;artifactId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;spring&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;boot&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;starter&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;artifactId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;relativePath&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&amp;gt;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;spring-boot-starter-parent是一个特殊的Starter：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提供了一些Maven的默认配置
+&lt;ul&gt;
+&lt;li&gt;Java版本默认使用1.8&lt;/li&gt;
+&lt;li&gt;编码格式默认使用UTF-8&lt;/li&gt;
+&lt;li&gt;提供Dependency Management进行项目依赖的版本管理&lt;/li&gt;
+&lt;li&gt;默认的资源过滤与插件配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;提供了dependency-management，可以使开发者在引入其他依赖时不必输入版本号，方便依赖管理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;可以直接使用组合注解&lt;code&gt;@SpringBootApplication&lt;/code&gt;来代替&lt;code&gt;@EnableAutoConfiguration&lt;/code&gt;和&lt;code&gt;@ComponentScan&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;要将Spring Boot打成jar包运行，需要添加一个plugin到pom.xml文件中：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&#34;nt&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nt&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-maven-plugin&lt;span class=&#34;nt&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;可以在application.properties中直接定义过滤规则和静态资源位置&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;spring.mvc.static-path-pattern=/static/**
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;spring.web.resources.static-locations=classpath:/static
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;过滤规则为/static/**，静态资源位置为classpath:/static/。&lt;/p&gt;
+&lt;p&gt;重新启动项目，在浏览器中输入“http://localhost:8080/static/p1.png”，即可看到classpath:/static/目录下的资源。&lt;/p&gt;
+&lt;hr&gt;
 </description>
       
     </item>
@@ -3414,25 +3498,6 @@ adj. 泰国的；泰国人的；泰语的&lt;/p&gt;
 &lt;li&gt;生态欠缺：尚未形成像Linux一样具有广泛开发者的社区&lt;/li&gt;
 &lt;li&gt;重用问题：重用宏内核操作系统提供兼容性，带来新问题&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>《世界因你不同：李开复自传》</title>
-      <link>https://anjanavakil.github.io/post/the-kai-fulee-story/</link>
-      <pubDate>Thu, 10 Feb 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/the-kai-fulee-story/</guid>
-      
-        <description>&lt;ul&gt;
-&lt;li&gt;豆瓣🔗：&lt;a href=&#34;https://book.douban.com/subject/4010196/&#34;&gt;《世界因你不同：李开复自传》&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;回家路上😷+在家床上🤣看完的一本自传。&lt;/p&gt;
-&lt;p&gt;1、前面读到李开复在上学时期的调皮捣蛋，记得自己当时差点在飞机上笑出声来，可见作者叙事能力挺强的，的确可以将故事描述的生动幽默。&lt;/p&gt;
-&lt;p&gt;2、作者叙事的客观：传记对客观叙述的要求更高，但作为人，看待事物和叙事都是有主观因素的。不过作者已经尽自己所能客观叙述，比如中美的不同教育方式、大学申请、创新和实际应用于用户等等。&lt;/p&gt;
-&lt;p&gt;3、读到后面，感觉作者的文笔还是稍逊，欠缺人文方面的东西。尽管作者深陷Microsoft和Google的诉讼官司，但没给自己太大的感受（不知道是不是在床上阅读的问题😬）。&lt;/p&gt;
-&lt;p&gt;Anyway, 传记类书籍看得太少，继续加油喽。&lt;/p&gt;
 </description>
       
     </item>

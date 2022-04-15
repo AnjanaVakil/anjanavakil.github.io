@@ -85,7 +85,7 @@
       <pubDate>Mon, 17 Jan 2022 14:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/effective-java-serialization/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data representation such as JSON or</description>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 85: Prefer alternatives to Java serialization 其他方法优于Java序列化 In summary, serialization is dangerous and should be avoided. If you are designing a system from scratch, use a cross-platform structured-data repre</description>
     </item>
     
   </channel>
