@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 26 Mar 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Mar 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reactor模式</title>
+      <link>https://anjanavakil.github.io/post/reactor-pattern/</link>
+      <pubDate>Sun, 27 Mar 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/reactor-pattern/</guid>
+      <description>多线程OIO 传统的网络服务器程序： 1 2 3 4 5 while(true) { socket = accept(); //阻塞，接收连接 handle(socket); //读取数据、业务处理、写入结果 } Connection Per Thread(一个线程处理一</description>
+    </item>
+    
     <item>
       <title>SpringBoot 笔记</title>
       <link>https://anjanavakil.github.io/post/springboot-notes/</link>
@@ -179,15 +188,6 @@ The book is brief and there is not a lot of unfamiliar vocabulary so I read it i
       
       <guid>https://anjanavakil.github.io/post/408/</guid>
       <description>CS 基础知识的笔记，不算是总结性的笔记，只是曾经备忘录上记录下来的和对于自己陌生的点，或许应该保存到blog上，抑或是考试教育的一种印证。 CO 1</description>
-    </item>
-    
-    <item>
-      <title>《世界因你不同：李开复自传》</title>
-      <link>https://anjanavakil.github.io/post/the-kai-fulee-story/</link>
-      <pubDate>Thu, 10 Feb 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/the-kai-fulee-story/</guid>
-      <description>豆瓣🔗：《世界因你不同：李开复自传》 回家路上😷+在家床上🤣看完的一本自传。 1、前面读到李开复在上学时期的调皮捣蛋，记得自己当时差点在飞机上笑</description>
     </item>
     
   </channel>

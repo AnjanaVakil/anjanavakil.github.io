@@ -6,7 +6,16 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 26 Mar 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Mar 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reactor模式</title>
+      <link>https://anjanavakil.github.io/post/reactor-pattern/</link>
+      <pubDate>Sun, 27 Mar 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/reactor-pattern/</guid>
+      <description>多线程OIO 传统的网络服务器程序： 1 2 3 4 5 while(true) { socket = accept(); //阻塞，接收连接 handle(socket); //读取数据、业务处理、写入结果 } Connection Per Thread(一个线程处理一</description>
+    </item>
+    
     <item>
       <title>SpringBoot 笔记</title>
       <link>https://anjanavakil.github.io/post/springboot-notes/</link>
@@ -178,15 +187,6 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
       
       <guid>https://anjanavakil.github.io/post/jj-offer-backtrack/</guid>
       <description>《剑指Offer II》的刷题笔记。 第13章 回溯法 采用回溯法解决问题的过程实质上是在树形结构中从根节点开始进行深度优先遍历。通常，回溯法的深度</description>
-    </item>
-    
-    <item>
-      <title>剑指 Offer II 二分查找</title>
-      <link>https://anjanavakil.github.io/post/jj-offer-binary-search/</link>
-      <pubDate>Tue, 25 Jan 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/jj-offer-binary-search/</guid>
-      <description>《剑指Offer II》的刷题笔记。 第11章 二分查找 关于left&amp;lt;=right: 当left等于right时，查找范围是长度为1的子数组。</description>
     </item>
     
   </channel>
