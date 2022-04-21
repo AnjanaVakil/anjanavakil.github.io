@@ -6,7 +6,16 @@
     <description>Recent content in Effective Java📕 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/effective-java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Mar 2022 20:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/effective-java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Enums</title>
+      <link>https://anjanavakil.github.io/post/effective-java-enum/</link>
+      <pubDate>Wed, 30 Mar 2022 20:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective-java-enum/</guid>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 34: Use enums instead of int constants 用enum代替int常量 1 2 3 4 5 6 7 // The int enum pattern - severely deficient! public static final int APPLE_FUJI = 0; public static final int</description>
+    </item>
+    
     <item>
       <title>Generics</title>
       <link>https://anjanavakil.github.io/post/effective-java-generic/</link>

@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Netty - Anjana</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Anjana" />
+  <meta name="description" content="Netty是一个Java NIO客户端/服务器框架。 Netty中的Reactor模式 Java Reactor模式中IO事件的处理流程： Reactor模" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.93.0" />
+
+
+<link rel="canonical" href="https://anjanavakil.github.io/post/netty/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="Netty" />
+<meta property="og:description" content="Netty是一个Java NIO客户端/服务器框架。 Netty中的Reactor模式 Java Reactor模式中IO事件的处理流程： Reactor模" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/netty/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-29T08:15:48+08:00" />
+<meta property="article:modified_time" content="2022-03-29T08:15:48+08:00" />
+
+<meta itemprop="name" content="Netty">
+<meta itemprop="description" content="Netty是一个Java NIO客户端/服务器框架。 Netty中的Reactor模式 Java Reactor模式中IO事件的处理流程： Reactor模"><meta itemprop="datePublished" content="2022-03-29T08:15:48+08:00" />
+<meta itemprop="dateModified" content="2022-03-29T08:15:48+08:00" />
+<meta itemprop="wordCount" content="3386">
+<meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Netty"/>
+<meta name="twitter:description" content="Netty是一个Java NIO客户端/服务器框架。 Netty中的Reactor模式 Java Reactor模式中IO事件的处理流程： Reactor模"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Anjana</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/about/">About</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Anjana
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/about/">About</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Netty</h1>
+      
+      <div class="post-meta">
+        <time datetime="2022-03-29" class="post-time">
+          2022-03-29
+        </time>
+        <div class="post-category">
+            <a href="https://anjanavakil.github.io/categories/springcloud/"> SpringCloud🌵 </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#netty中的reactor模式">Netty中的Reactor模式</a></li>
+    <li><a href="#bootstrap">Bootstrap</a>
+      <ul>
+        <li><a href="#bootstrap启动流程">BootStrap启动流程</a></li>
+      </ul>
+    </li>
+    <li><a href="#channel">Channel</a></li>
+    <li><a href="#handler">Handler</a></li>
+    <li><a href="#pipeline">PipeLine</a></li>
+    <li><a href="#bytebuf">ByteBuf</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p>Netty是一个Java NIO客户端/服务器框架。</p>
+<h2 id="netty中的reactor模式">Netty中的Reactor模式</h2>
+<p>Java Reactor模式中IO事件的处理流程：</p>
+<p><img src="/image/java-reactor.png" alt="Java-Reactor"></p>
+<p>Reactor模式中IO事件的处理流程大致分为4步：</p>
+<p>1、通道注册。IO事件源于通道（Channel），IO是和通道（对应于底层连接而言）强相关的。一个IO事件一定属于某个通道。如果要查询通道的事件，首先就要将通道注册到选择器。</p>
+<p>2、查询事件。在Reactor模式中，一个线程会负责一个反应器（或者SubReactor子反应器），不断地轮询，查询选择器中的IO事件（选择键）。</p>
+<p>3、事件分发。如果查询到IO事件，则分发给与IO事件有绑定关系的Handler业务处理器。</p>
+<p>4、完成真正的IO操作和业务处理，这一步由Handler业务处理器负责。</p>
+<p>服务端编程一般用到最多的通信协议还是TCP，对应的Netty传输通道类型为<code>NioSocketChannel</code>类、Netty服务器监听通道类型为<code>NioServerSocketChannel</code>。</p>
+<p>在Netty的NioSocketChannel内部封装了一个Java NIO的SelectableChannel成员，通过对该内部的Java NIO通道的封装，对Netty的NioSocketChannel通道上的所有IO操作最终都会落地到Java NIO的SelectableChannel底层通道。</p>
+<p>对应于NioSocketChannel通道，Netty的反应器类为NioEventLoop（NIO事件轮询）。</p>
+<p>理论上来说，一个EventLoop反应器和NettyChannel通道是一对多的关系：一个反应器可以注册成千上万的通道。</p>
+<p>Netty的Handler分为两大类：第一类是<code>ChannelInboundHandler</code>入站处理器；第二类是<code>ChannelOutboundHandler</code>出站处理器，二者都继承了<code>ChannelHandler</code>处理器接口。</p>
+<h2 id="bootstrap">Bootstrap</h2>
+<p>Netty提供了一系列辅助类，用于把上面的三个组件快速组装起来完成一个Netty应用，这个系列的类叫作引导类。服务端的引导类叫作<code>ServerBootstrap</code>类，客户端的引导类叫作<code>Bootstrap</code>类。</p>
+<p>Bootstrap的启动流程也就是Netty组件的组装、配置，以及Netty服务器或者客户端的启动流程。</p>
+<h3 id="bootstrap启动流程">BootStrap启动流程</h3>
+<p>创建一个服务端的ServerBootstrap引导类。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//创建一个服务端的引导类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ServerBootstrap</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServerBootstrap</span><span class="o">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>1、创建反应器轮询组，并设置到ServerBootstrap引导类实例。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//1 设置reactor 线程组
+</span></span></span><span class="line"><span class="cl"><span class="c1">//创建反应器轮询组
+</span></span></span><span class="line"><span class="cl"><span class="c1">//boss轮询组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">EventLoopGroup</span> <span class="n">bossLoopGroup</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NioEventLoopGroup</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//worker轮询组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">EventLoopGroup</span> <span class="n">workerLoopGroup</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NioEventLoopGroup</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//..
+</span></span></span><span class="line"><span class="cl"><span class="c1">//step1:为ServerBootstrap引导类实例设置反应器轮询组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">b</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="n">bossLoopGroup</span><span class="o">,</span> <span class="n">workerLoopGroup</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在设置反应器轮询组之前，创建了两个NioEventLoopGroup</p>
+<ul>
+<li>
+<p>bossLoopGroup：负责处理连接监听IO事件</p>
+</li>
+<li>
+<p>workerLoopGroup：负责数据传输事件和处理</p>
+</li>
+</ul>
+<p>在两个轮询组创建完成后，就可以配置给ServerBootstrap引导类实例，它一次性地给引导类配置了两大轮询组。</p>
+<p>2、设置通道的IO类型。</p>
+<p>Netty不仅支持Java NIO，也支持阻塞式的OIO。下面配置的是Java NIO类型的通道类型：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//2 设置NIO类型的channel
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">b</span><span class="o">.</span><span class="na">channel</span><span class="o">(</span><span class="n">NioServerSocketChannel</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>3、设置监听端口。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//3 设置监听端口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">b</span><span class="o">.</span><span class="na">localAddress</span><span class="o">(</span><span class="n">serverPort</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>4、设置传输通道的配置选项。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//4 设置通道的参数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">b</span><span class="o">.</span><span class="na">option</span><span class="o">(</span><span class="n">ChannelOption</span><span class="o">.</span><span class="na">SO_KEEPALIVE</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span><span class="o">.</span><span class="na">option</span><span class="o">(</span><span class="n">ChannelOption</span><span class="o">.</span><span class="na">ALLOCATOR</span><span class="o">,</span> <span class="n">PooledByteBufAllocator</span><span class="o">.</span><span class="na">DEFAULT</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span><span class="o">.</span><span class="na">childOption</span><span class="o">(</span><span class="n">ChannelOption</span><span class="o">.</span><span class="na">ALLOCATOR</span><span class="o">,</span> <span class="n">PooledByteBufAllocator</span><span class="o">.</span><span class="na">DEFAULT</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>设置了一个底层TCP相关的选项ChannelOption.SO_KEEPALIVE。该选项表示是否开启TCP底层心跳机制，true为开启，false为关闭。启用该功能时，TCP会主动探测空闲连接的有效性。需要注意的是：默认的心跳间隔是7200秒，即2小时。Netty默认关闭该功能。</p>
+<p>5、装配子通道的Pipeline。每一个通道都用一条ChannelPipeline流水线，它的内部有一个双向的链表。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//5 装配子通道流水线
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">b</span><span class="o">.</span><span class="na">childHandler</span><span class="o">(</span><span class="k">new</span> <span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">SocketChannel</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//有连接到达时会创建一个channel
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">initChannel</span><span class="o">(</span><span class="n">SocketChannel</span> <span class="n">ch</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// pipeline管理子通道channel中的Handler
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 向子channel流水线添加一个handler处理器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ch</span><span class="o">.</span><span class="na">pipeline</span><span class="o">().</span><span class="na">addLast</span><span class="o">(</span><span class="k">new</span> <span class="n">NettyDiscardHandler</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在装配流水线时需要注意的是，ChannelInitializer处理器有一个泛型参数SocketChannel，它代表需要初始化的通道类型，这个类型需要和前面的引导类中设置的传输通道类型一一对应起来。</p>
+<p>6、开始绑定服务器新连接的监听端口</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//6 开始绑定server
+</span></span></span><span class="line"><span class="cl"><span class="c1">//通过调用sync同步方法阻塞直到绑定成功
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ChannelFuture</span> <span class="n">channelFuture</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="na">bind</span><span class="o">().</span><span class="na">sync</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">Logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34; 服务器启动成功，监听端口: &#34;</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">        <span class="n">channelFuture</span><span class="o">.</span><span class="na">channel</span><span class="o">().</span><span class="na">localAddress</span><span class="o">());</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>7、自我阻塞，直到监听通道关闭</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//7 等待通道关闭的异步任务结束
+</span></span></span><span class="line"><span class="cl"><span class="c1">//服务监听通道会一直等待通道关闭的异步任务结束
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ChannelFuture</span> <span class="n">closeFuture</span> <span class="o">=</span> <span class="n">channelFuture</span><span class="o">.</span><span class="na">channel</span><span class="o">().</span><span class="na">closeFuture</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">closeFuture</span><span class="o">.</span><span class="na">sync</span><span class="o">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>8、关闭EventLoopGroup</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//8 优雅关闭EventLoopGroup，
+</span></span></span><span class="line"><span class="cl"><span class="c1">//释放掉所有资源包括创建的线程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">workerLoopGroup</span><span class="o">.</span><span class="na">shutdownGracefully</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">bossLoopGroup</span><span class="o">.</span><span class="na">shutdownGracefully</span><span class="o">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>关闭反应器轮询组，同时会关闭内部的子反应器线程，也会关闭内部的选择器、内部的轮询线程以及负责查询的所有子通道。在子通道关闭后，会释放掉底层的资源，如Socket文件描述符等。</p>
+<h2 id="channel">Channel</h2>
+<p>Netty通道的抽象类AbstractChannel的构造函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">protected</span> <span class="nf">AbstractChannel</span><span class="o">(</span><span class="n">Channel</span> <span class="n">parent</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">parent</span> <span class="o">=</span> <span class="n">parent</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">newId</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">unsafe</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">newUnsafe</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">pipeline</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">newChannelPipeline</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>AbstractChannel内部有一个parent父通道属性，保持通道的父通道。</p>
+<ul>
+<li>
+<p>连接监听通道（如NioServerSocketChannel）parent属性的值为null；</p>
+</li>
+<li>
+<p>传输通道（如NioSocketChannel）parent属性的值为接收到该连接的监听通道。</p>
+</li>
+</ul>
+<p>在Netty的实际开发中，底层通信传输的基础工作Netty已经替大家完成。实际上，更多的工作是设计和开发<code>ChannelHandler业务处理器</code>。处理器开发完成后，需要投入单元测试。一般单元测试的大致流程是：先将Handler业务处理器加入到通道的Pipeline流水线中，接下来先后启动Netty服务器、客户端程序，相互发送消息，测试业务处理器的效果。这些复杂的工序存在一个问题：如果每开发一个业务处理器都进行服务器和客户端的重复启动，那么整个的过程是非常烦琐和浪费时间的。如何解决这种徒劳、低效的重复工作呢？Netty提供了一个专用通道，即EmbeddedChannel（嵌入式通道）。</p>
+<p>EmbeddedChannel仅仅是模拟入站与出站的操作，底层不进行实际传输，不需要启动Netty服务器和客户端。</p>
+<h2 id="handler">Handler</h2>
+<p>在Reactor经典模型中，反应器查询到IO事件后会分发到Handler业务处理器，由Handler完成IO操作和业务处理。</p>
+<p>整个IO处理操作环节大致包括：</p>
+<ul>
+<li>从通道读数据包</li>
+<li>数据包解码</li>
+<li>业务处理</li>
+<li>目标数据编码</li>
+<li>把数据包写到通道</li>
+<li>由通道发送到对端。</li>
+</ul>
+<p>整个的IO处理操作环节的前后两个环节</p>
+<ul>
+<li>
+<p>从通道读数据包</p>
+</li>
+<li>
+<p>由通道发送到对端</p>
+</li>
+</ul>
+<p>由Netty的底层负责完成，不需要用户程序负责。</p>
+<p>用户程序主要涉及的Handler环节为</p>
+<ul>
+<li>
+<p>数据包解码：入站处理</p>
+</li>
+<li>
+<p>业务处理：入站处理</p>
+</li>
+<li>
+<p>目标数据编码：出站处理</p>
+</li>
+<li>
+<p>把数据包写到通道中：出站处理</p>
+</li>
+</ul>
+<p>从应用程序开发人员的角度来看有入站和出站两种类型操作。</p>
+<ul>
+<li>入站处理触发的方向为自底向上，从Netty的内部（如通道）到ChannelInboundHandler入站处理器。</li>
+<li>出站处理触发的方向为自顶向下，从ChannelOutboundHandler出站处理器到Netty的内部（如通道）。</li>
+</ul>
+<h2 id="pipeline">PipeLine</h2>
+<p>Netty的业务处理器流水线<code>ChannelPipeline</code>是基于责任链设计模式（Chain of Responsibility）来设计的，内部是一个<code>双向链表</code>结构，能够支持动态地添加和删除业务处理器。</p>
+<p>在Netty的设计中<code>Handler是无状态的</code>，不保存和Channel有关的信息。Handler的目标是将自己的处理逻辑做得很通用，可以给不同的Channel使用。</p>
+<p>与Handler不同的是，<code>Pipeline是有状态的</code>，保存了Channel的关系。</p>
+<p>于是，Handler和Pipeline之间通过一个中间角色<code>ChannelHandlerContext</code>（通道处理器上下文）将它们联系起来。</p>
+<h2 id="bytebuf">ByteBuf</h2>
+<p>Netty提供了ByteBuf缓冲区组件来替代Java NIO的ByteBuffer缓冲区组件，以便更加快捷和高效地操纵内存缓冲区。</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Anjana</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2022-03-29
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a href="https://github.com/gohugoio/hugoBasicExample" rel="noopener" target="_blank">See origin</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/effective-java-enum/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Enums</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/reactor-pattern/">
+            <span class="next-text nav-default">Reactor模式</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:anjana.cheng@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/AnjanaVakil" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.douban.com/people/188748525/?_i=5959211pTN39WJ,5959254pTN39WJ" rel="me noopener" class="iconfont"
+      title="douban"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M926.917973 37.80608C959.65184 37.80608 986.19392 64.34816 986.19392 97.082027L986.19392 926.917973C986.19392 959.65184 959.65184 986.19392 926.917973 986.19392L97.082027 986.19392C64.34816 986.19392 37.80608 959.65184 37.80608 926.917973L37.80608 97.082027C37.80608 64.34816 64.34816 37.80608 97.082027 37.80608zM176.653653 176.19968 176.653653 252.678827 825.658027 252.678827 825.658027 176.19968zM217.719467 316.146347 217.719467 628.08064 273.524053 628.08064 341.292373 770.39616 157.259093 770.39616 157.259093 845.417813 842.949973 845.417813 842.949973 770.39616 654.226773 770.39616 722.899627 628.08064 783.67744 628.08064 783.67744 316.146347zM684.885333 392.891733 684.885333 553.987413 312.576 553.987413 312.576 392.891733zM570.770773 770.39616 426.653013 770.39616 359.621973 628.08064 639.443627 628.08064z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://anjanavakil.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2021 -
+    2022
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Anjana
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -10,56 +10,91 @@
   
   <url>
     <loc>https://anjanavakil.github.io/</loc>
-    <lastmod>2022-03-27T15:15:48+08:00</lastmod>
+    <lastmod>2022-03-31T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/categories/</loc>
-    <lastmod>2022-03-27T15:15:48+08:00</lastmod>
+    <lastmod>2022-03-31T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/tags/cs/</loc>
-    <lastmod>2022-03-27T15:15:48+08:00</lastmod>
+    <lastmod>2022-03-31T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/tags/java%EF%B8%8F/</loc>
-    <lastmod>2022-03-27T08:15:48+08:00</lastmod>
+    <lastmod>2022-03-31T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/post/</loc>
-    <lastmod>2022-03-27T15:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/post/reactor-pattern/</loc>
-    <lastmod>2022-03-27T08:15:48+08:00</lastmod>
+    <lastmod>2022-03-31T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/categories/springcloud/</loc>
-    <lastmod>2022-03-27T08:15:48+08:00</lastmod>
+    <lastmod>2022-03-31T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/tags/</loc>
-    <lastmod>2022-03-27T15:15:48+08:00</lastmod>
+    <lastmod>2022-03-31T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/im/</loc>
+    <lastmod>2022-03-31T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/categories/effective-java/</loc>
+    <lastmod>2022-03-30T20:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/effective-java-enum/</loc>
+    <lastmod>2022-03-30T20:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/netty/</loc>
+    <lastmod>2022-03-29T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/reactor-pattern/</loc>
+    <lastmod>2022-03-28T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/java-nio/</loc>
+    <lastmod>2022-03-27T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -102,13 +137,6 @@
   <url>
     <loc>https://anjanavakil.github.io/post/pp-cracking-the-oyster/</loc>
     <lastmod>2022-03-24T20:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/categories/effective-java/</loc>
-    <lastmod>2022-03-23T20:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

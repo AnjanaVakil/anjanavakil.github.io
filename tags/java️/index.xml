@@ -6,14 +6,50 @@
     <description>Recent content in Java☕️ on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 27 Mar 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/java%EF%B8%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Mar 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/java%EF%B8%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基于Netty的单体聊天IM系统的设计与实现</title>
+      <link>https://anjanavakil.github.io/post/im/</link>
+      <pubDate>Thu, 31 Mar 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/im/</guid>
+      <description>自定义Protobuf编解码器 Netty内置了一组Protobuf编解码器——ProtobufDecoder解码器和ProtobufEnco</description>
+    </item>
+    
+    <item>
+      <title>Enums</title>
+      <link>https://anjanavakil.github.io/post/effective-java-enum/</link>
+      <pubDate>Wed, 30 Mar 2022 20:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective-java-enum/</guid>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 34: Use enums instead of int constants 用enum代替int常量 1 2 3 4 5 6 7 // The int enum pattern - severely deficient! public static final int APPLE_FUJI = 0; public static final int</description>
+    </item>
+    
+    <item>
+      <title>Netty</title>
+      <link>https://anjanavakil.github.io/post/netty/</link>
+      <pubDate>Tue, 29 Mar 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/netty/</guid>
+      <description>Netty是一个Java NIO客户端/服务器框架。 Netty中的Reactor模式 Java Reactor模式中IO事件的处理流程： Reactor模</description>
+    </item>
+    
     <item>
       <title>Reactor模式</title>
       <link>https://anjanavakil.github.io/post/reactor-pattern/</link>
-      <pubDate>Sun, 27 Mar 2022 08:15:48 +0800</pubDate>
+      <pubDate>Mon, 28 Mar 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/reactor-pattern/</guid>
-      <description>多线程OIO 传统的网络服务器程序： 1 2 3 4 5 while(true) { socket = accept(); //阻塞，接收连接 handle(socket); //读取数据、业务处理、写入结果 } Connection Per Thread(一个线程处理一</description>
+      <description>多线程OIO ServerSocket类用于建立套接字。所有标准服务都不使用端口号8189。 1 2 3 4 5 6 7 8 9 10 11 12 try { //建立一个负责监控端</description>
+    </item>
+    
+    <item>
+      <title>Java NIO</title>
+      <link>https://anjanavakil.github.io/post/java-nio/</link>
+      <pubDate>Sun, 27 Mar 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/java-nio/</guid>
+      <description>Java NIO Java NIO属于IO多路复用模型。 IO多路复用 为了提高性能，操作系统引入了一种新的系统调用，专门用于查询IO文件描述符（含socket连接）</description>
     </item>
     
     <item>

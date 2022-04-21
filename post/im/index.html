@@ -1,0 +1,2092 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>基于Netty的单体聊天IM系统的设计与实现 - Anjana</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Anjana" />
+  <meta name="description" content="自定义Protobuf编解码器 Netty内置了一组Protobuf编解码器——ProtobufDecoder解码器和ProtobufEnco" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.93.0" />
+
+
+<link rel="canonical" href="https://anjanavakil.github.io/post/im/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="基于Netty的单体聊天IM系统的设计与实现" />
+<meta property="og:description" content="自定义Protobuf编解码器 Netty内置了一组Protobuf编解码器——ProtobufDecoder解码器和ProtobufEnco" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/im/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-31T08:15:48+08:00" />
+<meta property="article:modified_time" content="2022-03-31T08:15:48+08:00" />
+
+<meta itemprop="name" content="基于Netty的单体聊天IM系统的设计与实现">
+<meta itemprop="description" content="自定义Protobuf编解码器 Netty内置了一组Protobuf编解码器——ProtobufDecoder解码器和ProtobufEnco"><meta itemprop="datePublished" content="2022-03-31T08:15:48+08:00" />
+<meta itemprop="dateModified" content="2022-03-31T08:15:48+08:00" />
+<meta itemprop="wordCount" content="9061">
+<meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="基于Netty的单体聊天IM系统的设计与实现"/>
+<meta name="twitter:description" content="自定义Protobuf编解码器 Netty内置了一组Protobuf编解码器——ProtobufDecoder解码器和ProtobufEnco"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Anjana</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/about/">About</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Anjana
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/about/">About</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">基于Netty的单体聊天IM系统的设计与实现</h1>
+      
+      <div class="post-meta">
+        <time datetime="2022-03-31" class="post-time">
+          2022-03-31
+        </time>
+        <div class="post-category">
+            <a href="https://anjanavakil.github.io/categories/springcloud/"> SpringCloud🌵 </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#自定义protobuf编解码器">自定义Protobuf编解码器</a>
+      <ul>
+        <li><a href="#自定义protobuf编码器">自定义Protobuf编码器</a></li>
+        <li><a href="#自定义protobuf解码器">自定义Protobuf解码器</a></li>
+        <li><a href="#protobuf消息格式的设计">Protobuf消息格式的设计</a></li>
+      </ul>
+    </li>
+    <li><a href="#登录">登录</a>
+      <ul>
+        <li><a href="#客户端">客户端</a></li>
+        <li><a href="#服务端">服务端</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="自定义protobuf编解码器">自定义Protobuf编解码器</h2>
+<p>Netty内置了一组Protobuf编解码器——ProtobufDecoder解码器和ProtobufEncoder编码器，它们负责Protobuf生成的POJO实例和二进制字节之间的编码和解码。</p>
+<p>Netty还自带了一组配套的半包处理器：ProtobufVarint32FrameDecoder、ProtobufVarint32LengthFieldPrepender拆包解码和编码器，它们为二进制ByteBuf加上varint32格式的可变长度，解决了Protobuf传输过程中的粘包/半包问题。</p>
+<p>使用Netty内置的Protobuf系列编解码器，虽然可以解决简单的Protobuf协议的传输问题，但是对复杂Head-Content协议（例如数据包头部存在魔数、版本号字段，具体如图8-1所示）的解析，内置Protobuf系列编解码器就显得无能为力了，这种情况下需要自定义Protobuf编码器和解码器。</p>
+<h3 id="自定义protobuf编码器">自定义Protobuf编码器</h3>
+<p>继承Netty中基础的MessageToByteEncoder编码器类，实现其抽象的编码方法encode()，在该方法中把以下内容写入目标ByteBuf：</p>
+<p>1、写入待发送的Protobuf POJO实例的二进制字节长度。</p>
+<p>2、写入其他的字段，如魔数、版本号。</p>
+<p>3、写入Protobuf POJO实例的二进制字节码内容。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Slf4j</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimpleProtobufEncoder</span> <span class="kd">extends</span> <span class="n">MessageToByteEncoder</span><span class="o">&lt;</span><span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span><span class="o">&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">encode</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">                          <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span> <span class="n">msg</span><span class="o">,</span> <span class="n">ByteBuf</span> <span class="n">out</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">encode0</span><span class="o">(</span><span class="n">msg</span><span class="o">,</span> <span class="n">out</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">encode0</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span> <span class="n">msg</span><span class="o">,</span> <span class="n">ByteBuf</span> <span class="n">out</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">out</span><span class="o">.</span><span class="na">writeShort</span><span class="o">(</span><span class="n">ProtoInstant</span><span class="o">.</span><span class="na">MAGIC_CODE</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">out</span><span class="o">.</span><span class="na">writeShort</span><span class="o">(</span><span class="n">ProtoInstant</span><span class="o">.</span><span class="na">VERSION_CODE</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">byte</span><span class="o">[]</span> <span class="n">bytes</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="na">toByteArray</span><span class="o">();</span><span class="c1">// 将 ProtoMsg.Message 对象转换为byte
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">bytes</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="c1">// 读取消息的长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 先将消息长度写入，也就是消息头
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">out</span><span class="o">.</span><span class="na">writeInt</span><span class="o">(</span><span class="n">length</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 消息体中包含我们要发送的数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">out</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="n">bytes</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="自定义protobuf解码器">自定义Protobuf解码器</h3>
+<p>继承Netty中基础的ByteToMessageDecoder解码器类实现，在其继承的decode()方法中，将ByteBuf字节码解码成Protobuf的POJO实例，大致过程如下：</p>
+<p>1、读取长度，如果长度位数不够，就终止读取。</p>
+<p>2、读取魔数、版本号等其他字段。</p>
+<p>3、按照净长度读取内容。如果内容的字节数不够，则恢复到之前的起始位置（也就是长度的位置），然后终止读取。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Slf4j</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimpleProtobufDecoder</span> <span class="kd">extends</span> <span class="n">ByteToMessageDecoder</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">decode</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">                          <span class="n">ByteBuf</span> <span class="n">in</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">                          <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">out</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">Object</span> <span class="n">outmsg</span> <span class="o">=</span> <span class="n">decode0</span><span class="o">(</span><span class="n">ctx</span><span class="o">,</span> <span class="n">in</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">outmsg</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 获取业务消息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">out</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">outmsg</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Object</span> <span class="nf">decode0</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">                                 <span class="n">ByteBuf</span> <span class="n">in</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InvalidFrameException</span><span class="o">,</span> <span class="n">InvalidProtocolBufferException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 标记一下当前的readIndex的位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">in</span><span class="o">.</span><span class="na">markReaderIndex</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 判断包头长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readableBytes</span><span class="o">()</span> <span class="o">&lt;</span> <span class="n">8</span><span class="o">)</span> <span class="o">{</span><span class="c1">// 不够包头
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">        <span class="c1">//读取魔数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">short</span> <span class="n">magic</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readShort</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">magic</span> <span class="o">!=</span> <span class="n">ProtoInstant</span><span class="o">.</span><span class="na">MAGIC_CODE</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">String</span> <span class="n">error</span> <span class="o">=</span> <span class="s">&#34;客户端口令不对:&#34;</span> <span class="o">+</span> <span class="n">ctx</span><span class="o">.</span><span class="na">channel</span><span class="o">().</span><span class="na">remoteAddress</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//异常连接，直接报错，关闭连接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">throw</span> <span class="k">new</span> <span class="n">InvalidFrameException</span><span class="o">(</span><span class="n">error</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">        <span class="c1">//读取版本
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">short</span> <span class="n">version</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readShort</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">version</span> <span class="o">!=</span> <span class="n">ProtoInstant</span><span class="o">.</span><span class="na">VERSION_CODE</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">String</span> <span class="n">error</span> <span class="o">=</span> <span class="s">&#34;协议的版本不对:&#34;</span> <span class="o">+</span> <span class="n">ctx</span><span class="o">.</span><span class="na">channel</span><span class="o">().</span><span class="na">remoteAddress</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//异常连接，直接报错，关闭连接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">throw</span> <span class="k">new</span> <span class="n">InvalidFrameException</span><span class="o">(</span><span class="n">error</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">        <span class="c1">// 读取传送过来的消息的长度。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readInt</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 长度如果小于0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">length</span> <span class="o">&lt;</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 非法数据，关闭连接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">ctx</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">length</span> <span class="o">&gt;</span> <span class="n">in</span><span class="o">.</span><span class="na">readableBytes</span><span class="o">())</span> <span class="o">{</span><span class="c1">// 读到的消息体长度如果小于传送过来的消息长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 重置读取位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">in</span><span class="o">.</span><span class="na">resetReaderIndex</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Logger</span><span class="o">.</span><span class="na">cfo</span><span class="o">(</span><span class="s">&#34;decoder length=&#34;</span> <span class="o">+</span> <span class="n">in</span><span class="o">.</span><span class="na">readableBytes</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">byte</span><span class="o">[]</span> <span class="n">array</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">hasArray</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//堆缓冲
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="n">length</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">in</span><span class="o">.</span><span class="na">readBytes</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">length</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//直接缓冲
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="n">length</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">in</span><span class="o">.</span><span class="na">readBytes</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">length</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 字节转成对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span> <span class="n">outmsg</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">                <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span><span class="o">.</span><span class="na">parseFrom</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">outmsg</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="protobuf消息格式的设计">Protobuf消息格式的设计</h3>
+<h4 id="消息类型使用enum定义">消息类型使用enum定义</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-protobuf" data-lang="protobuf"><span class="line"><span class="cl"><span class="kd">enum</span> <span class="n">HeadType</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="p">{</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>  <span class="n">LOGIN_REQUEST</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="c1">//登陆请求
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LOGIN_RESPONSE</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><span class="c1">//登录响应
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LOGOUT_REQUEST</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span><span class="c1">//退出请求
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">LOGOUT_RESPONSE</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span><span class="c1">//退出响应
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">KEEPALIVE_REQUEST</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span><span class="c1">//心跳请求PING;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">KEEPALIVE_RESPONSE</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>  <span class="n">MESSAGE_REQUEST</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span><span class="c1">//消息请求;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">MESSAGE_RESPONSE</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span><span class="c1">//消息回执;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">MESSAGE_NOTIFICATION</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span><span class="c1">//通知消息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="使用一个protobuf消息结构定义一类消息">使用一个Protobuf消息结构定义一类消息</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-protobuf" data-lang="protobuf"><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">LoginRequest</span><span class="p">{</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>	<span class="k">required</span> <span class="kt">string</span> <span class="n">uid</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>        <span class="c1">// 用户唯一id
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">required</span> <span class="kt">string</span> <span class="n">deviceId</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>     <span class="c1">// 设备ID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">required</span> <span class="kt">string</span> <span class="n">token</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>       <span class="c1">// 用户token
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">optional</span> <span class="kt">uint32</span> <span class="n">platform</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>      <span class="c1">//客户端平台Windows、Mac、Android、IOS、Web
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">optional</span> <span class="kt">string</span> <span class="n">app_version</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>    <span class="c1">// APP版本号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="给应答消息加上成功标记和应答序号">给应答消息加上成功标记和应答序号</h4>
+<p>应答序号的作用：如果一个请求有多个响应，则发送端可以设计为每个响应消息可以包含一个应答的序号，最后一个响应消息包含一个结束标记。接收端在处理时，根据应答序号和结束标记可以合并所有的响应消息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-protobuf" data-lang="protobuf"><span class="line"><span class="cl"><span class="cm">/*聊天响应*/</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="kd">message</span> <span class="nc">MessageResponse</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="p">{</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    <span class="k">required</span> <span class="kt">bool</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//true表示发送成功，false表示发送失败
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">required</span> <span class="kt">uint32</span> <span class="n">code</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>	<span class="c1">//错误码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">required</span> <span class="kt">string</span> <span class="n">info</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>	<span class="c1">//错误描述
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">required</span> <span class="kt">uint32</span> <span class="n">expose</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">//错误描述是否提示给用户:1 提示;0 不提示
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">required</span> <span class="kt">bool</span> <span class="n">last_block</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span><span class="c1">//是否为最后的应答
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">required</span> <span class="kt">fixed32</span> <span class="n">block_index</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span><span class="c1">//应答的序号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="编解码从顶级消息开始">编解码从顶级消息开始</h4>
+<p>定义一个外层的消息，把所有的消息类型全部封装在一起。在通信时可以从外层消息开始编码或者解码。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-protobuf" data-lang="protobuf"><span class="line"><span class="cl"><span class="cm">/*顶层消息*/</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c1">//顶层消息是一种嵌套消息，嵌套了各种类型消息
+</span></span></span><span class="line"><span class="cl"><span class="c1">//内部的消息类型，全部使用optional字段
+</span></span></span><span class="line"><span class="cl"><span class="c1">//根据消息类型type的值，最多只有一个有效
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">message</span> <span class="nc">Message</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="p">{</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span> <span class="k">required</span> <span class="n">HeadType</span> <span class="n">type</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//消息类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="k">required</span> <span class="kt">uint64</span>   <span class="n">sequence</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><span class="c1">//消息系列号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="k">required</span> <span class="kt">string</span>  <span class="n">session_id</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span> <span class="k">optional</span> <span class="n">LoginRequest</span> <span class="n">loginRequest</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span> <span class="k">optional</span> <span class="n">LoginResponse</span> <span class="n">loginResponse</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span> <span class="k">optional</span> <span class="n">MessageRequest</span> <span class="n">messageRequest</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span> <span class="k">optional</span> <span class="n">MessageResponse</span> <span class="n">messageResponse</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span> <span class="k">optional</span> <span class="n">MessageNotification</span> <span class="n">notification</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="p">}</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="登录">登录</h2>
+<p>从端到端（End to End）的角度来说，登录的流程包括以下环节：</p>
+<p>1、客户端发送登录数据包。</p>
+<p>2、服务端进行用户信息验证。</p>
+<p>3、服务端创建会话。</p>
+<p>4、服务端返回登录结果的信息给客户端，包括成功标志、Session ID等。</p>
+<p>整个端到端（End to End）的登录流程涉及4次编码/解码：</p>
+<p>1、客户端编码：客户端对登录请求的Protobuf数据包进行编码。</p>
+<p>2、服务端解码：服务端对登录请求的Protobuf数据包进行解码。</p>
+<p>3、服务端编码：服务端对编码登录响应的Protobuf数据包进行编码。</p>
+<p>4、客户端解码：客户端对登录响应的Protobuf数据包进行解码。</p>
+<p>从客户端到服务端再到客户端，9个环节的相关介绍如下：</p>
+<p>1、客户端收集用户ID和密码，需要使用LoginConsoleCommand控制台命令类。</p>
+<p>2、客户端发送Protobuf数据包到客户端通道，需要通过LoginSender发送器组装Protobuf数据包。</p>
+<p>3、客户端通道将Protobuf数据包发送到对端，需要通过Netty底层来完成。</p>
+<p>4、服务器子通道收到Protobuf数据包，需要通过Netty底层来完成。</p>
+<p>5、服务端UserLoginHandler入站处理器收到登录消息，交给业务处理器LoginMsgProcesser处理异步的业务逻辑。</p>
+<p>6、服务端LoginMsgProcesser处理完异步的业务逻辑，将处理结果写入用户绑定的子通道。</p>
+<p>7、服务器子通道将登录响应Protobuf数据帧发送到客户端，需要通过Netty底层来完成。</p>
+<p>8、客户端通道收到Protobuf登录响应数据包，需要通过Netty底层来完成。</p>
+<p>9、客户端LoginResponseHandler业务处理器处理登录响应，例如设置登录的状态、保存会话的Session ID等。</p>
+<h3 id="客户端">客户端</h3>
+<p>在IM登录的整体执行流程中，客户端所涉及的主要模块大致如下：</p>
+<p>（1）ClientCommand模块：控制台命令收集器。</p>
+<p>（2）ProtobufBuilder模块：Protobuf数据包构造者。</p>
+<p>（3）Sender模块：数据包发送器。</p>
+<p>（4）Handler模块：服务器响应处理器。</p>
+<p>上面的这些模块都有一个或者多个专门的POJO Java类来完成对应的工作：</p>
+<p>（1）LoginConsoleCommand类：属于ClientCommand模块，负责收集用户在控制台输入的用户ID和密码。</p>
+<p>（2）CommandController类：属于ClientCommand模块，负责收集用户在控制台输入的命令类型，根据相应的类型调用相应的命令处理器，然后收集相应的信息。</p>
+<p>例如，如果用户输入的命令类型为登录，则调用LoginConsoleCommand命令处理器将收集到的用户ID和密码封装成User类，然后启动登录处理。</p>
+<p>（3）LoginMsgBuilder类：属于ProtobufBuilder模块，负责将User类组装成Protobuf登录请求数据包。</p>
+<p>（4）LoginSender类：属于Sender模块，负责将组装好的Protobuf登录数据包发送到服务端。</p>
+<p>（5）LoginResponseHandler类：属于Handler模块，负责处理服务端的登录响应。</p>
+<h4 id="loginsender消息发送器">LoginSender消息发送器</h4>
+<p>LoginSender消息发送器的sendLoginMsg()方法主要有两步：</p>
+<ul>
+<li>生成Protobuf登录数据包</li>
+<li>调用BaseSender基类的sendMsg()方法来发送数据包</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Slf4j</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Service</span><span class="o">(</span><span class="s">&#34;loginSender&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginSender</span> <span class="kd">extends</span> <span class="n">BaseSender</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sendLoginMsg</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(!</span><span class="n">isConnected</span><span class="o">())</span> <span class="o">{</span> <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;还没有建立连接!&#34;</span><span class="o">);</span><span class="k">return</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;构造登录消息&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span> <span class="n">message</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">                <span class="n">LoginMsgConverter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="n">getUser</span><span class="o">(),</span> <span class="n">getSession</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;发送登录消息&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">.</span><span class="na">sendMsg</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>调用BaseSender的sendMsg()方法来发送登录消息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Data</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Slf4j</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">BaseSender</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">User</span> <span class="n">user</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ClientSession</span> <span class="n">session</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isConnected</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">session</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;session is null&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="na">isConnected</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isLogin</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">session</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;session is null&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="na">isLogin</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sendMsg</span><span class="o">(</span><span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">getSession</span><span class="o">()</span> <span class="o">||</span> <span class="o">!</span><span class="n">isConnected</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;连接还没成功&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">Channel</span> <span class="n">channel</span> <span class="o">=</span> <span class="n">getSession</span><span class="o">().</span><span class="na">getChannel</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ChannelFuture</span> <span class="n">f</span> <span class="o">=</span> <span class="n">channel</span><span class="o">.</span><span class="na">writeAndFlush</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="o">.</span><span class="na">addListener</span><span class="o">(</span><span class="k">new</span> <span class="n">GenericFutureListener</span><span class="o">&lt;</span><span class="n">Future</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">Void</span><span class="o">&gt;&gt;()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">operationComplete</span><span class="o">(</span><span class="n">Future</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">Void</span><span class="o">&gt;</span> <span class="n">future</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 回调
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span> <span class="o">(</span><span class="n">future</span><span class="o">.</span><span class="na">isSuccess</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">sendSucced</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">sendfailed</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="o">});</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">sendSucced</span><span class="o">(</span><span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;发送成功&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">sendfailed</span><span class="o">(</span><span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;发送失败&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在Netty中会调用<code>write(pkg)</code>或者<code>writeAndFlush(pkg)</code>方法来发送数据包，发送方法调用后会立即返回，返回的类型是一个<code>ChannelFuture</code>异步任务实例。</p>
+<p>发送方法返回时，数据包并未发送到对端？比如在write(pkg)方法返回时，真正的TCP写入的操作其实还没有执行。这和Netty中在同一个通道上的同一个处理器的出入站操作的串行执行特点有关。</p>
+<p>在Netty中，无论是入站操作还是出站操作，都有两大特点：</p>
+<p>（1）同一条通道的同一个Handler处理器的所有出/入站处理都是串行的，而不是并行的。</p>
+<p>Netty是如何保障这一点的呢？在某个出/入站开启时，Netty会对当前的执行线程进行判断：如果当前线程不是Handler的执行线程，则处理暂时不执行，Netty会为当前处理建立一个新的异步可执行任务，加入Handler的执行线程任务队列中。</p>
+<p>（2）Netty的出/入站操作不是单个Handler业务处理器操作，而是流水线上一系列的出/入站处理流程。只有整个流程都处理完，出/入站操作才真正处理完成。</p>
+<h4 id="clientsession">ClientSession</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 实现客户端 Session会话
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Slf4j</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Data</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClientSession</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">AttributeKey</span><span class="o">&lt;</span><span class="n">ClientSession</span><span class="o">&gt;</span> <span class="n">SESSION_KEY</span> <span class="o">=</span> <span class="n">AttributeKey</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="s">&#34;SESSION_KEY&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 用户实现客户端会话管理的核心
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Channel</span> <span class="n">channel</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">User</span> <span class="n">user</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 保存登录后的服务端sessionid
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">sessionId</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">isConnected</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">isLogin</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//绑定通道
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//连接成功之后
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="nf">ClientSession</span><span class="o">(</span><span class="n">Channel</span> <span class="n">channel</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//正向的绑定
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">this</span><span class="o">.</span><span class="na">channel</span> <span class="o">=</span> <span class="n">channel</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">sessionId</span> <span class="o">=</span> <span class="n">UUID</span><span class="o">.</span><span class="na">randomUUID</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//反向的绑定
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">channel</span><span class="o">.</span><span class="na">attr</span><span class="o">(</span><span class="n">ClientSession</span><span class="o">.</span><span class="na">SESSION_KEY</span><span class="o">).</span><span class="na">set</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//登录成功之后,设置sessionId
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">loginSuccess</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span> <span class="n">pkg</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Channel</span> <span class="n">channel</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">channel</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ClientSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">channel</span><span class="o">.</span><span class="na">attr</span><span class="o">(</span><span class="n">ClientSession</span><span class="o">.</span><span class="na">SESSION_KEY</span><span class="o">).</span><span class="na">get</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">session</span><span class="o">.</span><span class="na">setSessionId</span><span class="o">(</span><span class="n">pkg</span><span class="o">.</span><span class="na">getSessionId</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">session</span><span class="o">.</span><span class="na">setLogin</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;登录成功&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//获取channel
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ClientSession</span> <span class="nf">getSession</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Channel</span> <span class="n">channel</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">channel</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ClientSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">channel</span><span class="o">.</span><span class="na">attr</span><span class="o">(</span><span class="n">ClientSession</span><span class="o">.</span><span class="na">SESSION_KEY</span><span class="o">).</span><span class="na">get</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">session</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getRemoteAddress</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">channel</span><span class="o">.</span><span class="na">remoteAddress</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//写protobuf 数据帧
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="n">ChannelFuture</span> <span class="nf">witeAndFlush</span><span class="o">(</span><span class="n">Object</span> <span class="n">pkg</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ChannelFuture</span> <span class="n">f</span> <span class="o">=</span> <span class="n">channel</span><span class="o">.</span><span class="na">writeAndFlush</span><span class="o">(</span><span class="n">pkg</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">f</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">writeAndClose</span><span class="o">(</span><span class="n">Object</span> <span class="n">pkg</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ChannelFuture</span> <span class="n">future</span> <span class="o">=</span> <span class="n">channel</span><span class="o">.</span><span class="na">writeAndFlush</span><span class="o">(</span><span class="n">pkg</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">future</span><span class="o">.</span><span class="na">addListener</span><span class="o">(</span><span class="n">ChannelFutureListener</span><span class="o">.</span><span class="na">CLOSE</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//关闭通道
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">close</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">isConnected</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ChannelFuture</span> <span class="n">future</span> <span class="o">=</span> <span class="n">channel</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">future</span><span class="o">.</span><span class="na">addListener</span><span class="o">(</span><span class="k">new</span> <span class="n">ChannelFutureListener</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">operationComplete</span><span class="o">(</span><span class="n">ChannelFuture</span> <span class="n">future</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="o">(</span><span class="n">future</span><span class="o">.</span><span class="na">isSuccess</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">&#34;连接顺利断开&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">});</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>什么时候创建客户端会话呢？在Netty客户端发起连接请求之后，增加一个连接建立完成的异步回调任务。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Slf4j</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Data</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Service</span><span class="o">(</span><span class="s">&#34;CommandController&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CommandController</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">GenericFutureListener</span><span class="o">&lt;</span><span class="n">ChannelFuture</span><span class="o">&gt;</span> <span class="n">connectedListener</span> <span class="o">=</span> <span class="o">(</span><span class="n">ChannelFuture</span> <span class="n">f</span><span class="o">)</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">final</span> <span class="n">EventLoop</span> <span class="n">eventLoop</span>
+</span></span><span class="line"><span class="cl">                <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="na">channel</span><span class="o">().</span><span class="na">eventLoop</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(!</span><span class="n">f</span><span class="o">.</span><span class="na">isSuccess</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;连接失败!在10s之后准备尝试重连!&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">eventLoop</span><span class="o">.</span><span class="na">schedule</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">chatNettyClient</span><span class="o">.</span><span class="na">doConnect</span><span class="o">(),</span> <span class="n">10</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">connectFlag</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">connectFlag</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;IM 服务器 连接成功!&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">channel</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="na">channel</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 创建会话
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">session</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClientSession</span><span class="o">(</span><span class="n">channel</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">session</span><span class="o">.</span><span class="na">setConnected</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">channel</span><span class="o">.</span><span class="na">closeFuture</span><span class="o">().</span><span class="na">addListener</span><span class="o">(</span><span class="n">closeListener</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//唤醒用户线程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">notifyCommandThread</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">};</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="loginresponsehandler">LoginResponseHandler</h4>
+<p>LoginResponseHandler登录响应处理器对消息类型进行判断：</p>
+<p>（1）如果消息类型不是请求响应消息，则调用父类默认的super.channelRead()入站处理方法，将数据包交给流水线的下一站Handler业务处理器去处理。</p>
+<p>（2）如果消息类型是请求响应消息并且登录成功，则取出绑定的会话（Session），再设置登录成功的状态。完成登录成功处理之后，进行其他的客户端业务处理。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Slf4j</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@ChannelHandler.Sharable</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Service</span><span class="o">(</span><span class="s">&#34;LoginResponseHandler&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginResponseHandler</span> <span class="kd">extends</span> <span class="n">ChannelInboundHandlerAdapter</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ChatMsgHandler</span> <span class="n">chatMsgHandler</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">HeartBeatClientHandler</span> <span class="n">heartBeatClientHandler</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 业务逻辑处理
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">channelRead</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">Object</span> <span class="n">msg</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//判断消息实例
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">msg</span> <span class="o">||</span> <span class="o">!(</span><span class="n">msg</span> <span class="k">instanceof</span> <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">super</span><span class="o">.</span><span class="na">channelRead</span><span class="o">(</span><span class="n">ctx</span><span class="o">,</span> <span class="n">msg</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//判断类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span> <span class="n">pkg</span> <span class="o">=</span> <span class="o">(</span><span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span><span class="o">)</span> <span class="n">msg</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">HeadType</span> <span class="n">headType</span> <span class="o">=</span> <span class="o">((</span><span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span><span class="o">)</span> <span class="n">msg</span><span class="o">).</span><span class="na">getType</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(!</span><span class="n">headType</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">ProtoMsg</span><span class="o">.</span><span class="na">HeadType</span><span class="o">.</span><span class="na">LOGIN_RESPONSE</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">super</span><span class="o">.</span><span class="na">channelRead</span><span class="o">(</span><span class="n">ctx</span><span class="o">,</span> <span class="n">msg</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//判断返回是否成功
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">LoginResponse</span> <span class="n">info</span> <span class="o">=</span> <span class="n">pkg</span><span class="o">.</span><span class="na">getLoginResponse</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">ProtoInstant</span><span class="o">.</span><span class="na">ResultCodeEnum</span> <span class="n">result</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">                <span class="n">ProtoInstant</span><span class="o">.</span><span class="na">ResultCodeEnum</span><span class="o">.</span><span class="na">values</span><span class="o">()[</span><span class="n">info</span><span class="o">.</span><span class="na">getCode</span><span class="o">()];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(!</span><span class="n">result</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">ProtoInstant</span><span class="o">.</span><span class="na">ResultCodeEnum</span><span class="o">.</span><span class="na">SUCCESS</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//登录失败
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">getDesc</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//登录成功
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">ClientSession</span><span class="o">.</span><span class="na">loginSuccess</span><span class="o">(</span><span class="n">ctx</span><span class="o">,</span> <span class="n">pkg</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ChannelPipeline</span> <span class="n">p</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">pipeline</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//移除登录响应处理器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">p</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//在编码器后面，动态插入心跳处理器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">p</span><span class="o">.</span><span class="na">addAfter</span><span class="o">(</span><span class="s">&#34;encoder&#34;</span><span class="o">,</span> <span class="s">&#34;heartbeat&#34;</span><span class="o">,</span> <span class="n">heartBeatClientHandler</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">p</span><span class="o">.</span><span class="na">addAfter</span><span class="o">(</span><span class="s">&#34;encoder&#34;</span><span class="o">,</span> <span class="s">&#34;chat&#34;</span><span class="o">,</span> <span class="n">chatMsgHandler</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">heartBeatClientHandler</span><span class="o">.</span><span class="na">channelActive</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在登录成功之后，需要将LoginResponseHandler登录响应处理器实例从流水线上移除，因为不需要再处理登录响应了。同时，需要在客户端和服务端（即服务器器）之间开启定时的心跳处理。</p>
+<h4 id="chatnettyclient">ChatNettyClient</h4>
+<p>在客户端的业务处理器流水线（Pipeline）上，装配顺序：</p>
+<ul>
+<li>ProtobufDecoder解码器</li>
+<li>ProtobufEncoder编码器</li>
+<li>LoginResponseHandler登录响应处理器：业务处理器。</li>
+<li>ExceptionHandler异常处理器：是一个入站处理器，用来实现Netty异常的处理以及在连接异常中断后进行重连。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Slf4j</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Data</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Service</span><span class="o">(</span><span class="s">&#34;chatNettyClient&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ChatNettyClient</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 服务器ip地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nd">@Value</span><span class="o">(</span><span class="s">&#34;${chat.server.ip}&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">host</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 服务器端口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nd">@Value</span><span class="o">(</span><span class="s">&#34;${chat.server.port}&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span> <span class="n">port</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">SystemConfig</span> <span class="n">systemConfig</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">LoginResponseHandler</span> <span class="n">loginResponseHandler</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ExceptionHandler</span> <span class="n">exceptionHandler</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Channel</span> <span class="n">channel</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ChatSender</span> <span class="n">sender</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">LoginSender</span> <span class="n">l</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 唯一标记
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">initFalg</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">User</span> <span class="n">user</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">GenericFutureListener</span><span class="o">&lt;</span><span class="n">ChannelFuture</span><span class="o">&gt;</span> <span class="n">connectedListener</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Bootstrap</span> <span class="n">bootstrap</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">EventLoopGroup</span> <span class="n">g</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">ChatNettyClient</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">         * 客户端的是Bootstrap，服务端的则是 ServerBootstrap。
+</span></span></span><span class="line"><span class="cl"><span class="cm">         * 都是AbstractBootstrap的子类。
+</span></span></span><span class="line"><span class="cl"><span class="cm">         **/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">         * 通过nio方式来接收连接和处理连接
+</span></span></span><span class="line"><span class="cl"><span class="cm">         */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">g</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NioEventLoopGroup</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 重连
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doConnect</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">bootstrap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bootstrap</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">bootstrap</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="n">g</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">bootstrap</span><span class="o">.</span><span class="na">channel</span><span class="o">(</span><span class="n">NioSocketChannel</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">bootstrap</span><span class="o">.</span><span class="na">option</span><span class="o">(</span><span class="n">ChannelOption</span><span class="o">.</span><span class="na">SO_KEEPALIVE</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">bootstrap</span><span class="o">.</span><span class="na">option</span><span class="o">(</span><span class="n">ChannelOption</span><span class="o">.</span><span class="na">ALLOCATOR</span><span class="o">,</span> <span class="n">PooledByteBufAllocator</span><span class="o">.</span><span class="na">DEFAULT</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">bootstrap</span><span class="o">.</span><span class="na">remoteAddress</span><span class="o">(</span><span class="n">host</span><span class="o">,</span> <span class="n">port</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// 设置通道初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">bootstrap</span><span class="o">.</span><span class="na">handler</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">new</span> <span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">SocketChannel</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initChannel</span><span class="o">(</span><span class="n">SocketChannel</span> <span class="n">ch</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">ch</span><span class="o">.</span><span class="na">pipeline</span><span class="o">().</span><span class="na">addLast</span><span class="o">(</span><span class="s">&#34;decoder&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">SimpleProtobufDecoder</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">ch</span><span class="o">.</span><span class="na">pipeline</span><span class="o">().</span><span class="na">addLast</span><span class="o">(</span><span class="s">&#34;encoder&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">SimpleProtobufEncoder</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">ch</span><span class="o">.</span><span class="na">pipeline</span><span class="o">().</span><span class="na">addLast</span><span class="o">(</span><span class="n">loginResponseHandler</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                            <span class="c1">//ch.pipeline().addLast(chatMsgHandler);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                            <span class="n">ch</span><span class="o">.</span><span class="na">pipeline</span><span class="o">().</span><span class="na">addLast</span><span class="o">(</span><span class="n">exceptionHandler</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;客户端开始连接 [疯狂创客圈IM]&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">ChannelFuture</span> <span class="n">f</span> <span class="o">=</span> <span class="n">bootstrap</span><span class="o">.</span><span class="na">connect</span><span class="o">();</span><span class="c1">//异步发起连接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">f</span><span class="o">.</span><span class="na">addListener</span><span class="o">(</span><span class="n">connectedListener</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;客户端连接失败!&#34;</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">close</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">g</span><span class="o">.</span><span class="na">shutdownGracefully</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>处理器装配次序说明：loginResponseHandler登录响应处理器必须装配在ProtobufDecoder解码器之后。</p>
+<p>原因：Netty客户端读到二进制ByteBuf数据包之后，需要通过ProtobufDecoder完成解码操作。解码后组装好Protobuf消息POJO，再进入LoginResponseHandler。</p>
+<h3 id="服务端">服务端</h3>
+<p>在IM登录的整体执行流程中，服务端涉及的主要模块如下：</p>
+<p>（1）Handler模块：客户端请求的处理。</p>
+<p>（2）Processer模块：以异步方式完成请求的业务逻辑处理。</p>
+<p>（3）Session模块：管理用户与通道的绑定关系。</p>
+<p>在具体的服务器登录流程中，上面的这些模块都有一个或者多个专门的Java类来完成对应的工作，大致的类为：</p>
+<p>（1）UserLoginRequestHandler类：属于Handler模块，负责处理收到的Protobuf登录请求包，然后使用LoginProcesser类以异步方式进行用户校验。</p>
+<p>（2）LoginProcesser类：属于Processer模块，完成服务端的用户校验，再将校验的结果组装成一个登录响应Protobuf数据包写回到客户端。</p>
+<p>（3）ServerSession类：属于Session模块，如果校验成功，设置相应的会话状态；然后，将会话加入服务端的SessionMap映射中，这样该用户就可以接受其他用户发送的聊天消息了。</p>
+<p>服务端的登录处理流程是：</p>
+<p>（1）ProtobufDecoder解码器把请求ByteBuf数据包解码成Protobuf数据包。</p>
+<p>（2）UserLoginRequestHandler登录处理器负责处理Protobuf数据包，进行一些必要的判断和预处理后，启动LoginProcesser登录业务处理器，以异步方式进行登录验证处理。</p>
+<p>（3）LoginProcesser通过数据库或者远程接口完成用户验证，根据验证处理的结果生成登录成功/失败的登录响应报文，并发送给客户端</p>
+<h4 id="chatserver">ChatServer</h4>
+<p>与客户端类似，服务端流水线需要装配：</p>
+<ul>
+<li>ProtobufDecoder解码器</li>
+<li>ProtobufEncoder编码器</li>
+<li>loginRequestHandler登录业务处理器实例</li>
+<li>serverExceptionHandler异常处理器实例</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Data</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Slf4j</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Service</span><span class="o">(</span><span class="s">&#34;ChatServer&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ChatServer</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 服务器端口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nd">@Value</span><span class="o">(</span><span class="s">&#34;${server.port}&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span> <span class="n">port</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 通过nio方式来接收连接和处理连接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">private</span> <span class="n">EventLoopGroup</span> <span class="n">bg</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">EventLoopGroup</span> <span class="n">wg</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 启动引导器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">private</span> <span class="n">ServerBootstrap</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServerBootstrap</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">LoginRequestHandler</span> <span class="n">loginRequestHandler</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ServerExceptionHandler</span> <span class="n">serverExceptionHandler</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ChatRedirectHandler</span> <span class="n">chatRedirectHandler</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//连接监听线程组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">bg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NioEventLoopGroup</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//传输处理线程组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">wg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NioEventLoopGroup</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//1 设置reactor 线程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">b</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="n">bg</span><span class="o">,</span> <span class="n">wg</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//2 设置nio类型的channel
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">b</span><span class="o">.</span><span class="na">channel</span><span class="o">(</span><span class="n">NioServerSocketChannel</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//3 设置监听端口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">b</span><span class="o">.</span><span class="na">localAddress</span><span class="o">(</span><span class="k">new</span> <span class="n">InetSocketAddress</span><span class="o">(</span><span class="n">port</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//4 设置通道选项
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//b.option(ChannelOption.SO_KEEPALIVE, true);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">b</span><span class="o">.</span><span class="na">option</span><span class="o">(</span><span class="n">ChannelOption</span><span class="o">.</span><span class="na">ALLOCATOR</span><span class="o">,</span> <span class="n">PooledByteBufAllocator</span><span class="o">.</span><span class="na">DEFAULT</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">b</span><span class="o">.</span><span class="na">childOption</span><span class="o">(</span><span class="n">ChannelOption</span><span class="o">.</span><span class="na">ALLOCATOR</span><span class="o">,</span> <span class="n">PooledByteBufAllocator</span><span class="o">.</span><span class="na">DEFAULT</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">//5 装配流水线
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">b</span><span class="o">.</span><span class="na">childHandler</span><span class="o">(</span><span class="k">new</span> <span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">SocketChannel</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">//有连接到达时会创建一个channel
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">initChannel</span><span class="o">(</span><span class="n">SocketChannel</span> <span class="n">ch</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">// 管理pipeline中的Handler
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">ch</span><span class="o">.</span><span class="na">pipeline</span><span class="o">().</span><span class="na">addLast</span><span class="o">(</span><span class="k">new</span> <span class="n">SimpleProtobufDecoder</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">ch</span><span class="o">.</span><span class="na">pipeline</span><span class="o">().</span><span class="na">addLast</span><span class="o">(</span><span class="k">new</span> <span class="n">SimpleProtobufEncoder</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">// ch.pipeline().addLast(new HeartBeatServerHandler());
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="c1">// 在流水线中添加handler来处理登录,登录后删除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">ch</span><span class="o">.</span><span class="na">pipeline</span><span class="o">().</span><span class="na">addLast</span><span class="o">(</span><span class="s">&#34;login&#34;</span><span class="o">,</span> <span class="n">loginRequestHandler</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">//ch.pipeline().addLast(chatRedirectHandler);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">ch</span><span class="o">.</span><span class="na">pipeline</span><span class="o">().</span><span class="na">addLast</span><span class="o">(</span><span class="n">serverExceptionHandler</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="o">});</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 6 开始绑定server
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 通过调用sync同步方法阻塞直到绑定成功
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">ChannelFuture</span> <span class="n">channelFuture</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="na">bind</span><span class="o">().</span><span class="na">sync</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="s">&#34;CrazyIM 服务启动, 端口 &#34;</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">channelFuture</span><span class="o">.</span><span class="na">channel</span><span class="o">().</span><span class="na">localAddress</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 7 监听通道关闭事件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 应用程序会一直等待，直到channel关闭
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">ChannelFuture</span> <span class="n">closeFuture</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">channelFuture</span><span class="o">.</span><span class="na">channel</span><span class="o">().</span><span class="na">closeFuture</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">closeFuture</span><span class="o">.</span><span class="na">sync</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 8 优雅关闭EventLoopGroup，
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 释放掉所有资源包括创建的线程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">wg</span><span class="o">.</span><span class="na">shutdownGracefully</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">bg</span><span class="o">.</span><span class="na">shutdownGracefully</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="loginrequesthandler">LoginRequestHandler</h4>
+<p>这是一个入站处理器，继承自ChannelInboundHandlerAdapter入站适配器，重写了适配器的channelRead()方法，主要工作如下：</p>
+<p>（1）对消息进行必要的判断：判断是否为登录请求Protobuf数据包。如果不是，通过super.channelRead(ctx, msg)将消息交给流水线的下一个入站处理器。</p>
+<p>（2）如果是登录请求Protobuf数据包，准备进行登录处理，提前为客户建立一个服务端的会话ServerSession。</p>
+<p>（3）使用自定义的CallbackTaskScheduler异步任务调度器提交一个异步任务，启动LoginProcesser执行登录用户验证逻辑。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Slf4j</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Service</span><span class="o">(</span><span class="s">&#34;LoginRequestHandler&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@ChannelHandler.Sharable</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginRequestHandler</span> <span class="kd">extends</span> <span class="n">ChannelInboundHandlerAdapter</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LoginProcesser</span> <span class="n">loginProcesser</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ChatRedirectHandler</span> <span class="n">chatRedirectHandler</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">channelActive</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;收到一个新的连接，但是没有登录 {}&#34;</span><span class="o">,</span> <span class="n">ctx</span><span class="o">.</span><span class="na">channel</span><span class="o">().</span><span class="na">id</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">.</span><span class="na">channelActive</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 收到消息
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">channelRead</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">Object</span> <span class="n">msg</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">msg</span> <span class="o">||</span> <span class="o">!(</span><span class="n">msg</span> <span class="k">instanceof</span> <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">super</span><span class="o">.</span><span class="na">channelRead</span><span class="o">(</span><span class="n">ctx</span><span class="o">,</span> <span class="n">msg</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span> <span class="n">pkg</span> <span class="o">=</span> <span class="o">(</span><span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span><span class="o">)</span> <span class="n">msg</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//取得请求类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">HeadType</span> <span class="n">headType</span> <span class="o">=</span> <span class="n">pkg</span><span class="o">.</span><span class="na">getType</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(!</span><span class="n">headType</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">loginProcesser</span><span class="o">.</span><span class="na">type</span><span class="o">()))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">super</span><span class="o">.</span><span class="na">channelRead</span><span class="o">(</span><span class="n">ctx</span><span class="o">,</span> <span class="n">msg</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//异步任务，处理登录的逻辑
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">CallbackTaskScheduler</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">CallbackTask</span><span class="o">&lt;</span><span class="n">Boolean</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">public</span> <span class="n">Boolean</span> <span class="nf">execute</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">boolean</span> <span class="n">r</span> <span class="o">=</span> <span class="n">loginProcesser</span><span class="o">.</span><span class="na">action</span><span class="o">(</span><span class="n">session</span><span class="o">,</span> <span class="n">pkg</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">r</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">//异步任务返回
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onBack</span><span class="o">(</span><span class="n">Boolean</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="o">(</span><span class="n">r</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">ctx</span><span class="o">.</span><span class="na">pipeline</span><span class="o">().</span><span class="na">addAfter</span><span class="o">(</span><span class="s">&#34;login&#34;</span><span class="o">,</span> <span class="s">&#34;chat&#34;</span><span class="o">,</span> <span class="n">chatRedirectHandler</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">ctx</span><span class="o">.</span><span class="na">pipeline</span><span class="o">().</span><span class="na">addAfter</span><span class="o">(</span><span class="s">&#34;login&#34;</span><span class="o">,</span> <span class="s">&#34;heartBeat&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">HeartBeatServerHandler</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">ctx</span><span class="o">.</span><span class="na">pipeline</span><span class="o">().</span><span class="na">remove</span><span class="o">(</span><span class="s">&#34;login&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;登录成功:&#34;</span> <span class="o">+</span> <span class="n">session</span><span class="o">.</span><span class="na">getUser</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">ServerSession</span><span class="o">.</span><span class="na">closeSession</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;登录失败:&#34;</span> <span class="o">+</span> <span class="n">session</span><span class="o">.</span><span class="na">getUser</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">//异步任务异常
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onException</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">ServerSession</span><span class="o">.</span><span class="na">closeSession</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;登录失败:&#34;</span> <span class="o">+</span> <span class="n">session</span><span class="o">.</span><span class="na">getUser</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">});</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="loginprocessor">LoginProcessor</h4>
+<p>LoginProcesser用户验证逻辑主要包括：</p>
+<ul>
+<li>密码验证</li>
+<li>将验证的结果写入通道</li>
+<li>如果登录验证成功，实现通道与服务端会话的双向绑定，并且将服务端会话加入到在线用户列表中</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Slf4j</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Service</span><span class="o">(</span><span class="s">&#34;LoginProcesser&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginProcesser</span> <span class="kd">implements</span> <span class="n">ServerProcesser</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LoginResponceConverter</span> <span class="n">loginResponceConverter</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">HeadType</span> <span class="nf">type</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">HeadType</span><span class="o">.</span><span class="na">LOGIN_REQUEST</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">action</span><span class="o">(</span><span class="n">ServerSession</span> <span class="n">session</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">                          <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span> <span class="n">proto</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 取出token验证
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">LoginRequest</span> <span class="n">info</span> <span class="o">=</span> <span class="n">proto</span><span class="o">.</span><span class="na">getLoginRequest</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">long</span> <span class="n">seqNo</span> <span class="o">=</span> <span class="n">proto</span><span class="o">.</span><span class="na">getSequence</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="na">fromMsg</span><span class="o">(</span><span class="n">info</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//检查用户
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">boolean</span> <span class="n">isValidUser</span> <span class="o">=</span> <span class="n">checkUser</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(!</span><span class="n">isValidUser</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ProtoInstant</span><span class="o">.</span><span class="na">ResultCodeEnum</span> <span class="n">resultcode</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">ProtoInstant</span><span class="o">.</span><span class="na">ResultCodeEnum</span><span class="o">.</span><span class="na">NO_TOKEN</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//构造登录失败的报文
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span> <span class="n">response</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">loginResponceConverter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="n">resultcode</span><span class="o">,</span> <span class="n">seqNo</span><span class="o">,</span> <span class="s">&#34;-1&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//发送登录失败的报文
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">session</span><span class="o">.</span><span class="na">writeAndFlush</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">session</span><span class="o">.</span><span class="na">setUser</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//服务端session和传输channel绑定的核心代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">session</span><span class="o">.</span><span class="na">reverseBind</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//登录成功
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ProtoInstant</span><span class="o">.</span><span class="na">ResultCodeEnum</span> <span class="n">resultcode</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">                <span class="n">ProtoInstant</span><span class="o">.</span><span class="na">ResultCodeEnum</span><span class="o">.</span><span class="na">SUCCESS</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//构造登录成功的报文
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ProtoMsg</span><span class="o">.</span><span class="na">Message</span> <span class="n">response</span> <span class="o">=</span> <span class="n">loginResponceConverter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="n">resultcode</span><span class="o">,</span> <span class="n">seqNo</span><span class="o">,</span> <span class="n">session</span><span class="o">.</span><span class="na">getSessionId</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//发送登录成功的报文
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">session</span><span class="o">.</span><span class="na">writeAndFlush</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">checkUser</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">SessionMap</span><span class="o">.</span><span class="na">inst</span><span class="o">().</span><span class="na">hasLogin</span><span class="o">(</span><span class="n">user</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//校验用户,比较耗时的操作,需要100 ms以上的时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//方法1：调用远程用户restfull 校验服务
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//方法2：调用数据库接口校验
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>用户密码验证的逻辑在checkUser()方法中完成。在实际的生产场景中，LoginProcesser进行用户登录验证的方式比较多：</p>
+<ul>
+<li>通过RESTful接口验证用户。</li>
+<li>通过数据库去验证用户。</li>
+<li>通过认证（Auth）服务器去验证用户。</li>
+</ul>
+<p>总之，验证用户涉及RPC等耗时操作，为了尽量简化流程，示例程序代码省去了通过账号和密码验证的过程，checkUser()方法直接返回true，也就是默认所有的登录都是成功的。</p>
+<p>在用户校验成功后，服务端就需要向客户端发送登录响应，具体的方法是：调用登录响应的Protobuf消息构造器loginResponseBuilder，构造一个登录响应POJO实例，设置好校验成功的标志位，调用会话（Session）的writeAndFlush()方法把数据写到客户端。</p>
+<h4 id="reactor线程和业务线程相互隔离">Reactor线程和业务线程相互隔离</h4>
+<p>为什么在服务端的登录处理需要分成两个模块，而不是像客户端一样在InboundHandler入站处理器中统一完成处理呢？答案是在服务端需要隔离<code>EventLoop（Reactor）线程</code>和<code>业务线程</code>。基本方法是使用独立、异步的业务线程去执行用户验证的逻辑，而不是在EventLoop线程中去执行用户验证的逻辑。</p>
+<p>在服务端Reactor线程和业务线程相互隔离非常重要。具体来说，就是专门开辟一个独立的线程池，负责一个独立的异步任务处理。对于耗时的业务操作封装成异步任务，并放入独立的线程池中去处理。这样的话服务端的性能会提升很多，避免了对IO操作的阻塞。</p>
+<p>有两种办法使用独立的线程池：</p>
+<ul>
+<li>使用Netty的EventLoopGroup线程池</li>
+<li>使用自己创建的Java线程池</li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Anjana</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2022-03-31
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a href="https://github.com/gohugoio/hugoBasicExample" rel="noopener" target="_blank">See origin</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/effective-java-enum/">
+            <span class="next-text nav-default">Enums</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:anjana.cheng@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/AnjanaVakil" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.douban.com/people/188748525/?_i=5959211pTN39WJ,5959254pTN39WJ" rel="me noopener" class="iconfont"
+      title="douban"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M926.917973 37.80608C959.65184 37.80608 986.19392 64.34816 986.19392 97.082027L986.19392 926.917973C986.19392 959.65184 959.65184 986.19392 926.917973 986.19392L97.082027 986.19392C64.34816 986.19392 37.80608 959.65184 37.80608 926.917973L37.80608 97.082027C37.80608 64.34816 64.34816 37.80608 97.082027 37.80608zM176.653653 176.19968 176.653653 252.678827 825.658027 252.678827 825.658027 176.19968zM217.719467 316.146347 217.719467 628.08064 273.524053 628.08064 341.292373 770.39616 157.259093 770.39616 157.259093 845.417813 842.949973 845.417813 842.949973 770.39616 654.226773 770.39616 722.899627 628.08064 783.67744 628.08064 783.67744 316.146347zM684.885333 392.891733 684.885333 553.987413 312.576 553.987413 312.576 392.891733zM570.770773 770.39616 426.653013 770.39616 359.621973 628.08064 639.443627 628.08064z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://anjanavakil.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2021 -
+    2022
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Anjana
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
