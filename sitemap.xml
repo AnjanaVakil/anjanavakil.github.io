@@ -10,49 +10,63 @@
   
   <url>
     <loc>https://anjanavakil.github.io/</loc>
-    <lastmod>2022-03-31T08:15:48+08:00</lastmod>
+    <lastmod>2022-04-02T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/categories/</loc>
-    <lastmod>2022-03-31T08:15:48+08:00</lastmod>
+    <lastmod>2022-04-02T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/tags/cs/</loc>
-    <lastmod>2022-03-31T08:15:48+08:00</lastmod>
+    <lastmod>2022-04-02T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/tags/java%EF%B8%8F/</loc>
-    <lastmod>2022-03-31T08:15:48+08:00</lastmod>
+    <lastmod>2022-04-02T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/post/</loc>
-    <lastmod>2022-03-31T08:15:48+08:00</lastmod>
+    <lastmod>2022-04-02T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/categories/springcloud/</loc>
-    <lastmod>2022-03-31T08:15:48+08:00</lastmod>
+    <lastmod>2022-04-02T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/tags/</loc>
-    <lastmod>2022-03-31T08:15:48+08:00</lastmod>
+    <lastmod>2022-04-02T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/the-fenix-project2/</loc>
+    <lastmod>2022-04-02T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/the-fenix-project1/</loc>
+    <lastmod>2022-04-01T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

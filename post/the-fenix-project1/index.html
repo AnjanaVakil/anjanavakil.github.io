@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>《凤凰架构》笔记1 - Anjana</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Anjana" />
+  <meta name="description" content="豆瓣🔗：《凤凰架构：构建可靠的大型分布式系统》 演进中的架构 第1章 服务架构演进史 架构并不是被发明出来的，而是持续演进的结果。 1.1 原始分布式时代 调" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.93.0" />
+
+
+<link rel="canonical" href="https://anjanavakil.github.io/post/the-fenix-project1/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="《凤凰架构》笔记1" />
+<meta property="og:description" content="豆瓣🔗：《凤凰架构：构建可靠的大型分布式系统》 演进中的架构 第1章 服务架构演进史 架构并不是被发明出来的，而是持续演进的结果。 1.1 原始分布式时代 调" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/the-fenix-project1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-04-01T08:15:48+08:00" />
+<meta property="article:modified_time" content="2022-04-01T08:15:48+08:00" />
+
+<meta itemprop="name" content="《凤凰架构》笔记1">
+<meta itemprop="description" content="豆瓣🔗：《凤凰架构：构建可靠的大型分布式系统》 演进中的架构 第1章 服务架构演进史 架构并不是被发明出来的，而是持续演进的结果。 1.1 原始分布式时代 调"><meta itemprop="datePublished" content="2022-04-01T08:15:48+08:00" />
+<meta itemprop="dateModified" content="2022-04-01T08:15:48+08:00" />
+<meta itemprop="wordCount" content="5227">
+<meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="《凤凰架构》笔记1"/>
+<meta name="twitter:description" content="豆瓣🔗：《凤凰架构：构建可靠的大型分布式系统》 演进中的架构 第1章 服务架构演进史 架构并不是被发明出来的，而是持续演进的结果。 1.1 原始分布式时代 调"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Anjana</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/about/">About</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Anjana
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/about/">About</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">《凤凰架构》笔记1</h1>
+      
+      <div class="post-meta">
+        <time datetime="2022-04-01" class="post-time">
+          2022-04-01
+        </time>
+        <div class="post-category">
+            <a href="https://anjanavakil.github.io/categories/springcloud/"> SpringCloud🌵 </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第1章-服务架构演进史">第1章 服务架构演进史</a>
+      <ul>
+        <li><a href="#11-原始分布式时代">1.1 原始分布式时代</a></li>
+        <li><a href="#12-单体系统时代">1.2 单体系统时代</a></li>
+        <li><a href="#13-soa时代">1.3 SOA时代</a></li>
+        <li><a href="#14-微服务时代">1.4 微服务时代</a></li>
+        <li><a href="#15-后微服务时代">1.5 后微服务时代</a></li>
+        <li><a href="#16-无微服务时代">1.6 无微服务时代</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <ul>
+<li>豆瓣🔗：<a href="https://book.douban.com/subject/35492898/">《凤凰架构：构建可靠的大型分布式系统》</a></li>
+</ul>
+<h1 id="演进中的架构">演进中的架构</h1>
+<h2 id="第1章-服务架构演进史">第1章 服务架构演进史</h2>
+<p>架构并不是被发明出来的，而是持续演进的结果。</p>
+<h3 id="11-原始分布式时代">1.1 原始分布式时代</h3>
+<p>调用远程方法 VS 调用本地方法</p>
+<p>“远程”二字带来的网络环境下的新问题，譬如</p>
+<ul>
+<li>远程的服务在哪里（服务发现）</li>
+<li>有多少个（负载均衡）</li>
+<li>网络出现分区、超时或者服务出错了怎么办（熔断、隔离、降级）</li>
+<li>方法的参数与返回结果如何表示（序列化协议）</li>
+<li>信息如何传输（传输协议）</li>
+<li>服务权限如何管理（认证、授权）</li>
+<li>如何保证通信安全（网络安全层）</li>
+<li>如何令调用不同机器的服务返回相同的结果（分布式数据一致性）</li>
+</ul>
+<p>等一系列问题，全都需要设计者耗费大量精力。</p>
+<h3 id="12-单体系统时代">1.2 单体系统时代</h3>
+<p>单体架构：“巨石系统”（Monolithic Application）</p>
+<hr>
+<p>分层</p>
+<p>1、纵向角度</p>
+<p>分层架构（Layered Architecture）已是现在所有信息系统建设中普遍认可、采用的软件设计方法，无论是<code>单体</code>还是<code>微服务</code>，抑或是其他架构风格，都会对代码进行纵向层次划分，收到的外部请求在各层之间以不同形式的数据结构进行流转传递，触及最末端的数据库后按相反的顺序回馈响应。</p>
+<p>2、横向角度</p>
+<p>从横向角度来看，单体架构也支持按照技术、功能、职责等维度，将软件拆分为各种模块，以便重用和管理代码。单体系统并不意味着只能有一个整体的程序封装形式，如果需要，它完全可以由多个<code>JAR、WAR、DLL、Assembly</code>或者其他模块格式来构成。即使是从横向扩展（Scale Horizontally）的角度来衡量，在<code>负载均衡器</code>之后同时部署若干个相同的<code>单体系统副本</code>，以达到分摊流量压力的效果，也是非常常见的需求。</p>
+<hr>
+<p>在“拆分”这方面，单体系统的真正缺陷不在如何拆分，而在拆分之后的<code>自治与隔离能力</code>上。由于所有代码都运行在同一个进程内，所有模块、方法的调用都无须考虑网络分区、对象复制这些麻烦的事和性能损失，但在获得进程内调用的简单、高效等好处的同时，也意味着如果任何一部分代码出现缺陷，过度消耗了进程空间内的资源，所造成的影响也是<code>全局性的、难以隔离</code>的。譬如<code>内存泄漏、线程爆炸、阻塞、死循环</code>等问题，都将会影响整个程序，而不仅仅是影响某一个功能、模块本身的正常运作。如果出现问题的是某些更高层次的公共资源，譬如端口号或者数据库连接池泄漏，还将会影响整台机器甚至集群中其他单体副本的正常工作。</p>
+<h3 id="13-soa时代">1.3 SOA时代</h3>
+<p>1、烟囱式架构（Information Silo Architecture）</p>
+<p>信息烟囱又名信息孤岛（Information Island），使用这种架构的系统也被称为孤岛式信息系统或者烟囱式信息系统。它指的是一种与其他相关信息系统完全没有互操作或者协调工作的设计模式。</p>
+<p>2、微内核架构（Microkernel Architecture）</p>
+<p>微内核架构也被称为插件式架构（Plug-in Architecture）。</p>
+<p>将可能需要共享人员、组织、权限等一些公共的主数据，连同其他可能被各子系统用到的公共服务、数据、资源集中到一块，组成一个<code>被所有业务系统共同依赖</code>的核心（Kernel，也称为Core System），具体的业务系统以<code>插件模块（Plug-in Module）</code>的形式存在，这样可提供可扩展的、灵活的、天然隔离的功能特性。</p>
+<p>微内核架构的局限性：</p>
+<p>它假设系统中各个插件模块之间互不认识，且不可预知系统将安装哪些模块，因此这些插件可以访问内核中一些公共的资源，但<code>不会直接交互</code>。可是，无论是企业信息系统还是互联网应用，这一假设在许多场景中并不成立，所以我们必须找到办法，既能拆分出独立的系统，也能让<code>拆分后的子系统之间顺畅地相互通信</code>。</p>
+<p>3、事件驱动架构（Event-Driven Architecture）</p>
+<p>为了能让子系统互相通信，一种可行的方案是在子系统之间建立一套事件队列管道（Event Queue），来自系统外部的消息将以<code>事件的形式</code>发送至管道中，各个子系统可以从管道里获取自己感兴趣、能够处理的事件消息，也可以为事件新增或者修改其中的附加信息，甚至可以自己发布一些新的事件到管道队列中去。如此，每一条消息的处理者都是独立的、高度解耦的，但又能与其他处理者（如果存在其他消息处理者的话）通过事件管道进行交互。</p>
+<h3 id="14-微服务时代">1.4 微服务时代</h3>
+<p>“微服务”：Micro-Web-Service，指的是一种专注于单一职责的、与语言无关的细粒度Web服务（Granular Web Service）.</p>
+<p><a href="https://martinfowler.com/articles/microservices.html">Microservices: a definition of this new architectural term</a></p>
+<p>此文首先给出了现代微服务的概念：“微服务是一种通过多个小型服务组合来构建单个应用的架构风格，这些服务围绕业务能力而非特定的技术标准来构建。各个服务可以采用不同的编程语言、不同的数据存储技术，运行在不同的进程之中。服务采取轻量级的通信机制和自动化的部署机制实现通信与运维。”</p>
+<blockquote>
+<p>In short, the microservice architectural style is an approach to developing <code>a single application</code> as <code>a suite of small services</code>, each <code>running in its own process</code> and communicating with lightweight mechanisms, often an HTTP resource API. These services are <code>built around business capabilities</code> and <code>independently deployable</code> by fully automated deployment machinery. There is a <code>bare minimum of centralized management</code> of these services, which may be written in different programming languages and use different data storage technologies.</p>
+</blockquote>
+<h4 id="characteristics-of-a-microservice-architecture">Characteristics of a Microservice Architecture</h4>
+<ul>
+<li>
+<p>Componentization via Services</p>
+<p>通过服务来实现独立自治的组件。之所以强调通过“服务”（Service）而不是“类库”（Library）来构建组件，是因为类库在编译期静态链接到程序中，通过<code>本地调用</code>来提供功能，而服务是<code>进程外组件</code>，通过<code>远程调用</code>来提供功能。</p>
+<p>We define <strong>libraries</strong> as components that are linked into a program and called <code>using in-memory function calls</code>, while <strong>services</strong> are <code>out-of-process components</code> who communicate with a <code>mechanism such as a web service request</code>, or <code>remote procedure call</code>. (This is a different concept to that of a service object in many OO programs.)</p>
+<p>One main reason for using services as components (rather than libraries) is that services are independently deployable. If you have an application that consists of a multiple libraries in a single process, a change to any single component results in having to redeploy the entire application. But if that application is decomposed into multiple services, you can expect many single service changes to only require that service to be redeployed. That&rsquo;s not an absolute, some changes will change service interfaces resulting in some coordination, but the aim of a good microservice architecture is to minimize these through cohesive service boundaries and evolution mechanisms in the service contracts.</p>
+</li>
+<li>
+<p>Organized around Business Capabilities</p>
+<p>围绕业务能力构建。这里再次强调了<code>康威定律</code>的重要性，有怎样结构、规模、能力的团队，就会产生对应结构、规模、能力的产品。这个结论不是某个团队、某个公司遇到的巧合，而是必然的演化结果。</p>
+<p>The microservice approach to division is different, splitting up into services organized around <strong>business capability</strong>. Such services take a broad-stack implementation of software for that business area, including user-interface, persistant storage, and any external collaborations. Consequently the teams are cross-functional, including the full range of skills required for the development: user-experience, database, and project management.</p>
+</li>
+<li>
+<p>Products not Projects</p>
+<p>产品化思维。避免把软件研发视作要去完成某种功能，而是视作一种持续改进、提升的过程。</p>
+</li>
+<li>
+<p>Smart endpoints and dumb pipes</p>
+<p>强终端弱管道。弱管道（Dumb Pipe）几乎是直接反对SOAP和ESB的通信机制。ESB可以处理消息的编码加工、业务规则转换等；BPM可以集中编排企业业务服务；SOAP有几十个WS-*协议族在处理事务、一致性、认证授权等一系列工作，这些构建在通信管道上的功能也许对某个系统中的某一部分服务是有必要的，但对于另外更多的服务则是强加进来的负担。如果服务需要上面的额外通信能力，就应该在服务自己的Endpoint上解决，而不是在通信管道上一揽子处理。</p>
+<p>微服务提倡使用类似于经典UNIX过滤器那样简单直接的通信方式，所以RESTful风格的通信在微服务中会是更合适的选择。</p>
+<p>Microservice teams use the principles and protocols that the world wide web (and to a large extent, Unix) is built on. Often used resources can be cached with very little effort on the part of developers or operations folk.</p>
+<p>The second approach in common use is messaging over <code>a lightweight message bus</code>. The infrastructure chosen is typically dumb (dumb as in acts as a message router only) - simple implementations such as RabbitMQ or ZeroMQ don&rsquo;t do much more than provide a <code>reliable asynchronous fabric</code> - the smarts still live in the end points that are producing and consuming messages; in the services.</p>
+<p>In a monolith, the components are executing <code>in-process</code> and communication between them is via either <code>method invocation or function call</code>. The biggest issue in changing a monolith into microservices lies in changing the communication pattern. A naive conversion from in-memory method calls to RPC leads to chatty communications which don&rsquo;t perform well. Instead you need to replace the fine-grained communication with a coarser -grained approach.</p>
+</li>
+<li>
+<p>Decentralized Governance</p>
+<p>分散治理。这里是指服务对应的开发团队有直接对服务运行质量负责的责任，也有不受外界干预地掌控服务各个方面的权力，譬如选择与其他服务异构的技术来实现自己的服务。</p>
+<p>Teams building microservices prefer a different approach to standards too. Rather than use a set of defined standards written down somewhere on paper they prefer the idea of <code>producing useful tools</code> that other developers can use to solve similar problems to the ones they are facing. These tools are usually harvested from implementations and shared with a wider group, sometimes, but not exclusively using an internal open source model. Now that git and github have become the de facto version control system of choice, open source practices are becoming more and more common in-house.</p>
+<p>//de facto（法）实际上的</p>
+<p>Netflix is a good example of an organisation that follows this philosophy. Sharing useful and, above all, battle-tested code as libraries encourages other developers to solve similar problems in similar ways yet leaves the door open to picking a different approach if required. Shared libraries tend to be focused on common problems of data storage, inter-process communication and as we discuss further below, infrastructure automation.</p>
+<p>Perhaps the apogee of decentralised governance is the build it / run it ethos popularised by Amazon. Teams are responsible for all aspects of the software they build including operating the software 24/7. Devolution of this level of responsibility is definitely not the norm but we do see more and more companies pushing responsibility to the development teams. Netflix is another organisation that has adopted this ethos. Being woken up at 3am every night by your pager is certainly a powerful incentive to focus on quality when writing your code. These ideas are about as far away from the traditional centralized governance model as it is possible to be.</p>
+</li>
+<li>
+<p>Decentralized Data Management</p>
+<p>数据去中心化。微服务明确提倡数据应该<code>按领域</code>分散管理、更新、维护、存储。在单体服务中，一个系统的各个功能模块通常会使用同一个数据库。诚然，中心化的存储天生就更容易避免一致性问题，但是，同一个数据实体在不同服务的视角里，它的抽象形态往往是不同的。</p>
+</li>
+<li>
+<p>Infrastructure Automation</p>
+<p>基础设施自动化。基础设施自动化，如CI/CD的长足发展，显著减少了构建、发布、运维工作的复杂性。</p>
+</li>
+<li>
+<p>Design for failure</p>
+<p>容错性设计。不再虚幻地追求服务永远稳定，而是<code>接受服务总会出错</code>的现实，要求在微服务的设计中，能够有自动的机制对其依赖的服务进行快速故障检测，在持续出错的时候进行<code>隔离</code>，在服务恢复的时候<code>重新联通</code>。所以“断路器”这类设施，对实际生产环境中的微服务来说并不是可选的外围组件，而是一个必需的支撑点，如果没有容错性设计，系统很容易被一两个服务崩溃所带来的雪崩效应淹没。</p>
+<p>Since services can fail at any time, it&rsquo;s important to be able to detect the failures quickly and, if possible, automatically restore service. Microservice applications put a lot of emphasis on real-time monitoring of the application, checking both architectural elements (how many requests per second is the database getting) and business relevant metrics (such as how many orders per minute are received). Semantic monitoring can provide an early warning system of something going wrong that triggers development teams to follow up and investigate.</p>
+</li>
+<li>
+<p>Evolutionary Design</p>
+<p>演进式设计。容错性设计承认服务会出错，演进式设计则承认服务会被报废淘汰。</p>
+<p>Microservice practitioners, usually have come from an evolutionary design background and see <code>service decomposition</code> as a further tool to enable application developers to control changes in their application without slowing down change. Change control doesn&rsquo;t necessarily mean change reduction - with the right attitudes and tools you can make frequent, fast, and well-controlled changes to software.</p>
+</li>
+</ul>
+<p><a href="https://martinfowler.com/microservices/">Microservices Guide</a></p>
+<blockquote>
+<p>微服务时代充满着自由的气息，微服务时代充斥着迷茫的选择。软件架构不会止步于自由，微服务仍不是架构探索的终点，如果有下一个时代，笔者希望是信息系统拥有微服务的自由权利，围绕业务能力构建自己的服务而不受技术规范管束，但又不用以承担自行解决分布式的问题的责任为代价。</p>
+</blockquote>
+<h3 id="15-后微服务时代">1.5 后微服务时代</h3>
+<p>硬件解决方案：</p>
+<p>某个系统需要伸缩扩容，通常会购买新的服务器，部署若干副本实例来分担压力；</p>
+<p>如果某个系统需要解决负载均衡问题，通常会布置负载均衡器，选择恰当的均衡算法来分流；</p>
+<p>如果需要解决传输安全问题，通常会布置TLS传输链路，配置好CA证书以保证通信不被窃听篡改；</p>
+<p>如果需要解决服务发现问题，通常会设置DNS服务器，让服务访问依赖稳定的记录名而不是易变的IP地址，等等。</p>
+<p>Kubernetes与传统Spring Cloud提供的解决方案对比：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:left">Kubernetes</th>
+<th style="text-align:left">Spring Cloud</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">弹性伸缩</td>
+<td style="text-align:left">Autoscaling</td>
+<td style="text-align:left">N/A</td>
+</tr>
+<tr>
+<td style="text-align:center">服务发现</td>
+<td style="text-align:left">KubeDNS/CoreDNS</td>
+<td style="text-align:left">Spring Cloud Eureka</td>
+</tr>
+<tr>
+<td style="text-align:center">配置中心</td>
+<td style="text-align:left">ConfigMap/Secret</td>
+<td style="text-align:left">Spring Cloud Config</td>
+</tr>
+<tr>
+<td style="text-align:center">服务网关</td>
+<td style="text-align:left">Ingress Controller</td>
+<td style="text-align:left">Spring Cloud Zulu</td>
+</tr>
+<tr>
+<td style="text-align:center">负载均衡</td>
+<td style="text-align:left">Load Balancer</td>
+<td style="text-align:left">Spring Cloud Ribbon</td>
+</tr>
+<tr>
+<td style="text-align:center">服务安全</td>
+<td style="text-align:left">RBAC API</td>
+<td style="text-align:left">Spring Cloud Security</td>
+</tr>
+<tr>
+<td style="text-align:center">跟踪监控</td>
+<td style="text-align:left">Metrics API/Dashboard</td>
+<td style="text-align:left">Spring Cloud Turbine</td>
+</tr>
+<tr>
+<td style="text-align:center">降级熔断</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">Spring Cloud Hystrix</td>
+</tr>
+</tbody>
+</table>
+<h3 id="16-无微服务时代">1.6 无微服务时代</h3>
+<p>无服务以“简单”为主要卖点，只涉及两块内容：后端设施（Backend）和函数（Function）。</p>
+<ul>
+<li>后端设施是指数据库、消息队列、日志、存储等这类用于支撑业务逻辑运行，但本身无业务含义的技术组件，这些后端设施都运行在云中，在无服务中将它们称为“后端即服务”（Backend as a Service，BaaS）。</li>
+<li>函数是指业务逻辑代码，这里函数的概念与粒度都已经很接近于程序编码角度的函数了，其区别是无服务中的函数运行在云端，不必考虑算力问题，也不必考虑容量规划（从技术角度可以不考虑，从计费的角度还是要掂量一下的），在无服务中将其称为“函数即服务”（Function as a Service，FaaS）。</li>
+</ul>
+<p>无服务的愿景是让开发者只需要纯粹地关注业务：不需要考虑技术组件，后端的技术组件是现成的，可以直接取用，没有采购、版权和选型的烦恼；不需要考虑如何部署，部署过程完全托管到云端，由云端自动完成；不需要考虑算力，有整个数据中心支撑，算力可以认为是无限的；不需要操心运维，维护系统持续平稳运行是云计算服务商的责任而不再是开发者的责任。在UC Berkeley的论文中，把无服务架构下开发者不再关心这些技术层面的细节，类比成当年软件开发从汇编语言踏进高级语言的发展过程，开发者可以不去关注寄存器、信号、中断等与机器底层相关的细节，从而令生产力得到极大解放。</p>
+<p>与单体架构、微服务架构不同，无服务架构有一些天生的特点决定了它现在不是，以后如果没有重大变革的话，估计也很难成为一种普适性的架构模式。无服务架构确实能够降低一些应用的开发和运维环节的成本，譬如</p>
+<ul>
+<li>
+<p>不需要交互的离线大规模计算</p>
+</li>
+<li>
+<p>多数Web资讯类网站</p>
+</li>
+<li>
+<p>小程序</p>
+</li>
+<li>
+<p>公共API服务</p>
+</li>
+<li>
+<p>移动应用服务端等</p>
+</li>
+</ul>
+<p>都契合于无服务架构所擅长的<code>短链接、无状态、适合事件驱动</code>的交互形式。</p>
+<p>但另一方面，对于那些<code>信息管理系统、网络游戏</code>等应用，或者说对于具有<code>业务逻辑复杂、依赖服务端状态、响应速度要求较高、需要长链接</code>等特征的应用，至少目前是相对不那么适合的。这是因为无服务天生“无限算力”的假设决定了它必须要按使用量（函数运算的时间和占用的内存）计费以控制消耗的算力的规模，因而函数不会一直以活动状态常驻服务器，请求到了才会开始运行，这就导致了函数不便依赖服务端状态，也导致了函数会有<code>冷启动</code>时间，响应的性能可能不太好。目前无服务的冷启动过程大概是在数十到百毫秒级别，对于Java这类启动性能差的应用，甚至是接近秒的级别。</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Anjana</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2022-04-01
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a href="https://github.com/gohugoio/hugoBasicExample" rel="noopener" target="_blank">See origin</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/the-fenix-project2/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">《凤凰架构》笔记2</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/im/">
+            <span class="next-text nav-default">基于Netty的单体聊天IM系统的设计与实现</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:anjana.cheng@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/AnjanaVakil" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.douban.com/people/188748525/?_i=5959211pTN39WJ,5959254pTN39WJ" rel="me noopener" class="iconfont"
+      title="douban"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M926.917973 37.80608C959.65184 37.80608 986.19392 64.34816 986.19392 97.082027L986.19392 926.917973C986.19392 959.65184 959.65184 986.19392 926.917973 986.19392L97.082027 986.19392C64.34816 986.19392 37.80608 959.65184 37.80608 926.917973L37.80608 97.082027C37.80608 64.34816 64.34816 37.80608 97.082027 37.80608zM176.653653 176.19968 176.653653 252.678827 825.658027 252.678827 825.658027 176.19968zM217.719467 316.146347 217.719467 628.08064 273.524053 628.08064 341.292373 770.39616 157.259093 770.39616 157.259093 845.417813 842.949973 845.417813 842.949973 770.39616 654.226773 770.39616 722.899627 628.08064 783.67744 628.08064 783.67744 316.146347zM684.885333 392.891733 684.885333 553.987413 312.576 553.987413 312.576 392.891733zM570.770773 770.39616 426.653013 770.39616 359.621973 628.08064 639.443627 628.08064z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://anjanavakil.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2021 -
+    2022
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Anjana
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

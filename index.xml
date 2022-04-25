@@ -6,7 +6,7 @@
     <description>Recent content on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 31 Mar 2022 08:15:48 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 02 Apr 2022 08:15:48 +0800</lastBuildDate>
     
         <atom:link href="https://anjanavakil.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,6 +27,216 @@
 &lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/keep.jpg&#34; alt=&#34;Keep&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如果春天要来，大地就使它一点点地完成🍃。&lt;/p&gt;
 &lt;p&gt;“Think before you speak. Read before you think.” —Fran Lebowitz&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>《凤凰架构》笔记2</title>
+      <link>https://anjanavakil.github.io/post/the-fenix-project2/</link>
+      <pubDate>Sat, 02 Apr 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/the-fenix-project2/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>《凤凰架构》笔记1</title>
+      <link>https://anjanavakil.github.io/post/the-fenix-project1/</link>
+      <pubDate>Fri, 01 Apr 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/the-fenix-project1/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;豆瓣🔗：&lt;a href=&#34;https://book.douban.com/subject/35492898/&#34;&gt;《凤凰架构：构建可靠的大型分布式系统》&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;演进中的架构&#34;&gt;演进中的架构&lt;/h1&gt;
+&lt;h2 id=&#34;第1章-服务架构演进史&#34;&gt;第1章 服务架构演进史&lt;/h2&gt;
+&lt;p&gt;架构并不是被发明出来的，而是持续演进的结果。&lt;/p&gt;
+&lt;h3 id=&#34;11-原始分布式时代&#34;&gt;1.1 原始分布式时代&lt;/h3&gt;
+&lt;p&gt;调用远程方法 VS 调用本地方法&lt;/p&gt;
+&lt;p&gt;“远程”二字带来的网络环境下的新问题，譬如&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;远程的服务在哪里（服务发现）&lt;/li&gt;
+&lt;li&gt;有多少个（负载均衡）&lt;/li&gt;
+&lt;li&gt;网络出现分区、超时或者服务出错了怎么办（熔断、隔离、降级）&lt;/li&gt;
+&lt;li&gt;方法的参数与返回结果如何表示（序列化协议）&lt;/li&gt;
+&lt;li&gt;信息如何传输（传输协议）&lt;/li&gt;
+&lt;li&gt;服务权限如何管理（认证、授权）&lt;/li&gt;
+&lt;li&gt;如何保证通信安全（网络安全层）&lt;/li&gt;
+&lt;li&gt;如何令调用不同机器的服务返回相同的结果（分布式数据一致性）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;等一系列问题，全都需要设计者耗费大量精力。&lt;/p&gt;
+&lt;h3 id=&#34;12-单体系统时代&#34;&gt;1.2 单体系统时代&lt;/h3&gt;
+&lt;p&gt;单体架构：“巨石系统”（Monolithic Application）&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;分层&lt;/p&gt;
+&lt;p&gt;1、纵向角度&lt;/p&gt;
+&lt;p&gt;分层架构（Layered Architecture）已是现在所有信息系统建设中普遍认可、采用的软件设计方法，无论是&lt;code&gt;单体&lt;/code&gt;还是&lt;code&gt;微服务&lt;/code&gt;，抑或是其他架构风格，都会对代码进行纵向层次划分，收到的外部请求在各层之间以不同形式的数据结构进行流转传递，触及最末端的数据库后按相反的顺序回馈响应。&lt;/p&gt;
+&lt;p&gt;2、横向角度&lt;/p&gt;
+&lt;p&gt;从横向角度来看，单体架构也支持按照技术、功能、职责等维度，将软件拆分为各种模块，以便重用和管理代码。单体系统并不意味着只能有一个整体的程序封装形式，如果需要，它完全可以由多个&lt;code&gt;JAR、WAR、DLL、Assembly&lt;/code&gt;或者其他模块格式来构成。即使是从横向扩展（Scale Horizontally）的角度来衡量，在&lt;code&gt;负载均衡器&lt;/code&gt;之后同时部署若干个相同的&lt;code&gt;单体系统副本&lt;/code&gt;，以达到分摊流量压力的效果，也是非常常见的需求。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;在“拆分”这方面，单体系统的真正缺陷不在如何拆分，而在拆分之后的&lt;code&gt;自治与隔离能力&lt;/code&gt;上。由于所有代码都运行在同一个进程内，所有模块、方法的调用都无须考虑网络分区、对象复制这些麻烦的事和性能损失，但在获得进程内调用的简单、高效等好处的同时，也意味着如果任何一部分代码出现缺陷，过度消耗了进程空间内的资源，所造成的影响也是&lt;code&gt;全局性的、难以隔离&lt;/code&gt;的。譬如&lt;code&gt;内存泄漏、线程爆炸、阻塞、死循环&lt;/code&gt;等问题，都将会影响整个程序，而不仅仅是影响某一个功能、模块本身的正常运作。如果出现问题的是某些更高层次的公共资源，譬如端口号或者数据库连接池泄漏，还将会影响整台机器甚至集群中其他单体副本的正常工作。&lt;/p&gt;
+&lt;h3 id=&#34;13-soa时代&#34;&gt;1.3 SOA时代&lt;/h3&gt;
+&lt;p&gt;1、烟囱式架构（Information Silo Architecture）&lt;/p&gt;
+&lt;p&gt;信息烟囱又名信息孤岛（Information Island），使用这种架构的系统也被称为孤岛式信息系统或者烟囱式信息系统。它指的是一种与其他相关信息系统完全没有互操作或者协调工作的设计模式。&lt;/p&gt;
+&lt;p&gt;2、微内核架构（Microkernel Architecture）&lt;/p&gt;
+&lt;p&gt;微内核架构也被称为插件式架构（Plug-in Architecture）。&lt;/p&gt;
+&lt;p&gt;将可能需要共享人员、组织、权限等一些公共的主数据，连同其他可能被各子系统用到的公共服务、数据、资源集中到一块，组成一个&lt;code&gt;被所有业务系统共同依赖&lt;/code&gt;的核心（Kernel，也称为Core System），具体的业务系统以&lt;code&gt;插件模块（Plug-in Module）&lt;/code&gt;的形式存在，这样可提供可扩展的、灵活的、天然隔离的功能特性。&lt;/p&gt;
+&lt;p&gt;微内核架构的局限性：&lt;/p&gt;
+&lt;p&gt;它假设系统中各个插件模块之间互不认识，且不可预知系统将安装哪些模块，因此这些插件可以访问内核中一些公共的资源，但&lt;code&gt;不会直接交互&lt;/code&gt;。可是，无论是企业信息系统还是互联网应用，这一假设在许多场景中并不成立，所以我们必须找到办法，既能拆分出独立的系统，也能让&lt;code&gt;拆分后的子系统之间顺畅地相互通信&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;3、事件驱动架构（Event-Driven Architecture）&lt;/p&gt;
+&lt;p&gt;为了能让子系统互相通信，一种可行的方案是在子系统之间建立一套事件队列管道（Event Queue），来自系统外部的消息将以&lt;code&gt;事件的形式&lt;/code&gt;发送至管道中，各个子系统可以从管道里获取自己感兴趣、能够处理的事件消息，也可以为事件新增或者修改其中的附加信息，甚至可以自己发布一些新的事件到管道队列中去。如此，每一条消息的处理者都是独立的、高度解耦的，但又能与其他处理者（如果存在其他消息处理者的话）通过事件管道进行交互。&lt;/p&gt;
+&lt;h3 id=&#34;14-微服务时代&#34;&gt;1.4 微服务时代&lt;/h3&gt;
+&lt;p&gt;“微服务”：Micro-Web-Service，指的是一种专注于单一职责的、与语言无关的细粒度Web服务（Granular Web Service）.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://martinfowler.com/articles/microservices.html&#34;&gt;Microservices: a definition of this new architectural term&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;此文首先给出了现代微服务的概念：“微服务是一种通过多个小型服务组合来构建单个应用的架构风格，这些服务围绕业务能力而非特定的技术标准来构建。各个服务可以采用不同的编程语言、不同的数据存储技术，运行在不同的进程之中。服务采取轻量级的通信机制和自动化的部署机制实现通信与运维。”&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In short, the microservice architectural style is an approach to developing &lt;code&gt;a single application&lt;/code&gt; as &lt;code&gt;a suite of small services&lt;/code&gt;, each &lt;code&gt;running in its own process&lt;/code&gt; and communicating with lightweight mechanisms, often an HTTP resource API. These services are &lt;code&gt;built around business capabilities&lt;/code&gt; and &lt;code&gt;independently deployable&lt;/code&gt; by fully automated deployment machinery. There is a &lt;code&gt;bare minimum of centralized management&lt;/code&gt; of these services, which may be written in different programming languages and use different data storage technologies.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;characteristics-of-a-microservice-architecture&#34;&gt;Characteristics of a Microservice Architecture&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Componentization via Services&lt;/p&gt;
+&lt;p&gt;通过服务来实现独立自治的组件。之所以强调通过“服务”（Service）而不是“类库”（Library）来构建组件，是因为类库在编译期静态链接到程序中，通过&lt;code&gt;本地调用&lt;/code&gt;来提供功能，而服务是&lt;code&gt;进程外组件&lt;/code&gt;，通过&lt;code&gt;远程调用&lt;/code&gt;来提供功能。&lt;/p&gt;
+&lt;p&gt;We define &lt;strong&gt;libraries&lt;/strong&gt; as components that are linked into a program and called &lt;code&gt;using in-memory function calls&lt;/code&gt;, while &lt;strong&gt;services&lt;/strong&gt; are &lt;code&gt;out-of-process components&lt;/code&gt; who communicate with a &lt;code&gt;mechanism such as a web service request&lt;/code&gt;, or &lt;code&gt;remote procedure call&lt;/code&gt;. (This is a different concept to that of a service object in many OO programs.)&lt;/p&gt;
+&lt;p&gt;One main reason for using services as components (rather than libraries) is that services are independently deployable. If you have an application that consists of a multiple libraries in a single process, a change to any single component results in having to redeploy the entire application. But if that application is decomposed into multiple services, you can expect many single service changes to only require that service to be redeployed. That&amp;rsquo;s not an absolute, some changes will change service interfaces resulting in some coordination, but the aim of a good microservice architecture is to minimize these through cohesive service boundaries and evolution mechanisms in the service contracts.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Organized around Business Capabilities&lt;/p&gt;
+&lt;p&gt;围绕业务能力构建。这里再次强调了&lt;code&gt;康威定律&lt;/code&gt;的重要性，有怎样结构、规模、能力的团队，就会产生对应结构、规模、能力的产品。这个结论不是某个团队、某个公司遇到的巧合，而是必然的演化结果。&lt;/p&gt;
+&lt;p&gt;The microservice approach to division is different, splitting up into services organized around &lt;strong&gt;business capability&lt;/strong&gt;. Such services take a broad-stack implementation of software for that business area, including user-interface, persistant storage, and any external collaborations. Consequently the teams are cross-functional, including the full range of skills required for the development: user-experience, database, and project management.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Products not Projects&lt;/p&gt;
+&lt;p&gt;产品化思维。避免把软件研发视作要去完成某种功能，而是视作一种持续改进、提升的过程。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Smart endpoints and dumb pipes&lt;/p&gt;
+&lt;p&gt;强终端弱管道。弱管道（Dumb Pipe）几乎是直接反对SOAP和ESB的通信机制。ESB可以处理消息的编码加工、业务规则转换等；BPM可以集中编排企业业务服务；SOAP有几十个WS-*协议族在处理事务、一致性、认证授权等一系列工作，这些构建在通信管道上的功能也许对某个系统中的某一部分服务是有必要的，但对于另外更多的服务则是强加进来的负担。如果服务需要上面的额外通信能力，就应该在服务自己的Endpoint上解决，而不是在通信管道上一揽子处理。&lt;/p&gt;
+&lt;p&gt;微服务提倡使用类似于经典UNIX过滤器那样简单直接的通信方式，所以RESTful风格的通信在微服务中会是更合适的选择。&lt;/p&gt;
+&lt;p&gt;Microservice teams use the principles and protocols that the world wide web (and to a large extent, Unix) is built on. Often used resources can be cached with very little effort on the part of developers or operations folk.&lt;/p&gt;
+&lt;p&gt;The second approach in common use is messaging over &lt;code&gt;a lightweight message bus&lt;/code&gt;. The infrastructure chosen is typically dumb (dumb as in acts as a message router only) - simple implementations such as RabbitMQ or ZeroMQ don&amp;rsquo;t do much more than provide a &lt;code&gt;reliable asynchronous fabric&lt;/code&gt; - the smarts still live in the end points that are producing and consuming messages; in the services.&lt;/p&gt;
+&lt;p&gt;In a monolith, the components are executing &lt;code&gt;in-process&lt;/code&gt; and communication between them is via either &lt;code&gt;method invocation or function call&lt;/code&gt;. The biggest issue in changing a monolith into microservices lies in changing the communication pattern. A naive conversion from in-memory method calls to RPC leads to chatty communications which don&amp;rsquo;t perform well. Instead you need to replace the fine-grained communication with a coarser -grained approach.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Decentralized Governance&lt;/p&gt;
+&lt;p&gt;分散治理。这里是指服务对应的开发团队有直接对服务运行质量负责的责任，也有不受外界干预地掌控服务各个方面的权力，譬如选择与其他服务异构的技术来实现自己的服务。&lt;/p&gt;
+&lt;p&gt;Teams building microservices prefer a different approach to standards too. Rather than use a set of defined standards written down somewhere on paper they prefer the idea of &lt;code&gt;producing useful tools&lt;/code&gt; that other developers can use to solve similar problems to the ones they are facing. These tools are usually harvested from implementations and shared with a wider group, sometimes, but not exclusively using an internal open source model. Now that git and github have become the de facto version control system of choice, open source practices are becoming more and more common in-house.&lt;/p&gt;
+&lt;p&gt;//de facto（法）实际上的&lt;/p&gt;
+&lt;p&gt;Netflix is a good example of an organisation that follows this philosophy. Sharing useful and, above all, battle-tested code as libraries encourages other developers to solve similar problems in similar ways yet leaves the door open to picking a different approach if required. Shared libraries tend to be focused on common problems of data storage, inter-process communication and as we discuss further below, infrastructure automation.&lt;/p&gt;
+&lt;p&gt;Perhaps the apogee of decentralised governance is the build it / run it ethos popularised by Amazon. Teams are responsible for all aspects of the software they build including operating the software 24/7. Devolution of this level of responsibility is definitely not the norm but we do see more and more companies pushing responsibility to the development teams. Netflix is another organisation that has adopted this ethos. Being woken up at 3am every night by your pager is certainly a powerful incentive to focus on quality when writing your code. These ideas are about as far away from the traditional centralized governance model as it is possible to be.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Decentralized Data Management&lt;/p&gt;
+&lt;p&gt;数据去中心化。微服务明确提倡数据应该&lt;code&gt;按领域&lt;/code&gt;分散管理、更新、维护、存储。在单体服务中，一个系统的各个功能模块通常会使用同一个数据库。诚然，中心化的存储天生就更容易避免一致性问题，但是，同一个数据实体在不同服务的视角里，它的抽象形态往往是不同的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Infrastructure Automation&lt;/p&gt;
+&lt;p&gt;基础设施自动化。基础设施自动化，如CI/CD的长足发展，显著减少了构建、发布、运维工作的复杂性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Design for failure&lt;/p&gt;
+&lt;p&gt;容错性设计。不再虚幻地追求服务永远稳定，而是&lt;code&gt;接受服务总会出错&lt;/code&gt;的现实，要求在微服务的设计中，能够有自动的机制对其依赖的服务进行快速故障检测，在持续出错的时候进行&lt;code&gt;隔离&lt;/code&gt;，在服务恢复的时候&lt;code&gt;重新联通&lt;/code&gt;。所以“断路器”这类设施，对实际生产环境中的微服务来说并不是可选的外围组件，而是一个必需的支撑点，如果没有容错性设计，系统很容易被一两个服务崩溃所带来的雪崩效应淹没。&lt;/p&gt;
+&lt;p&gt;Since services can fail at any time, it&amp;rsquo;s important to be able to detect the failures quickly and, if possible, automatically restore service. Microservice applications put a lot of emphasis on real-time monitoring of the application, checking both architectural elements (how many requests per second is the database getting) and business relevant metrics (such as how many orders per minute are received). Semantic monitoring can provide an early warning system of something going wrong that triggers development teams to follow up and investigate.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Evolutionary Design&lt;/p&gt;
+&lt;p&gt;演进式设计。容错性设计承认服务会出错，演进式设计则承认服务会被报废淘汰。&lt;/p&gt;
+&lt;p&gt;Microservice practitioners, usually have come from an evolutionary design background and see &lt;code&gt;service decomposition&lt;/code&gt; as a further tool to enable application developers to control changes in their application without slowing down change. Change control doesn&amp;rsquo;t necessarily mean change reduction - with the right attitudes and tools you can make frequent, fast, and well-controlled changes to software.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://martinfowler.com/microservices/&#34;&gt;Microservices Guide&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;微服务时代充满着自由的气息，微服务时代充斥着迷茫的选择。软件架构不会止步于自由，微服务仍不是架构探索的终点，如果有下一个时代，笔者希望是信息系统拥有微服务的自由权利，围绕业务能力构建自己的服务而不受技术规范管束，但又不用以承担自行解决分布式的问题的责任为代价。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;15-后微服务时代&#34;&gt;1.5 后微服务时代&lt;/h3&gt;
+&lt;p&gt;硬件解决方案：&lt;/p&gt;
+&lt;p&gt;某个系统需要伸缩扩容，通常会购买新的服务器，部署若干副本实例来分担压力；&lt;/p&gt;
+&lt;p&gt;如果某个系统需要解决负载均衡问题，通常会布置负载均衡器，选择恰当的均衡算法来分流；&lt;/p&gt;
+&lt;p&gt;如果需要解决传输安全问题，通常会布置TLS传输链路，配置好CA证书以保证通信不被窃听篡改；&lt;/p&gt;
+&lt;p&gt;如果需要解决服务发现问题，通常会设置DNS服务器，让服务访问依赖稳定的记录名而不是易变的IP地址，等等。&lt;/p&gt;
+&lt;p&gt;Kubernetes与传统Spring Cloud提供的解决方案对比：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Kubernetes&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Spring Cloud&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;弹性伸缩&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Autoscaling&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;N/A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;服务发现&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;KubeDNS/CoreDNS&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Spring Cloud Eureka&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;配置中心&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;ConfigMap/Secret&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Spring Cloud Config&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;服务网关&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Ingress Controller&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Spring Cloud Zulu&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;负载均衡&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Load Balancer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Spring Cloud Ribbon&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;服务安全&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;RBAC API&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Spring Cloud Security&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;跟踪监控&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Metrics API/Dashboard&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Spring Cloud Turbine&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;降级熔断&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;N/A&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Spring Cloud Hystrix&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;16-无微服务时代&#34;&gt;1.6 无微服务时代&lt;/h3&gt;
+&lt;p&gt;无服务以“简单”为主要卖点，只涉及两块内容：后端设施（Backend）和函数（Function）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;后端设施是指数据库、消息队列、日志、存储等这类用于支撑业务逻辑运行，但本身无业务含义的技术组件，这些后端设施都运行在云中，在无服务中将它们称为“后端即服务”（Backend as a Service，BaaS）。&lt;/li&gt;
+&lt;li&gt;函数是指业务逻辑代码，这里函数的概念与粒度都已经很接近于程序编码角度的函数了，其区别是无服务中的函数运行在云端，不必考虑算力问题，也不必考虑容量规划（从技术角度可以不考虑，从计费的角度还是要掂量一下的），在无服务中将其称为“函数即服务”（Function as a Service，FaaS）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;无服务的愿景是让开发者只需要纯粹地关注业务：不需要考虑技术组件，后端的技术组件是现成的，可以直接取用，没有采购、版权和选型的烦恼；不需要考虑如何部署，部署过程完全托管到云端，由云端自动完成；不需要考虑算力，有整个数据中心支撑，算力可以认为是无限的；不需要操心运维，维护系统持续平稳运行是云计算服务商的责任而不再是开发者的责任。在UC Berkeley的论文中，把无服务架构下开发者不再关心这些技术层面的细节，类比成当年软件开发从汇编语言踏进高级语言的发展过程，开发者可以不去关注寄存器、信号、中断等与机器底层相关的细节，从而令生产力得到极大解放。&lt;/p&gt;
+&lt;p&gt;与单体架构、微服务架构不同，无服务架构有一些天生的特点决定了它现在不是，以后如果没有重大变革的话，估计也很难成为一种普适性的架构模式。无服务架构确实能够降低一些应用的开发和运维环节的成本，譬如&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;不需要交互的离线大规模计算&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;多数Web资讯类网站&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;小程序&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;公共API服务&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;移动应用服务端等&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;都契合于无服务架构所擅长的&lt;code&gt;短链接、无状态、适合事件驱动&lt;/code&gt;的交互形式。&lt;/p&gt;
+&lt;p&gt;但另一方面，对于那些&lt;code&gt;信息管理系统、网络游戏&lt;/code&gt;等应用，或者说对于具有&lt;code&gt;业务逻辑复杂、依赖服务端状态、响应速度要求较高、需要长链接&lt;/code&gt;等特征的应用，至少目前是相对不那么适合的。这是因为无服务天生“无限算力”的假设决定了它必须要按使用量（函数运算的时间和占用的内存）计费以控制消耗的算力的规模，因而函数不会一直以活动状态常驻服务器，请求到了才会开始运行，这就导致了函数不便依赖服务端状态，也导致了函数会有&lt;code&gt;冷启动&lt;/code&gt;时间，响应的性能可能不太好。目前无服务的冷启动过程大概是在数十到百毫秒级别，对于Java这类启动性能差的应用，甚至是接近秒的级别。&lt;/p&gt;
 </description>
       
     </item>
@@ -5969,109 +6179,6 @@
 &lt;blockquote&gt;
 &lt;p&gt;Often static factories are preferable, so avoid the reflex to provide public constructors without first considering static factories.&lt;/p&gt;
 &lt;/blockquote&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Designing Data-Intensive Applications Notes</title>
-      <link>https://anjanavakil.github.io/post/designing-data-intensive_applications/</link>
-      <pubDate>Thu, 17 Mar 2022 22:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/designing-data-intensive_applications/</guid>
-      
-        <description>&lt;h3 id=&#34;atomic&#34;&gt;atomic&lt;/h3&gt;
-&lt;p&gt;In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.&lt;/p&gt;
-&lt;p&gt;In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.&lt;/p&gt;
-&lt;h3 id=&#34;rest&#34;&gt;REST&lt;/h3&gt;
-&lt;p&gt;REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP. It emphasizes simple data formats, using URLs for identifying resources and using HTTP features for cache control, authentication, and content type negotiation. REST has been gaining popularity compared to SOAP, at least in the context of cross-organizational service integration, and is often associated with microservices. An API designed according to the principles of REST is called RESTful.&lt;/p&gt;
-&lt;h3 id=&#34;message-brokermessage-queuemessage-oriented-middleware&#34;&gt;message broker/message queue/message-oriented middleware&lt;/h3&gt;
-&lt;p&gt;Using a message broker has several advantages compared to direct RPC:&lt;/p&gt;
-&lt;p&gt;It can act as a buffer if the recipient is unavailable or overloaded, and thus improve system reliability.&lt;/p&gt;
-&lt;p&gt;It can automatically redeliver messages to a process that has crashed, and thus prevent messages from being lost.&lt;/p&gt;
-&lt;p&gt;It avoids the sender needing to know the IP address and port number of the recipient (which is particularly useful in a cloud deployment where virtual machines often come and go).&lt;/p&gt;
-&lt;p&gt;It allows one message to be sent to several recipients. It logically decouples the sender from the recipient (the sender just publishes messages and doesn’t care who consumes them).&lt;/p&gt;
-&lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
-&lt;p&gt;Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems by Martin Kleppmann&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Show Your Work!</title>
-      <link>https://anjanavakil.github.io/post/show-your-work/</link>
-      <pubDate>Wed, 16 Mar 2022 21:00:00 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/show-your-work/</guid>
-      
-        <description>&lt;ul&gt;
-&lt;li&gt;douban🔗: &lt;a href=&#34;https://book.douban.com/subject/25857796/&#34;&gt;Show Your Work! 10 Ways to Share Your Creativity and Get Discovered&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This is my first English book review for the second English book I entirely finished reading in 2022!&lt;/p&gt;
-&lt;p&gt;The book is brief and there is not a lot of unfamiliar vocabulary so I read it in two hours. The author listed 10 approaches for ordinary individuals to share creativity and get discovered. The book demonstrated how to think about one&amp;rsquo;s work as a never-ending process, how to share one&amp;rsquo;s process in a way that attracts people who might be interested in what they do, and how to deal with the ups and downs of putting oneself and one&amp;rsquo;s work out in the world.&lt;/p&gt;
-&lt;p&gt;In a nutshell, it offers ten transformative rules for being open, generous, brave, productive.&lt;/p&gt;
-&lt;p&gt;The author&amp;rsquo;s website is worth a look:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://austinkleon.com/&#34;&gt;https://austinkleon.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Austin Kleon is a writer who draws. In his book, you will find a series of concise pictures that include the core ideas he wanted to express. Readers can also grasp the major themes of this chapter through the images. My blog and writing, I believe, are also a way of showing my work.&lt;/p&gt;
-&lt;p&gt;The book contains 10 ways:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;You Don&amp;rsquo;t Have to Be a Genius.&lt;/li&gt;
-&lt;li&gt;Think Process, Not Product.&lt;/li&gt;
-&lt;li&gt;Share Something Small Everyday.&lt;/li&gt;
-&lt;li&gt;Open Up Your Cabinet of Curiosities.&lt;/li&gt;
-&lt;li&gt;Tell Good Stories.&lt;/li&gt;
-&lt;li&gt;Teach What Your Know.&lt;/li&gt;
-&lt;li&gt;Don&amp;rsquo;t Turn Into Human Spam.&lt;/li&gt;
-&lt;li&gt;Learn to Take a Punch.&lt;/li&gt;
-&lt;li&gt;Sell Out.&lt;/li&gt;
-&lt;li&gt;Stick Around.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;This statement impressed me when I was reading:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The world is changing at such a rapid rate that it&amp;rsquo;s turning us all into amateurs. Even for professionals, the best way to flourish is to retain an amateur&amp;rsquo;s spirit and embrace uncertainty and the unknown.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;I am majoring in Software Engineering, and I am convinced that I need to learn many cutting-edge technologies with an open mind and curiosity.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Small thing, over time. can get big.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;In this fast-paced world of technology, it is important to stay curious and open to learn and apply leading-edge software and methods.&lt;/p&gt;
-&lt;p&gt;There are serval sentences in the book that I learned something from:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;If you look back closely at history, many of the people who we think of as lone geniuses were actually part of “a whole scene of people who were supporting each other, looking at each other’s work, copying from each other, stealing ideas, and contributing ideas.”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Scenius doesn’t take away from the achievements of those great individuals; it just acknowledges that good work isn’t created in a vacuum and that creativity is always, in some sense, a collaboration, the result of a mind connected to other minds.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Amateurs might lack formal training, but they’re all lifelong learners, and they make a point of learning in the open, so that others can learn from their failures and successes.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Find a scenius, pay attention to what others are sharing, and then start taking note of what they’re not sharing.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Dig into almost every overnight success story and you’ll find about a decade’s worth of hard work and perseverance.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;A daily dispatch is even better than a résumé or a portfolio because it shows what we’re working on right now. When the artist Ze Frank was interviewing job candidates, he complained, “When I ask them to show me work, they show me things from school, or from another job, but I’m more interested in what they did last weekend.”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Fill your website with your work and your ideas and the stuff you care about.Over the years, you will be tempted to abandon it for the newest, shiniest social network. Don’t give in. Don’t let it fall into neglect. Think about it in the long term. Stick with it, maintain it, and let it change with you over time.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Every email you send, every text, every conversation, every blog comment, every tweet, every photo, every video—they’re all bits and pieces of a multimedia narrative you’re constantly constructing.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;As every writer knows, if you want to be a writer, you have to be a reader first.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The more people come across your work, the more criticism you’ll face.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Look for something new to learn, and when you find it, dedicate yourself to learning it out in the open.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;All you have to do is show your work.&lt;/p&gt;
 </description>
       
     </item>

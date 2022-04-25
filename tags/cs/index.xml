@@ -6,7 +6,25 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 31 Mar 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Apr 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《凤凰架构》笔记2</title>
+      <link>https://anjanavakil.github.io/post/the-fenix-project2/</link>
+      <pubDate>Sat, 02 Apr 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/the-fenix-project2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>《凤凰架构》笔记1</title>
+      <link>https://anjanavakil.github.io/post/the-fenix-project1/</link>
+      <pubDate>Fri, 01 Apr 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/the-fenix-project1/</guid>
+      <description>豆瓣🔗：《凤凰架构：构建可靠的大型分布式系统》 演进中的架构 第1章 服务架构演进史 架构并不是被发明出来的，而是持续演进的结果。 1.1 原始分布式时代 调</description>
+    </item>
+    
     <item>
       <title>基于Netty的单体聊天IM系统的设计与实现</title>
       <link>https://anjanavakil.github.io/post/im/</link>
@@ -169,24 +187,6 @@
       <description>atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.
 In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.
 REST REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP.</description>
-    </item>
-    
-    <item>
-      <title>Lambda表达式</title>
-      <link>https://anjanavakil.github.io/post/lambda-expression/</link>
-      <pubDate>Sat, 12 Mar 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/lambda-expression/</guid>
-      <description>之前技术博客都是在CSDN上发表的，好久没用了，登录上去居然有人给我以前的博客点赞评论，尽管很少但发现还是有人看的。看了一下之前写的博客，发</description>
-    </item>
-    
-    <item>
-      <title>《编写可读代码的艺术》</title>
-      <link>https://anjanavakil.github.io/post/the-art-of-readable-code/</link>
-      <pubDate>Fri, 04 Mar 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/the-art-of-readable-code/</guid>
-      <description>豆瓣🔗：《编写可读代码的艺术》 关于编码规范和编写高质量代码类的书籍，印象中第一本看完的应该是《阿里巴巴Java开发手册》，《编写可读代码的艺</description>
     </item>
     
   </channel>

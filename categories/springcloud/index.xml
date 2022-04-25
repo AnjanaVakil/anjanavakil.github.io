@@ -6,7 +6,25 @@
     <description>Recent content in SpringCloud🌵 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 31 Mar 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/springcloud/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Apr 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/springcloud/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《凤凰架构》笔记2</title>
+      <link>https://anjanavakil.github.io/post/the-fenix-project2/</link>
+      <pubDate>Sat, 02 Apr 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/the-fenix-project2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>《凤凰架构》笔记1</title>
+      <link>https://anjanavakil.github.io/post/the-fenix-project1/</link>
+      <pubDate>Fri, 01 Apr 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/the-fenix-project1/</guid>
+      <description>豆瓣🔗：《凤凰架构：构建可靠的大型分布式系统》 演进中的架构 第1章 服务架构演进史 架构并不是被发明出来的，而是持续演进的结果。 1.1 原始分布式时代 调</description>
+    </item>
+    
     <item>
       <title>基于Netty的单体聊天IM系统的设计与实现</title>
       <link>https://anjanavakil.github.io/post/im/</link>
