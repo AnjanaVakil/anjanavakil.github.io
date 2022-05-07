@@ -9,15 +9,57 @@
   </url>
   
   <url>
+    <loc>https://anjanavakil.github.io/post/vocabulary-2022-3-4/</loc>
+    <lastmod>2022-04-30T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://anjanavakil.github.io/</loc>
-    <lastmod>2022-04-02T08:15:48+08:00</lastmod>
+    <lastmod>2022-04-30T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/categories/</loc>
-    <lastmod>2022-04-02T08:15:48+08:00</lastmod>
+    <lastmod>2022-04-30T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/english/</loc>
+    <lastmod>2022-04-30T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/categories/english/</loc>
+    <lastmod>2022-04-30T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/</loc>
+    <lastmod>2022-04-30T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/</loc>
+    <lastmod>2022-04-30T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/vocabulary/</loc>
+    <lastmod>2022-04-30T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -37,21 +79,7 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/post/</loc>
-    <lastmod>2022-04-02T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://anjanavakil.github.io/categories/springcloud/</loc>
-    <lastmod>2022-04-02T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/</loc>
     <lastmod>2022-04-02T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -290,27 +318,6 @@
   
   <url>
     <loc>https://anjanavakil.github.io/post/vocabulary-2022-1-2/</loc>
-    <lastmod>2022-02-28T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/english/</loc>
-    <lastmod>2022-02-28T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/categories/english/</loc>
-    <lastmod>2022-02-28T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/vocabulary/</loc>
     <lastmod>2022-02-28T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

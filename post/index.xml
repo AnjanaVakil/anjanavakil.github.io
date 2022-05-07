@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 02 Apr 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Apr 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2022年3月~4月陌生词汇</title>
+      <link>https://anjanavakil.github.io/post/vocabulary-2022-3-4/</link>
+      <pubDate>Sat, 30 Apr 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/vocabulary-2022-3-4/</guid>
+      <description>真心觉得这样记单词学英语其实效率不高，但其实每天记录下阅读英文网站/书籍时遇到的陌生词汇，也算是种监督，起码像中文一样每天都有接触到英文。 2</description>
+    </item>
+    
     <item>
       <title>《凤凰架构》架构师的视角</title>
       <link>https://anjanavakil.github.io/post/the-fenix-project2/</link>
@@ -176,17 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/effective-java-static-factory-method/</guid>
       <description>豆瓣🔗: Effective Java 《Effective Java中文版（第3版）》 Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 1: Consider static factory methods instead of constructors 考虑以静态工厂方</description>
-    </item>
-    
-    <item>
-      <title>Designing Data-Intensive Applications Notes</title>
-      <link>https://anjanavakil.github.io/post/designing-data-intensive_applications/</link>
-      <pubDate>Thu, 17 Mar 2022 22:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/designing-data-intensive_applications/</guid>
-      <description>atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.
-In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.
-REST REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP.</description>
     </item>
     
   </channel>
