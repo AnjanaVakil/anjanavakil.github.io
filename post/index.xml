@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Apr 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 May 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>股票基金相关知识</title>
+      <link>https://anjanavakil.github.io/post/finance/</link>
+      <pubDate>Sun, 01 May 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/finance/</guid>
+      <description>指数基金 投资的行业上区分，指数基金可以分为宽基和行业指数基金。 常见宽基指数基金有：上证50、沪深300、中证500、创业板、红利、基本面、央</description>
+    </item>
+    
     <item>
       <title>2022年3月~4月陌生词汇</title>
       <link>https://anjanavakil.github.io/post/vocabulary-2022-3-4/</link>
@@ -176,15 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/coders-at-work-jamie-zawinski/</guid>
       <description>豆瓣🔗: Coders At Work 《编程人生：15位软件先驱访谈录》 第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获</description>
-    </item>
-    
-    <item>
-      <title>static factory method VS constructor</title>
-      <link>https://anjanavakil.github.io/post/effective-java-static-factory-method/</link>
-      <pubDate>Sat, 19 Mar 2022 10:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective-java-static-factory-method/</guid>
-      <description>豆瓣🔗: Effective Java 《Effective Java中文版（第3版）》 Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 1: Consider static factory methods instead of constructors 考虑以静态工厂方</description>
     </item>
     
   </channel>
