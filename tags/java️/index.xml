@@ -6,7 +6,25 @@
     <description>Recent content in Java☕️ on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 02 Apr 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/java%EF%B8%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/java%EF%B8%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Batch</title>
+      <link>https://anjanavakil.github.io/post/springbatch-notes/</link>
+      <pubDate>Mon, 11 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/springbatch-notes/</guid>
+      <description>官网示例： Creating a Batch Service Create a Business Class Person.java: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 package com.example.batchprocessing; public class Person { private String lastName; private String firstName; public Person() { } public Person(String firstName,</description>
+    </item>
+    
+    <item>
+      <title>Spring Annotations</title>
+      <link>https://anjanavakil.github.io/post/spring-annotations/</link>
+      <pubDate>Tue, 03 May 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/spring-annotations/</guid>
+      <description>@Autowired 1 2 3 4 5 6 @Target({ElementType.CONSTRUCTOR, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.ANNOTATION_TYPE}) @Retention(RetentionPolicy.RUNTIME) @Documented public @interface Autowired { boolean required() default true; } @Autowired has a boolean argument called required with a default value of true. It tunes Spring&amp;rsquo;s behavior when it doesn&amp;rsquo;t find a suitable bean to wire. When true, an exception is thrown, otherwise, nothing is wired. @AliasFor 1 2 3 4 5 6 7 8 9 10</description>
+    </item>
+    
     <item>
       <title>《凤凰架构》架构师的视角</title>
       <link>https://anjanavakil.github.io/post/the-fenix-project2/</link>
@@ -71,7 +89,7 @@
     </item>
     
     <item>
-      <title>SpringBoot 笔记</title>
+      <title>Spring Boot笔记</title>
       <link>https://anjanavakil.github.io/post/springboot-notes/</link>
       <pubDate>Sat, 26 Mar 2022 08:15:48 +0800</pubDate>
       
