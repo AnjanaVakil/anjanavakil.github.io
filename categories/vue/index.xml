@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vue🥬 on Anjana</title>
+    <link>https://anjanavakil.github.io/categories/vue/</link>
+    <description>Recent content in Vue🥬 on Anjana</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 12 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/vue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue</title>
+      <link>https://anjanavakil.github.io/post/vue-notes/</link>
+      <pubDate>Tue, 12 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/vue-notes/</guid>
+      <description>第1章 Vue.js基础 使用Ajax下载一个列表数据并在页面上显示。 第一段使用jQuery实现： 使用jQuery的代码逻辑是下载列表数据，选择</description>
+    </item>
+    
+  </channel>
+</rss>

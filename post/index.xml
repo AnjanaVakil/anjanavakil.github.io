@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 11 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue</title>
+      <link>https://anjanavakil.github.io/post/vue-notes/</link>
+      <pubDate>Tue, 12 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/vue-notes/</guid>
+      <description>第1章 Vue.js基础 使用Ajax下载一个列表数据并在页面上显示。 第一段使用jQuery实现： 使用jQuery的代码逻辑是下载列表数据，选择</description>
+    </item>
+    
     <item>
       <title>Spring Batch</title>
       <link>https://anjanavakil.github.io/post/springbatch-notes/</link>
@@ -14,6 +23,15 @@
       
       <guid>https://anjanavakil.github.io/post/springbatch-notes/</guid>
       <description>官网示例： Creating a Batch Service Create a Business Class Person.java: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 package com.example.batchprocessing; public class Person { private String lastName; private String firstName; public Person() { } public Person(String firstName,</description>
+    </item>
+    
+    <item>
+      <title>Java编码</title>
+      <link>https://anjanavakil.github.io/post/java-code/</link>
+      <pubDate>Sun, 15 May 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/java-code/</guid>
+      <description>豆瓣🔗： 《编写高质量代码：改善Java程序的151个建议》 第1章 Java开发中通用的方法和准则 11：养成良好习惯，显式声明UID 在序列化和反</description>
     </item>
     
     <item>
@@ -167,24 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/effective-java-gc/</guid>
       <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13</description>
-    </item>
-    
-    <item>
-      <title>Prefer try-with-resources to try-finally</title>
-      <link>https://anjanavakil.github.io/post/effective-java-try-with-resources/</link>
-      <pubDate>Tue, 22 Mar 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective-java-try-with-resources/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path));</description>
-    </item>
-    
-    <item>
-      <title>Builder</title>
-      <link>https://anjanavakil.github.io/post/effective-java-builder/</link>
-      <pubDate>Mon, 21 Mar 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective-java-builder/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 2: Consider a builder when faced with many constructor parameters 当构造函数有多个参数时，考虑使用builder模式 1. Telescoping constructor pattern - does not scale well! 1</description>
     </item>
     
   </channel>

@@ -6,13 +6,31 @@
     <description>Recent content in Categories on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 11 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue🥬</title>
+      <link>https://anjanavakil.github.io/categories/vue/</link>
+      <pubDate>Tue, 12 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/categories/vue/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>SpringCloud🌵</title>
       <link>https://anjanavakil.github.io/categories/springcloud/</link>
       <pubDate>Mon, 11 Jul 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/categories/springcloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java🥬</title>
+      <link>https://anjanavakil.github.io/categories/java/</link>
+      <pubDate>Sun, 15 May 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/categories/java/</guid>
       <description></description>
     </item>
     
