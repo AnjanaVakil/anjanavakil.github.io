@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> - Anjana</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Anjana" />
+  <meta name="description" content="术语笔记： SpringCloud学习： 开发阶段，用热部署Devtools，但是一旦上线，应该关掉热部署。 客户消费者端口：80端口(一般用户都" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.93.0" />
+
+
+<link rel="canonical" href="https://anjanavakil.github.io/post/study/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="术语笔记： SpringCloud学习： 开发阶段，用热部署Devtools，但是一旦上线，应该关掉热部署。 客户消费者端口：80端口(一般用户都" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/study/" /><meta property="article:section" content="post" />
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="术语笔记： SpringCloud学习： 开发阶段，用热部署Devtools，但是一旦上线，应该关掉热部署。 客户消费者端口：80端口(一般用户都">
+
+<meta itemprop="wordCount" content="3622">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="术语笔记： SpringCloud学习： 开发阶段，用热部署Devtools，但是一旦上线，应该关掉热部署。 客户消费者端口：80端口(一般用户都"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Anjana</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/about/">About</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Anjana
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/about/">About</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+      
+      <div class="post-meta">
+        <time datetime="0001-01-01" class="post-time">
+          0001-01-01
+        </time>
+        
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#术语笔记">术语笔记：</a>
+      <ul>
+        <li><a href="#springcloud学习">SpringCloud学习：</a></li>
+        <li><a href="#docker命令">docker命令</a></li>
+        <li><a href="#狂神分析源码的步骤">狂神分析源码的步骤：</a></li>
+        <li><a href="#程序羊分析源码的步骤">程序羊分析源码的步骤：</a></li>
+        <li><a href="#反思总结">反思总结：</a></li>
+        <li><a href="#实习总结">实习总结</a></li>
+      </ul>
+    </li>
+    <li><a href="#寒假学习">寒假学习</a>
+      <ul>
+        <li><a href="#domain-driven-designddd">Domain-Driven-Design（DDD）</a></li>
+        <li><a href="#mybase数据库服务">Mybase数据库服务</a></li>
+        <li><a href="#dubbo">Dubbo</a></li>
+        <li><a href="#nginx">Nginx</a></li>
+        <li><a href="#nodejs">Nodejs</a></li>
+        <li><a href="#大数据技术原理与应用">大数据技术原理与应用</a></li>
+        <li><a href="#hadoop">Hadoop</a></li>
+        <li><a href="#hdfs">HDFS</a></li>
+        <li><a href="#hbase">HBase</a></li>
+        <li><a href="#云数据库">云数据库</a></li>
+        <li><a href="#spark">Spark</a></li>
+        <li><a href="#问题">问题</a></li>
+      </ul>
+    </li>
+    <li><a href="#新学期学习">新学期学习</a>
+      <ul>
+        <li><a href="#阿里工程师的自我修养">《阿里工程师的自我修养》</a></li>
+      </ul>
+    </li>
+    <li><a href="#问题列表">问题列表</a></li>
+    <li><a href="#c">C++</a>
+      <ul>
+        <li><a href="#初始化局部变量和全局变量">初始化局部变量和全局变量</a></li>
+        <li><a href="#引用">引用</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="术语笔记">术语笔记：</h2>
+<h3 id="springcloud学习">SpringCloud学习：</h3>
+<p><strong>开发阶段，用热部署Devtools，但是一旦上线，应该关掉热部署。</strong></p>
+<p>客户消费者端口：80端口(一般用户都是80端口)</p>
+<p>多用Debug,而不是Run</p>
+<p>/etc 修改配置文件(Windows和Linux一样)</p>
+<p>IP地址不能写死，只认<strong>微服务名称</strong></p>
+<h3 id="docker命令">docker命令</h3>
+<p>zookeeper</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//docker启动zookeeper  -d 代表后台运行
+</span></span><span class="line"><span class="cl">docker run --name some-zookeeper --restart always -d zookeeper 
+</span></span><span class="line"><span class="cl">docker exec -it zookeeper01 /bin/bash
+</span></span><span class="line"><span class="cl">root@0b7740b01632:/apache-zookeeper-3.6.2-bin# /apache-zookeeper-3.6.2-bin/bin/zkCli.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>redis</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker run -itd --name redis-test -p 6379:6379 redis
+</span></span><span class="line"><span class="cl"> docker exec -it redis01 /bin/bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>mysql</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="p">[</span><span class="n">root</span><span class="o">@</span><span class="n">iZuf655utcxcqck2gjwavfZ</span><span class="w"> </span><span class="n">conf</span><span class="p">]</span><span class="o">#</span><span class="w">  </span><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">itd</span><span class="w"> </span><span class="c1">--name mysql01 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=111111 mysql
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">[</span><span class="n">root</span><span class="o">@</span><span class="n">iZuf655utcxcqck2gjwavfZ</span><span class="w"> </span><span class="o">~</span><span class="p">]</span><span class="o">#</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="k">exec</span><span class="w"> </span><span class="o">-</span><span class="n">it</span><span class="w"> </span><span class="n">mysql01</span><span class="w"> </span><span class="n">bash</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">root</span><span class="o">@</span><span class="mi">87</span><span class="n">d6fd082d85</span><span class="p">:</span><span class="o">/#</span><span class="w"> </span><span class="n">mysql</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Enter</span><span class="w"> </span><span class="n">password</span><span class="p">:</span><span class="w"> 
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>SSM war包需要放到Tomcat中运行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">@Configuration //注解类
+</span></span><span class="line"><span class="cl">public class MyBatisPlusConfig {
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">@Component //一定不要忘记把 处理器 加到 IOC容器 中
+</span></span><span class="line"><span class="cl">public class MyMetaObjectHandler implements MetaObjectHandler {
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//Repository 代表持久层
+</span></span><span class="line"><span class="cl">@Repository
+</span></span><span class="line"><span class="cl">public interface UserMapper extends BaseMapper&lt;User&gt; {
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="狂神分析源码的步骤">狂神分析源码的步骤：</h3>
+<h4 id="1安装数据库执行sql语句">1、安装数据库，执行SQL语句</h4>
+<h4 id="2前端需要跑起来">2、前端需要跑起来</h4>
+<h4 id="3后端项目导入进来import-project-而不是-open">3、后端项目导入进来：<strong>import Project 而不是 Open</strong></h4>
+<p>只要发现了Swagger，那么跑起来的第一步是进入Swagger-ui页面，因为这里面都是接口。</p>
+<p>然后查看配置文件，端口号修改，配置环境</p>
+<p>开启redis</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">redis-server.exe redis.windows.conf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>模块分析的顺序：</p>
+<ul>
+<li>
+<p>common</p>
+</li>
+<li>
+<p>system</p>
+</li>
+<li>
+<p>tools</p>
+</li>
+</ul>
+<h4 id="4前后端分离项目固定套路">4、前后端分离项目固定套路：</h4>
+<p>1、前后端接口不一致</p>
+<ul>
+<li>
+<p>封装了接口请求，ajax axios request</p>
+</li>
+<li>
+<p>找到配置文件</p>
+</li>
+<li>
+<p>前后端分离项目的重点：找到接口的调用关系</p>
+</li>
+<li>
+<p>SpringBoot提供服务,前端调用接口数据，Vue负责渲染页面</p>
+</li>
+<li>
+<p>前端项目固定套路</p>
+</li>
+<li>
+<p>Controller - Service - Dao</p>
+</li>
+</ul>
+<h3 id="程序羊分析源码的步骤">程序羊分析源码的步骤：</h3>
+<p>1、项目代码首先跑起来可以运行</p>
+<p>2、看源码</p>
+<ul>
+<li>
+<p>依赖，明白用了哪些技术</p>
+</li>
+<li>
+<p>resources，看配置文件，静态资源</p>
+</li>
+<li>
+<p>java目录下：</p>
+</li>
+</ul>
+<p>先看controller（前端页面 和 后端交互的入口）</p>
+<p>service层</p>
+<p>repository(持久层)</p>
+<p>model</p>
+<p>3、调试</p>
+<p>可以直接点击 项目主目录的位置，Find in path</p>
+<p>自己为什么没有早点发现呢！！！</p>
+<p>Ctrl+H  快捷键</p>
+<p>F8下一步</p>
+<h3 id="反思总结">反思总结：</h3>
+<p>昨天为什么redis和mongodb不行，<strong>阿里云防火墙没有开放端口号</strong>，而且ip地址和端口之间应该用 ：来连接，这基础也太不扎实了吧！</p>
+<p>每次有问题去网上查找可不可以耐心一点，仔细看完全文，对于怎么解决问题有个全局的概念，而不是看到命令行就往上粘贴。每天的焦虑有用吗？可以解决问题吗？还不如静下心来好好充实自己，提高自我学习的能力，这么好的平台为什么每天要自怨自艾啊！有压力才有动力，每天的事情是很多，但是只要你静下心来，一步步安排好，所有的事情都会慢慢变好的。</p>
+<ul>
+<li>好的习惯要养成，改掉毛躁的坏毛病</li>
+<li>平时多练习打字，不要老是复制粘贴</li>
+<li>除非是特别复杂的命令行参数，就不要复制粘贴，自己手敲，你看看自己打字速度是有多慢</li>
+</ul>
+<p>1、遇到问题后，首先查看问题的英文，通读理解报错信息</p>
+<p>2、复制关键信息网上查找，先看标题和报错是不是和自己的错误吻合</p>
+<p>3、然后通读，一步步解决</p>
+<p>4、如果花了很长时间，还是解决不了，就暂时放下来做其他事情，第二天再解决。</p>
+<p>做好当下的事情，未来的事情不可控，但是只要你认真安排，认真做好每一件事，不要有太多的功利心，就会发现一切都会慢慢好起来的！！！加油加油！</p>
+<p>问题总会解决的。</p>
+<h3 id="实习总结">实习总结</h3>
+<p>1、之前敲代码的时候用到的都是很简单的语言知识方面，但是通过几天的学习，发现真的是用到了基础的很多东西，比如数据结构、操作系统等等，这些都说明了基础的重要性。当用到某个基础知识时，其实更应该融会贯通一点，有一个体系结构。</p>
+<p>2、英语的重要性，敢于阅读英文文档，更好的解决问题和理解知识点。</p>
+<p>3、所有的东西都有从难到易，从复杂到简单的过程，当接触一个新的知识点时，慢慢来，总会掌握的。</p>
+<p>3、打字速度也太慢了，还老是出错，平时就应该勤加练习。</p>
+<p>4、当有一个任务时，应该一步步来，搞清楚每一步要干什么，把复杂的任务拆分成小的任务，把小任务不懂的点弄明白，复杂的任务也就可以完成了。</p>
+<p>5、可以使用优先级法，比如使用AWS的OSS存储服务时，感觉脑子里很乱，不知道该如何下手，这个时候就可以一步步细分慢慢来，先可以成功连接AWS的S3服务，成功listObjects，然后再getObject。</p>
+<h2 id="寒假学习">寒假学习</h2>
+<h3 id="domain-driven-designddd">Domain-Driven-Design（DDD）</h3>
+<p>CORS:读写分离</p>
+<p>读：性能</p>
+<p>写：事务、一致性</p>
+<h3 id="mybase数据库服务">Mybase数据库服务</h3>
+<p>RDS（Relational Database Service）云数据库</p>
+<p>ECS自建（Elastic Compute Service）</p>
+<p>AWS（Amazon Web Service）EC2（Elastic Compute Cloud）</p>
+<h3 id="dubbo">Dubbo</h3>
+<p>RPC（Remote Procedure Call）</p>
+<p>SOA（Service Oriented Architecture）面向服务架构</p>
+<h3 id="nginx">Nginx</h3>
+<p>http默认端口：80</p>
+<p>https默认端口：443</p>
+<h3 id="nodejs">Nodejs</h3>
+<p>箭头函数：</p>
+<p>对象初始化简写：</p>
+<p>对象解构：</p>
+<p>NPM(Node Package Manager):Node.js的包管理工具，相当于后端的Maven</p>
+<h3 id="大数据技术原理与应用">大数据技术原理与应用</h3>
+<p>第三次信息化浪潮：大数据、云计算、物联网</p>
+<p>大数据时代的思维变革：</p>
+<p>1、更多：不是随机样本，而是全体数据</p>
+<p>2、更杂：不是精确性，而是混杂性</p>
+<p>3、更好：不是因果关系，而是相关关系</p>
+<p>三种<strong>云服务</strong>：</p>
+<ul>
+<li>
+<p>IaaS(Infrastructure as a Service)：基础设施即服务</p>
+<p>将基础设施（计算资源和存储）作为服务出租</p>
+<p>面向网络架构师</p>
+</li>
+<li>
+<p>PaaS(Platform as a Service)：平台即服务</p>
+<p>Google App Engine</p>
+<p>面向应用开发者</p>
+</li>
+<li>
+<p>SaaS(Sofrware as a Service)：软件即服务</p>
+<p>salesforce</p>
+<p>面向用户</p>
+</li>
+</ul>
+<p>各种数据和应用，并非在“天上云端”，而是位于<strong>数据中心</strong>里</p>
+<p>IOT（Internet of Things)：物联网</p>
+<h3 id="hadoop">Hadoop</h3>
+<p>两大核心：HDFS（分布式文件系统Distributed File System）和分布式并行编程框架MapReduce(MR)</p>
+<p>海量数据的分布式存储和海量数据的分布式处理</p>
+<p>YARN(Yet Another Resource Negotiator)另外一个资源协调器</p>
+<p>Storm和Spark也都是搭建在底层的YARN框架基础上</p>
+<p>NN Federation(Name Node):数据目录</p>
+<p>HA：High Availability高可用性</p>
+<p>Hive把SQL语句转成MapReduce作业</p>
+<p><strong>~的含义</strong></p>
+<p>在 Linux 系统中，~ 代表的是用户的主文件夹，即 “/home/用户名” 这个目录，如你的用户名为 hadoop，则 ~ 就代表 “/home/hadoop/”。</p>
+<h3 id="hdfs">HDFS</h3>
+<p>HDFS（Hadoop Distributed File System）</p>
+<p>三大重点：</p>
+<p>块</p>
+<p>NameNode（名称节点：存储数据目录）:FSImage和EditLog</p>
+<p>DataNode（数据节点：存储实际数据，存到磁盘中）</p>
+<h3 id="hbase">HBase</h3>
+<h3 id="云数据库">云数据库</h3>
+<p>Alibaba  MySQL  UMP(Unified MySQL Platform)</p>
+<p>CDN(Content Delivery Network) 内容分发网络</p>
+<h3 id="spark">Spark</h3>
+<p>1、Spark 是一种由 Scala 语言开发的快速、通用、可扩展的大数据分析引擎</p>
+<p>核心技术：RDD（Resilient Distributed Datasets）弹性分布式数据集</p>
+<p>Spark的多个作业之间数据通信是基于内存，而Hadoop是基于磁盘</p>
+<p>Java：HashMap(底层：数组+链表)</p>
+<p>Scala：Map</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">spark-submit --class org.apache.spark.examples.SparkPi --master local[2] ../examples/jars/spark-examples_2.12-3.0.0.jar 10
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">D:/Environment/spark-3.0.0-bin-hadoop3.2/bin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>SparkStreaming  准实时（秒、分钟），微批次（时间）的数据处理框架</p>
+<h3 id="问题">问题</h3>
+<h2 id="新学期学习">新学期学习</h2>
+<h3 id="阿里工程师的自我修养">《阿里工程师的自我修养》</h3>
+<h4 id="保持信心">保持信心</h4>
+<p>现在知道思考力的重要性了，很多同学可能认为自己是一个不够聪明的人。为什么我努力了，还是不行？</p>
+<p>给大家一个信心：有位大师说过：<strong>在相同的文明程度和种族背景下，每一个正常人的潜意识与意识相加之和，在精神能量意义上基本上是相等的。</strong></p>
+<p>我几乎接触到的很努力但是成长速度不快的同学都是因为没有没有掌握正确的方法；</p>
+<p>只要掌握了正确的方法并坚持训练，思考力绝对可以提升。</p>
+<h4 id="戒掉在手机上的碎片时间">戒掉在手机上的碎片时间</h4>
+<p>每次看手机前，都应该做<strong>选择题</strong>，问问自己<strong>用手机到底是干什么，花多长时间</strong></p>
+<p>不要使用推荐系统一直推荐没有用的东西</p>
+<p>先对习惯的产生机制要有所了解，习惯并非凭空产生，他有前因后果，前因是前一件事情结束（触发条件），后果是前一件事情结束后的行为带来的一些额外奖励。比如晚上下班回家洗完澡这件事情结束后，肯定会开始下一件我们最习惯的事情，比如盯手机看剧或者刷八卦，当这件最习惯的事情结束后，大脑会产生精神上的及时享受，内容很丰富、很精彩。短期看是享受，长期看是灾难，因为对未来帮助意义不大，但是却消耗了我们大把时间。而且看剧或者刷八卦带来的信息积累只能称的上是饭后谈资，或者有些根本没机会谈。</p>
+<h4 id="慢慢来成长最快">慢慢来，成长最快</h4>
+<p>所谓时间换空间，就是让我们无法看清未来是什么样子的时候，把注意力聚焦在当下，做成长该做的事。</p>
+<h4 id="贵人相助">贵人相助</h4>
+<p>如果恰好有这么一位贵人，应该懂得珍惜，珍惜的主要方式是用成长回报他，<strong>因为你的成长在未来可以帮助他</strong>。</p>
+<p>当有一个知识点不懂的时候就应该搞懂</p>
+<p>就比如虚拟机IP地址的问题，桥接模式和NAT模式，到底有什么区别？</p>
+<p>1、明确当前问题是什么？What</p>
+<p>2、首先Google，通过阅读看看可不可以理解，如果不行可以查找Bilibili相关知识点的视频理解</p>
+<p>3、如果还不会就应该问老师，问同学，问其他人</p>
+<h2 id="问题列表">问题列表</h2>
+<h2 id="c">C++</h2>
+<h3 id="初始化局部变量和全局变量">初始化局部变量和全局变量</h3>
+<p>当局部变量被定义时，系统不会对其初始化，您必须自行对其初始化。定义全局变量时，系统会自动初始化为下列值：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="sc">&#39;\0&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">pointer</span> <span class="nb">NULL</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="引用">引用</h3>
+<p>当返回一个引用时，要注意被引用的对象不能超出作用域。所以返回一个对局部变量的引用是不合法的，但是，可以返回一个对静态变量的引用。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">&amp;</span> <span class="n">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">q</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">//! return q; // 在编译时发生错误
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">static</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="n">x</span><span class="p">;</span>     <span class="c1">// 安全，x 在函数作用域外依然是有效的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>未定义标识符nullptr,增加编译条件:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">g++ ReplaceSpaces.cpp -std=gnu++0x
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Anjana</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      0001-01-01
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/a-brief-history-of-america/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">《美国简明史》</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:anjana.cheng@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/AnjanaVakil" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.douban.com/people/188748525/?_i=5959211pTN39WJ,5959254pTN39WJ" rel="me noopener" class="iconfont"
+      title="douban"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M926.917973 37.80608C959.65184 37.80608 986.19392 64.34816 986.19392 97.082027L986.19392 926.917973C986.19392 959.65184 959.65184 986.19392 926.917973 986.19392L97.082027 986.19392C64.34816 986.19392 37.80608 959.65184 37.80608 926.917973L37.80608 97.082027C37.80608 64.34816 64.34816 37.80608 97.082027 37.80608zM176.653653 176.19968 176.653653 252.678827 825.658027 252.678827 825.658027 176.19968zM217.719467 316.146347 217.719467 628.08064 273.524053 628.08064 341.292373 770.39616 157.259093 770.39616 157.259093 845.417813 842.949973 845.417813 842.949973 770.39616 654.226773 770.39616 722.899627 628.08064 783.67744 628.08064 783.67744 316.146347zM684.885333 392.891733 684.885333 553.987413 312.576 553.987413 312.576 392.891733zM570.770773 770.39616 426.653013 770.39616 359.621973 628.08064 639.443627 628.08064z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://anjanavakil.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2021 -
+    2022
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Anjana
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -625,6 +625,183 @@
 &lt;p&gt;而对于&lt;code&gt;final修饰的类（即非基本类型）&lt;/code&gt;，编译器认为它是&lt;code&gt;不稳定态（Mutable Status）&lt;/code&gt;，在编译时建立的则是引用关系（该类型也叫做Soft Final），如果Client类引入的常量是一个类或实例，即使不重新编译也会输出最新值。&lt;/p&gt;
 &lt;p&gt;注意：发布应用系统时禁止使用类文件替换方式，整体WAR包发布才是万全之策。&lt;/p&gt;
 &lt;h1 id=&#34;第2章-基本类型&#34;&gt;第2章 基本类型&lt;/h1&gt;
+&lt;h2 id=&#34;21用偶判断不用奇判断&#34;&gt;21：用偶判断，不用奇判断&lt;/h2&gt;
+&lt;p&gt;Java中的取余（%标示符）算法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;remainder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dividend&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;divisor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dividend&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dividend&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;divisor&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;divisor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;判断是否是偶数的错误写法：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;(i%2 ==1?&amp;quot;奇数&amp;quot;:&amp;quot;偶数&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;判断是否是偶数的正确写法：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;(i%2 ==0?&amp;quot;偶数&amp;quot;:&amp;quot;奇数&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;22用整数类型处理货币&#34;&gt;22：用整数类型处理货币&lt;/h2&gt;
+&lt;p&gt;（1）使用BigDecimal&lt;/p&gt;
+&lt;p&gt;BigDecimal是专门为弥补浮点数无法精确计算的缺憾而设计的类，并且它本身也提供了加减乘除的常用数学算法。特别是与数据库Decimal类型的字段映射时，BigDecimal是最优的解决方案。
+（2）使用整型&lt;/p&gt;
+&lt;p&gt;把参与运算的值扩大100倍，并转变为整型，然后在展现时再缩小100倍，这样处理的好处是计算简单、准确，一般在非金融行业（如零售行业）应用较多。此方法还会用于某些零售POS机，它们的输入和输出全部是整数，那运算就更简单。&lt;/p&gt;
+&lt;h2 id=&#34;23不要让类型默默转换&#34;&gt;23：不要让类型默默转换&lt;/h2&gt;
+&lt;p&gt;错误：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;long dis2 = LIGHT_SPEED * 60 * 8;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;正确：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;long dis2 = LIGHT_SPEED * 60L * 8;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;long dis2 = 1L*LIGHT_SPEED * 60 * 8;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;基本类型转换时，使用主动声明方式减少不必要的Bug。&lt;/p&gt;
+&lt;h2 id=&#34;25不要让四舍五入亏了一方&#34;&gt;25：不要让四舍五入亏了一方&lt;/h2&gt;
+&lt;p&gt;修正算法：银行家舍入（Banker&amp;rsquo;s Round）的近似算法，其规则如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;舍去位的数值小于5时，直接舍去；&lt;/li&gt;
+&lt;li&gt;舍去位的数值大于等于6时，进位后舍去；&lt;/li&gt;
+&lt;li&gt;当舍去位的数值等于5时，分两种情况：5后面还有其他数字（非0），则进位后舍去；若5后面是0（即5是最后一个数字），则根据5前一位数的奇偶性来判断是否需要进位，奇数进位，偶数舍去。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以上规则汇总成一句话：四舍六入五考虑，五后非零就进一，五后为零看奇偶，五前为偶应舍去，五前为奇要进一。&lt;/p&gt;
+&lt;p&gt;BigDecimal和RoundingMode是一个绝配，想要采用什么舍入模式使用RoundingMode设置即可。目前Java支持以下七种舍入方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;ROUND_UP：远离零方向舍入。&lt;/p&gt;
+&lt;p&gt;向远离0的方向舍入，也就是说，向绝对值最大的方向舍入，只要舍弃位非0即进位。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ROUND_DOWN：趋向零方向舍入。&lt;/p&gt;
+&lt;p&gt;向0方向靠拢，也就是说，向绝对值最小的方向输入，注意：所有的位都舍弃，不存在进位情况。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ROUND_CEILING：向正无穷方向舍入。&lt;/p&gt;
+&lt;p&gt;向正最大方向靠拢，如果是正数，舍入行为类似于ROUND_UP；如果为负数，则舍入行为类似于ROUND_DOWN。注意：Math.round方法使用的即为此模式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ROUND_FLOOR：向负无穷方向舍入。&lt;/p&gt;
+&lt;p&gt;向负无穷方向靠拢，如果是正数，则舍入行为类似于 ROUND_DOWN；如果是负数，则舍入行为类似于ROUND_UP。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HALF_UP：最近数字舍入（5进）。&lt;/p&gt;
+&lt;p&gt;这就是我们最最经典的四舍五入模式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HALF_DOWN：最近数字舍入（5舍）。&lt;/p&gt;
+&lt;p&gt;在四舍五入中，5是进位的，而在HALF_DOWN中却是舍弃不进位。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HALF_EVEN：银行家算法。&lt;/p&gt;
+&lt;p&gt;在普通的项目中舍入模式不会有太多影响，可以直接使用Math.round方法，但在大量与货币数字交互的项目中，一定要选择好近似的计算模式，尽量减少因算法不同而造成的损失。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;26提防包装类型的null值&#34;&gt;26：提防包装类型的null值&lt;/h2&gt;
+&lt;p&gt;包装类型参与运算时，要做null值校验。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;list&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ArrayList&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;n&#34;&gt;count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;运行结果：Exception in thread &amp;ldquo;main&amp;rdquo; java.lang.NullPointerException&lt;/p&gt;
+&lt;p&gt;报空指针异常：在程序的for循环中，隐含了一个拆箱过程，在此过程中包装类型转换为了基本类型。我们知道拆箱过程是通过调用包装对象的intValue方法来实现的，由于包装对象是null值，访问其intValue方法报空指针异常也就在所难免了。&lt;/p&gt;
+&lt;p&gt;解决方法：加入null值检查即可。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;n&#34;&gt;count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)?&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;27谨慎包装类型的大小比较&#34;&gt;27：谨慎包装类型的大小比较&lt;/h2&gt;
+&lt;p&gt;在Java中，“&amp;gt;”和“&amp;lt;”用来判断两个数字类型的大小关系，注意只能是数字型的判断，对于Integer包装类型，是根据其intValue()方法的返回值（也就是其相应的基本类型）进行比较的（其他包装类型是根据相应的value值来比较的，如doubleValue、floatValue等），那很显然，两者不可能有大小关系的。&lt;/p&gt;
+&lt;p&gt;修改方法：&lt;/p&gt;
+&lt;p&gt;直接使用Integer实例的compareTo方法即可。但是这类问题的产生更应该说是习惯问题，只要是两个对象之间的比较就应该采用相应的方法，而不是通过Java的默认机制来处理。&lt;/p&gt;
+&lt;h2 id=&#34;28优先使用整型池&#34;&gt;28：优先使用整型池&lt;/h2&gt;
+&lt;p&gt;整型池的存在不仅仅提高了系统性能，同时也节约了内存空间，这也是我们使用整型池的原因，也就是在声明包装对象的时候使用valueOf生成，而不是通过构造函数来生成的原因。&lt;/p&gt;
+&lt;p&gt;在判断对象是否相等的时候，最好是用equals方法，避免用“==”产生非预期结果。&lt;/p&gt;
+&lt;p&gt;注意：通过包装类的valueOf生成包装实例可以显著提高空间和时间性能。&lt;/p&gt;
+&lt;h2 id=&#34;29优先选择基本类型&#34;&gt;29：优先选择基本类型&lt;/h2&gt;
+&lt;p&gt;自动装箱有一个重要的原则：基本类型可以先加宽，再转变成宽类型的包装类型，但不能直接转变成宽类型的包装类型。&lt;/p&gt;
+&lt;p&gt;这句话比较拗口，简单地说就是，int可以加宽转变成long，然后再转变成Long对象，但不能直接转变成包装类型，注意这里指的都是自动转换，不是通过构造函数生成。&lt;/p&gt;
+&lt;p&gt;注意：基本类型优先考虑。&lt;/p&gt;
+&lt;h2 id=&#34;30不要随便设置随机种子&#34;&gt;30：不要随便设置随机种子&lt;/h2&gt;
+&lt;p&gt;在Java中有两种方法可以获得不同的随机数：通过java.util.Random类获得随机数的原理和Math.random方法相同，Math.random()方法也是通过生成一个Random类的实例，然后委托nextDouble()方法的，两者是殊途同归，没有差别。&lt;/p&gt;
+&lt;h1 id=&#34;第3章-类对象及方法&#34;&gt;第3章 类、对象及方法&lt;/h1&gt;
+&lt;h2 id=&#34;31在接口中不要存在实现代码&#34;&gt;31：在接口中不要存在实现代码&lt;/h2&gt;
+&lt;h2 id=&#34;32静态变量一定要先声明后赋值&#34;&gt;32：静态变量一定要先声明后赋值&lt;/h2&gt;
+&lt;h2 id=&#34;33不要覆写静态方法&#34;&gt;33：不要覆写静态方法&lt;/h2&gt;
+&lt;p&gt;一个实例对象有两个类型：表面类型（Apparent Type）和实际类型（Actual Type），表面类型是声明时的类型，实际类型是对象产生时的类型。&lt;/p&gt;
+&lt;p&gt;比如，变量base的表面类型是Base，实际类型是Sub。对于非静态方法，它是根据对象的实际类型来执行的，也就是执行了Sub类中的doAnything方法。而对于静态方法来说就比较特殊了，首先静态方法不依赖实例对象，它是通过类名访问的；其次，可以通过对象访问静态方法，如果是通过对象调用静态方法，JVM则会通过对象的表面类型查找到静态方法的入口，继而执行之。&lt;/p&gt;
+&lt;p&gt;通过实例对象访问静态方法或静态属性不是好习惯，它给代码带来了“坏味道”。&lt;/p&gt;
+&lt;h2 id=&#34;34构造函数尽量简化&#34;&gt;34：构造函数尽量简化&lt;/h2&gt;
+&lt;h2 id=&#34;35避免在构造函数中初始化其他类&#34;&gt;35：避免在构造函数中初始化其他类&lt;/h2&gt;
+&lt;h2 id=&#34;36使用构造代码块精炼程序&#34;&gt;36：使用构造代码块精炼程序&lt;/h2&gt;
+&lt;p&gt;编译器会把构造代码块插入到每个构造函数的最前端，&lt;/p&gt;
+&lt;p&gt;构造代码块会在每个构造函数内首先执行（需要注意的是：构造代码块不是在构造函数之前运行的，它依托于构造函数的执行）&lt;/p&gt;
+&lt;p&gt;构造代码块应用：&lt;/p&gt;
+&lt;p&gt;（1）初始化实例变量（Instance Variable）&lt;/p&gt;
+&lt;p&gt;如果每个构造函数都要初始化变量，可以通过构造代码块来实现。当然也可以通过定义一个方法，然后在每个构造函数中调用该方法来实现，没错，可以解决，但是要在每个构造函数中都调用该方法，而这就是其缺点，若采用构造代码块的方式则不用定义和调用，会直接由编译器写入到每个构造函数中，这才是解决此类问题的绝佳方式。&lt;/p&gt;
+&lt;p&gt;（2）初始化实例环境&lt;/p&gt;
+&lt;p&gt;一个对象必须在适当的场景下才能存在，如果没有适当的场景，则就需要在创建对象时创建此场景，例如在JEE开发中，要产生HTTP Request必须首先建立HTTP Session，在创建HTTP Request时就可以通过构造代码块来检查HTTP Session是否已经存在，不存在则创建之。&lt;/p&gt;
+&lt;p&gt;构造代码块的两个特性：在每个构造函数中都运行和在构造函数中它会首先运行。&lt;/p&gt;
+&lt;h2 id=&#34;37构造代码块会想你所想&#34;&gt;37：构造代码块会想你所想&lt;/h2&gt;
+&lt;p&gt;上一个建议是说编译器会把构造代码块插入到每一个构造函数中，但是有一个例外的情况没有说明：如果遇到this关键字（也就是构造函数调用自身其他的构造函数时）则不插入构造代码块。&lt;/p&gt;
+&lt;p&gt;这还要从构造代码块的诞生说起，构造代码块是为了提取构造函数的共同量，减少各个构造函数的代码而产生的，因此，Java就很聪明地认为把代码块插入到没有this方法的构造函数中即可，而调用其他构造函数的则不插入，&lt;code&gt;确保每个构造函数只执行一次构造代码块&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;在构造代码块的处理上，super方法没有任何特殊的地方，编译器只是把构造代码块插入到super方法之后执行而已。&lt;/p&gt;
+&lt;h2 id=&#34;38使用静态内部类提高封装性&#34;&gt;38：使用静态内部类提高封装性&lt;/h2&gt;
+&lt;p&gt;静态内部类与普通内部类的区别：&lt;/p&gt;
+&lt;p&gt;（1）静态内部类不持有外部类的引用&lt;/p&gt;
+&lt;p&gt;在普通内部类中，我们可以直接访问外部类的属性、方法，即使是private类型也可以访问，这是因为内部类持有一个外部类的引用，可以自由访问。&lt;/p&gt;
+&lt;p&gt;而静态内部类，则只可以访问外部类的静态方法和静态属性（如果是private权限也能访问，这是由其代码位置所决定的），其他则不能访问。&lt;/p&gt;
+&lt;p&gt;（2）静态内部类不依赖外部类&lt;/p&gt;
+&lt;p&gt;普通内部类与外部类之间是相互依赖的关系，内部类实例不能脱离外部类实例，也就是说它们会同生同死，一起声明，一起被垃圾回收器回收。而静态内部类是可以独立存在的，即使外部类消亡了，静态内部类还是可以存在的。&lt;/p&gt;
+&lt;p&gt;（3）普通内部类不能声明static的方法和变量&lt;/p&gt;
+&lt;p&gt;普通内部类不能声明static的方法和变量，注意这里说的是变量，常量（也就是final static修饰的属性）还是可以的，而静态内部类形似外部类，没有任何限制。&lt;/p&gt;
+&lt;h2 id=&#34;39使用匿名类的构造函数&#34;&gt;39：使用匿名类的构造函数&lt;/h2&gt;
+&lt;p&gt;匿名类的构造函数是什么呢？它没有名字呀！很显然，初始化块就是它的构造函数。&lt;/p&gt;
 </description>
       
     </item>

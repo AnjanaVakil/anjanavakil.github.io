@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Java编码">
 <meta itemprop="description" content="豆瓣🔗： 《编写高质量代码：改善Java程序的151个建议》 第1章 Java开发中通用的方法和准则 11：养成良好习惯，显式声明UID 在序列化和反"><meta itemprop="datePublished" content="2022-05-15T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-05-15T08:15:48+08:00" />
-<meta itemprop="wordCount" content="4317">
+<meta itemprop="wordCount" content="8139">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java编码"/>
 <meta name="twitter:description" content="豆瓣🔗： 《编写高质量代码：改善Java程序的151个建议》 第1章 Java开发中通用的方法和准则 11：养成良好习惯，显式声明UID 在序列化和反"/>
@@ -330,6 +330,30 @@
     <li><a href="#19断言绝对不是鸡肋">19：断言绝对不是鸡肋</a></li>
     <li><a href="#20不要只替换一个类">20：不要只替换一个类</a></li>
   </ul>
+
+  <ul>
+    <li><a href="#21用偶判断不用奇判断">21：用偶判断，不用奇判断</a></li>
+    <li><a href="#22用整数类型处理货币">22：用整数类型处理货币</a></li>
+    <li><a href="#23不要让类型默默转换">23：不要让类型默默转换</a></li>
+    <li><a href="#25不要让四舍五入亏了一方">25：不要让四舍五入亏了一方</a></li>
+    <li><a href="#26提防包装类型的null值">26：提防包装类型的null值</a></li>
+    <li><a href="#27谨慎包装类型的大小比较">27：谨慎包装类型的大小比较</a></li>
+    <li><a href="#28优先使用整型池">28：优先使用整型池</a></li>
+    <li><a href="#29优先选择基本类型">29：优先选择基本类型</a></li>
+    <li><a href="#30不要随便设置随机种子">30：不要随便设置随机种子</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#31在接口中不要存在实现代码">31：在接口中不要存在实现代码</a></li>
+    <li><a href="#32静态变量一定要先声明后赋值">32：静态变量一定要先声明后赋值</a></li>
+    <li><a href="#33不要覆写静态方法">33：不要覆写静态方法</a></li>
+    <li><a href="#34构造函数尽量简化">34：构造函数尽量简化</a></li>
+    <li><a href="#35避免在构造函数中初始化其他类">35：避免在构造函数中初始化其他类</a></li>
+    <li><a href="#36使用构造代码块精炼程序">36：使用构造代码块精炼程序</a></li>
+    <li><a href="#37构造代码块会想你所想">37：构造代码块会想你所想</a></li>
+    <li><a href="#38使用静态内部类提高封装性">38：使用静态内部类提高封装性</a></li>
+    <li><a href="#39使用匿名类的构造函数">39：使用匿名类的构造函数</a></li>
+  </ul>
 </nav>
   </div>
 </div>
@@ -474,6 +498,183 @@
 <p>而对于<code>final修饰的类（即非基本类型）</code>，编译器认为它是<code>不稳定态（Mutable Status）</code>，在编译时建立的则是引用关系（该类型也叫做Soft Final），如果Client类引入的常量是一个类或实例，即使不重新编译也会输出最新值。</p>
 <p>注意：发布应用系统时禁止使用类文件替换方式，整体WAR包发布才是万全之策。</p>
 <h1 id="第2章-基本类型">第2章 基本类型</h1>
+<h2 id="21用偶判断不用奇判断">21：用偶判断，不用奇判断</h2>
+<p>Java中的取余（%标示符）算法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">remainder</span><span class="o">(</span><span class="kt">int</span> <span class="n">dividend</span><span class="o">,</span><span class="kt">int</span> <span class="n">divisor</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">dividend</span> <span class="o">-</span> <span class="n">dividend</span> <span class="o">/</span> <span class="n">divisor</span> <span class="o">*</span> <span class="n">divisor</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>判断是否是偶数的错误写法：</p>
+<p><code>(i%2 ==1?&quot;奇数&quot;:&quot;偶数&quot;)</code></p>
+<p>判断是否是偶数的正确写法：</p>
+<p><code>(i%2 ==0?&quot;偶数&quot;:&quot;奇数&quot;)</code></p>
+<h2 id="22用整数类型处理货币">22：用整数类型处理货币</h2>
+<p>（1）使用BigDecimal</p>
+<p>BigDecimal是专门为弥补浮点数无法精确计算的缺憾而设计的类，并且它本身也提供了加减乘除的常用数学算法。特别是与数据库Decimal类型的字段映射时，BigDecimal是最优的解决方案。
+（2）使用整型</p>
+<p>把参与运算的值扩大100倍，并转变为整型，然后在展现时再缩小100倍，这样处理的好处是计算简单、准确，一般在非金融行业（如零售行业）应用较多。此方法还会用于某些零售POS机，它们的输入和输出全部是整数，那运算就更简单。</p>
+<h2 id="23不要让类型默默转换">23：不要让类型默默转换</h2>
+<p>错误：</p>
+<p><code>long dis2 = LIGHT_SPEED * 60 * 8;</code></p>
+<p>正确：</p>
+<p><code>long dis2 = LIGHT_SPEED * 60L * 8;</code></p>
+<p><code>long dis2 = 1L*LIGHT_SPEED * 60 * 8;</code></p>
+<p>基本类型转换时，使用主动声明方式减少不必要的Bug。</p>
+<h2 id="25不要让四舍五入亏了一方">25：不要让四舍五入亏了一方</h2>
+<p>修正算法：银行家舍入（Banker&rsquo;s Round）的近似算法，其规则如下：</p>
+<ul>
+<li>舍去位的数值小于5时，直接舍去；</li>
+<li>舍去位的数值大于等于6时，进位后舍去；</li>
+<li>当舍去位的数值等于5时，分两种情况：5后面还有其他数字（非0），则进位后舍去；若5后面是0（即5是最后一个数字），则根据5前一位数的奇偶性来判断是否需要进位，奇数进位，偶数舍去。</li>
+</ul>
+<p>以上规则汇总成一句话：四舍六入五考虑，五后非零就进一，五后为零看奇偶，五前为偶应舍去，五前为奇要进一。</p>
+<p>BigDecimal和RoundingMode是一个绝配，想要采用什么舍入模式使用RoundingMode设置即可。目前Java支持以下七种舍入方式：</p>
+<ul>
+<li>
+<p>ROUND_UP：远离零方向舍入。</p>
+<p>向远离0的方向舍入，也就是说，向绝对值最大的方向舍入，只要舍弃位非0即进位。</p>
+</li>
+<li>
+<p>ROUND_DOWN：趋向零方向舍入。</p>
+<p>向0方向靠拢，也就是说，向绝对值最小的方向输入，注意：所有的位都舍弃，不存在进位情况。</p>
+</li>
+<li>
+<p>ROUND_CEILING：向正无穷方向舍入。</p>
+<p>向正最大方向靠拢，如果是正数，舍入行为类似于ROUND_UP；如果为负数，则舍入行为类似于ROUND_DOWN。注意：Math.round方法使用的即为此模式。</p>
+</li>
+<li>
+<p>ROUND_FLOOR：向负无穷方向舍入。</p>
+<p>向负无穷方向靠拢，如果是正数，则舍入行为类似于 ROUND_DOWN；如果是负数，则舍入行为类似于ROUND_UP。</p>
+</li>
+<li>
+<p>HALF_UP：最近数字舍入（5进）。</p>
+<p>这就是我们最最经典的四舍五入模式。</p>
+</li>
+<li>
+<p>HALF_DOWN：最近数字舍入（5舍）。</p>
+<p>在四舍五入中，5是进位的，而在HALF_DOWN中却是舍弃不进位。</p>
+</li>
+<li>
+<p>HALF_EVEN：银行家算法。</p>
+<p>在普通的项目中舍入模式不会有太多影响，可以直接使用Math.round方法，但在大量与货币数字交互的项目中，一定要选择好近似的计算模式，尽量减少因算法不同而造成的损失。</p>
+</li>
+</ul>
+<h2 id="26提防包装类型的null值">26：提防包装类型的null值</h2>
+<p>包装类型参与运算时，要做null值校验。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+</span></span><span class="line"><span class="cl">		<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">2</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">f</span><span class="o">(</span><span class="n">list</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">f</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">:</span><span class="n">list</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">			<span class="n">count</span> <span class="o">+=</span> <span class="n">i</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行结果：Exception in thread &ldquo;main&rdquo; java.lang.NullPointerException</p>
+<p>报空指针异常：在程序的for循环中，隐含了一个拆箱过程，在此过程中包装类型转换为了基本类型。我们知道拆箱过程是通过调用包装对象的intValue方法来实现的，由于包装对象是null值，访问其intValue方法报空指针异常也就在所难免了。</p>
+<p>解决方法：加入null值检查即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">f</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="o">(</span><span class="n">Integer</span> <span class="n">i</span> <span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">count</span> <span class="o">+=</span> <span class="o">(</span><span class="n">i</span><span class="o">!=</span><span class="kc">null</span><span class="o">)?</span><span class="n">i</span><span class="o">:</span><span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="27谨慎包装类型的大小比较">27：谨慎包装类型的大小比较</h2>
+<p>在Java中，“&gt;”和“&lt;”用来判断两个数字类型的大小关系，注意只能是数字型的判断，对于Integer包装类型，是根据其intValue()方法的返回值（也就是其相应的基本类型）进行比较的（其他包装类型是根据相应的value值来比较的，如doubleValue、floatValue等），那很显然，两者不可能有大小关系的。</p>
+<p>修改方法：</p>
+<p>直接使用Integer实例的compareTo方法即可。但是这类问题的产生更应该说是习惯问题，只要是两个对象之间的比较就应该采用相应的方法，而不是通过Java的默认机制来处理。</p>
+<h2 id="28优先使用整型池">28：优先使用整型池</h2>
+<p>整型池的存在不仅仅提高了系统性能，同时也节约了内存空间，这也是我们使用整型池的原因，也就是在声明包装对象的时候使用valueOf生成，而不是通过构造函数来生成的原因。</p>
+<p>在判断对象是否相等的时候，最好是用equals方法，避免用“==”产生非预期结果。</p>
+<p>注意：通过包装类的valueOf生成包装实例可以显著提高空间和时间性能。</p>
+<h2 id="29优先选择基本类型">29：优先选择基本类型</h2>
+<p>自动装箱有一个重要的原则：基本类型可以先加宽，再转变成宽类型的包装类型，但不能直接转变成宽类型的包装类型。</p>
+<p>这句话比较拗口，简单地说就是，int可以加宽转变成long，然后再转变成Long对象，但不能直接转变成包装类型，注意这里指的都是自动转换，不是通过构造函数生成。</p>
+<p>注意：基本类型优先考虑。</p>
+<h2 id="30不要随便设置随机种子">30：不要随便设置随机种子</h2>
+<p>在Java中有两种方法可以获得不同的随机数：通过java.util.Random类获得随机数的原理和Math.random方法相同，Math.random()方法也是通过生成一个Random类的实例，然后委托nextDouble()方法的，两者是殊途同归，没有差别。</p>
+<h1 id="第3章-类对象及方法">第3章 类、对象及方法</h1>
+<h2 id="31在接口中不要存在实现代码">31：在接口中不要存在实现代码</h2>
+<h2 id="32静态变量一定要先声明后赋值">32：静态变量一定要先声明后赋值</h2>
+<h2 id="33不要覆写静态方法">33：不要覆写静态方法</h2>
+<p>一个实例对象有两个类型：表面类型（Apparent Type）和实际类型（Actual Type），表面类型是声明时的类型，实际类型是对象产生时的类型。</p>
+<p>比如，变量base的表面类型是Base，实际类型是Sub。对于非静态方法，它是根据对象的实际类型来执行的，也就是执行了Sub类中的doAnything方法。而对于静态方法来说就比较特殊了，首先静态方法不依赖实例对象，它是通过类名访问的；其次，可以通过对象访问静态方法，如果是通过对象调用静态方法，JVM则会通过对象的表面类型查找到静态方法的入口，继而执行之。</p>
+<p>通过实例对象访问静态方法或静态属性不是好习惯，它给代码带来了“坏味道”。</p>
+<h2 id="34构造函数尽量简化">34：构造函数尽量简化</h2>
+<h2 id="35避免在构造函数中初始化其他类">35：避免在构造函数中初始化其他类</h2>
+<h2 id="36使用构造代码块精炼程序">36：使用构造代码块精炼程序</h2>
+<p>编译器会把构造代码块插入到每个构造函数的最前端，</p>
+<p>构造代码块会在每个构造函数内首先执行（需要注意的是：构造代码块不是在构造函数之前运行的，它依托于构造函数的执行）</p>
+<p>构造代码块应用：</p>
+<p>（1）初始化实例变量（Instance Variable）</p>
+<p>如果每个构造函数都要初始化变量，可以通过构造代码块来实现。当然也可以通过定义一个方法，然后在每个构造函数中调用该方法来实现，没错，可以解决，但是要在每个构造函数中都调用该方法，而这就是其缺点，若采用构造代码块的方式则不用定义和调用，会直接由编译器写入到每个构造函数中，这才是解决此类问题的绝佳方式。</p>
+<p>（2）初始化实例环境</p>
+<p>一个对象必须在适当的场景下才能存在，如果没有适当的场景，则就需要在创建对象时创建此场景，例如在JEE开发中，要产生HTTP Request必须首先建立HTTP Session，在创建HTTP Request时就可以通过构造代码块来检查HTTP Session是否已经存在，不存在则创建之。</p>
+<p>构造代码块的两个特性：在每个构造函数中都运行和在构造函数中它会首先运行。</p>
+<h2 id="37构造代码块会想你所想">37：构造代码块会想你所想</h2>
+<p>上一个建议是说编译器会把构造代码块插入到每一个构造函数中，但是有一个例外的情况没有说明：如果遇到this关键字（也就是构造函数调用自身其他的构造函数时）则不插入构造代码块。</p>
+<p>这还要从构造代码块的诞生说起，构造代码块是为了提取构造函数的共同量，减少各个构造函数的代码而产生的，因此，Java就很聪明地认为把代码块插入到没有this方法的构造函数中即可，而调用其他构造函数的则不插入，<code>确保每个构造函数只执行一次构造代码块</code>。</p>
+<p>在构造代码块的处理上，super方法没有任何特殊的地方，编译器只是把构造代码块插入到super方法之后执行而已。</p>
+<h2 id="38使用静态内部类提高封装性">38：使用静态内部类提高封装性</h2>
+<p>静态内部类与普通内部类的区别：</p>
+<p>（1）静态内部类不持有外部类的引用</p>
+<p>在普通内部类中，我们可以直接访问外部类的属性、方法，即使是private类型也可以访问，这是因为内部类持有一个外部类的引用，可以自由访问。</p>
+<p>而静态内部类，则只可以访问外部类的静态方法和静态属性（如果是private权限也能访问，这是由其代码位置所决定的），其他则不能访问。</p>
+<p>（2）静态内部类不依赖外部类</p>
+<p>普通内部类与外部类之间是相互依赖的关系，内部类实例不能脱离外部类实例，也就是说它们会同生同死，一起声明，一起被垃圾回收器回收。而静态内部类是可以独立存在的，即使外部类消亡了，静态内部类还是可以存在的。</p>
+<p>（3）普通内部类不能声明static的方法和变量</p>
+<p>普通内部类不能声明static的方法和变量，注意这里说的是变量，常量（也就是final static修饰的属性）还是可以的，而静态内部类形似外部类，没有任何限制。</p>
+<h2 id="39使用匿名类的构造函数">39：使用匿名类的构造函数</h2>
+<p>匿名类的构造函数是什么呢？它没有名字呀！很显然，初始化块就是它的构造函数。</p>
 
     </div>
 
