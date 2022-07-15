@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 12 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>StringUtils: leftPad&#43;rightPad</title>
+      <link>https://anjanavakil.github.io/post/stringutils/</link>
+      <pubDate>Fri, 15 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/stringutils/</guid>
+      <description>StringUtils的leftpad和righted方法源码分析 依赖： 1 2 3 4 5 6 &amp;lt;!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 --&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.commons&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;commons-lang3&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.12.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; leftPad: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19</description>
+    </item>
+    
     <item>
       <title>Vue</title>
       <link>https://anjanavakil.github.io/post/vue-notes/</link>
@@ -26,12 +35,48 @@
     </item>
     
     <item>
-      <title>Java编码</title>
+      <title>《一本书看透信贷：信贷业务全流程深度剖析》</title>
+      <link>https://anjanavakil.github.io/post/credit/</link>
+      <pubDate>Fri, 10 Jun 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/credit/</guid>
+      <description>豆瓣🔗： 《一本书看透信贷：信贷业务全流程深度剖析》 1.1 信贷基本概念 有些信贷业务银行并不提供资金，只提供信用支持，如票据承兑、保函、信用证等，称</description>
+    </item>
+    
+    <item>
+      <title>精彩video</title>
+      <link>https://anjanavakil.github.io/post/video/</link>
+      <pubDate>Thu, 02 Jun 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/video/</guid>
+      <description>网络上看过的精彩讲座/课程/录像/视频等： Jul 15: A Philosophy of Software Design | John Ousterhout | Talks at Google</description>
+    </item>
+    
+    <item>
+      <title>OOM</title>
+      <link>https://anjanavakil.github.io/post/oom/</link>
+      <pubDate>Fri, 20 May 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/oom/</guid>
+      <description>3.2 Understand the OutOfMemoryError Exception 翻译+理解： One common indication of a memory leak is the java.lang.OutOfMemoryError exception. Usually, this error is thrown when there is insufficient space to allocate an object in the Java heap. In this case, The garbage collector cannot make space available to accommodate a new object, and the heap cannot be expanded further. Also, this error may be thrown when there</description>
+    </item>
+    
+    <item>
+      <title>《编写高质量代码：改善Java程序的151个建议》</title>
       <link>https://anjanavakil.github.io/post/java-code/</link>
       <pubDate>Sun, 15 May 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/java-code/</guid>
       <description>豆瓣🔗： 《编写高质量代码：改善Java程序的151个建议》 第1章 Java开发中通用的方法和准则 11：养成良好习惯，显式声明UID 在序列化和反</description>
+    </item>
+    
+    <item>
+      <title>碎片学习笔记</title>
+      <link>https://anjanavakil.github.io/post/study/</link>
+      <pubDate>Fri, 06 May 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/study/</guid>
+      <description>SpringCloud学习 开发阶段，用热部署Devtools，但是一旦上线，应该关掉热部署。 客户消费者端口：80端口(一般用户都是80端口)</description>
     </item>
     
     <item>
@@ -140,51 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/pp-aha-algorithms/</guid>
       <description>《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少</description>
-    </item>
-    
-    <item>
-      <title>Cracking the Oyster 开篇</title>
-      <link>https://anjanavakil.github.io/post/pp-cracking-the-oyster/</link>
-      <pubDate>Thu, 24 Mar 2022 20:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/pp-cracking-the-oyster/</guid>
-      <description>《编程珠玑》的笔记。 作者 Jon Bentley 推荐的阅读方法，因此每次完成一章，重点是自己思考习题。 One hint about reading the essays: don’t go too fast. Read them carefully, one per sitting. Try the problems as they are posed — some</description>
-    </item>
-    
-    <item>
-      <title>Generics</title>
-      <link>https://anjanavakil.github.io/post/effective-java-generic/</link>
-      <pubDate>Wed, 23 Mar 2022 20:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective-java-generic/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原</description>
-    </item>
-    
-    <item>
-      <title>implement Comparable</title>
-      <link>https://anjanavakil.github.io/post/effective-java-comparable/</link>
-      <pubDate>Wed, 23 Mar 2022 13:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective-java-comparable/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 14: Consider implementing Comparable 考虑实现 Comparable 接口 Virtually all of the value classes in the Java platform libraries, as well as all enum types, implement Comparable. If you are writing a value class with an obvious natural ordering, such as alphabetical</description>
-    </item>
-    
-    <item>
-      <title>override equals</title>
-      <link>https://anjanavakil.github.io/post/effective-java-overriding-equals/</link>
-      <pubDate>Tue, 22 Mar 2022 15:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective-java-overriding-equals/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 10: Obey the general contract when overriding equals 覆盖 equals 方法时请遵守通用约定 Not to override the equals method 1. Each instance of the class is inherently unique. This is true for classes such as Thread that</description>
-    </item>
-    
-    <item>
-      <title>Memory Leaks &#43; Garbage Collect</title>
-      <link>https://anjanavakil.github.io/post/effective-java-gc/</link>
-      <pubDate>Tue, 22 Mar 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective-java-gc/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13</description>
     </item>
     
   </channel>

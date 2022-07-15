@@ -6,14 +6,50 @@
     <description>Recent content in Java🥬 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 15 May 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Java编码</title>
+      <title>StringUtils: leftPad&#43;rightPad</title>
+      <link>https://anjanavakil.github.io/post/stringutils/</link>
+      <pubDate>Fri, 15 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/stringutils/</guid>
+      <description>StringUtils的leftpad和righted方法源码分析 依赖： 1 2 3 4 5 6 &amp;lt;!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 --&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.commons&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;commons-lang3&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.12.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; leftPad: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19</description>
+    </item>
+    
+    <item>
+      <title>精彩video</title>
+      <link>https://anjanavakil.github.io/post/video/</link>
+      <pubDate>Thu, 02 Jun 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/video/</guid>
+      <description>网络上看过的精彩讲座/课程/录像/视频等： Jul 15: A Philosophy of Software Design | John Ousterhout | Talks at Google</description>
+    </item>
+    
+    <item>
+      <title>OOM</title>
+      <link>https://anjanavakil.github.io/post/oom/</link>
+      <pubDate>Fri, 20 May 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/oom/</guid>
+      <description>3.2 Understand the OutOfMemoryError Exception 翻译+理解： One common indication of a memory leak is the java.lang.OutOfMemoryError exception. Usually, this error is thrown when there is insufficient space to allocate an object in the Java heap. In this case, The garbage collector cannot make space available to accommodate a new object, and the heap cannot be expanded further. Also, this error may be thrown when there</description>
+    </item>
+    
+    <item>
+      <title>《编写高质量代码：改善Java程序的151个建议》</title>
       <link>https://anjanavakil.github.io/post/java-code/</link>
       <pubDate>Sun, 15 May 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/java-code/</guid>
       <description>豆瓣🔗： 《编写高质量代码：改善Java程序的151个建议》 第1章 Java开发中通用的方法和准则 11：养成良好习惯，显式声明UID 在序列化和反</description>
+    </item>
+    
+    <item>
+      <title>碎片学习笔记</title>
+      <link>https://anjanavakil.github.io/post/study/</link>
+      <pubDate>Fri, 06 May 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/study/</guid>
+      <description>SpringCloud学习 开发阶段，用热部署Devtools，但是一旦上线，应该关掉热部署。 客户消费者端口：80端口(一般用户都是80端口)</description>
     </item>
     
   </channel>
