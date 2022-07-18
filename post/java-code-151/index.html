@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>《编写高质量代码：改善Java程序的151个建议》 - Anjana</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Anjana" />
+  <meta name="description" content="豆瓣🔗： 《编写高质量代码：改善Java程序的151个建议》 第1章 Java开发中通用的方法和准则 11：养成良好习惯，显式声明UID 在序列化和反" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.93.0" />
+
+
+<link rel="canonical" href="https://anjanavakil.github.io/post/java-code-151/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="《编写高质量代码：改善Java程序的151个建议》" />
+<meta property="og:description" content="豆瓣🔗： 《编写高质量代码：改善Java程序的151个建议》 第1章 Java开发中通用的方法和准则 11：养成良好习惯，显式声明UID 在序列化和反" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/java-code-151/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-05-15T08:15:48+08:00" />
+<meta property="article:modified_time" content="2022-05-15T08:15:48+08:00" />
+
+<meta itemprop="name" content="《编写高质量代码：改善Java程序的151个建议》">
+<meta itemprop="description" content="豆瓣🔗： 《编写高质量代码：改善Java程序的151个建议》 第1章 Java开发中通用的方法和准则 11：养成良好习惯，显式声明UID 在序列化和反"><meta itemprop="datePublished" content="2022-05-15T08:15:48+08:00" />
+<meta itemprop="dateModified" content="2022-05-15T08:15:48+08:00" />
+<meta itemprop="wordCount" content="9405">
+<meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="《编写高质量代码：改善Java程序的151个建议》"/>
+<meta name="twitter:description" content="豆瓣🔗： 《编写高质量代码：改善Java程序的151个建议》 第1章 Java开发中通用的方法和准则 11：养成良好习惯，显式声明UID 在序列化和反"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Anjana</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/about/">About</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Anjana
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/about/">About</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">《编写高质量代码：改善Java程序的151个建议》</h1>
+      
+      <div class="post-meta">
+        <time datetime="2022-05-15" class="post-time">
+          2022-05-15
+        </time>
+        <div class="post-category">
+            <a href="https://anjanavakil.github.io/categories/java/"> Java🥬 </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#11养成良好习惯显式声明uid">11：养成良好习惯，显式声明UID</a></li>
+    <li><a href="#12避免用序列化类在构造函数中为不变量赋值">12：避免用序列化类在构造函数中为不变量赋值</a></li>
+    <li><a href="#13避免为final变量复杂赋值">13：避免为final变量复杂赋值</a></li>
+    <li><a href="#14使用序列化类的私有方法巧妙解决部分属性持久化问题">14：使用序列化类的私有方法巧妙解决部分属性持久化问题</a></li>
+    <li><a href="#15break万万不可忘">15：break万万不可忘</a></li>
+    <li><a href="#16易变业务使用脚本语言编写">16：易变业务使用脚本语言编写</a></li>
+    <li><a href="#17慎用动态编译">17：慎用动态编译</a></li>
+    <li><a href="#18避免instanceof非预期结果">18：避免instanceof非预期结果</a></li>
+    <li><a href="#19断言绝对不是鸡肋">19：断言绝对不是鸡肋</a></li>
+    <li><a href="#20不要只替换一个类">20：不要只替换一个类</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#21用偶判断不用奇判断">21：用偶判断，不用奇判断</a></li>
+    <li><a href="#22用整数类型处理货币">22：用整数类型处理货币</a></li>
+    <li><a href="#23不要让类型默默转换">23：不要让类型默默转换</a></li>
+    <li><a href="#25不要让四舍五入亏了一方">25：不要让四舍五入亏了一方</a></li>
+    <li><a href="#26提防包装类型的null值">26：提防包装类型的null值</a></li>
+    <li><a href="#27谨慎包装类型的大小比较">27：谨慎包装类型的大小比较</a></li>
+    <li><a href="#28优先使用整型池">28：优先使用整型池</a></li>
+    <li><a href="#29优先选择基本类型">29：优先选择基本类型</a></li>
+    <li><a href="#30不要随便设置随机种子">30：不要随便设置随机种子</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#31在接口中不要存在实现代码">31：在接口中不要存在实现代码</a></li>
+    <li><a href="#32静态变量一定要先声明后赋值">32：静态变量一定要先声明后赋值</a></li>
+    <li><a href="#33不要覆写静态方法">33：不要覆写静态方法</a></li>
+    <li><a href="#34构造函数尽量简化">34：构造函数尽量简化</a></li>
+    <li><a href="#35避免在构造函数中初始化其他类">35：避免在构造函数中初始化其他类</a></li>
+    <li><a href="#36使用构造代码块精炼程序">36：使用构造代码块精炼程序</a></li>
+    <li><a href="#37构造代码块会想你所想">37：构造代码块会想你所想</a></li>
+    <li><a href="#38使用静态内部类提高封装性">38：使用静态内部类提高封装性</a></li>
+    <li><a href="#39使用匿名类的构造函数">39：使用匿名类的构造函数</a></li>
+    <li><a href="#40匿名类的构造函数很特殊">40：匿名类的构造函数很特殊</a></li>
+    <li><a href="#41让多重继承成为现实">41：让多重继承成为现实</a></li>
+    <li><a href="#42让工具类不可实例化">42：让工具类不可实例化</a></li>
+    <li><a href="#43避免对象的浅拷贝">43：避免对象的浅拷贝</a></li>
+    <li><a href="#44推荐使用序列化实现对象的拷贝">44：推荐使用序列化实现对象的拷贝</a></li>
+    <li><a href="#45覆写equals方法时不要识别不出自己">45：覆写equals方法时不要识别不出自己</a></li>
+    <li><a href="#46equals应该考虑null值情景">46：equals应该考虑null值情景</a></li>
+    <li><a href="#47在equals中使用getclass进行类型判断">47：在equals中使用getClass进行类型判断</a></li>
+    <li><a href="#48覆写equals方法必须覆写hashcode方法">48：覆写equals方法必须覆写hashCode方法</a></li>
+    <li><a href="#49推荐覆写tostring方法">49：推荐覆写toString方法</a></li>
+    <li><a href="#50使用package-info类为包服务">50：使用package-info类为包服务</a></li>
+    <li><a href="#51不要主动进行垃圾回收">51：不要主动进行垃圾回收</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <ul>
+<li>
+<p>豆瓣🔗：</p>
+<p><a href="https://book.douban.com/subject/7059903/">《编写高质量代码：改善Java程序的151个建议》</a></p>
+</li>
+</ul>
+<h1 id="第1章-java开发中通用的方法和准则">第1章 Java开发中通用的方法和准则</h1>
+<h2 id="11养成良好习惯显式声明uid">11：养成良好习惯，显式声明UID</h2>
+<p>在序列化和反序列化的类不一致的情形下，反序列化时会报一个InvalidClassException异常，原因是序列化和反序列化所对应的类版本发生了变化，JVM不能把数据流转换为实例对象。</p>
+<p>JVM在反序列化时，会比较数据流中的serialVersionUID与类的serialVersionUID是否相同，如果相同，则认为类没有发生改变，可以把数据流load为实例对象；如果不相同，则会抛出异常InvalidClassException。</p>
+<h2 id="12避免用序列化类在构造函数中为不变量赋值">12：避免用序列化类在构造函数中为不变量赋值</h2>
+<p>反序列化的执行过程：</p>
+<p>JVM从数据流中获取一个Object对象，然后根据数据流中的类文件描述信息（在序列化时，保存到磁盘的对象文件中包含了类描述信息，注意是类描述信息，不是类）查看，发现是final变量，需要重新计算，于是引用Person类中的name值，而此时JVM又发现name竟然没有赋值，不能引用，于是它很“聪明”地不再初始化，保持原值状态，所以结果就是“混世魔王”了。</p>
+<p>注意：在序列化类中，不使用构造函数为final变量赋值。</p>
+<h2 id="13避免为final变量复杂赋值">13：避免为final变量复杂赋值</h2>
+<p>保存到磁盘上（或网络传输）的对象文件包括两部分：</p>
+<p>（1）类描述信息包括包路径、继承关系、访问权限、变量描述、变量访问权限、方法签名、返回值，以及变量的关联类信息。要注意的一点是，它并不是class文件的翻版，它不记录方法、构造函数、static变量等的具体实现。之所以类描述会被保存，很简单，是因为能去也能回嘛，这保证反序列化的健壮运行。</p>
+<p>（2）非瞬态（transient关键字）和非静态（static关键字）的实例变量值</p>
+<p>注意，这里的值如果是一个基本类型，好说，就是一个简单值保存下来；如果是复杂对象，也简单，连该对象和关联类信息一起保存，并且持续递归下去（关联类也必须实现Serializable接口，否则会出现序列化异常），也就是说递归到最后，其实还是基本数据类型的保存。正是因为这两点原因，一个持久化后的对象文件会比一个class类文件大很多，</p>
+<p>总结一下，反序列化时final变量在以下情况下不会被重新赋值：</p>
+<ul>
+<li>通过构造函数为final变量赋值。</li>
+<li>通过方法返回值为final变量赋值。</li>
+<li>final修饰的属性不是基本类型。</li>
+</ul>
+<h2 id="14使用序列化类的私有方法巧妙解决部分属性持久化问题">14：使用序列化类的私有方法巧妙解决部分属性持久化问题</h2>
+<p>解决部分属性持久化的方法：</p>
+<p>（1）在bonus前加上transient关键字</p>
+<p>这是一个方法，但不是一个好方法，加上transient关键字就标志着Salary类失去了分布式部署的功能，它可是HR系统最核心的类了，一旦遭遇性能瓶颈，想再实现分布式部署就不可能了，此方案否定。</p>
+<p>（2）新增业务对象增加一个Person4Tax类，完全为计税系统服务，就是说它只有两个属性：姓名和基本工资。符合开闭原则，而且对原系统也没有侵入性，只是增加了工作量而已。这是个方法，但不是最优方法。</p>
+<p>（3）请求端过滤在计税系统获得Person对象后，过滤掉Salary的bonus属性，方案可行但不合规矩，因为HR系统中的Salary类安全性竟然让外系统（计税系统）来承担，设计严重失职。</p>
+<p>（4）变更传输契约例如改用XML传输，或者重建一个Web Service服务。可以做，但成本太高。</p>
+<p>我们在Person类中增加了writeObject和readObject两个方法，并且访问权限都是私有级别，为什么这会改变程序的运行结果呢？</p>
+<p>这里使用了序列化独有的机制：<code>序列化回调</code>。</p>
+<p>Java调用ObjectOutputStream类把一个对象转换成流数据时，会通过<code>反射（Reflection）</code>检查被序列化的类是否有writeObject方法，并且检查其是否符合<code>私有、无返回值</code>的特性。若有，则会委托该方法进行对象序列化，若没有，则由ObjectOutputStream按照默认规则继续序列化。同样，在从流数据恢复成实例对象时，也会检查是否有一个私有的readObject方法，如果有，则会通过该方法读取属性值。此处有几个关键点要说明：</p>
+<p>（1）out.defaultWriteObject()告知JVM按照默认的规则写入对象，惯例的写法是写在第一句话里。</p>
+<p>（2）in.defaultReadObject()告知JVM按照默认规则读入对象，惯例的写法也是写在第一句话里。</p>
+<p>（3）out.writeXX和in.readXX分别是写入和读出相应的值，类似一个队列，先进先出，如果此处有复杂的数据逻辑，建议按封装Collection对象处理。</p>
+<h2 id="15break万万不可忘">15：break万万不可忘</h2>
+<h2 id="16易变业务使用脚本语言编写">16：易变业务使用脚本语言编写</h2>
+<p>修改Java代码，JVM没有重启，输入参数也没有任何改变，仅仅改变脚本函数即可产生不同的结果。这就是脚本语言对系统设计最有利的地方：可以随时发布而不用重新部署；</p>
+<h2 id="17慎用动态编译">17：慎用动态编译</h2>
+<p>只要是在本地静态编译能够实现的任务，比如编译参数、输入输出、错误监控等，动态编译就都能实现。</p>
+<p>Java的动态编译对源提供了多个渠道。比如，可以是字符串（例子中就是字符串），可以是文本文件，也可以是编译过的字节码文件（.class文件），甚至可以是存放在数据库中的明文代码或是字节码。汇总成一句话，只要是符合Java规范的就都可以在运行期动态加载，其实现方式就是实现JavaFileObject接口，重写getCharContent、openInputStream、openOutputStream，或者实现JDK已经提供的两个SimpleJavaFileObject、ForwardingJavaFileObject。</p>
+<h2 id="18避免instanceof非预期结果">18：避免instanceof非预期结果</h2>
+<p><code>'A' instanceof Character</code></p>
+<p>这句话可能有读者会猜错，事实上它编译不通过，为什么呢？因为&rsquo;A&rsquo;是一个char类型，也就是一个基本类型，不是一个对象，<code>instanceof只能用于对象的判断</code>，不能用于基本类型的判断。</p>
+<p><code>null instanceof String</code></p>
+<p>返回值是false，这是instanceof特有的规则：若左操作数是null，结果就直接返回false，不再运算右操作数是什么类。这对我们的程序非常有利，在使用instanceof操作符时，不用关心被判断的类（也就是左操作数）是否为null，这与我们经常用到的equals、toString方法不同。</p>
+<p><code> (String)null instanceof String</code></p>
+<p>返回值是false，不要看这里有个强制类型转换就认为结果是true，不是的，null是一个万用类型，也可以说它没类型，即使做类型转换还是个null。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//在泛型中判断String对象是否是Data的实例
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">new</span> <span class="n">GenericClass</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;().</span><span class="na">isDateInstance</span><span class="o">(</span><span class="s">&#34;&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">GenericClass</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//判断是否是Data类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isDateInstance</span><span class="o">(</span><span class="n">T</span> <span class="n">t</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">t</span> <span class="k">instanceof</span> <span class="n">Date</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>编译通不过？非也，编译通过了，返回值是false。</p>
+<p>T是个String类型，与Date之间没有继承或实现关系。</p>
+<p>为什么&rsquo;&rsquo;t instanceof Date&rsquo;&lsquo;会编译通过呢？那是因为Java的泛型是为编码服务的，在编译成字节码时，T已经是Object类型了，传递的实参是String类型，也就是说T的表面类型是Object，实际类型是String，那&rsquo;&rsquo;t instanceof Date&rsquo;&lsquo;这句话就等价于&rsquo;&lsquo;Object instance of Date&rsquo;&lsquo;了，所以返回false就很正常了。</p>
+<h2 id="19断言绝对不是鸡肋">19：断言绝对不是鸡肋</h2>
+<p>assert虽然是做断言的，但不能将其等价于if…else…这样的条件判断，它在以下两种情况不可使用：</p>
+<p>（1）在对外公开的方法中</p>
+<p>不能用断言做输入校验，特别是公开方法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Client</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">StringUtils</span><span class="o">.</span><span class="na">encode</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">StringUtils</span><span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">encode</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">assert</span> <span class="n">str</span><span class="o">!=</span><span class="kc">null</span><span class="o">:</span><span class="s">&#34;加密的字符串为null&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>encode方法对输入参数做了不为空的假设，如果为空，则抛出AssertionError错误，但这段程序存在一个严重的问题，encode是一个public方法，这标志着是它对外公开的，任何一个类只要能够传递一个String类型的参数（遵守契约）就可以调用，但是Client类按照规范和契约调用enocde方法，却获得了一个AssertionError错误信息，是谁破坏了契约协定？—是encode方法自己。</p>
+<p>（2）在执行逻辑代码的情况下</p>
+<p>assert的支持是可选的，在开发时可以让它运行，但在生产系统中则不需要其运行了（以便提高性能），因此在assert的布尔表达式中不能执行逻辑代码，否则会因为环境不同而产生不同的逻辑。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">doSomething</span><span class="o">(</span><span class="n">List</span> <span class="n">list</span><span class="o">,</span><span class="n">Object</span> <span class="n">element</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">assert</span> <span class="n">list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">element</span><span class="o">):</span><span class="s">&#34;删除元素&#34;</span> <span class="o">+</span> <span class="n">element</span> <span class="o">+</span> <span class="s">&#34;失败&#34;</span><span class="o">;</span>	
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在什么情况下能够使用assert呢？</p>
+<p>按照正常执行逻辑不可能到达的代码区域可以放置assert。</p>
+<p>具体分为三种情况：</p>
+<p>（1）在私有方法中放置assert作为输入参数的校验</p>
+<p>在私有方法中可以放置assert校验输入参数，因为私有方法的使用者是作者自己，私有方法的调用者和被调用者之间是一种弱契约关系，或者说没有契约关系，其间的约束是依靠作者自己控制的，因此加上assert可以更好地预防自己犯错，或者无意的程序犯错。</p>
+<p>（2）流程控制中不可能达到的区域</p>
+<p>这类似于JUnit的fail方法，其标志性的意义就是：程序执行到这里就是错误的，</p>
+<p>（3）建立程序探针</p>
+<p>我们可能会在一段程序中定义两个变量，分别代表两个不同的业务含义，但是两者有固定的关系，例如var1=var2*2，那我们就可以在程序中到处设“桩”，断言这两者的关系，如果不满足即表明程序已经出现了异常，业务也就没有必要运行下去了。</p>
+<h2 id="20不要只替换一个类">20：不要只替换一个类</h2>
+<p>对于<code>final修饰的基本类型</code>和<code>String</code>类型，编译器会认为它是<code>稳定态（Immutable Status）</code>，所以在编译时就直接把值编译到<code>字节码</code>中了，避免了在<code>运行期引用（Run-time Reference）</code>，以提高代码的执行效率。</p>
+<p>针对我们的例子来说，Client类在编译时，字节码中就写上了“150”这个<code>常量</code>，而不是一个<code>地址引用</code>，因此无论你后续怎么修改常量类，只要不重新编译Client类，输出还是照旧。</p>
+<p>而对于<code>final修饰的类（即非基本类型）</code>，编译器认为它是<code>不稳定态（Mutable Status）</code>，在编译时建立的则是引用关系（该类型也叫做Soft Final），如果Client类引入的常量是一个类或实例，即使不重新编译也会输出最新值。</p>
+<p>注意：发布应用系统时禁止使用类文件替换方式，整体WAR包发布才是万全之策。</p>
+<h1 id="第2章-基本类型">第2章 基本类型</h1>
+<h2 id="21用偶判断不用奇判断">21：用偶判断，不用奇判断</h2>
+<p>Java中的取余（%标示符）算法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">remainder</span><span class="o">(</span><span class="kt">int</span> <span class="n">dividend</span><span class="o">,</span><span class="kt">int</span> <span class="n">divisor</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">dividend</span> <span class="o">-</span> <span class="n">dividend</span> <span class="o">/</span> <span class="n">divisor</span> <span class="o">*</span> <span class="n">divisor</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>判断是否是偶数的错误写法：</p>
+<p><code>(i%2 ==1?&quot;奇数&quot;:&quot;偶数&quot;)</code></p>
+<p>判断是否是偶数的正确写法：</p>
+<p><code>(i%2 ==0?&quot;偶数&quot;:&quot;奇数&quot;)</code></p>
+<h2 id="22用整数类型处理货币">22：用整数类型处理货币</h2>
+<p>（1）使用BigDecimal</p>
+<p>BigDecimal是专门为弥补浮点数无法精确计算的缺憾而设计的类，并且它本身也提供了加减乘除的常用数学算法。特别是与数据库Decimal类型的字段映射时，BigDecimal是最优的解决方案。
+（2）使用整型</p>
+<p>把参与运算的值扩大100倍，并转变为整型，然后在展现时再缩小100倍，这样处理的好处是计算简单、准确，一般在非金融行业（如零售行业）应用较多。此方法还会用于某些零售POS机，它们的输入和输出全部是整数，那运算就更简单。</p>
+<h2 id="23不要让类型默默转换">23：不要让类型默默转换</h2>
+<p>错误：</p>
+<p><code>long dis2 = LIGHT_SPEED * 60 * 8;</code></p>
+<p>正确：</p>
+<p><code>long dis2 = LIGHT_SPEED * 60L * 8;</code></p>
+<p><code>long dis2 = 1L*LIGHT_SPEED * 60 * 8;</code></p>
+<p>基本类型转换时，使用主动声明方式减少不必要的Bug。</p>
+<h2 id="25不要让四舍五入亏了一方">25：不要让四舍五入亏了一方</h2>
+<p>修正算法：银行家舍入（Banker&rsquo;s Round）的近似算法，其规则如下：</p>
+<ul>
+<li>舍去位的数值小于5时，直接舍去；</li>
+<li>舍去位的数值大于等于6时，进位后舍去；</li>
+<li>当舍去位的数值等于5时，分两种情况：5后面还有其他数字（非0），则进位后舍去；若5后面是0（即5是最后一个数字），则根据5前一位数的奇偶性来判断是否需要进位，奇数进位，偶数舍去。</li>
+</ul>
+<p>以上规则汇总成一句话：四舍六入五考虑，五后非零就进一，五后为零看奇偶，五前为偶应舍去，五前为奇要进一。</p>
+<p>BigDecimal和RoundingMode是一个绝配，想要采用什么舍入模式使用RoundingMode设置即可。目前Java支持以下七种舍入方式：</p>
+<ul>
+<li>
+<p>ROUND_UP：远离零方向舍入。</p>
+<p>向远离0的方向舍入，也就是说，向绝对值最大的方向舍入，只要舍弃位非0即进位。</p>
+</li>
+<li>
+<p>ROUND_DOWN：趋向零方向舍入。</p>
+<p>向0方向靠拢，也就是说，向绝对值最小的方向输入，注意：所有的位都舍弃，不存在进位情况。</p>
+</li>
+<li>
+<p>ROUND_CEILING：向正无穷方向舍入。</p>
+<p>向正最大方向靠拢，如果是正数，舍入行为类似于ROUND_UP；如果为负数，则舍入行为类似于ROUND_DOWN。注意：Math.round方法使用的即为此模式。</p>
+</li>
+<li>
+<p>ROUND_FLOOR：向负无穷方向舍入。</p>
+<p>向负无穷方向靠拢，如果是正数，则舍入行为类似于 ROUND_DOWN；如果是负数，则舍入行为类似于ROUND_UP。</p>
+</li>
+<li>
+<p>HALF_UP：最近数字舍入（5进）。</p>
+<p>这就是我们最最经典的四舍五入模式。</p>
+</li>
+<li>
+<p>HALF_DOWN：最近数字舍入（5舍）。</p>
+<p>在四舍五入中，5是进位的，而在HALF_DOWN中却是舍弃不进位。</p>
+</li>
+<li>
+<p>HALF_EVEN：银行家算法。</p>
+<p>在普通的项目中舍入模式不会有太多影响，可以直接使用Math.round方法，但在大量与货币数字交互的项目中，一定要选择好近似的计算模式，尽量减少因算法不同而造成的损失。</p>
+</li>
+</ul>
+<h2 id="26提防包装类型的null值">26：提防包装类型的null值</h2>
+<p>包装类型参与运算时，要做null值校验。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+</span></span><span class="line"><span class="cl">		<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">2</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">f</span><span class="o">(</span><span class="n">list</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">f</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">:</span><span class="n">list</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">			<span class="n">count</span> <span class="o">+=</span> <span class="n">i</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行结果：Exception in thread &ldquo;main&rdquo; java.lang.NullPointerException</p>
+<p>报空指针异常：在程序的for循环中，隐含了一个拆箱过程，在此过程中包装类型转换为了基本类型。我们知道拆箱过程是通过调用包装对象的intValue方法来实现的，由于包装对象是null值，访问其intValue方法报空指针异常也就在所难免了。</p>
+<p>解决方法：加入null值检查即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">f</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="o">(</span><span class="n">Integer</span> <span class="n">i</span> <span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">count</span> <span class="o">+=</span> <span class="o">(</span><span class="n">i</span><span class="o">!=</span><span class="kc">null</span><span class="o">)?</span><span class="n">i</span><span class="o">:</span><span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="27谨慎包装类型的大小比较">27：谨慎包装类型的大小比较</h2>
+<p>在Java中，“&gt;”和“&lt;”用来判断两个数字类型的大小关系，注意只能是数字型的判断，对于Integer包装类型，是根据其intValue()方法的返回值（也就是其相应的基本类型）进行比较的（其他包装类型是根据相应的value值来比较的，如doubleValue、floatValue等），那很显然，两者不可能有大小关系的。</p>
+<p>修改方法：</p>
+<p>直接使用Integer实例的compareTo方法即可。但是这类问题的产生更应该说是习惯问题，只要是两个对象之间的比较就应该采用相应的方法，而不是通过Java的默认机制来处理。</p>
+<h2 id="28优先使用整型池">28：优先使用整型池</h2>
+<p>整型池的存在不仅仅提高了系统性能，同时也节约了内存空间，这也是我们使用整型池的原因，也就是在声明包装对象的时候使用valueOf生成，而不是通过构造函数来生成的原因。</p>
+<p>在判断对象是否相等的时候，最好是用equals方法，避免用“==”产生非预期结果。</p>
+<p>注意：通过包装类的valueOf生成包装实例可以显著提高空间和时间性能。</p>
+<h2 id="29优先选择基本类型">29：优先选择基本类型</h2>
+<p>自动装箱有一个重要的原则：基本类型可以先加宽，再转变成宽类型的包装类型，但不能直接转变成宽类型的包装类型。</p>
+<p>这句话比较拗口，简单地说就是，int可以加宽转变成long，然后再转变成Long对象，但不能直接转变成包装类型，注意这里指的都是自动转换，不是通过构造函数生成。</p>
+<p>注意：基本类型优先考虑。</p>
+<h2 id="30不要随便设置随机种子">30：不要随便设置随机种子</h2>
+<p>在Java中有两种方法可以获得不同的随机数：通过java.util.Random类获得随机数的原理和Math.random方法相同，Math.random()方法也是通过生成一个Random类的实例，然后委托nextDouble()方法的，两者是殊途同归，没有差别。</p>
+<h1 id="第3章-类对象及方法">第3章 类、对象及方法</h1>
+<h2 id="31在接口中不要存在实现代码">31：在接口中不要存在实现代码</h2>
+<h2 id="32静态变量一定要先声明后赋值">32：静态变量一定要先声明后赋值</h2>
+<h2 id="33不要覆写静态方法">33：不要覆写静态方法</h2>
+<p>一个实例对象有两个类型：表面类型（Apparent Type）和实际类型（Actual Type），表面类型是声明时的类型，实际类型是对象产生时的类型。</p>
+<p>比如，变量base的表面类型是Base，实际类型是Sub。对于非静态方法，它是根据对象的实际类型来执行的，也就是执行了Sub类中的doAnything方法。而对于静态方法来说就比较特殊了，首先静态方法不依赖实例对象，它是通过类名访问的；其次，可以通过对象访问静态方法，如果是通过对象调用静态方法，JVM则会通过对象的表面类型查找到静态方法的入口，继而执行之。</p>
+<p>通过实例对象访问静态方法或静态属性不是好习惯，它给代码带来了“坏味道”。</p>
+<h2 id="34构造函数尽量简化">34：构造函数尽量简化</h2>
+<h2 id="35避免在构造函数中初始化其他类">35：避免在构造函数中初始化其他类</h2>
+<h2 id="36使用构造代码块精炼程序">36：使用构造代码块精炼程序</h2>
+<p>编译器会把构造代码块插入到每个构造函数的最前端，</p>
+<p>构造代码块会在每个构造函数内首先执行（需要注意的是：构造代码块不是在构造函数之前运行的，它依托于构造函数的执行）</p>
+<p>构造代码块应用：</p>
+<p>（1）初始化实例变量（Instance Variable）</p>
+<p>如果每个构造函数都要初始化变量，可以通过构造代码块来实现。当然也可以通过定义一个方法，然后在每个构造函数中调用该方法来实现，没错，可以解决，但是要在每个构造函数中都调用该方法，而这就是其缺点，若采用构造代码块的方式则不用定义和调用，会直接由编译器写入到每个构造函数中，这才是解决此类问题的绝佳方式。</p>
+<p>（2）初始化实例环境</p>
+<p>一个对象必须在适当的场景下才能存在，如果没有适当的场景，则就需要在创建对象时创建此场景，例如在JEE开发中，要产生HTTP Request必须首先建立HTTP Session，在创建HTTP Request时就可以通过构造代码块来检查HTTP Session是否已经存在，不存在则创建之。</p>
+<p>构造代码块的两个特性：在每个构造函数中都运行和在构造函数中它会首先运行。</p>
+<h2 id="37构造代码块会想你所想">37：构造代码块会想你所想</h2>
+<p>上一个建议是说编译器会把构造代码块插入到每一个构造函数中，但是有一个例外的情况没有说明：如果遇到this关键字（也就是构造函数调用自身其他的构造函数时）则不插入构造代码块。</p>
+<p>这还要从构造代码块的诞生说起，构造代码块是为了提取构造函数的共同量，减少各个构造函数的代码而产生的，因此，Java就很聪明地认为把代码块插入到没有this方法的构造函数中即可，而调用其他构造函数的则不插入，<code>确保每个构造函数只执行一次构造代码块</code>。</p>
+<p>在构造代码块的处理上，super方法没有任何特殊的地方，编译器只是把构造代码块插入到super方法之后执行而已。</p>
+<h2 id="38使用静态内部类提高封装性">38：使用静态内部类提高封装性</h2>
+<p>静态内部类与普通内部类的区别：</p>
+<p>（1）静态内部类不持有外部类的引用</p>
+<p>在普通内部类中，我们可以直接访问外部类的属性、方法，即使是private类型也可以访问，这是因为内部类持有一个外部类的引用，可以自由访问。</p>
+<p>而静态内部类，则只可以访问外部类的静态方法和静态属性（如果是private权限也能访问，这是由其代码位置所决定的），其他则不能访问。</p>
+<p>（2）静态内部类不依赖外部类</p>
+<p>普通内部类与外部类之间是相互依赖的关系，内部类实例不能脱离外部类实例，也就是说它们会同生同死，一起声明，一起被垃圾回收器回收。而静态内部类是可以独立存在的，即使外部类消亡了，静态内部类还是可以存在的。</p>
+<p>（3）普通内部类不能声明static的方法和变量</p>
+<p>普通内部类不能声明static的方法和变量，注意这里说的是变量，常量（也就是final static修饰的属性）还是可以的，而静态内部类形似外部类，没有任何限制。</p>
+<h2 id="39使用匿名类的构造函数">39：使用匿名类的构造函数</h2>
+<p>匿名函数虽然没有名字，但也是可以有构造函数的，它用构造函数块来代替</p>
+<h2 id="40匿名类的构造函数很特殊">40：匿名类的构造函数很特殊</h2>
+<p>一般类（也就是具有显式名字的类）的所有构造函数默认都是调用父类的无参构造的，而匿名类因为没有名字，只能由构造代码块代替，也就无所谓的有参和无参构造函数了，它在初始化时直接调用了父类的同参数构造，然后再调用了自己的构造代码块。</p>
+<h2 id="41让多重继承成为现实">41：让多重继承成为现实</h2>
+<p>需要用到多重继承时，可以思考一下内部类。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">interface</span> <span class="nc">Father</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">strong</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">interface</span> <span class="nc">Mother</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">kind</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">FatherImpl</span> <span class="kd">implements</span> <span class="n">Father</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">strong</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">8</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">MotherImpl</span> <span class="kd">implements</span> <span class="n">Mother</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">kind</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">8</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>成员内部类（也叫做实例内部类，Instance Inner Class）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Son</span> <span class="kd">extends</span> <span class="n">FatherImpl</span> <span class="kd">implements</span> <span class="n">Mother</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">strong</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">strong</span><span class="o">()</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">kind</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">MotherSpecial</span><span class="o">().</span><span class="na">kind</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">MotherSpecial</span> <span class="kd">extends</span> <span class="n">MotherImpl</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">int</span> <span class="nf">kind</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">kind</span><span class="o">()</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>内部类的一个重要特性：内部类可以继承一个与外部类无关的类，保证了内部类的独立性。</p>
+<p>匿名内部类（Anonymous Inner Class）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Daughter</span> <span class="kd">extends</span> <span class="n">MotherImpl</span> <span class="kd">implements</span> <span class="n">Father</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">strong</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">FatherImpl</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">public</span> <span class="kt">int</span> <span class="nf">strong</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">strong</span><span class="o">()</span> <span class="o">-</span> <span class="n">2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}.</span><span class="na">strong</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="42让工具类不可实例化">42：让工具类不可实例化</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public final class Math {
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    /**
+</span></span><span class="line"><span class="cl">     * Don&#39;t let anyone instantiate this class.
+</span></span><span class="line"><span class="cl">     */
+</span></span><span class="line"><span class="cl">    private Math() {}
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="43避免对象的浅拷贝">43：避免对象的浅拷贝</h2>
+<p>浅拷贝（Shadow Clone，也叫做影子拷贝）存在对象属性拷贝不彻底的问题。</p>
+<h2 id="44推荐使用序列化实现对象的拷贝">44：推荐使用序列化实现对象的拷贝</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CloneUtils</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&#34;unchecked&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span> <span class="kd">extends</span> <span class="n">Serializable</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">clone</span><span class="o">(</span><span class="n">T</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">T</span> <span class="n">clonedObj</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ByteArrayOutputStream</span> <span class="n">baos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayOutputStream</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ObjectOutputStream</span> <span class="n">oos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="o">(</span><span class="n">baos</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">oos</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">obj</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">oos</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ByteArrayInputStream</span> <span class="n">bais</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayInputStream</span><span class="o">(</span><span class="n">baos</span><span class="o">.</span><span class="na">toByteArray</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ObjectInputStream</span> <span class="n">ois</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectInputStream</span><span class="o">(</span><span class="n">bais</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">clonedObj</span> <span class="o">=</span> <span class="o">(</span><span class="n">T</span><span class="o">)</span> <span class="n">ois</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ois</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">clonedObj</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>采用序列化方式拷贝时还有一个更简单的办法，即使用Apache下的commons工具包中的SerializationUtils类，直接使用更加简洁方便。</p>
+<h2 id="45覆写equals方法时不要识别不出自己">45：覆写equals方法时不要识别不出自己</h2>
+<p>equals的自反性原则：对于任何非空引用x，x.equals(x)应该返回true。</p>
+<h2 id="46equals应该考虑null值情景">46：equals应该考虑null值情景</h2>
+<p>equals的对称性原则：对于任何引用x和y的情形，如果x.equals(y)返回true，那么y.equals(x)也应该返回true。</p>
+<h2 id="47在equals中使用getclass进行类型判断">47：在equals中使用getClass进行类型判断</h2>
+<p>equals的传递性原则：对于实例对象x、y、z来说，如果x.equals(y)返回true，y.equals(z)返回true，那么x.equals(z)也应该返回true。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">(</span><span class="n">obj</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">obj</span><span class="o">.</span><span class="na">getClass</span><span class="o">()</span> <span class="o">==</span> <span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Person</span> <span class="n">p</span> <span class="o">=</span> <span class="o">(</span><span class="n">Person</span><span class="o">)</span> <span class="n">obj</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">name</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在覆写equals时建议使用getClass进行类型判断，而不要使用instanceof。</p>
+<h2 id="48覆写equals方法必须覆写hashcode方法">48：覆写equals方法必须覆写hashCode方法</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="k">new</span> <span class="n">HashCodeBuilder</span><span class="o">().</span><span class="na">append</span><span class="o">(</span><span class="n">name</span><span class="o">).</span><span class="na">toHashCode</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中HashCodeBuilder是org.apache.commons.lang.builder包下的一个哈希码生成工具，使用起来非常方便，可以直接在项目中集成。</p>
+<h2 id="49推荐覆写tostring方法">49：推荐覆写toString方法</h2>
+<h2 id="50使用package-info类为包服务">50：使用package-info类为包服务</h2>
+<h2 id="51不要主动进行垃圾回收">51：不要主动进行垃圾回收</h2>
+<p>不要调用System.gc，即使经常出现内存溢出也不要调用，内存溢出是可分析的，是可以查找出原因的。</p>
+<h1 id="第4章-字符串">第4章 字符串</h1>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Anjana</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2022-05-15
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a href="https://github.com/gohugoio/hugoBasicExample" rel="noopener" target="_blank">See origin</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/oom/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">OOM</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/study/">
+            <span class="next-text nav-default">碎片学习笔记</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:anjana.cheng@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/AnjanaVakil" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.douban.com/people/188748525/?_i=5959211pTN39WJ,5959254pTN39WJ" rel="me noopener" class="iconfont"
+      title="douban"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M926.917973 37.80608C959.65184 37.80608 986.19392 64.34816 986.19392 97.082027L986.19392 926.917973C986.19392 959.65184 959.65184 986.19392 926.917973 986.19392L97.082027 986.19392C64.34816 986.19392 37.80608 959.65184 37.80608 926.917973L37.80608 97.082027C37.80608 64.34816 64.34816 37.80608 97.082027 37.80608zM176.653653 176.19968 176.653653 252.678827 825.658027 252.678827 825.658027 176.19968zM217.719467 316.146347 217.719467 628.08064 273.524053 628.08064 341.292373 770.39616 157.259093 770.39616 157.259093 845.417813 842.949973 845.417813 842.949973 770.39616 654.226773 770.39616 722.899627 628.08064 783.67744 628.08064 783.67744 316.146347zM684.885333 392.891733 684.885333 553.987413 312.576 553.987413 312.576 392.891733zM570.770773 770.39616 426.653013 770.39616 359.621973 628.08064 639.443627 628.08064z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://anjanavakil.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2021 -
+    2022
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Anjana
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -35,12 +35,21 @@
     </item>
     
     <item>
+      <title>JVM</title>
+      <link>https://anjanavakil.github.io/post/jvm/</link>
+      <pubDate>Sun, 12 Jun 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/jvm/</guid>
+      <description>类加载子系统 运行时数据区概述及线程</description>
+    </item>
+    
+    <item>
       <title>精彩video</title>
       <link>https://anjanavakil.github.io/post/video/</link>
       <pubDate>Thu, 02 Jun 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/video/</guid>
-      <description>网络上看过的精彩讲座/课程/录像/视频等： Jul 15: A Philosophy of Software Design | John Ousterhout | Talks at Google</description>
+      <description>网络上看过的精彩讲座/课程/录像/视频等： Jul 15: A Philosophy of Software Design | John Ousterhout | Talks at Google John Ousterhout, Professor of Computer Science at Stanford University, discusses complex techniques on how to become a more confident coder. John is excited to announce that he just published the first edition of a new</description>
     </item>
     
     <item>
@@ -54,10 +63,10 @@
     
     <item>
       <title>《编写高质量代码：改善Java程序的151个建议》</title>
-      <link>https://anjanavakil.github.io/post/java-code/</link>
+      <link>https://anjanavakil.github.io/post/java-code-151/</link>
       <pubDate>Sun, 15 May 2022 08:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/java-code/</guid>
+      <guid>https://anjanavakil.github.io/post/java-code-151/</guid>
       <description>豆瓣🔗： 《编写高质量代码：改善Java程序的151个建议》 第1章 Java开发中通用的方法和准则 11：养成良好习惯，显式声明UID 在序列化和反</description>
     </item>
     
@@ -176,15 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/effective-java-generic/</guid>
       <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原</description>
-    </item>
-    
-    <item>
-      <title>implement Comparable</title>
-      <link>https://anjanavakil.github.io/post/effective-java-comparable/</link>
-      <pubDate>Wed, 23 Mar 2022 13:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective-java-comparable/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 14: Consider implementing Comparable 考虑实现 Comparable 接口 Virtually all of the value classes in the Java platform libraries, as well as all enum types, implement Comparable. If you are writing a value class with an obvious natural ordering, such as alphabetical</description>
     </item>
     
   </channel>
