@@ -69,7 +69,7 @@
 <meta itemprop="name" content="《编写高质量代码：改善Java程序的151个建议》">
 <meta itemprop="description" content="豆瓣🔗： 《编写高质量代码：改善Java程序的151个建议》 第1章 Java开发中通用的方法和准则 11：养成良好习惯，显式声明UID 在序列化和反"><meta itemprop="datePublished" content="2022-05-15T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-05-15T08:15:48+08:00" />
-<meta itemprop="wordCount" content="9405">
+<meta itemprop="wordCount" content="10511">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="《编写高质量代码：改善Java程序的151个建议》"/>
 <meta name="twitter:description" content="豆瓣🔗： 《编写高质量代码：改善Java程序的151个建议》 第1章 Java开发中通用的方法和准则 11：养成良好习惯，显式声明UID 在序列化和反"/>
@@ -365,6 +365,12 @@
     <li><a href="#49推荐覆写tostring方法">49：推荐覆写toString方法</a></li>
     <li><a href="#50使用package-info类为包服务">50：使用package-info类为包服务</a></li>
     <li><a href="#51不要主动进行垃圾回收">51：不要主动进行垃圾回收</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#52推荐使用string直接量赋值">52：推荐使用String直接量赋值</a></li>
+    <li><a href="#53注意方法中传递的参数要求">53：注意方法中传递的参数要求</a></li>
+    <li><a href="#54正确使用stringstringbufferstringbuilder">54：正确使用String、StringBuffer、StringBuilder</a></li>
   </ul>
 </nav>
   </div>
@@ -941,6 +947,24 @@
 <h2 id="51不要主动进行垃圾回收">51：不要主动进行垃圾回收</h2>
 <p>不要调用System.gc，即使经常出现内存溢出也不要调用，内存溢出是可分析的，是可以查找出原因的。</p>
 <h1 id="第4章-字符串">第4章 字符串</h1>
+<h2 id="52推荐使用string直接量赋值">52：推荐使用String直接量赋值</h2>
+<p>字符串池（字符串常量池，String Pool或String Constant Pool 或 String Literal Pool），在字符串池中所容纳的都是String字符串对象，它的创建机制是这样的：创建一个字符串时，首先检查池中是否有字面值相等的字符串，如果有，则不再创建，直接返回池中该对象的引用，若没有则创建之，然后放到池中，并返回新建对象的引用。</p>
+<p>因为intern会检查当前的对象在对象池中是否有字面值相同的引用对象，如果有则返回池中对象，如果没有则放置到对象池中，并返回当前对象。</p>
+<p>String类是一个不可变（Immutable）对象其实有两层意思：</p>
+<ul>
+<li>一是String类是final类，不可继承，不可能产生一个String的子类；</li>
+<li>二是在String类提供的所有方法中，如果有String返回值，就会新建一个String对象，不对原对象进行修改，这也就保证了原对象是不可改变的。</li>
+</ul>
+<p>虽然Java的每个对象都保存在堆内存中，但是字符串池非常特殊，它在编译期已经决定了其存在JVM的常量池（Constant Pool），垃圾回收器是不会对它进行回收的。</p>
+<h2 id="53注意方法中传递的参数要求">53：注意方法中传递的参数要求</h2>
+<p>replaceAll传递的第一个参数是正则表达式。</p>
+<h2 id="54正确使用stringstringbufferstringbuilder">54：正确使用String、StringBuffer、StringBuilder</h2>
+<p>StringBuilder与StringBuffer基本相同，都是可变字符序列，不同点是：StringBuffer是线程安全的，StringBuilder是线程不安全的，翻翻两者的源代码，就会发现在StringBuffer的方法前都有synchronized关键字，这也是StringBuffer在性能上远低于StringBuilder的原因。</p>
+<p>在性能方面，由于String类的操作都是产生新的String对象，而StringBuilder和StringBuffer只是一个字符数组的再扩容而已，所以String类的操作要远慢于StringBuffer和StringBuilder。</p>
+<p>在不同的场景下使用不同的字符序列：</p>
+<p>（1）使用String类的场景在字符串不经常变化的场景中可以使用String类，例如常量的声明、少量的变量运算等。</p>
+<p>（2）使用StringBuffer类的场景在频繁进行字符串的运算（如拼接、替换、删除等），并且运行在多线程的环境中，则可以考虑使用StringBuffer，例如XML解析、HTTP参数解析和封装等。</p>
+<p>（3）使用StringBuilder类的场景在频繁进行字符串的运算（如拼接、替换、删除等），并且运行在单线程的环境中，则可以考虑使用StringBuilder，如SQL语句的拼装、JSON封装等。</p>
 
     </div>
 
