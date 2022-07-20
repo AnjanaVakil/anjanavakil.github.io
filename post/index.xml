@@ -17,15 +17,6 @@
     </item>
     
     <item>
-      <title>Vue</title>
-      <link>https://anjanavakil.github.io/post/vue-notes/</link>
-      <pubDate>Tue, 12 Jul 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/vue-notes/</guid>
-      <description>第1章 Vue.js基础 使用Ajax下载一个列表数据并在页面上显示。 第一段使用jQuery实现： 使用jQuery的代码逻辑是下载列表数据，选择</description>
-    </item>
-    
-    <item>
       <title>Spring Batch</title>
       <link>https://anjanavakil.github.io/post/springbatch-notes/</link>
       <pubDate>Mon, 11 Jul 2022 08:15:48 +0800</pubDate>
@@ -113,6 +104,15 @@
       
       <guid>https://anjanavakil.github.io/post/vocabulary-2022-3-4/</guid>
       <description>真心觉得这样记单词学英语其实效率不高，但其实每天记录下阅读英文网站/书籍时遇到的陌生词汇，也算是种监督，起码像中文一样每天都有接触到英文。 2</description>
+    </item>
+    
+    <item>
+      <title>SQL</title>
+      <link>https://anjanavakil.github.io/post/sql/</link>
+      <pubDate>Fri, 15 Apr 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/sql/</guid>
+      <description>SQL SELECT 1 FROM TABLE，SQL语句中的1： select 1 from table; select anycol（目的表集合中的任意一行）from table; select * from table; 从作用上来说是没有差别的，都是查看是</description>
     </item>
     
     <item>
