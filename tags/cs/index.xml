@@ -6,7 +6,16 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 15 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java源码阅读分析</title>
+      <link>https://anjanavakil.github.io/post/java-source-code/</link>
+      <pubDate>Fri, 22 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/java-source-code/</guid>
+      <description>Object Cloneable接口： 1 2 public interface Cloneable { } A class implements the Cloneable interface to indicate to the Object.clone() method that it is legal for that method to make a field-for-field copy of instances of that class. Invoking Object&amp;rsquo;s clone method on an instance that does not implement the Cloneable interface results in the exception CloneNotSupportedExceptionbeing thrown. By</description>
+    </item>
+    
     <item>
       <title>StringUtils: leftPad&#43;rightPad</title>
       <link>https://anjanavakil.github.io/post/stringutils/</link>
@@ -31,7 +40,16 @@
       <pubDate>Sun, 12 Jun 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/jvm/</guid>
-      <description>类加载子系统 运行时数据区概述及线程</description>
+      <description>Java SE 8虚拟机规范：The Java® Virtual Machine Specification-Java SE 8 Edition 类加载子系统 运行时数据区概述及线程 Run-Time Data Areas The Java Virtual Machine defines various run-time data areas that are used during execution of a program. Some of these data areas are created on Java Virtual</description>
+    </item>
+    
+    <item>
+      <title>Redis</title>
+      <link>https://anjanavakil.github.io/post/redis/</link>
+      <pubDate>Sun, 05 Jun 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/redis/</guid>
+      <description>官方文档： Redis documentation Redis Sentinel High availability with Redis Sentinel Redis Sentinel provides high availability for Redis when not using Redis Cluster. Running Sentinel However it is mandatory to use a configuration file when running Sentinel, as this file will be used by the system in order to save the current state that will be reloaded in case of restarts. Sentinel will simply refuse to start</description>
     </item>
     
     <item>
@@ -50,6 +68,15 @@
       
       <guid>https://anjanavakil.github.io/post/oom/</guid>
       <description>3.2 Understand the OutOfMemoryError Exception 翻译+理解： One common indication of a memory leak is the java.lang.OutOfMemoryError exception. Usually, this error is thrown when there is insufficient space to allocate an object in the Java heap. In this case, The garbage collector cannot make space available to accommodate a new object, and the heap cannot be expanded further. Also, this error may be thrown when there</description>
+    </item>
+    
+    <item>
+      <title>DATABASE数据库</title>
+      <link>https://anjanavakil.github.io/post/database/</link>
+      <pubDate>Wed, 18 May 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/database/</guid>
+      <description>Oracle Sequence序列 Oracle / PLSQL: Sequences (Autonumber) Oracle NEXTVAL function tips CREATE SEQUENCE 值得注意的几点： When a sequence number is generated, the sequence is incremented, independent of the transaction committing or rolling back. If two users concurrently increment the same sequence, then the sequence numbers each user acquires may have gaps, because sequence numbers are</description>
     </item>
     
     <item>
@@ -158,33 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/springboot-notes/</guid>
       <description>豆瓣🔗：《SpringBoot+Vue全栈开发实战》 一些SpringBoot陌生部分的笔记。技术类书籍，不能说有多好，但是如果有一份好的代码</description>
-    </item>
-    
-    <item>
-      <title>Aha! Algorithms 啊哈！算法</title>
-      <link>https://anjanavakil.github.io/post/pp-aha-algorithms/</link>
-      <pubDate>Fri, 25 Mar 2022 20:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/pp-aha-algorithms/</guid>
-      <description>《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少</description>
-    </item>
-    
-    <item>
-      <title>Cracking the Oyster 开篇</title>
-      <link>https://anjanavakil.github.io/post/pp-cracking-the-oyster/</link>
-      <pubDate>Thu, 24 Mar 2022 20:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/pp-cracking-the-oyster/</guid>
-      <description>《编程珠玑》的笔记。 作者 Jon Bentley 推荐的阅读方法，因此每次完成一章，重点是自己思考习题。 One hint about reading the essays: don’t go too fast. Read them carefully, one per sitting. Try the problems as they are posed — some</description>
-    </item>
-    
-    <item>
-      <title>Generics</title>
-      <link>https://anjanavakil.github.io/post/effective-java-generic/</link>
-      <pubDate>Wed, 23 Mar 2022 20:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective-java-generic/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原</description>
     </item>
     
   </channel>

@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 15 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java源码阅读分析</title>
+      <link>https://anjanavakil.github.io/post/java-source-code/</link>
+      <pubDate>Fri, 22 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/java-source-code/</guid>
+      <description>Object Cloneable接口： 1 2 public interface Cloneable { } A class implements the Cloneable interface to indicate to the Object.clone() method that it is legal for that method to make a field-for-field copy of instances of that class. Invoking Object&amp;rsquo;s clone method on an instance that does not implement the Cloneable interface results in the exception CloneNotSupportedExceptionbeing thrown. By</description>
+    </item>
+    
     <item>
       <title>StringUtils: leftPad&#43;rightPad</title>
       <link>https://anjanavakil.github.io/post/stringutils/</link>
@@ -31,7 +40,7 @@
       <pubDate>Sun, 12 Jun 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/jvm/</guid>
-      <description>类加载子系统 运行时数据区概述及线程</description>
+      <description>Java SE 8虚拟机规范：The Java® Virtual Machine Specification-Java SE 8 Edition 类加载子系统 运行时数据区概述及线程 Run-Time Data Areas The Java Virtual Machine defines various run-time data areas that are used during execution of a program. Some of these data areas are created on Java Virtual</description>
     </item>
     
     <item>
@@ -41,6 +50,15 @@
       
       <guid>https://anjanavakil.github.io/post/credit/</guid>
       <description>豆瓣🔗： 《一本书看透信贷：信贷业务全流程深度剖析》 1.1 信贷基本概念 有些信贷业务银行并不提供资金，只提供信用支持，如票据承兑、保函、信用证等，称</description>
+    </item>
+    
+    <item>
+      <title>Redis</title>
+      <link>https://anjanavakil.github.io/post/redis/</link>
+      <pubDate>Sun, 05 Jun 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/redis/</guid>
+      <description>官方文档： Redis documentation Redis Sentinel High availability with Redis Sentinel Redis Sentinel provides high availability for Redis when not using Redis Cluster. Running Sentinel However it is mandatory to use a configuration file when running Sentinel, as this file will be used by the system in order to save the current state that will be reloaded in case of restarts. Sentinel will simply refuse to start</description>
     </item>
     
     <item>
@@ -59,6 +77,15 @@
       
       <guid>https://anjanavakil.github.io/post/oom/</guid>
       <description>3.2 Understand the OutOfMemoryError Exception 翻译+理解： One common indication of a memory leak is the java.lang.OutOfMemoryError exception. Usually, this error is thrown when there is insufficient space to allocate an object in the Java heap. In this case, The garbage collector cannot make space available to accommodate a new object, and the heap cannot be expanded further. Also, this error may be thrown when there</description>
+    </item>
+    
+    <item>
+      <title>DATABASE数据库</title>
+      <link>https://anjanavakil.github.io/post/database/</link>
+      <pubDate>Wed, 18 May 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/database/</guid>
+      <description>Oracle Sequence序列 Oracle / PLSQL: Sequences (Autonumber) Oracle NEXTVAL function tips CREATE SEQUENCE 值得注意的几点： When a sequence number is generated, the sequence is incremented, independent of the transaction committing or rolling back. If two users concurrently increment the same sequence, then the sequence numbers each user acquires may have gaps, because sequence numbers are</description>
     </item>
     
     <item>
@@ -158,33 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/netty/</guid>
       <description>Netty是一个Java NIO客户端/服务器框架。 Netty中的Reactor模式 Java Reactor模式中IO事件的处理流程： Reactor模</description>
-    </item>
-    
-    <item>
-      <title>Reactor模式</title>
-      <link>https://anjanavakil.github.io/post/reactor-pattern/</link>
-      <pubDate>Mon, 28 Mar 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/reactor-pattern/</guid>
-      <description>多线程OIO ServerSocket类用于建立套接字。所有标准服务都不使用端口号8189。 1 2 3 4 5 6 7 8 9 10 11 12 try { //建立一个负责监控端</description>
-    </item>
-    
-    <item>
-      <title>Java NIO</title>
-      <link>https://anjanavakil.github.io/post/java-nio/</link>
-      <pubDate>Sun, 27 Mar 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/java-nio/</guid>
-      <description>Java NIO Java NIO属于IO多路复用模型。 IO多路复用 为了提高性能，操作系统引入了一种新的系统调用，专门用于查询IO文件描述符（含socket连接）</description>
-    </item>
-    
-    <item>
-      <title>Spring Boot笔记</title>
-      <link>https://anjanavakil.github.io/post/springboot-notes/</link>
-      <pubDate>Sat, 26 Mar 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/springboot-notes/</guid>
-      <description>豆瓣🔗：《SpringBoot+Vue全栈开发实战》 一些SpringBoot陌生部分的笔记。技术类书籍，不能说有多好，但是如果有一份好的代码</description>
     </item>
     
   </channel>

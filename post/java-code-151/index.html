@@ -69,7 +69,7 @@
 <meta itemprop="name" content="《编写高质量代码：改善Java程序的151个建议》">
 <meta itemprop="description" content="豆瓣🔗： 《编写高质量代码：改善Java程序的151个建议》 第1章 Java开发中通用的方法和准则 11：养成良好习惯，显式声明UID 在序列化和反"><meta itemprop="datePublished" content="2022-05-15T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-05-15T08:15:48+08:00" />
-<meta itemprop="wordCount" content="13193">
+<meta itemprop="wordCount" content="20869">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="《编写高质量代码：改善Java程序的151个建议》"/>
 <meta name="twitter:description" content="豆瓣🔗： 《编写高质量代码：改善Java程序的151个建议》 第1章 Java开发中通用的方法和准则 11：养成良好习惯，显式声明UID 在序列化和反"/>
@@ -382,6 +382,25 @@
     <li><a href="#60性能考虑数组是首选">60：性能考虑，数组是首选</a></li>
     <li><a href="#61若有必要使用变长数组">61：若有必要，使用变长数组</a></li>
     <li><a href="#62警惕数组的浅拷贝">62：警惕数组的浅拷贝</a></li>
+    <li><a href="#63在明确的场景下为集合指定初始容量">63：在明确的场景下，为集合指定初始容量</a></li>
+    <li><a href="#64多种最值算法适时选择">64：多种最值算法，适时选择</a></li>
+    <li><a href="#65避开基本类型数组转换列表陷阱">65：避开基本类型数组转换列表陷阱</a></li>
+    <li><a href="#66aslist方法产生的list对象不可更改">66：asList方法产生的List对象不可更改</a></li>
+    <li><a href="#67不同的列表选择不同的遍历方法">67：不同的列表选择不同的遍历方法</a></li>
+    <li><a href="#68频繁插入和删除时使用linkedlist">68：频繁插入和删除时使用LinkedList</a></li>
+    <li><a href="#69列表相等只需关心元素数据">69：列表相等只需关心元素数据</a></li>
+    <li><a href="#70子列表只是原列表的一个视图">70：子列表只是原列表的一个视图</a></li>
+    <li><a href="#71推荐使用sublist处理局部列表">71：推荐使用subList处理局部列表</a></li>
+    <li><a href="#72生成子列表后不要再操作原列表">72：生成子列表后不要再操作原列表</a></li>
+    <li><a href="#73使用comparator进行排序">73：使用Comparator进行排序</a></li>
+    <li><a href="#74不推荐使用binarysearch对列表进行检索">74：不推荐使用binarySearch对列表进行检索</a></li>
+    <li><a href="#75集合中的元素必须做到compareto和equals同步">75：集合中的元素必须做到compareTo和equals同步</a></li>
+    <li><a href="#76集合运算时使用更优雅的方式">76：集合运算时使用更优雅的方式</a></li>
+    <li><a href="#77使用shuffle打乱列表">77：使用shuffle打乱列表</a></li>
+    <li><a href="#78减少hashmap中元素的数量">78：减少HashMap中元素的数量</a></li>
+    <li><a href="#79集合中的哈希码不要重复">79：集合中的哈希码不要重复</a></li>
+    <li><a href="#80多线程使用vector或hashtable">80：多线程使用Vector或HashTable</a></li>
+    <li><a href="#81非稳定排序推荐使用list">81：非稳定排序推荐使用List</a></li>
   </ul>
 </nav>
   </div>
@@ -1309,6 +1328,1289 @@
 <p>注意：性能要求较高的场景中使用数组替代集合。</p>
 <h2 id="61若有必要使用变长数组">61：若有必要，使用变长数组</h2>
 <h2 id="62警惕数组的浅拷贝">62：警惕数组的浅拷贝</h2>
+<p>通过copyOf方法产生的数组是一个浅拷贝，这与序列化的浅拷贝完全相同：基本类型是直接拷贝值，其他都是拷贝引用地址。数组、集合的clone方法都是浅拷贝。</p>
+<p>使用集合（如List）进行业务处理时，比如发觉需要拷贝集合中的元素，可集合没有提供拷贝方法，如果自己写会很麻烦，所以干脆使用List.toArray方法转换成数组，然后通过Arrays.copyOf拷贝，再转换回集合，简单便捷！但是，虽然很多时候浅拷贝可以解决业务问题，但更多时候会留下隐患，需要提防又提防。</p>
+<h2 id="63在明确的场景下为集合指定初始容量">63：在明确的场景下，为集合指定初始容量</h2>
+<h2 id="64多种最值算法适时选择">64：多种最值算法，适时选择</h2>
+<p>求最大值：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">max</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="n">0</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">   <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">:</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">max</span> <span class="o">=</span> <span class="n">max</span> <span class="o">&gt;</span> <span class="n">i</span> <span class="o">?</span> <span class="n">max</span> <span class="o">:</span> <span class="n">i</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">   <span class="o">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="n">max</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">max2</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">clone</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="n">data</span><span class="o">[</span><span class="n">data</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在代码中为什么要先使用data.clone拷贝再排序呢？</p>
+<p>因为数组也是一个对象，不拷贝就改变了原有数组元素的顺序。除非数组元素的顺序无关紧要。</p>
+<p>如果要查找仅次于最大值的元素（也就是老二），该如何处理呢？要注意，数组的元素是可以重复的，最大值可能是多个，所以单单一个排序然后取倒数第二个元素是解决不了问题的。</p>
+<p>此时，就需要一个特殊的排序算法了，先要剔除重复数据，然后再排序。当然，自己写算法也可以实现，但是集合类已经提供了非常好的方法，要是再使用数组自己写算法就显得有点过时了。数组不能剔除重复数据，但Set集合却是可以的，而且Set的子类TreeSet还能自动排序。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getSecond</span><span class="o">(</span><span class="n">Integer</span><span class="o">[]</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">dataList</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeSet</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">ts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeSet</span><span class="o">&lt;&gt;(</span><span class="n">dataList</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">ts</span><span class="o">.</span><span class="na">lower</span><span class="o">(</span><span class="n">ts</span><span class="o">.</span><span class="na">last</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>剔除重复元素并升序排列，这都由TreeSet类实现的，然后可再使用lower方法寻找小于最大值的值。</p>
+<p>实际应用中求最值，包括最大值、最小值、第二大值、倒数第二小值等，使用集合是最简单的方式，当然若从性能方面来考虑，数组是最好的选择。</p>
+<h2 id="65避开基本类型数组转换列表陷阱">65：避开基本类型数组转换列表陷阱</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span><span class="o">[]</span> <span class="n">data</span> <span class="o">=</span> <span class="o">{</span><span class="n">1</span><span class="o">,</span> <span class="n">2</span><span class="o">,</span> <span class="n">3</span><span class="o">,</span> <span class="n">4</span><span class="o">,</span> <span class="n">5</span><span class="o">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">List</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//运行结果：1
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Arrays.asList方法：输入一个变长参数，返回一个固定长度的列表。注意这里是一个变长参数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SafeVarargs</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&#34;varargs&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">asList</span><span class="o">(</span><span class="n">T</span><span class="o">...</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">a</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>asList方法输入的是一个泛型变长参数，<code>基本类型是不能泛型化的</code>，也就是说8个基本类型不能作为泛型参数，要想作为泛型参数就必须使用其所对应的包装类型。</p>
+<p>那前面的例子传递了一个int类型的数组，为什么程序没有报编译错呢？在Java中，<code>数组是一个对象，它是可以泛型化的</code>，也就是说例子中是把一个int类型的数组作为了T的类型，所以转换后在List中就只有一个类型为<code>int数组</code>的元素了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span><span class="o">[]</span> <span class="n">data</span> <span class="o">=</span> <span class="o">{</span><span class="n">1</span><span class="o">,</span> <span class="n">2</span><span class="o">,</span> <span class="n">3</span><span class="o">,</span> <span class="n">4</span><span class="o">,</span> <span class="n">5</span><span class="o">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">List</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">0</span><span class="o">).</span><span class="na">getClass</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">0</span><span class="o">)));</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行结果：</p>
+<blockquote>
+<p>class [I
+true</p>
+</blockquote>
+<p>JVM不可能输出Array类型，因为Array是属于java.lang.reflect包的，它是通过反射访问数组元素的工具类。在Java中任何一个数组的类都是“[I”，究其原因就是Java并没有定义数组这一个类，它是在编译器编译的时候生成的，是一个特殊的类，在JDK的帮助中也没有任何数组类的信息。</p>
+<p>修改方案：直接使用包装类即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Integer</span><span class="o">[]</span> <span class="n">data</span> <span class="o">=</span> <span class="o">{</span><span class="n">1</span><span class="o">,</span> <span class="n">2</span><span class="o">,</span> <span class="n">3</span><span class="o">,</span> <span class="n">4</span><span class="o">,</span> <span class="n">5</span><span class="o">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">List</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//运行结果：5
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>把int替换为Integer即可让输出元素数量为5。</p>
+<p>需要说明的是，不仅仅是int类型的数组有这个问题，其他7个基本类型的数组也存在相似的问题。在把基本类型数组转换成列表时，要特别小心asList方法的陷阱，避免出现程序逻辑混乱的情况。</p>
+<p>注意：原始类型数组不能作为asList的输入参数，否则会引起程序逻辑混乱。</p>
+<h2 id="66aslist方法产生的list对象不可更改">66：asList方法产生的List对象不可更改</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Client</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">enum</span> <span class="n">Week</span> <span class="o">{</span><span class="n">Sun</span><span class="o">,</span> <span class="n">Mon</span><span class="o">,</span> <span class="n">Tue</span><span class="o">,</span> <span class="n">Wed</span><span class="o">,</span> <span class="n">Thu</span><span class="o">,</span> <span class="n">Fri</span><span class="o">,</span> <span class="n">Sat</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Week</span><span class="o">[]</span> <span class="n">workDays</span> <span class="o">=</span> <span class="o">{</span><span class="n">Week</span><span class="o">.</span><span class="na">Mon</span><span class="o">,</span> <span class="n">Week</span><span class="o">.</span><span class="na">Tue</span><span class="o">,</span> <span class="n">Week</span><span class="o">.</span><span class="na">Wed</span><span class="o">,</span> <span class="n">Week</span><span class="o">.</span><span class="na">Thu</span><span class="o">,</span> <span class="n">Week</span><span class="o">.</span><span class="na">Fri</span><span class="o">};</span>
+</span></span><span class="line"><span class="cl">        <span class="n">List</span><span class="o">&lt;</span><span class="n">Week</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">workDays</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">Week</span><span class="o">.</span><span class="na">Sat</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行结果：</p>
+<blockquote>
+<p>Exception in thread &ldquo;main&rdquo; java.lang.UnsupportedOperationException
+at java.util.AbstractList.add(AbstractList.java:148)
+at java.util.AbstractList.add(AbstractList.java:108)
+at com.company.section1.Client.main(Client.java:12)</p>
+</blockquote>
+<p>Arrays.asList方法的源码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SafeVarargs</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&#34;varargs&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">asList</span><span class="o">(</span><span class="n">T</span><span class="o">...</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">a</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>直接new了一个ArrayList对象返回，难道ArrayList不支持add方法？不可能呀！可能，问题就出在这个ArrayList类上，此ArrayList非java.util.ArrayList，而是Arrays工具类的一个内置类：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">AbstractList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">implements</span> <span class="n">RandomAccess</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">Serializable</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="o">-</span><span class="n">2764017481108945198L</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">E</span><span class="o">[]</span> <span class="n">a</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">ArrayList</span><span class="o">(</span><span class="n">E</span><span class="o">[]</span> <span class="n">array</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span> <span class="o">=</span> <span class="n">Objects</span><span class="o">.</span><span class="na">requireNonNull</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Object</span><span class="o">[]</span> <span class="nf">toArray</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&#34;unchecked&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span><span class="o">[]</span> <span class="nf">toArray</span><span class="o">(</span><span class="n">T</span><span class="o">[]</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">size</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="n">size</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">copyOf</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">a</span><span class="o">,</span> <span class="n">size</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">                                 <span class="o">(</span><span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">T</span><span class="o">[]&gt;)</span> <span class="n">a</span><span class="o">.</span><span class="na">getClass</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">arraycopy</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">a</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">a</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="n">size</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">a</span><span class="o">[</span><span class="n">size</span><span class="o">]</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">a</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">E</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">a</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">E</span> <span class="nf">set</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="n">E</span> <span class="n">element</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">E</span> <span class="n">oldValue</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">element</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">oldValue</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">indexOf</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">E</span><span class="o">[]</span> <span class="n">a</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">a</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">o</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="n">i</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="o">(</span><span class="n">o</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]))</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="n">i</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">contains</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">indexOf</span><span class="o">(</span><span class="n">o</span><span class="o">)</span> <span class="o">!=</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Spliterator</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="nf">spliterator</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Spliterators</span><span class="o">.</span><span class="na">spliterator</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">Spliterator</span><span class="o">.</span><span class="na">ORDERED</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">forEach</span><span class="o">(</span><span class="n">Consumer</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">E</span><span class="o">&gt;</span> <span class="n">action</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Objects</span><span class="o">.</span><span class="na">requireNonNull</span><span class="o">(</span><span class="n">action</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="n">E</span> <span class="n">e</span> <span class="o">:</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">action</span><span class="o">.</span><span class="na">accept</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">replaceAll</span><span class="o">(</span><span class="n">UnaryOperator</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">operator</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Objects</span><span class="o">.</span><span class="na">requireNonNull</span><span class="o">(</span><span class="n">operator</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">E</span><span class="o">[]</span> <span class="n">a</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">a</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">operator</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sort</span><span class="o">(</span><span class="n">Comparator</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">E</span><span class="o">&gt;</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">c</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里的ArrayList是一个<code>静态私有内部类</code>，除了Arrays能访问外，其他类都不能访问。仔细看这个类，它没有提供add方法，那肯定是父类AbstractList提供了。</p>
+<p>AbstractList.add方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="n">E</span> <span class="n">element</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">throw</span> <span class="k">new</span> <span class="n">UnsupportedOperationException</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>父类确实提供了，但没有提供具体的实现。</p>
+<p>这个ArrayList静态内部类对于经常使用的List.add和List.remove方法它都没有实现，也就是说asList返回的是一个长度不可变的列表，数组是多长，转换成的列表也就是多长，换句话说此处的列表只是数组的一个外壳，不再保持列表动态变长的特性。</p>
+<p>所以，以下代码写法需要慎之戒之，除非非常自信该List只用于读操作。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">names</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&#34;zhangsan&#34;</span><span class="o">,</span> <span class="s">&#34;lisi&#34;</span><span class="o">,</span> <span class="s">&#34;wangwu&#34;</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="67不同的列表选择不同的遍历方法">67：不同的列表选择不同的遍历方法</h2>
+<p>ArrayList数组实现了RandomAccess接口（随机存取接口），这也就标志着ArrayList是一个可以随机存取的列表。在Java中，RandomAccess和Cloneable、Serializable一样，都是标志性接口，不需要任何实现，只是用来表明其实现类具有某种特质的，实现了Cloneable表明可以被拷贝，实现了Serializable接口表明被序列化了，实现了RandomAccess则表明这个类可以随机存取。</p>
+<p>Java为ArrayList类加上了RandomAccess接口，就是在告诉我们，“嘿，ArrayList是随机存取的，采用下标方式遍历列表速度会更快”，接着又有一个问题了：为什么不把RandomAccess加到所有的List实现类上呢？</p>
+<p>那是因为有些List实现类不是随机存取的，而是有序存取的，比如LinkedList类，LinkedList也是一个列表，但它实现了双向链表，每个数据结点中都有三个数据项：前节点的引用（Previous Node）、本节点元素（Node Element）、后继节点的引用（Next Node）。</p>
+<p>List的get方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">List</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">E</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ArrayList的get方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">AbstractList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">implements</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;,</span> <span class="n">RandomAccess</span><span class="o">,</span> <span class="n">Cloneable</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">Serializable</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">E</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">rangeCheck</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">elementData</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&#34;unchecked&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">E</span> <span class="nf">elementData</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">(</span><span class="n">E</span><span class="o">)</span> <span class="n">elementData</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>LinkedList的get方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkedList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">extends</span> <span class="n">AbstractSequentialList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">implements</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;,</span> <span class="n">Deque</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;,</span> <span class="n">Cloneable</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">Serializable</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">public</span> <span class="n">E</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">checkElementIndex</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">node</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">item</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Node</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="nf">node</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// assert isElementIndex(index);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="o">(</span><span class="n">size</span> <span class="o">&gt;&gt;</span> <span class="n">1</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Node</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">first</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">index</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">x</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Node</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">last</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">size</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">index</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="na">prev</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">x</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span> 
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不同的列表采用不同的遍历方式:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">average</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">list</span> <span class="k">instanceof</span> <span class="n">RandomAccess</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sum</span> <span class="o">+=</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sum</span> <span class="o">+=</span> <span class="n">i</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="68频繁插入和删除时使用linkedlist">68：频繁插入和删除时使用LinkedList</h2>
+<h2 id="69列表相等只需关心元素数据">69：列表相等只需关心元素数据</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">strs</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl"><span class="n">strs</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;A&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Vector</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">strs2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Vector</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl"><span class="n">strs2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;A&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">strs</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">strs2</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//true
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>一个是ArrayList，一个是Vector，两者都是列表（List），都实现了List接口，也都继承了AbastractList抽象类，其equals方法是在AbstractList中定义的。</p>
+<p>AbstractList的equals方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">o</span> <span class="o">==</span> <span class="k">this</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(!(</span><span class="n">o</span> <span class="k">instanceof</span> <span class="n">List</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">ListIterator</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">e1</span> <span class="o">=</span> <span class="n">listIterator</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ListIterator</span><span class="o">&lt;?&gt;</span> <span class="n">e2</span> <span class="o">=</span> <span class="o">((</span><span class="n">List</span><span class="o">&lt;?&gt;)</span> <span class="n">o</span><span class="o">).</span><span class="na">listIterator</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="o">(</span><span class="n">e1</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">e2</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">E</span> <span class="n">o1</span> <span class="o">=</span> <span class="n">e1</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Object</span> <span class="n">o2</span> <span class="o">=</span> <span class="n">e2</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(!(</span><span class="n">o1</span><span class="o">==</span><span class="kc">null</span> <span class="o">?</span> <span class="n">o2</span><span class="o">==</span><span class="kc">null</span> <span class="o">:</span> <span class="n">o1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">o2</span><span class="o">)))</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">!(</span><span class="n">e1</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">||</span> <span class="n">e2</span><span class="o">.</span><span class="na">hasNext</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Compares the specified object with this list for equality. Returns <code>true</code> if and only if the specified object is also a list, both lists have the same size, and all corresponding pairs of elements in the two lists are <em>equal</em>. (Two elements <code>e1</code> and <code>e2</code> are <em>equal</em> if <code>(e1==null ? e2==null : e1.equals(e2))</code>.) In other words, two lists are defined to be equal if they contain the same elements in the same order.</p>
+<p>This implementation first checks if the specified object is this list. If so, it returns <code>true</code>; if not, it checks if the specified object is a list. If not, it returns <code>false</code>; if so, it iterates over both lists, comparing corresponding pairs of elements. If any comparison returns <code>false</code>, this method returns <code>false</code>. If either iterator runs out of elements before the other it returns <code>false</code> (as the lists are of unequal length); otherwise it returns <code>true</code> when the iterations complete.</p>
+</blockquote>
+<p>列表只是一个容器，只要是同一种类型的容器（如List），不用关心容器的细节差别（如ArrayList与LinkedList），只要确定所有的元素数据相等，那这两个列表就是相等的。</p>
+<p>其他的集合类型，如Set、Map等与此相同，也是只关心集合元素，不用考虑集合类型。</p>
+<p>判断集合是否相等时只须关注元素是否相等即可。</p>
+<h2 id="70子列表只是原列表的一个视图">70：子列表只是原列表的一个视图</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;A&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;B&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">c1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">c</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="na">subList</span><span class="o">(</span><span class="n">0</span><span class="o">,</span> <span class="n">c</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl"><span class="n">c2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;C&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;c == c1? &#34;</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">c1</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;c == c2? &#34;</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">c2</span><span class="o">));</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行结果：</p>
+<blockquote>
+<p>c == c1? false
+c == c2? true</p>
+</blockquote>
+<p>List的subList方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="nf">subList</span><span class="o">(</span><span class="kt">int</span> <span class="n">fromIndex</span><span class="o">,</span> <span class="kt">int</span> <span class="n">toIndex</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Returns a view of the portion of this list between the specified <code>fromIndex</code>, inclusive, and <code>toIndex</code>, exclusive. (If <code>fromIndex</code> and <code>toIndex</code> are equal, the returned list is empty.) The returned list is backed by this list, so non-structural changes in the returned list are reflected in this list, and vice-versa. The returned list supports all of the optional list operations supported by this list.</p>
+</blockquote>
+<blockquote>
+<p>This method eliminates the need for explicit range operations (of the sort that commonly exist for arrays). Any operation that expects a list can be used as a range operation by passing a subList view instead of a whole list. For example, the following idiom removes a range of elements from a list:</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">      list.subList(from, to).clear();
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Similar idioms may be constructed for <code>indexOf</code> and <code>lastIndexOf</code>, and all of the algorithms in the<code>Collections</code> class can be applied to a subList.</p>
+</blockquote>
+<blockquote>
+<p>The semantics of the list returned by this method become undefined if the backing list (i.e., this list) is <em>structurally modified</em> in any way other than via the returned list. (Structural modifications are those that change the size of this list, or otherwise perturb it in such a fashion that iterations in progress may yield incorrect results.)</p>
+</blockquote>
+<p>AbstractList的subList方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="nf">subList</span><span class="o">(</span><span class="kt">int</span> <span class="n">fromIndex</span><span class="o">,</span> <span class="kt">int</span> <span class="n">toIndex</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">(</span><span class="k">this</span> <span class="k">instanceof</span> <span class="n">RandomAccess</span> <span class="o">?</span>
+</span></span><span class="line"><span class="cl">            <span class="k">new</span> <span class="n">RandomAccessSubList</span><span class="o">&lt;&gt;(</span><span class="k">this</span><span class="o">,</span> <span class="n">fromIndex</span><span class="o">,</span> <span class="n">toIndex</span><span class="o">)</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">new</span> <span class="n">SubList</span><span class="o">&lt;&gt;(</span><span class="k">this</span><span class="o">,</span> <span class="n">fromIndex</span><span class="o">,</span> <span class="n">toIndex</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>subList方法是由AbstractList实现的，它会根据是不是可以随机存取来提供不同的SubList实现方式，不过，随机存储的使用频率比较高，而且RandomAccessSubList也是SubList子类，所以所有的操作都是由SubList类实现的（除了自身的SubList方法外）。</p>
+<p>SubList类的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">SubList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">AbstractList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">AbstractList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">l</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">offset</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">SubList</span><span class="o">(</span><span class="n">AbstractList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">,</span> <span class="kt">int</span> <span class="n">fromIndex</span><span class="o">,</span> <span class="kt">int</span> <span class="n">toIndex</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">fromIndex</span> <span class="o">&lt;</span> <span class="n">0</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="k">new</span> <span class="n">IndexOutOfBoundsException</span><span class="o">(</span><span class="s">&#34;fromIndex = &#34;</span> <span class="o">+</span> <span class="n">fromIndex</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">toIndex</span> <span class="o">&gt;</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">())</span>
+</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="k">new</span> <span class="n">IndexOutOfBoundsException</span><span class="o">(</span><span class="s">&#34;toIndex = &#34;</span> <span class="o">+</span> <span class="n">toIndex</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">fromIndex</span> <span class="o">&gt;</span> <span class="n">toIndex</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">&#34;fromIndex(&#34;</span> <span class="o">+</span> <span class="n">fromIndex</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">                                               <span class="s">&#34;) &gt; toIndex(&#34;</span> <span class="o">+</span> <span class="n">toIndex</span> <span class="o">+</span> <span class="s">&#34;)&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">l</span> <span class="o">=</span> <span class="n">list</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">offset</span> <span class="o">=</span> <span class="n">fromIndex</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">size</span> <span class="o">=</span> <span class="n">toIndex</span> <span class="o">-</span> <span class="n">fromIndex</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">modCount</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="na">modCount</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">E</span> <span class="nf">set</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="n">E</span> <span class="n">element</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">rangeCheck</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">checkForComodification</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">l</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">index</span><span class="o">+</span><span class="n">offset</span><span class="o">,</span> <span class="n">element</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>subList方法的实现原理：它返回的SubList类也是AbstractList的子类，其所有的方法如get、set、add、remove等都是在原始列表上的操作，它自身并没有生成一个数组或是链表，也就是子列表只是原列表的一个视图（View），所有的修改动作都反映在了原列表上。</p>
+<p>我们例子中的c2增加了一个元素C，不过增加的元素C到了c列表上，两个变量的元素仍保持完全一致，相等也就很自然了。</p>
+<p>解释完相等的问题，再回过头来看看为什么变量c与c1不相等。很简单，因为通过ArrayList构造函数创建的List对象c1实际上是新列表，它是通过数组的copyOf动作生成的，所生成的列表c1与原列表c之间没有任何关系（虽然是浅拷贝，但元素类型是String，也就是说元素是深拷贝的），然后c又增加了元素，因为c1与c之间已经没有一毛钱的关系了，那自然是不相等了。</p>
+<p>注意：subList产生的列表只是一个视图，所有的修改动作直接作用于原列表。</p>
+<h2 id="71推荐使用sublist处理局部列表">71：推荐使用subList处理局部列表</h2>
+<h2 id="72生成子列表后不要再操作原列表">72：生成子列表后不要再操作原列表</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl"><span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;A&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;B&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;C&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">subList</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">subList</span><span class="o">(</span><span class="n">0</span><span class="o">,</span> <span class="n">2</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;D&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;list size: &#34;</span> <span class="o">+</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;subList size: &#34;</span> <span class="o">+</span> <span class="n">subList</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行结果：</p>
+<blockquote>
+<p>list size: 4
+Exception in thread &ldquo;main&rdquo; java.util.ConcurrentModificationException
+at java.util.ArrayList$SubList.checkForComodification(ArrayList.java:1241)
+at java.util.ArrayList$SubList.size(ArrayList.java:1050)
+at com.company.section2.Client.main(Client.java:15)</p>
+</blockquote>
+<p>subList的size方法出现了并发修改异常：</p>
+<p>因为subList取出的列表是原列表的一个视图，原数据集（代码中的list变量）修改了，但是subList取出的子列表不会重新生成一个新列表（这点与数据库视图是不相同的），后面在对子列表继续操作时，就会检测到修改计数器与预期的不相同，于是就抛出了并发修改异常。</p>
+<p>SubList的size方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">checkForComodification</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>checkForComodification方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">checkForComodification</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">ArrayList</span><span class="o">.</span><span class="na">this</span><span class="o">.</span><span class="na">modCount</span> <span class="o">!=</span> <span class="k">this</span><span class="o">.</span><span class="na">modCount</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">throw</span> <span class="k">new</span> <span class="n">ConcurrentModificationException</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>SubList的其他方法也会检测修改计数器modCount，例如set、get、add等方法，若生成子列表后，再修改原列表，这些方法也会抛出ConcurrentModificationException异常。对于子列表操作，因为视图是动态生成的，生成子列表后再操作原列表，必然会导致“视图”的不稳定，最有效的办法就是通过<code>Collections. unmodifiableList</code>方法设置列表为只读状态。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl"><span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;A&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;B&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;C&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">subList</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">subList</span><span class="o">(</span><span class="n">0</span><span class="o">,</span> <span class="n">2</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">list</span> <span class="o">=</span> <span class="n">Collections</span><span class="o">.</span><span class="na">unmodifiableList</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">subList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;D&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;list size: &#34;</span> <span class="o">+</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;subList size: &#34;</span> <span class="o">+</span> <span class="n">subList</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="73使用comparator进行排序">73：使用Comparator进行排序</h2>
+<h2 id="74不推荐使用binarysearch对列表进行检索">74：不推荐使用binarySearch对列表进行检索</h2>
+<p>ArrayList的indexOf方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">indexOf</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">o</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">elementData</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="kc">null</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">i</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">o</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">elementData</span><span class="o">[</span><span class="n">i</span><span class="o">]))</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">i</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Collections的binarySearch方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Comparable</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">&gt;&gt;</span> <span class="n">list</span><span class="o">,</span> <span class="n">T</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">list</span> <span class="k">instanceof</span> <span class="n">RandomAccess</span> <span class="o">||</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()&lt;</span><span class="n">BINARYSEARCH_THRESHOLD</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Collections</span><span class="o">.</span><span class="na">indexedBinarySearch</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">key</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Collections</span><span class="o">.</span><span class="na">iteratorBinarySearch</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">key</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>indexedBinarySearch:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">indexedBinarySearch</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Comparable</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">&gt;&gt;</span> <span class="n">list</span><span class="o">,</span> <span class="n">T</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">low</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">high</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()-</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="o">(</span><span class="n">low</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="o">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="o">)</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Comparable</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">midVal</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">mid</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">cmp</span> <span class="o">=</span> <span class="n">midVal</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">cmp</span> <span class="o">&lt;</span> <span class="n">0</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">cmp</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">mid</span><span class="o">;</span> <span class="c1">// key found
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-(</span><span class="n">low</span> <span class="o">+</span> <span class="n">1</span><span class="o">);</span>  <span class="c1">// key not found
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>iteratorBinarySearch:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">iteratorBinarySearch</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Comparable</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">&gt;&gt;</span> <span class="n">list</span><span class="o">,</span> <span class="n">T</span> <span class="n">key</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">low</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">high</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()-</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ListIterator</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Comparable</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">&gt;&gt;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">listIterator</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="o">(</span><span class="n">low</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="o">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="o">)</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Comparable</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">midVal</span> <span class="o">=</span> <span class="n">get</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">mid</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">cmp</span> <span class="o">=</span> <span class="n">midVal</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">cmp</span> <span class="o">&lt;</span> <span class="n">0</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">cmp</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">mid</span><span class="o">;</span> <span class="c1">// key found
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-(</span><span class="n">low</span> <span class="o">+</span> <span class="n">1</span><span class="o">);</span>  <span class="c1">// key not found
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意这里：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">cmp</span> <span class="o">=</span> <span class="n">midVal</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>indexOf是通过equals方法判断的，equals等于true就认为找到符合条件的元素了，而binarySearch查找的依据是compareTo方法的返回值，返回0即认为找到符合条件的元素。</p>
+<p>仔细审查一下代码，我们覆写了compareTo和equals方法，但是两者并不一致。使用indexOf方法查找时，遍历每个元素，然后比较equals方法的返回值，因为equals方法是根据code判断的，因此当第一次循环时，equals就返回了true，indexOf方法结束，查找到指定值。而使用binarySearch二分法查找时，依据的是每个元素的compareTo方法返回值，而compareTo方法又是依赖name属性的，name相等就返回0，binarySearch就认为找到元素了。</p>
+<p>注意：从性能方面考虑，binarySearch是最好的选择。</p>
+<h2 id="75集合中的元素必须做到compareto和equals同步">75：集合中的元素必须做到compareTo和equals同步</h2>
+<ul>
+<li>indexOf依赖equals方法查找，binarySearch则依赖compareTo方法查找。</li>
+<li>equals是判断元素是否相等，compareTo是判断元素在排序中的位置是否相同。</li>
+</ul>
+<h2 id="76集合运算时使用更优雅的方式">76：集合运算时使用更优雅的方式</h2>
+<p>并集：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">list1</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">list2</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>交集：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">list1.retainAll(list2);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>差集：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">list1.removeAll(list2);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>无重复的并集：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">list2.removeAll(list1);
+</span></span><span class="line"><span class="cl">list1.addAll(list2);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>很少有程序员使用JDK提供的方法来实现这些集合操作，基本上都是采用的标准的嵌套for循环：要并集就是加法，要交集了就使用contains判断是否存在，要差集了就使用!contains（不包含），有时候还要为这类操作提供一个单独方法，看似很规范，但已经脱离了优雅的味道。</p>
+<h2 id="77使用shuffle打乱列表">77：使用shuffle打乱列表</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Collections</span><span class="o">.</span><span class="na">shuffle</span><span class="o">(</span><span class="n">tagClouds</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="78减少hashmap中元素的数量">78：减少HashMap中元素的数量</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">static</span> <span class="kd">class</span> <span class="nc">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="o">,</span><span class="n">V</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">K</span><span class="o">,</span><span class="n">V</span><span class="o">&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">final</span> <span class="kt">int</span> <span class="n">hash</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">final</span> <span class="n">K</span> <span class="n">key</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">V</span> <span class="n">value</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="o">,</span><span class="n">V</span><span class="o">&gt;</span> <span class="n">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">(</span><span class="kt">int</span> <span class="n">hash</span><span class="o">,</span> <span class="n">K</span> <span class="n">key</span><span class="o">,</span> <span class="n">V</span> <span class="n">value</span><span class="o">,</span> <span class="n">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="o">,</span><span class="n">V</span><span class="o">&gt;</span> <span class="n">next</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">hash</span> <span class="o">=</span> <span class="n">hash</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">next</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">final</span> <span class="n">K</span> <span class="nf">getKey</span><span class="o">()</span>        <span class="o">{</span> <span class="k">return</span> <span class="n">key</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">final</span> <span class="n">V</span> <span class="nf">getValue</span><span class="o">()</span>      <span class="o">{</span> <span class="k">return</span> <span class="n">value</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">final</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">key</span> <span class="o">+</span> <span class="s">&#34;=&#34;</span> <span class="o">+</span> <span class="n">value</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">final</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Objects</span><span class="o">.</span><span class="na">hashCode</span><span class="o">(</span><span class="n">key</span><span class="o">)</span> <span class="o">^</span> <span class="n">Objects</span><span class="o">.</span><span class="na">hashCode</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">final</span> <span class="n">V</span> <span class="nf">setValue</span><span class="o">(</span><span class="n">V</span> <span class="n">newValue</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">V</span> <span class="n">oldValue</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">value</span> <span class="o">=</span> <span class="n">newValue</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">oldValue</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">final</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">o</span> <span class="o">==</span> <span class="k">this</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">o</span> <span class="k">instanceof</span> <span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;?,?&gt;</span> <span class="n">e</span> <span class="o">=</span> <span class="o">(</span><span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;?,?&gt;)</span><span class="n">o</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">Objects</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">getKey</span><span class="o">())</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Objects</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">value</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">getValue</span><span class="o">()))</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>HashMap比ArrayList多了一个层Node的底层对象封装，多占用了内存，并且它的扩容策略是2倍长度的递增，同时还会依据阀值判断规则进行判断，因此相对于ArrayList来说，它就会先出现内存溢出。</p>
+<h2 id="79集合中的哈希码不要重复">79：集合中的哈希码不要重复</h2>
+<p>HashMap比ArryList快了40多倍！两者的contains方法都是判断是否包含指定值，为何差距如此巨大呢？而且如果数据量增大，差距也会非线性地增大。</p>
+<p>HashMap的containsKey方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">containsKey</span><span class="o">(</span><span class="n">Object</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">getNode</span><span class="o">(</span><span class="n">hash</span><span class="o">(</span><span class="n">key</span><span class="o">),</span> <span class="n">key</span><span class="o">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="o">,</span><span class="n">V</span><span class="o">&gt;</span> <span class="nf">getNode</span><span class="o">(</span><span class="kt">int</span> <span class="n">hash</span><span class="o">,</span> <span class="n">Object</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="o">,</span><span class="n">V</span><span class="o">&gt;[]</span> <span class="n">tab</span><span class="o">;</span> <span class="n">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="o">,</span><span class="n">V</span><span class="o">&gt;</span> <span class="n">first</span><span class="o">,</span> <span class="n">e</span><span class="o">;</span> <span class="kt">int</span> <span class="n">n</span><span class="o">;</span> <span class="n">K</span> <span class="n">k</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">((</span><span class="n">tab</span> <span class="o">=</span> <span class="n">table</span><span class="o">)</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">n</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">0</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">(</span><span class="n">first</span> <span class="o">=</span> <span class="n">tab</span><span class="o">[(</span><span class="n">n</span> <span class="o">-</span> <span class="n">1</span><span class="o">)</span> <span class="o">&amp;</span> <span class="n">hash</span><span class="o">])</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">first</span><span class="o">.</span><span class="na">hash</span> <span class="o">==</span> <span class="n">hash</span> <span class="o">&amp;&amp;</span> <span class="c1">// always check first node
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="o">((</span><span class="n">k</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="na">key</span><span class="o">)</span> <span class="o">==</span> <span class="n">key</span> <span class="o">||</span> <span class="o">(</span><span class="n">key</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">key</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">k</span><span class="o">))))</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">first</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">((</span><span class="n">e</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="na">next</span><span class="o">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">first</span> <span class="k">instanceof</span> <span class="n">TreeNode</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="o">((</span><span class="n">TreeNode</span><span class="o">&lt;</span><span class="n">K</span><span class="o">,</span><span class="n">V</span><span class="o">&gt;)</span><span class="n">first</span><span class="o">).</span><span class="na">getTreeNode</span><span class="o">(</span><span class="n">hash</span><span class="o">,</span> <span class="n">key</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">do</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">hash</span> <span class="o">==</span> <span class="n">hash</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">((</span><span class="n">k</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="na">key</span><span class="o">)</span> <span class="o">==</span> <span class="n">key</span> <span class="o">||</span> <span class="o">(</span><span class="n">key</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">key</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">k</span><span class="o">))))</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="n">e</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span> <span class="k">while</span> <span class="o">((</span><span class="n">e</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="na">next</span><span class="o">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="80多线程使用vector或hashtable">80：多线程使用Vector或HashTable</h2>
+<p>Vector是ArrayList的多线程版本，HashTable是HashMap的多线程版本。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">tickets</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">100000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tickets</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;ticket&#34;</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Thread</span> <span class="n">returnThread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">tickets</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;ticket&#34;</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Random</span><span class="o">().</span><span class="na">nextInt</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Thread</span> <span class="n">saleThread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">ticket</span> <span class="o">:</span> <span class="n">tickets</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">tickets</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">ticket</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">returnThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">saleThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行结果：</p>
+<blockquote>
+<p>Exception in thread &ldquo;Thread-1&rdquo; java.util.ConcurrentModificationException
+at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:911)
+at java.util.ArrayList$Itr.next(ArrayList.java:861)
+at com.company.Client$2.run(Client.java:28)</p>
+</blockquote>
+<p>将<code>final List&lt;String&gt; tickets = new ArrayList&lt;&gt;();</code>的ArrayList换成Vector，依然抛出相同的异常。</p>
+<p>这是因为混淆了线程安全和同步修改异常，基本上所有的集合类都有一个叫做快速失败（Fail-Fast）的校验机制，当一个集合在被多个线程修改并访问时，就可能会出现ConcurrentModificationException异常，这是为了确保集合方法一致而设置的保护措施，它的实现原理就是我们经常提到的modCount修改计数器：如果在读列表时，modCount发生变化（也就是有其他线程修改）则会抛出ConcurrentModificationException异常。这与线程同步是两码事，线程同步是为了保护集合中的数据不被脏读、脏写而设置的。</p>
+<p>虽然在系统开发中一再说明，除非必要，否则不要使用synchronized，这是从性能的角度考虑的，但是一旦涉及多线程时（注意这里说的是真正的多线程，不是并发修改的问题，比如一个线程增加，一个线程删除，这不属于多线程的范畴），Vector会是最佳选择，当然自己在程序中加synchronized也是可行的方法。</p>
+<h2 id="81非稳定排序推荐使用list">81：非稳定排序推荐使用List</h2>
+<p>SortedSet接口（TreeSet实现了该接口）只是定义了在给集合加入元素时将其进行排序，并不能保证元素修改后的排序结果，因此TreeSet适用于不变量的集合数据排序，比如String、Integer等类型，但不适用于可变量的排序，特别是不确定何时元素会发生变化的数据集合。</p>
 
     </div>
 
@@ -1346,7 +2648,7 @@
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/oom/">
+          <a class="prev" href="/post/database/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -1356,7 +2658,7 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">OOM</span>
+            <span class="prev-text nav-default">DATABASE数据库</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         

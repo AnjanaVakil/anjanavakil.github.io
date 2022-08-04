@@ -10,55 +10,62 @@
   
   <url>
     <loc>https://anjanavakil.github.io/</loc>
-    <lastmod>2022-07-15T08:15:48+08:00</lastmod>
+    <lastmod>2022-07-22T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/categories/</loc>
-    <lastmod>2022-07-15T08:15:48+08:00</lastmod>
+    <lastmod>2022-07-22T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/tags/cs/</loc>
-    <lastmod>2022-07-15T08:15:48+08:00</lastmod>
+    <lastmod>2022-07-22T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/tags/java%EF%B8%8F/</loc>
-    <lastmod>2022-07-15T08:15:48+08:00</lastmod>
+    <lastmod>2022-07-22T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/java-source-code/</loc>
+    <lastmod>2022-07-22T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/categories/java/</loc>
-    <lastmod>2022-07-15T08:15:48+08:00</lastmod>
+    <lastmod>2022-07-22T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/post/</loc>
-    <lastmod>2022-07-15T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/post/stringutils/</loc>
-    <lastmod>2022-07-15T08:15:48+08:00</lastmod>
+    <lastmod>2022-07-22T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/tags/</loc>
+    <lastmod>2022-07-22T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/stringutils/</loc>
     <lastmod>2022-07-15T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -114,6 +121,13 @@
   </url>
   
   <url>
+    <loc>https://anjanavakil.github.io/post/redis/</loc>
+    <lastmod>2022-06-05T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://anjanavakil.github.io/post/video/</loc>
     <lastmod>2022-06-02T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -123,6 +137,13 @@
   <url>
     <loc>https://anjanavakil.github.io/post/oom/</loc>
     <lastmod>2022-05-20T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/database/</loc>
+    <lastmod>2022-05-18T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

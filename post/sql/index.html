@@ -69,7 +69,7 @@
 <meta itemprop="name" content="SQL">
 <meta itemprop="description" content="SQL SELECT 1 FROM TABLE，SQL语句中的1： select 1 from table; select anycol（目的表集合中的任意一行）from table; select * from table; 从作用上来说是没有差别的，都是查看是"><meta itemprop="datePublished" content="2022-04-15T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-04-15T08:15:48+08:00" />
-<meta itemprop="wordCount" content="157">
+<meta itemprop="wordCount" content="535">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SQL"/>
 <meta name="twitter:description" content="SQL SELECT 1 FROM TABLE，SQL语句中的1： select 1 from table; select anycol（目的表集合中的任意一行）from table; select * from table; 从作用上来说是没有差别的，都是查看是"/>
@@ -317,7 +317,11 @@
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#xml-cdata">XML CDATA</a></li>
+  </ul>
+</nav>
   </div>
 </div>
 
@@ -338,6 +342,56 @@
 </ul>
 <p>从作用上来说是没有差别的，都是查看是否有记录，一般是作条件查询用的。</p>
 <p>select 1 from table中的1是一常量（可以为任意数值），查到的所有行的值都是它，但从效率上来说，1&gt;anycol&gt;*，因为不用查字典表。</p>
+<h2 id="xml-cdata">XML CDATA</h2>
+<p><strong>所有 XML 文档中的文本均会被解析器解析。</strong></p>
+<p><strong>只有 CDATA 区段（CDATA section）中的文本会被解析器忽略。</strong></p>
+<p>术语 CDATA 指的是不应由 XML 解析器进行解析的文本数据（Unparsed Character Data）。</p>
+<p>在 XML 元素中，&quot;&lt;&quot; 和 &ldquo;&amp;&rdquo; 是非法的。</p>
+<p>&ldquo;&lt;&rdquo; 会产生错误，因为解析器会把该字符解释为新元素的开始。</p>
+<p>&ldquo;&amp;&rdquo; 也会产生错误，因为解析器会把该字符解释为字符实体的开始。</p>
+<p>某些文本，比如 JavaScript 代码，包含大量 &ldquo;&lt;&rdquo; 或 &ldquo;&amp;&rdquo; 字符。为了避免错误，可以将脚本代码定义为 CDATA。</p>
+<p>CDATA 部分中的所有内容都会被解析器忽略。</p>
+<p>CDATA 部分由 &ldquo;<em><!-- raw HTML omitted --></em>&rdquo; 结束：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;script&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cp">&lt;![CDATA[
+</span></span></span><span class="line"><span class="cl"><span class="cp">function matchwo(a,b)
+</span></span></span><span class="line"><span class="cl"><span class="cp">{
+</span></span></span><span class="line"><span class="cl"><span class="cp">if (a &lt; b &amp;&amp; a &lt; 0) then
+</span></span></span><span class="line"><span class="cl"><span class="cp">  {
+</span></span></span><span class="line"><span class="cl"><span class="cp">  return 1;
+</span></span></span><span class="line"><span class="cl"><span class="cp">  }
+</span></span></span><span class="line"><span class="cl"><span class="cp">else
+</span></span></span><span class="line"><span class="cl"><span class="cp">  {
+</span></span></span><span class="line"><span class="cl"><span class="cp">  return 0;
+</span></span></span><span class="line"><span class="cl"><span class="cp">  }
+</span></span></span><span class="line"><span class="cl"><span class="cp">}
+</span></span></span><span class="line"><span class="cl"><span class="cp">]]&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/script&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在上面的例子中，解析器会忽略 CDATA 部分中的所有内容。</p>
+<p>关于 CDATA 部分的注释：</p>
+<p>CDATA 部分不能包含字符串 &ldquo;]]&gt;&quot;。也不允许嵌套的 CDATA 部分。</p>
+<p>标记 CDATA 部分结尾的 &ldquo;]]&gt;&rdquo; 不能包含空格或折行。</p>
 
     </div>
 
