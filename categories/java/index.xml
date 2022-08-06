@@ -6,7 +6,16 @@
     <description>Recent content in Java🥬 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 22 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL</title>
+      <link>https://anjanavakil.github.io/post/sql/</link>
+      <pubDate>Sat, 30 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/sql/</guid>
+      <description>SQL Difference between count() What is the Difference Between COUNT(*), COUNT(1), COUNT(column name), and COUNT(DISTINCT column name)? 很不错的文章，果然还是看英文靠谱点。 The COUNT() function belongs to SQL’s aggregate functions. It counts the number of rows that satisfy the criteria defined in the parentheses. It does not return the rows themselves; it shows</description>
+    </item>
+    
     <item>
       <title>Java源码阅读分析</title>
       <link>https://anjanavakil.github.io/post/java-source-code/</link>
@@ -86,15 +95,6 @@
       
       <guid>https://anjanavakil.github.io/post/study/</guid>
       <description>SpringCloud学习 开发阶段，用热部署Devtools，但是一旦上线，应该关掉热部署。 客户消费者端口：80端口(一般用户都是80端口)</description>
-    </item>
-    
-    <item>
-      <title>SQL</title>
-      <link>https://anjanavakil.github.io/post/sql/</link>
-      <pubDate>Fri, 15 Apr 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/sql/</guid>
-      <description>SQL SELECT 1 FROM TABLE，SQL语句中的1： select 1 from table; select anycol（目的表集合中的任意一行）from table; select * from table; 从作用上来说是没有差别的，都是查看是</description>
     </item>
     
   </channel>

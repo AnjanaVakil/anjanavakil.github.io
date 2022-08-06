@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="SQL SELECT 1 FROM TABLE，SQL语句中的1： select 1 from table; select anycol（目的表集合中的任意一行）from table; select * from table; 从作用上来说是没有差别的，都是查看是" />
+  <meta name="description" content="SQL Difference between count() What is the Difference Between COUNT(*), COUNT(1), COUNT(column name), and COUNT(DISTINCT column name)? 很不错的文章，果然还是看英文靠谱点。 The COUNT() function belongs to SQL’s aggregate functions. It counts the number of rows that satisfy the criteria defined in the parentheses. It does not return the rows themselves; it shows" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,19 +60,19 @@
 
 
 <meta property="og:title" content="SQL" />
-<meta property="og:description" content="SQL SELECT 1 FROM TABLE，SQL语句中的1： select 1 from table; select anycol（目的表集合中的任意一行）from table; select * from table; 从作用上来说是没有差别的，都是查看是" />
+<meta property="og:description" content="SQL Difference between count() What is the Difference Between COUNT(*), COUNT(1), COUNT(column name), and COUNT(DISTINCT column name)? 很不错的文章，果然还是看英文靠谱点。 The COUNT() function belongs to SQL’s aggregate functions. It counts the number of rows that satisfy the criteria defined in the parentheses. It does not return the rows themselves; it shows" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/sql/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-04-15T08:15:48+08:00" />
-<meta property="article:modified_time" content="2022-04-15T08:15:48+08:00" />
+<meta property="article:published_time" content="2022-07-30T08:15:48+08:00" />
+<meta property="article:modified_time" content="2022-07-30T08:15:48+08:00" />
 
 <meta itemprop="name" content="SQL">
-<meta itemprop="description" content="SQL SELECT 1 FROM TABLE，SQL语句中的1： select 1 from table; select anycol（目的表集合中的任意一行）from table; select * from table; 从作用上来说是没有差别的，都是查看是"><meta itemprop="datePublished" content="2022-04-15T08:15:48+08:00" />
-<meta itemprop="dateModified" content="2022-04-15T08:15:48+08:00" />
-<meta itemprop="wordCount" content="535">
+<meta itemprop="description" content="SQL Difference between count() What is the Difference Between COUNT(*), COUNT(1), COUNT(column name), and COUNT(DISTINCT column name)? 很不错的文章，果然还是看英文靠谱点。 The COUNT() function belongs to SQL’s aggregate functions. It counts the number of rows that satisfy the criteria defined in the parentheses. It does not return the rows themselves; it shows"><meta itemprop="datePublished" content="2022-07-30T08:15:48+08:00" />
+<meta itemprop="dateModified" content="2022-07-30T08:15:48+08:00" />
+<meta itemprop="wordCount" content="1352">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SQL"/>
-<meta name="twitter:description" content="SQL SELECT 1 FROM TABLE，SQL语句中的1： select 1 from table; select anycol（目的表集合中的任意一行）from table; select * from table; 从作用上来说是没有差别的，都是查看是"/>
+<meta name="twitter:description" content="SQL Difference between count() What is the Difference Between COUNT(*), COUNT(1), COUNT(column name), and COUNT(DISTINCT column name)? 很不错的文章，果然还是看英文靠谱点。 The COUNT() function belongs to SQL’s aggregate functions. It counts the number of rows that satisfy the criteria defined in the parentheses. It does not return the rows themselves; it shows"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -295,8 +295,8 @@
       <h1 class="post-title">SQL</h1>
       
       <div class="post-meta">
-        <time datetime="2022-04-15" class="post-time">
-          2022-04-15
+        <time datetime="2022-07-30" class="post-time">
+          2022-07-30
         </time>
         <div class="post-category">
             <a href="https://anjanavakil.github.io/categories/java/"> Java🥬 </a>
@@ -319,6 +319,13 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
+    <li><a href="#difference-between-count">Difference between count()</a>
+      <ul>
+        <li><a href="#count-vs-count1">COUNT(*) vs COUNT(1)</a></li>
+        <li><a href="#count-vs-countcolumn-name">COUNT(*) vs COUNT(column name)</a></li>
+        <li><a href="#countcolumn-name-vs-count-distinct-column_name">COUNT(column name) vs COUNT (DISTINCT column_name)</a></li>
+      </ul>
+    </li>
     <li><a href="#xml-cdata">XML CDATA</a></li>
   </ul>
 </nav>
@@ -328,6 +335,56 @@
     
     <div class="post-content">
       <h1 id="sql">SQL</h1>
+<h2 id="difference-between-count">Difference between count()</h2>
+<p><a href="https://learnsql.com/blog/difference-between-count-distinct/">What is the Difference Between COUNT(*), COUNT(1), COUNT(column name), and COUNT(DISTINCT column name)?</a> 很不错的文章，果然还是看英文靠谱点。</p>
+<p>The <code>COUNT()</code> function belongs to SQL’s aggregate functions. It counts the number of rows that satisfy the criteria defined in the parentheses. It does not return the rows themselves; it shows the number of rows that meet your criteria.</p>
+<h3 id="count-vs-count1">COUNT(*) vs COUNT(1)</h3>
+<p>The <code>COUNT(*)</code> function counts the total rows in the table, including the <code>NULL</code> values.</p>
+<p>There’s a popular misconception that “1” in <code>COUNT(1)</code> means “count the values in the first column and return the number of rows.” From that misconception follows a second: that <code>COUNT(1)</code> is faster because it will count only the first column, while <code>COUNT(*)</code> will use the whole table to get to the same result.</p>
+<p>So what does the value in the parenthesis of <code>COUNT()</code> mean? It’s the value that <strong>the <code>COUNT()</code> function will assign to every row</strong> in the table. The function will then count how many times the asterisk (*) or (1) or (-13) has been assigned. Of course, it will be assigned a number of times that’s equal to the number of rows in the table. In other words, <code>COUNT(1)</code> assigns the value from the parentheses (number 1, in this case) to every row in the table, then the same function counts how many times the value in the parenthesis (1, in our case) has been assigned; naturally, this will always be equal to the number of rows in the table. The parentheses can contain any value; the only thing that won’t work will be leaving the parentheses empty.</p>
+<p>Since it doesn’t matter which value you put in the parentheses, it follows that <code>COUNT(*)</code> and <code>COUNT(1)</code> are precisely the same. They are precisely the same because the value in the <code>COUNT()</code> parentheses serves only to tell the query what it will count.</p>
+<p>If these statements are precisely the same, then there’s no difference in the performance. Don’t let the asterisk (*) make you think it has the same use as in <code>SELECT *</code> statement. No, <code>COUNT(*)</code> will not go through the whole table before returning the number of rows, making itself slower than <code>COUNT(1)</code>.</p>
+<p>So, in the end, who wins in this dramatic <code>COUNT(*)</code> vs <code>COUNT(1)</code> battle? Nobody – it’s a draw; they’re exactly the same. However, I’d recommend using <code>COUNT(*)</code>, as it’s much more commonly seen. It’s also less confusing, naturally leading other SQL users to understand that the function will count all the numbers in the table, including the <code>NULL</code> values.</p>
+<h3 id="count-vs-countcolumn-name">COUNT(*) vs COUNT(column name)</h3>
+<p>As you’ve already learned, <code>COUNT(*)</code> will count all the rows in the table, including <code>NULL</code> values. On the other hand, <code>COUNT(column name)</code> will count all the rows in the specified column while excluding <code>NULL</code> values.</p>
+<p>Always remember: <code>COUNT(column name)</code> will only count rows where the given column is NOT NULL.</p>
+<p><code>COUNT()</code> allows us to use expressions as well as column names as the argument. Do you know how to find the number of the orders above €1 000 using only the <code>COUNT()</code> function? Here’s how:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">order_price</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">AS</span><span class="w"> </span><span class="n">significant_orders</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Instead of putting conditions at the end of the query and filtering after the <code>COUNT()</code> function does its job, we can use the <code>CASE</code> statement. That’s what I’ve done in the above query. It’s used like an IF-THEN-ELSE statement. <code>CASE</code> is followed by the condition, which is defined by the statements WHEN and THEN. There can also be an ELSE statement, but it’s unnecessary in this case – I’m only interested in counting the number of values, not in the values themselves. Every <code>CASE</code> statement ends with the <code>END</code> statement.</p>
+<p>The <code>COUNT()</code> statement above reads as follows:</p>
+<ol>
+<li>Find all the values in the column <code>order_price</code> above 1 000.</li>
+<li>Assign the value 1 (you can assign any value you want) to these values.</li>
+<li>Assign NULL to rows with prices below 1 000.</li>
+<li>Count the number of assigned 1s.</li>
+<li>Show the result in the column <code>significant_orders</code>.</li>
+</ol>
+<p>Here’s the result:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">significant_orders</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="countcolumn-name-vs-count-distinct-column_name">COUNT(column name) vs COUNT (DISTINCT column_name)</h3>
+<p>You can probably imagine what the difference between those two <code>COUNT()</code> function versions is. <code>COUNT(column_name)</code> will include duplicate values when counting. In contrast, <code>COUNT (DISTINCT column_name)</code> will count only distinct (unique) rows in the defined column.</p>
 <p>SELECT 1 FROM TABLE，SQL语句中的1：</p>
 <ul>
 <li>
@@ -405,7 +462,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2022-04-15
+      2022-07-30
       
     </span>
   </p>
@@ -429,22 +486,9 @@
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/vocabulary-2022-3-4/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">2022年3月~4月陌生词汇</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
         
-          <a class="next" href="/post/the-fenix-project2/">
-            <span class="next-text nav-default">《凤凰架构》架构师的视角</span>
+          <a class="next" href="/post/java-source-code/">
+            <span class="next-text nav-default">Java源码阅读分析</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">
