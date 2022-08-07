@@ -10,41 +10,62 @@
   
   <url>
     <loc>https://anjanavakil.github.io/</loc>
-    <lastmod>2022-07-30T08:15:48+08:00</lastmod>
+    <lastmod>2022-08-01T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/categories/</loc>
-    <lastmod>2022-07-30T08:15:48+08:00</lastmod>
+    <lastmod>2022-08-01T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/tags/cs/</loc>
-    <lastmod>2022-07-30T08:15:48+08:00</lastmod>
+    <lastmod>2022-08-01T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/tags/java%EF%B8%8F/</loc>
-    <lastmod>2022-07-30T08:15:48+08:00</lastmod>
+    <lastmod>2022-08-01T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/categories/java/</loc>
-    <lastmod>2022-07-30T08:15:48+08:00</lastmod>
+    <loc>https://anjanavakil.github.io/categories/java%EF%B8%8F/</loc>
+    <lastmod>2022-08-01T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/juc/</loc>
+    <lastmod>2022-08-01T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/post/</loc>
+    <lastmod>2022-08-01T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/</loc>
+    <lastmod>2022-08-01T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/categories/cs/</loc>
     <lastmod>2022-07-30T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -58,8 +79,22 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/tags/</loc>
-    <lastmod>2022-07-30T08:15:48+08:00</lastmod>
+    <loc>https://anjanavakil.github.io/tags/book-summary/</loc>
+    <lastmod>2022-07-25T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/book/</loc>
+    <lastmod>2022-07-25T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/the-effective-engineer/</loc>
+    <lastmod>2022-07-25T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -86,22 +121,8 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/categories/springcloud/</loc>
-    <lastmod>2022-07-11T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://anjanavakil.github.io/post/jvm/</loc>
     <lastmod>2022-06-12T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/book/</loc>
-    <lastmod>2022-06-10T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -130,6 +151,13 @@
   <url>
     <loc>https://anjanavakil.github.io/post/redis/</loc>
     <lastmod>2022-06-05T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/categories/growth/</loc>
+    <lastmod>2022-06-02T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -205,13 +233,6 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/tags/vocabulary/</loc>
-    <lastmod>2022-04-30T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://anjanavakil.github.io/post/the-fenix-project2/</loc>
     <lastmod>2022-04-02T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -275,13 +296,6 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/categories/springboot/</loc>
-    <lastmod>2022-03-26T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://anjanavakil.github.io/post/pp-aha-algorithms/</loc>
     <lastmod>2022-03-25T20:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -290,13 +304,6 @@
   
   <url>
     <loc>https://anjanavakil.github.io/tags/algorithm/</loc>
-    <lastmod>2022-03-25T20:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/categories/programming-pearls/</loc>
     <lastmod>2022-03-25T20:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -359,13 +366,6 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/categories/coders%EF%B8%8F/</loc>
-    <lastmod>2022-03-27T15:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://anjanavakil.github.io/post/coders-at-work-jamie-zawinski/</loc>
     <lastmod>2022-03-27T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -375,20 +375,6 @@
   <url>
     <loc>https://anjanavakil.github.io/post/effective-java-static-factory-method/</loc>
     <lastmod>2022-03-19T10:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/book-summary/</loc>
-    <lastmod>2022-03-17T22:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/categories/cs/</loc>
-    <lastmod>2022-03-17T22:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -408,7 +394,7 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/categories/book-review/</loc>
+    <loc>https://anjanavakil.github.io/categories/book/</loc>
     <lastmod>2022-03-16T21:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -450,20 +436,6 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/tags/cs-basic-knowledge/</loc>
-    <lastmod>2022-02-25T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/categories/cs-basic-knowledge/</loc>
-    <lastmod>2022-02-25T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://anjanavakil.github.io/post/408/</loc>
     <lastmod>2022-02-12T20:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -486,13 +458,6 @@
   
   <url>
     <loc>https://anjanavakil.github.io/tags/growth/</loc>
-    <lastmod>2022-02-01T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/categories/growth/</loc>
     <lastmod>2022-02-01T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -618,13 +583,6 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/tags/workout/</loc>
-    <lastmod>2022-01-13T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://anjanavakil.github.io/post/the-revolutionary-new-science-of-exercise-and-the-brain/</loc>
     <lastmod>2022-01-13T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -662,13 +620,6 @@
   <url>
     <loc>https://anjanavakil.github.io/post/savior-far-away/</loc>
     <lastmod>2022-01-02T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/network/</loc>
-    <lastmod>2021-12-30T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

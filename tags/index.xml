@@ -6,11 +6,11 @@
     <description>Recent content in Tags on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Aug 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CS💻</title>
       <link>https://anjanavakil.github.io/tags/cs/</link>
-      <pubDate>Sat, 30 Jul 2022 08:15:48 +0800</pubDate>
+      <pubDate>Mon, 01 Aug 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/tags/cs/</guid>
       <description></description>
@@ -19,16 +19,25 @@
     <item>
       <title>Java☕️</title>
       <link>https://anjanavakil.github.io/tags/java%EF%B8%8F/</link>
-      <pubDate>Sat, 30 Jul 2022 08:15:48 +0800</pubDate>
+      <pubDate>Mon, 01 Aug 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/tags/java%EF%B8%8F/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>BOOK-SUMMARY📑</title>
+      <link>https://anjanavakil.github.io/tags/book-summary/</link>
+      <pubDate>Mon, 25 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/tags/book-summary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>BOOK📚</title>
       <link>https://anjanavakil.github.io/tags/book/</link>
-      <pubDate>Fri, 10 Jun 2022 14:15:48 +0800</pubDate>
+      <pubDate>Mon, 25 Jul 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/tags/book/</guid>
       <description></description>
@@ -53,15 +62,6 @@
     </item>
     
     <item>
-      <title>VOCABULARY📕</title>
-      <link>https://anjanavakil.github.io/tags/vocabulary/</link>
-      <pubDate>Sat, 30 Apr 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/tags/vocabulary/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Algorithm🪺</title>
       <link>https://anjanavakil.github.io/tags/algorithm/</link>
       <pubDate>Fri, 25 Mar 2022 20:15:48 +0800</pubDate>
@@ -71,29 +71,11 @@
     </item>
     
     <item>
-      <title>BOOK-SUMMARY📑</title>
-      <link>https://anjanavakil.github.io/tags/book-summary/</link>
-      <pubDate>Thu, 17 Mar 2022 22:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/tags/book-summary/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>BOOK-REVIEW📖</title>
       <link>https://anjanavakil.github.io/tags/book-review/</link>
       <pubDate>Wed, 16 Mar 2022 21:00:00 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/tags/book-review/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CS-BASIC-KNOWLEDGE✅</title>
-      <link>https://anjanavakil.github.io/tags/cs-basic-knowledge/</link>
-      <pubDate>Fri, 25 Feb 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/tags/cs-basic-knowledge/</guid>
       <description></description>
     </item>
     
@@ -112,24 +94,6 @@
       <pubDate>Fri, 28 Jan 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/tags/leetcode/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>WORKOUT💃🏻</title>
-      <link>https://anjanavakil.github.io/tags/workout/</link>
-      <pubDate>Thu, 13 Jan 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/tags/workout/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>NETWORK🌐</title>
-      <link>https://anjanavakil.github.io/tags/network/</link>
-      <pubDate>Thu, 30 Dec 2021 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/tags/network/</guid>
       <description></description>
     </item>
     

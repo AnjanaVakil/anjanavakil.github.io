@@ -6,7 +6,97 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 17 Mar 2022 22:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL</title>
+      <link>https://anjanavakil.github.io/post/sql/</link>
+      <pubDate>Sat, 30 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/sql/</guid>
+      <description>SQL Difference between count() What is the Difference Between COUNT(*), COUNT(1), COUNT(column name), and COUNT(DISTINCT column name)? 很不错的文章，果然还是看英文靠谱点。 The COUNT() function belongs to SQL’s aggregate functions. It counts the number of rows that satisfy the criteria defined in the parentheses. It does not return the rows themselves; it shows</description>
+    </item>
+    
+    <item>
+      <title>The Effective Engineer</title>
+      <link>https://anjanavakil.github.io/post/the-effective-engineer/</link>
+      <pubDate>Mon, 25 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/the-effective-engineer/</guid>
+      <description>豆瓣🔗： The Effective Engineer: How to Leverage Your Efforts in Software Engineering to Make a Disproportionate and Meaningful Impact Talks at Google🔗: The Effective Engineer | Edmond Lau | Talks at Google 大概是3、4月份读的英文版，发现7月份出了翻译版，对我来</description>
+    </item>
+    
+    <item>
+      <title>DATABASE数据库</title>
+      <link>https://anjanavakil.github.io/post/database/</link>
+      <pubDate>Wed, 18 May 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/database/</guid>
+      <description>Oracle Sequence序列 Oracle / PLSQL: Sequences (Autonumber) Oracle NEXTVAL function tips CREATE SEQUENCE 值得注意的几点： When a sequence number is generated, the sequence is incremented, independent of the transaction committing or rolling back. If two users concurrently increment the same sequence, then the sequence numbers each user acquires may have gaps, because sequence numbers are</description>
+    </item>
+    
+    <item>
+      <title>碎片学习笔记</title>
+      <link>https://anjanavakil.github.io/post/study/</link>
+      <pubDate>Fri, 06 May 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/study/</guid>
+      <description>SpringCloud学习 开发阶段，用热部署Devtools，但是一旦上线，应该关掉热部署。 客户消费者端口：80端口(一般用户都是80端口)</description>
+    </item>
+    
+    <item>
+      <title>《凤凰架构》架构师的视角</title>
+      <link>https://anjanavakil.github.io/post/the-fenix-project2/</link>
+      <pubDate>Sat, 02 Apr 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/the-fenix-project2/</guid>
+      <description>架构师的视角 第2章 访问远程服务 2.1 远程服务调用 2.1.1 进程间通信 调用本地方法： 1 2 3 4 5 6 7 8 // Caller: 调用者，代码里的main() // Callee: 被调用者，代码里的</description>
+    </item>
+    
+    <item>
+      <title>《凤凰架构》演进中的架构</title>
+      <link>https://anjanavakil.github.io/post/the-fenix-project1/</link>
+      <pubDate>Fri, 01 Apr 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/the-fenix-project1/</guid>
+      <description>豆瓣🔗：《凤凰架构：构建可靠的大型分布式系统》 演进中的架构 第1章 服务架构演进史 架构并不是被发明出来的，而是持续演进的结果。 1.1 原始分布式时代 调</description>
+    </item>
+    
+    <item>
+      <title>Aha! Algorithms 啊哈！算法</title>
+      <link>https://anjanavakil.github.io/post/pp-aha-algorithms/</link>
+      <pubDate>Fri, 25 Mar 2022 20:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/pp-aha-algorithms/</guid>
+      <description>《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少</description>
+    </item>
+    
+    <item>
+      <title>Cracking the Oyster 开篇</title>
+      <link>https://anjanavakil.github.io/post/pp-cracking-the-oyster/</link>
+      <pubDate>Thu, 24 Mar 2022 20:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/pp-cracking-the-oyster/</guid>
+      <description>《编程珠玑》的笔记。 作者 Jon Bentley 推荐的阅读方法，因此每次完成一章，重点是自己思考习题。 One hint about reading the essays: don’t go too fast. Read them carefully, one per sitting. Try the problems as they are posed — some</description>
+    </item>
+    
+    <item>
+      <title>Coders At Work: Brad Fitzpatrick</title>
+      <link>https://anjanavakil.github.io/post/coders-at-work-brad-fitzpatrick/</link>
+      <pubDate>Sun, 20 Mar 2022 15:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/coders-at-work-brad-fitzpatrick/</guid>
+      <description>Brad Fitzpatrick 书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。 1、学习东西 Seibel: It does seem that while you were writing all this stuff because you needed it, you</description>
+    </item>
+    
+    <item>
+      <title>Coders At Work: Jamie Zawinski</title>
+      <link>https://anjanavakil.github.io/post/coders-at-work-jamie-zawinski/</link>
+      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/coders-at-work-jamie-zawinski/</guid>
+      <description>豆瓣🔗: Coders At Work 《编程人生：15位软件先驱访谈录》 第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获</description>
+    </item>
+    
     <item>
       <title>Designing Data-Intensive Applications Notes</title>
       <link>https://anjanavakil.github.io/post/designing-data-intensive_applications/</link>
@@ -19,21 +109,57 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
     </item>
     
     <item>
-      <title>Lambda表达式</title>
-      <link>https://anjanavakil.github.io/post/lambda-expression/</link>
-      <pubDate>Sat, 12 Mar 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/lambda-expression/</guid>
-      <description>之前技术博客都是在CSDN上发表的，好久没用了，登录上去居然有人给我以前的博客点赞评论，尽管很少但发现还是有人看的。看了一下之前写的博客，发</description>
-    </item>
-    
-    <item>
       <title>《编写可读代码的艺术》</title>
       <link>https://anjanavakil.github.io/post/the-art-of-readable-code/</link>
       <pubDate>Fri, 04 Mar 2022 14:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/the-art-of-readable-code/</guid>
       <description>豆瓣🔗：《编写可读代码的艺术》 关于编码规范和编写高质量代码类的书籍，印象中第一本看完的应该是《阿里巴巴Java开发手册》，《编写可读代码的艺</description>
+    </item>
+    
+    <item>
+      <title>Code: The Hidden Language of Computer Hardware and Software</title>
+      <link>https://anjanavakil.github.io/post/code/</link>
+      <pubDate>Fri, 25 Feb 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/code/</guid>
+      <description>豆瓣🔗：Code: The Hidden Language of Computer Hardware and Software 第一遍读的是中文版，寒假期间重读了英文版。这应该是第一本读完的英文专业书籍。读的过程中还是稍微有些困难的，</description>
+    </item>
+    
+    <item>
+      <title>CS 基础知识笔记</title>
+      <link>https://anjanavakil.github.io/post/408/</link>
+      <pubDate>Sat, 12 Feb 2022 20:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/408/</guid>
+      <description>CS 基础知识的笔记，不算是总结性的笔记，只是曾经备忘录上记录下来的和对于自己陌生的点，或许应该保存到blog上，抑或是考试教育的一种印证。 CO 1</description>
+    </item>
+    
+    <item>
+      <title>CS基础知识书籍推荐(已读)</title>
+      <link>https://anjanavakil.github.io/post/cs-book-recommendation/</link>
+      <pubDate>Sat, 15 Jan 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/cs-book-recommendation/</guid>
+      <description>豆瓣🔗： 《编码：隐匿在计算机软硬件背后的语言》 Code: The Hidden Language of Computer Hardware and Software 《计算机是怎样跑起来的》 《程序是怎样跑起来的》 《网络是怎样连接的》 《计算机系</description>
+    </item>
+    
+    <item>
+      <title>《Wireshark网络分析XXX》</title>
+      <link>https://anjanavakil.github.io/post/wireshark-network-analyse/</link>
+      <pubDate>Thu, 30 Dec 2021 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/wireshark-network-analyse/</guid>
+      <description>豆瓣🔗： 《Wireshark网络分析就这么简单》 《Wireshark网络分析的艺术》 林沛满先生关于Wireshark的两本书：《Wiresh</description>
+    </item>
+    
+    <item>
+      <title>《操作系统导论》OSTEP</title>
+      <link>https://anjanavakil.github.io/post/ostep/</link>
+      <pubDate>Tue, 28 Dec 2021 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/ostep/</guid>
+      <description>豆瓣🔗：《操作系统导论》 Operating Systems: Three Easy Pieces 十分推荐的一本好书，10月3号开始阅读，大概花了13h看完，做了大约200多条笔记（后面学习到读书过程中不</description>
     </item>
     
   </channel>

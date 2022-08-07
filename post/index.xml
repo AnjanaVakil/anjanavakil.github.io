@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Aug 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java并发-JUC</title>
+      <link>https://anjanavakil.github.io/post/juc/</link>
+      <pubDate>Mon, 01 Aug 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/juc/</guid>
+      <description>Package java.util.concurrent Description Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that provide useful functionality and are otherwise tedious or difficult to implement. Here are brief descriptions of the main components. See also the java.util.concurrent.locks and java.util.concurrent.atomic packages. Executors Interfaces. Executoris a simple standardized interface for defining custom thread-like subsystems, including thread pools, asynchronous I/O, and lightweight</description>
+    </item>
+    
     <item>
       <title>SQL</title>
       <link>https://anjanavakil.github.io/post/sql/</link>
@@ -14,6 +23,15 @@
       
       <guid>https://anjanavakil.github.io/post/sql/</guid>
       <description>SQL Difference between count() What is the Difference Between COUNT(*), COUNT(1), COUNT(column name), and COUNT(DISTINCT column name)? 很不错的文章，果然还是看英文靠谱点。 The COUNT() function belongs to SQL’s aggregate functions. It counts the number of rows that satisfy the criteria defined in the parentheses. It does not return the rows themselves; it shows</description>
+    </item>
+    
+    <item>
+      <title>The Effective Engineer</title>
+      <link>https://anjanavakil.github.io/post/the-effective-engineer/</link>
+      <pubDate>Mon, 25 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/the-effective-engineer/</guid>
+      <description>豆瓣🔗： The Effective Engineer: How to Leverage Your Efforts in Software Engineering to Make a Disproportionate and Meaningful Impact Talks at Google🔗: The Effective Engineer | Edmond Lau | Talks at Google 大概是3、4月份读的英文版，发现7月份出了翻译版，对我来</description>
     </item>
     
     <item>
@@ -167,24 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/im/</guid>
       <description>自定义Protobuf编解码器 Netty内置了一组Protobuf编解码器——ProtobufDecoder解码器和ProtobufEnco</description>
-    </item>
-    
-    <item>
-      <title>Enums</title>
-      <link>https://anjanavakil.github.io/post/effective-java-enum/</link>
-      <pubDate>Wed, 30 Mar 2022 20:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective-java-enum/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 34: Use enums instead of int constants 用enum代替int常量 1 2 3 4 5 6 7 // The int enum pattern - severely deficient! public static final int APPLE_FUJI = 0; public static final int</description>
-    </item>
-    
-    <item>
-      <title>Netty</title>
-      <link>https://anjanavakil.github.io/post/netty/</link>
-      <pubDate>Tue, 29 Mar 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/netty/</guid>
-      <description>Netty是一个Java NIO客户端/服务器框架。 Netty中的Reactor模式 Java Reactor模式中IO事件的处理流程： Reactor模</description>
     </item>
     
   </channel>

@@ -6,7 +6,16 @@
     <description>Recent content in Java☕️ on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/java%EF%B8%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Aug 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/java%EF%B8%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java并发-JUC</title>
+      <link>https://anjanavakil.github.io/post/juc/</link>
+      <pubDate>Mon, 01 Aug 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/juc/</guid>
+      <description>Package java.util.concurrent Description Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that provide useful functionality and are otherwise tedious or difficult to implement. Here are brief descriptions of the main components. See also the java.util.concurrent.locks and java.util.concurrent.atomic packages. Executors Interfaces. Executoris a simple standardized interface for defining custom thread-like subsystems, including thread pools, asynchronous I/O, and lightweight</description>
+    </item>
+    
     <item>
       <title>SQL</title>
       <link>https://anjanavakil.github.io/post/sql/</link>
@@ -62,30 +71,12 @@
     </item>
     
     <item>
-      <title>精彩video</title>
-      <link>https://anjanavakil.github.io/post/video/</link>
-      <pubDate>Thu, 02 Jun 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/video/</guid>
-      <description>网络上看过的精彩讲座/课程/录像/视频等： Jul 15: A Philosophy of Software Design | John Ousterhout | Talks at Google John Ousterhout, Professor of Computer Science at Stanford University, discusses complex techniques on how to become a more confident coder. John is excited to announce that he just published the first edition of a new</description>
-    </item>
-    
-    <item>
       <title>OOM</title>
       <link>https://anjanavakil.github.io/post/oom/</link>
       <pubDate>Fri, 20 May 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/oom/</guid>
       <description>3.2 Understand the OutOfMemoryError Exception 翻译+理解： One common indication of a memory leak is the java.lang.OutOfMemoryError exception. Usually, this error is thrown when there is insufficient space to allocate an object in the Java heap. In this case, The garbage collector cannot make space available to accommodate a new object, and the heap cannot be expanded further. Also, this error may be thrown when there</description>
-    </item>
-    
-    <item>
-      <title>DATABASE数据库</title>
-      <link>https://anjanavakil.github.io/post/database/</link>
-      <pubDate>Wed, 18 May 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/database/</guid>
-      <description>Oracle Sequence序列 Oracle / PLSQL: Sequences (Autonumber) Oracle NEXTVAL function tips CREATE SEQUENCE 值得注意的几点： When a sequence number is generated, the sequence is incremented, independent of the transaction committing or rolling back. If two users concurrently increment the same sequence, then the sequence numbers each user acquires may have gaps, because sequence numbers are</description>
     </item>
     
     <item>
@@ -185,6 +176,15 @@
       
       <guid>https://anjanavakil.github.io/post/springboot-notes/</guid>
       <description>豆瓣🔗：《SpringBoot+Vue全栈开发实战》 一些SpringBoot陌生部分的笔记。技术类书籍，不能说有多好，但是如果有一份好的代码</description>
+    </item>
+    
+    <item>
+      <title>Generics</title>
+      <link>https://anjanavakil.github.io/post/effective-java-generic/</link>
+      <pubDate>Wed, 23 Mar 2022 20:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective-java-generic/</guid>
+      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原</description>
     </item>
     
   </channel>
