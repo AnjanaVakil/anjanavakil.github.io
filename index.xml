@@ -330,9 +330,14 @@
       
       <guid>https://anjanavakil.github.io/post/sql/</guid>
       
-        <description>&lt;h1 id=&#34;sql&#34;&gt;SQL&lt;/h1&gt;
-&lt;h2 id=&#34;difference-between-count&#34;&gt;Difference between count()&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://learnsql.com/blog/difference-between-count-distinct/&#34;&gt;What is the Difference Between COUNT(*), COUNT(1), COUNT(column name), and COUNT(DISTINCT column name)?&lt;/a&gt; 很不错的文章，果然还是看英文靠谱点。&lt;/p&gt;
+        <description>&lt;h2 id=&#34;difference-between-count&#34;&gt;Difference between count()&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;参考🔗：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://learnsql.com/blog/difference-between-count-distinct/&#34;&gt;What is the Difference Between COUNT(*), COUNT(1), COUNT(column name), and COUNT(DISTINCT column name)?&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;很不错的文章，果然还是看英文靠谱点。&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;COUNT()&lt;/code&gt; function belongs to SQL’s aggregate functions. It counts the number of rows that satisfy the criteria defined in the parentheses. It does not return the rows themselves; it shows the number of rows that meet your criteria.&lt;/p&gt;
 &lt;h3 id=&#34;count-vs-count1&#34;&gt;COUNT(*) vs COUNT(1)&lt;/h3&gt;
 &lt;p&gt;The &lt;code&gt;COUNT(*)&lt;/code&gt; function counts the total rows in the table, including the &lt;code&gt;NULL&lt;/code&gt; values.&lt;/p&gt;

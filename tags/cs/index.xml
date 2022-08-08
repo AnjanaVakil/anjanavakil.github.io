@@ -22,7 +22,7 @@
       <pubDate>Sat, 30 Jul 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/sql/</guid>
-      <description>SQL Difference between count() What is the Difference Between COUNT(*), COUNT(1), COUNT(column name), and COUNT(DISTINCT column name)? 很不错的文章，果然还是看英文靠谱点。 The COUNT() function belongs to SQL’s aggregate functions. It counts the number of rows that satisfy the criteria defined in the parentheses. It does not return the rows themselves; it shows</description>
+      <description>Difference between count() 参考🔗： What is the Difference Between COUNT(*), COUNT(1), COUNT(column name), and COUNT(DISTINCT column name)? 很不错的文章，果然还是看英文靠谱点。 The COUNT() function belongs to SQL’s aggregate functions. It counts the number of rows that satisfy the criteria defined in the parentheses. It does not return the rows</description>
     </item>
     
     <item>
