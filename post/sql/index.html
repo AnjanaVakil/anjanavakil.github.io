@@ -69,7 +69,7 @@
 <meta itemprop="name" content="SQL">
 <meta itemprop="description" content="Difference between count() 参考🔗： What is the Difference Between COUNT(*), COUNT(1), COUNT(column name), and COUNT(DISTINCT column name)? 很不错的文章，果然还是看英文靠谱点。 The COUNT() function belongs to SQL’s aggregate functions. It counts the number of rows that satisfy the criteria defined in the parentheses. It does not return the rows"><meta itemprop="datePublished" content="2022-07-30T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-07-30T08:15:48+08:00" />
-<meta itemprop="wordCount" content="1199">
+<meta itemprop="wordCount" content="2144">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SQL"/>
 <meta name="twitter:description" content="Difference between count() 参考🔗： What is the Difference Between COUNT(*), COUNT(1), COUNT(column name), and COUNT(DISTINCT column name)? 很不错的文章，果然还是看英文靠谱点。 The COUNT() function belongs to SQL’s aggregate functions. It counts the number of rows that satisfy the criteria defined in the parentheses. It does not return the rows"/>
@@ -327,6 +327,21 @@
       </ul>
     </li>
     <li><a href="#xml-cdata">XML CDATA</a></li>
+    <li><a href="#join">JOIN</a>
+      <ul>
+        <li><a href="#inner-join">INNER JOIN</a></li>
+        <li><a href="#left-join">LEFT JOIN</a></li>
+        <li><a href="#right-join">RIGHT JOIN</a></li>
+        <li><a href="#full-join">FULL JOIN</a></li>
+      </ul>
+    </li>
+    <li><a href="#oracle-functions">Oracle Functions</a>
+      <ul>
+        <li><a href="#decode-function">DECODE FUNCTION</a></li>
+        <li><a href="#over-and-partition-by">OVER and PARTITION BY</a></li>
+        <li><a href="#row_number">ROW_NUMBER()</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -440,6 +455,117 @@
 <p>关于 CDATA 部分的注释：</p>
 <p>CDATA 部分不能包含字符串 &ldquo;]]&gt;&quot;。也不允许嵌套的 CDATA 部分。</p>
 <p>标记 CDATA 部分结尾的 &ldquo;]]&gt;&rdquo; 不能包含空格或折行。</p>
+<h2 id="join">JOIN</h2>
+<ul>
+<li>
+<p>参考🔗：</p>
+<p><a href="https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins">Visual Representation of SQL Joins</a></p>
+</li>
+</ul>
+<p><img src="/image/Visual_SQL_JOINS_orig.jpeg" alt="Visual_SQL_JOINS_orig"></p>
+<ul>
+<li>
+<p>参考🔗：</p>
+<p><a href="https://www.geeksforgeeks.org/sql-join-set-1-inner-left-right-and-full-joins/">SQL | Join (Inner, Left, Right and Full Joins</a></p>
+</li>
+</ul>
+<p><strong>SQL Join</strong> statement is used to combine data or rows from two or more tables based on a common field between them.</p>
+<h3 id="inner-join">INNER JOIN</h3>
+<p>The INNER JOIN keyword selects all rows from both the tables as long as the condition is satisfied.</p>
+<p><strong>Note</strong>: We can also write JOIN instead of INNER JOIN. JOIN is same as INNER JOIN.</p>
+<h3 id="left-join">LEFT JOIN</h3>
+<p>This join returns all the rows of the table on the left side of the join and matches rows for the table on the right side of the join. For the rows for which there is no matching row on the right side, the result-set will contain <em>null</em>. <code>LEFT JOIN</code> is also known as <code>LEFT OUTER JOIN</code>.</p>
+<h3 id="right-join">RIGHT JOIN</h3>
+<p>RIGHT JOIN is similar to LEFT JOIN. This join returns all the rows of the table on the right side of the join and matching rows for the table on the left side of the join. For the rows for which there is no matching row on the left side, the result-set will contain <em>null</em>. <code>RIGHT JOIN</code> is also known as <code>RIGHT OUTER JOIN</code>.</p>
+<h3 id="full-join">FULL JOIN</h3>
+<p>FULL JOIN creates the result-set by combining results of <code>both LEFT JOIN and RIGHT JOIN</code>. The result-set will contain all the rows from both tables. For the rows for which there is no matching, the result-set will contain <em>NULL</em> values.</p>
+<h2 id="oracle-functions">Oracle Functions</h2>
+<h3 id="decode-function">DECODE FUNCTION</h3>
+<p><a href="https://www.techonthenet.com/oracle/functions/decode.php">Oracle / PLSQL: DECODE Function</a></p>
+<h3 id="over-and-partition-by">OVER and PARTITION BY</h3>
+<p><a href="https://codingsight.com/grouping-data-using-the-over-and-partition-by-functions/">Grouping Data using the OVER and PARTITION BY Functions</a></p>
+<p>笔记：</p>
+<p>The OVER and PARTITION BY functions are both functions used to portion a results set according to specified criteria.</p>
+<p>We have 10 records in the student table and we want to display the name, id, and gender for all of the students, and in addition we also want to display <code>the total number of students that belong to each gender</code>, <code>the average age of the students of each gender</code> and <code>the sum of the values in the total_score column for each gender</code>.</p>
+<p>As you can see, the first three columns (shown in black) contain individual values for each record, while the last three columns (shown in red) contain aggregated values grouped by the gender column. For example, in the Average_Age column, the first five rows display the average age and the total score of all the records where gender is Female.</p>
+<p>Our result set contains aggregated results joined with non-aggregated columns.</p>
+<p>Now let’s extend this and add ‘id’ and ‘name’ (the non-aggregated columns in the SELECT statement) and see if we can get our desired result.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">USE</span><span class="w"> </span><span class="n">schooldb</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">gender</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="n">gender</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_students</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Average_Age</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">total_score</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Total_Score</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">gender</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>When you run the above query, you will see an error:</p>
+<p>The error says that the id column of the student table is invalid within the SELECT statement since we are using GROUP BY clause in the query.</p>
+<p>This means that we will have to apply an aggregate function on the id column or we will have to use it in the GROUP BY clause. In short, this scheme doesn’t solve our problem.</p>
+<p><strong>Solution Using JOIN Statement</strong></p>
+<p>One solution to this would be to make use of the JOIN statement to join the columns with aggregated results to columns containing non-aggregated results.</p>
+<p>To do so, you need a sub-query that retrieves gender, Total_Students, Average_Age and the Total_Score of the students grouped by gender. These results can then be joined to the results obtained from the sub-query with the outer SELECT statement. This will be applied to the gender column of the sub-query containing the aggregated result and the gender column of the student table. The outer SELECT statement would include non-aggregated columns i.e. ‘id’ and ‘name’, as below.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">USE</span><span class="w"> </span><span class="n">schooldb</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">Aggregation</span><span class="p">.</span><span class="n">gender</span><span class="p">,</span><span class="w"> </span><span class="n">Aggregation</span><span class="p">.</span><span class="n">Total_students</span><span class="p">,</span><span class="w"> </span><span class="n">Aggregation</span><span class="p">.</span><span class="n">Average_Age</span><span class="p">,</span><span class="w"> </span><span class="n">Aggregation</span><span class="p">.</span><span class="n">Total_Score</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">gender</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="n">gender</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_students</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Average_Age</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">total_score</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_Score</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">gender</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Aggregation</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">on</span><span class="w"> </span><span class="n">Aggregation</span><span class="p">.</span><span class="n">gender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="n">gender</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>The above query will give you the desired result but is not the optimal solution. We had to use a JOIN statement and a sub-query which increases the complexity of the script. This is not an elegant or efficient solution.</p>
+<p>A better approach is to use the OVER and PARTITION BY clauses in conjunction.</p>
+<p><strong>Solution Using OVER and PARTITION BY</strong></p>
+<p>To use the OVER and PARTITION BY clauses, you simply need to specify the column that you want to partition your aggregated results by. This is best explained with the use of an example.</p>
+<p>Let’s have a look at achieving our result using OVER and PARTITION BY.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">USE</span><span class="w"> </span><span class="n">schooldb</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">gender</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">COUNT</span><span class="p">(</span><span class="n">gender</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">gender</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_students</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">AVG</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">gender</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Average_Age</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SUM</span><span class="p">(</span><span class="n">total_score</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">gender</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_Score</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is a much more efficient result. In the first line of the script the id, name and gender columns are retrieved. These columns do not contain any aggregated results.</p>
+<p>Next, for the columns that contain aggregated results, we simply specify the aggregated function, followed by the OVER clause and then within the parenthesis we specify the PARTITION BY clause followed by the name of the column that we want our results to be partitioned as shown below.</p>
+<p><a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql?redirectedfrom=MSDN&amp;view=sql-server-ver16">SELECT - OVER Clause (Transact-SQL)</a></p>
+<p>StackOverflow – <a href="https://stackoverflow.com/questions/2404565/sql-server-difference-between-partition-by-and-group-by">Difference Between PARTITION BY and GROUP BY</a></p>
+<h3 id="row_number">ROW_NUMBER()</h3>
+<p><a href="https://www.databasestar.com/oracle-rownum/">What’s The Difference Between Oracle ROWNUM vs Oracle ROW_NUMBER?</a></p>
+<p>笔记：</p>
+<p><strong>What Happens If You Use Oracle ROWNUM and ORDER BY?</strong></p>
+<p>The data has been ordered by the last_name value, but the ROWNUM is not in order.</p>
+<p>This is because the ROWNUM happens just before the ORDER BY.</p>
+<p>This is because the Oracle ROWNUM is applied after the WHERE clause.</p>
 
     </div>
 

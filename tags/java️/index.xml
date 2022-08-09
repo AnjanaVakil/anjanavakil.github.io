@@ -31,7 +31,7 @@
       <pubDate>Fri, 22 Jul 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/java-source-code/</guid>
-      <description>Object Cloneable接口： 1 2 public interface Cloneable { } A class implements the Cloneable interface to indicate to the Object.clone() method that it is legal for that method to make a field-for-field copy of instances of that class. Invoking Object&amp;rsquo;s clone method on an instance that does not implement the Cloneable interface results in the exception CloneNotSupportedExceptionbeing thrown. By</description>
+      <description>2022.8.9总结反思：看起来好像分析源码挺久了，但是每次都只是读一遍源码、注释和Java doc，然后Command+C复制、Comman</description>
     </item>
     
     <item>

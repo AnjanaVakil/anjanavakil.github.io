@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="Object Cloneable接口： 1 2 public interface Cloneable { } A class implements the Cloneable interface to indicate to the Object.clone() method that it is legal for that method to make a field-for-field copy of instances of that class. Invoking Object&amp;rsquo;s clone method on an instance that does not implement the Cloneable interface results in the exception CloneNotSupportedExceptionbeing thrown. By" />
+  <meta name="description" content="2022.8.9总结反思：看起来好像分析源码挺久了，但是每次都只是读一遍源码、注释和Java doc，然后Command&#43;C复制、Comman" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,19 +60,19 @@
 
 
 <meta property="og:title" content="Java源码阅读分析" />
-<meta property="og:description" content="Object Cloneable接口： 1 2 public interface Cloneable { } A class implements the Cloneable interface to indicate to the Object.clone() method that it is legal for that method to make a field-for-field copy of instances of that class. Invoking Object&rsquo;s clone method on an instance that does not implement the Cloneable interface results in the exception CloneNotSupportedExceptionbeing thrown. By" />
+<meta property="og:description" content="2022.8.9总结反思：看起来好像分析源码挺久了，但是每次都只是读一遍源码、注释和Java doc，然后Command&#43;C复制、Comman" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/java-source-code/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-07-22T08:15:48+08:00" />
 <meta property="article:modified_time" content="2022-07-22T08:15:48+08:00" />
 
 <meta itemprop="name" content="Java源码阅读分析">
-<meta itemprop="description" content="Object Cloneable接口： 1 2 public interface Cloneable { } A class implements the Cloneable interface to indicate to the Object.clone() method that it is legal for that method to make a field-for-field copy of instances of that class. Invoking Object&rsquo;s clone method on an instance that does not implement the Cloneable interface results in the exception CloneNotSupportedExceptionbeing thrown. By"><meta itemprop="datePublished" content="2022-07-22T08:15:48+08:00" />
+<meta itemprop="description" content="2022.8.9总结反思：看起来好像分析源码挺久了，但是每次都只是读一遍源码、注释和Java doc，然后Command&#43;C复制、Comman"><meta itemprop="datePublished" content="2022-07-22T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-07-22T08:15:48+08:00" />
-<meta itemprop="wordCount" content="582">
+<meta itemprop="wordCount" content="766">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java源码阅读分析"/>
-<meta name="twitter:description" content="Object Cloneable接口： 1 2 public interface Cloneable { } A class implements the Cloneable interface to indicate to the Object.clone() method that it is legal for that method to make a field-for-field copy of instances of that class. Invoking Object&rsquo;s clone method on an instance that does not implement the Cloneable interface results in the exception CloneNotSupportedExceptionbeing thrown. By"/>
+<meta name="twitter:description" content="2022.8.9总结反思：看起来好像分析源码挺久了，但是每次都只是读一遍源码、注释和Java doc，然后Command&#43;C复制、Comman"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -332,7 +332,8 @@
 
     
     <div class="post-content">
-      <h2 id="object">Object</h2>
+      <p>2022.8.9总结反思：看起来好像分析源码挺久了，但是每次都只是读一遍源码、注释和Java doc，然后Command+C复制、Command+V粘贴到blog中（blog中复制粘贴的源码其实一点都不利于再次阅读，反而是使用Dash/IDEA直接阅读更加方便），根本就没有自己的理解和疑问，也没有实践，这就是所谓的轻松、欺骗自己的学习方式吧。主动起来，一点点深入思考。</p>
+<h2 id="object">Object</h2>
 <h3 id="cloneable接口">Cloneable接口：</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
