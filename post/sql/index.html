@@ -335,10 +335,10 @@
         <li><a href="#full-join">FULL JOIN</a></li>
       </ul>
     </li>
+    <li><a href="#over-and-partition-by">OVER and PARTITION BY</a></li>
     <li><a href="#oracle-functions">Oracle Functions</a>
       <ul>
         <li><a href="#decode-function">DECODE FUNCTION</a></li>
-        <li><a href="#over-and-partition-by">OVER and PARTITION BY</a></li>
         <li><a href="#row_number">ROW_NUMBER()</a></li>
       </ul>
     </li>
@@ -479,10 +479,7 @@
 <p>RIGHT JOIN is similar to LEFT JOIN. This join returns all the rows of the table on the right side of the join and matching rows for the table on the left side of the join. For the rows for which there is no matching row on the left side, the result-set will contain <em>null</em>. <code>RIGHT JOIN</code> is also known as <code>RIGHT OUTER JOIN</code>.</p>
 <h3 id="full-join">FULL JOIN</h3>
 <p>FULL JOIN creates the result-set by combining results of <code>both LEFT JOIN and RIGHT JOIN</code>. The result-set will contain all the rows from both tables. For the rows for which there is no matching, the result-set will contain <em>NULL</em> values.</p>
-<h2 id="oracle-functions">Oracle Functions</h2>
-<h3 id="decode-function">DECODE FUNCTION</h3>
-<p><a href="https://www.techonthenet.com/oracle/functions/decode.php">Oracle / PLSQL: DECODE Function</a></p>
-<h3 id="over-and-partition-by">OVER and PARTITION BY</h3>
+<h2 id="over-and-partition-by">OVER and PARTITION BY</h2>
 <p><a href="https://codingsight.com/grouping-data-using-the-over-and-partition-by-functions/">Grouping Data using the OVER and PARTITION BY Functions</a></p>
 <p>笔记：</p>
 <p>The OVER and PARTITION BY functions are both functions used to portion a results set according to specified criteria.</p>
@@ -559,6 +556,9 @@
 <p>Next, for the columns that contain aggregated results, we simply specify the aggregated function, followed by the OVER clause and then within the parenthesis we specify the PARTITION BY clause followed by the name of the column that we want our results to be partitioned as shown below.</p>
 <p><a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql?redirectedfrom=MSDN&amp;view=sql-server-ver16">SELECT - OVER Clause (Transact-SQL)</a></p>
 <p>StackOverflow – <a href="https://stackoverflow.com/questions/2404565/sql-server-difference-between-partition-by-and-group-by">Difference Between PARTITION BY and GROUP BY</a></p>
+<h2 id="oracle-functions">Oracle Functions</h2>
+<h3 id="decode-function">DECODE FUNCTION</h3>
+<p><a href="https://www.techonthenet.com/oracle/functions/decode.php">Oracle / PLSQL: DECODE Function</a></p>
 <h3 id="row_number">ROW_NUMBER()</h3>
 <p><a href="https://www.databasestar.com/oracle-rownum/">What’s The Difference Between Oracle ROWNUM vs Oracle ROW_NUMBER?</a></p>
 <p>笔记：</p>
