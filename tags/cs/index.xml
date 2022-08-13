@@ -6,7 +6,16 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 01 Aug 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Aug 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go语言</title>
+      <link>https://anjanavakil.github.io/post/go/</link>
+      <pubDate>Thu, 11 Aug 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/go/</guid>
+      <description>编程语言都是相通的，所以通过记录与其他语言不同的部分学习Go语言。 Reference: Go 语言教程 Go基础语法 1、当标识符（包括常量、变量、类型、函数名、结构字</description>
+    </item>
+    
     <item>
       <title>Java并发-JUC</title>
       <link>https://anjanavakil.github.io/post/juc/</link>
@@ -59,6 +68,15 @@
       
       <guid>https://anjanavakil.github.io/post/springbatch-notes/</guid>
       <description>官网示例： Creating a Batch Service Create a Business Class Person.java: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 package com.example.batchprocessing; public class Person { private String lastName; private String firstName; public Person() { } public Person(String firstName,</description>
+    </item>
+    
+    <item>
+      <title>Vue</title>
+      <link>https://anjanavakil.github.io/post/vue/</link>
+      <pubDate>Mon, 20 Jun 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/vue/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -167,24 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/effective-java-enum/</guid>
       <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 34: Use enums instead of int constants 用enum代替int常量 1 2 3 4 5 6 7 // The int enum pattern - severely deficient! public static final int APPLE_FUJI = 0; public static final int</description>
-    </item>
-    
-    <item>
-      <title>Netty</title>
-      <link>https://anjanavakil.github.io/post/netty/</link>
-      <pubDate>Tue, 29 Mar 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/netty/</guid>
-      <description>Netty是一个Java NIO客户端/服务器框架。 Netty中的Reactor模式 Java Reactor模式中IO事件的处理流程： Reactor模</description>
-    </item>
-    
-    <item>
-      <title>Reactor模式</title>
-      <link>https://anjanavakil.github.io/post/reactor-pattern/</link>
-      <pubDate>Mon, 28 Mar 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/reactor-pattern/</guid>
-      <description>多线程OIO ServerSocket类用于建立套接字。所有标准服务都不使用端口号8189。 1 2 3 4 5 6 7 8 9 10 11 12 try { //建立一个负责监控端</description>
     </item>
     
   </channel>

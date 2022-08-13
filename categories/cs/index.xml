@@ -6,7 +6,16 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Aug 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go语言</title>
+      <link>https://anjanavakil.github.io/post/go/</link>
+      <pubDate>Thu, 11 Aug 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/go/</guid>
+      <description>编程语言都是相通的，所以通过记录与其他语言不同的部分学习Go语言。 Reference: Go 语言教程 Go基础语法 1、当标识符（包括常量、变量、类型、函数名、结构字</description>
+    </item>
+    
     <item>
       <title>SQL</title>
       <link>https://anjanavakil.github.io/post/sql/</link>
@@ -23,6 +32,15 @@
       
       <guid>https://anjanavakil.github.io/post/the-effective-engineer/</guid>
       <description>豆瓣🔗： The Effective Engineer: How to Leverage Your Efforts in Software Engineering to Make a Disproportionate and Meaningful Impact Talks at Google🔗: The Effective Engineer | Edmond Lau | Talks at Google 大概是3、4月份读的英文版，发现7月份出了翻译版，对我来</description>
+    </item>
+    
+    <item>
+      <title>Vue</title>
+      <link>https://anjanavakil.github.io/post/vue/</link>
+      <pubDate>Mon, 20 Jun 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/vue/</guid>
+      <description></description>
     </item>
     
     <item>

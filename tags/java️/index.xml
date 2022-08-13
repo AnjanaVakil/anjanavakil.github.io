@@ -53,6 +53,15 @@
     </item>
     
     <item>
+      <title>Vue</title>
+      <link>https://anjanavakil.github.io/post/vue/</link>
+      <pubDate>Mon, 20 Jun 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/vue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>JVM</title>
       <link>https://anjanavakil.github.io/post/jvm/</link>
       <pubDate>Sun, 12 Jun 2022 08:15:48 +0800</pubDate>
@@ -176,15 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/springboot-notes/</guid>
       <description>豆瓣🔗：《SpringBoot+Vue全栈开发实战》 一些SpringBoot陌生部分的笔记。技术类书籍，不能说有多好，但是如果有一份好的代码</description>
-    </item>
-    
-    <item>
-      <title>Generics</title>
-      <link>https://anjanavakil.github.io/post/effective-java-generic/</link>
-      <pubDate>Wed, 23 Mar 2022 20:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective-java-generic/</guid>
-      <description>Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 26: Don’t use raw types 请不要使用原始类型（ raw types 实在不知道该怎么翻译🤷🏻‍♀️，中文版书籍译为原</description>
     </item>
     
   </channel>

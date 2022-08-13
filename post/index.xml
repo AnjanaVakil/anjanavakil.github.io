@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 01 Aug 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Aug 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go语言</title>
+      <link>https://anjanavakil.github.io/post/go/</link>
+      <pubDate>Thu, 11 Aug 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/go/</guid>
+      <description>编程语言都是相通的，所以通过记录与其他语言不同的部分学习Go语言。 Reference: Go 语言教程 Go基础语法 1、当标识符（包括常量、变量、类型、函数名、结构字</description>
+    </item>
+    
     <item>
       <title>Java并发-JUC</title>
       <link>https://anjanavakil.github.io/post/juc/</link>
@@ -59,6 +68,15 @@
       
       <guid>https://anjanavakil.github.io/post/springbatch-notes/</guid>
       <description>官网示例： Creating a Batch Service Create a Business Class Person.java: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 package com.example.batchprocessing; public class Person { private String lastName; private String firstName; public Person() { } public Person(String firstName,</description>
+    </item>
+    
+    <item>
+      <title>Vue</title>
+      <link>https://anjanavakil.github.io/post/vue/</link>
+      <pubDate>Mon, 20 Jun 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/vue/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -167,24 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/the-fenix-project2/</guid>
       <description>架构师的视角 第2章 访问远程服务 2.1 远程服务调用 2.1.1 进程间通信 调用本地方法： 1 2 3 4 5 6 7 8 // Caller: 调用者，代码里的main() // Callee: 被调用者，代码里的</description>
-    </item>
-    
-    <item>
-      <title>《凤凰架构》演进中的架构</title>
-      <link>https://anjanavakil.github.io/post/the-fenix-project1/</link>
-      <pubDate>Fri, 01 Apr 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/the-fenix-project1/</guid>
-      <description>豆瓣🔗：《凤凰架构：构建可靠的大型分布式系统》 演进中的架构 第1章 服务架构演进史 架构并不是被发明出来的，而是持续演进的结果。 1.1 原始分布式时代 调</description>
-    </item>
-    
-    <item>
-      <title>基于Netty的单体聊天IM系统的设计与实现</title>
-      <link>https://anjanavakil.github.io/post/im/</link>
-      <pubDate>Thu, 31 Mar 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/im/</guid>
-      <description>自定义Protobuf编解码器 Netty内置了一组Protobuf编解码器——ProtobufDecoder解码器和ProtobufEnco</description>
     </item>
     
   </channel>
