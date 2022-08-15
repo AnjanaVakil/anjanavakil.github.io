@@ -3883,6 +3883,59 @@ A	 myUnLock over&lt;/p&gt;
 &lt;li&gt;AtomicLongArray&lt;/li&gt;
 &lt;li&gt;AtomicReferenceArray&lt;/li&gt;
 &lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;AtomicIntegerArrayDemo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//        AtomicIntegerArray atomicIntegerArray = new AtomicIntegerArray(new int[5]);
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//        AtomicIntegerArray atomicIntegerArray = new AtomicIntegerArray(5);
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;AtomicIntegerArray&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;atomicIntegerArray&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AtomicIntegerArray&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;atomicIntegerArray&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;atomicIntegerArray&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tmpInt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;tmpInt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;atomicIntegerArray&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getAndSet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1122&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tmpInt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\t&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;atomicIntegerArray&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;atomicIntegerArray&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getAndIncrement&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;atomicIntegerArray&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getAndIncrement&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;tmpInt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;atomicIntegerArray&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getAndIncrement&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tmpInt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\t&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;atomicIntegerArray&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;1&lt;/p&gt;
+&lt;p&gt;2&lt;/p&gt;
+&lt;p&gt;3&lt;/p&gt;
+&lt;p&gt;4&lt;/p&gt;
+&lt;p&gt;5&lt;/p&gt;
+&lt;p&gt;1	1122&lt;/p&gt;
+&lt;p&gt;4	5&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;3引用类型原子类&#34;&gt;3、引用类型原子类&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -4032,6 +4085,87 @@ A	 myUnLock over&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;状态戳(true/false)原子引用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;ABADemo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AtomicMarkableReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;markableReference&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AtomicMarkableReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;============AtomicMarkableReference不关心引用变量更改过几次，只关心是否更改过======================&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;marked&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;markableReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isMarked&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentThread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\t 1次版本号&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;marked&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;TimeUnit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;MILLISECONDS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;sleep&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;catch&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;InterruptedException&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;printStackTrace&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;markableReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;compareAndSet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;101&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;marked&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;marked&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentThread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\t 2次版本号&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;markableReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isMarked&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;markableReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;compareAndSet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;101&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;markableReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isMarked&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;markableReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isMarked&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentThread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\t 3次版本号&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;markableReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isMarked&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;t5&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;marked&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;markableReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isMarked&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentThread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\t 1次版本号&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;marked&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;c1&#34;&gt;//暂停几秒钟线程
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;TimeUnit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;MILLISECONDS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;sleep&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;catch&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;InterruptedException&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;printStackTrace&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;markableReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;compareAndSet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2020&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;marked&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;marked&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentThread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\t&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;markableReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\t&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;markableReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isMarked&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;t6&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;t5	 1次版本号false&lt;/p&gt;
+&lt;p&gt;t6	 1次版本号false&lt;/p&gt;
+&lt;p&gt;t5	 2次版本号true&lt;/p&gt;
+&lt;p&gt;t5	 3次版本号false&lt;/p&gt;
+&lt;p&gt;t6	101	false&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;4对象的属性修改原子类&#34;&gt;4、对象的属性修改原子类&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;AtomicIntegerFieldUpdater
@@ -4053,9 +4187,577 @@ A	 myUnLock over&lt;/p&gt;
 &lt;h4 id=&#34;1使用目的&#34;&gt;1、使用目的&lt;/h4&gt;
 &lt;p&gt;以一种线程安全的方式操作非线程安全对象内的某些字段&lt;/p&gt;
 &lt;h4 id=&#34;2使用要求&#34;&gt;2、使用要求&lt;/h4&gt;
-&lt;p&gt;更新的对象属性必须使用 public volatile 修饰符。&lt;/p&gt;
-&lt;p&gt;因为对象的属性修改类型原子类都是抽象类，所以每次使用都必须使用静态方法newUpdater()创建一个更新器，并且需要设置想要更新的类和属性。&lt;/p&gt;
-&lt;h4 id=&#34;3atomicintegerfieldupdaterdemo&#34;&gt;3、AtomicIntegerFieldUpdaterDemo&lt;/h4&gt;
+&lt;p&gt;更新的对象属性必须使用 &lt;code&gt;public volatile&lt;/code&gt; 修饰符。&lt;/p&gt;
+&lt;p&gt;因为对象的属性修改类型原子类都是&lt;code&gt;抽象类&lt;/code&gt;，所以每次使用都必须使用&lt;code&gt;静态方法newUpdater()&lt;/code&gt;创建一个&lt;code&gt;更新器&lt;/code&gt;，并且需要设置想要更新的类和属性。&lt;/p&gt;
+&lt;p&gt;AtomicIntegerFieldUpdater&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;BankAccount&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bankName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;CCB&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//银行
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;volatile&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;money&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//钱数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;AtomicIntegerFieldUpdater&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BankAccount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;accountAtomicIntegerFieldUpdater&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AtomicIntegerFieldUpdater&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;newUpdater&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BankAccount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;money&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;//不加锁+性能高，局部微创
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;transferMoney&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BankAccount&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bankAccount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;accountAtomicIntegerFieldUpdater&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;incrementAndGet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bankAccount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * 以一种线程安全的方式操作非线程安全对象的某些字段。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * 需求：
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * 1000个人同时向一个账号转账一元钱，那么累计应该增加1000元，
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * 除了synchronized和CAS,还可以使用AtomicIntegerFieldUpdater来实现。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;AtomicIntegerFieldUpdaterDemo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;BankAccount&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bankAccount&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BankAccount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1000&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;bankAccount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;transferMoney&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bankAccount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;valueOf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;//暂停毫秒
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;TimeUnit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;MILLISECONDS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;sleep&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;500&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;catch&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;InterruptedException&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;printStackTrace&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bankAccount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;money&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;1000&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;AtomicReferenceFieldUpdater&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MyVar&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;volatile&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Boolean&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;isInit&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Boolean&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;AtomicReferenceFieldUpdater&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyVar&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Boolean&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;atomicReferenceFieldUpdater&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AtomicReferenceFieldUpdater&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;newUpdater&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyVar&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Boolean&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;isInit&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;init&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyVar&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myVar&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;atomicReferenceFieldUpdater&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;compareAndSet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;myVar&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Boolean&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Boolean&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentThread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\t&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;---init.....&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;c1&#34;&gt;//暂停几秒钟线程
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;TimeUnit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;SECONDS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;sleep&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;catch&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;InterruptedException&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;printStackTrace&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentThread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\t&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;---init.....over&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentThread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\t&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;------其它线程正在初始化&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * 多线程并发调用一个类的初始化方法，如果未被初始化过，将执行初始化工作，要求只能初始化一次
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;AtomicReferenceFieldUpdaterDemo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;throws&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InterruptedException&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;MyVar&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myVar&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MyVar&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;myVar&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;init&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;myVar&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;valueOf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;5原子操作增强类&#34;&gt;5、原子操作增强类&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;DoubleAccumulator&lt;/li&gt;
+&lt;li&gt;DoubleAdder&lt;/li&gt;
+&lt;li&gt;LongAccumulator&lt;/li&gt;
+&lt;li&gt;LongAdder&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;LongAdder只能用来计算加法，且从零开始计算&lt;/p&gt;
+&lt;p&gt;LongAccumulator提供了自定义的函数操作&lt;/p&gt;
+&lt;h4 id=&#34;longadder&#34;&gt;LongAdder&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;LongAdderAPIDemo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;LongAdder&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;longAdder&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LongAdder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;longAdder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;increment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;longAdder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;increment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;longAdder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;increment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;longAdder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;longValue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;LongAccumulator&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;longAccumulator&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LongAccumulator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;longAccumulator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;accumulate&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;longAccumulator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;accumulate&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;longAccumulator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;accumulate&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;longAccumulator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;longValue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;3&lt;/p&gt;
+&lt;p&gt;12&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;longaccumulator&#34;&gt;LongAccumulator&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;LongAccumulatorDemo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;LongAdder&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;longAdder&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LongAdder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;add_LongAdder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;longAdder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;increment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;//long类型的聚合器，需要传入一个long类型的二元操作，可以用来计算各种聚合操作，包括加乘等
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;//LongAccumulator longAccumulator = new LongAccumulator((x, y) -&amp;gt; x + y,0);
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;LongAccumulator&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;longAccumulator&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LongAccumulator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LongBinaryOperator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;applyAsLong&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;left&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;right&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;left&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;right&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;777&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;add_LongAccumulator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;longAccumulator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;accumulate&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;LongAccumulatorDemo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;demo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LongAccumulatorDemo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;demo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;add_LongAccumulator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;demo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;add_LongAccumulator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;demo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;longAccumulator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;longValue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;775&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;longadder高性能对比code演示&#34;&gt;LongAdder高性能对比Code演示&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;  1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 49
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 50
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 51
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 52
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 53
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 54
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 55
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 56
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 57
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 58
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 59
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 60
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 61
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 62
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 63
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 64
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 65
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 66
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 67
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 68
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 69
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 70
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 71
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 72
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 73
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 74
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 75
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 76
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 77
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 78
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 79
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 80
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 81
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 82
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 83
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 84
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 85
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 86
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 87
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 88
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 89
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 90
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 91
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 92
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 93
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 94
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 95
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 96
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 97
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 98
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 99
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;100
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;101
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;102
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;103
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;104
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;105
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;106
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;ClickNumberNet&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;synchronized&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;clickBySync&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;number&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;AtomicLong&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;atomicLong&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AtomicLong&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;clickByAtomicLong&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;atomicLong&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;incrementAndGet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;LongAdder&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;longAdder&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LongAdder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;clickByLongAdder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;longAdder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;increment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;LongAccumulator&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;longAccumulator&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LongAccumulator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;clickByLongAccumulator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;longAccumulator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;accumulate&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * 50个线程，每个线程100W次，总点赞数出来
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;LongAdderDemo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;throws&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InterruptedException&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;ClickNumberNet&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clickNumberNet&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ClickNumberNet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;kt&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;startTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;kt&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;CountDownLatch&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;countDownLatch&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CountDownLatch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;CountDownLatch&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;countDownLatch2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CountDownLatch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;CountDownLatch&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;countDownLatch3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CountDownLatch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;CountDownLatch&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;countDownLatch4&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CountDownLatch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;startTime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentTimeMillis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;100&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;10000&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        &lt;span class=&#34;n&#34;&gt;clickNumberNet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;clickBySync&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;finally&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;n&#34;&gt;countDownLatch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;countDown&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;valueOf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;countDownLatch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;await&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;endTime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentTimeMillis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;----costTime: &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endTime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;startTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34; 毫秒&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\t clickBySync result: &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clickNumberNet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;number&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;startTime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentTimeMillis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;100&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;10000&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        &lt;span class=&#34;n&#34;&gt;clickNumberNet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;clickByAtomicLong&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;finally&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;n&#34;&gt;countDownLatch2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;countDown&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;valueOf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;countDownLatch2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;await&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;endTime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentTimeMillis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;----costTime: &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endTime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;startTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34; 毫秒&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\t clickByAtomicLong result: &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clickNumberNet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;atomicLong&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;startTime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentTimeMillis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;100&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;10000&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        &lt;span class=&#34;n&#34;&gt;clickNumberNet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;clickByLongAdder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;finally&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;n&#34;&gt;countDownLatch3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;countDown&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;valueOf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;countDownLatch3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;await&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;endTime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentTimeMillis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;----costTime: &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endTime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;startTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34; 毫秒&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\t clickByLongAdder result: &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clickNumberNet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;longAdder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;startTime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentTimeMillis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;100&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;10000&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        &lt;span class=&#34;n&#34;&gt;clickNumberNet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;clickByLongAccumulator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;finally&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;n&#34;&gt;countDownLatch4&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;countDown&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;valueOf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;countDownLatch4&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;await&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;endTime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentTimeMillis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;----costTime: &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endTime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;startTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34; 毫秒&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\t clickByLongAccumulator result: &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clickNumberNet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;longAccumulator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;longValue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;mdash;-costTime: 1487 毫秒	 clickBySync result: 50000000&lt;/p&gt;
+&lt;p&gt;&amp;mdash;-costTime: 2042 毫秒	 clickByAtomicLong result: 50000000&lt;/p&gt;
+&lt;p&gt;&amp;mdash;-costTime: 93 毫秒	 clickByLongAdder result: 50000000&lt;/p&gt;
+&lt;p&gt;&amp;mdash;-costTime: 115 毫秒	 clickByLongAccumulator result: 50000000&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;源码原理分析&#34;&gt;源码、原理分析&lt;/h4&gt;
+&lt;h4 id=&#34;使用总结&#34;&gt;使用总结&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;AtomicLong
+&lt;ul&gt;
+&lt;li&gt;线程安全，可允许一些性能损耗，要求高精度时可使用&lt;/li&gt;
+&lt;li&gt;保证精度，性能代价&lt;/li&gt;
+&lt;li&gt;AtomicLong是多个线程针对单个热点值value进行原子操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;LongAdder
+&lt;ul&gt;
+&lt;li&gt;当需要在高并发下有较好的性能表现，且对值的精确度要求不高时，可以使用&lt;/li&gt;
+&lt;li&gt;保证性能，精度代价&lt;/li&gt;
+&lt;li&gt;LongAdder是每个线程拥有自己的槽，各个线程一般只对自己槽中的那个值进行CAS操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;6总结&#34;&gt;6、总结&lt;/h3&gt;
+&lt;h4 id=&#34;atomiclong&#34;&gt;AtomicLong&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;原理
+&lt;ul&gt;
+&lt;li&gt;CAS+自旋&lt;/li&gt;
+&lt;li&gt;incrementAndGet&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;场景
+&lt;ul&gt;
+&lt;li&gt;低并发下的全局计算&lt;/li&gt;
+&lt;li&gt;AtomicLong能保证并发情况下计数的准确性，其内部通过CAS来解决并发安全性的问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;缺陷
+&lt;ul&gt;
+&lt;li&gt;高并发后性能急剧下降&lt;/li&gt;
+&lt;li&gt;AtomicLong的自旋会成为瓶颈&lt;/li&gt;
+&lt;li&gt;N个线程CAS操作修改线程的值，每次只有一个成功过，其它N - 1失败，失败的不停的自旋直到成功，这样大量失败自旋的情况，一下子cpu就打高了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;longadder-1&#34;&gt;LongAdder&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;原理
+&lt;ul&gt;
+&lt;li&gt;CAS+Base+Cell数组分散&lt;/li&gt;
+&lt;li&gt;空间换时间并分散了热点数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;场景
+&lt;ul&gt;
+&lt;li&gt;高并发下的全局计算&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;缺陷
+&lt;ul&gt;
+&lt;li&gt;sum求和后还有计算线程修改结果的话，最后结果不够准确&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;threadlocal&#34;&gt;ThreadLocal&lt;/h2&gt;
 &lt;h2 id=&#34;倒计时门栓countdownlatch&#34;&gt;倒计时门栓CountDownLatch&lt;/h2&gt;
 &lt;p&gt;使用join方法让主线程等待子线程结束，join实际上就是调用了wait。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -5472,6 +6174,285 @@ A	 myUnLock over&lt;/p&gt;
 &lt;p&gt;Only one frame, the frame for the executing method, is active at any point in a given thread of control. This frame is referred to as the &lt;em&gt;current frame&lt;/em&gt;, and its method is known as the &lt;em&gt;current method&lt;/em&gt;. The class in which the current method is defined is the &lt;em&gt;current class&lt;/em&gt;. Operations on local variables and the operand stack are typically with reference to the current frame.&lt;/p&gt;
 &lt;p&gt;A frame ceases to be current if its method invokes another method or if its method completes. When a method is invoked, a new frame is created and becomes current when control transfers to the new method. On method return, the current frame passes back the result of its method invocation, if any, to the previous frame. The current frame is then discarded as the previous frame becomes the current one.&lt;/p&gt;
 &lt;p&gt;Note that a frame created by a thread is local to that thread and cannot be referenced by any other thread.&lt;/p&gt;
+&lt;h2 id=&#34;第3章-垃圾收集器与内存分配策略&#34;&gt;第3章 垃圾收集器与内存分配策略&lt;/h2&gt;
+&lt;p&gt;Java内存运行时区域的各个部分，其中&lt;code&gt;程序计数器、虚拟机栈、本地方法栈&lt;/code&gt;3个区域随线程而生，随线程而灭；栈中的栈帧随着方法的进入和退出而有条不紊地执行着出栈和入栈操作。每一个栈帧中分配多少内存基本上是在类结构确定下来时就已知的（尽管在运行期会由JIT编译器进行一些优化，但在本章基于概念模型的讨论中，大体上可以认为是&lt;code&gt;编译期&lt;/code&gt;可知的），因此这几个区域的&lt;code&gt;内存分配和回收&lt;/code&gt;都具备确定性，在这几个区域内就不需要过多考虑回收的问题，因为&lt;code&gt;方法结束&lt;/code&gt;或者&lt;code&gt;线程结束&lt;/code&gt;时，内存自然就跟随着回收了。而&lt;code&gt;Java堆&lt;/code&gt;和&lt;code&gt;方法区&lt;/code&gt;则不一样，&lt;code&gt;一个接口中的多个实现类需要的内存可能不一样，一个方法中的多个分支需要的内存也可能不一样&lt;/code&gt;，我们只有在程序处于&lt;code&gt;运行期间&lt;/code&gt;时才能知道会创建哪些对象，这部分内存的分配和回收都是动态的，垃圾收集器所关注的是这部分内存，本章后续讨论中的“内存”分配与回收也仅指这一部分内存。&lt;/p&gt;
+&lt;h3 id=&#34;32-对象已死吗&#34;&gt;3.2 对象已死吗&lt;/h3&gt;
+&lt;h4 id=&#34;321-引用计数算法&#34;&gt;3.2.1 引用计数算法&lt;/h4&gt;
+&lt;p&gt;引用计数算法：给对象中添加一个引用计数器，每当有一个地方引用它时，计数器值就加1；当引用失效时，计数器值就减1；任何时刻计数器为0的对象就是不可能再被使用的。&lt;/p&gt;
+&lt;p&gt;客观地说，引用计数算法（Reference Counting）的实现简单，判定效率也很高，在大部分情况下它都是一个不错的算法，也有一些比较著名的应用案例，例如微软公司的COM （Component Object Model）技术、使用ActionScript 3的FlashPlayer、Python语言和在游戏脚本领域被广泛应用的Squirrel中都使用了引用计数算法进行内存管理。但是，至少主流的Java虚拟机里面没有选用引用计数算法来管理内存，其中最主要的原因是它很难解决&lt;code&gt;对象之间相互循环引用&lt;/code&gt;的问题。&lt;/p&gt;
+&lt;p&gt;引用计数算法的缺陷：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * testGC()方法执行后，objA和objB会不会被GC呢？
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;ReferenceCountingGC&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Object&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;instance&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_1MB&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1024&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1024&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * 这个成员属性的唯一意义就是占点内存，以便在能在GC日志中看清楚是否有回收过
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;byte&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bigSize&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;byte&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_1MB&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;testGC&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;ReferenceCountingGC&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objA&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ReferenceCountingGC&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;ReferenceCountingGC&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objB&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ReferenceCountingGC&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;objA&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;instance&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objB&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;objB&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;instance&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objA&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;objA&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;objB&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;// 假设在这行发生GC，objA和objB是否能被回收？
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;gc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;从运行结果中可以清楚看到，GC日志中包含“4603K-&amp;gt;210K”，意味着虚拟机并没有因为这两个对象互相引用就不回收它们，这也从侧面说明虚拟机并不是通过引用计数算法来判断对象是否存活的。&lt;/p&gt;
+&lt;h4 id=&#34;322-可达性分析算法&#34;&gt;3.2.2 可达性分析算法&lt;/h4&gt;
+&lt;p&gt;在主流的商用程序语言（Java、C#，甚至包括前面提到的古老的Lisp）的主流实现中，都是称通过&lt;code&gt;可达性分析（Reachability Analysis）&lt;/code&gt;来判定对象是否存活的。这个算法的基本思路就是通过一系列的称为“GC Roots”的对象作为起始点，从这些节点开始向下搜索，搜索所走过的路径称为&lt;code&gt;引用链（Reference Chain）&lt;/code&gt;，当一个对象到GC Roots没有任何引用链相连（用图论的话来说，就是从GC Roots到这个对象不可达）时，则证明此对象是不可用的。&lt;/p&gt;
+&lt;p&gt;在Java语言中，可作为GC Roots的对象包括下面几种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;虚拟机栈（栈帧中的本地变量表）中引用的对象。&lt;/li&gt;
+&lt;li&gt;方法区中类静态属性引用的对象。&lt;/li&gt;
+&lt;li&gt;方法区中常量引用的对象。&lt;/li&gt;
+&lt;li&gt;本地方法栈中JNI（即一般说的Native方法）引用的对象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;323-再谈引用&#34;&gt;3.2.3 再谈引用&lt;/h4&gt;
+&lt;p&gt;在JDK 1.2之后，Java对引用的概念进行了扩充，将引用分为强引用（Strong Reference）、软引用（Soft Reference）、弱引用（Weak Reference）、虚引用（Phantom Reference）4种，这4种引用强度依次逐渐减弱。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;强引用就是指在程序代码之中普遍存在的，类似“Object obj = new Object()”这类的引用，只要强引用还存在，垃圾收集器永远不会回收掉被引用的对象。&lt;/li&gt;
+&lt;li&gt;软引用是用来描述一些还有用但并非必需的对象。对于软引用关联着的对象，在系统将要发生内存溢出异常之前，将会把这些对象列进回收范围之中进行第二次回收。如果这次回收还没有足够的内存，才会抛出内存溢出异常。在JDK 1.2之后，提供了SoftReference类来实现软引用。&lt;/li&gt;
+&lt;li&gt;弱引用也是用来描述非必需对象的，但是它的强度比软引用更弱一些，被弱引用关联的对象只能生存到下一次垃圾收集发生之前。当垃圾收集器工作时，无论当前内存是否足够，都会回收掉只被弱引用关联的对象。在JDK 1.2之后，提供了WeakReference类来实现弱引用。&lt;/li&gt;
+&lt;li&gt;虚引用也称为&lt;code&gt;幽灵引用&lt;/code&gt;或者&lt;code&gt;幻影引用&lt;/code&gt;，它是最弱的一种引用关系。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一个对象设置虚引用关联的唯一目的就是能在这个对象被收集器回收时收到一个系统通知。在JDK 1.2之后，提供了PhantomReference类来实现虚引用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;324-生存还是死亡&#34;&gt;3.2.4 生存还是死亡&lt;/h4&gt;
+&lt;p&gt;即使在可达性分析算法中不可达的对象，也并非是“非死不可”的，这时候它们暂时处于“缓刑”阶段，要真正宣告一个对象死亡，&lt;code&gt;至少要经历两次标记过程&lt;/code&gt;：如果对象在进行可达性分析后发现没有与GC Roots相连接的引用链，那它将会被第一次标记并且进行一次筛选，筛选的条件是此对象是否有必要执行finalize()方法。当&lt;code&gt;对象没有覆盖finalize()方法&lt;/code&gt;，或者&lt;code&gt;finalize()方法已经被虚拟机调用过&lt;/code&gt;，虚拟机将这两种情况都视为“没有必要执行”。&lt;/p&gt;
+&lt;p&gt;如果这个对象被判定为有必要执行finalize()方法，那么这个对象将会放置在一个叫做&lt;code&gt;F-Queue&lt;/code&gt;的队列之中，并在稍后由一个由&lt;code&gt;虚拟机自动建立的、低优先级的Finalizer线程&lt;/code&gt;去执行它。这里所谓的“执行”是指虚拟机会触发这个方法，但并不承诺会等待它运行结束，这样做的原因是，如果一个对象在finalize()方法中执行缓慢，或者发生了死循环（更极端的情况），将很可能会导致F-Queue队列中其他对象永久处于等待，甚至导致整个内存回收系统崩溃。&lt;/p&gt;
+&lt;p&gt;finalize()方法是对象逃脱死亡命运的最后一次机会，稍后GC将对F-Queue中的对象进行第二次小规模的标记，如果对象要在finalize()中成功拯救自己——只要重新与引用链上的任何一个对象建立关联即可，譬如把自己（this关键字）赋值给某个类变量或者对象的成员变量，那在第二次标记时它将被移除出“即将回收”的集合；如果对象这时候还没有逃脱，那基本上它就真的被回收了。从代码清单3-2中可以看到一个对象的finalize()被执行，但是它仍然可以存活。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * 此代码演示了两点：
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * 1.对象可以在被GC时自我拯救。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * 2.这种自救的机会只有一次，因为一个对象的finalize()方法最多只会被系统自动调用一次
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;FinalizeEscapeGC&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FinalizeEscapeGC&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SAVE_HOOK&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;isAlive&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;yes, i am still alive :)&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;protected&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;finalize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;throws&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Throwable&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;kd&#34;&gt;super&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;finalize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;finalize method executed!&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;FinalizeEscapeGC&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;SAVE_HOOK&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;throws&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Throwable&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;SAVE_HOOK&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FinalizeEscapeGC&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;//对象第一次成功拯救自己
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;SAVE_HOOK&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;gc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;// 因为Finalizer方法优先级很低，暂停0.5秒，以等待它
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;sleep&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;500&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SAVE_HOOK&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;SAVE_HOOK&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isAlive&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;no, i am dead :(&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;// 下面这段代码与上面的完全相同，但是这次自救却失败了
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;SAVE_HOOK&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;gc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;// 因为Finalizer方法优先级很低，暂停0.5秒，以等待它
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;sleep&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;500&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SAVE_HOOK&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;SAVE_HOOK&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;isAlive&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;no, i am dead :(&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;finalize method executed!&lt;/p&gt;
+&lt;p&gt;yes, i am still alive :)&lt;/p&gt;
+&lt;p&gt;no, i am dead :(&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P.S. 示例代码好可爱🥰&lt;/p&gt;
+&lt;p&gt;从代码清单3-2的运行结果可以看出，SAVE_HOOK对象的finalize()方法确实被GC收集器触发过，并且在被收集前成功逃脱了。&lt;/p&gt;
+&lt;p&gt;另外一个值得注意的地方是，代码中有两段完全一样的代码片段，执行结果却是一次逃脱成功，一次失败，这是因为任何一个对象的finalize()方法都只会被系统自动调用一次，如果对象面临下一次回收，它的finalize()方法不会被再次执行，因此第二段代码的自救行动失败了。&lt;/p&gt;
+&lt;p&gt;需要特别说明的是，上面关于对象死亡时finalize()方法的描述可能带有悲情的艺术色彩，笔者并不鼓励大家使用这种方法来拯救对象。相反，笔者建议大家尽量避免使用它，因为它不是C/C++中的析构函数，而是Java刚诞生时为了使C/C++程序员更容易接受它所做出的一个妥协。它的运行代价高昂，不确定性大，无法保证各个对象的调用顺序。有些教材中描述它适合做“关闭外部资源”之类的工作，这完全是对这个方法用途的一种自我安慰。&lt;code&gt;finalize()能做的所有工作，使用try-finally或者其他方式都可以做得更好、更及时&lt;/code&gt;，所以笔者建议大家完全可以忘掉Java语言中有这个方法的存在。&lt;/p&gt;
+&lt;p&gt;3.2.5 回收方法区&lt;/p&gt;
+&lt;p&gt;很多人认为&lt;code&gt;方法区&lt;/code&gt;（或者&lt;code&gt;HotSpot虚拟机中的永久代&lt;/code&gt;）是没有垃圾收集的，Java虚拟机规范中确实说过&lt;code&gt;可以不要求虚拟机在方法区实现垃圾收集&lt;/code&gt;，而且在方法区中进行垃圾收集的“性价比”一般比较低：&lt;code&gt;在堆中，尤其是在新生代中，常规应用进行一次垃圾收集一般可以回收70%～95%的空间，而永久代的垃圾收集效率远低于此。&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;永久代的垃圾收集主要回收两部分内容：&lt;code&gt;废弃常量和无用的类&lt;/code&gt;。回收废弃常量与回收&lt;code&gt;Java堆中的对象&lt;/code&gt;非常类似。以常量池中字面量的回收为例，假如一个字符串“abc”已经进入了常量池中，但是当前系统没有任何一个String对象是叫做“abc”的，换句话说，就是没有任何String对象引用常量池中的“abc”常量，也没有其他地方引用了这个字面量，如果这时发生内存回收，而且必要的话，这个“abc”常量就会被系统清理出常量池。&lt;code&gt;常量池中的其他类（接口）&lt;/code&gt;、&lt;code&gt;方法&lt;/code&gt;、&lt;code&gt;字段的符号引用&lt;/code&gt;也与此类似。&lt;/p&gt;
+&lt;p&gt;判定一个常量是否是“废弃常量”比较简单，而要判定一个类是否是“无用的类”的条件则相对苛刻许多。类需要同时满足下面3个条件才能算是“无用的类”：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;该类所有的实例都已经被回收，也就是Java堆中&lt;code&gt;不存在该类的任何实例&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;加载该类的&lt;code&gt;ClassLoader&lt;/code&gt;已经被回收。&lt;/li&gt;
+&lt;li&gt;该类对应的java.lang.Class 对象&lt;code&gt;没有在任何地方被引用&lt;/code&gt;，&lt;code&gt;无法在任何地方通过反射访问该类的方法&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;虚拟机可以对满足上述3个条件的无用类进行回收，这里说的仅仅是“可以”，而并不是和对象一样，不使用了就必然会回收。是否对类进行回收，HotSpot虚拟机提供了&lt;code&gt;-Xnoclassgc&lt;/code&gt;参数进行控制，还可以使用&lt;code&gt;-verbose:class&lt;/code&gt;以及&lt;code&gt;-XX:+TraceClassLoading&lt;/code&gt;、&lt;code&gt;-XX:+TraceClassUnLoading&lt;/code&gt;查看类加载和卸载信息，其中-verbose:class和-XX:+TraceClassLoading可以在Product版的虚拟机中使用，-XX:+TraceClassUnLoading参数需要FastDebug版的虚拟机支持。&lt;/p&gt;
+&lt;p&gt;在&lt;code&gt;大量使用反射&lt;/code&gt;、&lt;code&gt;动态代理&lt;/code&gt;、&lt;code&gt;CGLib等ByteCode框架&lt;/code&gt;、&lt;code&gt;动态生成JSP&lt;/code&gt;以及&lt;code&gt;OSGi&lt;/code&gt;这类&lt;code&gt;频繁自定义ClassLoader&lt;/code&gt;的场景都需要虚拟机具备类卸载的功能，以保证永久代不会溢出。&lt;/p&gt;
+&lt;h3 id=&#34;33-垃圾收集算法&#34;&gt;3.3 垃圾收集算法&lt;/h3&gt;
+&lt;h4 id=&#34;331-标记-清除算法&#34;&gt;3.3.1 标记-清除算法&lt;/h4&gt;
+&lt;p&gt;最基础的收集算法是“标记-清除”（Mark-Sweep）算法，如同它的名字一样，算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象，它的标记过程其实在前一节讲述对象标记判定时已经介绍过了。之所以说它是最基础的收集算法，是因为后续的收集算法都是基于这种思路并对其不足进行改进而得到的。它的主要不足有两个：一个是&lt;code&gt;效率&lt;/code&gt;问题，标记和清除两个过程的效率都不高；另一个是&lt;code&gt;空间&lt;/code&gt;问题，标记清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致以后在程序运行过程中需要分配较大对象时，无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。&lt;/p&gt;
+&lt;h4 id=&#34;332-复制算法&#34;&gt;3.3.2 复制算法&lt;/h4&gt;
+&lt;p&gt;为了解决效率问题，一种称为“复制”（Copying）的收集算法出现了，它将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。这样使得每次都是对整个半区进行内存回收，内存分配时也就不用考虑内存碎片等复杂情况，只要移动堆顶指针，按顺序分配内存即可，实现简单，运行高效。只是这种算法的代价是将内存缩小为了原来的一半，未免太高了一点。&lt;/p&gt;
+&lt;p&gt;现在的商业虚拟机都采用这种&lt;code&gt;收集算法来回收新生代&lt;/code&gt;，IBM公司的专门研究表明，新生代中的对象98%是“朝生夕死”的，所以并不需要按照1∶1的比例来划分内存空间，而是将内存分为一块&lt;code&gt;较大的Eden空间&lt;/code&gt;和&lt;code&gt;两块较小的Survivor空间&lt;/code&gt;，&lt;code&gt;每次使用Eden和其中一块Survivor&lt;/code&gt;。当回收时，将Eden和Survivor中还存活着的对象一次性地复制到&lt;code&gt;另外一块Survivor空间&lt;/code&gt;上，最后清理掉Eden和刚才用过的Survivor空间。&lt;/p&gt;
+&lt;p&gt;HotSpot虚拟机默认Eden和Survivor的大小比例是8∶1，也就是每次新生代中可用内存空间为整个新生代容量的90% （80%+10%），只有10%的内存会被“浪费”。当然，98%的对象可回收只是一般场景下的数据，我们没有办法保证每次回收都只有不多于10%的对象存活，当Survivor空间不够用时，需要依赖其他内存（这里指老年代）进行分配担保（Handle Promotion）。&lt;/p&gt;
+&lt;h4 id=&#34;333-标记-整理算法&#34;&gt;3.3.3 标记-整理算法&lt;/h4&gt;
+&lt;p&gt;复制收集算法在对象存活率较高时就要进行较多的复制操作，效率将会变低。更关键的是，如果不想浪费50%的空间，就需要有额外的空间进行分配担保，以应对被使用的内存中所有对象都100%存活的极端情况，所以在老年代一般不能直接选用这种算法。&lt;/p&gt;
+&lt;p&gt;根据老年代的特点，有人提出了另外一种“标记-整理”（Mark-Compact）算法，标记过程仍然与“标记-清除”算法一样，但后续步骤&lt;code&gt;不是直接对可回收对象进行清理&lt;/code&gt;，而是让&lt;code&gt;所有存活的对象都向一端移动&lt;/code&gt;，然后直接清理掉端边界以外的内存。&lt;/p&gt;
+&lt;h4 id=&#34;334-分代收集算法&#34;&gt;3.3.4 分代收集算法&lt;/h4&gt;
+&lt;p&gt;当前商业虚拟机的垃圾收集都采用“分代收集”（Generational Collection）算法，这种算法并没有什么新的思想，只是根据对象存活周期的不同将内存划分为几块。一般是把Java堆分为新生代和老年代，这样就可以根据各个年代的特点采用最适当的收集算法。在新生代中，每次垃圾收集时都发现有大批对象死去，只有少量存活，那就选用复制算法，只需要付出少量存活对象的复制成本就可以完成收集。而老年代中因为对象存活率高、没有额外空间对它进行分配担保，就必须使用“标记—清理”或者“标记—整理”算法来进行回收。&lt;/p&gt;
+&lt;h3 id=&#34;34-hotspot的算法实现&#34;&gt;3.4 HotSpot的算法实现&lt;/h3&gt;
+&lt;h4 id=&#34;341-枚举根节点&#34;&gt;3.4.1 枚举根节点&lt;/h4&gt;
+&lt;p&gt;从可达性分析中从GC Roots节点找引用链这个操作为例，可作为GC Roots的节点主要在&lt;code&gt;全局性的引用（例如常量或类静态属性）&lt;/code&gt;与&lt;code&gt;执行上下文（例如栈帧中的本地变量表）&lt;/code&gt;中，现在很多应用仅仅方法区就有数百兆，如果要逐个检查这里面的引用，那么必然会消耗很多时间。另外，可达性分析对执行时间的敏感还体现在GC停顿上，因为这项分析工作必须在一个能&lt;code&gt;确保一致性的快照&lt;/code&gt;中进行——这里“一致性”的意思是指在整个分析期间整个执行系统看起来就像被冻结在某个时间点上，不可以出现分析过程中对象引用关系还在不断变化的情况，该点不满足的话分析结果准确性就无法得到保证。这点是导致GC进行时必须停顿所有Java执行线程（Sun将这件事情称为“Stop The World”）的其中一个重要原因，即使是在号称（几乎）不会发生停顿的CMS收集器中，枚举根节点时也是必须要停顿的。&lt;/p&gt;
+&lt;p&gt;由于目前的主流Java虚拟机使用的都是&lt;code&gt;准确式GC&lt;/code&gt;（这个概念在第1章介绍Exact VM对Classic VM的改进时讲过），所以当执行系统停顿下来后，并不需要一个不漏地检查完所有执行上下文和全局的引用位置，&lt;code&gt;虚拟机应当是有办法直接得知哪些地方存放着对象引用&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;在HotSpot的实现中，是使用一组称为&lt;code&gt;OopMap&lt;/code&gt;的数据结构来达到这个目的的，在类加载完成的时候，HotSpot就把对象内什么偏移量上是什么类型的数据计算出来，在JIT编译过程中，也会在特定的位置记录下栈和寄存器中哪些位置是引用。这样，GC在扫描时就可以直接得知这些信息了。&lt;/p&gt;
+&lt;h4 id=&#34;342-安全点&#34;&gt;3.4.2 安全点&lt;/h4&gt;
+&lt;p&gt;在OopMap的协助下，HotSpot可以快速且准确地完成GC Roots枚举，但一个很现实的问题随之而来：可能导致引用关系变化，或者说OopMap内容变化的指令非常多，如果为每一条指令都生成对应的OopMap，那将会需要大量的额外空间，这样GC的空间成本将会变得很高。&lt;/p&gt;
+&lt;p&gt;实际上，HotSpot也的确没有为每条指令都生成OopMap，前面已经提到，只是在“特定的位置”记录了这些信息，这些位置称为&lt;code&gt;安全点（Safepoint）&lt;/code&gt;，即程序执行时并非在所有地方都能停顿下来开始GC，只有在到达安全点时才能暂停。Safepoint的选定既不能太少以致于让GC等待时间太长，也不能过于频繁以致于过分增大运行时的负荷。所以，安全点的选定基本上是以程序“是否具有让程序长时间执行的特征”为标准进行选定的——因为每条指令执行的时间都非常短暂，程序不太可能因为指令流长度太长这个原因而过长时间运行，“长时间执行”的最明显特征就是&lt;code&gt;指令序列复用&lt;/code&gt;，例如&lt;code&gt;方法调用、循环跳转、异常跳转&lt;/code&gt;等，所以具有这些功能的指令才会产生Safepoint。&lt;/p&gt;
+&lt;p&gt;主动式中断的思想是当GC需要中断线程的时候，不直接对线程操作，仅仅简单地设置一个标志，各个线程执行时主动去轮询这个标志，发现中断标志为真时就自己中断挂起。轮询标志的地方和安全点是重合的，另外再加上创建对象需要分配内存的地方。&lt;/p&gt;
+&lt;h4 id=&#34;343-安全区域&#34;&gt;3.4.3 安全区域&lt;/h4&gt;
+&lt;p&gt;使用Safepoint似乎已经完美地解决了如何进入GC的问题，但实际情况却并不一定。Safepoint机制保证了程序执行时，在不太长的时间内就会遇到可进入GC的Safepoint。但是，程序“不执行”的时候呢？所谓的程序不执行就是没有分配CPU时间，典型的例子就是线程处于Sleep状态或者Blocked状态，这时候线程无法响应JVM的中断请求，“走”到安全的地方去中断挂起，JVM也显然不太可能等待线程重新被分配CPU时间。对于这种情况，就需要安全区域（Safe Region）来解决。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;安全区域是指在一段代码片段之中，引用关系不会发生变化。在这个区域中的任意地方开始GC都是安全的。&lt;/code&gt;我们也可以把Safe Region看做是被扩展了的Safepoint。&lt;/p&gt;
+&lt;p&gt;在线程执行到Safe Region中的代码时，首先标识自己已经进入了Safe Region，那样，当在这段时间里JVM要发起GC时，就不用管标识自己为Safe Region状态的线程了。在线程要离开Safe Region时，它要检查系统是否已经完成了根节点枚举（或者是整个GC过程），如果完成了，那线程就继续执行，否则它就必须等待直到收到可以安全离开Safe Region的信号为止。&lt;/p&gt;
+&lt;h3 id=&#34;35-垃圾收集器&#34;&gt;3.5 垃圾收集器&lt;/h3&gt;
+&lt;p&gt;HotSpot虚拟机的垃圾收集器：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/hotspot-gc.png&#34; alt=&#34;HotSpot-GC&#34;&gt;&lt;/p&gt;
+&lt;p&gt;图中展示了7种作用于不同分代的收集器，如果两个收集器之间存在连线，就说明它们可以搭配使用。&lt;/p&gt;
+&lt;h4 id=&#34;351-serial收集器&#34;&gt;3.5.1 Serial收集器&lt;/h4&gt;
+&lt;p&gt;Serial收集器是最基本、发展历史最悠久的收集器，曾经（在JDK 1.3.1之前）是虚拟机新生代收集的唯一选择。大家看名字就会知道，这个收集器是一个&lt;code&gt;单线程&lt;/code&gt;的收集器，但它的“单线程”的意义并不仅仅说明它&lt;code&gt;只会使用一个CPU或一条收集线程&lt;/code&gt;去完成垃圾收集工作，更重要的是在&lt;code&gt;它进行垃圾收集时，必须暂停其他所有的工作线程，直到它收集结束&lt;/code&gt;。“Stop The World”这个名字也许听起来很酷，但这项工作实际上是由虚拟机在后台自动发起和自动完成的，在用户不可见的情况下把用户正常工作的线程全部停掉，这对很多应用来说都是难以接受的。&lt;/p&gt;
+&lt;p&gt;Serial收集器依然是虚拟机运行在&lt;code&gt;Client模式&lt;/code&gt;下的&lt;code&gt;默认新生代&lt;/code&gt;收集器。它也有着优于其他收集器的地方：简单而高效（与其他收集器的单线程比），对于限定单个CPU的环境来说，Serial收集器由于没有线程交互的开销，专心做垃圾收集自然可以获得最高的单线程收集效率。在用户的桌面应用场景中，分配给虚拟机管理的内存一般来说不会很大，收集几十兆甚至一两百兆的新生代（仅仅是新生代使用的内存，桌面应用基本上不会再大了），停顿时间完全可以控制在几十毫秒最多一百多毫秒以内，只要不是频繁发生，这点停顿是可以接受的。所以，Serial收集器对于运行在Client模式下的虚拟机来说是一个很好的选择。&lt;/p&gt;
+&lt;h4 id=&#34;352-parnew收集器&#34;&gt;3.5.2 ParNew收集器&lt;/h4&gt;
+&lt;p&gt;ParNew收集器其实就是Serial收集器的多线程版本，除了使用多条线程进行垃圾收集之外，其余行为包括Serial收集器可用的所有控制参数（例如：-XX:SurvivorRatio、-XX:P r etenureSizeThreshold、-XX:HandlePromotionFailure等）、收集算法、Stop The World、对象分配规则、回收策略等都与Serial收集器完全一样，在实现上，这两种收集器也共用了相当多的代码。&lt;/p&gt;
+&lt;p&gt;ParNew收集器除了多线程收集之外，其他与Serial收集器相比并没有太多创新之处，但它却是许多运行在&lt;code&gt;Server模式&lt;/code&gt;下的虚拟机中首选的&lt;code&gt;新生代收集器&lt;/code&gt;，其中有一个与性能无关但很重要的原因是，除了Serial收集器外，&lt;code&gt;目前只有它能与CMS收集器配合工作&lt;/code&gt;。在JDK 1.5时期，HotSpot推出了一款在强交互应用中几乎可认为有划时代意义的垃圾收集器——CMS收集器（Concurrent Mark Sweep），这款收集器是HotSpot虚拟机中第一款真正意义上的&lt;code&gt;并发（Concurrent）收集器&lt;/code&gt;，它第一次实现了让垃圾收集线程与用户线程（基本上）同时工作，用前面那个例子的话来说，就是做到了在你的妈妈打扫房间的时候你还能一边往地上扔纸屑。&lt;/p&gt;
+&lt;p&gt;不幸的是，CMS作为老年代的收集器，却无法与JDK 1.4.0中已经存在的新生代收集器Parallel Scavenge配合工作，所以在JDK 1.5中使用CMS来收集老年代的时候，新生代只能选择ParNew或者Serial收集器中的一个。ParNew收集器也是使用-XX:+UseConcMarkSweepGC选项后的默认新生代收集器，也可以使用-XX:+UseParNewGC选项来强制指定它。&lt;/p&gt;
+&lt;p&gt;ParNew收集器在单CPU的环境中绝对不会有比Serial收集器更好的效果，甚至由于存在线程交互的开销，该收集器在通过超线程技术实现的两个CPU的环境中都不能百分之百地保证可以超越Serial收集器。当然，随着可以使用的CPU的数量的增加，它对于GC时系统资源的有效利用还是很有好处的。它默认开启的收集线程数与CPU的数量相同，在CPU非常多（譬如32个，现在CPU动辄就4核加&lt;code&gt;超线程&lt;/code&gt;，服务器超过32个&lt;code&gt;逻辑CPU&lt;/code&gt;的情况越来越多了）的环境下，可以使用-XX:ParallelGCThreads参数来限制垃圾收集的线程数。&lt;/p&gt;
+&lt;h4 id=&#34;353-parallel-scavenge收集器&#34;&gt;3.5.3 Parallel Scavenge收集器&lt;/h4&gt;
+&lt;p&gt;Parallel Scavenge收集器是一个新生代收集器，它也是使用复制算法的收集器，又是并行的多线程收集器。&lt;/p&gt;
+&lt;p&gt;Parallel Scavenge收集器的特点是它的关注点与其他收集器不同，&lt;code&gt;CMS等收集器的关注点是尽可能地缩短垃圾收集时用户线程的停顿时间&lt;/code&gt;，而&lt;code&gt;Parallel Scavenge收集器的目标则是达到一个可控制的吞吐量（Throughput）&lt;/code&gt;。所谓吞吐量就是CPU用于运行用户代码的时间与CPU总消耗时间的比值，即吞吐量 = 运行用户代码时间 /（运行用户代码时间 +垃圾收集时间），虚拟机总共运行了100分钟，其中垃圾收集花掉1分钟，那吞吐量就是99%。&lt;/p&gt;
+&lt;p&gt;停顿时间越短就越适合需要与用户交互的程序，良好的响应速度能提升用户体验，而高吞吐量则可以高效率地利用CPU时间，尽快完成程序的运算任务，主要适合在后台运算而不需要太多交互的任务。&lt;/p&gt;
+&lt;p&gt;Parallel Scavenge收集器提供了两个参数用于精确控制吞吐量，分别是控制最大垃圾收集停顿时间的-XX:MaxGCPauseMillis参数以及直接设置吞吐量大小的-XX:GCTimeRatio参数。&lt;/p&gt;
+&lt;p&gt;MaxGCPauseMillis参数允许的值是一个大于0的毫秒数，收集器将尽可能地保证内存回收花费的时间不超过设定值。不过大家不要认为如果把这个参数的值设置得稍小一点就能使得系统的垃圾收集速度变得更快，GC停顿时间缩短是以牺牲吞吐量和新生代空间来换取的：系统把新生代调小一些，收集300MB新生代肯定比收集500MB快吧，这也直接导致垃圾收集发生得更频繁一些，原来10秒收集一次、每次停顿100毫秒，现在变成5秒收集一次、每次停顿70毫秒。停顿时间的确在下降，但吞吐量也降下来了。&lt;/p&gt;
+&lt;p&gt;GCTimeRatio参数的值应当是一个大于0且小于100的整数，也就是垃圾收集时间占总时间的比率，相当于是吞吐量的倒数。如果把此参数设置为19，那允许的最大GC时间就占总时间的5%（即1 /（1+19）），默认值为99，就是允许最大1%（即1 /（1+99））的垃圾收集时间。&lt;/p&gt;
+&lt;p&gt;由于与吞吐量关系密切，Parallel Scavenge收集器也经常称为“吞吐量优先”收集器。除上述两个参数之外，Parallel Scavenge收集器还有一个参数-XX:+UseAdaptiveSizePolicy值得关注。这是一个开关参数，当这个参数打开之后，就不需要手工指定新生代的大小（-Xmn）、Eden与Survivor区的比例（-XX:SurvivorRatio）、晋升老年代对象年龄（-XX:PretenureSizeThreshold）等细节参数了，虚拟机会根据当前系统的运行情况收集性能监控信息，动态调整这些参数以提供最合适的停顿时间或者最大的吞吐量，这种调节方式称为GC自适应的调节策略（GC Ergonomics)。如果读者对于收集器运作原来不太了解，手工优化存在困难的时候，使用Parallel Scavenge收集器配合自适应调节策略，把内存管理的调优任务交给虚拟机去完成将是一个不错的选择。只需要把基本的内存数据设置好（如-Xmx设置最大堆），然后使用MaxGCPauseMillis参数（更关注最大停顿时间）或GCTimeRatio （更关注吞吐量）参数给虚拟机设立一个优化目标，那具体细节参数的调节工作就由虚拟机完成了。自适应调节策略也是Parallel Scavenge收集器与ParNew收集器的一个重要区别。&lt;/p&gt;
+&lt;h4 id=&#34;354-serial-old收集器&#34;&gt;3.5.4 Serial Old收集器&lt;/h4&gt;
+&lt;p&gt;Serial Old是Serial收集器的老年代版本，它同样是一个单线程收集器，使用“标记-整理”算法。这个收集器的主要意义也是在于给Client模式下的虚拟机使用。如果在Server模式下，那么它主要还有两大用途：一种用途是在JDK 1.5以及之前的版本中与Parallel Scavenge收集器搭配使，另一种用途就是作为CMS收集器的后备预案，在并发收集发生Concurrent Mode Failure时使用。&lt;/p&gt;
+&lt;h4 id=&#34;355-parallel-old收集器&#34;&gt;3.5.5 Parallel Old收集器&lt;/h4&gt;
+&lt;p&gt;Parallel Old是&lt;code&gt;Parallel Scavenge收集器&lt;/code&gt;的老年代版本，使用多线程和“标记-整理”算法。这个收集器是在JDK 1.6中才开始提供的，在此之前，新生代的Parallel Scavenge收集器一直处于比较尴尬的状态。原因是，如果新生代选择了Parallel Scavenge收集器，老年代除了Serial Old（PS MarkSweep）收集器外别无选择（还记得上面说过Parallel Scavenge收集器无法与CMS收集器配合工作吗？）。由于老年代Serial Old收集器在服务端应用性能上的“拖累”，使用了Parallel Scavenge收集器也未必能在整体应用上获得吞吐量最大化的效果，由于单线程的老年代收集中无法充分利用服务器多CPU的处理能力，在老年代很大而且硬件比较高级的环境中，这种组合的吞吐量甚至还不一定有ParNew加CMS的组合“给力”。&lt;/p&gt;
+&lt;p&gt;直到Parallel Old收集器出现后，“吞吐量优先”收集器终于有了比较名副其实的应用组合，在注重吞吐量以及CPU资源敏感的场合，都可以优先考虑Parallel Scavenge加Parallel Old收集器。&lt;/p&gt;
+&lt;h4 id=&#34;356-cms收集器&#34;&gt;3.5.6 CMS收集器&lt;/h4&gt;
+&lt;p&gt;CMS（Concurrent Mark Sweep）收集器是一种以获取最短回收停顿时间为目标的收集器。目前很大一部分的Java应用集中在互联网站或者B/S系统的服务端上，这类应用尤其重视服务的响应速度，希望系统停顿时间最短，以给用户带来较好的体验。CMS收集器就非常符合这类应用的需求。从名字（包含“Mark Sweep”）上就可以看出，CMS收集器是基于“标记—清除”算法实现的，它的运作过程相对于前面几种收集器来说更复杂一些，整个过程分为4个步骤，包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;初始标记（CMS initial mark）&lt;/li&gt;
+&lt;li&gt;并发标记（CMS concurrent mark）&lt;/li&gt;
+&lt;li&gt;重新标记（CMS remark）&lt;/li&gt;
+&lt;li&gt;并发清除（CMS concurrent sweep）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其中，&lt;code&gt;初始标记、重新标记这两个步骤仍然需要“Stop The World”&lt;/code&gt;。初始标记仅仅只是标记一下GC Roots能直接关联到的对象，速度很快，并发标记阶段就是进行GC Roots Tracing的过程，而重新标记阶段则是为了修正并发标记期间因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录，这个阶段的停顿时间一般会比初始标记阶段稍长一些，但远比并发标记的时间短。由于整个过程中耗时最长的并发标记和并发清除过程收集器线程都可以与用户线程一起工作，所以，从总体上来说，&lt;code&gt;CMS收集器的内存回收过程是与用户线程一起并发执行的&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;CMS是一款优秀的收集器，它的主要优点在名字上已经体现出来了：并发收集、低停顿，Sun公司的一些官方文档中也称之为并发低停顿收集器（Concurrent Low Pause Collector）。但是CMS还远达不到完美的程度，它有以下3个明显的缺点：&lt;/p&gt;
+&lt;p&gt;1、CMS收集器对CPU资源非常敏感。其实，面向并发设计的程序都对CPU资源比较敏感。在并发阶段，它虽然不会导致用户线程停顿，但是会因为占用了一部分线程（或者说CPU资源）而导致应用程序变慢，总吞吐量会降低。CMS默认启动的回收线程数是（CPU数量+3）/ 4，也就是当CPU在4个以上时，并发回收时垃圾收集线程不少于25%的CPU资源，并且随着CPU数量的增加而下降。但是当CPU不足4个（譬如2个）时，CMS对用户程序的影响就可能变得很大，如果本来CPU负载就比较大，还分出一半的运算能力去执行收集器线程，就可能导致用户程序的执行速度忽然降低了50%，其实也让人无法接受。为了应付这种情况，虚拟机提供了一种称为“增量式并发收集器”（Incremental Concurrent Mark Sweep/i-CMS）的CMS收集器变种，所做的事情和单CPU年代PC机操作系统使用抢占式来模拟多任务机制的思想一样，就是在并发标记、清理的时候让GC线程、用户线程交替运行，尽量减少GC线程的独占资源的时间，这样整个垃圾收集的过程会更长，但对用户程序的影响就会显得少一些，也就是速度下降没有那么明显。实践证明，增量时的CMS收集器效果很一般，在目前版本中，i-CMS已经被声明为“deprecated”，即不再提倡用户使用。&lt;/p&gt;
+&lt;p&gt;2、CMS收集器无法处理浮动垃圾（Floating Garbage），可能出现“Concurrent Mode Failure”失败而导致另一次Full GC的产生。由于CMS并发清理阶段用户线程还在运行着，伴随程序运行自然就还会有新的垃圾不断产生，这一部分垃圾出现在标记过程之后，CMS无法在当次收集中处理掉它们，只好留待下一次GC时再清理掉。这一部分垃圾就称为“浮动垃圾”。也是由于在垃圾收集阶段用户线程还需要运行，那也就还需要预留有足够的内存空间给用户线程使用，因此CMS收集器不能像其他收集器那样等到老年代几乎完全被填满了再进行收集，需要预留一部分空间提供并发收集时的程序运作使用。在JDK 1.5的默认设置下，CMS收集器当老年代使用了68%的空间后就会被激活，这是一个偏保守的设置，如果在应用中老年代增长不是太快，可以适当调高参数-XX:CMSInitiatingOccupancyFraction的值来提高触发百分比，以便降低内存回收次数从而获取更好的性能，在JDK 1.6中，CMS收集器的启动阈值已经提升至92%。要是CMS运行期间预留的内存无法满足程序需要，就会出现一次“Concurrent Mode Failure”失败，这时虚拟机将启动后备预案：临时启用Serial Old收集器来重新进行老年代的垃圾收集，这样停顿时间就很长了。所以说参数-XX:CM SInitiatingOccupancyFraction设置得太高很容易导致大量“Concurrent Mode Failure”失败，性能反而降低。&lt;/p&gt;
+&lt;p&gt;3、CMS是一款基于“标记—清除”算法实现的收集器，如果读者对前面这种算法介绍还有印象的话，就可能想到这意味着收集结束时会有大量空间碎片产生。空间碎片过多时，将会给大对象分配带来很大麻烦，往往会出现老年代还有很大空间剩余，但是无法找到足够大的连续空间来分配当前对象，不得不提前触发一次Full GC。为了解决这个问题，CMS收集器提供了一个-XX:+UseCMSCompactAtFullCollection开关参数（默认就是开启的），用于在CMS收集器顶不住要进行FullGC时开启内存碎片的合并整理过程，内存整理的过程是无法并发的，空间碎片问题没有了，但停顿时间不得不变长。虚拟机设计者还提供了另外一个参数-XX:CMSFullGCsBeforeCompaction，这个参数是用于设置执行多少次不压缩的Full GC后，跟着来一次带压缩的（默认值为0，表示每次进入Full GC时都进行碎片整理）&lt;/p&gt;
+&lt;h4 id=&#34;357-g1收集器&#34;&gt;3.5.7 G1收集器&lt;/h4&gt;
+&lt;p&gt;G1是一款面向服务端应用的垃圾收集器。HotSpot开发团队赋予它的使命是（在比较长期的）未来可以替换掉JDK 1.5中发布的CMS收集器。与其他GC收集器相比，G1具备如下特点。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;并行与并发：G1能充分利用多CPU、多核环境下的硬件优势，使用多个CPU（CPU或者CPU核心）来缩短Stop-The-World停顿的时间，部分其他收集器原本需要停顿Java线程执行的GC动作，G1收集器仍然可以通过并发的方式让Java程序继续执行。&lt;/li&gt;
+&lt;li&gt;分代收集：与其他收集器一样，分代概念在G1中依然得以保留。虽然G1可以不需要其他收集器配合就能独立管理整个GC堆，但它能够采用不同的方式去处理新创建的对象和已经存活了一段时间、熬过多次GC的旧对象以获取更好的收集效果。&lt;/li&gt;
+&lt;li&gt;空间整合：与CMS的“标记—清理”算法不同，G1从整体来看是基于“标记—整理”算法实现的收集器，从局部（两个Region之间）上来看是基于“复制”算法实现的，但无论如何，这两种算法都意味着G1运作期间不会产生内存空间碎片，收集后能提供规整的可用内存。这种特性有利于程序长时间运行，分配大对象时不会因为无法找到连续内存空间而提前触发下一次GC。&lt;/li&gt;
+&lt;li&gt;可预测的停顿：这是G1相对于CMS的另一大优势，降低停顿时间是G1和CMS共同的关注点，但G1除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为M毫秒的时间片段内，消耗在垃圾收集上的时间不得超过N毫秒，这几乎已经是实时Java（RTSJ）的垃圾收集器的特征了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;G1收集器之所以能建立可预测的停顿时间模型，是因为它可以有计划地避免在整个Java堆中进行全区域的垃圾收集。G1跟踪各个Region里面的垃圾堆积的价值大小（回收所获得的空间大小以及回收所需时间的经验值），在后台维护一个优先列表，每次根据允许的收集时间，优先回收价值最大的Region（这也就是Garbage-First名称的来由）。这种使用Region划分内存空间以及有优先级的区域回收方式，保证了G1收集器在有限的时间内可以获取尽可能高的收集效率。&lt;/p&gt;
 </description>
       
     </item>

@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Java并发-JUC">
 <meta itemprop="description" content="Package java.util.concurrent Description Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that provide useful functionality and are otherwise tedious or difficult to implement. Here are brief descriptions of the main components. See also the java.util.concurrent.locks and java.util.concurrent.atomic packages. Executors Interfaces. Executoris a simple standardized interface for defining custom thread-like subsystems, including thread pools, asynchronous I/O, and lightweight"><meta itemprop="datePublished" content="2022-08-01T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-08-01T08:15:48+08:00" />
-<meta itemprop="wordCount" content="24287">
+<meta itemprop="wordCount" content="26400">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java并发-JUC"/>
 <meta name="twitter:description" content="Package java.util.concurrent Description Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that provide useful functionality and are otherwise tedious or difficult to implement. Here are brief descriptions of the main components. See also the java.util.concurrent.locks and java.util.concurrent.atomic packages. Executors Interfaces. Executoris a simple standardized interface for defining custom thread-like subsystems, including thread pools, asynchronous I/O, and lightweight"/>
@@ -407,8 +407,11 @@
         <li><a href="#2数组类型原子类">2、数组类型原子类</a></li>
         <li><a href="#3引用类型原子类">3、引用类型原子类</a></li>
         <li><a href="#4对象的属性修改原子类">4、对象的属性修改原子类</a></li>
+        <li><a href="#5原子操作增强类">5、原子操作增强类</a></li>
+        <li><a href="#6总结">6、总结</a></li>
       </ul>
     </li>
+    <li><a href="#threadlocal">ThreadLocal</a></li>
     <li><a href="#倒计时门栓countdownlatch">倒计时门栓CountDownLatch</a>
       <ul>
         <li><a href="#mylatch">MyLatch</a></li>
@@ -3921,6 +3924,59 @@ A	 myUnLock over</p>
 <li>AtomicLongArray</li>
 <li>AtomicReferenceArray</li>
 </ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AtomicIntegerArrayDemo</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//        AtomicIntegerArray atomicIntegerArray = new AtomicIntegerArray(new int[5]);
+</span></span></span><span class="line"><span class="cl"><span class="c1">//        AtomicIntegerArray atomicIntegerArray = new AtomicIntegerArray(5);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">AtomicIntegerArray</span> <span class="n">atomicIntegerArray</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AtomicIntegerArray</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">1</span><span class="o">,</span> <span class="n">2</span><span class="o">,</span> <span class="n">3</span><span class="o">,</span> <span class="n">4</span><span class="o">,</span> <span class="n">5</span><span class="o">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">atomicIntegerArray</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">atomicIntegerArray</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">tmpInt</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">tmpInt</span> <span class="o">=</span> <span class="n">atomicIntegerArray</span><span class="o">.</span><span class="na">getAndSet</span><span class="o">(</span><span class="n">0</span><span class="o">,</span> <span class="n">1122</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">tmpInt</span> <span class="o">+</span> <span class="s">&#34;\t&#34;</span> <span class="o">+</span> <span class="n">atomicIntegerArray</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">0</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">atomicIntegerArray</span><span class="o">.</span><span class="na">getAndIncrement</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">atomicIntegerArray</span><span class="o">.</span><span class="na">getAndIncrement</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tmpInt</span> <span class="o">=</span> <span class="n">atomicIntegerArray</span><span class="o">.</span><span class="na">getAndIncrement</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">tmpInt</span> <span class="o">+</span> <span class="s">&#34;\t&#34;</span> <span class="o">+</span> <span class="n">atomicIntegerArray</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">1</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>1	1122</p>
+<p>4	5</p>
+</blockquote>
 <h3 id="3引用类型原子类">3、引用类型原子类</h3>
 <ul>
 <li>
@@ -4070,6 +4126,87 @@ A	 myUnLock over</p>
 </li>
 </ul>
 <p>状态戳(true/false)原子引用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ABADemo</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="n">AtomicMarkableReference</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">markableReference</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AtomicMarkableReference</span><span class="o">&lt;&gt;(</span><span class="n">100</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;============AtomicMarkableReference不关心引用变量更改过几次，只关心是否更改过======================&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">boolean</span> <span class="n">marked</span> <span class="o">=</span> <span class="n">markableReference</span><span class="o">.</span><span class="na">isMarked</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;\t 1次版本号&#34;</span> <span class="o">+</span> <span class="n">marked</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">100</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">markableReference</span><span class="o">.</span><span class="na">compareAndSet</span><span class="o">(</span><span class="n">100</span><span class="o">,</span> <span class="n">101</span><span class="o">,</span> <span class="n">marked</span><span class="o">,</span> <span class="o">!</span><span class="n">marked</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;\t 2次版本号&#34;</span> <span class="o">+</span> <span class="n">markableReference</span><span class="o">.</span><span class="na">isMarked</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">            <span class="n">markableReference</span><span class="o">.</span><span class="na">compareAndSet</span><span class="o">(</span><span class="n">101</span><span class="o">,</span> <span class="n">100</span><span class="o">,</span> <span class="n">markableReference</span><span class="o">.</span><span class="na">isMarked</span><span class="o">(),</span> <span class="o">!</span><span class="n">markableReference</span><span class="o">.</span><span class="na">isMarked</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;\t 3次版本号&#34;</span> <span class="o">+</span> <span class="n">markableReference</span><span class="o">.</span><span class="na">isMarked</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="o">},</span> <span class="s">&#34;t5&#34;</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">boolean</span> <span class="n">marked</span> <span class="o">=</span> <span class="n">markableReference</span><span class="o">.</span><span class="na">isMarked</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;\t 1次版本号&#34;</span> <span class="o">+</span> <span class="n">marked</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//暂停几秒钟线程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">100</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">markableReference</span><span class="o">.</span><span class="na">compareAndSet</span><span class="o">(</span><span class="n">100</span><span class="o">,</span> <span class="n">2020</span><span class="o">,</span> <span class="n">marked</span><span class="o">,</span> <span class="o">!</span><span class="n">marked</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;\t&#34;</span> <span class="o">+</span> <span class="n">markableReference</span><span class="o">.</span><span class="na">getReference</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;\t&#34;</span> <span class="o">+</span> <span class="n">markableReference</span><span class="o">.</span><span class="na">isMarked</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="o">},</span> <span class="s">&#34;t6&#34;</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>t5	 1次版本号false</p>
+<p>t6	 1次版本号false</p>
+<p>t5	 2次版本号true</p>
+<p>t5	 3次版本号false</p>
+<p>t6	101	false</p>
+</blockquote>
 <h3 id="4对象的属性修改原子类">4、对象的属性修改原子类</h3>
 <ul>
 <li>AtomicIntegerFieldUpdater
@@ -4091,9 +4228,577 @@ A	 myUnLock over</p>
 <h4 id="1使用目的">1、使用目的</h4>
 <p>以一种线程安全的方式操作非线程安全对象内的某些字段</p>
 <h4 id="2使用要求">2、使用要求</h4>
-<p>更新的对象属性必须使用 public volatile 修饰符。</p>
-<p>因为对象的属性修改类型原子类都是抽象类，所以每次使用都必须使用静态方法newUpdater()创建一个更新器，并且需要设置想要更新的类和属性。</p>
-<h4 id="3atomicintegerfieldupdaterdemo">3、AtomicIntegerFieldUpdaterDemo</h4>
+<p>更新的对象属性必须使用 <code>public volatile</code> 修饰符。</p>
+<p>因为对象的属性修改类型原子类都是<code>抽象类</code>，所以每次使用都必须使用<code>静态方法newUpdater()</code>创建一个<code>更新器</code>，并且需要设置想要更新的类和属性。</p>
+<p>AtomicIntegerFieldUpdater</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">BankAccount</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">bankName</span> <span class="o">=</span> <span class="s">&#34;CCB&#34;</span><span class="o">;</span><span class="c1">//银行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kd">volatile</span> <span class="kt">int</span> <span class="n">money</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span><span class="c1">//钱数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">AtomicIntegerFieldUpdater</span><span class="o">&lt;</span><span class="n">BankAccount</span><span class="o">&gt;</span> <span class="n">accountAtomicIntegerFieldUpdater</span> <span class="o">=</span> <span class="n">AtomicIntegerFieldUpdater</span><span class="o">.</span><span class="na">newUpdater</span><span class="o">(</span><span class="n">BankAccount</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="s">&#34;money&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//不加锁+性能高，局部微创
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">transferMoney</span><span class="o">(</span><span class="n">BankAccount</span> <span class="n">bankAccount</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">accountAtomicIntegerFieldUpdater</span><span class="o">.</span><span class="na">incrementAndGet</span><span class="o">(</span><span class="n">bankAccount</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 以一种线程安全的方式操作非线程安全对象的某些字段。
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 需求：
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 1000个人同时向一个账号转账一元钱，那么累计应该增加1000元，
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 除了synchronized和CAS,还可以使用AtomicIntegerFieldUpdater来实现。
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AtomicIntegerFieldUpdaterDemo</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">BankAccount</span> <span class="n">bankAccount</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BankAccount</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">bankAccount</span><span class="o">.</span><span class="na">transferMoney</span><span class="o">(</span><span class="n">bankAccount</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">},</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">i</span><span class="o">)).</span><span class="na">start</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">//暂停毫秒
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">500</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">bankAccount</span><span class="o">.</span><span class="na">money</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>1000</p>
+</blockquote>
+<p>AtomicReferenceFieldUpdater</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">MyVar</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">volatile</span> <span class="n">Boolean</span> <span class="n">isInit</span> <span class="o">=</span> <span class="n">Boolean</span><span class="o">.</span><span class="na">FALSE</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">AtomicReferenceFieldUpdater</span><span class="o">&lt;</span><span class="n">MyVar</span><span class="o">,</span> <span class="n">Boolean</span><span class="o">&gt;</span> <span class="n">atomicReferenceFieldUpdater</span> <span class="o">=</span> <span class="n">AtomicReferenceFieldUpdater</span><span class="o">.</span><span class="na">newUpdater</span><span class="o">(</span><span class="n">MyVar</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">Boolean</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="s">&#34;isInit&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">init</span><span class="o">(</span><span class="n">MyVar</span> <span class="n">myVar</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">atomicReferenceFieldUpdater</span><span class="o">.</span><span class="na">compareAndSet</span><span class="o">(</span><span class="n">myVar</span><span class="o">,</span> <span class="n">Boolean</span><span class="o">.</span><span class="na">FALSE</span><span class="o">,</span> <span class="n">Boolean</span><span class="o">.</span><span class="na">TRUE</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;\t&#34;</span> <span class="o">+</span> <span class="s">&#34;---init.....&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//暂停几秒钟线程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">2</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;\t&#34;</span> <span class="o">+</span> <span class="s">&#34;---init.....over&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;\t&#34;</span> <span class="o">+</span> <span class="s">&#34;------其它线程正在初始化&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 多线程并发调用一个类的初始化方法，如果未被初始化过，将执行初始化工作，要求只能初始化一次
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AtomicReferenceFieldUpdaterDemo</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">MyVar</span> <span class="n">myVar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyVar</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">myVar</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="n">myVar</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">},</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">i</span><span class="o">)).</span><span class="na">start</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="5原子操作增强类">5、原子操作增强类</h3>
+<ul>
+<li>DoubleAccumulator</li>
+<li>DoubleAdder</li>
+<li>LongAccumulator</li>
+<li>LongAdder</li>
+</ul>
+<p>LongAdder只能用来计算加法，且从零开始计算</p>
+<p>LongAccumulator提供了自定义的函数操作</p>
+<h4 id="longadder">LongAdder</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongAdderAPIDemo</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">LongAdder</span> <span class="n">longAdder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LongAdder</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">longAdder</span><span class="o">.</span><span class="na">increment</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">longAdder</span><span class="o">.</span><span class="na">increment</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">longAdder</span><span class="o">.</span><span class="na">increment</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">longAdder</span><span class="o">.</span><span class="na">longValue</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">LongAccumulator</span> <span class="n">longAccumulator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LongAccumulator</span><span class="o">((</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="o">,</span> <span class="n">2</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">longAccumulator</span><span class="o">.</span><span class="na">accumulate</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">longAccumulator</span><span class="o">.</span><span class="na">accumulate</span><span class="o">(</span><span class="n">2</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">longAccumulator</span><span class="o">.</span><span class="na">accumulate</span><span class="o">(</span><span class="n">3</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">longAccumulator</span><span class="o">.</span><span class="na">longValue</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>3</p>
+<p>12</p>
+</blockquote>
+<h4 id="longaccumulator">LongAccumulator</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongAccumulatorDemo</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">LongAdder</span> <span class="n">longAdder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LongAdder</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add_LongAdder</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">longAdder</span><span class="o">.</span><span class="na">increment</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//long类型的聚合器，需要传入一个long类型的二元操作，可以用来计算各种聚合操作，包括加乘等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//LongAccumulator longAccumulator = new LongAccumulator((x, y) -&gt; x + y,0);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">LongAccumulator</span> <span class="n">longAccumulator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LongAccumulator</span><span class="o">(</span><span class="k">new</span> <span class="n">LongBinaryOperator</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">long</span> <span class="nf">applyAsLong</span><span class="o">(</span><span class="kt">long</span> <span class="n">left</span><span class="o">,</span> <span class="kt">long</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">left</span> <span class="o">-</span> <span class="n">right</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">},</span> <span class="n">777</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add_LongAccumulator</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">longAccumulator</span><span class="o">.</span><span class="na">accumulate</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">LongAccumulatorDemo</span> <span class="n">demo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LongAccumulatorDemo</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">demo</span><span class="o">.</span><span class="na">add_LongAccumulator</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">demo</span><span class="o">.</span><span class="na">add_LongAccumulator</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">demo</span><span class="o">.</span><span class="na">longAccumulator</span><span class="o">.</span><span class="na">longValue</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>775</p>
+</blockquote>
+<h4 id="longadder高性能对比code演示">LongAdder高性能对比Code演示</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">ClickNumberNet</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">clickBySync</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">number</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">AtomicLong</span> <span class="n">atomicLong</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AtomicLong</span><span class="o">(</span><span class="n">0</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickByAtomicLong</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">atomicLong</span><span class="o">.</span><span class="na">incrementAndGet</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">LongAdder</span> <span class="n">longAdder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LongAdder</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickByLongAdder</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">longAdder</span><span class="o">.</span><span class="na">increment</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">LongAccumulator</span> <span class="n">longAccumulator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LongAccumulator</span><span class="o">((</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">,</span> <span class="n">0</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickByLongAccumulator</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">longAccumulator</span><span class="o">.</span><span class="na">accumulate</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 50个线程，每个线程100W次，总点赞数出来
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongAdderDemo</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ClickNumberNet</span> <span class="n">clickNumberNet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClickNumberNet</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">long</span> <span class="n">startTime</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">long</span> <span class="n">endTime</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">CountDownLatch</span> <span class="n">countDownLatch</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CountDownLatch</span><span class="o">(</span><span class="n">50</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">CountDownLatch</span> <span class="n">countDownLatch2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CountDownLatch</span><span class="o">(</span><span class="n">50</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">CountDownLatch</span> <span class="n">countDownLatch3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CountDownLatch</span><span class="o">(</span><span class="n">50</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">CountDownLatch</span> <span class="n">countDownLatch4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CountDownLatch</span><span class="o">(</span><span class="n">50</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">startTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">50</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">100</span> <span class="o">*</span> <span class="n">10000</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">clickNumberNet</span><span class="o">.</span><span class="na">clickBySync</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">countDownLatch</span><span class="o">.</span><span class="na">countDown</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="o">},</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">i</span><span class="o">)).</span><span class="na">start</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">countDownLatch</span><span class="o">.</span><span class="na">await</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">endTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;----costTime: &#34;</span> <span class="o">+</span> <span class="o">(</span><span class="n">endTime</span> <span class="o">-</span> <span class="n">startTime</span><span class="o">)</span> <span class="o">+</span> <span class="s">&#34; 毫秒&#34;</span> <span class="o">+</span> <span class="s">&#34;\t clickBySync result: &#34;</span> <span class="o">+</span> <span class="n">clickNumberNet</span><span class="o">.</span><span class="na">number</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">startTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">50</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">100</span> <span class="o">*</span> <span class="n">10000</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">clickNumberNet</span><span class="o">.</span><span class="na">clickByAtomicLong</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">countDownLatch2</span><span class="o">.</span><span class="na">countDown</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="o">},</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">i</span><span class="o">)).</span><span class="na">start</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">countDownLatch2</span><span class="o">.</span><span class="na">await</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">endTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;----costTime: &#34;</span> <span class="o">+</span> <span class="o">(</span><span class="n">endTime</span> <span class="o">-</span> <span class="n">startTime</span><span class="o">)</span> <span class="o">+</span> <span class="s">&#34; 毫秒&#34;</span> <span class="o">+</span> <span class="s">&#34;\t clickByAtomicLong result: &#34;</span> <span class="o">+</span> <span class="n">clickNumberNet</span><span class="o">.</span><span class="na">atomicLong</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">startTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">50</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">100</span> <span class="o">*</span> <span class="n">10000</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">clickNumberNet</span><span class="o">.</span><span class="na">clickByLongAdder</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">countDownLatch3</span><span class="o">.</span><span class="na">countDown</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="o">},</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">i</span><span class="o">)).</span><span class="na">start</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">countDownLatch3</span><span class="o">.</span><span class="na">await</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">endTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;----costTime: &#34;</span> <span class="o">+</span> <span class="o">(</span><span class="n">endTime</span> <span class="o">-</span> <span class="n">startTime</span><span class="o">)</span> <span class="o">+</span> <span class="s">&#34; 毫秒&#34;</span> <span class="o">+</span> <span class="s">&#34;\t clickByLongAdder result: &#34;</span> <span class="o">+</span> <span class="n">clickNumberNet</span><span class="o">.</span><span class="na">longAdder</span><span class="o">.</span><span class="na">sum</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">startTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">50</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">100</span> <span class="o">*</span> <span class="n">10000</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">clickNumberNet</span><span class="o">.</span><span class="na">clickByLongAccumulator</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">countDownLatch4</span><span class="o">.</span><span class="na">countDown</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">            <span class="o">},</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">i</span><span class="o">)).</span><span class="na">start</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">countDownLatch4</span><span class="o">.</span><span class="na">await</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">endTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;----costTime: &#34;</span> <span class="o">+</span> <span class="o">(</span><span class="n">endTime</span> <span class="o">-</span> <span class="n">startTime</span><span class="o">)</span> <span class="o">+</span> <span class="s">&#34; 毫秒&#34;</span> <span class="o">+</span> <span class="s">&#34;\t clickByLongAccumulator result: &#34;</span> <span class="o">+</span> <span class="n">clickNumberNet</span><span class="o">.</span><span class="na">longAccumulator</span><span class="o">.</span><span class="na">longValue</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>&mdash;-costTime: 1487 毫秒	 clickBySync result: 50000000</p>
+<p>&mdash;-costTime: 2042 毫秒	 clickByAtomicLong result: 50000000</p>
+<p>&mdash;-costTime: 93 毫秒	 clickByLongAdder result: 50000000</p>
+<p>&mdash;-costTime: 115 毫秒	 clickByLongAccumulator result: 50000000</p>
+</blockquote>
+<h4 id="源码原理分析">源码、原理分析</h4>
+<h4 id="使用总结">使用总结</h4>
+<ul>
+<li>AtomicLong
+<ul>
+<li>线程安全，可允许一些性能损耗，要求高精度时可使用</li>
+<li>保证精度，性能代价</li>
+<li>AtomicLong是多个线程针对单个热点值value进行原子操作</li>
+</ul>
+</li>
+<li>LongAdder
+<ul>
+<li>当需要在高并发下有较好的性能表现，且对值的精确度要求不高时，可以使用</li>
+<li>保证性能，精度代价</li>
+<li>LongAdder是每个线程拥有自己的槽，各个线程一般只对自己槽中的那个值进行CAS操作</li>
+</ul>
+</li>
+</ul>
+<h3 id="6总结">6、总结</h3>
+<h4 id="atomiclong">AtomicLong</h4>
+<ul>
+<li>原理
+<ul>
+<li>CAS+自旋</li>
+<li>incrementAndGet</li>
+</ul>
+</li>
+<li>场景
+<ul>
+<li>低并发下的全局计算</li>
+<li>AtomicLong能保证并发情况下计数的准确性，其内部通过CAS来解决并发安全性的问题。</li>
+</ul>
+</li>
+<li>缺陷
+<ul>
+<li>高并发后性能急剧下降</li>
+<li>AtomicLong的自旋会成为瓶颈</li>
+<li>N个线程CAS操作修改线程的值，每次只有一个成功过，其它N - 1失败，失败的不停的自旋直到成功，这样大量失败自旋的情况，一下子cpu就打高了</li>
+</ul>
+</li>
+</ul>
+<h4 id="longadder-1">LongAdder</h4>
+<ul>
+<li>原理
+<ul>
+<li>CAS+Base+Cell数组分散</li>
+<li>空间换时间并分散了热点数据</li>
+</ul>
+</li>
+<li>场景
+<ul>
+<li>高并发下的全局计算</li>
+</ul>
+</li>
+<li>缺陷
+<ul>
+<li>sum求和后还有计算线程修改结果的话，最后结果不够准确</li>
+</ul>
+</li>
+</ul>
+<h2 id="threadlocal">ThreadLocal</h2>
 <h2 id="倒计时门栓countdownlatch">倒计时门栓CountDownLatch</h2>
 <p>使用join方法让主线程等待子线程结束，join实际上就是调用了wait。</p>
 <div class="highlight"><div class="chroma">
