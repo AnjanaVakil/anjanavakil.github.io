@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Java源码阅读分析">
 <meta itemprop="description" content="2022.8.9总结反思：看起来好像分析源码挺久了，但是每次都只是读一遍源码、注释和Java doc，然后Command&#43;C复制、Comman"><meta itemprop="datePublished" content="2022-07-22T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-07-22T08:15:48+08:00" />
-<meta itemprop="wordCount" content="766">
+<meta itemprop="wordCount" content="1352">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java源码阅读分析"/>
 <meta name="twitter:description" content="2022.8.9总结反思：看起来好像分析源码挺久了，但是每次都只是读一遍源码、注释和Java doc，然后Command&#43;C复制、Comman"/>
@@ -324,6 +324,11 @@
         <li><a href="#clone方法">clone()方法：</a></li>
       </ul>
     </li>
+    <li><a href="#integer">Integer</a>
+      <ul>
+        <li><a href="#bit-twiddling">Bit twiddling</a></li>
+      </ul>
+    </li>
     <li><a href="#arraylist">ArrayList</a></li>
   </ul>
 </nav>
@@ -379,6 +384,161 @@
 <p>a clone of this instance.</p>
 <p><strong>Throws:</strong></p>
 <p><code>CloneNotSupportedException</code> - if the object&rsquo;s class does not support the <code>Cloneable</code> interface. Subclasses that override the <code>clone</code> method can also throw this exception to indicate that an instance cannot be cloned.</p>
+<h2 id="integer">Integer</h2>
+<h3 id="bit-twiddling">Bit twiddling</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// Bit twiddling
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * The number of bits used to represent an {@code int} value in two&#39;s
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * complement binary form.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @since 1.5
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Native</span> <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">SIZE</span> <span class="o">=</span> <span class="n">32</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * The number of bytes used to represent a {@code int} value in two&#39;s
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * complement binary form.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @since 1.8
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">BYTES</span> <span class="o">=</span> <span class="n">SIZE</span> <span class="o">/</span> <span class="n">Byte</span><span class="o">.</span><span class="na">SIZE</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="highestonebit">highestOneBit</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">highestOneBit</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// HD, Figure 3-1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">i</span> <span class="o">|=</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;&gt;</span>  <span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">|=</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;&gt;</span>  <span class="n">2</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">|=</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;&gt;</span>  <span class="n">4</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">|=</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;&gt;</span>  <span class="n">8</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">|=</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">16</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">i</span> <span class="o">-</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Returns an int value with at most a single one-bit, in the position of the highest-order (&ldquo;leftmost&rdquo;) one-bit in the specified int value. Returns zero if the specified value has no one-bits in its two&rsquo;s complement binary representation, that is, if it is equal to zero.</p>
+<h4 id="lowestonebit">lowestOneBit</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">lowestOneBit</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// HD, Section 2-1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="n">i</span> <span class="o">&amp;</span> <span class="o">-</span><span class="n">i</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Returns an int value with at most a single one-bit, in the position of the lowest-order (&ldquo;rightmost&rdquo;) one-bit in the specified int value. Returns zero if the specified value has no one-bits in its two&rsquo;s complement binary representation, that is, if it is equal to zero.</p>
+<h4 id="numberofleadingzeros">numberOfLeadingZeros</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numberOfLeadingZeros</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// HD, Figure 5-6
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">32</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">16</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span> <span class="n">n</span> <span class="o">+=</span> <span class="n">16</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;&lt;=</span> <span class="n">16</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">24</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span> <span class="n">n</span> <span class="o">+=</span>  <span class="n">8</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;&lt;=</span>  <span class="n">8</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">28</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span> <span class="n">n</span> <span class="o">+=</span>  <span class="n">4</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;&lt;=</span>  <span class="n">4</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">30</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span> <span class="n">n</span> <span class="o">+=</span>  <span class="n">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;&lt;=</span>  <span class="n">2</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">-=</span> <span class="n">i</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">31</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">n</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Returns the number of zero bits preceding the highest-order (&ldquo;leftmost&rdquo;) one-bit in the two&rsquo;s complement binary representation of the specified <code>int</code> value. Returns 32 if the specified value has no one-bits in its two&rsquo;s complement representation, in other words if it is equal to zero.</p>
+<p>Note that this method is closely related to the logarithm base 2. For all positive <code>int</code> values x:</p>
+<ul>
+<li>
+<p>floor(log2(x)) = <code>31 - numberOfLeadingZeros(x)</code></p>
+</li>
+<li>
+<p>ceil(log2(x)) = <code>32 - numberOfLeadingZeros(x - 1)</code></p>
+</li>
+</ul>
+<h4 id="numberoftrailingzeros">numberOfTrailingZeros</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numberOfTrailingZeros</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// HD, Figure 5-14
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">y</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="k">return</span> <span class="n">32</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">31</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&lt;&lt;</span><span class="n">16</span><span class="o">;</span> <span class="k">if</span> <span class="o">(</span><span class="n">y</span> <span class="o">!=</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span> <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span><span class="n">16</span><span class="o">;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">8</span><span class="o">;</span> <span class="k">if</span> <span class="o">(</span><span class="n">y</span> <span class="o">!=</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span> <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">8</span><span class="o">;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">4</span><span class="o">;</span> <span class="k">if</span> <span class="o">(</span><span class="n">y</span> <span class="o">!=</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span> <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">4</span><span class="o">;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">2</span><span class="o">;</span> <span class="k">if</span> <span class="o">(</span><span class="n">y</span> <span class="o">!=</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span> <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">n</span> <span class="o">-</span> <span class="o">((</span><span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">1</span><span class="o">)</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">31</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Returns the number of zero bits following the lowest-order (&ldquo;rightmost&rdquo;) one-bit in the two&rsquo;s complement binary representation of the specified <code>int</code> value. Returns 32 if the specified value has no one-bits in its two&rsquo;s complement representation, in other words if it is equal to zero.</p>
 <h2 id="arraylist">ArrayList</h2>
 <p>add方法：</p>
 <div class="highlight"><div class="chroma">
