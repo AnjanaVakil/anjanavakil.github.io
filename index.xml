@@ -387,16 +387,23 @@
         <description>&lt;h2 id=&#34;package-javautilconcurrent-description&#34;&gt;Package java.util.concurrent Description&lt;/h2&gt;
 &lt;p&gt;Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that provide useful functionality and are otherwise tedious or difficult to implement. Here are brief descriptions of the main components. See also the &lt;code&gt;java.util.concurrent.locks&lt;/code&gt; and &lt;code&gt;java.util.concurrent.atomic&lt;/code&gt; packages.&lt;/p&gt;
 &lt;h3 id=&#34;executors&#34;&gt;Executors&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Interfaces.&lt;/strong&gt; &lt;code&gt;Executor&lt;/code&gt;is a simple standardized interface for defining custom thread-like subsystems, including thread pools, asynchronous I/O, and lightweight task frameworks. Depending on which concrete Executor class is being used, tasks may execute in a newly created thread, an existing task-execution thread, or the thread calling &lt;code&gt;execute&lt;/code&gt;, and may execute sequentially or concurrently. &lt;code&gt;ExecutorService&lt;/code&gt; provides a more complete asynchronous task execution framework. An ExecutorService manages queuing and scheduling of tasks, and allows controlled shutdown. The &lt;code&gt;ScheduledExecutorService&lt;/code&gt; subinterface and associated interfaces add support for delayed and periodic task execution. ExecutorServices provide methods arranging asynchronous execution of any function expressed as &lt;code&gt;Callable&lt;/code&gt;, the result-bearing analog of &lt;code&gt;Runnable&lt;/code&gt;. A &lt;code&gt;Future&lt;/code&gt; returns the results of a function, allows determination of whether execution has completed, and provides a means to cancel execution. A &lt;code&gt;RunnableFuture&lt;/code&gt; is a &lt;code&gt;Future&lt;/code&gt; that possesses a &lt;code&gt;run&lt;/code&gt; method that upon execution, sets its results.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Implementations.&lt;/strong&gt; Classes &lt;code&gt;ThreadPoolExecutor&lt;/code&gt;and &lt;code&gt;ScheduledThreadPoolExecutor&lt;/code&gt;provide tunable, flexible thread pools. The &lt;code&gt;Executors&lt;/code&gt; class provides factory methods for the most common kinds and configurations of Executors, as well as a few utility methods for using them. Other utilities based on &lt;code&gt;Executors&lt;/code&gt; include the concrete class &lt;code&gt;FutureTask&lt;/code&gt; providing a common extensible implementation of Futures, and&lt;code&gt;ExecutorCompletionService&lt;/code&gt;, that assists in coordinating the processing of groups of asynchronous tasks.&lt;/p&gt;
-&lt;p&gt;Class &lt;code&gt;ForkJoinPool&lt;/code&gt; provides an Executor primarily designed for processing instances of &lt;code&gt;ForkJoinTask&lt;/code&gt; and its subclasses. These classes employ a work-stealing scheduler that attains high throughput for tasks conforming to restrictions that often hold in computation-intensive parallel processing.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Interfaces.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Executor&lt;/code&gt;is a simple standardized interface for defining custom thread-like subsystems, including thread pools, asynchronous I/O, and lightweight task frameworks. Depending on which concrete Executor class is being used, tasks may execute in a newly created thread, an existing task-execution thread, or the thread calling &lt;code&gt;execute&lt;/code&gt;, and may execute sequentially or concurrently.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ExecutorService&lt;/code&gt; provides a more complete &lt;code&gt;asynchronous&lt;/code&gt; task execution framework. An ExecutorService manages queuing and scheduling of tasks, and allows controlled shutdown.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;ScheduledExecutorService&lt;/code&gt; subinterface and associated interfaces add support for delayed and periodic task execution. ExecutorServices provide methods arranging asynchronous execution of any function expressed as &lt;code&gt;Callable&lt;/code&gt;, the result-bearing analog of &lt;code&gt;Runnable&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;A &lt;code&gt;Future&lt;/code&gt; returns the results of a function, allows determination of whether execution has completed, and provides a means to cancel execution.&lt;/p&gt;
+&lt;p&gt;A &lt;code&gt;RunnableFuture&lt;/code&gt; is a &lt;code&gt;Future&lt;/code&gt; that possesses a &lt;code&gt;run&lt;/code&gt; method that upon execution, sets its results.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Implementations.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Classes &lt;code&gt;ThreadPoolExecutor&lt;/code&gt;and &lt;code&gt;ScheduledThreadPoolExecutor&lt;/code&gt;provide tunable, flexible thread pools.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;Executors&lt;/code&gt; class provides &lt;code&gt;factory methods&lt;/code&gt; for the most common kinds and configurations of Executors, as well as a few utility methods for using them. Other utilities based on &lt;code&gt;Executors&lt;/code&gt; include the concrete class &lt;code&gt;FutureTask&lt;/code&gt; providing a common extensible implementation of Futures, and&lt;code&gt;ExecutorCompletionService&lt;/code&gt;, that assists in coordinating the processing of groups of asynchronous tasks.&lt;/p&gt;
+&lt;p&gt;Class &lt;code&gt;ForkJoinPool&lt;/code&gt; provides an Executor primarily designed for processing instances of &lt;code&gt;ForkJoinTask&lt;/code&gt; and its subclasses. These classes employ a work-stealing scheduler that attains high throughput for tasks conforming to restrictions that often hold in &lt;code&gt;computation-intensive parallel&lt;/code&gt; processing.&lt;/p&gt;
 &lt;h3 id=&#34;queues&#34;&gt;Queues&lt;/h3&gt;
-&lt;p&gt;The &lt;code&gt;ConcurrentLinkedQueue&lt;/code&gt; class supplies an efficient scalable thread-safe non-blocking FIFO queue. The &lt;code&gt;ConcurrentLinkedDeque&lt;/code&gt; class is similar, but additionally supports the &lt;code&gt;Deque&lt;/code&gt; interface.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;ConcurrentLinkedQueue&lt;/code&gt; class supplies an efficient scalable &lt;code&gt;thread-safe non-blocking FIFO&lt;/code&gt; queue. The &lt;code&gt;ConcurrentLinkedDeque&lt;/code&gt; class is similar, but additionally supports the &lt;code&gt;Deque&lt;/code&gt; interface.&lt;/p&gt;
 &lt;p&gt;Five implementations in &lt;code&gt;java.util.concurrent&lt;/code&gt; support the extended &lt;code&gt;BlockingQueue&lt;/code&gt; interface, that defines blocking versions of put and take:&lt;code&gt;LinkedBlockingQueue&lt;/code&gt;, &lt;code&gt;ArrayBlockingQueue&lt;/code&gt;, &lt;code&gt;SynchronousQueue&lt;/code&gt;, &lt;code&gt;PriorityBlockingQueue&lt;/code&gt;, and &lt;code&gt;DelayQueue&lt;/code&gt;. The different classes cover the most common usage contexts for producer-consumer, messaging, parallel tasking, and related concurrent designs.&lt;/p&gt;
 &lt;p&gt;Extended interface &lt;code&gt;TransferQueue&lt;/code&gt;, and implementation &lt;code&gt;LinkedTransferQueue&lt;/code&gt;introduce a synchronous &lt;code&gt;transfer&lt;/code&gt; method (along with related features) in which a producer may optionally block awaiting its consumer.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;BlockingDeque&lt;/code&gt; interface extends &lt;code&gt;BlockingQueue&lt;/code&gt; to support both FIFO and LIFO (stack-based) operations. Class &lt;code&gt;LinkedBlockingDeque&lt;/code&gt; provides an implementation.&lt;/p&gt;
 &lt;h3 id=&#34;timing&#34;&gt;Timing&lt;/h3&gt;
-&lt;p&gt;The &lt;code&gt;TimeUnit&lt;/code&gt; class provides multiple granularities (including nanoseconds) for specifying and controlling time-out based operations. Most classes in the package contain operations based on time-outs in addition to indefinite waits. In all cases that time-outs are used, the time-out specifies the minimum time that the method should wait before indicating that it timed-out. Implementations make a &amp;ldquo;best effort&amp;rdquo; to detect time-outs as soon as possible after they occur. However, an indefinite amount of time may elapse between a time-out being detected and a thread actually executing again after that time-out. All methods that accept timeout parameters treat values less than or equal to zero to mean not to wait at all. To wait &amp;ldquo;forever&amp;rdquo;, you can use a value of &lt;code&gt;Long.MAX_VALUE&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;TimeUnit&lt;/code&gt; class provides multiple granularities (including nanoseconds) for specifying and controlling &lt;code&gt;time-out&lt;/code&gt; based operations. Most classes in the package contain operations based on time-outs in addition to indefinite waits. In all cases that time-outs are used, the time-out specifies the minimum time that the method should wait before indicating that it timed-out. Implementations make a &amp;ldquo;best effort&amp;rdquo; to detect time-outs as soon as possible after they occur. However, an indefinite amount of time may elapse between a time-out being detected and a thread actually executing again after that time-out. All methods that accept timeout parameters treat values less than or equal to zero to mean not to wait at all. To wait &amp;ldquo;forever&amp;rdquo;, you can use a value of &lt;code&gt;Long.MAX_VALUE&lt;/code&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;synchronizers&#34;&gt;Synchronizers&lt;/h3&gt;
 &lt;p&gt;Five classes aid common special-purpose synchronization idioms.&lt;/p&gt;
 &lt;ul&gt;
@@ -450,7 +457,11 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;线程池&#34;&gt;线程池&lt;/h2&gt;
-&lt;h3 id=&#34;executor&#34;&gt;Executor&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;工作者线程：工作者线程主体就是一个循环，循环从队列中接受任务并执行&lt;/li&gt;
+&lt;li&gt;任务队列：任务队列保存待执行的任务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;interface-executor&#34;&gt;interface Executor&lt;/h3&gt;
 &lt;p&gt;Executor表示最简单的执行服务，其定义为：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -468,7 +479,6 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;interface&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Executor&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
@@ -484,29 +494,31 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * @throws NullPointerException if command is null
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     */&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;execute&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Runnable&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;command&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  	&lt;span class=&#34;c1&#34;&gt;//command可能在一个新线程中执行，一个线程池里，或者一个调用线程，取决于Executor接口的实现。
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Executor:&lt;/p&gt;
-&lt;p&gt;An object that executes submitted &lt;code&gt;Runnable&lt;/code&gt; tasks. This interface provides a way of decoupling task submission from the mechanics of how each task will be run, including details of thread use, scheduling, etc. An &lt;code&gt;Executor&lt;/code&gt; is normally used instead of explicitly creating threads. For example, rather than invoking &lt;code&gt;new Thread(new(RunnableTask())).start()&lt;/code&gt; for each of a set of tasks, you might use:&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;void execute(Runnable command);&lt;/code&gt;可以执行一个Runnable，没有返回结果。&lt;/p&gt;
+&lt;p&gt;接口没有限定任务如何执行，可能是创建一个新线程，可能是在调用者线程中执行，也可能是复用线程池中的某个线程。&lt;/p&gt;
+&lt;p&gt;Executor:&lt;/p&gt;
+&lt;p&gt;An object that executes submitted &lt;code&gt;Runnable&lt;/code&gt; tasks. This interface provides a way of decoupling task submission from the mechanics of how each task will be run, including details of thread use, scheduling, etc.&lt;/p&gt;
+&lt;p&gt;新线程：&lt;/p&gt;
+&lt;p&gt;An &lt;code&gt;Executor&lt;/code&gt; is normally used instead of explicitly creating threads. For example, rather than invoking &lt;code&gt;new Thread(new(RunnableTask())).start()&lt;/code&gt; for each of a set of tasks, you might use:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;n&#34;&gt;Executor&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;executor&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;anExecutor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;n&#34;&gt;executor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;execute&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RunnableTask1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;());&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;n&#34;&gt;executor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;execute&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RunnableTask2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;());&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;However, the &lt;code&gt;Executor&lt;/code&gt; interface does not strictly require that execution be asynchronous. In the simplest case, an executor can run the submitted task immediately in the caller&amp;rsquo;s thread:&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;调用者线程：&lt;/p&gt;
+&lt;p&gt;However, the &lt;code&gt;Executor&lt;/code&gt; interface does not strictly require that execution be &lt;code&gt;asynchronous&lt;/code&gt;. In the simplest case, an executor can run the submitted task immediately in the &lt;code&gt;caller&#39;s thread&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -523,7 +535,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;More typically, tasks are executed in some thread other than the caller&amp;rsquo;s thread. The executor below spawns a new thread for each task.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;线程池：&lt;/p&gt;
+&lt;p&gt;More typically, tasks are executed in &lt;code&gt;some thread&lt;/code&gt; other than the caller&amp;rsquo;s thread. The executor below spawns a new thread for each task.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -540,7 +553,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Many &lt;code&gt;Executor&lt;/code&gt; implementations impose some sort of limitation on how and when tasks are scheduled. The executor below serializes the submission of tasks to a second executor, illustrating a composite executor.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Many &lt;code&gt;Executor&lt;/code&gt; implementations impose some sort of limitation on how and when tasks are scheduled. The executor below serializes the submission of tasks to a second executor, illustrating a &lt;code&gt;composite executor&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -607,10 +620,19 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;The &lt;code&gt;Executor&lt;/code&gt; implementations provided in this package implement &lt;code&gt;ExecutorService&lt;/code&gt;, which is a more extensive interface. The &lt;code&gt;ThreadPoolExecutor&lt;/code&gt; class provides an extensible thread pool implementation. The &lt;code&gt;Executors&lt;/code&gt; class provides convenient factory methods for these Executors.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;The &lt;code&gt;Executor&lt;/code&gt; implementations provided in this package implement &lt;code&gt;ExecutorService&lt;/code&gt;, which is a more extensive interface.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;interface&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;ExecutorService&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Executor&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;The &lt;code&gt;ThreadPoolExecutor&lt;/code&gt; class provides an extensible thread pool implementation.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;Executors&lt;/code&gt; class provides convenient factory methods for these Executors.&lt;/p&gt;
 &lt;p&gt;Memory consistency effects: Actions in a thread prior to submitting a &lt;code&gt;Runnable&lt;/code&gt; object to an &lt;code&gt;Executor&lt;/code&gt; &lt;em&gt;happen-before&lt;/em&gt; its execution begins, perhaps in another thread.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;void execute(Runnable command);&lt;/code&gt;可以执行一个Runnable，没有返回结果。接口没有限定任务如何执行，可能是创建一个新线程，可能是复用线程池中的某个线程，也可能是在调用者线程中执行。&lt;/p&gt;
-&lt;h3 id=&#34;executorservice&#34;&gt;ExecutorService&lt;/h3&gt;
+&lt;h3 id=&#34;interface-executorservice-extends-executor&#34;&gt;interface ExecutorService extends Executor&lt;/h3&gt;
 &lt;p&gt;ExecutorService扩展了Executor，定义了更多服务，基本方法有：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -622,24 +644,34 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;public interface ExecutorService extends Executor {
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &amp;lt;T&amp;gt; Future&amp;lt;T&amp;gt; submit(Callable&amp;lt;T&amp;gt; task);
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &amp;lt;T&amp;gt; Future&amp;lt;T&amp;gt; submit(Runnable task, T result);
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Future&amp;lt;?&amp;gt; submit(Runnable task);
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;interface&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;ExecutorService&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Executor&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Future&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;submit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Callable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Future&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;submit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Runnable&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;T&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;Future&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;?&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;submit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Runnable&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这三个submit都表示提交一个任务，返回值类型都是Future，返回后，只是表示任务已提交，不代表已执行，通过Future可以查询异步任务的状态、获取最终结果、取消任务等。对于Callable，任务最终有个返回值，而对于Runnable是没有返回值的；第二个提交Runnable的方法可以同时提供一个结果，在异步任务结束时返回；第三个方法异步任务的最终返回值为null。&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;这三个submit都表示提交一个任务，返回值类型都是Future。&lt;/p&gt;
+&lt;p&gt;返回后，只是表示任务已提交，不代表已执行。&lt;/p&gt;
+&lt;p&gt;通过Future可以查询异步任务的状态、获取最终结果、取消任务等。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;&amp;lt;T&amp;gt; Future&amp;lt;T&amp;gt; submit(Callable&amp;lt;T&amp;gt; task);&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Submits a value-returning task for execution and returns a Future representing the pending results of the task. The Future&amp;rsquo;s &lt;code&gt;get&lt;/code&gt; method will return the task&amp;rsquo;s result upon successful completion.&lt;/p&gt;
+&lt;p&gt;对于Callable，任务最终有个返回值&lt;/p&gt;
 &lt;p&gt;If you would like to immediately block waiting for a task, you can use constructions of the form &lt;code&gt;result = exec.submit(aCallable).get();&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Note: The &lt;code&gt;Executors&lt;/code&gt;class includes a set of methods that can convert some other common closure-like objects, for example, &lt;code&gt;PrivilegedAction&lt;/code&gt;to &lt;code&gt;Callable&lt;/code&gt; form so they can be submitted.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;&amp;lt;T&amp;gt; Future&amp;lt;T&amp;gt; submit(Runnable task, T result);&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Submits a Runnable task for execution and returns a Future representing that task. The Future&amp;rsquo;s &lt;code&gt;get&lt;/code&gt; method will return the given result upon successful completion.&lt;/p&gt;
+&lt;p&gt;提交Runnable的方法可以同时提供一个结果，在异步任务结束时返回&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Future&amp;lt;?&amp;gt; submit(Runnable task);&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Submits a Runnable task for execution and returns a Future representing that task. The Future&amp;rsquo;s &lt;code&gt;get&lt;/code&gt; method will return &lt;code&gt;null&lt;/code&gt; upon &lt;em&gt;successful&lt;/em&gt; completion.&lt;/p&gt;
-&lt;p&gt;有两个关闭方法：shutdown和shutdownNow。区别是，shutdown表示不再接受新任务，但已提交的任务会继续执行，即使任务还未开始执行；shutdownNow不仅不接受新任务，而且会终止已提交但尚未执行的任务，对于正在执行的任务，一般会调用线程的interrupt方法尝试中断，不过，线程可能不响应中断，shutdownNow会返回已提交但尚未执行的任务列表。&lt;/p&gt;
+&lt;p&gt;异步任务的最终返回值为null&lt;/p&gt;
+&lt;h3 id=&#34;关闭线程池&#34;&gt;关闭线程池&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;shutdown：将线程池的状态设置成&lt;code&gt;SHUTDOWN&lt;/code&gt;状态，然后中断所有&lt;code&gt;没有正在执行任务的线程&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;shutdownNow：首先将线程池的状态设置成&lt;code&gt;STOP&lt;/code&gt;，然后尝试停止所有的&lt;code&gt;正在执行或暂停任务&lt;/code&gt;的线程，并返回&lt;code&gt;等待执行任务的列表&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;它们的原理是遍历线程池中的工作线程，然后逐个调用线程的interrupt方法来中断线程，所以无法响应中断的任务可能永远无法终止。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;void shutdown();&lt;/code&gt;注释：&lt;/p&gt;
 &lt;p&gt;Initiates an orderly shutdown in which previously submitted tasks are executed, but no new tasks will be accepted. Invocation has no additional effect if already shut down.&lt;/p&gt;
 &lt;p&gt;This method does not wait for previously submitted tasks to complete execution. Use &lt;code&gt;awaitTermination&lt;/code&gt; to do that.&lt;/p&gt;
@@ -649,14 +681,88 @@
 &lt;p&gt;There are no guarantees beyond best-effort attempts to stop processing actively executing tasks. For example, typical implementations will cancel via &lt;code&gt;Thread.interrupt()&lt;/code&gt;, so any task that fails to respond to interrupts may never terminate.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Returns:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;list of tasks that never commenced execution&lt;/p&gt;
-&lt;p&gt;shutdown和shutdownNow不会阻塞等待，它们返回后不代表所有任务都已结束，不过isShutdown方法会返回true。调用者可以通过awaitTermination等待所有任务结束，它可以限定等待的时间，如果超时前所有任务都结束了，即isTerminated方法返回true，则返回true，否则返回false。&lt;/p&gt;
+&lt;p&gt;shutdown和shutdownNow不会阻塞等待，它们返回后不代表所有任务都已结束，不过isShutdown方法会返回true。&lt;/p&gt;
+&lt;p&gt;调用者可以通过awaitTermination等待所有任务结束，它可以限定等待的时间，如果超时前所有任务都结束了，即isTerminated方法返回true，则返回true，否则返回false。&lt;/p&gt;
 &lt;p&gt;ExecutorService有两组批量提交任务的方法：invokeAll和invokeAny，它们都有两个版本，其中一个限定等待时间。&lt;/p&gt;
 &lt;p&gt;invokeAll等待所有任务完成，返回的Future列表中，每个Future的isDone方法都返回true，不过isDone为true不代表任务就执行成功了，可能是被取消了。invokeAll可以指定等待时间，如果超时后有的任务没完成，就会被取消。&lt;/p&gt;
 &lt;p&gt;而对于invokeAny，只要有一个任务在限时内成功返回了，它就会返回该任务的结果，其他任务会被取消；如果没有任务能在限时内成功返回，抛出TimeoutException；如果限时内所有任务都结束了，但都发生了异常，抛出ExecutionException。&lt;/p&gt;
-&lt;h3 id=&#34;executorservice的抽象实现类abstractexecutorservice&#34;&gt;ExecutorService的抽象实现类AbstractExecutorService&lt;/h3&gt;
-&lt;h3 id=&#34;threadpoolexecutor&#34;&gt;ThreadPoolExecutor&lt;/h3&gt;
-&lt;p&gt;线程池主要由两个概念组成：一个是工作者线程；另一个是任务队列。工作者线程主体就是一个循环，循环从队列中接受任务并执行，任务队列保存待执行的任务。&lt;/p&gt;
-&lt;p&gt;Java并发包中线程池的实现类是ThreadPoolExecutor，它继承自AbstractExecutorService，实现了ExecutorService。&lt;/p&gt;
+&lt;h3 id=&#34;abstract-class-abstractexecutorservice-implements-executorservice&#34;&gt;abstract class AbstractExecutorService implements ExecutorService&lt;/h3&gt;
+&lt;h3 id=&#34;class-threadpoolexecutor-extends-abstractexecutorservice&#34;&gt;class ThreadPoolExecutor extends AbstractExecutorService&lt;/h3&gt;
+&lt;p&gt;JUC中线程池的实现类是ThreadPoolExecutor，它继承自AbstractExecutorService，实现了ExecutorService。&lt;/p&gt;
+&lt;p&gt;Creates a new ThreadPoolExecutor with the given initial parameters and default thread factory and rejected execution handler. It may be more convenient to use one of the Executors factory methods instead of this general purpose constructor.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;ThreadPoolExecutor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;corePoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;maximumPoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;kt&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;keepAliveTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;TimeUnit&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;BlockingQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Runnable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;workQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;corePoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;maximumPoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;keepAliveTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;workQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       &lt;span class=&#34;n&#34;&gt;Executors&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;defaultThreadFactory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;defaultHandler&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Creates a new ThreadPoolExecutor with the given initial parameters and default rejected execution handler.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;ThreadPoolExecutor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;corePoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;maximumPoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;kt&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;keepAliveTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;TimeUnit&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;BlockingQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Runnable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;workQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;ThreadFactory&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;threadFactory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;corePoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;maximumPoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;keepAliveTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;workQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       &lt;span class=&#34;n&#34;&gt;threadFactory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;defaultHandler&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Creates a new ThreadPoolExecutor with the given initial parameters and default thread factory.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;ThreadPoolExecutor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;corePoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;maximumPoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;kt&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;keepAliveTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;TimeUnit&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;BlockingQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Runnable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;workQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;RejectedExecutionHandler&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handler&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;corePoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;maximumPoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;keepAliveTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;workQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       &lt;span class=&#34;n&#34;&gt;Executors&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;defaultThreadFactory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handler&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Creates a new ThreadPoolExecutor with the given initial parameters.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -683,74 +789,9 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;52
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;53
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;54
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;55
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;56
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;57
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;ThreadPoolExecutor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;corePoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;maximumPoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;kt&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;keepAliveTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;TimeUnit&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;BlockingQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Runnable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;workQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;corePoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;maximumPoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;keepAliveTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;workQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       &lt;span class=&#34;n&#34;&gt;Executors&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;defaultThreadFactory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;defaultHandler&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Creates&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ThreadPoolExecutor&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;the&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;given&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;initial&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;default&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;thread&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;factory&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rejected&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;execution&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handler&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;It&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;may&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;be&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;more&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;convenient&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;use&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;one&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;of&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;the&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Executors&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;factory&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;methods&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;instead&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;of&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;general&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;purpose&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;constructor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;ThreadPoolExecutor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;corePoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;maximumPoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;kt&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;keepAliveTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;TimeUnit&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;BlockingQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Runnable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;workQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;ThreadFactory&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;threadFactory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;corePoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;maximumPoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;keepAliveTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;workQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       &lt;span class=&#34;n&#34;&gt;threadFactory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;defaultHandler&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Creates&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ThreadPoolExecutor&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;the&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;given&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;initial&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;default&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rejected&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;execution&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handler&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;ThreadPoolExecutor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;corePoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;maximumPoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;kt&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;keepAliveTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;TimeUnit&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;BlockingQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Runnable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;workQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;RejectedExecutionHandler&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handler&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;corePoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;maximumPoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;keepAliveTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;workQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       &lt;span class=&#34;n&#34;&gt;Executors&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;defaultThreadFactory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handler&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Creates&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ThreadPoolExecutor&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;the&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;given&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;initial&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;default&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;thread&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;factory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;ThreadPoolExecutor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;corePoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;maximumPoolSize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;kt&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;keepAliveTime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                          &lt;span class=&#34;n&#34;&gt;TimeUnit&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
@@ -774,18 +815,40 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;threadFactory&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;threadFactory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;handler&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handler&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Creates&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ThreadPoolExecutor&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;the&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;given&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;initial&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;code&gt;corePoolSize&lt;/code&gt; - the number of threads to keep in the pool, even if they are idle, unless &lt;code&gt;allowCoreThreadTimeOut&lt;/code&gt; is set&lt;/p&gt;
+&lt;p&gt;corePoolSize（线程池的基本大小）：当提交一个任务到线程池时，线程池会创建一个线程来执行任务，即使其他空闲的基本线程能够执行新任务也会创建线程，等到需要执行的任务数大于线程池基本大小时就不再创建。如果调用了线程池的prestartAllCoreThreads()方法，线程池会提前创建并启动所有基本线程。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;maximumPoolSize&lt;/code&gt; - the maximum number of threads to allow in the pool&lt;/p&gt;
+&lt;p&gt;maximumPoolSize（线程池最大数量）：线程池允许创建的最大线程数。如果队列满了，并且已创建的线程数小于最大线程数，则线程池会再创建新的线程执行任务。值得注意的是，如果使用了无界的任务队列这个参数就没什么效果。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;keepAliveTime&lt;/code&gt; - when the number of threads is greater than the core, this is the maximum time that excess idle threads will wait for new tasks before terminating.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;unit&lt;/code&gt; - the time unit for the &lt;code&gt;keepAliveTime&lt;/code&gt; argument&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;workQueue&lt;/code&gt; - the queue to use for holding tasks before they are executed. This queue will hold only the &lt;code&gt;Runnable&lt;/code&gt; tasks submitted by the &lt;code&gt;execute&lt;/code&gt; method.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;ArrayBlockingQueue：基于数组结构的有界阻塞队列，此队列按FIFO（先进先出）原则对元素进行排序。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;LinkedBlockingQueue：基于链表结构的阻塞队列，此队列按FIFO排序元素，吞吐量通常要高于ArrayBlockingQueue。&lt;/p&gt;
+&lt;p&gt;静态工厂方法Executors.newFixedThreadPool()使用了这个队列。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SynchronousQueue：一个不存储元素的阻塞队列。每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直处于阻塞状态，吞吐量通常要高于Linked-BlockingQueue。&lt;/p&gt;
+&lt;p&gt;静态工厂方法Executors.newCachedThreadPool()使用了这个队列。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PriorityBlockingQueue：一个具有优先级的无限阻塞队列。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;code&gt;threadFactory&lt;/code&gt; - the factory to use when the executor creates a new thread&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;handler&lt;/code&gt; - the handler to use when execution is blocked because the thread bounds and queue capacities are reached&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;任务拒绝策略&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;如果队列有界，且maximumPoolSize有限，则当队列排满，线程个数也达到了maxi-mumPoolSize，这时，新任务来了，如何处理呢？此时，会触发线程池的任务拒绝策略。&lt;/p&gt;
+&lt;p&gt;ThreadPoolExecutor执行execute方法分下面4种情况。&lt;/p&gt;
+&lt;p&gt;1）如果当前运行的线程少于corePoolSize，则创建新线程来执行任务（注意，执行这一步骤需要获取全局锁）。&lt;/p&gt;
+&lt;p&gt;2）如果运行的线程等于或多于corePoolSize，则将任务加入BlockingQueue。&lt;/p&gt;
+&lt;p&gt;3）如果无法将任务加入BlockingQueue（队列已满），则创建新的线程来处理任务（注意，执行这一步骤需要获取全局锁）。&lt;/p&gt;
+&lt;p&gt;4）如果创建新线程将使当前运行的线程超出maximumPoolSize，任务将被拒绝，并调用RejectedExecutionHandler.rejectedExecution()方法。&lt;/p&gt;
+&lt;h3 id=&#34;rejectedexecutionhandlerrejectedexecution&#34;&gt;RejectedExecutionHandler.rejectedExecution&lt;/h3&gt;
+&lt;p&gt;任务拒绝策略&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -1021,7 +1084,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;它们都是ThreadPoolExecutor的&lt;code&gt;public静态内部类&lt;/code&gt;，都实现了RejectedExecutionHandler接口。&lt;/p&gt;
-&lt;p&gt;拒绝策略只有在队列有界，且maximumPoolSize有限的情况下才会触发。如果队列无界，服务不了的任务总是会排队，但这不一定是期望的结果，因为请求处理队列可能会消耗非常大的内存，甚至引发内存不够的异常。如果队列有界但maxi-mumPoolSize无限，可能会创建过多的线程，占满CPU和内存，使得任何任务都难以完成。所以，在任务量非常大的场景中，让拒绝策略有机会执行是保证系统稳定运行很重要的方面。&lt;/p&gt;
+&lt;p&gt;拒绝策略只有在队列有界，且maximumPoolSize有限的情况下才会触发。&lt;/p&gt;
+&lt;p&gt;如果&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;队列无界：服务不了的任务总是会排队，请求处理队列可能会消耗非常大的内存，甚至引发内存不够的异常。&lt;/li&gt;
+&lt;li&gt;队列有界但maximumPoolSize无限：可能会创建过多的线程，占满CPU和内存，使得任何任务都难以完成。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以，在任务量非常大的场景中，让拒绝策略有机会执行是保证系统稳定运行很重要的方面。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;核心线程&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;线程个数小于等于corePoolSize时，我们称这些线程为核心线程，默认情况下。&lt;/p&gt;
 &lt;ul&gt;
@@ -1032,7 +1101,8 @@
 &lt;p&gt;核心线程不会因为空闲而被终止，keepAliveTime参数不适用于它。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;工厂类executors&#34;&gt;工厂类Executors&lt;/h3&gt;
+&lt;h3 id=&#34;class-executors-工厂类&#34;&gt;class Executors 工厂类&lt;/h3&gt;
+&lt;p&gt;ThreadPoolExecutor通常使用工厂类Executors来创建。Executors可以创建3种类型的ThreadPoolExecutor：FixedThreadPool、SingleThreadExecutor和CachedThreadPool。&lt;/p&gt;
 &lt;p&gt;类Executors提供了一些静态工厂方法，可以方便地创建一些预配置的线程池：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -1050,8 +1120,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Creates a thread pool that reuses a fixed number of threads operating off a shared unbounded queue. At any point, at most &lt;code&gt;nThreads&lt;/code&gt; threads will be active processing tasks. If additional tasks are submitted when all threads are active, they will wait in the queue until a thread is available. If any thread terminates due to a failure during execution prior to shutdown, a new one will take its place if needed to execute subsequent tasks. The threads in the pool will exist until it is explicitly &lt;code&gt;shutdown&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Creates a thread pool that reuses a fixed number of threads operating off a &lt;code&gt;shared unbounded&lt;/code&gt; queue. At any point, at most &lt;code&gt;nThreads&lt;/code&gt; threads will be active processing tasks. If additional tasks are submitted when all threads are active, they will wait in the queue until a thread is available. If any thread terminates due to a failure during execution prior to shutdown, a new one will take its place if needed to execute subsequent tasks. The threads in the pool will exist until it is explicitly &lt;code&gt;shutdown&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;使用固定数目的n个线程，使用无界队列LinkedBlockingQueue，线程创建后不会超时终止。和newSingleThreadExecutor一样，由于是无界队列，如果排队任务过多，可能会消耗过多的内存。&lt;/p&gt;
+&lt;p&gt;FixedThreadPool适用于为了满足资源管理的需求，而需要限制当前线程数量的应用场景，它适用于负载比较重的服务器。&lt;/p&gt;
+&lt;hr&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -1070,8 +1142,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Creates an Executor that uses &lt;code&gt;a single worker thread&lt;/code&gt; operating off an &lt;code&gt;unbounded queue&lt;/code&gt;. (Note however that if this single thread terminates due to a failure during execution prior to shutdown, a new one will take its place if needed to execute subsequent tasks.) Tasks are guaranteed to execute sequentially, and no more than one task will be active at any given time. Unlike the otherwise equivalent &lt;code&gt;newFixedThreadPool(1)&lt;/code&gt; the returned executor is guaranteed not to be reconfigurable to use additional threads.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Creates an Executor that uses &lt;code&gt;a single worker thread&lt;/code&gt; operating off an &lt;code&gt;unbounded&lt;/code&gt; queue. (Note however that if this single thread terminates due to a failure during execution prior to shutdown, a new one will take its place if needed to execute subsequent tasks.) Tasks are guaranteed to execute sequentially, and no more than one task will be active at any given time. Unlike the otherwise equivalent &lt;code&gt;newFixedThreadPool(1)&lt;/code&gt; the returned executor is guaranteed not to be reconfigurable to use additional threads.&lt;/p&gt;
 &lt;p&gt;只使用一个线程，使用无界队列LinkedBlockingQueue，线程创建后不会超时终止，该线程顺序执行所有任务。该线程池适用于需要确保所有任务被顺序执行的场合。&lt;/p&gt;
+&lt;p&gt;SingleThreadExecutor适用于需要保证顺序地执行各个任务；并且在任意时间点，不会有多个线程是活动的应用场景。&lt;/p&gt;
+&lt;hr&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -1088,8 +1162,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Creates a thread pool that creates new threads as needed, but will reuse previously constructed threads when they are available. These pools will typically improve the performance of programs that execute many short-lived asynchronous tasks. Calls to &lt;code&gt;execute&lt;/code&gt; will reuse previously constructed threads if available. If no existing thread is available, a new thread will be created and added to the pool. Threads that have not been used for sixty seconds are terminated and removed from the cache. Thus, a pool that remains idle for long enough will not consume any resources. Note that pools with similar properties but different details (for example, timeout parameters) may be created using &lt;code&gt;ThreadPoolExecutor&lt;/code&gt; constructors.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Creates a thread pool that creates new threads as needed, but will reuse previously constructed threads when they are available. These pools will typically improve the performance of programs that execute &lt;code&gt;many short-lived asynchronous tasks&lt;/code&gt;. Calls to &lt;code&gt;execute&lt;/code&gt; will reuse previously constructed threads if available. If no existing thread is available, a new thread will be created and added to the pool. Threads that have not been used for sixty seconds are terminated and removed from the cache. Thus, a pool that remains idle for long enough will not consume any resources. Note that pools with similar properties but different details (for example, timeout parameters) may be created using &lt;code&gt;ThreadPoolExecutor&lt;/code&gt; constructors.&lt;/p&gt;
 &lt;p&gt;它的corePoolSize为0, maximumPoolSize为Integer.MAⅩ_VALUE, keepAliveTime是60秒，队列为SynchronousQueue。它的含义是：当新任务到来时，如果正好有空闲线程在等待任务，则其中一个空闲线程接受该任务，否则就总是创建一个新线程，创建的总线程个数不受限制，对任一空闲线程，如果60秒内没有新任务，就终止。&lt;/p&gt;
+&lt;p&gt;CachedThreadPool是大小无界的线程池，适用于执行很多的短期异步任务的小程序，或者是负载较轻的服务器。&lt;/p&gt;
 &lt;h2 id=&#34;futuretask&#34;&gt;FutureTask&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -1359,8 +1434,8 @@
 &lt;p&gt;thinking in java jd price is 116.42&lt;/p&gt;
 &lt;p&gt;thinking in java tmall price is 116.28&lt;/p&gt;
 &lt;p&gt;thinking in java pdd price is 116.06&lt;/p&gt;
-&lt;p&gt;thinking in java mi price is 116.68
-&amp;mdash;-costTime: 1008 毫秒&lt;/p&gt;
+&lt;p&gt;thinking in java mi price is 116.68&lt;/p&gt;
+&lt;p&gt;&amp;mdash;-costTime: 1008 毫秒&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;completablefuture常用方法&#34;&gt;CompletableFuture常用方法&lt;/h3&gt;
 &lt;h4 id=&#34;获得结果和触发计算&#34;&gt;获得结果和触发计算&lt;/h4&gt;
@@ -1630,21 +1705,8 @@
 &lt;p&gt;222&lt;/p&gt;
 &lt;p&gt;*****v: null&lt;/p&gt;
 &lt;p&gt;java.util.concurrent.CompletionException: java.lang.ArithmeticException: / by zero
-at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:618)
-at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:488)
-at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1609)
-at java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1596)
-at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
-at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
-at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
-at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
-Caused by: java.lang.ArithmeticException: / by zero
-at shuo.laoma.concurrent.test.CompletableFutureDemo4.lambda$main$2(CompletableFutureDemo4.java:25)
-at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-&amp;hellip; 8 more&lt;/p&gt;
+at&lt;/p&gt;
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h5 id=&#34;handle&#34;&gt;handle&lt;/h5&gt;
 &lt;p&gt;有异常也可以往下一步走，根据带的异常参数可以进一步处理。&lt;/p&gt;
@@ -1736,22 +1798,8 @@ at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
 &lt;p&gt;111&lt;/p&gt;
 &lt;p&gt;333&lt;/p&gt;
 &lt;p&gt;*****v: null&lt;/p&gt;
-&lt;p&gt;java.util.concurrent.CompletionException: java.lang.NullPointerException
-at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:838)
-at java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:811)
-at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:488)
-at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1609)
-at java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1596)
-at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
-at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
-at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
-at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
-Caused by: java.lang.NullPointerException
-at shuo.laoma.concurrent.test.CompletableFutureDemo4.lambda$main$2(CompletableFutureDemo4.java:70)
-at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:836)
-&amp;hellip; 8 more&lt;/p&gt;
+&lt;p&gt;java.util.concurrent.CompletionException: java.lang.NullPointerException&lt;/p&gt;
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h4 id=&#34;对计算结果进行消费&#34;&gt;对计算结果进行消费&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -2054,7 +2102,7 @@ at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:836)
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;修饰实例方法，作用于当前实例，进入同步代码前需要先获取实例的锁&lt;/p&gt;
-&lt;p&gt;synchronized实例方法实际保护的是同一个对象的方法调用，确保同时只能有一个线程执行。再具体来说，synchronized实例方法保护的是当前实例对象，即this, this对象有一个锁和一个等待队列，锁只能被一个线程持有，其他试图获得同样锁的线程需要等待。&lt;/p&gt;
+&lt;p&gt;synchronized实例方法实际保护的是同一个对象的方法调用，确保同时只能有一个线程执行。再具体来说，synchronized实例方法保护的是当前实例对象，即this。this对象有一个锁和一个等待队列，锁只能被一个线程持有，其他试图获得同样锁的线程需要等待。&lt;/p&gt;
 &lt;p&gt;一般在保护变量时，需要在所有访问该变量的方法上加上synchronized。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -2074,27 +2122,54 @@ at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:836)
 &lt;p&gt;不过，如果只是为了保证内存可见性，使用synchronized的成本有点高，有一个更轻量级的方式，那就是给变量加修饰符volatile。&lt;/p&gt;
 &lt;p&gt;加了volatile之后，Java会在操作对应变量时插入特殊的指令，保证读写到内存最新值，而非缓存的值。&lt;/p&gt;
 &lt;h3 id=&#34;lock&#34;&gt;Lock&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Lock&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lock&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ReentrantLock&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;lock&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;lock&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;try&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;finally&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;lock&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;unlock&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在finally块中释放锁，目的是保证在获取到锁之后，最终能够被释放。&lt;/p&gt;
+&lt;p&gt;不要将获取锁的过程写在try块中，因为如果在获取锁（自定义锁的实现）时发生了异常，异常抛出的同时，也会导致锁无故释放。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/lock.png&#34; alt=&#34;lock&#34;&gt;&lt;/p&gt;
 &lt;p&gt;1）lock()/unlock()：就是普通的获取锁和释放锁方法，lock()会阻塞直到成功。&lt;/p&gt;
 &lt;p&gt;2）lockInterruptibly()：与lock()的不同是，它可以响应中断，如果被其他线程中断了，则抛出InterruptedException。&lt;/p&gt;
 &lt;p&gt;3）tryLock()：只是尝试获取锁，立即返回，不阻塞，如果获取成功，返回true，否则返回false。&lt;/p&gt;
-&lt;p&gt;4）tryLock(long time, TimeUnit unit)：先尝试获取锁，如果能成功则立即返回true，否则阻塞等待，但等待的最长时间由指定的参数设置，在等待的同时响应中断，如果发生了中断，抛出InterruptedException，如果在等待的时间内获得了锁，返回true，否则返回false。&lt;/p&gt;
+&lt;p&gt;4）tryLock(long time, TimeUnit unit)：先尝试获取锁，如果能成功则立即返回true，否则阻塞等待，但等待的最长时间由指定的参数设置，在等待的同时响应中断。如果发生了中断，抛出InterruptedException，如果在等待的时间内获得了锁，返回true，否则返回false。&lt;/p&gt;
 &lt;p&gt;5）newCondition：新建一个条件，一个Lock可以关联多个条件。&lt;/p&gt;
 &lt;h3 id=&#34;synchronized-vs-lock&#34;&gt;synchronized VS Lock&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;synchronized是java内置关键字，在jvm层面，Lock是个java类；&lt;/li&gt;
+&lt;li&gt;synchronized是Java内置关键字，在JVM层面，Lock是个Java类；&lt;/li&gt;
 &lt;li&gt;synchronized无法判断是否获取锁的状态，Lock可以判断是否获取到锁；&lt;/li&gt;
 &lt;li&gt;synchronized会自动释放锁(a 线程执行完同步代码会释放锁 ；b 线程执行过程中发生异常会释放锁)，Lock需在finally中手工释放锁（unlock()方法释放锁），否则容易造成线程死锁；&lt;/li&gt;
 &lt;li&gt;用synchronized关键字的两个线程1和线程2，如果当前线程1获得锁，线程2线程等待。如果线程1阻塞，线程2则会一直等待下去，而Lock锁就不一定会等待下去，如果尝试获取不到锁，线程可以不用一直等待就结束了；&lt;/li&gt;
 &lt;li&gt;synchronized的锁可重入、不可中断、非公平，而Lock锁可重入、可判断、可公平（两者皆可）&lt;/li&gt;
-&lt;li&gt;Lock锁适合大量同步的代码的同步问题，synchronized锁适合代码少量的同步问题。&lt;/li&gt;
+&lt;li&gt;synchronized锁适合代码少量的同步问题，Lock锁适合大量同步代码的同步问题，。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;reentrantlock&#34;&gt;ReentrantLock&lt;/h3&gt;
 &lt;p&gt;ReentrantLock是Lock的默认实现：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;可重入锁：可重入锁是指同一个线程可以多次获得同一把锁；ReentrantLock和关键字Synchronized都是可重入锁&lt;/li&gt;
-&lt;li&gt;可中断锁：可中断锁时子线程在获取锁的过程中，是否可以相应线程中断操作。synchronized是不可中断的，ReentrantLock是可中断的&lt;/li&gt;
-&lt;li&gt;公平锁和非公平锁：公平锁是指多个线程尝试获取同一把锁的时候，获取锁的顺序按照线程到达的先后顺序获取，而不是随机插队的方式获取。synchronized是非公平锁，而ReentrantLock是两种都可以实现，不过默认是非公平锁&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可重入锁：可重入锁是指同一个线程可以多次获得同一把锁；ReentrantLock和关键字Synchronized都是可重入锁&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可中断锁：可中断锁时子线程在获取锁的过程中，是否可以相应线程中断操作。synchronized是不可中断的，ReentrantLock是可中断的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;公平锁和非公平锁：公平锁是指多个线程尝试获取同一把锁的时候，获取锁的顺序按照线程到达的先后顺序获取，而不是随机插队的方式获取。synchronized是非公平锁，而ReentrantLock是两种都可以实现，不过默认是非公平锁&lt;/p&gt;
+&lt;p&gt;在测试中公平性锁与非公平性锁相比，总耗时是其94.3倍，总切换次数是其133倍。可以看出，公平性锁保证了锁的获取按照FIFO原则，而代价是进行大量的线程切换。非公平性锁虽然可能造成线程“饥饿”，但极少的线程切换，保证了其更大的吞吐量。&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -2152,9 +2227,12 @@ at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:836)
 &lt;/ol&gt;
 &lt;h3 id=&#34;synchronized-vs-reentrantlock&#34;&gt;synchronized VS ReentrantLock&lt;/h3&gt;
 &lt;p&gt;相比synchronized, ReentrantLock可以实现与synchronized相同的语义，而且支持以非阻塞方式获取锁，可以响应中断，可以限时，更为灵活。不过，synchronized的使用更为简单，写的代码更少，也更不容易出错。&lt;/p&gt;
-&lt;p&gt;synchronized代表一种声明式编程思维，程序员更多的是表达一种同步声明，由Java系统负责具体实现，程序员不知道其实现细节；显式锁代表一种命令式编程思维，程序员实现所有细节。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;synchronized代表一种声明式编程思维，程序员更多的是表达一种同步声明，由Java系统负责具体实现，程序员不知道其实现细节；&lt;/li&gt;
+&lt;li&gt;显式锁代表一种命令式编程思维，程序员实现所有细节。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;声明式编程的好处除了简单，还在于性能，在较新版本的JVM上，ReentrantLock和synchronized的性能是接近的，但Java编译器和虚拟机可以不断优化synchronized的实现，比如自动分析synchronized的使用，对于没有锁竞争的场景，自动省略对锁获取/释放的调用。&lt;/p&gt;
-&lt;p&gt;简单总结下，能用synchronized就用synchronized，不满足要求时再考虑Reentrant-Lock。&lt;/p&gt;
+&lt;p&gt;简单总结下，能用synchronized就用synchronized，不满足要求时再考虑ReentrantLock。&lt;/p&gt;
 &lt;h3 id=&#34;悲观锁&#34;&gt;悲观锁&lt;/h3&gt;
 &lt;p&gt;认为自己在使用数据的时候一定有别的线程来修改数据，因此在获取数据的时候会先加锁，确保数据不会被别的线程修改。&lt;/p&gt;
 &lt;p&gt;synchronized关键字和Lock的实现类都是悲观锁&lt;/p&gt;
@@ -2190,9 +2268,9 @@ at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:836)
 &lt;p&gt;其次 在Java中没有办法立即停止一条线程，然而停止线程却显得尤为重要，如取消一个耗时操作。因此，Java提供了一种用于停止线程的机制——中断。&lt;/p&gt;
 &lt;p&gt;中断只是一种协作机制，Java没有给中断增加任何语法，中断的过程完全需要程序员自己实现。若要中断一个线程，你需要手动调用该线程的interrupt方法，该方法也仅仅是将线程对象的中断标识设成true；接着你需要自己写代码不断地检测当前线程的标识位，如果为true，表示别的线程要求这条线程中断， 此时究竟该做什么需要你自己写代码实现。&lt;/p&gt;
 &lt;p&gt;每个线程对象中都有一个标识，用于表示线程是否被中断；该标识位为true表示中断，为false表示未中断；通过调用线程对象的interrupt方法将该线程的标识位设为true；可以在别的线程中调用，也可以在自己的线程中调用。&lt;/p&gt;
-&lt;h3 id=&#34;如何使用中断标识停止线程&#34;&gt;如何使用中断标识停止线程？&lt;/h3&gt;
+&lt;p&gt;如何使用中断标识停止线程？&lt;/p&gt;
 &lt;p&gt;在需要中断的线程中不断监听中断状态，一旦发生中断，就执行相应的中断处理业务逻辑。&lt;/p&gt;
-&lt;h4 id=&#34;1通过一个volatile变量实现&#34;&gt;1、通过一个volatile变量实现&lt;/h4&gt;
+&lt;h3 id=&#34;1通过一个volatile变量&#34;&gt;1、通过一个volatile变量&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -2257,7 +2335,7 @@ at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:836)
 &lt;p&gt;&amp;mdash;&amp;mdash;-hello interrupt&lt;/p&gt;
 &lt;p&gt;t1线程&amp;mdash;&amp;mdash;isStop = true,自己退出了&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h4 id=&#34;2通过atomicboolean&#34;&gt;2、通过AtomicBoolean&lt;/h4&gt;
+&lt;h3 id=&#34;2通过atomicboolean&#34;&gt;2、通过AtomicBoolean&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -2322,8 +2400,8 @@ at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:836)
 &lt;p&gt;&amp;mdash;&amp;ndash;hello&lt;/p&gt;
 &lt;p&gt;&amp;mdash;&amp;ndash;hello&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h4 id=&#34;3通过thread类自带的中断api方法实现&#34;&gt;3、通过Thread类自带的中断api方法实现&lt;/h4&gt;
-&lt;h5 id=&#34;1实例方法interrupt没有返回值&#34;&gt;(1)、实例方法interrupt()，没有返回值&lt;/h5&gt;
+&lt;h3 id=&#34;3通过thread类自带的中断api方法&#34;&gt;3、通过Thread类自带的中断api方法&lt;/h3&gt;
+&lt;h4 id=&#34;1实例方法interrupt没有返回值&#34;&gt;(1)、实例方法interrupt()，没有返回值&lt;/h4&gt;
 &lt;p&gt;调用interrupt()方法仅仅是在当前线程中打了一个停止的标记，并不是真正立刻停止线程。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/interrupt-annotation.png&#34; alt=&#34;interrupt-annotation&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -2360,10 +2438,10 @@ at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:836)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h5 id=&#34;2实例方法isinterrupted返回布尔值&#34;&gt;(2)、实例方法isInterrupted，返回布尔值&lt;/h5&gt;
+&lt;/div&gt;&lt;h4 id=&#34;2实例方法isinterrupted返回布尔值&#34;&gt;(2)、实例方法isInterrupted，返回布尔值&lt;/h4&gt;
 &lt;p&gt;获取中断标志位的当前值是什么
 判断当前线程是否被中断（通过检查中断标志位），默认是false&lt;/p&gt;
-&lt;h5 id=&#34;3静态方法threadinterrupted&#34;&gt;(3)、静态方法Thread.interrupted()&lt;/h5&gt;
+&lt;h4 id=&#34;3静态方法threadinterrupted&#34;&gt;(3)、静态方法Thread.interrupted()&lt;/h4&gt;
 &lt;p&gt;判断线程是否被中断，并清除当前中断状态，类似i++&lt;/p&gt;
 &lt;p&gt;这个方法做了两件事：&lt;/p&gt;
 &lt;ul&gt;
@@ -2424,14 +2502,11 @@ at java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:836)
 &lt;p&gt;① 如果线程处于正常活动状态，那么会将该线程的中断标志设置为 true，仅此而已。 被设置中断标志的线程将继续正常运行，不受影响。所以， interrupt() 并不能真正的中断线程，需要被调用的线程自己进行配合才行。&lt;/p&gt;
 &lt;p&gt;② 如果线程处于被阻塞状态（例如处于sleep, wait, join 等状态），在别的线程中调用当前线程对象的interrupt方法， 那么线程将立即退出被阻塞状态，并抛出一个InterruptedException异常。&lt;/p&gt;
 &lt;h2 id=&#34;locksupport&#34;&gt;LockSupport&lt;/h2&gt;
-&lt;p&gt;LockSupport是用来创建锁和其他同步类的基本线程阻塞原语。&lt;/p&gt;
-&lt;p&gt;LockSupport中的park() 和 unpark() 的作用分别是阻塞线程和解除阻塞线程。&lt;/p&gt;
-&lt;h3 id=&#34;线程等待唤醒机制&#34;&gt;线程等待唤醒机制&lt;/h3&gt;
 &lt;h3 id=&#34;03种让线程等待和唤醒的方法&#34;&gt;0、3种让线程等待和唤醒的方法&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;使用Object中的wait()方法让线程等待，notify()方法唤醒线程&lt;/li&gt;
-&lt;li&gt;使用JUC包中Condition的await()方法让线程等待，signal()方法唤醒线程&lt;/li&gt;
-&lt;li&gt;LockSupport类可以阻塞当前线程以及唤醒指定被阻塞的线程&lt;/li&gt;
+&lt;li&gt;Object中的wait()方法让线程等待，notify()方法唤醒线程&lt;/li&gt;
+&lt;li&gt;JUC包中Condition的await()方法让线程等待，signal()方法唤醒线程&lt;/li&gt;
+&lt;li&gt;LockSupport类中的park()阻塞线程，unpark()解除阻塞线程&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;1object类中的wait和notify方法&#34;&gt;1、Object类中的wait和notify方法&lt;/h3&gt;
 &lt;ul&gt;
@@ -2667,8 +2742,11 @@ Exception in thread &amp;ldquo;t2&amp;rdquo; java.lang.IllegalMonitorStateExcept
 &lt;p&gt;t1	 &amp;mdash;come in&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;总结：&lt;/p&gt;
-&lt;p&gt;wait和notify方法必须要在同步块或者方法里面，且成对出现使用&lt;/p&gt;
-&lt;p&gt;先wait后notify才OK&lt;/p&gt;
+&lt;p&gt;Object中的wait和notify方法必须&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;要在同步块或者方法里面&lt;/li&gt;
+&lt;li&gt;先wait后notify的顺序成对使用&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;2condition接口中的await和signal方法&#34;&gt;2、Condition接口中的await和signal方法&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;正常：&lt;/li&gt;
@@ -2768,23 +2846,25 @@ Exception in thread &amp;ldquo;t2&amp;rdquo; java.lang.IllegalMonitorStateExcept
 &lt;li&gt;仍然返回&lt;code&gt;IllegalMonitorStateException&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;异常2 原理同上
+&lt;li&gt;异常2原理同上
 &lt;ul&gt;
 &lt;li&gt;仍然在不停地循环&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;总结：&lt;/p&gt;
-&lt;p&gt;Condtion中的线程等待和唤醒方法之前，需要先获取锁&lt;/p&gt;
-&lt;p&gt;一定要先await后signal&lt;/p&gt;
-&lt;p&gt;一般而言，signal/signalAll与notify/notifyAll一样，调用它们需要先获取锁，如果没有锁，会抛出异常IllegalMonitorStateException。signal与notify一样，挑选一个线程进行唤醒，signalAll与notifyAll一样，唤醒所有等待的线程，但这些线程被唤醒后都需要重新竞争锁，获取锁后才会从await调用中返回。&lt;/p&gt;
+&lt;p&gt;Condtion中的await和notify方法必须&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先获取锁&lt;/li&gt;
+&lt;li&gt;先await后signal&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Object和Condition使用的限制条件：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;线程先要获得并持有锁，必须在锁块(synchronized或lock)中&lt;/li&gt;
 &lt;li&gt;必须要先等待后唤醒，线程才能够被唤醒&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;3locksupport类中的park等待和unpark唤醒&#34;&gt;3、LockSupport类中的park等待和unpark唤醒&lt;/h3&gt;
-&lt;p&gt;通过park()和unpark(thread)方法来实现阻塞和唤醒线程的操作&lt;/p&gt;
+&lt;p&gt;通过park()和unpark(thread)方法来实现阻塞和唤醒线程&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;正常+无锁块要求&lt;/li&gt;
 &lt;/ul&gt;
@@ -2885,7 +2965,7 @@ Exception in thread &amp;ldquo;t2&amp;rdquo; java.lang.IllegalMonitorStateExcept
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;成双成对要牢记&lt;/li&gt;
-&lt;li&gt;许可证是只要一个的&lt;/li&gt;
+&lt;li&gt;许可证只有一个&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -2943,16 +3023,25 @@ Exception in thread &amp;ldquo;t2&amp;rdquo; java.lang.IllegalMonitorStateExcept
 &lt;/blockquote&gt;
 &lt;p&gt;Lock Support和每个使用它的线程都有一个许可(permit) 关联。&lt;/p&gt;
 &lt;p&gt;每个线程都有一个相关的permit， permit最多只有一个， 重复调用unpark也不会积累凭证。&lt;/p&gt;
-&lt;p&gt;总结：&lt;/p&gt;
-&lt;p&gt;LockSupport是用来创建锁和其他同步类的基本线程阻塞原语。&lt;/p&gt;
-&lt;p&gt;LockSupport类使用了一种名为Permit（许可） 的概念来做到阻塞和唤醒线程的功能， 每个线程都有一个许可(permit)。&lt;/p&gt;
-&lt;p&gt;permit（许可）只有两个值1和0，默认是0。0 是阻塞，1是唤醒。&lt;/p&gt;
+&lt;h3 id=&#34;4总结&#34;&gt;4、总结：&lt;/h3&gt;
+&lt;p&gt;LockSupport是用来创建&lt;code&gt;锁和其他同步类&lt;/code&gt;的基本线程阻塞原语。&lt;/p&gt;
+&lt;p&gt;LockSupport类使用了一种名为Permit（许可） 的概念来做到阻塞和唤醒线程， 每个线程都有一个许可(permit)。&lt;/p&gt;
+&lt;p&gt;permit（许可）只有两个值1和0，默认是0，0 是阻塞，1是唤醒。&lt;/p&gt;
 &lt;p&gt;可以把许可看成是一种(0,1)信号量（Semaphore），但与 Semaphore 不同的是，许可的累加上限是1。&lt;/p&gt;
 &lt;h2 id=&#34;jmm&#34;&gt;JMM&lt;/h2&gt;
 &lt;p&gt;Java虚拟机规范中试图定义一种Java内存模型（java Memory Model，简称JMM) 来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。&lt;/p&gt;
 &lt;p&gt;Java中普通的共享变量不保证可见性，因为数据修改被写入内存的时机是不确定的，多线程并发下很可能出现&amp;quot;脏读&amp;quot;，所以每个线程都有自己的工作内存，线程自己的工作内存中保存了该线程使用到的变量的主内存副本拷贝，线程对变量的所有操作（读取，赋值等 ）都必需在线程自己的工作内存中进行，而不能够直接读写主内存中的变量。不同线程之间也无法直接访问对方工作内存中的变量，线程间变量值的传递均需要通过主内存来完成。&lt;/p&gt;
-&lt;h3 id=&#34;jmm规范下多线程先行发生原则之happens-before&#34;&gt;JMM规范下，多线程先行发生原则之happens-before&lt;/h3&gt;
+&lt;h3 id=&#34;happens-before规则&#34;&gt;happens-before规则&lt;/h3&gt;
+&lt;p&gt;JMM规范下，多线程先行发生原则之happens-before：&lt;/p&gt;
 &lt;p&gt;在JMM中，如果一个操作执行的结果需要对另一个操作可见性或者代码重排序，那么这两个操作之间必须存在happens-before关系。&lt;/p&gt;
+&lt;p&gt;JSR-133使用happens-before的概念来指定两个操作之间的执行顺序。由于这两个操作可以在一个线程之内，也可以是在不同线程之间。因此，JMM可以通过happens-before关系向程序员提供跨线程的内存可见性保证（如果A线程的写操作a与B线程的读操作b之间存在happens-before关系，尽管a操作和b操作在不同的线程中执行，但JMM向程序员保证a操作将对b操作可见）&lt;/p&gt;
+&lt;p&gt;《JSR-133:Java Memory Model and Thread Specification》定义了如下happens-before规则。&lt;/p&gt;
+&lt;p&gt;1）程序顺序规则：一个线程中的每个操作，happens-before于该线程中的任意后续操作。&lt;/p&gt;
+&lt;p&gt;2）监视器锁规则：对一个锁的解锁，happens-before于随后对这个锁的加锁。&lt;/p&gt;
+&lt;p&gt;3）volatile变量规则：对一个volatile域的写，happens-before于任意后续对这个volatile域的读。&lt;/p&gt;
+&lt;p&gt;4）传递性：如果A happens-before B，且B happens-before C，那么A happens-before C。&lt;/p&gt;
+&lt;p&gt;5）start()规则：如果线程A执行操作ThreadB.start()（启动线程B），那么A线程的ThreadB.start()操作happens-before于线程B中的任意操作。&lt;/p&gt;
+&lt;p&gt;6）join()规则：如果线程A执行操作ThreadB.join()并成功返回，那么线程B中的任意操作happens-before于线程A从ThreadB.join()操作成功返回。&lt;/p&gt;
 &lt;h2 id=&#34;volatile&#34;&gt;volatile&lt;/h2&gt;
 &lt;p&gt;被volatile修改的变量有2大特点：&lt;/p&gt;
 &lt;ul&gt;
@@ -3071,7 +3160,7 @@ Exception in thread &amp;ldquo;t2&amp;rdquo; java.lang.IllegalMonitorStateExcept
 &lt;li&gt;主线程修改了flag之后没有将其刷新到主内存，所以t1线程看不到。&lt;/li&gt;
 &lt;li&gt;主线程将flag刷新到了主内存，但是t1一直读取的是自己工作内存中flag的值，没有去主内存中更新获取flag最新的值。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;我们的诉求：&lt;/p&gt;
+&lt;p&gt;诉求：&lt;/p&gt;
 &lt;p&gt;1.线程中修改了工作内存中的副本之后，立即将其刷新到主内存；&lt;/p&gt;
 &lt;p&gt;2.工作内存中每次读取共享变量时，都去主内存中重新读取，然后拷贝到工作内存。&lt;/p&gt;
 &lt;p&gt;解决：&lt;/p&gt;
@@ -3081,7 +3170,8 @@ Exception in thread &amp;ldquo;t2&amp;rdquo; java.lang.IllegalMonitorStateExcept
 &lt;li&gt;线程中修改了工作内存中变量的副本，修改之后会立即刷新到主内存&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;volatile变量的读写过程&#34;&gt;volatile变量的读写过程&lt;/h4&gt;
-&lt;p&gt;Java内存模型中定义的8种工作内存与主内存之间的原子操作 read(读取)→load(加载)→use(使用)→assign(赋值)→store(存储)→write(写入)→lock(锁定)→unlock(解锁)&lt;/p&gt;
+&lt;p&gt;Java内存模型中定义的8种工作内存与主内存之间的原子操作&lt;/p&gt;
+&lt;p&gt;read(读取)→load(加载)→use(使用)→assign(赋值)→store(存储)→write(写入)→lock(锁定)→unlock(解锁)&lt;/p&gt;
 &lt;h3 id=&#34;2没有原子性&#34;&gt;2、没有原子性&lt;/h3&gt;
 &lt;h4 id=&#34;volatile变量的复合操作如i不具有原子性&#34;&gt;volatile变量的复合操作(如i++)不具有原子性&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -3140,7 +3230,8 @@ Exception in thread &amp;ldquo;t2&amp;rdquo; java.lang.IllegalMonitorStateExcept
 &lt;blockquote&gt;
 &lt;p&gt;public void add()
 {
-i++; //不具备原子性，该操作是先读取值，然后写回一个新值，相当于原来的值加上1，分3步完成
+i++;&lt;/p&gt;
+&lt;p&gt;//不具备原子性，该操作是先读取值，然后写回一个新值，相当于原来的值加上1，分3步完成
 }&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;如果第二个线程在第一个线程读取旧值和写回新值期间读取i的域值，那么第二个线程就会与第一个线程一起看到同一个值，并执行相同值的加1操作，这也就造成了线程安全失败，因此对于add方法必须使用synchronized修饰，以便保证线程安全。&lt;/p&gt;
@@ -3152,6 +3243,8 @@ i++; //不具备原子性，该操作是先读取值，然后写回一个新值�
 &lt;p&gt;当第一个操作为volatile读时，不论第二个操作是什么，都不能重排序。这个操作保证了volatile读之后的操作不会被重排到volatile读之前。&lt;/p&gt;
 &lt;p&gt;当第二个操作为volatile写时，不论第一个操作是什么，都不能重排序。这个操作保证了volatile写之前的操作不会被重排到volatile写之后。&lt;/p&gt;
 &lt;p&gt;当第一个操作为volatile写时，第二个操作为volatile读时，不能重排。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;为什么Java写了一个volatile关键字系统底层加入内存屏障？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/acc-volatile.png&#34; alt=&#34;acc-volatile&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;volatile应用&#34;&gt;volatile应用&lt;/h3&gt;
 &lt;h4 id=&#34;1单一赋值可以但是含复合运算赋值不可以i之类&#34;&gt;1、单一赋值可以，但是含复合运算赋值不可以(i++之类)&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -3266,7 +3359,10 @@ i++; //不具备原子性，该操作是先读取值，然后写回一个新值�
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;4dcl双端锁的发布&#34;&gt;4、DCL双端锁的发布&lt;/h4&gt;
+&lt;/div&gt;&lt;h2 id=&#34;dcl双重检查锁与延迟初始化&#34;&gt;DCL双重检查锁与延迟初始化&lt;/h2&gt;
+&lt;h3 id=&#34;问题由来&#34;&gt;问题由来&lt;/h3&gt;
+&lt;p&gt;在Java程序中，有时候可能需要推迟一些高开销的对象初始化操作，并且只有在使用这些对象时才进行初始化。此时，程序员可能会采用延迟初始化。但要正确实现线程安全的延迟初始化需要一些技巧，否则很容易出现问题。&lt;/p&gt;
+&lt;p&gt;synchronized（甚至是无竞争的synchronized）存在巨大的性能开销。因此，人们想出了一个“聪明”的技巧：双重检查锁定（Double-Checked Locking）。人们想通过双重检查锁定来降低同步的开销。&lt;/p&gt;
 &lt;p&gt;问题代码：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -3327,6 +3423,7 @@ i++; //不具备原子性，该操作是先读取值，然后写回一个新值�
 &lt;p&gt;instance=memory; //3.设置instance指向刚分配的内存地址&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;由于存在指令重排序&amp;hellip;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;根据《The Java Language Specification,Java SE 7 Edition》（Java语言规范），所有线程在执行Java程序时必须要遵守&lt;code&gt;intra-thread semantics&lt;/code&gt;。intra-thread semantics保证重排序不会改变单线程内的程序执行结果。换句话说，intra-thread semantics允许那些在单线程内，不会改变单线程程序执行结果的重排序。上面3行伪代码的2和3之间虽然被重排序了，但这个重排序并不会违反intra-thread semantics。这个重排序在没有改变单线程程序执行结果的前提下，可以提高程序的执行性能。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;多线程看问题代码&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;隐患：多线程环境下，在&amp;quot;问题代码处&amp;quot;，会执行如下操作，由于重排序导致2,3乱序，后果就是其他线程得到的是null而不是完成初始化的对象&lt;/p&gt;
 &lt;blockquote&gt;
@@ -3336,10 +3433,15 @@ i++; //不具备原子性，该操作是先读取值，然后写回一个新值�
 &lt;p&gt;//注意，此时对象还没有被初始化！&lt;/p&gt;
 &lt;p&gt;Instance(memory); //2.初始化对象&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;解决01&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;加volatile修饰&lt;/p&gt;
-&lt;p&gt;还有不加volatile的方法吗&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;解决02&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决方法：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;有两个办法来实现线程安全的延迟初始化。&lt;/p&gt;
+&lt;p&gt;1）不允许2和3重排序。&lt;/p&gt;
+&lt;p&gt;2）允许2和3重排序，但不允许其他线程“看到”这个重排序。&lt;/p&gt;
+&lt;h3 id=&#34;基于volatile的解决方案&#34;&gt;基于volatile的解决方案&lt;/h3&gt;
+&lt;p&gt;把instance声明为volatile型&lt;/p&gt;
+&lt;p&gt;这个方案本质上是通过禁止2和3之间的重排序，来保证线程安全的延迟初始化。&lt;/p&gt;
+&lt;h3 id=&#34;基于类初始化的解决方案&#34;&gt;基于类初始化的解决方案&lt;/h3&gt;
+&lt;p&gt;实现另一种线程安全的延迟初始化方案（被称之为Initialization On Demand Holder idiom）&lt;/p&gt;
 &lt;p&gt;采用静态内部类的方式实现&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -3375,8 +3477,20 @@ i++; //不具备原子性，该操作是先读取值，然后写回一个新值�
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;为什么java写了一个volatile关键字系统底层加入内存屏障&#34;&gt;为什么Java写了一个volatile关键字系统底层加入内存屏障？&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/acc-volatile.png&#34; alt=&#34;acc-volatile&#34;&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;这个方案的实质是：允许上述3行伪代码中的2和3重排序，但不允许&lt;code&gt;非构造线程&lt;/code&gt;（这里指线程B）“看到”这个重排序。&lt;/p&gt;
+&lt;p&gt;初始化一个类，包括执行这个类的静态初始化和初始化在这个类中声明的静态字段。&lt;/p&gt;
+&lt;p&gt;根据Java语言规范，在首次发生下列任意一种情况时，一个类或接口类型T将被立即初始化。&lt;/p&gt;
+&lt;p&gt;1）T是一个类，而且一个T类型的实例被创建。&lt;/p&gt;
+&lt;p&gt;2）T是一个类，且T中声明的一个静态方法被调用。&lt;/p&gt;
+&lt;p&gt;3）T中声明的一个静态字段被赋值。&lt;/p&gt;
+&lt;p&gt;4）T中声明的一个静态字段被使用，而且这个字段不是一个常量字段。&lt;/p&gt;
+&lt;p&gt;5）T是一个顶级类（Top Level Class，见Java语言规范的§7.6），而且一个断言语句嵌套在T内部被执行。&lt;/p&gt;
+&lt;p&gt;在示例代码中，首次执行getInstance()方法的线程将导致SingletonDemoHandler类被初始化（符合情况4）。&lt;/p&gt;
+&lt;p&gt;根据Java内存模型规范的锁规则，这里将存在如下的happens-before关系。&lt;/p&gt;
+&lt;p&gt;这个happens-before关系将保证：线程A执行类的初始化时的写入操作（执行类的静态初始化和初始化类中声明的静态字段），线程B一定能看到。&lt;/p&gt;
+&lt;h3 id=&#34;总结&#34;&gt;总结&lt;/h3&gt;
+&lt;p&gt;通过对比基于volatile的双重检查锁定的方案和基于类初始化的方案，会发现基于类初始化的方案的实现代码更简洁。但基于volatile的双重检查锁定的方案有一个额外的优势：除了可以对静态字段实现延迟初始化外，还可以对实例字段实现延迟初始化。&lt;/p&gt;
+&lt;p&gt;字段延迟初始化降低了初始化类或创建实例的开销，但增加了访问被延迟初始化的字段的开销。在大多数时候，&lt;code&gt;正常的初始化要优于延迟初始化&lt;/code&gt;。如果确实需要对&lt;code&gt;实例字段&lt;/code&gt;使用线程安全的延迟初始化，请使用基于volatile的延迟初始化的方案；如果确实需要对&lt;code&gt;静态字段&lt;/code&gt;使用线程安全的延迟初始化，请使用基于类初始化的方案。&lt;/p&gt;
 &lt;h2 id=&#34;cas&#34;&gt;CAS&lt;/h2&gt;
 &lt;h3 id=&#34;1多线程环境不使用原子类保证线程安全基本数据类型&#34;&gt;1、多线程环境不使用原子类保证线程安全（基本数据类型）&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -3775,7 +3889,7 @@ A	 myUnLock over&lt;/p&gt;
 &lt;p&gt;t3	 3次版本号:3&lt;/p&gt;
 &lt;p&gt;t4	false	100&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;原子操作类之18罗汉增强&#34;&gt;原子操作类之18罗汉增强&lt;/h2&gt;
+&lt;h2 id=&#34;原子操作类&#34;&gt;原子操作类&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;AtomicBoolean&lt;/li&gt;
 &lt;li&gt;AtomicInteger&lt;/li&gt;
@@ -4080,11 +4194,11 @@ A	 myUnLock over&lt;/p&gt;
 &lt;li&gt;AtomicMarkableReference
 &lt;ul&gt;
 &lt;li&gt;原子更新带有标记位的引用类型对象&lt;/li&gt;
-&lt;li&gt;解决是否修改过 它的定义就是将状态戳简化为true|false &amp;ndash; 类似一次性筷子&lt;/li&gt;
+&lt;li&gt;解决是否修改过：将状态戳简化为true|false——类似一次性筷子&lt;/li&gt;
+&lt;li&gt;状态戳(true/false)原子引用&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;状态戳(true/false)原子引用&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -4170,25 +4284,31 @@ A	 myUnLock over&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;AtomicIntegerFieldUpdater
 &lt;ul&gt;
-&lt;li&gt;原子更新对象中int类型字段的值&lt;/li&gt;
+&lt;li&gt;原子更新&lt;code&gt;对象中Integer类型字段&lt;/code&gt;的值&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;AtomicLongFieldUpdater
 &lt;ul&gt;
-&lt;li&gt;原子更新对象中Long类型字段的值&lt;/li&gt;
+&lt;li&gt;原子更新&lt;code&gt;对象中Long类型字段&lt;/code&gt;的值&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;AtomicReferenceFieldUpdater
 &lt;ul&gt;
-&lt;li&gt;原子更新引用类型字段的值&lt;/li&gt;
+&lt;li&gt;原子更新&lt;code&gt;引用类型字段&lt;/code&gt;的值&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;1使用目的&#34;&gt;1、使用目的&lt;/h4&gt;
-&lt;p&gt;以一种线程安全的方式操作非线程安全对象内的某些字段&lt;/p&gt;
+&lt;p&gt;以一种线程安全的方式操作&lt;code&gt;非线程安全对象&lt;/code&gt;内的某些字段&lt;/p&gt;
 &lt;h4 id=&#34;2使用要求&#34;&gt;2、使用要求&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
 &lt;p&gt;更新的对象属性必须使用 &lt;code&gt;public volatile&lt;/code&gt; 修饰符。&lt;/p&gt;
-&lt;p&gt;因为对象的属性修改类型原子类都是&lt;code&gt;抽象类&lt;/code&gt;，所以每次使用都必须使用&lt;code&gt;静态方法newUpdater()&lt;/code&gt;创建一个&lt;code&gt;更新器&lt;/code&gt;，并且需要设置想要更新的类和属性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;因为&lt;code&gt;对象的属性修改原子类&lt;/code&gt;都是&lt;code&gt;抽象类&lt;/code&gt;，所以每次使用都必须使用&lt;code&gt;静态方法newUpdater()&lt;/code&gt;创建一个&lt;code&gt;更新器&lt;/code&gt;，并且需要设置想要更新的&lt;code&gt;类和属性&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;AtomicIntegerFieldUpdater&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -4314,8 +4434,6 @@ A	 myUnLock over&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MyVar&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
@@ -4336,8 +4454,6 @@ A	 myUnLock over&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentThread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\t&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;------其它线程正在初始化&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/**
@@ -4356,15 +4472,21 @@ A	 myUnLock over&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;5原子操作增强类&#34;&gt;5、原子操作增强类&lt;/h3&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;1	&amp;mdash;init&amp;hellip;..&lt;/p&gt;
+&lt;p&gt;4	&amp;mdash;&amp;mdash;其它线程正在初始化&lt;/p&gt;
+&lt;p&gt;2	&amp;mdash;&amp;mdash;其它线程正在初始化&lt;/p&gt;
+&lt;p&gt;5	&amp;mdash;&amp;mdash;其它线程正在初始化&lt;/p&gt;
+&lt;p&gt;3	&amp;mdash;&amp;mdash;其它线程正在初始化&lt;/p&gt;
+&lt;p&gt;1	&amp;mdash;init&amp;hellip;..over&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;5原子操作增强类&#34;&gt;5、原子操作增强类&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;DoubleAccumulator&lt;/li&gt;
 &lt;li&gt;DoubleAdder&lt;/li&gt;
-&lt;li&gt;LongAccumulator&lt;/li&gt;
-&lt;li&gt;LongAdder&lt;/li&gt;
+&lt;li&gt;LongAccumulator：提供了自定义的函数操作&lt;/li&gt;
+&lt;li&gt;LongAdder：只能用来计算加法，且从零开始计算&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;LongAdder只能用来计算加法，且从零开始计算&lt;/p&gt;
-&lt;p&gt;LongAccumulator提供了自定义的函数操作&lt;/p&gt;
 &lt;h4 id=&#34;longadder&#34;&gt;LongAdder&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -4716,7 +4838,7 @@ A	 myUnLock over&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Striped64中几个比较重要的成员函数：&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Striped64中几个比较重要的成员属性：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -4765,7 +4887,7 @@ A	 myUnLock over&lt;/p&gt;
 &lt;p&gt;base变量：非竞态条件下，直接累加到该变量上&lt;/p&gt;
 &lt;p&gt;Cell[]数组：竞态条件下，累加个各个线程自己的槽Cell[i]中&lt;/p&gt;
 &lt;p&gt;LongAdder在无竞争的情况，跟AtomicLong一样，对同一个base进行操作，当出现竞争关系时则是采用化整为零的做法，从空间换时间，用一个数组cells，将一个value拆分进这个数组cells。多个线程需要同时对value进行操作时候，可以对线程id进行hash得到hash值，再根据hash值映射到这个数组cells的某个下标，再对该下标所对应的值进行自增操作。当所有线程操作完毕，将数组cells的所有值和无竞争值base都加起来作为最终结果。&lt;/p&gt;
-&lt;h4 id=&#34;使用总结&#34;&gt;使用总结&lt;/h4&gt;
+&lt;h4 id=&#34;atomiclong-vs-longadder&#34;&gt;AtomicLong VS LongAdder&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;AtomicLong
 &lt;ul&gt;
@@ -4782,8 +4904,8 @@ A	 myUnLock over&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;6总结&#34;&gt;6、总结&lt;/h3&gt;
-&lt;h4 id=&#34;atomiclong&#34;&gt;AtomicLong&lt;/h4&gt;
+&lt;h4 id=&#34;总结-1&#34;&gt;总结&lt;/h4&gt;
+&lt;h5 id=&#34;atomiclong&#34;&gt;AtomicLong&lt;/h5&gt;
 &lt;ul&gt;
 &lt;li&gt;原理
 &lt;ul&gt;
@@ -4801,11 +4923,11 @@ A	 myUnLock over&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;高并发后性能急剧下降&lt;/li&gt;
 &lt;li&gt;AtomicLong的自旋会成为瓶颈&lt;/li&gt;
-&lt;li&gt;N个线程CAS操作修改线程的值，每次只有一个成功过，其它N - 1失败，失败的不停的自旋直到成功，这样大量失败自旋的情况，一下子cpu就打高了&lt;/li&gt;
+&lt;li&gt;N个线程CAS操作修改线程的值，每次只有一个成功过，其它N-1失败，失败的不停的自旋直到成功，这样大量失败自旋的情况，一下子cpu就打高了&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;longadder-1&#34;&gt;LongAdder&lt;/h4&gt;
+&lt;h5 id=&#34;longadder-1&#34;&gt;LongAdder&lt;/h5&gt;
 &lt;ul&gt;
 &lt;li&gt;原理
 &lt;ul&gt;
@@ -4826,9 +4948,9 @@ A	 myUnLock over&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;threadlocal&#34;&gt;ThreadLocal&lt;/h2&gt;
 &lt;h3 id=&#34;简介&#34;&gt;简介&lt;/h3&gt;
-&lt;p&gt;This class provides thread-local variables. These variables differ from their normal counterparts in that each thread that accesses one (via its &lt;code&gt;get&lt;/code&gt; or &lt;code&gt;set&lt;/code&gt; method) has its own, independently initialized copy of the variable. &lt;code&gt;ThreadLocal&lt;/code&gt; instances are typically private static fields in classes that wish to associate state with a thread (e.g., a user ID or Transaction ID).&lt;/p&gt;
+&lt;p&gt;This class provides thread-local variables. These variables differ from their normal counterparts in that each thread that accesses one (via its &lt;code&gt;get&lt;/code&gt; or &lt;code&gt;set&lt;/code&gt; method) has its own, independently initialized copy of the variable. &lt;code&gt;ThreadLocal&lt;/code&gt; instances are typically &lt;code&gt;private static&lt;/code&gt; fields in classes that wish to associate state with a thread (e.g., a user ID or Transaction ID).&lt;/p&gt;
 &lt;p&gt;ThreadLocal提供线程局部变量。这些变量与正常的变量不同，因为每一个线程在访问ThreadLocal实例的时候（通过其get或set方法）都有自己的、独立初始化的变量副本。ThreadLocal实例通常是类中的私有静态字段，使用它的目的是希望将状态（例如，用户ID或事务ID）与线程关联起来。&lt;/p&gt;
-&lt;p&gt;实现每一个线程都有自己专属的本地变量副本(自己用自己的变量不麻烦别人，不和其他人共享，人人有份，人各一份)，主要解决了让每个线程绑定自己的值，通过使用get()和set()方法，获取默认值或将其值更改为当前线程所存的副本的值从而避免了线程安全问题。&lt;/p&gt;
+&lt;p&gt;实现每一个线程都有自己专属的本地变量副本(自己用自己的变量，不和其他人共享，人人有份，人各一份)，主要解决了让每个线程绑定自己的值，通过使用get()和set()方法，获取默认值或将其值更改为当前线程所存的副本的值从而避免了线程安全问题。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -4941,7 +5063,7 @@ A	 myUnLock over&lt;/p&gt;
 &lt;p&gt;main	&amp;mdash;0&lt;/p&gt;
 &lt;p&gt;t3	&amp;mdash;5&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;threadthreadlocalthreadlocalmap-关系&#34;&gt;Thread，ThreadLocal，ThreadLocalMap 关系&lt;/h3&gt;
+&lt;h3 id=&#34;threadthreadlocalthreadlocalmap&#34;&gt;Thread，ThreadLocal，ThreadLocalMap&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -5001,10 +5123,78 @@ A	 myUnLock over&lt;/p&gt;
 &lt;p&gt;JVM内部维护了一个线程版的Map&amp;lt;Thread,T&amp;gt;(通过ThreadLocal对象的set方法，结果把ThreadLocal对象自己当做key，放进了ThreadLoalMap中)，每个线程要用到这个T的时候，用当前的线程去Map里面获取，通过这样让每个线程都拥有了自己独立的变量，人手一份，竞争条件被彻底消除，在并发模式下是绝对安全的变量。&lt;/p&gt;
 &lt;h3 id=&#34;threadlocal内存泄漏&#34;&gt;ThreadLocal内存泄漏&lt;/h3&gt;
 &lt;p&gt;不再会被使用的对象或者变量占用的内存不能被回收，就是内存泄露。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ThreadLocalMap从字面上就可以看出这是一个保存ThreadLocal对象的map(其实是以它为Key)，不过是经过了两层包装的ThreadLocal对象： （1）第一层包装是使用 WeakReference&amp;lt;ThreadLocal&lt;!-- raw HTML omitted --&gt;&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;java 技术允许使用 finalize() 方法在垃圾收集器将对象从内存中清除出去之前做必要的清理工作。&lt;/p&gt;
+&lt;p&gt;Java 允许使用 finalize() 方法在垃圾收集器将对象从内存中清除出去之前做必要的清理工作。&lt;/p&gt;
+&lt;h3 id=&#34;entry弱引用&#34;&gt;Entry弱引用&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;为什么ThreadLocalMap的Entry要用弱引用?不用如何？&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;function01&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;ThreadLocal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ThreadLocal&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;();&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;//line1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;tl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2021&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;                                   &lt;span class=&#34;c1&#34;&gt;//line2
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;tl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;                                       &lt;span class=&#34;c1&#34;&gt;//line3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//line1新建了一个ThreadLocal对象，tl 是强引用指向这个对象；
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//line2调用set()方法后新建一个Entry，通过源码可知Entry对象里的k是弱引用指向这个对象。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;当function01方法执行完毕后，栈帧销毁强引用 tl 也就没有了。&lt;/p&gt;
+&lt;p&gt;但此时线程的ThreadLocalMap里某个entry的key引用还指向这个对象,若这个key引用是强引用，就会导致key指向的ThreadLocal对象及Object v指向的对象不能被GC回收，造成内存泄漏。&lt;/p&gt;
+&lt;p&gt;若这个key引用是弱引用就大概率会减少内存泄漏的问题(还有一个key为null的雷)。&lt;/p&gt;
+&lt;p&gt;使用弱引用，就可以使ThreadLocal对象在方法执行完毕后顺利被回收且Entry的key引用指向为null。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;此后我们调用get,set或remove方法时，就会尝试删除key为null的entry，可以释放value对象所占用的内存&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;弱引用就万事大吉了吗？&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;当我们为threadLocal变量赋值，实际上就是当前的Entry(ThreadLocal实例为key，值为value)往这个ThreadLocalMap中存放。&lt;/p&gt;
+&lt;p&gt;Entry中的key是弱引用，当ThreadLocal外部强引用被置为null(tl=null),那么系统 GC 的时候，根据可达性分析，这个ThreadLocal实例就没有任何一条链路能够引用到它，这个ThreadLocal势必会被回收，这样一来，ThreadLocalMap中就会出现key为null的Entry，就没有办法访问这些key为null的Entry的value，如果当前线程再迟迟不结束的话，这些key为null的Entry的value就会一直存在一条强引用链：&lt;/p&gt;
+&lt;p&gt;Thread Ref -&amp;gt; Thread -&amp;gt; ThreaLocalMap -&amp;gt; Entry -&amp;gt; value&lt;/p&gt;
+&lt;p&gt;永远无法回收，造成内存泄漏。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果当前Thread运行结束，ThreadLocal、ThreadLocalMap、Entry没有引用链可达，在垃圾回收的时候都会被系统进行回收。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;但在实际使用中有时候会用线程池去维护线程，比如在Executors.newFixedThreadPool()时创建线程的时候，为了复用线程是不会结束的，所以ThreadLocal内存泄漏就要小心。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;key为null的entry&#34;&gt;key为null的Entry&lt;/h3&gt;
+&lt;p&gt;ThreadLocalMap使用ThreadLocal的弱引用作为key，如果一个ThreadLocal没有外部强引用引用他，那么系统GC的时候，这个ThreadLocal势必会被回收，这样一来，ThreadLocalMap中就会出现key为null的Entry，就没有办法访问这些key为null的Entry的value，如果当前线程再迟迟不结束的话(比如正好用在线程池)，这些key为null的Entry的value就会一直存在一条强引用链。&lt;/p&gt;
+&lt;p&gt;虽然弱引用，保证了key指向的ThreadLocal对象能被及时回收，但是v指向的value对象是需要ThreadLocalMap调用get、set时发现key为null时才会去回收整个entry、value，因此弱引用不能100%保证内存不泄露。&lt;/p&gt;
+&lt;p&gt;要在不使用某个ThreadLocal对象后，手动调用remoev方法来删除它，尤其是在线程池中，不仅仅是内存泄露的问题，因为线程池中的线程是重复使用的，意味着这个线程的ThreadLocalMap对象也是重复使用的，如果我们不手动调用remove方法，那么后面的线程就有可能获取到上个线程遗留下来的value值，造成bug。&lt;/p&gt;
+&lt;p&gt;从ThreadLocal的set、getEntry、remove方法看出，在ThreadLocal的生命周期里，针对ThreadLocal存在的内存泄漏的问题， 都会通过expungeStaleEntry，cleanSomeSlots,replaceStaleEntry这三个方法清理掉key为null的脏entry。&lt;/p&gt;
+&lt;h3 id=&#34;总结-2&#34;&gt;总结&lt;/h3&gt;
+&lt;p&gt;每个Thread对象维护着一个ThreadLocalMap的引用&lt;/p&gt;
+&lt;p&gt;ThreadLocalMap是ThreadLocal的内部类，用Entry来进行存储&lt;/p&gt;
+&lt;p&gt;调用ThreadLocal的set()方法时，实际上就是往ThreadLocalMap设置值，key是ThreadLocal对象，值Value是传递进来的对象&lt;/p&gt;
+&lt;p&gt;调用ThreadLocal的get()方法时，实际上就是往ThreadLocalMap获取值，key是ThreadLocal对象&lt;/p&gt;
+&lt;p&gt;ThreadLocal本身并不存储值，它只是自己作为一个key来让线程从ThreadLocalMap获取value，正因为这个原理，所以ThreadLocal能够实现“数据隔离”，获取当前线程的局部变量值，不受其他线程影响。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ThreadLocal 并不解决线程间共享数据的问题&lt;/li&gt;
+&lt;li&gt;ThreadLocal 适用于变量在线程间隔离且在方法间共享的场景&lt;/li&gt;
+&lt;li&gt;ThreadLocal 通过隐式的在不同线程内创建独立实例副本避免了实例线程安全的问题&lt;/li&gt;
+&lt;li&gt;每个线程持有一个只属于自己的专属Map并维护了ThreadLocal对象与具体实例的映射，该Map由于只被持有它的线程访问，故不存在线程安全以及锁的问题&lt;/li&gt;
+&lt;li&gt;ThreadLocalMap的Entry对ThreadLocal的引用为弱引用，避免了ThreadLocal对象无法被回收的问题&lt;/li&gt;
+&lt;li&gt;都会通过expungeStaleEntry，cleanSomeSlots,replaceStaleEntry这三个方法回收键为 null 的 Entry 对象的值（即为具体实例）以及 Entry 对象本身从而防止内存泄漏，属于安全加固的方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;最佳实践&#34;&gt;最佳实践&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;一定要进行初始化避免&lt;strong&gt;空指针问题&lt;/strong&gt;ThreadLocal.withInitial(()- &amp;gt; 初始化值);&lt;/li&gt;
+&lt;li&gt;建议把ThreadLocal修饰为static&lt;/li&gt;
+&lt;li&gt;用完记得手动remove&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;引用&#34;&gt;引用&lt;/h2&gt;
+&lt;p&gt;引用：强——&amp;gt;软——&amp;gt;弱——&amp;gt;虚&lt;/p&gt;
 &lt;h3 id=&#34;1强引用默认支持模式&#34;&gt;1、强引用(默认支持模式)&lt;/h3&gt;
 &lt;p&gt;当内存不足，JVM开始垃圾回收，对于强引用的对象，就算是出现了OOM也不会对该对象进行回收，死都不收。&lt;/p&gt;
 &lt;p&gt;强引用是我们最常见的普通对象引用，只要还有强引用指向一个对象，就能表明对象还“活着”，垃圾收集器不会碰这种对象。在 Java 中最常见的就是强引用，把一个对象赋给一个引用变量，这个引用变量就是一个强引用。当一个对象被强引用变量引用时，它处于可达状态，它是不可能被垃圾回收机制回收的，即使该对象以后永远都不会被用到JVM也不会回收。因此强引用是造成Java内存泄漏的主要原因之一。&lt;/p&gt;
@@ -5075,83 +5265,33 @@ A	 myUnLock over&lt;/p&gt;
 &lt;p&gt;&amp;mdash;&amp;ndash;gc after: null&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;2软引用&#34;&gt;2、软引用&lt;/h3&gt;
-&lt;p&gt;软引用是一种相对强引用弱化了一些的引用，需要用java.lang.ref.SoftReference类来实现，可以让对象豁免一些垃圾收集。&lt;/p&gt;
+&lt;p&gt;软引用需要用java.lang.ref.SoftReference类来实现，可以让对象豁免一些垃圾收集。&lt;/p&gt;
 &lt;p&gt;对于只有软引用的对象来说，&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;当系统内存充足时它 不会 被回收，&lt;/li&gt;
-&lt;li&gt;当系统内存不足时它 会 被回收。&lt;/li&gt;
+&lt;li&gt;当系统内存充足时不会被回收，&lt;/li&gt;
+&lt;li&gt;当系统内存不足时会被回收。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;软引用通常用在对内存敏感的程序中，比如高速缓存就有用到软引用，内存够用的时候就保留，不够用就回收！&lt;/p&gt;
 &lt;h3 id=&#34;3弱引用&#34;&gt;3、弱引用&lt;/h3&gt;
 &lt;p&gt;弱引用需要用java.lang.ref.WeakReference类来实现，它比软引用的生存期更短，对于只有弱引用的对象来说，只要垃圾回收机制一运行，不管JVM的内存空间是否足够，都会回收该对象占用的内存。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;软引用和弱引用的适用场景&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;假如有一个应用需要读取大量的本地图片:&lt;/p&gt;
-&lt;p&gt;如果每次读取图片都从硬盘读取则会严重影响性能,&lt;/p&gt;
-&lt;p&gt;如果一次性全部加载到内存中又可能造成内存溢出。&lt;/p&gt;
-&lt;p&gt;此时使用软引用可以解决这个问题。&lt;/p&gt;
+&lt;p&gt;假如有一个应用需要读取大量的本地图片，如果每次读取图片都从硬盘读取则会严重影响性能，如果一次性全部加载到内存中又可能造成内存溢出，此时使用软引用可以解决这个问题。&lt;/p&gt;
 &lt;p&gt;设计思路是：用一个HashMap来保存图片的路径和相应图片对象关联的软引用之间的映射关系，在内存不足时，JVM会自动回收这些缓存图片对象所占用的空间，从而有效地避免了OOM的问题。&lt;/p&gt;
-&lt;p&gt;Map&amp;lt;String, SoftReference&lt;!-- raw HTML omitted --&gt;&amp;gt; imageCache = new HashMap&amp;lt;String, SoftReference&lt;!-- raw HTML omitted --&gt;&amp;gt;();&lt;/p&gt;
-&lt;h3 id=&#34;4虚引用&#34;&gt;4、虚引用&lt;/h3&gt;
-&lt;p&gt;虚引用需要java.lang.ref.PhantomReference类来实现。&lt;/p&gt;
-&lt;p&gt;顾名思义，就是形同虚设，与其他几种引用都不同，虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收器回收，它不能单独使用也不能通过它访问对象，虚引用必须和引用队列 (ReferenceQueue)联合使用。&lt;/p&gt;
-&lt;p&gt;虚引用的主要作用是跟踪对象被垃圾回收的状态。 仅仅是提供了一种确保对象被 finalize以后，做某些事情的机制。 PhantomReference的get方法总是返回null，因此无法访问对应的引用对象。&lt;/p&gt;
-&lt;p&gt;其意义在于：说明一个对象已经进入finalization阶段，可以被gc回收，用来实现比finalization机制更灵活的回收操作。&lt;/p&gt;
-&lt;p&gt;换句话说，设置虚引用关联的唯一目的，就是在这个对象被收集器回收的时候收到一个系统通知或者后续添加进一步的处理。&lt;/p&gt;
-&lt;h3 id=&#34;为什么要用弱引用不用如何&#34;&gt;为什么要用弱引用?不用如何？&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;function01&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;ThreadLocal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ThreadLocal&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;();&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;//line1
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;tl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2021&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;                                   &lt;span class=&#34;c1&#34;&gt;//line2
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;tl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;                                       &lt;span class=&#34;c1&#34;&gt;//line3
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//line1新建了一个ThreadLocal对象，t1 是强引用指向这个对象；
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//line2调用set()方法后新建一个Entry，通过源码可知Entry对象里的k是弱引用指向这个对象。
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Map&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SoftReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Bitmap&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;imageCache&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;HashMap&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SoftReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Bitmap&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;当function01方法执行完毕后，栈帧销毁强引用 tl 也就没有了。但此时线程的ThreadLocalMap里某个entry的key引用还指向这个对象,若这个key引用是强引用，就会导致key指向的ThreadLocal对象及v指向的对象不能被gc回收，造成内存泄漏；若这个key引用是弱引用就大概率会减少内存泄漏的问题(还有一个key为null的雷)。使用弱引用，就可以使ThreadLocal对象在方法执行完毕后顺利被回收且Entry的key引用指向为null。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;此后我们调用get,set或remove方法时，就会尝试删除key为null的entry，可以释放value对象所占用的内存&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&#34;弱引用就万事大吉了吗&#34;&gt;弱引用就万事大吉了吗？&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;当我们为threadLocal变量赋值，实际上就是当前的Entry(threadLocal实例为key，值为value)往这个threadLocalMap中存放。Entry中的key是弱引用，当threadLocal外部强引用被置为null(tl=null),那么系统 GC 的时候，根据可达性分析，这个threadLocal实例就没有任何一条链路能够引用到它，这个ThreadLocal势必会被回收，这样一来，ThreadLocalMap中就会出现key为null的Entry，就没有办法访问这些key为null的Entry的value，如果当前线程再迟迟不结束的话，这些key为null的Entry的value就会一直存在一条强引用链：Thread Ref -&amp;gt; Thread -&amp;gt; ThreaLocalMap -&amp;gt; Entry -&amp;gt; value永远无法回收，造成内存泄漏。&lt;/li&gt;
-&lt;li&gt;当然，如果当前thread运行结束，threadLocal，threadLocalMap,Entry没有引用链可达，在垃圾回收的时候都会被系统进行回收。&lt;/li&gt;
-&lt;li&gt;但在实际使用中我们有时候会用线程池去维护我们的线程，比如在Executors.newFixedThreadPool()时创建线程的时候，为了复用线程是不会结束的，所以threadLocal内存泄漏就值得我们小心&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;key为null的entry原理解析&#34;&gt;key为null的entry，原理解析&lt;/h3&gt;
-&lt;p&gt;ThreadLocalMap使用ThreadLocal的弱引用作为key，如果一个ThreadLocal没有外部强引用引用他，那么系统gc的时候，这个ThreadLocal势必会被回收，这样一来，ThreadLocalMap中就会出现key为null的Entry，就没有办法访问这些key为null的Entry的value，如果当前线程再迟迟不结束的话(比如正好用在线程池)，这些key为null的Entry的value就会一直存在一条强引用链。&lt;/p&gt;
-&lt;p&gt;虽然弱引用，保证了key指向的ThreadLocal对象能被及时回收，但是v指向的value对象是需要ThreadLocalMap调用get、set时发现key为null时才会去回收整个entry、value，因此弱引用不能100%保证内存不泄露。我们要在不使用某个ThreadLocal对象后，手动调用remoev方法来删除它，尤其是在线程池中，不仅仅是内存泄露的问题，因为线程池中的线程是重复使用的，意味着这个线程的ThreadLocalMap对象也是重复使用的，如果我们不手动调用remove方法，那么后面的线程就有可能获取到上个线程遗留下来的value值，造成bug。&lt;/p&gt;
-&lt;p&gt;从ThreadLocal的set,getEntry,remove方法看出，在ThreadLocal的生命周期里，针对ThreadLocal存在的内存泄漏的问题， 都会通过expungeStaleEntry，cleanSomeSlots,replaceStaleEntry这三个方法清理掉key为null的脏entry。&lt;/p&gt;
-&lt;h3 id=&#34;总结&#34;&gt;总结&lt;/h3&gt;
-&lt;p&gt;每个Thread对象维护着一个ThreadLocalMap的引用&lt;/p&gt;
-&lt;p&gt;ThreadLocalMap是ThreadLocal的内部类，用Entry来进行存储&lt;/p&gt;
-&lt;p&gt;调用ThreadLocal的set()方法时，实际上就是往ThreadLocalMap设置值，key是ThreadLocal对象，值Value是传递进来的对象&lt;/p&gt;
-&lt;p&gt;调用ThreadLocal的get()方法时，实际上就是往ThreadLocalMap获取值，key是ThreadLocal对象&lt;/p&gt;
-&lt;p&gt;ThreadLocal本身并不存储值，它只是自己作为一个key来让线程从ThreadLocalMap获取value，正因为这个原理，所以ThreadLocal能够实现“数据隔离”，获取当前线程的局部变量值，不受其他线程影响。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ThreadLocal 并不解决线程间共享数据的问题&lt;/li&gt;
-&lt;li&gt;ThreadLocal 适用于变量在线程间隔离且在方法间共享的场景&lt;/li&gt;
-&lt;li&gt;ThreadLocal 通过隐式的在不同线程内创建独立实例副本避免了实例线程安全的问题&lt;/li&gt;
-&lt;li&gt;每个线程持有一个只属于自己的专属Map并维护了ThreadLocal对象与具体实例的映射，该Map由于只被持有它的线程访问，故不存在线程安全以及锁的问题&lt;/li&gt;
-&lt;li&gt;ThreadLocalMap的Entry对ThreadLocal的引用为弱引用，避免了ThreadLocal对象无法被回收的问题&lt;/li&gt;
-&lt;li&gt;都会通过expungeStaleEntry，cleanSomeSlots,replaceStaleEntry这三个方法回收键为 null 的 Entry 对象的值（即为具体实例）以及 Entry 对象本身从而防止内存泄漏，属于安全加固的方法&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;最佳实践&#34;&gt;最佳实践&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;一定要进行初始化避免&lt;strong&gt;空指针问题&lt;/strong&gt;ThreadLocal.withInitial(()- &amp;gt; 初始化值);&lt;/li&gt;
-&lt;li&gt;建议把ThreadLocal修饰为static&lt;/li&gt;
-&lt;li&gt;用完记得手动remove&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/div&gt;&lt;h3 id=&#34;4虚引用&#34;&gt;4、虚引用&lt;/h3&gt;
+&lt;p&gt;虚引用需要java.lang.ref.PhantomReference类来实现。&lt;/p&gt;
+&lt;p&gt;顾名思义，就是形同虚设，与其他几种引用都不同，虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收器回收，它不能单独使用也不能通过它访问对象，虚引用必须和引用队列 (ReferenceQueue)联合使用。&lt;/p&gt;
+&lt;p&gt;虚引用的主要作用是跟踪对象被垃圾回收的状态。 仅仅是提供了一种确保对象被 finalize以后，做某些事情的机制。&lt;/p&gt;
+&lt;p&gt;PhantomReference的get方法总是返回null，因此无法访问对应的引用对象。&lt;/p&gt;
+&lt;p&gt;其意义在于：说明一个对象已经进入finalization阶段，可以被gc回收，用来实现比finalization机制更灵活的回收操作。&lt;/p&gt;
+&lt;p&gt;换句话说，设置虚引用关联的唯一目的，就是在这个对象被收集器回收的时候收到一个系统通知或者后续添加进一步的处理。&lt;/p&gt;
 &lt;h2 id=&#34;java对象内存布局和对象头&#34;&gt;Java对象内存布局和对象头&lt;/h2&gt;
 &lt;h3 id=&#34;对象在堆内存中布局&#34;&gt;对象在堆内存中布局&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/memory-location.png&#34; alt=&#34;memory-location&#34;&gt;&lt;/p&gt;
@@ -5378,13 +5518,13 @@ A	 myUnLock over&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;abstractqueuedsynchronizer之aqs&#34;&gt;AbstractQueuedSynchronizer之AQS&lt;/h2&gt;
+&lt;/div&gt;&lt;h2 id=&#34;abstractqueuedsynchronizeraqs&#34;&gt;AbstractQueuedSynchronizer(AQS)&lt;/h2&gt;
 &lt;h3 id=&#34;aqs概念&#34;&gt;AQS概念&lt;/h3&gt;
 &lt;p&gt;AbstractOwnableSynchronizer&lt;/p&gt;
 &lt;p&gt;AbstractQueuedLongSynchronizer&lt;/p&gt;
 &lt;p&gt;AbstractQueuedSynchronizer&lt;/p&gt;
 &lt;p&gt;通常地：AbstractQueuedSynchronizer简称为AQS&lt;/p&gt;
-&lt;p&gt;AQS：是用来构建锁或者其它同步器组件的重量级基础框架及整个JUC体系的基石，通过内置的FIFO队列来完成资源获取线程的排队工作，并通过一个int类变量表示持有锁的状态。&lt;/p&gt;
+&lt;p&gt;AQS：是用来构建&lt;code&gt;锁或者其它同步器组件&lt;/code&gt;的基础框架及整个JUC体系的基石，通过内置的FIFO队列来完成资源获取线程的排队工作，并通过一个int类变量表示持有锁的状态。&lt;/p&gt;
 &lt;p&gt;CLH：Craig、Landin and Hagersten 队列，是一个单向链表，AQS中的队列是CLH变体的虚拟双向队列FIFO&lt;/p&gt;
 &lt;h3 id=&#34;锁和同步器&#34;&gt;锁和同步器&lt;/h3&gt;
 &lt;p&gt;锁：面向锁的使用者。定义了程序员和锁交互的使用层API，隐藏了实现细节，调用即可。&lt;/p&gt;
@@ -5424,7 +5564,8 @@ A	 myUnLock over&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;tryacquire&#34;&gt;tryAcquire&lt;/h4&gt;
+&lt;/div&gt;&lt;p&gt;上述代码主要完成了同步状态获取、节点构造、加入同步队列以及在同步队列中自旋等待的相关工作，其主要逻辑是：首先调用自定义同步器实现的tryAcquire(int arg)方法，该方法保证线程安全的获取同步状态，如果同步状态获取失败，则构造同步节点（独占式Node.EXCLUSIVE，同一时刻只能有一个线程成功获取同步状态）并通过addWaiter(Node node)方法将该节点加入到同步队列的尾部，最后调用acquireQueued(Node node,int arg)方法，使得该节点以“死循环”的方式获取同步状态。如果获取不到则阻塞节点中的线程，而被阻塞线程的唤醒主要依靠&lt;code&gt;前驱节点的出队&lt;/code&gt;或&lt;code&gt;阻塞线程被中断&lt;/code&gt;来实现。&lt;/p&gt;
+&lt;h4 id=&#34;tryacquire&#34;&gt;tryAcquire&lt;/h4&gt;
 &lt;p&gt;FairSync&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -5871,22 +6012,244 @@ A	 myUnLock over&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;reentrantreadwritelockstampedlock&#34;&gt;ReentrantReadWriteLock、StampedLock&lt;/h2&gt;
+&lt;/div&gt;&lt;h3 id=&#34;自定义同步组件twinslock&#34;&gt;自定义同步组件——TwinsLock&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;52
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;53
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;54
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;55
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;56
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;57
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;58
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;59
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;60
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;61
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;62
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;63
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;64
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;65
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;66
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;67
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;68
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;69
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;70
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;TwinsLock&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;implements&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Lock&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Sync&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sync&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Sync&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Sync&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AbstractQueuedSynchronizer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;serialVersionUID&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;7889272986162341211L&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;Sync&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IllegalArgumentException&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;count must large than zero.&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;setState&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;tryAcquireShared&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reduceCount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;current&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;getState&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newCount&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;current&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reduceCount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;newCount&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;compareAndSetState&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;current&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newCount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newCount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;tryReleaseShared&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;returnCount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;current&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;getState&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newCount&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;current&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;returnCount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;compareAndSetState&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;current&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newCount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ConditionObject&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;newCondition&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ConditionObject&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;lock&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;sync&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;acquireShared&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;unlock&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;sync&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;releaseShared&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;lockInterruptibly&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;throws&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InterruptedException&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;sync&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;acquireSharedInterruptibly&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;tryLock&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sync&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;tryAcquireShared&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;tryLock&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TimeUnit&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;throws&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InterruptedException&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sync&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;tryAcquireSharedNanos&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;toNanos&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Condition&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;newCondition&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sync&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;newCondition&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;TwinsLock实现了Lock接口，提供了面向使用者的接口，使用者调用lock()方法获取锁，随后调用unlock()方法释放锁，而同一时刻只能有两个线程同时获取到锁。TwinsLock同时包含了一个自定义同步器Sync，而该同步器面向线程访问和同步状态控制。以共享式获取同步状态为例：同步器会先计算出获取后的同步状态，然后通过CAS确保状态的正确设置，当tryAcquireShared(int reduceCount)方法返回值大于等于0时，当前线程才获取同步状态，对于上层的TwinsLock而言，则表示当前线程获得了锁。&lt;/p&gt;
+&lt;h2 id=&#34;reentrantreadwritelockstampedlock&#34;&gt;ReentrantReadWriteLock、StampedLock&lt;/h2&gt;
 &lt;h3 id=&#34;reentrantreadwritelock&#34;&gt;ReentrantReadWriteLock&lt;/h3&gt;
 &lt;p&gt;读写锁ReentrantReadWriteLock并不是真正意义上的读写分离，它只允许&lt;code&gt;读读共存&lt;/code&gt;，而读写和写写依然是互斥的， 大多实际场景是“读/读”线程间并不存在互斥关系，只有&amp;quot;读/写&amp;quot;线程或&amp;quot;写/写&amp;quot;线程间的操作需要互斥的。因此引入ReentrantReadWriteLock。&lt;/p&gt;
-&lt;p&gt;一个ReentrantReadWriteLock同时只能存在一个写锁但是可以存在多个读锁，但不能同时存在写锁和读锁。也即一个资源可以被多个读操作访问或一个写操作访问，但两者不能同时进行。&lt;/p&gt;
+&lt;p&gt;一个ReentrantReadWriteLock同时只能存在一个写锁但是可以存在多个读锁，但不能同时存在写锁和读锁。也即一个资源可以被&lt;code&gt;多个读操作&lt;/code&gt;访问或&lt;code&gt;一个写操作&lt;/code&gt;访问，但两者不能同时进行。&lt;/p&gt;
 &lt;p&gt;只有在读多写少情境之下，读写锁才具有较高的性能体现。&lt;/p&gt;
 &lt;p&gt;特点：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;可重入&lt;/li&gt;
 &lt;li&gt;读写分离&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;写锁的获取与释放&#34;&gt;写锁的获取与释放&lt;/h3&gt;
+&lt;p&gt;写锁是一个支持重进入的排它锁。如果当前线程已经获取了写锁，则增加写状态。如果当前线程在获取写锁时，&lt;code&gt;读锁已经被获取（读状态不为0）&lt;/code&gt;或者&lt;code&gt;该线程不是已经获取写锁的线程&lt;/code&gt;，则当前线程进入等待状态。&lt;/p&gt;
+&lt;p&gt;获取写锁的代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;protected&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;tryAcquire&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;acquires&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * Walkthrough:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * 1. If read count nonzero or write count nonzero
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     *    and owner is a different thread, fail.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * 2. If count would saturate, fail. (This can only
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     *    happen if count is already nonzero.)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * 3. Otherwise, this thread is eligible for lock if
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     *    it is either a reentrant acquire or
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     *    queue policy allows it. If so, update state
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     *    and set owner.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;current&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;currentThread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;getState&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;w&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;exclusiveCount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;// (Note: if c != 0 and w == 0 then shared count != 0)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;w&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;current&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;getExclusiveOwnerThread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;())&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;w&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;exclusiveCount&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;acquires&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MAX_COUNT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Error&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Maximum lock count exceeded&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;// Reentrant acquire
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;setState&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;acquires&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;writerShouldBlock&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;compareAndSetState&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;acquires&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;setExclusiveOwnerThread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;current&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;该方法除了重入条件（当前线程为获取了写锁的线程）之外，增加了一个读锁是否存在的判断。如果存在读锁，则写锁不能被获取，原因在于：读写锁要确保写锁的操作对读锁可见，如果允许读锁在已被获取的情况下对写锁的获取，那么正在运行的其他读线程就无法感知到当前写线程的操作。因此，只有等待其他读线程都释放了读锁，写锁才能被当前线程获取，而写锁一旦被获取，则其他读写线程的后续访问均被阻塞。&lt;/p&gt;
+&lt;p&gt;写锁的释放与ReentrantLock的释放过程基本类似，每次释放均减少写状态，当写状态为0时表示写锁已被释放，从而等待的读写线程能够继续访问读写锁，同时前次写线程的修改对后续读写线程可见。&lt;/p&gt;
 &lt;h3 id=&#34;锁降级&#34;&gt;锁降级&lt;/h3&gt;
 &lt;p&gt;锁的严苛程度变强叫做升级，反之叫做降级&lt;/p&gt;
 &lt;p&gt;锁降级：将写入锁降级为读锁(类似Linux文件读写权限理解，就像写权限要高于读权限一样)&lt;/p&gt;
 &lt;p&gt;获得写锁——&amp;gt;获得读锁——&amp;gt;释放写锁 ——&amp;gt;释放读锁&lt;/p&gt;
 &lt;p&gt;重入还允许通过获取写入锁定，然后读取锁然后释放写锁从写锁到读取锁, 但是，从读锁定升级到写锁是不可能的。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;锁降级是为了让当前线程感知到数据的变化，目的是保证数据可见性&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;锁降级中读锁的获取是否必要呢？答案是必要的。主要是为了保证数据的可见性，如果当前线程不获取读锁而是直接释放写锁，假设此刻另一个线程（记作线程T）获取了写锁并修改了数据，那么当前线程无法感知线程T的数据更新。如果当前线程获取读锁，即遵循锁降级的步骤，则线程T将会被阻塞，直到当前线程使用数据并释放读锁之后，线程T才能获取写锁进行数据更新。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;如果有线程在读，那么写线程是无法获取写锁的，是悲观锁的策略&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;不可锁升级&lt;/p&gt;
 &lt;p&gt;线程获取读锁是不能直接升级为写入锁的。&lt;/p&gt;
