@@ -6,7 +6,7 @@
     <description>Recent content on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 11 Aug 2022 08:15:48 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 25 Aug 2022 08:15:48 +0800</lastBuildDate>
     
         <atom:link href="https://anjanavakil.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,6 +27,19 @@
 &lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/keep.jpg&#34; alt=&#34;Keep&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如果春天要来，大地就使它一点点地完成🍃。&lt;/p&gt;
 &lt;p&gt;“Think before you speak. Read before you think.” —Fran Lebowitz&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>剑指 Offer II 栈</title>
+      <link>https://anjanavakil.github.io/post/jj-offer-stack/</link>
+      <pubDate>Thu, 25 Aug 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/jj-offer-stack/</guid>
+      
+        <description>&lt;p&gt;《剑指Offer II》的刷题笔记。&lt;/p&gt;
+&lt;h1 id=&#34;第6章-栈&#34;&gt;第6章 栈&lt;/h1&gt;
 </description>
       
     </item>
@@ -6160,16 +6173,57 @@ A	 myUnLock over&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;TwinsLock实现了Lock接口，提供了面向使用者的接口，使用者调用lock()方法获取锁，随后调用unlock()方法释放锁，而同一时刻只能有两个线程同时获取到锁。TwinsLock同时包含了一个自定义同步器Sync，而该同步器面向线程访问和同步状态控制。以共享式获取同步状态为例：同步器会先计算出获取后的同步状态，然后通过CAS确保状态的正确设置，当tryAcquireShared(int reduceCount)方法返回值大于等于0时，当前线程才获取同步状态，对于上层的TwinsLock而言，则表示当前线程获得了锁。&lt;/p&gt;
-&lt;h2 id=&#34;reentrantreadwritelockstampedlock&#34;&gt;ReentrantReadWriteLock、StampedLock&lt;/h2&gt;
+&lt;h2 id=&#34;读写锁&#34;&gt;读写锁&lt;/h2&gt;
+&lt;h3 id=&#34;readwritelock&#34;&gt;ReadWriteLock&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;interface&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;ReadWriteLock&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * Returns the lock used for reading.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * @return the lock used for reading
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;Lock&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;readLock&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * Returns the lock used for writing.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * @return the lock used for writing
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;Lock&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;writeLock&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;通过一个ReadWriteLock产生两个锁：一个读锁，一个写锁。读操作使用读锁，写操作使用写锁。需要注意的是，只有“读-读”操作是可以并行的，“读-写”和“写-写”都不可以。&lt;/p&gt;
+&lt;p&gt;A &lt;code&gt;ReadWriteLock&lt;/code&gt; maintains a pair of associated &lt;code&gt;locks&lt;/code&gt;, one for read-only operations and one for writing. The&lt;code&gt;read lock&lt;/code&gt; may be held simultaneously by multiple reader threads, so long as there are no writers. The &lt;code&gt;write lock&lt;/code&gt; is exclusive.&lt;/p&gt;
+&lt;p&gt;All &lt;code&gt;ReadWriteLock&lt;/code&gt; implementations must guarantee that the memory synchronization effects of &lt;code&gt;writeLock&lt;/code&gt;operations (as specified in the &lt;code&gt;Lock&lt;/code&gt; interface) also hold with respect to the associated &lt;code&gt;readLock&lt;/code&gt;. That is, a thread successfully acquiring the read lock will see all updates made upon previous release of the write lock.&lt;/p&gt;
 &lt;h3 id=&#34;reentrantreadwritelock&#34;&gt;ReentrantReadWriteLock&lt;/h3&gt;
-&lt;p&gt;读写锁ReentrantReadWriteLock并不是真正意义上的读写分离，它只允许&lt;code&gt;读读共存&lt;/code&gt;，而读写和写写依然是互斥的， 大多实际场景是“读/读”线程间并不存在互斥关系，只有&amp;quot;读/写&amp;quot;线程或&amp;quot;写/写&amp;quot;线程间的操作需要互斥的。因此引入ReentrantReadWriteLock。&lt;/p&gt;
 &lt;p&gt;一个ReentrantReadWriteLock同时只能存在一个写锁但是可以存在多个读锁，但不能同时存在写锁和读锁。也即一个资源可以被&lt;code&gt;多个读操作&lt;/code&gt;访问或&lt;code&gt;一个写操作&lt;/code&gt;访问，但两者不能同时进行。&lt;/p&gt;
 &lt;p&gt;只有在读多写少情境之下，读写锁才具有较高的性能体现。&lt;/p&gt;
-&lt;p&gt;特点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;可重入&lt;/li&gt;
-&lt;li&gt;读写分离&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h3 id=&#34;读写状态的设计&#34;&gt;读写状态的设计&lt;/h3&gt;
+&lt;p&gt;读写锁同样依赖自定义同步器来实现同步功能，而读写状态就是其同步器的同步状态。回想ReentrantLock中自定义同步器的实现，同步状态表示锁被一个线程重复获取的次数，而读写锁的自定义同步器需要在同步状态（一个整型变量）上维护多个读线程和一个写线程的状态，使得该状态的设计成为读写锁实现的关键。&lt;/p&gt;
+&lt;p&gt;如果在一个整型变量上维护多种状态，就一定需要“按位切割使用”这个变量，读写锁将变量切分成了两个部分，高16位表示读，低16位表示写，&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://anjanavakil.github.io/image/ReadWriteLock-design.png&#34; alt=&#34;ReadWriteLock-design&#34;&gt;&lt;/p&gt;
+&lt;p&gt;当前同步状态表示一个线程已经获取了写锁，且重进入了两次，同时也连续获取了两次读锁。&lt;/p&gt;
+&lt;p&gt;读写锁是如何迅速确定读和写各自的状态呢？答案是通过位运算。假设当前同步状态值为S，写状态等于S&amp;amp;0x0000FFFF（将高16位全部抹去），读状态等于S&amp;raquo;&amp;gt;16（无符号补0右移16位）。当写状态增加1时，等于S+1，当读状态增加1时，等于S+(1&amp;laquo;16)，也就是S+0x00010000。&lt;/p&gt;
+&lt;p&gt;根据状态的划分能得出一个推论：S不等于0时，当写状态（S&amp;amp;0x0000FFFF）等于0时，则读状态（S&amp;raquo;&amp;gt;16）大于0，即读锁已被获取。&lt;/p&gt;
 &lt;h3 id=&#34;写锁的获取与释放&#34;&gt;写锁的获取与释放&lt;/h3&gt;
 &lt;p&gt;写锁是一个支持重进入的排它锁。如果当前线程已经获取了写锁，则增加写状态。如果当前线程在获取写锁时，&lt;code&gt;读锁已经被获取（读状态不为0）&lt;/code&gt;或者&lt;code&gt;该线程不是已经获取写锁的线程&lt;/code&gt;，则当前线程进入等待状态。&lt;/p&gt;
 &lt;p&gt;获取写锁的代码：&lt;/p&gt;
@@ -6241,12 +6295,25 @@ A	 myUnLock over&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;该方法除了重入条件（当前线程为获取了写锁的线程）之外，增加了一个读锁是否存在的判断。如果存在读锁，则写锁不能被获取，原因在于：读写锁要确保写锁的操作对读锁可见，如果允许读锁在已被获取的情况下对写锁的获取，那么正在运行的其他读线程就无法感知到当前写线程的操作。因此，只有等待其他读线程都释放了读锁，写锁才能被当前线程获取，而写锁一旦被获取，则其他读写线程的后续访问均被阻塞。&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;该方法除了重入条件（当前线程为获取了写锁的线程）之外，增加了一个读锁是否存在的判断。如果存在读锁，则写锁不能被获取，原因在于：&lt;code&gt;读写锁要确保写锁的操作对读锁可见&lt;/code&gt;，如果允许读锁在已被获取的情况下对写锁的获取，那么正在运行的其他读线程就无法感知到当前写线程的操作。因此，只有等待其他读线程都释放了读锁，写锁才能被当前线程获取，而写锁一旦被获取，则其他读写线程的后续访问均被阻塞。&lt;/p&gt;
 &lt;p&gt;写锁的释放与ReentrantLock的释放过程基本类似，每次释放均减少写状态，当写状态为0时表示写锁已被释放，从而等待的读写线程能够继续访问读写锁，同时前次写线程的修改对后续读写线程可见。&lt;/p&gt;
 &lt;h3 id=&#34;锁降级&#34;&gt;锁降级&lt;/h3&gt;
+&lt;p&gt;锁降级指的是写锁降级成为读锁。如果当前线程拥有写锁，然后将其释放，最后再获取读锁，这种分段完成的过程不能称之为锁降级。锁降级是指把持住（当前拥有的）写锁，再获取到读锁，随后释放（先前拥有的）写锁的过程。&lt;/p&gt;
 &lt;p&gt;锁的严苛程度变强叫做升级，反之叫做降级&lt;/p&gt;
 &lt;p&gt;锁降级：将写入锁降级为读锁(类似Linux文件读写权限理解，就像写权限要高于读权限一样)&lt;/p&gt;
 &lt;p&gt;获得写锁——&amp;gt;获得读锁——&amp;gt;释放写锁 ——&amp;gt;释放读锁&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Lock downgrading&lt;/p&gt;
+&lt;p&gt;Reentrancy also allows downgrading from the write lock to a read lock, by acquiring the write lock, then the read lock and then releasing the write lock. However, upgrading from a read lock to the write lock is &lt;strong&gt;not&lt;/strong&gt;possible.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Interruption of lock acquisition&lt;/p&gt;
+&lt;p&gt;The read lock and write lock both support interruption during lock acquisition.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;重入还允许通过获取写入锁定，然后读取锁然后释放写锁从写锁到读取锁, 但是，从读锁定升级到写锁是不可能的。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;锁降级是为了让当前线程感知到数据的变化，目的是保证数据可见性&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;锁降级中读锁的获取是否必要呢？答案是必要的。主要是为了保证数据的可见性，如果当前线程不获取读锁而是直接释放写锁，假设此刻另一个线程（记作线程T）获取了写锁并修改了数据，那么当前线程无法感知线程T的数据更新。如果当前线程获取读锁，即遵循锁降级的步骤，则线程T将会被阻塞，直到当前线程使用数据并释放读锁之后，线程T才能获取写锁进行数据更新。&lt;/p&gt;
@@ -6275,7 +6342,7 @@ A	 myUnLock over&lt;/p&gt;
 &lt;p&gt;ReentrantReadWriteLock的读锁被占用的时候，其他线程尝试获取写锁的时候会被阻塞。&lt;/p&gt;
 &lt;p&gt;但是，StampedLock采取乐观获取锁后，其他线程尝试获取写锁时不会被阻塞，这其实是对读锁的优化，&lt;/p&gt;
 &lt;p&gt;所以，在获取乐观读锁后，还需要对结果进行校验。&lt;/p&gt;
-&lt;h3 id=&#34;邮戳锁stampedlock&#34;&gt;邮戳锁StampedLock&lt;/h3&gt;
+&lt;h2 id=&#34;stampedlock邮戳锁&#34;&gt;StampedLock邮戳锁&lt;/h2&gt;
 &lt;p&gt;无锁→独占锁→读写锁→邮戳锁&lt;/p&gt;
 &lt;p&gt;StampedLock是JDK1.8中新增的一个读写锁，也是对JDK1.5中的读写锁ReentrantReadWriteLock的优化。&lt;/p&gt;
 &lt;p&gt;邮戳锁 - 也叫票据锁&lt;/p&gt;
@@ -6285,19 +6352,19 @@ A	 myUnLock over&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;StampedLock由锁饥饿问题引出&lt;/p&gt;
 &lt;p&gt;ReentrantReadWriteLock实现了读写分离，但是一旦读操作比较多的时候，想要获取写锁就变得比较困难了，假如当前1000个线程，999个读，1个写，有可能999个读取线程长时间抢到了锁，那1个写线程就悲剧了 因为当前有可能会一直存在读锁，而无法获得写锁，根本没机会写&lt;/p&gt;
-&lt;h5 id=&#34;stampedlock的特点&#34;&gt;StampedLock的特点&lt;/h5&gt;
+&lt;h3 id=&#34;特点&#34;&gt;特点&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;所有获取锁的方法，都返回一个邮戳（Stamp），Stamp为零表示获取失败，其余都表示成功；&lt;/li&gt;
 &lt;li&gt;所有释放锁的方法，都需要一个邮戳（Stamp），这个Stamp必须是和成功获取锁时得到的Stamp一致；&lt;/li&gt;
 &lt;li&gt;StampedLock是不可重入的，危险(如果一个线程已经持有了写锁，再去获取写锁的话就会造成死锁)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h5 id=&#34;stampedlock有三种访问模式&#34;&gt;StampedLock有三种访问模式&lt;/h5&gt;
+&lt;h3 id=&#34;访问模式&#34;&gt;访问模式&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;Reading（读模式）：功能和ReentrantReadWriteLock的读锁类似&lt;/li&gt;
 &lt;li&gt;Writing（写模式）：功能和ReentrantReadWriteLock的写锁类似&lt;/li&gt;
 &lt;li&gt;Optimistic reading（乐观读模式）：无锁机制，类似于数据库中的乐观锁，支持读写并发，很乐观认为读取时没人修改，假如被修改再实现升级为悲观读模式&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h5 id=&#34;stampedlock的缺点&#34;&gt;StampedLock的缺点&lt;/h5&gt;
+&lt;h3 id=&#34;缺点&#34;&gt;缺点&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;StampedLock 不支持重入，没有Re开头&lt;/li&gt;
 &lt;li&gt;StampedLock 的悲观读锁和写锁都不支持条件变量（Condition），这个也需要注意。&lt;/li&gt;
@@ -6307,7 +6374,8 @@ A	 myUnLock over&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;倒计时门栓countdownlatch&#34;&gt;倒计时门栓CountDownLatch&lt;/h2&gt;
+&lt;h2 id=&#34;并发工具类&#34;&gt;并发工具类&lt;/h2&gt;
+&lt;h3 id=&#34;倒计时门栓countdownlatch&#34;&gt;倒计时门栓CountDownLatch&lt;/h3&gt;
 &lt;p&gt;使用join方法让主线程等待子线程结束，join实际上就是调用了wait。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -6323,7 +6391,7 @@ A	 myUnLock over&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;只要线程是活着的，isAlive()返回true, join就一直等待。谁来通知它呢？当线程运行结束的时候，Java系统调用notifyAll来通知。&lt;/p&gt;
 &lt;p&gt;使用join有时比较麻烦，需要主线程逐一等待每个子线程。&lt;/p&gt;
-&lt;h3 id=&#34;mylatch&#34;&gt;MyLatch&lt;/h3&gt;
+&lt;h4 id=&#34;mylatch&#34;&gt;MyLatch&lt;/h4&gt;
 &lt;p&gt;主线程与各个子线程协作的共享变量是一个数，这个数表示未完成的线程个数，初始值为子线程个数，主线程等待该值变为0，而每个子线程结束后都将该值减一，当减为0时调用notifyAll，使用MyLatch来表示这个协作对象。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -6521,8 +6589,265 @@ A	 myUnLock over&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;countdownlatch&#34;&gt;CountDownLatch&lt;/h3&gt;
+&lt;/div&gt;&lt;h4 id=&#34;countdownlatch&#34;&gt;CountDownLatch&lt;/h4&gt;
 &lt;p&gt;CountDownLatch相当于是一个门栓，一开始是关闭的，所有希望通过该门的线程都需要等待，然后开始倒计时，倒计时变为0后，门栓打开，等待的所有线程都可以通过，它是一次性的，打开后就不能再关上了。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;CountDownLatchTest&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CountDownLatch&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CountDownLatch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;throws&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InterruptedException&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Runnable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;countDown&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;countDown&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;}).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;await&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;1&lt;/p&gt;
+&lt;p&gt;2&lt;/p&gt;
+&lt;p&gt;3&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;countDown&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * Decrements the count of the latch, releasing all waiting threads if
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * the count reaches zero.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * &amp;lt;p&amp;gt;If the current count is greater than zero then it is decremented.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * If the new count is zero then all waiting threads are re-enabled for
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * thread scheduling purposes.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * &amp;lt;p&amp;gt;If the current count equals zero then nothing happens.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;countDown&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;sync&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;releaseShared&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;countDown检查计数，如果已经为0，直接返回，否则减少计数，如果新的计数变为0，则唤醒所有等待的线程&lt;/p&gt;
+&lt;p&gt;releaseShared(1)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * Releases in shared mode.  Implemented by unblocking one or more
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * threads if {@link #tryReleaseShared} returns true.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * @param arg the release argument.  This value is conveyed to
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; *        {@link #tryReleaseShared} but is otherwise uninterpreted
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; *        and can represent anything you like.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * @return the value returned from {@link #tryReleaseShared}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@ReservedStackAccess&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;releaseShared&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tryReleaseShared&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;doReleaseShared&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;tryReleaseShared(1)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;protected&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;tryReleaseShared&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;releases&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// Decrement count; signal when transition to zero
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(;;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;getState&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nextc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;compareAndSetState&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nextc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nextc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;doReleaseShared()&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * Release action for shared mode -- signals successor and ensures
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * propagation. (Note: For exclusive mode, release just amounts
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; * to calling unparkSuccessor of head if it needs signal.)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;doReleaseShared&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * Ensure that a release propagates, even if there are other
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * in-progress acquires/releases.  This proceeds in the usual
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * way of trying to unparkSuccessor of head if it needs
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * signal. But if it does not, status is set to PROPAGATE to
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * ensure that upon release, propagation continues.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * Additionally, we must loop in case a new node is added
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * while we are doing this. Also, unlike other uses of
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * unparkSuccessor, we need to know if CAS to reset status
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     * fails, if so rechecking.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;     */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(;;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;Node&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tail&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ws&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;waitStatus&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ws&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Node&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;SIGNAL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(!&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;compareAndSetWaitStatus&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Node&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;SIGNAL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;k&#34;&gt;continue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;            &lt;span class=&#34;c1&#34;&gt;// loop to recheck cases
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;                &lt;span class=&#34;n&#34;&gt;unparkSuccessor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ws&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     &lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;compareAndSetWaitStatus&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Node&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;PROPAGATE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;continue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;                &lt;span class=&#34;c1&#34;&gt;// loop on failed CAS
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;                   &lt;span class=&#34;c1&#34;&gt;// loop if head changed
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;await&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;await&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;throws&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InterruptedException&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;sync&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;acquireSharedInterruptibly&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;await检查计数是否为0，如果大于0，就等待，await可以被中断，也可以设置最长等待时间。&lt;/p&gt;
+&lt;p&gt;CountDownLatch的构造函数接收一个int类型的参数作为计数器，如果想等待N个点完成，这里就传入N。&lt;/p&gt;
+&lt;p&gt;当调用CountDownLatch的countDown方法时，N就会减1，CountDownLatch的await方法会阻塞当前线程，直到N变成零。由于countDown方法可以用在任何地方，所以这里说的N个点，可以是N个线程，也可以是1个线程里的N个执行步骤。用在多个线程时，只需要把这个CountDownLatch的引用传递到线程里即可。&lt;/p&gt;
+&lt;p&gt;注意：&lt;/p&gt;
+&lt;p&gt;计数器必须大于等于0，只是等于0时候，计数器就是零，调用await方法时不会阻塞当前线程。CountDownLatch不可能重新初始化或者修改CountDownLatch对象的内部计数器的值。一个线程调用countDown方法happen-before，另外一个线程调用await方法。&lt;/p&gt;
+&lt;h3 id=&#34;同步屏障cyclicbarrier&#34;&gt;同步屏障CyclicBarrier&lt;/h3&gt;
+&lt;p&gt;CyclicBarrier的字面意思是可循环使用（Cyclic）的屏障（Barrier）。它要做的事情是，让一组线程到达一个屏障（也可以叫同步点）时被阻塞，直到最后一个线程到达屏障时，屏障才会开门，所有被屏障拦截的线程才会继续运行。&lt;/p&gt;
+&lt;h3 id=&#34;countdownlatch-vs-cyclicbarrier&#34;&gt;CountDownLatch VS CyclicBarrier&lt;/h3&gt;
+&lt;p&gt;CountDownLatch的计数器只能使用一次，而CyclicBarrier的计数器可以使用reset()方法重置。所以CyclicBarrier能处理更为复杂的业务场景。例如，如果计算发生错误，可以重置计数器，并让线程重新执行一次。&lt;/p&gt;
+&lt;p&gt;CyclicBarrier还提供其他有用的方法，比如getNumberWaiting方法可以获得Cyclic-Barrier阻塞的线程数量。isBroken()方法用来了解阻塞的线程是否被中断。&lt;/p&gt;
+&lt;h3 id=&#34;控制并发线程数的semaphore&#34;&gt;控制并发线程数的Semaphore&lt;/h3&gt;
+&lt;p&gt;Semaphore（信号量）是用来控制同时访问特定资源的线程数量，它通过协调各个线程，以保证合理的使用公共资源。&lt;/p&gt;
+&lt;p&gt;Semaphore可以用于做流量控制，特别是公用资源有限的应用场景，比如数据库连接。假如有一个需求，要读取几万个文件的数据，因为都是IO密集型任务，我们可以启动几十个线程并发地读取，但是如果读到内存后，还需要存储到数据库中，而数据库的连接数只有10个，这时我们必须控制只有10个线程同时获取数据库连接保存数据，否则会报错无法获取数据库连接。这个时候，就可以使用Semaphore来做流量控制。&lt;/p&gt;
+&lt;p&gt;Semaphore的构造方法Semaphore（int permits）接受一个整型的数字，表示可用的许可证数量。Semaphore（10）表示允许10个线程获取许可证，也就是最大并发数是10。Semaphore的用法也很简单，首先线程使用Semaphore的acquire()方法获取一个许可证，使用完之后调用release()方法归还许可证。还可以用tryAcquire()方法尝试获取许可证。&lt;/p&gt;
 </description>
       
     </item>
@@ -11169,242 +11494,6 @@ at com.company.Client$2.run(Client.java:28)&lt;/p&gt;
 &lt;li&gt;市净率PB：公司市值/净资产，是从买资产的角度来衡量公司的。&lt;/li&gt;
 &lt;li&gt;股息率：现金分红/公司市值。盈利收益率*分红率=股息率。&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>2022年3月~4月陌生词汇</title>
-      <link>https://anjanavakil.github.io/post/vocabulary-2022-3-4/</link>
-      <pubDate>Sat, 30 Apr 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/vocabulary-2022-3-4/</guid>
-      
-        <description>&lt;p&gt;真心觉得这样记单词学英语其实效率不高，但其实每天记录下阅读英文网站/书籍时遇到的陌生词汇，也算是种监督，起码像中文一样每天都有接触到英文。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;2022年3月4月陌生词汇&#34;&gt;2022年3月~4月陌生词汇：&lt;/h3&gt;
-&lt;p&gt;hypothetical  adj. （基于）假设的，假定的 n. 假设命题，假设陈述&lt;/p&gt;
-&lt;p&gt;nifty  	adj. 俏皮的；漂亮的 n. 俏皮话&lt;/p&gt;
-&lt;p&gt;scavenge 	vt. 以……为食；打扫；排除废气 vi. 清除污物；打扫&lt;/p&gt;
-&lt;p&gt;phantom&lt;/p&gt;
-&lt;p&gt;n. 幽灵，鬼魂；幻觉，幻象；渺茫；为诈骗而捏造的财务安排（或金融交易）&lt;/p&gt;
-&lt;p&gt;adj. 虚幻的，幻觉的；有名无实的，虚假骗人的；&lt;/p&gt;
-&lt;p&gt;espouse  vt. 支持；嫁娶；赞成；信奉&lt;/p&gt;
-&lt;p&gt;apogee  n. 最高点，极点；远地点&lt;/p&gt;
-&lt;p&gt;temporal  adj. 世俗的，现世的；时间的，与时间有关的；n. 世间万物，暂存的事物；&lt;/p&gt;
-&lt;p&gt;exhort  v. 忠告；劝诫&lt;/p&gt;
-&lt;p&gt;exhortation  n. 讲道词，训词；劝告&lt;/p&gt;
-&lt;p&gt;exhortative  adj. 劝告的；劝勉的&lt;/p&gt;
-&lt;p&gt;exhortatory  adj. 告诫的&lt;/p&gt;
-&lt;p&gt;exhorter  n. 告诫者；提倡者；布道者&lt;/p&gt;
-&lt;p&gt;facto  adv. 实际上地&lt;/p&gt;
-&lt;p&gt;de facto （法）实际上的&lt;/p&gt;
-&lt;p&gt;proponent   n. &amp;lt;正式&amp;gt;支持者，建议者；&lt;/p&gt;
-&lt;p&gt;disband  v.解散    disbandment n. 解散；遣散&lt;/p&gt;
-&lt;p&gt;polyseme   多义词&lt;/p&gt;
-&lt;p&gt;polysemic  多义的&lt;/p&gt;
-&lt;p&gt;polysemantic  adj. 多义的&lt;/p&gt;
-&lt;p&gt;catalyst   n. （化学）催化剂；诱因，诱导者&lt;/p&gt;
-&lt;p&gt;catalyze  vt. 催化；刺激，促进&lt;/p&gt;
-&lt;p&gt;vit  n. 兽医；兽医诊所（vet&amp;rsquo;s）v. 仔细检查；彻底审查（某人）；诊疗；&lt;/p&gt;
-&lt;p&gt;fledge   vi. 长羽毛vt. 装上羽毛&lt;/p&gt;
-&lt;p&gt;fledged  adj. 成熟的；快会飞的；羽毛丰满的&lt;/p&gt;
-&lt;p&gt;full-fledged  adj. 全面发展的；经过全面训练的；成熟的；有充分资格的；&lt;/p&gt;
-&lt;p&gt;succumb  v. 屈服，屈从；病情加重，死于（某疾病） 过去式、过去分词：succumbed&lt;/p&gt;
-&lt;p&gt;pundit   n. 专家；博学者；=expert&lt;/p&gt;
-&lt;p&gt;granular   adj. 颗粒的；粒状的&lt;/p&gt;
-&lt;p&gt;ordinal   adj. 顺序的，依次的 n. [数] 序数&lt;/p&gt;
-&lt;p&gt;brittle   adj. 易碎的，脆的；（关系或局势）不牢固的，易变的；脆弱的；&lt;/p&gt;
-&lt;p&gt;hoist 	 v. 吊起，提升；&amp;lt;非正式&amp;gt;投篮 n. 吊升机械，起重机；吊起，升起；&lt;/p&gt;
-&lt;p&gt;utensil  n. （尤指厨房或家用的）器具，用具&lt;/p&gt;
-&lt;p&gt;e.g.  cooking/kitchen utensils 炊具；厨房用具&lt;/p&gt;
-&lt;p&gt;heuristic&lt;/p&gt;
-&lt;p&gt;adj. （教学或教育）启发式的；（计算机程序）探试的，探索的&lt;/p&gt;
-&lt;p&gt;n. 启发式步骤（或方法）&lt;/p&gt;
-&lt;p&gt;disseminate   v. &amp;lt;正式&amp;gt;散布，传播（信息、知识等）&lt;/p&gt;
-&lt;p&gt;dissemination  n.  宣传，散播；宣传，散播&lt;/p&gt;
-&lt;p&gt;veganism  n. 纯素食主义&lt;/p&gt;
-&lt;p&gt;apolitical  adj. 不关心政治的；无政治意义的&lt;/p&gt;
-&lt;p&gt;divisive  adj. 有争议的，造成分裂的&lt;/p&gt;
-&lt;p&gt;advert  n. &amp;lt;英&amp;gt;广告=advertisement&lt;/p&gt;
-&lt;p&gt;scuttlebutt   n. 闲话，谣言=gossip；饮水容器；清水桶&lt;/p&gt;
-&lt;p&gt;innuendo  n. 暗讽，讽刺；影射v. 暗示，旁敲侧击地表达&lt;/p&gt;
-&lt;p&gt;pl. innuendoes / innuendos&lt;/p&gt;
-&lt;p&gt;abridge vt. 删节；缩短；节略&lt;/p&gt;
-&lt;p&gt;abridged  adj. 删节的；削减的v. 缩短；减少；删去（abridge 的过去分词）&lt;/p&gt;
-&lt;p&gt;unabridged  adj. 完整的；未经删节的；足本的&lt;/p&gt;
-&lt;p&gt;abridgement  n. 节略，缩写；减少&lt;/p&gt;
-&lt;p&gt;abhorrent  adj. 可恶的；厌恶的；格格不入的&lt;/p&gt;
-&lt;p&gt;malware   n. 恶意软件&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;voracious&lt;/p&gt;
-&lt;p&gt;adj. 贪婪的；贪吃的；狼吞虎咽的=greddy&lt;/p&gt;
-&lt;p&gt;a voracious eater、to have a voracious appetite&lt;/p&gt;
-&lt;p&gt;adj.（对信息、知识）渴求的；求知欲强的=avid&lt;/p&gt;
-&lt;p&gt;a voracious reader&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;obviate  vt. 排除；避免；消除=preclude&lt;/p&gt;
-&lt;p&gt;badass  n. 坏蛋adj. 到处惹是生非的&lt;/p&gt;
-&lt;p&gt;suspense  n. 焦虑，悬念，兴奋&lt;/p&gt;
-&lt;p&gt;suspence  n. 悬念；焦虑；不确定；中止（等于 suspense）&lt;/p&gt;
-&lt;p&gt;canny adj. 精明的，谨慎的；节约的&lt;/p&gt;
-&lt;p&gt;uncanny  adj. 神秘的；离奇的；可怕的&lt;/p&gt;
-&lt;p&gt;sparing adj. 适度的；节俭的；缺乏的&lt;/p&gt;
-&lt;p&gt;sparingly adv. 一点点，俭省地&lt;/p&gt;
-&lt;p&gt;impeccable adj. 无瑕疵的，没有缺点的；&lt;/p&gt;
-&lt;p&gt;peccant adj. 犯罪的；有过失的&lt;/p&gt;
-&lt;p&gt;peccable adj. 易犯过失的；易犯罪的&lt;/p&gt;
-&lt;p&gt;peccability n. 易犯过失；易犯罪&lt;/p&gt;
-&lt;p&gt;penguin  n. 企鹅；&lt;/p&gt;
-&lt;p&gt;mogul  n. 大亨，有权势的人，显要人物；a movie mogul 电影大亨&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;fugitive&lt;/p&gt;
-&lt;p&gt;adj. 逃亡的；无常的；易变的=fleeting&lt;/p&gt;
-&lt;p&gt;a fugitive idea/thought 转瞬即逝的想法/思想&lt;/p&gt;
-&lt;p&gt;n. 逃亡者；难捕捉之物&lt;/p&gt;
-&lt;p&gt;e.g. a fugitive  from justice逃犯 a fugitive criminal 逃犯&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;resonate  v. 发出回响，回荡；充满，弥漫（某种特质）；引起共鸣；产生（电或机械）共振&lt;/p&gt;
-&lt;p&gt;subservient  adj. 屈从的；奉承的；有用的；有帮助的&lt;/p&gt;
-&lt;p&gt;gimmick  n. 暗机关；骗人的玩意；花招 vt. 使暗机关；搞骗人的玩意&lt;/p&gt;
-&lt;p&gt;judicious  adj. 明智的；头脑精明的；判断正确的&lt;/p&gt;
-&lt;p&gt;judicously adv. 明智而审慎地；明断地&lt;/p&gt;
-&lt;p&gt;judiciousness n. 明智&lt;/p&gt;
-&lt;p&gt;judicial  adj. 法庭的，司法的；公正的，明断的&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;nugget n. 天然金块，矿块；（某些食物）小圆块；小块东西；珍闻，珍品；&lt;/p&gt;
-&lt;p&gt;pl. nuggets&lt;/p&gt;
-&lt;p&gt;e.g. chicken nuggets鸡肉块 a useful nugget of information 一条有用的信息&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;predicament n. 窘况，困境；状态 pl. predicaments&lt;/p&gt;
-&lt;p&gt;equivocal  adj. 模棱两可的=ambiguous；可疑的=questionable&lt;/p&gt;
-&lt;p&gt;fib   n. 无伤大雅的谎言，小谎(pl. fibs)；一击vi. 撒小谎&lt;/p&gt;
-&lt;p&gt;fibber  n. 撒小谎者；惯撒小谎的人&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;gratuity n. 赏钱，小费；赠物；[劳经] 退职金&lt;/p&gt;
-&lt;p&gt;gratuitous  adj. 无理由的，无端的=unnecessary；免费的&lt;/p&gt;
-&lt;p&gt;gratuitously  adv. 无偿地；不必要地；无缘无故地；平白地&lt;/p&gt;
-&lt;p&gt;gratuitousness  无理由，无缘无故，无根据&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;modifier  n. 修饰语，修饰成分；更改者，改型者；&lt;/p&gt;
-&lt;p&gt;tragicomic  adj. 悲喜剧的&lt;/p&gt;
-&lt;p&gt;cushy  adj. 轻松的；容易的；轻松又容易赚钱的&lt;/p&gt;
-&lt;p&gt;sabbatical 	adj. 安息日的 n. 休假（美国某些大学给大学教师每七年一次的）&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;scant   adj. 不足的，缺乏的；将近的，差一点点的v. &amp;lt;美&amp;gt;少给，克扣；&amp;lt;美&amp;gt;冷落，忽略&lt;/p&gt;
-&lt;p&gt;scantly  adv. 仅仅；缺乏地&lt;/p&gt;
-&lt;p&gt;scanty adj. 少量的，不足的；（衣服）暴露的，紧（身）的&lt;/p&gt;
-&lt;p&gt;scantily  adv. 缺乏地；吝啬地；不充足地&lt;/p&gt;
-&lt;p&gt;scantiness n. 缺乏；不足&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;grunt  v. （表示不愿意讲话时）发出哼声，嘟哝着说；发出咕噜声 n. （人或动物的）呼噜声，咕哝声；&lt;/p&gt;
-&lt;p&gt;gruntle v. 嘀咕，咕哝；（使）高兴，满意&lt;/p&gt;
-&lt;p&gt;gruntled adj. 满意的；高兴的&lt;/p&gt;
-&lt;p&gt;disgruntle v. 使……不高兴，使愠怒&lt;/p&gt;
-&lt;p&gt;disgruntled adj. 不满的；不高兴的&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;feisty  adj. 活跃的；好争吵的；烦躁不安的；坚决而据理力争的&lt;/p&gt;
-&lt;p&gt;shitload n. 许多，一大堆 a shitload of&lt;/p&gt;
-&lt;p&gt;monolith   n. 整块石料；庞然大物&lt;/p&gt;
-&lt;p&gt;monolithic 	adj. 整体的；巨石的，庞大的；完全统一的n. 单块集成电路，单片电路&lt;/p&gt;
-&lt;p&gt;monolithically adv.统一地；单一地&lt;/p&gt;
-&lt;p&gt;avid  adj. 热心的，热衷的；渴望的，渴求的=keen&lt;/p&gt;
-&lt;p&gt;an avid reader/collector&lt;/p&gt;
-&lt;p&gt;phoenix  n. 凤凰，不死鸟；&lt;/p&gt;
-&lt;p&gt;hibernate  v. 冬眠；（人）（长期）蛰居，不活动&lt;/p&gt;
-&lt;p&gt;hibernation  n. 冬眠；（人）蛰居，不活动&lt;/p&gt;
-&lt;p&gt;creppy adj. &amp;lt;非正式&amp;gt;怪异的，令人毛骨悚然的；爬行的&lt;/p&gt;
-&lt;p&gt;uninitiated adj. 不知情的；缺少经验的&lt;/p&gt;
-&lt;p&gt;stalemate  n. 僵局；陷于困境v. 使僵持；使陷入困境&lt;/p&gt;
-&lt;p&gt;coward 	n. 胆小鬼，懦夫 adj. &amp;lt;文&amp;gt;胆小的，怯懦的；&lt;/p&gt;
-&lt;p&gt;webinar  n. 网络研讨会；在线会议&lt;/p&gt;
-&lt;p&gt;alumnus  n. 男校友；男毕业生&lt;/p&gt;
-&lt;p&gt;alumni  n.  校友，毕业生（alumnus 的复数）&lt;/p&gt;
-&lt;p&gt;culminate  v. （以……）结束，告终；&lt;/p&gt;
-&lt;p&gt;emeritus  adj. （尤指大学教师）退休后保留头衔的，名誉退休的 n. 名誉退休者&lt;/p&gt;
-&lt;p&gt;ployglot  adj. 通晓（或使用）多种语言的；用多种语言写成的 n. 通晓并使用多种语言的人&lt;/p&gt;
-&lt;p&gt;SYN: multilingual&lt;/p&gt;
-&lt;p&gt;arcane  adj.  神秘的=mysterious，晦涩难懂的=incomprehensible&lt;/p&gt;
-&lt;p&gt;penthhouse  n. 阁楼；顶层公寓，屋顶房间&lt;/p&gt;
-&lt;p&gt;overdraft  n. [金融] 透支；[金融] 透支额 vt. [金融] 透支&lt;/p&gt;
-&lt;p&gt;resort  n. 旅游胜地，度假胜地；holiday destination&lt;/p&gt;
-&lt;p&gt;compendium n. 纲要；概略&lt;/p&gt;
-&lt;p&gt;compendia  n. 纲要；概略（compendium的复数形式）&lt;/p&gt;
-&lt;p&gt;zen  n. 禅；禅宗；&lt;/p&gt;
-&lt;p&gt;undergird  vt. 加强；从底层加固&lt;/p&gt;
-&lt;p&gt;doctorate  n. 博士学位，博士头衔&lt;/p&gt;
-&lt;p&gt;dissertation  n. 专题论文，学位论文；学术演讲&lt;/p&gt;
-&lt;p&gt;dissert vi. 论述；写论文；讨论；作学术讲演&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;anagram  变位词（同字母异序词）
-发音释义：[&amp;lsquo;ænəgræm]&lt;/p&gt;
-&lt;p&gt;n. 易位构词，变位词，回文构词法&lt;/p&gt;
-&lt;p&gt;结构分析：anagram =ana（回）+gram（字母）→变换字母位置→变位词&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;amateurish  adj. 业余的；不熟练的；外行的&lt;/p&gt;
-&lt;p&gt;jargon  n. 行话，黑话&lt;/p&gt;
-&lt;p&gt;behoove  vt. 理应；对……有此必要vi. 有必要；理所当然 n. 适宜&lt;/p&gt;
-&lt;p&gt;epilog n. 收场白；尾声；跋&lt;/p&gt;
-&lt;p&gt;preliminary  adj. 初步的，预备的n. 初步行动，准备工作；预赛，预试&lt;/p&gt;
-&lt;p&gt;preliminaries n. 预赛；初期微震；正文前书页（preliminary 的复数）&lt;/p&gt;
-&lt;p&gt;scaffold   n. 脚手架；鹰架；绞刑台 vt. 给……搭脚手架；用支架支撑&lt;/p&gt;
-&lt;p&gt;scaffolding n. 脚手架；&lt;/p&gt;
-&lt;p&gt;pseudocode n. 伪代码&lt;/p&gt;
-&lt;p&gt;fidelity  n. （对配偶或伴侣的）忠贞；(对人、组织或信仰的）忠诚；精确性；（CD播放器、收音机、电视机等设备的）保真度&lt;/p&gt;
-&lt;p&gt;glean  vt. 收集（资料）；拾（落穗）vi. 收集；拾落穗&lt;/p&gt;
-&lt;p&gt;candid  adj. 坦率的，直言不讳的；抓拍的，偷拍的；&lt;/p&gt;
-&lt;p&gt;by no means 决不&lt;/p&gt;
-&lt;p&gt;focal length  焦距&lt;/p&gt;
-&lt;p&gt;takeaway n. 要点；外卖食品；外卖餐馆；&lt;/p&gt;
-&lt;p&gt;thwart  v. 反对，阻挠，挫败；&lt;/p&gt;
-&lt;p&gt;tertiary&lt;/p&gt;
-&lt;p&gt;adj. 第三的，第三位的，第三级的；高等（教育）；第三产业的；次要的；&lt;/p&gt;
-&lt;p&gt;n. （地质）第三纪，第三系&lt;/p&gt;
-&lt;p&gt;wishful adj. 渴望的；一厢情愿的&lt;/p&gt;
-&lt;p&gt;telescope  v. 叠套缩短，叠缩；缩短，精简&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;pejorate  vt. 使变坏；使恶化vi. 变坏；恶化&lt;/p&gt;
-&lt;p&gt;pejorative&lt;/p&gt;
-&lt;p&gt;adj. 轻蔑的，贬损的；恶化的，变坏的&lt;/p&gt;
-&lt;p&gt;n. 轻蔑语，贬义词&lt;/p&gt;
-&lt;p&gt;pejoratively  adv. 贬损地；轻蔑地&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;palpable adj. 明显的；可感知的；易觉察的&lt;/p&gt;
-&lt;p&gt;idempotent  adj. 幂等的n. [数] 幂等&lt;/p&gt;
-&lt;p&gt;idempotency n. 幂等性&lt;/p&gt;
-&lt;p&gt;ingrained  adj. 根深蒂固的；彻头彻尾的；生染的 v. 使根深蒂固（ingrain 的过去分词形式）&lt;/p&gt;
-&lt;p&gt;ingrain  vt. 使……根深蒂固；就……原料染色；生染 n. 固有品质；&lt;/p&gt;
-&lt;p&gt;amicable adj. 心平气和的，友善的 amicably adv. 友善地&lt;/p&gt;
-&lt;p&gt;amiable adj. 和蔼可亲的，友好的；令人愉快的 amiably adv. 亲切地；和蔼可亲地&lt;/p&gt;
-&lt;p&gt;meticulous adj. 一丝不苟的，注意细节的 meticulously&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;perk&lt;/p&gt;
-&lt;p&gt;n. （工资以外的）额外收入，津贴；特殊待遇，好处；pl.perks&lt;/p&gt;
-&lt;p&gt;v. 振作起来，活跃起来（perk (sb./sth.) up）；&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;accolade n. 荣誉；&lt;/p&gt;
-&lt;p&gt;asymptotic adj. 渐近的；渐近线的&lt;/p&gt;
-&lt;p&gt;a.k.a=also knowns as&lt;/p&gt;
-&lt;p&gt;unfetter vt. 释放；使自由；除去……脚镣&lt;/p&gt;
-&lt;p&gt;unfettered adj. 无拘无束的；被除去脚镣的v. 解开脚链；使自由，解放（unfetter 的过去式和过去分词）&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;cog&lt;/p&gt;
-&lt;p&gt;n. 齿轮，轮齿；小人物；v. 给……装配齿轮&lt;/p&gt;
-&lt;p&gt;( informal ) a person who is a small part of a large organization （大机构中的）小职员，小成员&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;concur v. 同意，赞同；（事件）同时发生&lt;/p&gt;
-&lt;p&gt;redundant adj. &amp;lt;英&amp;gt; 被解雇的，被裁员的；多余的，累赘的；&lt;/p&gt;
-&lt;p&gt;in place algorithm 原地算法&lt;/p&gt;
-&lt;p&gt;indentation 首行缩进&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;nest 嵌套&lt;/p&gt;
-&lt;p&gt;( technical 术语 ) to put types of information together, or inside each other, so that they form a single unit 嵌套（信息）&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;custodial adj. 保管的；保管人的  custodial fee&lt;/p&gt;
-&lt;p&gt;hypotenuse n. 直角三角形的斜边&lt;/p&gt;
-&lt;p&gt;gaussian adj. 高斯的&lt;/p&gt;
-&lt;p&gt;jhipster 微服务&lt;/p&gt;
-&lt;p&gt;facade  n. （建筑物的）正面，立面；假象，伪装&lt;/p&gt;
 </description>
       
     </item>
