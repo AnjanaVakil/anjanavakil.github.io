@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Java源码阅读分析">
 <meta itemprop="description" content="2022.8.9总结反思：看起来好像分析源码挺久了，但是每次都只是读一遍源码、注释和Java doc，然后Command&#43;C复制、Comman"><meta itemprop="datePublished" content="2022-07-22T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-07-22T08:15:48+08:00" />
-<meta itemprop="wordCount" content="1352">
+<meta itemprop="wordCount" content="1357">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java源码阅读分析"/>
 <meta name="twitter:description" content="2022.8.9总结反思：看起来好像分析源码挺久了，但是每次都只是读一遍源码、注释和Java doc，然后Command&#43;C复制、Comman"/>
@@ -318,6 +318,11 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
+    <li><a href="#linkedhashmap">LinkedHashMap</a>
+      <ul>
+        <li><a href="#146-lru-缓存httpsleetcodecnproblemslru-cache"><a href="https://leetcode.cn/problems/lru-cache/">146. LRU 缓存</a></a></li>
+      </ul>
+    </li>
     <li><a href="#object">Object</a>
       <ul>
         <li><a href="#cloneable接口">Cloneable接口：</a></li>
@@ -338,6 +343,8 @@
     
     <div class="post-content">
       <p>2022.8.9总结反思：看起来好像分析源码挺久了，但是每次都只是读一遍源码、注释和Java doc，然后Command+C复制、Command+V粘贴到blog中（blog中复制粘贴的源码其实一点都不利于再次阅读，反而是使用Dash/IDEA直接阅读更加方便），根本就没有自己的理解和疑问，也没有实践，这就是所谓的轻松、欺骗自己的学习方式吧。主动起来，一点点深入思考。</p>
+<h2 id="linkedhashmap">LinkedHashMap</h2>
+<h3 id="146-lru-缓存httpsleetcodecnproblemslru-cache"><a href="https://leetcode.cn/problems/lru-cache/">146. LRU 缓存</a></h3>
 <h2 id="object">Object</h2>
 <h3 id="cloneable接口">Cloneable接口：</h3>
 <div class="highlight"><div class="chroma">
@@ -608,8 +615,8 @@
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/stringutils/">
-            <span class="next-text nav-default">StringUtils: leftPad&#43;rightPad</span>
+          <a class="next" href="/post/leetcode-stack/">
+            <span class="next-text nav-default">LeetCode栈</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

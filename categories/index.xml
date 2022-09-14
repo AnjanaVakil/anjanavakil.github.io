@@ -6,16 +6,7 @@
     <description>Recent content in Categories on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 25 Aug 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>LeetCode🌲</title>
-      <link>https://anjanavakil.github.io/categories/leetcode/</link>
-      <pubDate>Thu, 25 Aug 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/categories/leetcode/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Thu, 11 Aug 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CS💻</title>
       <link>https://anjanavakil.github.io/categories/cs/</link>
@@ -31,6 +22,15 @@
       <pubDate>Mon, 01 Aug 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/categories/java%EF%B8%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LeetCode🌲</title>
+      <link>https://anjanavakil.github.io/categories/leetcode/</link>
+      <pubDate>Wed, 20 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/categories/leetcode/</guid>
       <description></description>
     </item>
     

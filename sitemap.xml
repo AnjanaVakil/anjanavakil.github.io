@@ -9,64 +9,22 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/tags/algorithm/</loc>
-    <lastmod>2022-08-25T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://anjanavakil.github.io/</loc>
-    <lastmod>2022-08-25T08:15:48+08:00</lastmod>
+    <lastmod>2022-08-11T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/categories/</loc>
-    <lastmod>2022-08-25T08:15:48+08:00</lastmod>
+    <lastmod>2022-08-11T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/tags/cs/</loc>
-    <lastmod>2022-08-25T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/leetcode/</loc>
-    <lastmod>2022-08-25T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/categories/leetcode/</loc>
-    <lastmod>2022-08-25T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/post/</loc>
-    <lastmod>2022-08-25T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/</loc>
-    <lastmod>2022-08-25T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/post/jj-offer-stack/</loc>
-    <lastmod>2022-08-25T08:15:48+08:00</lastmod>
+    <lastmod>2022-08-11T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -80,6 +38,20 @@
   
   <url>
     <loc>https://anjanavakil.github.io/post/go/</loc>
+    <lastmod>2022-08-11T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/</loc>
+    <lastmod>2022-08-11T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/</loc>
     <lastmod>2022-08-11T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -142,6 +114,34 @@
   </url>
   
   <url>
+    <loc>https://anjanavakil.github.io/tags/algorithm/</loc>
+    <lastmod>2022-07-20T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/leetcode-stack/</loc>
+    <lastmod>2022-07-20T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/leetcode/</loc>
+    <lastmod>2022-07-20T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/categories/leetcode/</loc>
+    <lastmod>2022-07-20T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://anjanavakil.github.io/post/stringutils/</loc>
     <lastmod>2022-07-15T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -151,6 +151,27 @@
   <url>
     <loc>https://anjanavakil.github.io/post/springbatch-notes/</loc>
     <lastmod>2022-07-11T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/leetcode-heap/</loc>
+    <lastmod>2022-07-08T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/leetcode-tree/</loc>
+    <lastmod>2022-07-05T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/leetcode-sort/</loc>
+    <lastmod>2022-07-01T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -506,7 +527,7 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/post/jj-offer-linkedlist/</loc>
+    <loc>https://anjanavakil.github.io/post/leetcode-linkedlist/</loc>
     <lastmod>2022-01-28T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -520,35 +541,35 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/post/jj-offer-hashtable/</loc>
+    <loc>https://anjanavakil.github.io/post/hashtable/</loc>
     <lastmod>2022-01-26T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/post/jj-offer-backtrack/</loc>
+    <loc>https://anjanavakil.github.io/post/leetcode-backtrack/</loc>
     <lastmod>2022-01-26T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/post/jj-offer-binary-search/</loc>
+    <loc>https://anjanavakil.github.io/post/leetcode-binary-search/</loc>
     <lastmod>2022-01-25T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/post/jj-offer-string/</loc>
+    <loc>https://anjanavakil.github.io/post/leetcode-string/</loc>
     <lastmod>2022-01-23T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/post/jj-offer-array/</loc>
+    <loc>https://anjanavakil.github.io/post/leetcode-array/</loc>
     <lastmod>2022-01-22T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -562,7 +583,7 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/post/jj-offer-number/</loc>
+    <loc>https://anjanavakil.github.io/post/leetcode-number/</loc>
     <lastmod>2022-01-20T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

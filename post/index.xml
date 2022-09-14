@@ -6,16 +6,7 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 25 Aug 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>剑指 Offer II 栈</title>
-      <link>https://anjanavakil.github.io/post/jj-offer-stack/</link>
-      <pubDate>Thu, 25 Aug 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/jj-offer-stack/</guid>
-      <description>《剑指Offer II》的刷题笔记。 第6章 栈</description>
-    </item>
-    
+    <lastBuildDate>Thu, 11 Aug 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go语言</title>
       <link>https://anjanavakil.github.io/post/go/</link>
@@ -62,6 +53,15 @@
     </item>
     
     <item>
+      <title>LeetCode栈</title>
+      <link>https://anjanavakil.github.io/post/leetcode-stack/</link>
+      <pubDate>Wed, 20 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/leetcode-stack/</guid>
+      <description>LeetCode + 《剑指Offer II》刷题笔记。 栈 剑指 Offer II 036. 后缀表达式 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 class Solution { public: int evalRPN(vector&amp;lt;string&amp;gt;&amp;amp; tokens) { stack&amp;lt;int&amp;gt; s; int a,b,res; for(string&amp;amp;</description>
+    </item>
+    
+    <item>
       <title>StringUtils: leftPad&#43;rightPad</title>
       <link>https://anjanavakil.github.io/post/stringutils/</link>
       <pubDate>Fri, 15 Jul 2022 08:15:48 +0800</pubDate>
@@ -77,6 +77,33 @@
       
       <guid>https://anjanavakil.github.io/post/springbatch-notes/</guid>
       <description>官网示例： Creating a Batch Service Create a Business Class Person.java: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 package com.example.batchprocessing; public class Person { private String lastName; private String firstName; public Person() { } public Person(String firstName,</description>
+    </item>
+    
+    <item>
+      <title>LeetCode堆</title>
+      <link>https://anjanavakil.github.io/post/leetcode-heap/</link>
+      <pubDate>Fri, 08 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/leetcode-heap/</guid>
+      <description>LeetCode + 《剑指Offer II》刷题笔记。 堆 如果面试题需要求出一个动态数据集合中的最大值或最小值，那么可以考虑使用堆来解决问题。最小堆经常用来求取</description>
+    </item>
+    
+    <item>
+      <title>LeetCode树</title>
+      <link>https://anjanavakil.github.io/post/leetcode-tree/</link>
+      <pubDate>Tue, 05 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/leetcode-tree/</guid>
+      <description>LeetCode + 《剑指Offer II》刷题笔记。 树 二叉树的深度优先搜索 前序遍历 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&amp;lt;int&amp;gt; preorderTraversal(TreeNode* root) { vector&amp;lt;int&amp;gt; res; stack&amp;lt;TreeNode*&amp;gt; s; TreeNode* cur=root; while(cur || !s.empty()){</description>
+    </item>
+    
+    <item>
+      <title>LeetCode排序</title>
+      <link>https://anjanavakil.github.io/post/leetcode-sort/</link>
+      <pubDate>Fri, 01 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/leetcode-sort/</guid>
+      <description>LeetCode + 《剑指Offer II》刷题笔记。 排序 Interval 56 Merge Intervals 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; merge(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; intervals) { sort(intervals.begin(),intervals.end()); vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; res; //avoid an edge case res.push_back(intervals[0]); for(int i=1;i&amp;lt;intervals.size();i++){ int start=intervals[i][0],end=intervals[i][1]; int lastEnd=res[res.size()-1][1]; if(start&amp;lt;=lastEnd){ //the reason of</description>
     </item>
     
     <item>
@@ -158,33 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/study/</guid>
       <description>SpringCloud学习 开发阶段，用热部署Devtools，但是一旦上线，应该关掉热部署。 客户消费者端口：80端口(一般用户都是80端口)</description>
-    </item>
-    
-    <item>
-      <title>Spring Annotations</title>
-      <link>https://anjanavakil.github.io/post/spring-annotations/</link>
-      <pubDate>Tue, 03 May 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/spring-annotations/</guid>
-      <description>@Autowired 1 2 3 4 5 6 @Target({ElementType.CONSTRUCTOR, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.ANNOTATION_TYPE}) @Retention(RetentionPolicy.RUNTIME) @Documented public @interface Autowired { boolean required() default true; } @Autowired has a boolean argument called required with a default value of true. It tunes Spring&amp;rsquo;s behavior when it doesn&amp;rsquo;t find a suitable bean to wire. When true, an exception is thrown, otherwise, nothing is wired. @AliasFor 1 2 3 4 5 6 7 8 9 10</description>
-    </item>
-    
-    <item>
-      <title>股票基金相关知识</title>
-      <link>https://anjanavakil.github.io/post/finance/</link>
-      <pubDate>Sun, 01 May 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/finance/</guid>
-      <description>指数基金 投资的行业上区分，指数基金可以分为宽基和行业指数基金。 常见宽基指数基金有：上证50、沪深300、中证500、创业板、红利、基本面、央</description>
-    </item>
-    
-    <item>
-      <title>2022年3月~4月陌生词汇</title>
-      <link>https://anjanavakil.github.io/post/vocabulary-2022-3-4/</link>
-      <pubDate>Sat, 30 Apr 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/vocabulary-2022-3-4/</guid>
-      <description>真心觉得这样记单词学英语其实效率不高，但其实每天记录下阅读英文网站/书籍时遇到的陌生词汇，也算是种监督，起码像中文一样每天都有接触到英文。 2</description>
     </item>
     
   </channel>
