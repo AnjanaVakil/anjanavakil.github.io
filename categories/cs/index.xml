@@ -6,7 +6,16 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 11 Aug 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software Engineering: A Practitioner&#39;s Approach</title>
+      <link>https://anjanavakil.github.io/post/software-engineering/</link>
+      <pubDate>Sun, 11 Sep 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/software-engineering/</guid>
+      <description>研一&amp;quot;软件工程与软件过程&amp;quot;课程书籍——SEPA(Software Engineering: A Practitioner&amp;rsquo;s Approach)的笔记。 PREFACE CHAPTER 1: Software And Software Engineering KEY CONCEPTS: application domains characteristics</description>
+    </item>
+    
     <item>
       <title>Go语言</title>
       <link>https://anjanavakil.github.io/post/go/</link>

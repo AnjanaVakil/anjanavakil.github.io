@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>LeetCode树 - Anjana</title>
+  <title>LeetCode Tree - Anjana</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -59,19 +59,19 @@
 
 
 
-<meta property="og:title" content="LeetCode树" />
+<meta property="og:title" content="LeetCode Tree" />
 <meta property="og:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 树 二叉树的深度优先搜索 前序遍历 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&lt;int&gt; preorderTraversal(TreeNode* root) { vector&lt;int&gt; res; stack&lt;TreeNode*&gt; s; TreeNode* cur=root; while(cur || !s.empty()){" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/leetcode-tree/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-07-05T08:15:48+08:00" />
 <meta property="article:modified_time" content="2022-07-05T08:15:48+08:00" />
 
-<meta itemprop="name" content="LeetCode树">
+<meta itemprop="name" content="LeetCode Tree">
 <meta itemprop="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 树 二叉树的深度优先搜索 前序遍历 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&lt;int&gt; preorderTraversal(TreeNode* root) { vector&lt;int&gt; res; stack&lt;TreeNode*&gt; s; TreeNode* cur=root; while(cur || !s.empty()){"><meta itemprop="datePublished" content="2022-07-05T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-07-05T08:15:48+08:00" />
-<meta itemprop="wordCount" content="1675">
+<meta itemprop="wordCount" content="2335">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="LeetCode树"/>
+<meta name="twitter:title" content="LeetCode Tree"/>
 <meta name="twitter:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 树 二叉树的深度优先搜索 前序遍历 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&lt;int&gt; preorderTraversal(TreeNode* root) { vector&lt;int&gt; res; stack&lt;TreeNode*&gt; s; TreeNode* cur=root; while(cur || !s.empty()){"/>
 
 <!--[if lte IE 9]>
@@ -292,7 +292,7 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">LeetCode树</h1>
+      <h1 class="post-title">LeetCode Tree</h1>
       
       <div class="post-meta">
         <time datetime="2022-07-05" class="post-time">
@@ -333,6 +333,7 @@
       <ul>
         <li><a href="#208-implement-trie-prefix-tree">208 Implement Trie (Prefix Tree)</a></li>
         <li><a href="#648-replace-words">648 Replace Words</a></li>
+        <li><a href="#676-implement-magic-dictionary">676 Implement Magic Dictionary</a></li>
       </ul>
     </li>
   </ul>
@@ -1008,6 +1009,191 @@
 <li>时间复杂度：O(d + s)。其中 d 是 dictionary 的字符数，s 是 sentence 的字符数。构建字典树消耗 O(d) 时间，每个单词搜索前缀均消耗线性时间。</li>
 <li>空间复杂度：O(d + s)，构建哈希集合消耗 O(d)空间，分割 sentence 消耗 O(s) 空间。</li>
 </ul>
+<h3 id="676-implement-magic-dictionary">676 Implement Magic Dictionary</h3>
+<p><code>bool search(String searchWord)</code>Returns <code>true</code> if you can change <strong>exactly one character</strong> in <code>searchWord</code> to match any string in the data structure, otherwise returns <code>false</code>.</p>
+<p><strong>字典树</strong></p>
+<p>可以根据<code>深度优先</code>的顺序搜索前缀树的每条路径。如果到达的节点与字符串中的字符不匹配，则表示此时修改了字符串中的<code>一个字符</code>以匹配前缀树中的路径。如果到达对应字符串最后一个字符对应的节点时该节点的isWord字段的值为true，而且此时正好修改了字符串中的一个字符，那么就找到了修改字符串中一个字符对应的路径，符合题目的条件，可以返回true。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Trie</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">Trie</span><span class="o">*&gt;</span> <span class="n">children</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">isWord</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Trie</span><span class="p">()</span><span class="o">:</span><span class="n">children</span><span class="p">(</span><span class="mi">26</span><span class="p">),</span><span class="n">isWord</span><span class="p">(</span><span class="nb">false</span><span class="p">){}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MagicDictionary</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Trie</span><span class="o">*</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MagicDictionary</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">=</span><span class="k">new</span> <span class="n">Trie</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">buildDict</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">dictionary</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="n">string</span> <span class="nl">str</span><span class="p">:</span><span class="n">dictionary</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Trie</span><span class="o">*</span> <span class="n">node</span><span class="o">=</span><span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span><span class="p">(</span><span class="kt">char</span> <span class="nl">ch</span><span class="p">:</span><span class="n">str</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="n">ch</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">]</span><span class="o">==</span><span class="k">nullptr</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">node</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="n">ch</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">]</span><span class="o">=</span><span class="k">new</span> <span class="n">Trie</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="n">node</span><span class="o">=</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="n">ch</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="o">-&gt;</span><span class="n">isWord</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="nf">search</span><span class="p">(</span><span class="n">string</span> <span class="n">searchWord</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="n">searchWord</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">Trie</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span><span class="n">string</span> <span class="n">word</span><span class="p">,</span><span class="kt">int</span> <span class="n">index</span><span class="p">,</span><span class="kt">int</span> <span class="n">edit</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">root</span><span class="o">==</span><span class="k">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">isWord</span> <span class="o">&amp;&amp;</span> <span class="n">index</span><span class="o">==</span><span class="n">word</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">edit</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">index</span><span class="o">&lt;</span><span class="n">word</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">edit</span><span class="o">&lt;=</span><span class="mi">1</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">bool</span> <span class="n">found</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">26</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">found</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">next</span><span class="o">=</span><span class="p">(</span><span class="n">j</span><span class="o">==</span><span class="n">word</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="o">?</span><span class="nl">edit</span><span class="p">:</span><span class="n">edit</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">found</span><span class="o">=</span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">word</span><span class="p">,</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">next</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">found</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>n 是数组 dictionary 的长度，m 是数组 dictionary 中字符串的平均长度。</p>
+<ul>
+<li>时间复杂度：O(nm)</li>
+<li>空间复杂度：O(nm)</li>
+</ul>
+<p><strong>Fuzzy Match</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MagicDictionary</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="n">unordered_set</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&gt;</span> <span class="n">dict</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MagicDictionary</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dict</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">buildDict</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">dictionary</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="n">string</span><span class="o">&amp;</span> <span class="nl">str</span><span class="p">:</span><span class="n">dictionary</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">str</span><span class="p">.</span><span class="n">length</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">char</span> <span class="n">temp</span><span class="o">=</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="sc">&#39;*&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dict</span><span class="p">[</span><span class="n">str</span><span class="p">].</span><span class="n">insert</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="nf">search</span><span class="p">(</span><span class="n">string</span> <span class="n">searchWord</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">searchWord</span><span class="p">.</span><span class="n">length</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">char</span> <span class="n">temp</span><span class="o">=</span><span class="n">searchWord</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">searchWord</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="sc">&#39;*&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">dict</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">searchWord</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">                <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">char_set</span><span class="o">=</span><span class="n">dict</span><span class="p">[</span><span class="n">searchWord</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">char_set</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span> <span class="o">||</span> <span class="n">char_set</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">searchWord</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其实这道题坑还挺多的。</p>
+<p><img src="/image/leetcode-676.png" alt="leetcode-676"></p>
+<p>例如：如果dictionary中有[&ldquo;hello&rdquo;,&ldquo;hallo&rdquo;,&hellip;&hellip;]，如果查询&quot;hello&quot;，结果应该返回true。</p>
+<p>所以search中的逻辑判断为<code>char_set.count(temp)==0 || char_set.size()&gt;1</code>，两者用 || 连接，并且缺一不可。</p>
+<ul>
+<li>
+<p>时间复杂度：</p>
+<p>BuildDict: O(nm)</p>
+<p>Search: O(m)</p>
+</li>
+</ul>
 
     </div>
 
@@ -1057,12 +1243,12 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">LeetCode堆</span>
+            <span class="prev-text nav-default">LeetCode Heap</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
           <a class="next" href="/post/leetcode-sort/">
-            <span class="next-text nav-default">LeetCode排序</span>
+            <span class="next-text nav-default">LeetCode Sort</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

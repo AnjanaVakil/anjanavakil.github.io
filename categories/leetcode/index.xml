@@ -6,9 +6,18 @@
     <description>Recent content in LeetCode🌲 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Jul 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>LeetCode栈</title>
+      <title>LeetCode Graph</title>
+      <link>https://anjanavakil.github.io/post/leetcode-graph/</link>
+      <pubDate>Thu, 28 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/leetcode-graph/</guid>
+      <description>LeetCode + 《剑指Offer II》刷题笔记。 图 如果要求在无权图中找出两个节点之间的最短距离，那么广度优先搜索可能是更合适的算法。 如果面试题要求找出符</description>
+    </item>
+    
+    <item>
+      <title>LeetCode Stack</title>
       <link>https://anjanavakil.github.io/post/leetcode-stack/</link>
       <pubDate>Wed, 20 Jul 2022 08:15:48 +0800</pubDate>
       
@@ -17,7 +26,16 @@
     </item>
     
     <item>
-      <title>LeetCode堆</title>
+      <title>LeetCode Dynamic Programming</title>
+      <link>https://anjanavakil.github.io/post/leetcode-dp/</link>
+      <pubDate>Mon, 18 Jul 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/leetcode-dp/</guid>
+      <description>LeetCode + 《剑指Offer II》刷题笔记。 动态规划</description>
+    </item>
+    
+    <item>
+      <title>LeetCode Heap</title>
       <link>https://anjanavakil.github.io/post/leetcode-heap/</link>
       <pubDate>Fri, 08 Jul 2022 08:15:48 +0800</pubDate>
       
@@ -26,7 +44,7 @@
     </item>
     
     <item>
-      <title>LeetCode树</title>
+      <title>LeetCode Tree</title>
       <link>https://anjanavakil.github.io/post/leetcode-tree/</link>
       <pubDate>Tue, 05 Jul 2022 08:15:48 +0800</pubDate>
       
@@ -35,7 +53,7 @@
     </item>
     
     <item>
-      <title>LeetCode排序</title>
+      <title>LeetCode Sort</title>
       <link>https://anjanavakil.github.io/post/leetcode-sort/</link>
       <pubDate>Fri, 01 Jul 2022 08:15:48 +0800</pubDate>
       
@@ -44,12 +62,21 @@
     </item>
     
     <item>
-      <title>LeetCode链表</title>
+      <title>LeetCode LinkedList</title>
       <link>https://anjanavakil.github.io/post/leetcode-linkedlist/</link>
       <pubDate>Fri, 28 Jan 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/leetcode-linkedlist/</guid>
       <description>LeetCode + 《剑指Offer II》刷题笔记。 链表 单向链表 定义 1 2 3 4 5 6 7 8 public class ListNode { public int val; public ListNode next; public ListNode(int val) { this.val = val; } } 链表插入 1 2 3 4 5 6 7 8 9 10 11 public ListNode</description>
+    </item>
+    
+    <item>
+      <title>LeetCode Backtrack</title>
+      <link>https://anjanavakil.github.io/post/leetcode-backtrack/</link>
+      <pubDate>Wed, 26 Jan 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/leetcode-backtrack/</guid>
+      <description>LeetCode + 《剑指Offer II》刷题笔记。 回溯法 用回溯法解决问题的过程可以形象地用一个树形结构表示，求解问题的每个步骤可以看作树中的一个节点。如果</description>
     </item>
     
     <item>
@@ -62,16 +89,7 @@
     </item>
     
     <item>
-      <title>LeetCode回溯法</title>
-      <link>https://anjanavakil.github.io/post/leetcode-backtrack/</link>
-      <pubDate>Wed, 26 Jan 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/leetcode-backtrack/</guid>
-      <description>LeetCode + 《剑指Offer II》刷题笔记。 回溯法 用回溯法解决问题的过程可以形象地用一个树形结构表示，求解问题的每个步骤可以看作树中的一个节点。如果</description>
-    </item>
-    
-    <item>
-      <title>LeetCode二分查找</title>
+      <title>LeetCode Binary Search</title>
       <link>https://anjanavakil.github.io/post/leetcode-binary-search/</link>
       <pubDate>Tue, 25 Jan 2022 08:15:48 +0800</pubDate>
       
@@ -80,7 +98,7 @@
     </item>
     
     <item>
-      <title>LeetCode字符串</title>
+      <title>LeetCode String</title>
       <link>https://anjanavakil.github.io/post/leetcode-string/</link>
       <pubDate>Sun, 23 Jan 2022 14:15:48 +0800</pubDate>
       
@@ -89,7 +107,7 @@
     </item>
     
     <item>
-      <title>LeetCode数组</title>
+      <title>LeetCode Array</title>
       <link>https://anjanavakil.github.io/post/leetcode-array/</link>
       <pubDate>Sat, 22 Jan 2022 14:15:48 +0800</pubDate>
       
@@ -98,7 +116,7 @@
     </item>
     
     <item>
-      <title>LeetCode整数</title>
+      <title>LeetCode Number</title>
       <link>https://anjanavakil.github.io/post/leetcode-number/</link>
       <pubDate>Thu, 20 Jan 2022 14:15:48 +0800</pubDate>
       
@@ -107,7 +125,7 @@
     </item>
     
     <item>
-      <title>Recursion</title>
+      <title>LeetCode Recursion</title>
       <link>https://anjanavakil.github.io/post/leetcode-recursion/</link>
       <pubDate>Tue, 18 Jan 2022 14:15:48 +0800</pubDate>
       
