@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="研一&amp;quot;软件工程与软件过程&amp;quot;课程书籍——SEPA(Software Engineering: A Practitioner&amp;rsquo;s Approach)的笔记。 PREFACE CHAPTER 1: Software And Software Engineering KEY CONCEPTS: application domains characteristics" />
+  <meta name="description" content="研一&amp;quot;软件工程与软件过程&amp;quot;课程书籍——SEPA(Software Engineering: A Practitioner&amp;rsquo;s Approach)笔记。也只有边阅读边做笔记才能读" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,19 +60,19 @@
 
 
 <meta property="og:title" content="Software Engineering: A Practitioner&#39;s Approach" />
-<meta property="og:description" content="研一&quot;软件工程与软件过程&quot;课程书籍——SEPA(Software Engineering: A Practitioner&rsquo;s Approach)的笔记。 PREFACE CHAPTER 1: Software And Software Engineering KEY CONCEPTS: application domains characteristics" />
+<meta property="og:description" content="研一&quot;软件工程与软件过程&quot;课程书籍——SEPA(Software Engineering: A Practitioner&rsquo;s Approach)笔记。也只有边阅读边做笔记才能读" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/software-engineering/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-09-11T08:15:48+08:00" />
 <meta property="article:modified_time" content="2022-09-11T08:15:48+08:00" />
 
 <meta itemprop="name" content="Software Engineering: A Practitioner&#39;s Approach">
-<meta itemprop="description" content="研一&quot;软件工程与软件过程&quot;课程书籍——SEPA(Software Engineering: A Practitioner&rsquo;s Approach)的笔记。 PREFACE CHAPTER 1: Software And Software Engineering KEY CONCEPTS: application domains characteristics"><meta itemprop="datePublished" content="2022-09-11T08:15:48+08:00" />
+<meta itemprop="description" content="研一&quot;软件工程与软件过程&quot;课程书籍——SEPA(Software Engineering: A Practitioner&rsquo;s Approach)笔记。也只有边阅读边做笔记才能读"><meta itemprop="datePublished" content="2022-09-11T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-09-11T08:15:48+08:00" />
-<meta itemprop="wordCount" content="252">
+<meta itemprop="wordCount" content="930">
 <meta itemprop="keywords" content="CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Software Engineering: A Practitioner&#39;s Approach"/>
-<meta name="twitter:description" content="研一&quot;软件工程与软件过程&quot;课程书籍——SEPA(Software Engineering: A Practitioner&rsquo;s Approach)的笔记。 PREFACE CHAPTER 1: Software And Software Engineering KEY CONCEPTS: application domains characteristics"/>
+<meta name="twitter:description" content="研一&quot;软件工程与软件过程&quot;课程书籍——SEPA(Software Engineering: A Practitioner&rsquo;s Approach)笔记。也只有边阅读边做笔记才能读"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -323,6 +323,21 @@
     <li><a href="#chapter-1-software-and-software-engineering">CHAPTER 1: Software And Software Engineering</a>
       <ul>
         <li><a href="#11-the-nature-of-software">1.1 The Nature Of Software</a></li>
+        <li><a href="#12-the-unique-nature-of-webapps">1.2 The Unique Nature Of WebApps</a></li>
+        <li><a href="#13-software-engineering">1.3 Software Engineering</a></li>
+        <li><a href="#14-the-software-process">1.4 The Software Process</a></li>
+        <li><a href="#15-software-engineering-practice">1.5 Software Engineering Practice</a></li>
+        <li><a href="#16-software-myths">1.6 Software Myths</a></li>
+        <li><a href="#17-how-it-all-starts">1.7 How it all starts</a></li>
+        <li><a href="#18-summary">1.8 Summary</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-one-the-software-process">PART One THE SOFTWARE PROCESS</a></li>
+    <li><a href="#chapter-2-process-models">CHAPTER 2: Process Models</a>
+      <ul>
+        <li><a href="#21-a-generic-process-model">2.1 A generic process Model</a></li>
+        <li><a href="#22-process-assessment-and-improvement">2.2 Process Assessment and improvement</a></li>
+        <li><a href="#23-prescriptive-process-models">2.3 Prescriptive Process Models</a></li>
       </ul>
     </li>
   </ul>
@@ -332,13 +347,13 @@
 
     
     <div class="post-content">
-      <p>研一&quot;软件工程与软件过程&quot;课程书籍——SEPA(<em>Software Engineering: A Practitioner&rsquo;s Approach</em>)的笔记。</p>
+      <p>研一&quot;软件工程与软件过程&quot;课程书籍——SEPA(<em>Software Engineering: A Practitioner&rsquo;s Approach</em>)笔记。也只有边阅读边做笔记才能读下去了，否则全篇英文没读几行就犯困😭。</p>
 <h2 id="preface">PREFACE</h2>
 <h2 id="chapter-1-software-and-software-engineering">CHAPTER 1: Software And Software Engineering</h2>
 <p>KEY CONCEPTS:</p>
 <p>application domains</p>
 <p>characteristics of software</p>
-<p>framwork activities</p>
+<p>framework activities</p>
 <p>legacy software</p>
 <p>practice</p>
 <p>principles</p>
@@ -383,7 +398,128 @@
 <p><strong>Product-line software</strong></p>
 <p><strong>Web applications(WebApps)</strong></p>
 <p><strong>Artificial intelligence software</strong></p>
+<p>Vote: &ldquo;You can&rsquo;t always predict, but you can always prepare.&rdquo;</p>
 <h4 id="113-legacy-software">1.1.3 Legacy Software</h4>
+<p>ADVICE: Every software engineer must recognize that change is natural. Don&rsquo;t try to fight it.</p>
+<h3 id="12-the-unique-nature-of-webapps">1.2 The Unique Nature Of WebApps</h3>
+<p>The following attributes are encountered in the vast majority of WebApps.</p>
+<p>Network intensiveness.</p>
+<p>Concurrency.</p>
+<p>Unpredictable load.</p>
+<p>Performance.</p>
+<p>Availability.</p>
+<p>Data driven.</p>
+<p>Content sensitive.</p>
+<p>Immediacy.</p>
+<p>Security.</p>
+<p>Aesthetic.</p>
+<h3 id="13-software-engineering">1.3 Software Engineering</h3>
+<p>KEY POINTS:</p>
+<p>Understand the problem before you build a system.</p>
+<p>Design is a pivotal software engineering activity.</p>
+<p>Both quality and maintainability are an outgrowth of good design.</p>
+<p>Definitions of software engineering:</p>
+<p>IEEE:</p>
+<p>Software Engineering: (1) The applications of a systematic, disciplined, quantifiable approach to the development, operation, and maintenance of software; that is , the application of engineering to software. (2) The study of approaches as in (1).</p>
+<p>KEY POINT:</p>
+<p>Software engineering encompasses a process, methods for managing and engineering software and tools.</p>
+<p>Software engineering is a layered technology.</p>
+<h3 id="14-the-software-process">1.4 The Software Process</h3>
+<p>A generic process framework for software engineering:</p>
+<p>Communication.</p>
+<p>Planning.</p>
+<p>Modeling.</p>
+<p>Construction.</p>
+<p>Deployment.</p>
+<p>Umbrella activities are applied throughout a software project and help a software team manage and control progress, quality, change, and risk. Typical umbrealla activities include:</p>
+<p>Software project tracking and control</p>
+<p>Risk Management</p>
+<p>Software quality assurance</p>
+<p>Technical reviews</p>
+<p>Measurement</p>
+<p>Software configuration management</p>
+<p>Reusability management</p>
+<p>Work product preparation and production</p>
+<p>KEY POINT: Software process adaptation is essential for project success.</p>
+<h3 id="15-software-engineering-practice">1.5 Software Engineering Practice</h3>
+<h4 id="151-the-essence-of-practice">1.5.1 The Essence Of Practice</h4>
+<ol>
+<li>Understand the problem (communication and analysis).</li>
+<li>Plan a solution (modeling and software design).</li>
+<li>Carry out the plan (code generation).</li>
+<li>Examine the result for accuracy (testing and qulity assurance).</li>
+</ol>
+<h4 id="152-general-principles">1.5.2 General Principles</h4>
+<p>The First Principle: The reason it all exists</p>
+<p>A software system exists for one reason: to provide value to its users.</p>
+<p>The Second Principle: KISS(Keep it simple, stupid!)</p>
+<p>The Third Principle: Maintain the Vision</p>
+<p>The Fourth Principle: What you produce, others will consume</p>
+<p>The Fifith Principle: Be Open to the Future</p>
+<p>The Sixth Principle: Plan Ahead for Reuse</p>
+<p>The Seventh Principle: Think!</p>
+<h3 id="16-software-myths">1.6 Software Myths</h3>
+<p>Management myths.</p>
+<p>Customer myths.</p>
+<p>Practitioner&rsquo;s myths.</p>
+<h3 id="17-how-it-all-starts">1.7 How it all starts</h3>
+<h3 id="18-summary">1.8 Summary</h3>
+<p>万事开头难，但第一章也读太长时间了😭。</p>
+<h2 id="part-one-the-software-process">PART One THE SOFTWARE PROCESS</h2>
+<h2 id="chapter-2-process-models">CHAPTER 2: Process Models</h2>
+<p>KEY CONCEPTS:</p>
+<p>component-based development</p>
+<p>concurrent models</p>
+<p>evolutionary process models</p>
+<p>formal methods model</p>
+<p>generic process model</p>
+<p>incremental process models</p>
+<p>presonal software process</p>
+<p>prescriptive process models</p>
+<p>process patterns</p>
+<p>task set</p>
+<p>team software process</p>
+<p>Unitied Process</p>
+<h3 id="21-a-generic-process-model">2.1 A generic process Model</h3>
+<h4 id="211-defining-a-framework-activity">2.1.1 Defining a Framework Activity</h4>
+<h4 id="212-identifying-a-task-set">2.1.2 Identifying a Task Set</h4>
+<p><strong>Task Set</strong></p>
+<p>A task set defines the actual work to be done to accomplish the objectives of a software engineering action. For example, elicitation (more commonly called &ldquo;requirements gathering&rdquo;) is an important software engineering action that occurs during the communication activity. The goal of requirements gathering is to understand what various stakeholders want from the software that is to be built.</p>
+<h4 id="213-process-patterns">2.1.3 Process Patterns</h4>
+<p>&ldquo;The repetition of patterns is quite a different thing than the repetition of parts. Indeed, the different parts will be unique because the patterns are the same.&rdquo;</p>
+<p>Patterns can be defined at any level of abstraction.</p>
+<p>a template for describing a process pattern:</p>
+<ul>
+<li>
+<p>Pattern Name.</p>
+</li>
+<li>
+<p>Forces.</p>
+</li>
+<li>
+<p>Type.</p>
+</li>
+</ul>
+<ol>
+<li>Stage pattern</li>
+<li>Task pattern</li>
+<li>Phase pattern</li>
+</ol>
+<ul>
+<li>Initial context.</li>
+<li>Problem.</li>
+<li>Solution.</li>
+<li>Resulting Context.</li>
+<li>Related Patterns.</li>
+<li>Known Uses and Examples.</li>
+</ul>
+<h3 id="22-process-assessment-and-improvement">2.2 Process Assessment and improvement</h3>
+<h3 id="23-prescriptive-process-models">2.3 Prescriptive Process Models</h3>
+<p>KEY POINT</p>
+<p>Prescriptive process models define a prescribed set of process elements and a predictabel process work flow.</p>
+<h4 id="231-the-waterfall-model">2.3.1 The Waterfall Model</h4>
+<p>The waterfall model, sometimes called the classic life cycle, suggests a systematic, sequential approach to software development that begins with customer specification of reuirements and progresses through planning, modeling, construction, and deployment, culminating in ongoing suppoert of the completed software.</p>
+<p>A variation in the representation of the waterfall model is called the V-model. The V-model provides a way of visualizing how verification and validation actions are applied to earlier engineering work.</p>
 
     </div>
 
