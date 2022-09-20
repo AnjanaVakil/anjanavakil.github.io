@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>Kubernetes</title>
+      <link>https://anjanavakil.github.io/post/k8s/</link>
+      <pubDate>Sat, 20 Aug 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/k8s/</guid>
+      <description>豆瓣🔗： Kubernetes网络权威指南：基础、原理与实践 容器网络虚拟化基础 macOS M1下使用docker运行linux(centos)： 1 docker run -it</description>
+    </item>
+    
+    <item>
       <title>Go语言</title>
       <link>https://anjanavakil.github.io/post/go/</link>
       <pubDate>Thu, 11 Aug 2022 08:15:48 +0800</pubDate>
@@ -50,6 +59,15 @@
       
       <guid>https://anjanavakil.github.io/post/vue/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Redis</title>
+      <link>https://anjanavakil.github.io/post/redis/</link>
+      <pubDate>Sun, 05 Jun 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/redis/</guid>
+      <description>官方文档： Redis documentation Redis Sentinel High availability with Redis Sentinel Redis Sentinel provides high availability for Redis when not using Redis Cluster. Running Sentinel However it is mandatory to use a configuration file when running Sentinel, as this file will be used by the system in order to save the current state that will be reloaded in case of restarts. Sentinel will simply refuse to start</description>
     </item>
     
     <item>
@@ -169,24 +187,6 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
       
       <guid>https://anjanavakil.github.io/post/cs-book-recommendation/</guid>
       <description>豆瓣🔗： 《编码：隐匿在计算机软硬件背后的语言》 Code: The Hidden Language of Computer Hardware and Software 《计算机是怎样跑起来的》 《程序是怎样跑起来的》 《网络是怎样连接的》 《计算机系</description>
-    </item>
-    
-    <item>
-      <title>《Wireshark网络分析XXX》</title>
-      <link>https://anjanavakil.github.io/post/wireshark-network-analyse/</link>
-      <pubDate>Thu, 30 Dec 2021 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/wireshark-network-analyse/</guid>
-      <description>豆瓣🔗： 《Wireshark网络分析就这么简单》 《Wireshark网络分析的艺术》 林沛满先生关于Wireshark的两本书：《Wiresh</description>
-    </item>
-    
-    <item>
-      <title>《操作系统导论》OSTEP</title>
-      <link>https://anjanavakil.github.io/post/ostep/</link>
-      <pubDate>Tue, 28 Dec 2021 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/ostep/</guid>
-      <description>豆瓣🔗：《操作系统导论》 Operating Systems: Three Easy Pieces 十分推荐的一本好书，10月3号开始阅读，大概花了13h看完，做了大约200多条笔记（后面学习到读书过程中不</description>
     </item>
     
   </channel>

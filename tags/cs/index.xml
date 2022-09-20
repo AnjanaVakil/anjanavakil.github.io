@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>Kubernetes</title>
+      <link>https://anjanavakil.github.io/post/k8s/</link>
+      <pubDate>Sat, 20 Aug 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/k8s/</guid>
+      <description>豆瓣🔗： Kubernetes网络权威指南：基础、原理与实践 容器网络虚拟化基础 macOS M1下使用docker运行linux(centos)： 1 docker run -it</description>
+    </item>
+    
+    <item>
       <title>Go语言</title>
       <link>https://anjanavakil.github.io/post/go/</link>
       <pubDate>Thu, 11 Aug 2022 08:15:48 +0800</pubDate>
@@ -176,15 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/oom/</guid>
       <description>3.2 Understand the OutOfMemoryError Exception 翻译+理解： One common indication of a memory leak is the java.lang.OutOfMemoryError exception. Usually, this error is thrown when there is insufficient space to allocate an object in the Java heap. In this case, The garbage collector cannot make space available to accommodate a new object, and the heap cannot be expanded further. Also, this error may be thrown when there</description>
-    </item>
-    
-    <item>
-      <title>DATABASE数据库</title>
-      <link>https://anjanavakil.github.io/post/database/</link>
-      <pubDate>Wed, 18 May 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/database/</guid>
-      <description>Oracle Sequence序列 Oracle / PLSQL: Sequences (Autonumber) Oracle NEXTVAL function tips CREATE SEQUENCE 值得注意的几点： When a sequence number is generated, the sequence is incremented, independent of the transaction committing or rolling back. If two users concurrently increment the same sequence, then the sequence numbers each user acquires may have gaps, because sequence numbers are</description>
     </item>
     
   </channel>

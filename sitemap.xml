@@ -58,6 +58,13 @@
   </url>
   
   <url>
+    <loc>https://anjanavakil.github.io/post/k8s/</loc>
+    <lastmod>2022-08-20T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://anjanavakil.github.io/post/go/</loc>
     <lastmod>2022-08-11T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -569,7 +576,7 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/post/hashtable/</loc>
+    <loc>https://anjanavakil.github.io/post/leetcode-hashtable/</loc>
     <lastmod>2022-01-26T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

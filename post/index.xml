@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>Kubernetes</title>
+      <link>https://anjanavakil.github.io/post/k8s/</link>
+      <pubDate>Sat, 20 Aug 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/k8s/</guid>
+      <description>豆瓣🔗： Kubernetes网络权威指南：基础、原理与实践 容器网络虚拟化基础 macOS M1下使用docker运行linux(centos)： 1 docker run -it</description>
+    </item>
+    
+    <item>
       <title>Go语言</title>
       <link>https://anjanavakil.github.io/post/go/</link>
       <pubDate>Thu, 11 Aug 2022 08:15:48 +0800</pubDate>
@@ -176,15 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/video/</guid>
       <description>网络上看过的精彩讲座/课程/录像/视频等： Jul 15: A Philosophy of Software Design | John Ousterhout | Talks at Google John Ousterhout, Professor of Computer Science at Stanford University, discusses complex techniques on how to become a more confident coder. John is excited to announce that he just published the first edition of a new</description>
-    </item>
-    
-    <item>
-      <title>OOM</title>
-      <link>https://anjanavakil.github.io/post/oom/</link>
-      <pubDate>Fri, 20 May 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/oom/</guid>
-      <description>3.2 Understand the OutOfMemoryError Exception 翻译+理解： One common indication of a memory leak is the java.lang.OutOfMemoryError exception. Usually, this error is thrown when there is insufficient space to allocate an object in the Java heap. In this case, The garbage collector cannot make space available to accommodate a new object, and the heap cannot be expanded further. Also, this error may be thrown when there</description>
     </item>
     
   </channel>

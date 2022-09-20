@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Kubernetes - Anjana</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Anjana" />
+  <meta name="description" content="豆瓣🔗： Kubernetes网络权威指南：基础、原理与实践 容器网络虚拟化基础 macOS M1下使用docker运行linux(centos)： 1 docker run -it" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.93.0" />
+
+
+<link rel="canonical" href="https://anjanavakil.github.io/post/k8s/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="Kubernetes" />
+<meta property="og:description" content="豆瓣🔗： Kubernetes网络权威指南：基础、原理与实践 容器网络虚拟化基础 macOS M1下使用docker运行linux(centos)： 1 docker run -it" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/k8s/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-08-20T08:15:48+08:00" />
+<meta property="article:modified_time" content="2022-08-20T08:15:48+08:00" />
+
+<meta itemprop="name" content="Kubernetes">
+<meta itemprop="description" content="豆瓣🔗： Kubernetes网络权威指南：基础、原理与实践 容器网络虚拟化基础 macOS M1下使用docker运行linux(centos)： 1 docker run -it"><meta itemprop="datePublished" content="2022-08-20T08:15:48+08:00" />
+<meta itemprop="dateModified" content="2022-08-20T08:15:48+08:00" />
+<meta itemprop="wordCount" content="3824">
+<meta itemprop="keywords" content="CS💻," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kubernetes"/>
+<meta name="twitter:description" content="豆瓣🔗： Kubernetes网络权威指南：基础、原理与实践 容器网络虚拟化基础 macOS M1下使用docker运行linux(centos)： 1 docker run -it"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Anjana</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/about/">About</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Anjana
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://anjanavakil.github.io/about/">About</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Kubernetes</h1>
+      
+      <div class="post-meta">
+        <time datetime="2022-08-20" class="post-time">
+          2022-08-20
+        </time>
+        <div class="post-category">
+            <a href="https://anjanavakil.github.io/categories/cs/"> CS💻 </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#linux网络虚拟化">Linux网络虚拟化</a>
+      <ul>
+        <li><a href="#network-namespace">network namespace</a></li>
+        <li><a href="#veth-pair">veth pair</a></li>
+        <li><a href="#linux-bridge">Linux bridge</a></li>
+        <li><a href="#tuntap-设备">tun/tap 设备</a></li>
+        <li><a href="#iptables">iptables</a></li>
+        <li><a href="#ipip">ipip</a></li>
+        <li><a href="#vxlan">VXLAN</a></li>
+        <li><a href="#macvlan">Macvlan</a></li>
+        <li><a href="#ipvlan">IPvlan</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#linux容器">Linux容器</a></li>
+        <li><a href="#docker的四大网络模式">Docker的四大网络模式</a></li>
+        <li><a href="#cnm">CNM</a></li>
+        <li><a href="#容器组网">容器组网</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <ul>
+<li>
+<p>豆瓣🔗：</p>
+<p><a href="https://book.douban.com/subject/34855927/">Kubernetes网络权威指南：基础、原理与实践</a></p>
+</li>
+</ul>
+<h1 id="容器网络虚拟化基础">容器网络虚拟化基础</h1>
+<hr>
+<p>macOS M1下使用docker运行linux(centos)：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run -it -v ~/Documents/docker/:/datas centos
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>报错：<code>mount --make-shared /var/run/netns failed: Operation not permitted</code></p>
+<p>解决方法：加上<code>--privileged</code>，即：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run --privileged -it -v ~/Documents/docker/:/datas centos
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="linux网络虚拟化">Linux网络虚拟化</h2>
+<h3 id="network-namespace">network namespace</h3>
+<h4 id="配置network-namespace">配置network namespace</h4>
+<p>Linux的namespace：隔离内核资源</p>
+<p>network namespace分类：</p>
+<ul>
+<li>Mount namespace：文件系统挂载点</li>
+<li>UTS namespace：主机名</li>
+<li>IPC namespace：POSIX进程间通信消息队列</li>
+<li>PID namespace：进程PID数字空间</li>
+<li>network namespace：IP地址</li>
+<li>user namespace：user ID数字空间</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run --privileged -it -v ~/Documents/docker/:/datas centos
+</span></span><span class="line"><span class="cl"><span class="c1"># ip netns add netns1</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ip netns exec netns1 ip link list</span>
+</span></span><span class="line"><span class="cl">1: lo: &lt;LOOPBACK&gt; mtu <span class="m">65536</span> qdisc noop state DOWN mode DEFAULT group default qlen <span class="m">1000</span>
+</span></span><span class="line"><span class="cl">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+</span></span><span class="line"><span class="cl">2: tunl0@NONE: &lt;NOARP&gt; mtu <span class="m">1480</span> qdisc noop state DOWN mode DEFAULT group default qlen <span class="m">1000</span>
+</span></span><span class="line"><span class="cl">    link/ipip 0.0.0.0 brd 0.0.0.0
+</span></span><span class="line"><span class="cl">3: ip6tnl0@NONE: &lt;NOARP&gt; mtu <span class="m">1452</span> qdisc noop state DOWN mode DEFAULT group default qlen <span class="m">1000</span>
+</span></span><span class="line"><span class="cl">    link/tunnel6 :: brd :: permaddr 9a0c:8a2c:6c02::
+</span></span><span class="line"><span class="cl"><span class="c1"># ip netns list</span>
+</span></span><span class="line"><span class="cl">netns1
+</span></span><span class="line"><span class="cl"><span class="c1"># ip netns delete netns1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>ip netns add NAME - create a new named network namespace</p>
+<p>If NAME is available in /var/run/netns this command creates a new network namespace and assigns NAME.</p>
+</blockquote>
+<p>当ip命令创建了一个network namespace时，系统会在/var/run/netns路径下面生成一个挂载点。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># ip netns exec netns1 ping 127.0.0.1</span>
+</span></span><span class="line"><span class="cl">connect: Network is unreachable
+</span></span><span class="line"><span class="cl"><span class="c1"># ip netns exec netns1 ip link set dev lo up</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ip netns exec netns1 ping 127.0.0.1</span>
+</span></span><span class="line"><span class="cl">PING 127.0.0.1 <span class="o">(</span>127.0.0.1<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from 127.0.0.1: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.043 ms
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from 127.0.0.1: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.123 ms
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># ip link add veth0 type veth peer name veth1</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ip link set veth1 netns netns1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>创建了veth0和veth1这么一对虚拟以太网卡。</p>
+<p>在默认情况下，它们都在主机的根network namespce中，将其中一块虚拟网卡veth1通过ip link set命令移动到netns1 network namespace。</p>
+<hr>
+<p>报错：<code>exec of &quot;ifconfig&quot; failed: No such file or directory</code></p>
+<p>解决方法：</p>
+<p><a href="https://linuxhint.com/fix-ifconfig-command-not-found-linux/">How to fix “bash: /usr/sbin/ifconfig: No such file or directory” on Linux</a></p>
+<p>centos下运行：</p>
+<blockquote>
+<p>yum install net-tools -y</p>
+</blockquote>
+<p>再次运行ifconfig：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># ifconfig</span>
+</span></span><span class="line"><span class="cl">eth0: <span class="nv">flags</span><span class="o">=</span>4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu <span class="m">1500</span>
+</span></span><span class="line"><span class="cl">        inet 172.17.0.2  netmask 255.255.0.0  broadcast 172.17.255.255
+</span></span><span class="line"><span class="cl">        ether 02:42:ac:11:00:02  txqueuelen <span class="m">0</span>  <span class="o">(</span>Ethernet<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        RX packets <span class="m">27688</span>  bytes <span class="m">133307537</span> <span class="o">(</span>127.1 MiB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        RX errors <span class="m">0</span>  dropped <span class="m">0</span>  overruns <span class="m">0</span>  frame <span class="m">0</span>
+</span></span><span class="line"><span class="cl">        TX packets <span class="m">26844</span>  bytes <span class="m">1814858</span> <span class="o">(</span>1.7 MiB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        TX errors <span class="m">0</span>  dropped <span class="m">0</span> overruns <span class="m">0</span>  carrier <span class="m">0</span>  collisions <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">lo: <span class="nv">flags</span><span class="o">=</span>73&lt;UP,LOOPBACK,RUNNING&gt;  mtu <span class="m">65536</span>
+</span></span><span class="line"><span class="cl">        inet 127.0.0.1  netmask 255.0.0.0
+</span></span><span class="line"><span class="cl">        loop  txqueuelen <span class="m">1000</span>  <span class="o">(</span>Local Loopback<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        RX packets <span class="m">0</span>  bytes <span class="m">0</span> <span class="o">(</span>0.0 B<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        RX errors <span class="m">0</span>  dropped <span class="m">0</span>  overruns <span class="m">0</span>  frame <span class="m">0</span>
+</span></span><span class="line"><span class="cl">        TX packets <span class="m">0</span>  bytes <span class="m">0</span> <span class="o">(</span>0.0 B<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        TX errors <span class="m">0</span>  dropped <span class="m">0</span> overruns <span class="m">0</span>  carrier <span class="m">0</span>  collisions <span class="m">0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># ip netns exec netns1 ifconfig veth1 10.1.1.1/24 up</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ifconfig veth0 10.1.1.2/24 up</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>首先进入netns1这个network namespace</p>
+</li>
+<li>
+<p>为veth1绑定IP地址10.1.1.1/24</p>
+</li>
+<li>
+<p>把网卡的状态设置成UP</p>
+</li>
+</ul>
+<p>在主机根network namespace中的网卡veth0绑定IP地址10.1.1.2/24。</p>
+<p>在主机上ping 10.1.1.1（netns1 network namespace里的网卡）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># ping 10.1.1.1</span>
+</span></span><span class="line"><span class="cl">PING 10.1.1.1 <span class="o">(</span>10.1.1.1<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from 10.1.1.1: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.946 ms
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from 10.1.1.1: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.295 ms
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>进入netns1 network namespace去ping主机上的虚拟网卡：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># ip netns exec netns1 ping 10.1.1.2</span>
+</span></span><span class="line"><span class="cl">PING 10.1.1.2 <span class="o">(</span>10.1.1.2<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from 10.1.1.2: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.317 ms
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from 10.1.1.2: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.387 ms
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不同network namespace之间的路由表和防火墙规则等也是隔离的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># route</span>
+</span></span><span class="line"><span class="cl">Kernel IP routing table
+</span></span><span class="line"><span class="cl">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+</span></span><span class="line"><span class="cl">default         _gateway        0.0.0.0         UG    <span class="m">0</span>      <span class="m">0</span>        <span class="m">0</span> eth0
+</span></span><span class="line"><span class="cl">10.1.1.0        0.0.0.0         255.255.255.0   U     <span class="m">0</span>      <span class="m">0</span>        <span class="m">0</span> veth0
+</span></span><span class="line"><span class="cl">172.17.0.0      0.0.0.0         255.255.0.0     U     <span class="m">0</span>      <span class="m">0</span>        <span class="m">0</span> eth0
+</span></span><span class="line"><span class="cl"><span class="c1"># ip netns exec netns1 route</span>
+</span></span><span class="line"><span class="cl">Kernel IP routing table
+</span></span><span class="line"><span class="cl">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+</span></span><span class="line"><span class="cl">10.1.1.0        0.0.0.0         255.255.255.0   U     <span class="m">0</span>      <span class="m">0</span>        <span class="m">0</span> veth1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>连接因特网的若干解决方法。例如：</p>
+<ul>
+<li>主机的根network namespace创建一个Linux网桥并绑定veth pair的一端到网桥上</li>
+<li>通过适当的NAT（网络地址转换）规则并辅以Linux的IP转发功能（配置net.ipv4.ip_forward=1）</li>
+</ul>
+<p>用户可以随意将虚拟网络设备分配到自定义的network namespace里，而连接真实硬件的物理设备则只能放在系统的根network namesapce中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># ip netns exec netns1 ip link set veth1 netns 1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>ip link set veth1 netns 1</code>把netns1 network namespace下的veth1网卡挪到<code>PID为1</code>的进程（即<code>init进程</code>）所在的network namespace。</p>
+<p>有两种途径索引network namespace：</p>
+<ul>
+<li>名字（例如netns1）</li>
+<li>属于该namespace的进程PID(例如1)</li>
+</ul>
+<h4 id="network-namespace-api">network namespace API</h4>
+<p>clone()、unshare()和setns()系统调用会使用CLONE_NEW*常量来区别要操作的namespace类型。</p>
+<p>CLONE_NEW*常量一共有6个：CLONE_NEWIPC、CLONE_NEWNS、CLONE_NEWNET、CLONE_NEWPID、CLONE_NEW USER和CLONE_NEWUTS，分别代表6种不同的namespace类型。</p>
+<h4 id="创建namespaceclone系统调用">创建namespace：clone系统调用</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">clone</span><span class="p">(</span><span class="kt">int</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">child_func</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="n">child_stack</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>函数指针child_func：指定一个由新进程执行的函数。当这个函数返回时，子进程终止。该函数返回一个整数（表示子进程的退出代码）。</p>
+<p>指针child_stack：传入子进程使用的栈空间，也就是把<code>用户态堆栈指针</code>赋给<code>子进程的esp寄存器</code>。调用clone()的进程应该总是为子进程分配新的堆栈。</p>
+<p>int flags：表示CLONE_*标志位（可以多个）。</p>
+<p>void *args：用户的自定义参数。</p>
+<h4 id="维持namespace存在procpidns目录">维持namespace存在：<code>/proc/PID/ns</code>目录</h4>
+<p>每个Linux进程都拥有一个属于自己的/proc/PID/ns，这个目录下的每个文件都代表一个类型的namespace。</p>
+<p>在Linux内核3.8版本以前，/proc/PID/ns目录下的文件都是<code>硬链接（hard link）</code>，而且只有ipc、net和uts这三个文件。</p>
+<p>从Linux内核3.8版本开始，每个文件都是一个特殊的<code>符号链接文件</code>，这些文件提供了操作进程关联namespace的一种方式。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># ls -l /proc/$$/ns</span>
+</span></span><span class="line"><span class="cl">total <span class="m">0</span>
+</span></span><span class="line"><span class="cl">lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Sep <span class="m">19</span> 00:51 cgroup -&gt; <span class="s1">&#39;cgroup:[4026531835]&#39;</span>
+</span></span><span class="line"><span class="cl">lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Sep <span class="m">19</span> 00:51 ipc -&gt; <span class="s1">&#39;ipc:[4026532305]&#39;</span>
+</span></span><span class="line"><span class="cl">lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Sep <span class="m">19</span> 00:51 mnt -&gt; <span class="s1">&#39;mnt:[4026532303]&#39;</span>
+</span></span><span class="line"><span class="cl">lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Sep <span class="m">19</span> 00:51 net -&gt; <span class="s1">&#39;net:[4026532308]&#39;</span>
+</span></span><span class="line"><span class="cl">lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Sep <span class="m">19</span> 00:51 pid -&gt; <span class="s1">&#39;pid:[4026532306]&#39;</span>
+</span></span><span class="line"><span class="cl">lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Sep <span class="m">19</span> 00:51 pid_for_children -&gt; <span class="s1">&#39;pid:[4026532306]&#39;</span>
+</span></span><span class="line"><span class="cl">lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Sep <span class="m">19</span> 00:51 <span class="nb">time</span> -&gt; <span class="s1">&#39;time:[4026531834]&#39;</span>
+</span></span><span class="line"><span class="cl">lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Sep <span class="m">19</span> 00:51 time_for_children -&gt; <span class="s1">&#39;time:[4026531834]&#39;</span>
+</span></span><span class="line"><span class="cl">lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Sep <span class="m">19</span> 00:51 user -&gt; <span class="s1">&#39;user:[4026531837]&#39;</span>
+</span></span><span class="line"><span class="cl">lrwxrwxrwx <span class="m">1</span> root root <span class="m">0</span> Sep <span class="m">19</span> 00:51 uts -&gt; <span class="s1">&#39;uts:[4026532304]&#39;</span>
+</span></span><span class="line"><span class="cl">注：<span class="nv">$$</span>是shell进程的PID
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>符号链接的其中一个用途是<code>确定某两个进程是否属于同一个namespace</code>。</p>
+<p>如果两个进程在同一个namespace中，那么这两个进程/proc/PID/ns目录下对应符号链接文件的<code>inode数字</code>（即上文例子中［］内的数字，例如4026532308；也可以通过<code>stat()系统调用</code>获取返回结构体的<code>st_ino字段</code>）会是一样的。</p>
+<p>/proc/PID/ns目录下的文件还有一个作用——当我们打开这些文件时，只要<code>文件描述符保持open状态</code>，对应的namespace就会一直存在，哪怕这个namespace里的所有进程都终止运行了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># touch /my/net</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># mount --bind /proc/$$/ns/net /my/net</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>把/proc/PID/ns目录下的文件挂载起来就能起到打开文件描述符的作用，而且这个network namespace会一直存在，直到/proc/self/ns/net被卸载。</p>
+<h4 id="往namespace里添加进程setns系统调用">往namespace里添加进程：setns系统调用</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">setns</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">,</span><span class="kt">int</span> <span class="n">nstype</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>int fd：进程待加入的namespace对应的文件描述符。它是一个指向/proc/PID/ns目录下符号链接的文件描述符。</p>
+<p>int nstype：让调用者检查第一个参数fd指向的namespace类型是否符合实际要求，0表示不检查。</p>
+<h4 id="让进程离开namespaceunshare系统调用">让进程离开namespace：unshare系统调用</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">unshare</span><span class="p">(</span><span class="kt">int</span> <span class="n">flags</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>unshare()系统调用的工作机制是：</p>
+<ul>
+<li>先通过指定的flags（即CLONE_NEW*bit位的组合）创建相应的namespace</li>
+<li>再把这个进程挪到新创建的namespace中</li>
+</ul>
+<p>于是也就完成了进程从原先namespace的撤离。unshare()提供的功能其实很像clone()，区别在于unshare()作用在一个已存在的进程上，而clone()会创建一个新的进程。</p>
+<p>大部分Linux发行版自带的unshare命令就是基于unshare()系统调用的，它的作用就是在当前shell所在的namespace外执行一条命令。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># unshare [options] program [arguments]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Linux会为需要执行的命令（在上面的例子中，即program）启动一个新进程，然后在另外一个namespace中执行操作，这样就可以起到执行结果和原（父）进程隔离的效果。</p>
+<h3 id="veth-pair">veth pair</h3>
+<p>veth是虚拟以太网卡（Virtual Ethernet）的缩写。veth设备总是成对的，因此称之为veth pair。</p>
+<h4 id="容器与host-veth-pair的关系">容器与host veth pair的关系</h4>
+<p>经典容器组网模型就是veth pair+bridge的模式。</p>
+<p>方法1：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># ip link show eth0</span>
+</span></span><span class="line"><span class="cl">18: eth0@if19: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc noqueue state UP mode DEFAULT group default
+</span></span><span class="line"><span class="cl">    link/ether 02:42:ac:11:00:02 brd ff:ff:ff:ff:ff:ff link-netnsid <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ip link show | grep 19</span>
+</span></span><span class="line"><span class="cl">18: eth0@if19: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc noqueue state UP mode DEFAULT group default
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>18: eth0@if19，其中18是eth0接口的index，19是和它成对的veth的index。</p>
+<p>方法2：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@d3eff7a40411 /<span class="o">]</span><span class="c1"># ethtool -S  eth0</span>
+</span></span><span class="line"><span class="cl">NIC statistics:
+</span></span><span class="line"><span class="cl">     peer_ifindex: <span class="m">19</span>
+</span></span><span class="line"><span class="cl">     ...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以通过ethtool -S命令列出veth pair对端的网卡index。</p>
+<h3 id="linux-bridge">Linux bridge</h3>
+<p>Linux bridge就是Linux系统中的网桥，但是Linux bridge的行为更像是一台虚拟的网络交换机，任意的真实物理设备（eth0）和虚拟设备（veth pair和tap设备）都可以连接到Linux bridge上。Linux bridge<code>不能跨机</code>连接网络设备。</p>
+<p>Linux bridge有多个端口，数据可以从任何端口进来，进来之后从哪个口出去取决于目的MAC地址，原理和物理交换机差不多。</p>
+<p>创建一个bridge：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@d3eff7a40411 /<span class="o">]</span><span class="c1"># ip link add name br0 type bridge</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@d3eff7a40411 /<span class="o">]</span><span class="c1"># ip link set br0 up</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>创建一对veth设备，并配置IP地址：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@d3eff7a40411 /<span class="o">]</span><span class="c1"># ip link add veth0 type veth peer name veth1</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@d3eff7a40411 /<span class="o">]</span><span class="c1"># ip addr add 1.2.3.101/24 dev veth0</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@d3eff7a40411 /<span class="o">]</span><span class="c1"># ip addr add 1.2.3.102/24 dev veth1</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@d3eff7a40411 /<span class="o">]</span><span class="c1"># ip link set veth0 up</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@d3eff7a40411 /<span class="o">]</span><span class="c1"># ip link set veth1 up</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将veth0连接到br0上：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># ip link set dev veth0 master br0</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># brctl addif br0 veth0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="tuntap-设备">tun/tap 设备</h3>
+<h3 id="iptables">iptables</h3>
+<h3 id="ipip">ipip</h3>
+<h3 id="vxlan">VXLAN</h3>
+<h3 id="macvlan">Macvlan</h3>
+<h3 id="ipvlan">IPvlan</h3>
+<h1 id="docker容器网络">Docker容器网络</h1>
+<h3 id="linux容器">Linux容器</h3>
+<h3 id="docker的四大网络模式">Docker的四大网络模式</h3>
+<h3 id="cnm">CNM</h3>
+<h3 id="容器组网">容器组网</h3>
+<h1 id="kubernetes网络">Kubernetes网络</h1>
+<h1 id="istio网络">Istio网络</h1>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Anjana</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2022-08-20
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a href="https://github.com/gohugoio/hugoBasicExample" rel="noopener" target="_blank">See origin</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/software-engineering/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Software Engineering: A Practitioner&#39;s Approach</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/go/">
+            <span class="next-text nav-default">Go语言</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:anjana.cheng@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/AnjanaVakil" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.douban.com/people/188748525/?_i=5959211pTN39WJ,5959254pTN39WJ" rel="me noopener" class="iconfont"
+      title="douban"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M926.917973 37.80608C959.65184 37.80608 986.19392 64.34816 986.19392 97.082027L986.19392 926.917973C986.19392 959.65184 959.65184 986.19392 926.917973 986.19392L97.082027 986.19392C64.34816 986.19392 37.80608 959.65184 37.80608 926.917973L37.80608 97.082027C37.80608 64.34816 64.34816 37.80608 97.082027 37.80608zM176.653653 176.19968 176.653653 252.678827 825.658027 252.678827 825.658027 176.19968zM217.719467 316.146347 217.719467 628.08064 273.524053 628.08064 341.292373 770.39616 157.259093 770.39616 157.259093 845.417813 842.949973 845.417813 842.949973 770.39616 654.226773 770.39616 722.899627 628.08064 783.67744 628.08064 783.67744 316.146347zM684.885333 392.891733 684.885333 553.987413 312.576 553.987413 312.576 392.891733zM570.770773 770.39616 426.653013 770.39616 359.621973 628.08064 639.443627 628.08064z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://anjanavakil.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2021 -
+    2022
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Anjana
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

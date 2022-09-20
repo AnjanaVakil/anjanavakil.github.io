@@ -53,15 +53,6 @@
     </item>
     
     <item>
-      <title>Redis</title>
-      <link>https://anjanavakil.github.io/post/redis/</link>
-      <pubDate>Sun, 05 Jun 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/redis/</guid>
-      <description>官方文档： Redis documentation Redis Sentinel High availability with Redis Sentinel Redis Sentinel provides high availability for Redis when not using Redis Cluster. Running Sentinel However it is mandatory to use a configuration file when running Sentinel, as this file will be used by the system in order to save the current state that will be reloaded in case of restarts. Sentinel will simply refuse to start</description>
-    </item>
-    
-    <item>
       <title>OOM</title>
       <link>https://anjanavakil.github.io/post/oom/</link>
       <pubDate>Fri, 20 May 2022 08:15:48 +0800</pubDate>
