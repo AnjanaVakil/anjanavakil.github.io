@@ -156,6 +156,13 @@
   </url>
   
   <url>
+    <loc>https://anjanavakil.github.io/post/leetcode-queue/</loc>
+    <lastmod>2022-07-21T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://anjanavakil.github.io/post/leetcode-stack/</loc>
     <lastmod>2022-07-20T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
