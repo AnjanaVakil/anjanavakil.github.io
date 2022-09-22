@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>分布式中间件</title>
+      <link>https://anjanavakil.github.io/post/middleware/</link>
+      <pubDate>Thu, 01 Sep 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/middleware/</guid>
+      <description>缓存中间件Redis Redis使用 Redis自定义注入Bean组件 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37</description>
+    </item>
+    
+    <item>
       <title>Kubernetes</title>
       <link>https://anjanavakil.github.io/post/k8s/</link>
       <pubDate>Sat, 20 Aug 2022 08:15:48 +0800</pubDate>
@@ -103,7 +112,7 @@
       <pubDate>Mon, 18 Jul 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/leetcode-dp/</guid>
-      <description>LeetCode + 《剑指Offer II》刷题笔记。 动态规划</description>
+      <description>LeetCode + 《剑指Offer II》刷题笔记。 动态规划 70 Climbing Stairs</description>
     </item>
     
     <item>
@@ -176,15 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/credit/</guid>
       <description>豆瓣🔗： 《一本书看透信贷：信贷业务全流程深度剖析》 1.1 信贷基本概念 有些信贷业务银行并不提供资金，只提供信用支持，如票据承兑、保函、信用证等，称</description>
-    </item>
-    
-    <item>
-      <title>Redis</title>
-      <link>https://anjanavakil.github.io/post/redis/</link>
-      <pubDate>Sun, 05 Jun 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/redis/</guid>
-      <description>官方文档： Redis documentation Redis Sentinel High availability with Redis Sentinel Redis Sentinel provides high availability for Redis when not using Redis Cluster. Running Sentinel However it is mandatory to use a configuration file when running Sentinel, as this file will be used by the system in order to save the current state that will be reloaded in case of restarts. Sentinel will simply refuse to start</description>
     </item>
     
   </channel>

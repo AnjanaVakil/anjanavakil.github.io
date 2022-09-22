@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>分布式中间件</title>
+      <link>https://anjanavakil.github.io/post/middleware/</link>
+      <pubDate>Thu, 01 Sep 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/middleware/</guid>
+      <description>缓存中间件Redis Redis使用 Redis自定义注入Bean组件 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37</description>
+    </item>
+    
+    <item>
       <title>Kubernetes</title>
       <link>https://anjanavakil.github.io/post/k8s/</link>
       <pubDate>Sat, 20 Aug 2022 08:15:48 +0800</pubDate>
@@ -178,15 +187,6 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
       
       <guid>https://anjanavakil.github.io/post/408/</guid>
       <description>CS 基础知识的笔记，不算是总结性的笔记，只是曾经备忘录上记录下来的和对于自己陌生的点，或许应该保存到blog上，抑或是考试教育的一种印证。 CO 1</description>
-    </item>
-    
-    <item>
-      <title>CS基础知识书籍推荐(已读)</title>
-      <link>https://anjanavakil.github.io/post/cs-book-recommendation/</link>
-      <pubDate>Sat, 15 Jan 2022 14:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/cs-book-recommendation/</guid>
-      <description>豆瓣🔗： 《编码：隐匿在计算机软硬件背后的语言》 Code: The Hidden Language of Computer Hardware and Software 《计算机是怎样跑起来的》 《程序是怎样跑起来的》 《网络是怎样连接的》 《计算机系</description>
     </item>
     
   </channel>

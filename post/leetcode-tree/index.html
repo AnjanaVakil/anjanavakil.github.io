@@ -69,7 +69,7 @@
 <meta itemprop="name" content="LeetCode Tree">
 <meta itemprop="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 树 二叉树的深度优先搜索 前序遍历 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&lt;int&gt; preorderTraversal(TreeNode* root) { vector&lt;int&gt; res; stack&lt;TreeNode*&gt; s; TreeNode* cur=root; while(cur || !s.empty()){"><meta itemprop="datePublished" content="2022-07-05T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-07-05T08:15:48+08:00" />
-<meta itemprop="wordCount" content="6927">
+<meta itemprop="wordCount" content="8123">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode Tree"/>
 <meta name="twitter:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 树 二叉树的深度优先搜索 前序遍历 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&lt;int&gt; preorderTraversal(TreeNode* root) { vector&lt;int&gt; res; stack&lt;TreeNode*&gt; s; TreeNode* cur=root; while(cur || !s.empty()){"/>
@@ -325,7 +325,7 @@
         <li><a href="#中序遍历">中序遍历</a></li>
         <li><a href="#后序遍历">后序遍历</a></li>
         <li><a href="#剑指-offer-ii-047-二叉树剪枝httpsleetcodecnproblemspocwxh"><a href="https://leetcode.cn/problems/pOCWxh/">剑指 Offer II 047. 二叉树剪枝</a></a></li>
-        <li><a href="#剑指-offer-ii-048-序列化与反序列化二叉树httpsleetcodecnproblemsh54ybf"><a href="https://leetcode.cn/problems/h54YBf/">剑指 Offer II 048. 序列化与反序列化二叉树</a></a></li>
+        <li><a href="#297-serialize-and-deserialize-binary-tree">297 Serialize and Deserialize Binary Tree</a></li>
         <li><a href="#129-sum-root-to-leaf-numbers">129 Sum Root to Leaf Numbers</a></li>
         <li><a href="#112-path-sum">112 Path Sum</a></li>
         <li><a href="#113-path-sum-ii">113 Path Sum II</a></li>
@@ -364,6 +364,20 @@
         <li><a href="#820-short-encoding-of-words">820 Short Encoding of Words</a></li>
         <li><a href="#677-map-sum-pairs">677 Map Sum Pairs</a></li>
         <li><a href="#421-maximum-xor-of-two-numbers-in-an-array">421 Maximum XOR of Two Numbers in an Array</a></li>
+      </ul>
+    </li>
+    <li><a href="#neetcode-tree">NeetCode-Tree</a>
+      <ul>
+        <li><a href="#100-same-tree">100 Same Tree</a></li>
+        <li><a href="#226-invert-binary-tree">226 Invert Binary Tree</a></li>
+        <li><a href="#124-binary-tree-maximum-path-sum">124 Binary Tree Maximum Path Sum</a></li>
+        <li><a href="#102-binary-tree-level-order-traversal">102 Binary Tree Level Order Traversal</a></li>
+        <li><a href="#572-subtree-of-another-tree">572 Subtree of Another Tree</a></li>
+        <li><a href="#105-construct-binary-tree-from-preorder-and-inorder-traversal">105 Construct Binary Tree from Preorder and Inorder Traversal</a></li>
+        <li><a href="#230-kth-smallest-element-in-a-bst">230 Kth Smallest Element in a BST</a></li>
+        <li><a href="#211-design-add-and-search-words-data-structure">211 Design Add and Search Words Data Structure</a></li>
+        <li><a href="#heading"></a></li>
+        <li><a href="#212-word-search-ii">212 Word Search II</a></li>
       </ul>
     </li>
   </ul>
@@ -606,7 +620,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="剑指-offer-ii-048-序列化与反序列化二叉树httpsleetcodecnproblemsh54ybf"><a href="https://leetcode.cn/problems/h54YBf/">剑指 Offer II 048. 序列化与反序列化二叉树</a></h3>
+</div><h3 id="297-serialize-and-deserialize-binary-tree">297 Serialize and Deserialize Binary Tree</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -707,7 +721,85 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="129-sum-root-to-leaf-numbers">129 Sum Root to Leaf Numbers</h3>
+</div><p>注意：</p>
+<p>1、这里使用的是<code>list&lt;string&gt; dataArray;</code></p>
+<p>2、使用list和特殊字符&quot;,&ldquo;将字符串分割为字符数组的技巧。</p>
+<p>自己使用 find(c,startpos) 和 substrate(pos,n) 实现字符串分割的解法提交会有Time Limit Exceeded.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Decodes your encoded data to tree.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">deserialize</span><span class="p">(</span><span class="n">string</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="sc">&#39;,&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">)</span> <span class="o">!=</span> <span class="n">string</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// find(c,startpos)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="sc">&#39;,&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// substr(pos,n)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="n">res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">index</span> <span class="o">-</span> <span class="n">start</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">      <span class="n">start</span> <span class="o">=</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">rdeserialize</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>OR</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Decodes your encoded data to tree.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">TreeNode</span><span class="o">*</span> <span class="nf">deserialize</span><span class="p">(</span><span class="n">string</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">str</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">data</span><span class="p">.</span><span class="n">length</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;,&#39;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">str</span><span class="o">=</span><span class="n">data</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">i</span><span class="o">-</span><span class="n">start</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">start</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">rdeserialize</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这两种方法都会有Time Limit Exceeded.</p>
+<ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(n)</li>
+</ul>
+<h3 id="129-sum-root-to-leaf-numbers">129 Sum Root to Leaf Numbers</h3>
 <p>深度优先搜索更加适合解决与路径相关的面试题。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2898,7 +2990,7 @@
 </div>
 </div><p>其实这道题坑还挺多的。</p>
 <p><img src="/image/leetcode-676.png" alt="leetcode-676"></p>
-<p>例如：如果dictionary中有[&ldquo;hello&rdquo;,&ldquo;hallo&rdquo;,&hellip;&hellip;]，如果查询&quot;hello&quot;，结果应该返回true。</p>
+<p>例如：如果dictionary中有[&ldquo;hello&rdquo;,&ldquo;hallo&rdquo;,&hellip;&hellip;]，如果查询&quot;hello&rdquo;，结果应该返回true。</p>
 <p>所以search中的逻辑判断为<code>char_set.count(temp)==0 || char_set.size()&gt;1</code>，两者用 || 连接，并且缺一不可。</p>
 <ul>
 <li>
@@ -2908,8 +3000,336 @@
 </li>
 </ul>
 <h3 id="820-short-encoding-of-words">820 Short Encoding of Words</h3>
+<p>由于在最短编码之中出现的每个单词之后都有一个字符&rsquo;＃&rsquo;，因此计算长度时出现的每个单词的长度都要加1。在前缀树中统计路径长度时，可以统计从根节点到每个叶节点的路径的长度。前缀树的根节点并不对应单词的任何字符，在统计路径时将<code>根节点包括进去</code>相当于<code>将单词的长度加1</code>。通常用DFS的算法统计路径的长度。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>时间复杂度：O(nm)</li>
+<li>空间复杂度：O(nm)</li>
+</ul>
 <h3 id="677-map-sum-pairs">677 Map Sum Pairs</h3>
 <h3 id="421-maximum-xor-of-two-numbers-in-an-array">421 Maximum XOR of Two Numbers in an Array</h3>
+<h2 id="neetcode-tree">NeetCode-Tree</h2>
+<h3 id="100-same-tree">100 Same Tree</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">isSameTree</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">TreeNode</span><span class="o">*</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="o">==</span><span class="k">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">q</span><span class="o">==</span><span class="k">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="o">==</span><span class="k">nullptr</span> <span class="o">||</span> <span class="n">q</span><span class="o">==</span><span class="k">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">val</span><span class="o">!=</span><span class="n">q</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nf">isSameTree</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="n">q</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">isSameTree</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="n">q</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>时间复杂度：O(min(m,n))</li>
+<li>空间复杂度：O(min(m,n))</li>
+</ul>
+<h3 id="226-invert-binary-tree">226 Invert Binary Tree</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">invertTree</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">temp</span><span class="o">=</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="o">=</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="o">=</span><span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">invertTree</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">invertTree</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>时间复杂度：O(n)</p>
+</li>
+<li>
+<p>空间复杂度：O(n)</p>
+</li>
+</ul>
+<p>从根节点开始，递归地对树进行遍历，并从叶子节点先开始翻转。如果当前遍历到的节点 root 的左右两棵子树都已经翻转，那么我们只需要交换两棵子树的位置，即可完成以 root 为根节点的整棵子树的翻转。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">invertTree</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">left</span><span class="o">=</span><span class="n">invertTree</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">right</span><span class="o">=</span><span class="n">invertTree</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="o">=</span><span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="o">=</span><span class="n">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(n)</li>
+</ul>
+<h3 id="124-binary-tree-maximum-path-sum">124 Binary Tree Maximum Path Sum</h3>
+<p>Notice:</p>
+<p>A node can only appear in the sequence <strong>at most once</strong>.</p>
+<p>Note that the path does not need to pass through the root.</p>
+<p><code>-1000 &lt;= Node.val &lt;= 1000</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">maxSum</span><span class="o">=</span><span class="n">INT_MIN</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="nf">maxPathSum</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">oneSideSum</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">maxSum</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="nf">oneSideSum</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">leftMax</span><span class="o">=</span><span class="n">oneSideSum</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">rightMax</span><span class="o">=</span><span class="n">oneSideSum</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//leftMax,rightMAx maybe negative
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">leftMax</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">leftMax</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">rightMax</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">rightMax</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//compute max path sum with split
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">maxSum</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">maxSum</span><span class="p">,</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="o">+</span><span class="n">leftMax</span><span class="o">+</span><span class="n">rightMax</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//compute max path sum without split
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="o">+</span><span class="n">max</span><span class="p">(</span><span class="n">leftMax</span><span class="p">,</span><span class="n">rightMax</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>helper returns maxpathsum without splitting branches, inside helper we also update maxSum by computing maxpathsum with a split;</p>
+<ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(n)</li>
+</ul>
+<h3 id="102-binary-tree-level-order-traversal">102 Binary Tree Level Order Traversal</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">levelOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">q</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">size</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span><span class="p">(</span><span class="n">size</span><span class="o">--</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">TreeNode</span><span class="o">*</span> <span class="n">cur</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">                <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">                <span class="n">temp</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意：层序遍历要加这样一行代码：</p>
+<p><code>if(!root) return res;</code></p>
+<p>否则会有Runtime Error：</p>
+<p><strong>Line 24: Char 37: runtime error: member access within null pointer of type &lsquo;TreeNode&rsquo; (solution.cpp) SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior prog_joined.cpp:33:37</strong></p>
+<ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(n)</li>
+</ul>
+<h3 id="572-subtree-of-another-tree">572 Subtree of Another Tree</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">isSubtree</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="n">TreeNode</span><span class="o">*</span> <span class="n">subRoot</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">root</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">subRoot</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">root</span> <span class="o">||</span> <span class="o">!</span><span class="n">subRoot</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nf">isSameTree</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="n">subRoot</span><span class="p">)</span> <span class="o">||</span> <span class="n">isSubtree</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="n">subRoot</span><span class="p">)</span> <span class="o">||</span> <span class="n">isSubtree</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="n">subRoot</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="nf">isSameTree</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">q</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="o">==</span><span class="k">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">q</span><span class="o">==</span><span class="k">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="o">==</span><span class="k">nullptr</span> <span class="o">||</span> <span class="n">q</span><span class="o">==</span><span class="k">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">val</span><span class="o">==</span><span class="n">q</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&amp;&amp;</span> <span class="n">isSameTree</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="n">q</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">isSameTree</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="n">q</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>时间复杂度：O(|root|*|subRoot|)</li>
+<li>空间复杂度：O(max{root,subRoot})</li>
+</ul>
+<h3 id="105-construct-binary-tree-from-preorder-and-inorder-traversal">105 Construct Binary Tree from Preorder and Inorder Traversal</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">mp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="nf">buildTree</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">preorder</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">inorder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">inorder</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mp</span><span class="p">[</span><span class="n">inorder</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">         <span class="k">return</span> <span class="n">build</span><span class="p">(</span><span class="n">preorder</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">preorder</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">inorder</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">inorder</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="nf">build</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">preorder</span><span class="p">,</span><span class="kt">int</span> <span class="n">preLeft</span><span class="p">,</span><span class="kt">int</span> <span class="n">preRight</span><span class="p">,</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">inorder</span><span class="p">,</span><span class="kt">int</span> <span class="n">inLeft</span><span class="p">,</span><span class="kt">int</span> <span class="n">inRight</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">preLeft</span><span class="o">&gt;</span><span class="n">preRight</span> <span class="o">||</span> <span class="n">inLeft</span><span class="o">&gt;</span><span class="n">inRight</span><span class="p">)</span> <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">rootValue</span><span class="o">=</span><span class="n">preorder</span><span class="p">[</span><span class="n">preLeft</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="o">=</span><span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">rootValue</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">mid</span><span class="o">=</span><span class="n">mp</span><span class="p">[</span><span class="n">rootValue</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">numLeft</span><span class="o">=</span><span class="n">mid</span><span class="o">-</span><span class="n">inLeft</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="o">=</span><span class="n">build</span><span class="p">(</span><span class="n">preorder</span><span class="p">,</span><span class="n">preLeft</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">preLeft</span><span class="o">+</span><span class="n">numLeft</span><span class="p">,</span><span class="n">inorder</span><span class="p">,</span><span class="n">inLeft</span><span class="p">,</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="o">=</span><span class="n">build</span><span class="p">(</span><span class="n">preorder</span><span class="p">,</span><span class="n">preLeft</span><span class="o">+</span><span class="n">numLeft</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">preRight</span><span class="p">,</span><span class="n">inorder</span><span class="p">,</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">inRight</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(n)</li>
+</ul>
+<h3 id="230-kth-smallest-element-in-a-bst">230 Kth Smallest Element in a BST</h3>
+<h3 id="211-design-add-and-search-words-data-structure">211 Design Add and Search Words Data Structure</h3>
+<h3 id="heading"></h3>
+<h3 id="212-word-search-ii">212 Word Search II</h3>
 
     </div>
 

@@ -58,6 +58,13 @@
   </url>
   
   <url>
+    <loc>https://anjanavakil.github.io/post/middleware/</loc>
+    <lastmod>2022-09-01T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://anjanavakil.github.io/post/k8s/</loc>
     <lastmod>2022-08-20T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
