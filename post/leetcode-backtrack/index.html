@@ -69,7 +69,7 @@
 <meta itemprop="name" content="LeetCode Backtrack">
 <meta itemprop="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 回溯法 用回溯法解决问题的过程可以形象地用一个树形结构表示，求解问题的每个步骤可以看作树中的一个节点。如果"><meta itemprop="datePublished" content="2022-01-26T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-01-26T08:15:48+08:00" />
-<meta itemprop="wordCount" content="3505">
+<meta itemprop="wordCount" content="3533">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode Backtrack"/>
 <meta name="twitter:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 回溯法 用回溯法解决问题的过程可以形象地用一个树形结构表示，求解问题的每个步骤可以看作树中的一个节点。如果"/>
@@ -322,13 +322,11 @@
     <li><a href="#组合和排列">组合和排列</a></li>
     <li><a href="#079-所有子集">079. 所有子集</a></li>
     <li><a href="#080-含有-k-个元素的组合">080. 含有 k 个元素的组合</a></li>
-    <li><a href="#081-允许重复选择元素的组合">081. 允许重复选择元素的组合</a></li>
+    <li><a href="#39-combination-sumhttpsleetcodecomproblemscombination-sum"><a href="https://leetcode.com/problems/combination-sum/">39. Combination Sum</a></a></li>
     <li><a href="#082-含有重复元素集合的组合">082. 含有重复元素集合的组合</a></li>
     <li><a href="#083-没有重复元素集合的全排列">083. 没有重复元素集合的全排列</a></li>
-    <li><a href="#084-含有重复元素集合的全排列">084. 含有重复元素集合的全排列</a></li>
-    <li><a href="#2022-sep-5">2022 Sep 5</a>
+    <li><a href="#084-含有重复元素集合的全排列">084. 含有重复元素集合的全排列</a>
       <ul>
-        <li><a href="#39-combination-sumhttpsleetcodecomproblemscombination-sum"><a href="https://leetcode.com/problems/combination-sum/">39. Combination Sum</a></a></li>
         <li><a href="#40-combination-sum-iihttpsleetcodecomproblemscombination-sum-ii"><a href="https://leetcode.com/problems/combination-sum-ii/">40. Combination Sum II</a></a></li>
         <li><a href="#78-subsetshttpsleetcodecomproblemssubsets"><a href="https://leetcode.com/problems/subsets/">78. Subsets</a></a></li>
       </ul>
@@ -537,8 +535,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="081-允许重复选择元素的组合">081. 允许重复选择元素的组合</h2>
-<p><a href="https://leetcode-cn.com/problems/Ygoe9J/">剑指 Offer II 081. 允许重复选择元素的组合</a></p>
+</div><h2 id="39-combination-sumhttpsleetcodecomproblemscombination-sum"><a href="https://leetcode.com/problems/combination-sum/">39. Combination Sum</a></h2>
+<p><a href="https://www.youtube.com/watch?v=MTI2wc8s0BY">LeetCode 39 - Combination Sum</a></p>
 <p><code>candidates</code> 中的数字可以无限制重复被选取。如果至少一个所选数字数量不同，则两种组合是不同的。</p>
 <p>每一步都从集合中取出一个下标为<code>i</code>的数字，此时面临两个选择。</p>
 <ul>
@@ -610,6 +608,14 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>上述代码中的target是组合combination中元素之和的目标值。每当在组合中添加一个数字时，就从target中减去这个数字。当target等于0时，组合中的所有元素之和正好等于target，因此也就找到了一个符合条件的组合。</p>
+<ul>
+<li>
+<p>时间复杂度：O(S)，其中 S 为所有可行解的长度之和。O(n*2^n) 是一个比较松的上界。</p>
+</li>
+<li>
+<p>空间复杂度：O(target)</p>
+</li>
+</ul>
 <h2 id="082-含有重复元素集合的组合">082. 含有重复元素集合的组合</h2>
 <p><a href="https://leetcode-cn.com/problems/4sjJUc/">剑指 Offer II 082. 含有重复元素集合的组合</a></p>
 <p><code>candidates</code> 中的每个数字在每个组合中只能使用一次，<code>解集不能包含重复的组合</code>。</p>
@@ -906,10 +912,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>递归函数backtrack中使用了一个set，用来保存已经交换到排列下标为i的位置的所有值。只有当一个数值之前没有被交换到第i位时才做交换，否则直接跳过。</p>
-<h2 id="2022-sep-5">2022 Sep 5</h2>
 <p>推荐 <a href="https://www.youtube.com/c/NeetCode/videos">NeetCode</a> 的视频，虽然是用Python写的代码，但是前面的图解和讲解帮助很大。</p>
-<h3 id="39-combination-sumhttpsleetcodecomproblemscombination-sum"><a href="https://leetcode.com/problems/combination-sum/">39. Combination Sum</a></h3>
-<p><a href="https://www.youtube.com/watch?v=MTI2wc8s0BY">LeetCode 39 - Combination Sum</a></p>
 <h3 id="40-combination-sum-iihttpsleetcodecomproblemscombination-sum-ii"><a href="https://leetcode.com/problems/combination-sum-ii/">40. Combination Sum II</a></h3>
 <p><a href="https://www.youtube.com/watch?v=rSA3t6BDDwg&amp;t=3s">Combination Sum II - Backtracking - Leetcode 40 - Python</a></p>
 <h3 id="78-subsetshttpsleetcodecomproblemssubsets"><a href="https://leetcode.com/problems/subsets/">78. Subsets</a></h3>

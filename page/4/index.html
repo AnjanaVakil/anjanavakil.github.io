@@ -383,7 +383,7 @@
   <div class="post-content">
     
     <div class="post-summary">
-      LeetCode + 《剑指Offer II》刷题笔记。 动态规划 70 Climbing Stairs
+      LeetCode + 《剑指Offer II》刷题笔记。 动态规划 1D DP 70 Climbing Stairs 1 2 3 4 5 6 7 8 9 10 11 12 class Solution { public: int climbStairs(int n) { vector&lt;int&gt; dp(n+1); dp[0]=1; dp[1]=1; for(int i=2;i&lt;=n;i++){ dp[i]=dp[i-1]+dp[i-2]; } return dp[n]; } }; 时间复杂度：O(n) 空
     </div>
     <div class="read-more">
       <a href="/post/leetcode-dp/" class="read-more-link">Read more</a>

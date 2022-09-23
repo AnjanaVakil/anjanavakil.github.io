@@ -315,7 +315,7 @@
   <div class="post-content">
     
     <div class="post-summary">
-      LeetCode + 《剑指Offer II》刷题笔记。 树 二叉树的深度优先搜索 前序遍历 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&lt;int&gt; preorderTraversal(TreeNode* root) { vector&lt;int&gt; res; stack&lt;TreeNode*&gt; s; TreeNode* cur=root; while(cur || !s.empty()){
+      LeetCode + 《剑指Offer II》刷题笔记。 树 二叉树的DFS 前序遍历 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&lt;int&gt; preorderTraversal(TreeNode* root) { vector&lt;int&gt; res; stack&lt;TreeNode*&gt; s; TreeNode* cur=root; while(cur || !s.empty()){ while(cur){ res.push_back(cur-&gt;val); s.push(cur);
     </div>
     <div class="read-more">
       <a href="/post/leetcode-tree/" class="read-more-link">Read more</a>
