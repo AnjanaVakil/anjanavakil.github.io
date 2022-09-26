@@ -69,7 +69,7 @@
 <meta itemprop="name" content="LeetCode Array">
 <meta itemprop="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 数组 006. 排序数组中两个数字之和 剑指 Offer II 006. 排序数组中两个数字之和 二分查找 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 class"><meta itemprop="datePublished" content="2022-01-22T14:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-01-22T14:15:48+08:00" />
-<meta itemprop="wordCount" content="2643">
+<meta itemprop="wordCount" content="2742">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode Array"/>
 <meta name="twitter:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 数组 006. 排序数组中两个数字之和 剑指 Offer II 006. 排序数组中两个数字之和 二分查找 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 class"/>
@@ -348,6 +348,8 @@
     <li><a href="#011-0-和-1-个数相同的子数组">011. 0 和 1 个数相同的子数组</a></li>
     <li><a href="#012-左右两边子数组的和相等">012. 左右两边子数组的和相等</a></li>
     <li><a href="#013-二维子矩阵的和">013. 二维子矩阵的和</a></li>
+    <li><a href="#1-two-sum">1 Two Sum</a></li>
+    <li><a href="#4-median-of-two-sorted-arrays">4 Median of Two Sorted Arrays</a></li>
   </ul>
 </nav>
   </div>
@@ -401,8 +403,10 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>注意：这边的<code>int mid=low+((high-low)&gt;&gt;1);</code>一定要给<code>(high-low)&gt;&gt;1</code>加<code>()</code>，否则执行代码会报错：<code>超出时间限制</code>。</p>
-<p>时间复杂度：O(nlogn)</p>
-<p>空间复杂度：O(1)</p>
+<ul>
+<li>时间复杂度：O(nlogn)</li>
+<li>空间复杂度：O(1)</li>
+</ul>
 <h3 id="双指针">双指针</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -444,8 +448,10 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>时间复杂度：O(n)</p>
-<p>空间复杂度：O(1)</p>
+</div><ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(1)</li>
+</ul>
 <h2 id="007-数组中和为-0-的三个数">007. 数组中和为 0 的三个数</h2>
 <p><a href="https://leetcode-cn.com/problems/1fGaJU/">剑指 Offer II 007. 数组中和为 0 的三个数</a></p>
 <p>所有和为 <code>0</code> 且 <strong>不重复</strong> 的三元组，故难点在于如何去除重复解。</p>
@@ -597,8 +603,10 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>时间复杂度：O(nlogn+n^2)即O(n^2)</p>
-<p>空间复杂度：O(1)</p>
+</div><ul>
+<li>时间复杂度：O(nlogn+n^2)即O(n^2)</li>
+<li>空间复杂度：O(1)</li>
+</ul>
 <h2 id="008-和大于等于-target-的最短子数组">008. 和大于等于 target 的最短子数组</h2>
 <p><a href="https://leetcode-cn.com/problems/2VG8Kg/">剑指 Offer II 008. 和大于等于 target 的最短子数组</a></p>
 <h3 id="暴力法">暴力法</h3>
@@ -648,8 +656,10 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>时间复杂度：O(n^2)</p>
-<p>空间复杂度：O(1)</p>
+</div><ul>
+<li>时间复杂度：O(n^2)</li>
+<li>空间复杂度：O(1)</li>
+</ul>
 <h3 id="前缀和--二分查找">前缀和 + 二分查找</h3>
 <p>给定一个含有 <code>n</code> 个正整数的数组和一个正整数 <code>target</code> 。</p>
 <p>注意这里数组中的数都是<code>正整数</code>，故前缀和一定是递增的，可以利用二分查找。</p>
@@ -730,8 +740,11 @@
 <p>Python 中的 bisect.bisect_left</p>
 </li>
 </ul>
-<p>时间复杂度：O(nlogn)</p>
-<p>空间复杂度：O(n)，额外创建数组preSum存储前缀和。</p>
+<p>时间复杂度：</p>
+<ul>
+<li>时间复杂度：O(nlogn)</li>
+<li>空间复杂度：O(n)，额外创建数组preSum存储前缀和。</li>
+</ul>
 <h3 id="滑动窗口双指针">滑动窗口(双指针)</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -818,8 +831,10 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>当指针P1和P2之间的子数组数字之和<code>小于k</code>时，<code>向右移动指针P2</code>，直到两个指针之间的子数组数字之和大于k，否则<code>向右移动指针P1</code>，直到两个指针之间的子数组数字之和小于k。</p>
-<p>时间复杂度：O(n)</p>
-<p>空间复杂度：O(1)</p>
+<ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(1)</li>
+</ul>
 <h2 id="009-乘积小于-k-的子数组">009. 乘积小于 K 的子数组</h2>
 <p><a href="https://leetcode-cn.com/problems/ZVAVXX/">剑指 Offer II 009. 乘积小于 K 的子数组</a></p>
 <h3 id="滑动窗口双指针-1">滑动窗口(双指针)</h3>
@@ -900,8 +915,10 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>时间复杂度：O(n)</p>
-<p>空间复杂度：O(1)</p>
+</div><ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(1)</li>
+</ul>
 <p>使用<code>双指针</code>解决<code>子数组之和</code>的题有一个前提条件——数组中的所有数字都是<code>正数</code>。</p>
 <h2 id="010-和为-k-的子数组">010. 和为 k 的子数组</h2>
 <p><a href="https://leetcode-cn.com/problems/QTMn0o/">剑指 Offer II 010. 和为 k 的子数组</a></p>
@@ -944,8 +961,10 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>时间复杂度：O(n^2)</p>
-<p>空间复杂度：O(1)</p>
+</div><ul>
+<li>时间复杂度：O(n^2)</li>
+<li>空间复杂度：O(1)</li>
+</ul>
 <h3 id="前缀和">前缀和</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -993,8 +1012,10 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>时间复杂度：O(n^2)</p>
-<p>空间复杂度：O(n)</p>
+</div><ul>
+<li>时间复杂度：O(n^2)</li>
+<li>空间复杂度：O(n)</li>
+</ul>
 <h3 id="前缀和哈希表优化">前缀和+哈希表优化</h3>
 <p>数组的前i个数字之和记为x。如果存在一个j（j＜i），数组的前j个数字之和为x-k，那么数组中从第i+1个数字开始到第j个数字结束的子数组之和为k。</p>
 <p>这个题目需要计算和为k的子数组的个数。当扫描到数组的第i个数字并求得前i个数字之和是x时，需要知道在i之前存在多少个j并且前j个数字之和等于x-k。所以，对每个i，不但要保存前i个数字之和，还要保存每个和出现的次数。</p>
@@ -1069,8 +1090,10 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>时间复杂度：O(n)</p>
-<p>空间复杂度：O(n)</p>
+</div><ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(n)</li>
+</ul>
 <h2 id="011-0-和-1-个数相同的子数组">011. 0 和 1 个数相同的子数组</h2>
 <p><a href="https://leetcode-cn.com/problems/A1NYOS/">剑指 Offer II 011. 0 和 1 个数相同的子数组</a></p>
 <p>由于<code>0 和 1 的数量相同</code>等价于<code>1 的数量减去 0 的数量等于 0</code>，我们可以将数组中的 <code>0 视作 −1</code>，则原问题转换成<code>求最长的连续子数组，其元素和为 0</code>。</p>
@@ -1161,12 +1184,62 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>时间复杂度：O(n)</p>
-<p>空间复杂度：O(n)</p>
+</div><ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(n)</li>
+</ul>
 <h2 id="012-左右两边子数组的和相等">012. 左右两边子数组的和相等</h2>
 <p><a href="https://leetcode-cn.com/problems/tvdfij/">剑指 Offer II 012. 左右两边子数组的和相等</a></p>
 <h2 id="013-二维子矩阵的和">013. 二维子矩阵的和</h2>
 <p><a href="https://leetcode-cn.com/problems/O4NDxx/">剑指 Offer II 013. 二维子矩阵的和</a></p>
+<h2 id="1-two-sum">1 Two Sum</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">twoSum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">mp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">mp</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">target</span><span class="o">-</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">!=</span><span class="n">mp</span><span class="p">.</span><span class="n">end</span><span class="p">()){</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">{</span><span class="n">i</span><span class="p">,</span><span class="n">mp</span><span class="p">[</span><span class="n">target</span><span class="o">-</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]};</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mp</span><span class="p">[</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(n)</li>
+</ul>
+<h2 id="4-median-of-two-sorted-arrays">4 Median of Two Sorted Arrays</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>时间复杂度：O(log(m+n))</li>
+<li>空间复杂度：O(n)</li>
+</ul>
 
     </div>
 
