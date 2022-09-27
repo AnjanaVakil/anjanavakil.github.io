@@ -54,7 +54,30 @@
 &lt;li&gt;Liveness properties: &amp;ldquo;what the system must eventually do&amp;rdquo;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;more-side-benefits-improved-understanding-productivity-and-innovation&#34;&gt;More Side Benefits: Improved Understanding, Productivity and Innovation&lt;/h3&gt;
+&lt;p&gt;In addition, a precise, testable, well commented description of a design is an excellent form of documentation.&lt;/p&gt;
+&lt;p&gt;A formal specification is precise, short, and can be explored and experimented upon with tools.&lt;/p&gt;
 &lt;h3 id=&#34;what-formal-specification-is-not-good-for&#34;&gt;What Formal Specification Is Not Good For&lt;/h3&gt;
+&lt;p&gt;Two major classes of problems with large distributed systems:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;bugs and operator errors that cause a departure from the logical intent of the system&lt;/li&gt;
+&lt;li&gt;surprising &amp;lsquo;sustained emergent performance degradation&amp;rsquo; of complex systems that inevitably contain feedback loops&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;TLA+ could be used to specify an upper bound on response time, as a real-time safety property. However, out systems are built on infrastructure (disks, operating systems, network) that do not support hard real-time scheduling or guarantees, so real-time safety properties would not be realistic. We build soft real-time systems in which very short periods of slow responses are not considered errors. However, prolonged severe slowdowns are considered errors. We don&amp;rsquo;t yet know of a feasible way to model a real system that would enable tools to predict such emergent behavior. We use other techniques to mitigate those risks.&lt;/p&gt;
+&lt;h3 id=&#34;first-steps-to-formal-methods&#34;&gt;First Steps To Formal Methods&lt;/h3&gt;
+&lt;h3 id=&#34;first-big-success-at-amazon&#34;&gt;First Big Success At Amazon&lt;/h3&gt;
+&lt;p&gt;Therefore, using TLA+ in place of traditional proof writing would likely have improved time-to-market in addition to achieving higher confidence on system correctness.&lt;/p&gt;
+&lt;h3 id=&#34;persuading-more-engineers-leads-to-further-successes&#34;&gt;Persuading More Engineers Leads to Further Successes&lt;/h3&gt;
+&lt;p&gt;TLA+: Exhaustively testable pseudo-code&lt;/p&gt;
+&lt;p&gt;TLA+:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;an excellent tool for data modeling, e.g. designing the schema for a relational or &amp;lsquo;No SQL&amp;rsquo; database.&lt;/li&gt;
+&lt;li&gt;design a non-trivial schema, with semantic invariants over the data that were much richer than standard multiplicity constraints and foreign key constraints. That suggests that a data model might best be viewed as just another level of abstraction of the entire system.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;the-most-frequently-asked-question&#34;&gt;The Most Frequently Asked Question&lt;/h3&gt;
+&lt;h3 id=&#34;alternatives-to-tla&#34;&gt;Alternatives to TLA+&lt;/h3&gt;
+&lt;h3 id=&#34;related-work&#34;&gt;Related Work&lt;/h3&gt;
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;Formal methods deal with models of systems, not the systems themselves, so the adage applies; &amp;ldquo;All models are wrong, some are useful.&amp;rdquo;&lt;/p&gt;
 </description>
       
     </item>
@@ -268,7 +291,7 @@
     </item>
     
     <item>
-      <title>分布式中间件</title>
+      <title>Middleware</title>
       <link>https://anjanavakil.github.io/post/middleware/</link>
       <pubDate>Thu, 01 Sep 2022 08:15:48 +0800</pubDate>
       
@@ -1253,7 +1276,6 @@
 &lt;p&gt;不管是缓存穿透、缓存雪崩还是缓存击穿，其实它们最终导致的后果几乎都是一样的，即给DB（数据库）造成压力，甚至压垮数据库。而它们的解决方案也都有一个共性，那就是“加强防线”，尽量让高并发的读请求落在缓存中，从而避免直接跟数据库打交道。&lt;/p&gt;
 &lt;h3 id=&#34;redis应用实战之抢红包系统&#34;&gt;Redis应用实战之抢红包系统&lt;/h3&gt;
 &lt;h2 id=&#34;消息中间件rabbitmq&#34;&gt;消息中间件RabbitMQ&lt;/h2&gt;
-&lt;h3 id=&#34;heading&#34;&gt;&lt;/h3&gt;
 &lt;h2 id=&#34;死信队列延迟队列&#34;&gt;死信队列/延迟队列&lt;/h2&gt;
 &lt;h2 id=&#34;分布式锁&#34;&gt;分布式锁&lt;/h2&gt;
 &lt;h2 id=&#34;redisson&#34;&gt;Redisson&lt;/h2&gt;
@@ -1729,7 +1751,7 @@
     </item>
     
     <item>
-      <title>Go语言</title>
+      <title>Go</title>
       <link>https://anjanavakil.github.io/post/go/</link>
       <pubDate>Thu, 11 Aug 2022 08:15:48 +0800</pubDate>
       
@@ -2075,7 +2097,7 @@
     </item>
     
     <item>
-      <title>Java并发-JUC</title>
+      <title>Java Concurrentcy-JUC</title>
       <link>https://anjanavakil.github.io/post/juc/</link>
       <pubDate>Mon, 01 Aug 2022 08:15:48 +0800</pubDate>
       

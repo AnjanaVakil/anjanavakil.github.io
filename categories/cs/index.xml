@@ -27,7 +27,7 @@ We use deep design reviews, code reviews, static code analysis, stress testing, 
     </item>
     
     <item>
-      <title>分布式中间件</title>
+      <title>Middleware</title>
       <link>https://anjanavakil.github.io/post/middleware/</link>
       <pubDate>Thu, 01 Sep 2022 08:15:48 +0800</pubDate>
       
@@ -45,7 +45,7 @@ We use deep design reviews, code reviews, static code analysis, stress testing, 
     </item>
     
     <item>
-      <title>Go语言</title>
+      <title>Go</title>
       <link>https://anjanavakil.github.io/post/go/</link>
       <pubDate>Thu, 11 Aug 2022 08:15:48 +0800</pubDate>
       
@@ -90,7 +90,7 @@ We use deep design reviews, code reviews, static code analysis, stress testing, 
     </item>
     
     <item>
-      <title>DATABASE数据库</title>
+      <title>DATABASE</title>
       <link>https://anjanavakil.github.io/post/database/</link>
       <pubDate>Wed, 18 May 2022 08:15:48 +0800</pubDate>
       

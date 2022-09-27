@@ -72,7 +72,7 @@ We use deep design reviews, code reviews, static code analysis, stress testing, 
 <meta itemprop="description" content="Use of Formal Methods at Amazon Web Services To safeguard that data, the core of each service relies on fault-tolerant distributed algorithms for replication, consistency, concurrency control, auto-scaling, load balancing, and other coordination tasks.
 We use deep design reviews, code reviews, static code analysis, stress testing, fault-injection testing, and many other techniques, but we still find that subtle bugs can hide in complex concurrent fault-tolerant systems. One reason for this problem is that human intuition is poor at estimating the true probability of supposedly &rsquo;extremely rare&rsquo; combinations of events in systems operating at a scale of millions of requests per second."><meta itemprop="datePublished" content="2022-09-26T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-09-26T08:15:48+08:00" />
-<meta itemprop="wordCount" content="374">
+<meta itemprop="wordCount" content="679">
 <meta itemprop="keywords" content="CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Formal Methods"/>
 <meta name="twitter:description" content="Use of Formal Methods at Amazon Web Services To safeguard that data, the core of each service relies on fault-tolerant distributed algorithms for replication, consistency, concurrency control, auto-scaling, load balancing, and other coordination tasks.
@@ -330,6 +330,13 @@ We use deep design reviews, code reviews, static code analysis, stress testing, 
         <li><a href="#side-benefit-a-better-way-to-design-systems">Side Benefit: A Better Way to Design Systems</a></li>
         <li><a href="#more-side-benefits-improved-understanding-productivity-and-innovation">More Side Benefits: Improved Understanding, Productivity and Innovation</a></li>
         <li><a href="#what-formal-specification-is-not-good-for">What Formal Specification Is Not Good For</a></li>
+        <li><a href="#first-steps-to-formal-methods">First Steps To Formal Methods</a></li>
+        <li><a href="#first-big-success-at-amazon">First Big Success At Amazon</a></li>
+        <li><a href="#persuading-more-engineers-leads-to-further-successes">Persuading More Engineers Leads to Further Successes</a></li>
+        <li><a href="#the-most-frequently-asked-question">The Most Frequently Asked Question</a></li>
+        <li><a href="#alternatives-to-tla">Alternatives to TLA+</a></li>
+        <li><a href="#related-work">Related Work</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
       </ul>
     </li>
   </ul>
@@ -359,7 +366,30 @@ We use deep design reviews, code reviews, static code analysis, stress testing, 
 <li>Liveness properties: &ldquo;what the system must eventually do&rdquo;</li>
 </ul>
 <h3 id="more-side-benefits-improved-understanding-productivity-and-innovation">More Side Benefits: Improved Understanding, Productivity and Innovation</h3>
+<p>In addition, a precise, testable, well commented description of a design is an excellent form of documentation.</p>
+<p>A formal specification is precise, short, and can be explored and experimented upon with tools.</p>
 <h3 id="what-formal-specification-is-not-good-for">What Formal Specification Is Not Good For</h3>
+<p>Two major classes of problems with large distributed systems:</p>
+<ol>
+<li>bugs and operator errors that cause a departure from the logical intent of the system</li>
+<li>surprising &lsquo;sustained emergent performance degradation&rsquo; of complex systems that inevitably contain feedback loops</li>
+</ol>
+<p>TLA+ could be used to specify an upper bound on response time, as a real-time safety property. However, out systems are built on infrastructure (disks, operating systems, network) that do not support hard real-time scheduling or guarantees, so real-time safety properties would not be realistic. We build soft real-time systems in which very short periods of slow responses are not considered errors. However, prolonged severe slowdowns are considered errors. We don&rsquo;t yet know of a feasible way to model a real system that would enable tools to predict such emergent behavior. We use other techniques to mitigate those risks.</p>
+<h3 id="first-steps-to-formal-methods">First Steps To Formal Methods</h3>
+<h3 id="first-big-success-at-amazon">First Big Success At Amazon</h3>
+<p>Therefore, using TLA+ in place of traditional proof writing would likely have improved time-to-market in addition to achieving higher confidence on system correctness.</p>
+<h3 id="persuading-more-engineers-leads-to-further-successes">Persuading More Engineers Leads to Further Successes</h3>
+<p>TLA+: Exhaustively testable pseudo-code</p>
+<p>TLA+:</p>
+<ul>
+<li>an excellent tool for data modeling, e.g. designing the schema for a relational or &lsquo;No SQL&rsquo; database.</li>
+<li>design a non-trivial schema, with semantic invariants over the data that were much richer than standard multiplicity constraints and foreign key constraints. That suggests that a data model might best be viewed as just another level of abstraction of the entire system.</li>
+</ul>
+<h3 id="the-most-frequently-asked-question">The Most Frequently Asked Question</h3>
+<h3 id="alternatives-to-tla">Alternatives to TLA+</h3>
+<h3 id="related-work">Related Work</h3>
+<h3 id="conclusion">Conclusion</h3>
+<p>Formal methods deal with models of systems, not the systems themselves, so the adage applies; &ldquo;All models are wrong, some are useful.&rdquo;</p>
 
     </div>
 
