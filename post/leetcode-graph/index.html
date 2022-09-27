@@ -69,7 +69,7 @@
 <meta itemprop="name" content="LeetCode Graph">
 <meta itemprop="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 图 图的搜索 如果要求在无权图中找出两个节点之间的最短距离，那么广度优先搜索可能是更合适的算法。 如果面试题要"><meta itemprop="datePublished" content="2022-07-28T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-07-28T08:15:48+08:00" />
-<meta itemprop="wordCount" content="4341">
+<meta itemprop="wordCount" content="4764">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode Graph"/>
 <meta name="twitter:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 图 图的搜索 如果要求在无权图中找出两个节点之间的最短距离，那么广度优先搜索可能是更合适的算法。 如果面试题要"/>
@@ -338,9 +338,11 @@
       <ul>
         <li><a href="#547-number-of-provinces">547 Number of Provinces</a></li>
         <li><a href="#839-similar-string-groups">839 Similar String Groups</a></li>
+        <li><a href="#684-redundant-connection">684 Redundant Connection</a></li>
+        <li><a href="#128-longest-consecutive-sequence">128 Longest Consecutive Sequence</a></li>
         <li><a href="#417-pacific-atlantic-water-flow">417 Pacific Atlantic Water Flow</a></li>
         <li><a href="#200-number-of-islands">200 Number of Islands</a></li>
-        <li><a href="#128-longest-consecutive-sequence">128 Longest Consecutive Sequence</a></li>
+        <li><a href="#128-longest-consecutive-sequence-1">128 Longest Consecutive Sequence</a></li>
       </ul>
     </li>
     <li><a href="#matrix">Matrix</a></li>
@@ -1699,6 +1701,326 @@ inDegree[seq[i]]++;
 <p>空间复杂度：O(n)</p>
 </li>
 </ul>
+<h3 id="684-redundant-connection">684 Redundant Connection</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">father</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">findRedundantConnection</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">edges</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">edges</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">father</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">father</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="nl">edge</span><span class="p">:</span><span class="n">edges</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">j</span><span class="o">=</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">fa</span><span class="o">=</span><span class="n">findFather</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">fb</span><span class="o">=</span><span class="n">findFather</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">fa</span><span class="o">!=</span><span class="n">fb</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">father</span><span class="p">[</span><span class="n">fa</span><span class="p">]</span><span class="o">=</span><span class="n">fb</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="p">{</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="nf">findFather</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">father</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="n">i</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">father</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">findFather</span><span class="p">(</span><span class="n">father</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">father</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>时间复杂度：O(nlogn)</p>
+</li>
+<li>
+<p>空间复杂度：O(n)</p>
+</li>
+</ul>
+<h3 id="128-longest-consecutive-sequence">128 Longest Consecutive Sequence</h3>
+<h4 id="hash-table">Hash Table</h4>
+<p><img src="/image/128-set.png" alt="128-set"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">longestConsecutive</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">unordered_set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="nl">num</span><span class="p">:</span><span class="n">nums</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">s</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">longest</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="nl">num</span><span class="p">:</span><span class="n">s</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">cur</span><span class="o">=</span><span class="n">num</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">while</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">cur</span><span class="o">+</span><span class="mi">1</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">cur</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">length</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="n">longest</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">longest</span><span class="p">,</span><span class="n">length</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">longest</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>时间复杂度：O(n)</p>
+</li>
+<li>
+<p>空间复杂度：O(n)</p>
+</li>
+</ul>
+<h4 id="union-find-1">Union Find</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">father</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="nf">longestConsecutive</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">unordered_set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">num</span><span class="o">=</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">s</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">father</span><span class="p">[</span><span class="n">num</span><span class="p">]</span><span class="o">=</span><span class="n">num</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">count</span><span class="p">[</span><span class="n">num</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="nl">num</span><span class="p">:</span><span class="n">s</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Union</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">num</span><span class="o">+</span><span class="mi">1</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Union</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">num</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">longest</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">it</span><span class="o">=</span><span class="n">count</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="n">it</span><span class="o">!=</span><span class="n">count</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="n">it</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">longest</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">],</span><span class="n">longest</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">longest</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="nf">findFather</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">father</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="n">i</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">father</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">findFather</span><span class="p">(</span><span class="n">father</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">father</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">Union</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="kt">int</span> <span class="n">j</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">fa</span><span class="o">=</span><span class="n">findFather</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">fb</span><span class="o">=</span><span class="n">findFather</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">fa</span><span class="o">!=</span><span class="n">fb</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">father</span><span class="p">[</span><span class="n">fa</span><span class="p">]</span><span class="o">=</span><span class="n">fb</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">count</span><span class="p">[</span><span class="n">father</span><span class="p">[</span><span class="n">fa</span><span class="p">]]</span><span class="o">=</span><span class="n">count</span><span class="p">[</span><span class="n">fa</span><span class="p">]</span><span class="o">+</span><span class="n">count</span><span class="p">[</span><span class="n">fb</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>时间复杂度：O(n)</p>
+</li>
+<li>
+<p>空间复杂度：O(n)</p>
+</li>
+</ul>
+<h4 id="bfs-6">BFS</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">unordered_set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="nf">longestConsecutive</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="nl">num</span><span class="p">:</span><span class="n">nums</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">s</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">longest</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">auto</span> <span class="n">it</span><span class="o">=</span><span class="n">s</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">longest</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">longest</span><span class="p">,</span><span class="n">bfs</span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">longest</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="nf">bfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">cur</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">cur</span><span class="o">-</span><span class="mi">1</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">cur</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">s</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">cur</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">length</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">cur</span><span class="o">+</span><span class="mi">1</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">cur</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">s</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">cur</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">length</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>时间复杂度：O(n)</p>
+</li>
+<li>
+<p>空间复杂度：O(n)</p>
+</li>
+</ul>
 <h3 id="417-pacific-atlantic-water-flow">417 Pacific Atlantic Water Flow</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1729,7 +2051,7 @@ inDegree[seq[i]]++;
 <p>空间复杂度：O(mn)</p>
 </li>
 </ul>
-<h3 id="128-longest-consecutive-sequence">128 Longest Consecutive Sequence</h3>
+<h3 id="128-longest-consecutive-sequence-1">128 Longest Consecutive Sequence</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code></code></pre></td>

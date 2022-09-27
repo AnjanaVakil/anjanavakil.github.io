@@ -6,7 +6,17 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 11 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Formal Methods</title>
+      <link>https://anjanavakil.github.io/post/formal-methods/</link>
+      <pubDate>Mon, 26 Sep 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/formal-methods/</guid>
+      <description>Use of Formal Methods at Amazon Web Services To safeguard that data, the core of each service relies on fault-tolerant distributed algorithms for replication, consistency, concurrency control, auto-scaling, load balancing, and other coordination tasks.
+We use deep design reviews, code reviews, static code analysis, stress testing, fault-injection testing, and many other techniques, but we still find that subtle bugs can hide in complex concurrent fault-tolerant systems. One reason for this problem is that human intuition is poor at estimating the true probability of supposedly &amp;rsquo;extremely rare&amp;rsquo; combinations of events in systems operating at a scale of millions of requests per second.</description>
+    </item>
+    
     <item>
       <title>Software Engineering: A Practitioner&#39;s Approach</title>
       <link>https://anjanavakil.github.io/post/software-engineering/</link>
@@ -176,15 +186,6 @@
       
       <guid>https://anjanavakil.github.io/post/jvm/</guid>
       <description>Java SE 8虚拟机规范：The Java® Virtual Machine Specification-Java SE 8 Edition 类加载子系统 运行时数据区概述及线程 Run-Time Data Areas The Java Virtual Machine defines various run-time data areas that are used during execution of a program. Some of these data areas are created on Java Virtual</description>
-    </item>
-    
-    <item>
-      <title>Redis</title>
-      <link>https://anjanavakil.github.io/post/redis/</link>
-      <pubDate>Sun, 05 Jun 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/redis/</guid>
-      <description>官方文档： Redis documentation Redis Sentinel High availability with Redis Sentinel Redis Sentinel provides high availability for Redis when not using Redis Cluster. Running Sentinel However it is mandatory to use a configuration file when running Sentinel, as this file will be used by the system in order to save the current state that will be reloaded in case of restarts. Sentinel will simply refuse to start</description>
     </item>
     
   </channel>

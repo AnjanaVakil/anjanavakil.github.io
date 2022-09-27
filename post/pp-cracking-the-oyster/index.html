@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Cracking the Oyster 开篇">
 <meta itemprop="description" content="《编程珠玑》的笔记。 作者 Jon Bentley 推荐的阅读方法，因此每次完成一章，重点是自己思考习题。 One hint about reading the essays: don’t go too fast. Read them carefully, one per sitting. Try the problems as they are posed — some"><meta itemprop="datePublished" content="2022-03-24T20:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-03-24T20:15:48+08:00" />
-<meta itemprop="wordCount" content="2151">
+<meta itemprop="wordCount" content="4412">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cracking the Oyster 开篇"/>
 <meta name="twitter:description" content="《编程珠玑》的笔记。 作者 Jon Bentley 推荐的阅读方法，因此每次完成一章，重点是自己思考习题。 One hint about reading the essays: don’t go too fast. Read them carefully, one per sitting. Try the problems as they are posed — some"/>
@@ -323,7 +323,11 @@
     <li><a href="#program-design-程序设计">Program Design 程序设计</a></li>
     <li><a href="#implementation-sketch-实现概要">Implementation Sketch 实现概要</a></li>
     <li><a href="#principles-原理">Principles 原理</a></li>
-    <li><a href="#problems-习题">Problems 习题</a></li>
+    <li><a href="#problems-习题">Problems 习题</a>
+      <ul>
+        <li><a href="#产生随机数">产生随机数</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -350,7 +354,7 @@
 <p>如果每个号码都使用7个字节来存储，那么在可用的1 MB存储空间里大约可以存143 000个号码。如果每个号码都使用32位整数来表示的话，在1 MB存储空间里就可以存储250 000个号码。</p>
 </blockquote>
 <p>7B: 100 0000/7 = 142,857.1428571429 即143 000个号码</p>
-<p>32b=4B: 100 0000/4=250,000</p>
+<p>32b=4B: 100 0000/4=250 000</p>
 <blockquote>
 <p>因此，可以使用遍历输入文件40趟的程序来完成排序。在第一趟遍历中，将0至249 999之间的任何整数都读入内存，并对这（最多）250 000 个整数进行排序，然后写到输出文件中。第二趟遍历排序250 000至499 999之间的整数，依此类推，到第40趟遍历的时候对9 750 000至9 999 999之间的整数进行排序。</p>
 </blockquote>
@@ -374,7 +378,7 @@
 <li>写入输出文件1次</li>
 </ul>
 <blockquote>
-<p>只有在输入文件中的所有整数都可以在可用的1 MB内存中表示的时候才能够实现该方案。于是问题就归结为是否能够用大约800万个可用位来表示最多1 000万个互异的整数。</p>
+<p>只有在输入文件中的所有整数都可以在可用的1 MB内存中表示的时候才能够实现该方案。于是问题就归结为是否能够用大约800万个可用位来表示最多1 000万(10^7)个互异的整数。</p>
 <p>// 1MB=10^6B=8*10^6b 即800万个可用位</p>
 </blockquote>
 <h2 id="implementation-sketch-实现概要">Implementation Sketch 实现概要</h2>
@@ -397,9 +401,7 @@
 <p>该数据结构描述了一个<code>有限定义域内</code>的<code>稠密集合</code>，其中的每一个元素最多出现一次并且没有其他任何数据与该元素相关联。</p>
 </blockquote>
 <h2 id="problems-习题">Problems 习题</h2>
-<ol>
-<li>
-<p>If memory were not scarce, how would you implement a sort in a language with libraries for representing and sorting <code>sets</code>?</p>
+<p>1 If memory were not scarce, how would you implement a sort in a language with libraries for representing and sorting <code>sets</code>?</p>
 <p>my answer:</p>
 <p>macOS系统中，可以使用<code>Ctrl+D</code>来触发<code>EOF</code>或者下面C++代码中的<code>while(cin &gt;&gt; i)</code></p>
 <div class="highlight"><div class="chroma">
@@ -511,35 +513,25 @@
 </span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"> <span class="c1">// 按照我的习惯，写这种短代码的时候，一定会把set&lt;int&gt;::iterator j;放到要使用的地方即for循环之前，
+</span></span><span class="line"><span class="cl"> <span class="c1">// 按照我的习惯，写这种短代码的时候，一定会把set&lt;int&gt;::iterator j;放到要使用的地方即for循环中
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">// 又想到之前看的书中说将变量声明放到最前面。
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">// 所以改变自己的固有写法，模仿作者这种大佬级别的代码。
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>原本担心题目会比较旧，但作者用C语言写的答案可以帮自己复习C语言相关的知识。记得大一学了面向过程的C之后就立马学C++了，所以自己的C其实写的很少。操作系统、编译原理也并没有好好用C写代码。代码真的写太少了。</p>
-</li>
-<li>
-<p>How would you implement bit vectors using bitwise logical operations (such as and, or and shift)?</p>
+<p>2 How would you implement bit vectors using bitwise logical operations (such as and, or and shift)?</p>
 <p>如何使用位逻辑运算实现位向量？</p>
 <p>32位系统中，实现步骤<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>：</p>
-<ul>
-<li>
-<p>找到数据i所对应的字节位置</p>
+<p>（1）、找到数据i所对应的字节位置</p>
 <p><code>i / 32</code> 相当于位操作 <code>i &gt;&gt; 5</code></p>
-</li>
-<li>
-<p>找到数据i对应的字节中<code>位位置</code></p>
+<p>（2）、找到数据i对应的字节中<code>位位置</code></p>
 <p><code>i % 32</code> 相当于位操作 <code>i &amp; 0x1F</code> (0x1F 是31)</p>
-<p>m mod n 运算，当n = <code>2的X次幂</code>的时候,<code>m mod n = m &amp; (n-1)</code> ，这里32为2^5,所以是 i &amp; 0X1F)</p>
+<p>m mod n 运算，当n = <code>2的X次幂</code>的时候,<code>m mod n = m &amp; (n-1)</code> ，这里32为2^5,所以是 i &amp; 0X1F</p>
 <p><code>n=2^x</code> 写成二进制：<code>1后面x个0</code>，<code>m % n</code>就是<code>m的低x位</code>。</p>
 <p><code>n-1=2^x-1</code> 写成二进制：<code>x个1</code>，<code>m &amp; (n-1)</code>就是<code>m的低x位</code>。</p>
-</li>
-<li>
-<p>判断某位是否为1，如果是就置为1</p>
+<p>（3）、判断某位是否为1，如果是就置为1</p>
 <p>数字a的第i位是1:  <code>a &amp; (1 &lt;&lt; i) </code></p>
 <p>将数据a的第i位置1: <code>a | (1 &lt;&lt; i) </code></p>
-</li>
-</ul>
 <p>writer&rsquo;s answer:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -589,7 +581,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">clr</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">SHIFT</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">i</span> <span class="o">&amp;</span> <span class="n">MASK</span><span class="p">));;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">SHIFT</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">i</span> <span class="o">&amp;</span> <span class="n">MASK</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">test</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
@@ -640,8 +632,437 @@
 </span></span><span class="line"><span class="cl">99999
 </span></span></code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
+</div><p>3 Run-time efficiency was an important part of the design goal, and the resulting program was efficient enough. Implement the bitmap sort on your system and measure its run time; how does it compare to the system sort and to the sorts in Problem 1? Assume that n is 10,000,000, and that the input file contains 1,000,000 integers.</p>
+<p>顺序：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">clock_t</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">duration</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// bitmap sort
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define BITSPERWORD 32
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define SHIFT 5
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define MASK 0x1F
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define N 10000000
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="n">N</span> <span class="o">/</span> <span class="n">BITSPERWORD</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">set</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">SHIFT</span><span class="p">]</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">i</span> <span class="o">&amp;</span> <span class="n">MASK</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">clr</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">SHIFT</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">i</span> <span class="o">&amp;</span> <span class="n">MASK</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">test</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">SHIFT</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">i</span> <span class="o">&amp;</span> <span class="n">MASK</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// system sort
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">intcomp</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="o">*</span><span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">b</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// bitmap sort
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">start</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">clr</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">set</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stop</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">duration</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">stop</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="n">CLOCKS_PER_SEC</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;bitmap sort: %lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// system sort
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">start</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">qsort</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="n">intcomp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stop</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">duration</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">stop</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="n">CLOCKS_PER_SEC</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;system sort: %lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>bitmap sort: 0.083938</p>
+<p>system sort: 0.069051</p>
+</blockquote>
+<p>逆序：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">clock_t</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">duration</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// bitmap sort
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define BITSPERWORD 32
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define SHIFT 5
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define MASK 0x1F
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define N 10000000
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="n">N</span> <span class="o">/</span> <span class="n">BITSPERWORD</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">set</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">SHIFT</span><span class="p">]</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">i</span> <span class="o">&amp;</span> <span class="n">MASK</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">clr</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">SHIFT</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">i</span> <span class="o">&amp;</span> <span class="n">MASK</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">test</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">SHIFT</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">i</span> <span class="o">&amp;</span> <span class="n">MASK</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// system sort
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">intcomp</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="o">*</span><span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">b</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// bitmap sort
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">start</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">clr</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">set</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stop</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">duration</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">stop</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="n">CLOCKS_PER_SEC</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;bitmap sort: %lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// system sort
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">start</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">qsort</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="n">intcomp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stop</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">duration</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">stop</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="n">CLOCKS_PER_SEC</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;system sort: %lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>bitmap sort: 0.078902</p>
+<p>system sort: 0.268980</p>
+</blockquote>
+<p>4 If you take Problem 3 seriously, you will face the problem of generating k integers less than n without duplicates. The simplest approach uses the first k positive integers. This extreme data set won’t alter the run time of the bitmap method by much, but it might skew the run time of a system sort. How could you generate a file of k unique random integers between 0 and n – 1 in random order? Strive for a short program that is also efficient.</p>
+<h3 id="产生随机数">产生随机数</h3>
+<p>C++中没有自带的random函数，要实现随机数的生成就需要使用rand()和srand()</p>
+<p>不过，由于rand()的内部实现是用线性同余法做的，所以生成的并不是真正的随机数，而是在一定范围内可看为随机的伪随机数。</p>
+<p>1、rand()</p>
+<p>rand()会返回一随机数值, 范围在0至RAND_MAX间。</p>
+<p>RAND_MAX定义在stdlib.h, 其值为 2147483647(2^31-1)。</p>
+<p><code>#define RAND_MAX    0x7fffffff</code></p>
+<p>2、srand()</p>
+<p>srand()可用来设置rand()产生随机数时的随机数种子。通过设置不同的种子获取不同的随机数序列。</p>
+<p>可以利用<code>srand((int)(time(NULL))</code>或<code>srand((int)(time(0))</code>的方法，利用系统时钟，产生不同的随机数种子。不过要调用time()，需要加入头文件<code>&lt;ctime&gt;</code>或<code>&lt;time.h&gt;</code>。</p>
+<p>3、其他随机数的范围通式</p>
+<p>产生一定范围随机数的通用表示公式：</p>
+<p><strong>要取得[0,n) 就是rand() % n   表示 从0到n-1的数</strong></p>
+<p><strong>要取得[a,b)的随机整数，使用(rand() % (b-a))+ a;</strong></p>
+<p><strong>要取得[a,b]的随机整数，使用(rand() % (b-a+1))+ a;</strong></p>
+<p><strong>要取得(a,b]的随机整数，使用(rand() % (b-a))+ a + 1;</strong></p>
+<p><strong>通用公式:a + rand() % n；其中的a是起始值，n是整数的范围。</strong></p>
+<p><strong>要取得a到b之间的随机整数，另一种表示：a + (int)b * rand() / (RAND_MAX + 1)。</strong></p>
+<p><strong>要取得0～1之间的浮点数，可以使用rand() / double(RAND_MAX)。</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">clock_t</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">duration</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// bitmap sort
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define BITSPERWORD 32
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define SHIFT 5
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define MASK 0x1F
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define N 10000000
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="n">N</span> <span class="o">/</span> <span class="n">BITSPERWORD</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">set</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">SHIFT</span><span class="p">]</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">i</span> <span class="o">&amp;</span> <span class="n">MASK</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">clr</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">SHIFT</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">i</span> <span class="o">&amp;</span> <span class="n">MASK</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">test</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">SHIFT</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">i</span> <span class="o">&amp;</span> <span class="n">MASK</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// system sort
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">intcomp</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="o">*</span><span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">b</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">srand</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="c1">// bitmap sort
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">start</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">clr</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">t</span><span class="o">=</span><span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="n">N</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">set</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stop</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">duration</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">stop</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="n">CLOCKS_PER_SEC</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;bitmap sort: %lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// system sort
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">start</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">t</span><span class="o">=</span><span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="n">N</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">qsort</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="n">intcomp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stop</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">duration</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">stop</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="n">CLOCKS_PER_SEC</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;system sort: %lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">duration</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>bitmap sort: 0.090350</p>
+<p>system sort: 0.073280</p>
+</blockquote>
+<p>5 The programmer said that he had about a megabyte of free storage, but the code we sketched uses 1.25 megabytes. He was able to scrounge the extra space without much trouble. If the megabyte had been a hard and fast boundary, what would you have recommended? What is the run time of your algorithm?</p>
+<blockquote>
+<p>使用bitmap:</p>
+<p>1MB可以表示 8*10^6b=800万个数字</p>
+<p>1.25MB可以表示 1.25*8*10^6b=10^7=1000万个数字</p>
+<p>Consider a two-pass algorithm.</p>
+<p>1000万/2=500万</p>
+<p>500万数字=0.625*8*10^6b=0.625MB空间</p>
+</blockquote>
+<p>6 What would you recommend to the programmer if, instead of saying that each integer could appear at most once, he told you that each integer could appear at most ten times? How would your solution change as a function of the amount of available storage?</p>
+<p>7  [R. Weil] The program as sketched has several flaws. The first is that it assumes that no integer appears twice in the input. What happens if one does show up more than once? How could the program be modified to call an error function in that case? What happens when an input integer is less than zero or greater than or equal to n? What if an input is not numeric? What should a program do under those circumstances? What other sanity checks could the program incorporate? Describe small data sets that test the program, including its proper handling of these and other ill-behaved cases.</p>
+<p>8  When the programmer faced the problem, all toll-free phone numbers in the United States had the 800 area code. Toll-free codes now include 800, 877 and 888, and the list is growing. How would you sort all of the toll-free numbers using only a megabyte? How can you store a set of toll-free numbers to allow very rapid lookup to determine whether a given toll-free number is available or already taken?</p>
+<p>9 One problem with trading more space to use less time is that initializing the space can itself take a great deal of time. Show how to circumvent this problem by designing a technique to initialize an entry of a vector to zero the first time it is accessed. Your scheme should use constant time for initialization and for each vector access, and use extra space proportional to the size of the vector. Because this method reduces initialization time by using even more space, it should be considered only when space is cheap, time is dear and the vector is sparse.</p>
+<p>10 Before the days of low-cost overnight deliveries, a store allowed customers to order items over the telephone, which they picked up a few days later. The store’s database used the customer’s telephone number as the primary key for retrieval (customers know their phone numbers and the keys are close to unique). How would you organize the store’s database to allow orders to be inserted and retrieved efficiently?</p>
+<p>11  In the early 1980’s Lockheed engineers transmitted daily a dozen drawings from a Computer Aided Design (CAD) system in their Sunnyvale, California, plant to a test station in Santa Cruz. Although the facilities were just 25 miles apart, an automobile courier service took over an hour (due to traffic jams and mountain roads) and cost a hundred dollars per day. Propose alternative data transmission schemes and estimate their cost.</p>
+<p>12  Pioneers of human space flight soon realized the need for writing implements that work well in the extreme environment of space. A popular urban legend asserts that the United States National Aeronautics and Space Administration (NASA) solved the problem with a million dollars of research to develop a special pen. According to the legend, how did the Soviets solve the same problem?</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -857,6 +1278,30 @@
 
 
 
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"
+    integrity="sha384-BdGj8xC2eZkQaxoQ8nSLefg4AV4/AwB3Fj+8SUSo7pnKP6Eoy18liIKTPn9oBYNG"
+    crossorigin="anonymous">
+
+  
+  <script defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.js"
+    integrity="sha384-JiKN5O8x9Hhs/UE5cT5AAJqieYlOZbGT3CHws/y97o3ty4R7/O5poG9F3JoiOYw1"
+    crossorigin="anonymous"></script>
+
+  
+  <script defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+    crossorigin="anonymous" onload="renderMathInElement(document.body);">
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        
+      });
+    });
+  </script>
 
 
 
