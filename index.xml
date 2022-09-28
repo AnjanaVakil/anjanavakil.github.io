@@ -34,7 +34,8 @@
       
       <guid>https://anjanavakil.github.io/post/formal-methods/</guid>
       
-        <description>&lt;h2 id=&#34;use-of-formal-methods-at-amazon-web-services&#34;&gt;Use of Formal Methods at Amazon Web Services&lt;/h2&gt;
+        <description>&lt;p&gt;🔗: &lt;a href=&#34;https://lamport.azurewebsites.net/tla/formal-methods-amazon.pdf&#34;&gt;Use of Formal Methods at Amazon Web Services&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;use-of-formal-methods-at-amazon-web-services&#34;&gt;Use of Formal Methods at Amazon Web Services&lt;/h2&gt;
 &lt;p&gt;To safeguard that data, the core of each service relies on fault-tolerant distributed algorithms for replication, consistency, concurrency control, auto-scaling, load balancing, and other coordination tasks.&lt;/p&gt;
 &lt;p&gt;We use deep design reviews, code reviews, static code analysis, stress testing, fault-injection testing, and many other techniques, but we still find that subtle bugs can hide in complex concurrent fault-tolerant systems. One reason for this problem is that human intuition is poor at estimating the true probability of supposedly &amp;rsquo;extremely rare&amp;rsquo; combinations of events in systems operating at a scale of millions of requests per second.&lt;/p&gt;
 &lt;h3 id=&#34;precise-designs&#34;&gt;Precise Designs&lt;/h3&gt;
@@ -2097,7 +2098,7 @@
     </item>
     
     <item>
-      <title>Java Concurrentcy-JUC</title>
+      <title>Java Concurrency-JUC</title>
       <link>https://anjanavakil.github.io/post/juc/</link>
       <pubDate>Mon, 01 Aug 2022 08:15:48 +0800</pubDate>
       
@@ -10785,7 +10786,7 @@ inDegree[seq[i]]++;
     </item>
     
     <item>
-      <title>Java源码阅读分析</title>
+      <title>Java Source Code</title>
       <link>https://anjanavakil.github.io/post/java-source-code/</link>
       <pubDate>Fri, 22 Jul 2022 08:15:48 +0800</pubDate>
       

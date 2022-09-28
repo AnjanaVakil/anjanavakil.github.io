@@ -13,8 +13,9 @@
       <pubDate>Mon, 26 Sep 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/formal-methods/</guid>
-      <description>Use of Formal Methods at Amazon Web Services To safeguard that data, the core of each service relies on fault-tolerant distributed algorithms for replication, consistency, concurrency control, auto-scaling, load balancing, and other coordination tasks.
-We use deep design reviews, code reviews, static code analysis, stress testing, fault-injection testing, and many other techniques, but we still find that subtle bugs can hide in complex concurrent fault-tolerant systems. One reason for this problem is that human intuition is poor at estimating the true probability of supposedly &amp;rsquo;extremely rare&amp;rsquo; combinations of events in systems operating at a scale of millions of requests per second.</description>
+      <description>🔗: Use of Formal Methods at Amazon Web Services
+Use of Formal Methods at Amazon Web Services To safeguard that data, the core of each service relies on fault-tolerant distributed algorithms for replication, consistency, concurrency control, auto-scaling, load balancing, and other coordination tasks.
+We use deep design reviews, code reviews, static code analysis, stress testing, fault-injection testing, and many other techniques, but we still find that subtle bugs can hide in complex concurrent fault-tolerant systems.</description>
     </item>
     
     <item>
@@ -54,7 +55,7 @@ We use deep design reviews, code reviews, static code analysis, stress testing, 
     </item>
     
     <item>
-      <title>Java Concurrentcy-JUC</title>
+      <title>Java Concurrency-JUC</title>
       <link>https://anjanavakil.github.io/post/juc/</link>
       <pubDate>Mon, 01 Aug 2022 08:15:48 +0800</pubDate>
       
@@ -90,7 +91,7 @@ We use deep design reviews, code reviews, static code analysis, stress testing, 
     </item>
     
     <item>
-      <title>Java源码阅读分析</title>
+      <title>Java Source Code</title>
       <link>https://anjanavakil.github.io/post/java-source-code/</link>
       <pubDate>Fri, 22 Jul 2022 08:15:48 +0800</pubDate>
       
