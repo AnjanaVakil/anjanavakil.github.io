@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Cracking the Oyster 开篇">
 <meta itemprop="description" content="《编程珠玑》的笔记。 作者 Jon Bentley 推荐的阅读方法，因此每次完成一章，重点是自己思考习题。 One hint about reading the essays: don’t go too fast. Read them carefully, one per sitting. Try the problems as they are posed — some"><meta itemprop="datePublished" content="2022-03-24T20:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-03-24T20:15:48+08:00" />
-<meta itemprop="wordCount" content="4412">
+<meta itemprop="wordCount" content="4925">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cracking the Oyster 开篇"/>
 <meta name="twitter:description" content="《编程珠玑》的笔记。 作者 Jon Bentley 推荐的阅读方法，因此每次完成一章，重点是自己思考习题。 One hint about reading the essays: don’t go too fast. Read them carefully, one per sitting. Try the problems as they are posed — some"/>
@@ -1052,17 +1052,49 @@
 <p>使用bitmap:</p>
 <p>1MB可以表示 8*10^6b=800万个数字</p>
 <p>1.25MB可以表示 1.25*8*10^6b=10^7=1000万个数字</p>
-<p>Consider a two-pass algorithm.</p>
+<p>Consider a two-pass algorithm. 两趟算法</p>
 <p>1000万/2=500万</p>
 <p>500万数字=0.625*8*10^6b=0.625MB空间</p>
 </blockquote>
+<p>首先使用0.625MB空间来排序 0 ~ 4 999 999 之间的整数，然后在第二趟排序 5 000 000 ~ 9 999 999 的整数。k 趟算法可以在 kn 的时间开销和 n / k 的空间开销内完成对最多 n 个小于 n 的无重复正整数的排序。</p>
 <p>6 What would you recommend to the programmer if, instead of saying that each integer could appear at most once, he told you that each integer could appear at most ten times? How would your solution change as a function of the amount of available storage?</p>
+<p>如果每个整数最多出现 10 次，那么我们就可以使用 4 位 (2^3&lt;10&lt;2^4) 的半字节来统计它出现的次数。</p>
+<p>利用习题 5 的答案，可以使用 10 000 000 / 2 个字节在 1 趟内完成对整个文件的排序，或使用 10 000 000 / 2k 个字节在 k 趟内完成对整个文件的排序。</p>
 <p>7  [R. Weil] The program as sketched has several flaws. The first is that it assumes that no integer appears twice in the input. What happens if one does show up more than once? How could the program be modified to call an error function in that case? What happens when an input integer is less than zero or greater than or equal to n? What if an input is not numeric? What should a program do under those circumstances? What other sanity checks could the program incorporate? Describe small data sets that test the program, including its proper handling of these and other ill-behaved cases.</p>
+<p>sanity checks:</p>
+<ul>
+<li>one show up more than once: use set</li>
+<li>input integer is &lt;0 or &gt;=n</li>
+<li>input is not numeric</li>
+</ul>
 <p>8  When the programmer faced the problem, all toll-free phone numbers in the United States had the 800 area code. Toll-free codes now include 800, 877 and 888, and the list is growing. How would you sort all of the toll-free numbers using only a megabyte? How can you store a set of toll-free numbers to allow very rapid lookup to determine whether a given toll-free number is available or already taken?</p>
+<p>建立set，查找时间是O(logn)</p>
 <p>9 One problem with trading more space to use less time is that initializing the space can itself take a great deal of time. Show how to circumvent this problem by designing a technique to initialize an entry of a vector to zero the first time it is accessed. Your scheme should use constant time for initialization and for each vector access, and use extra space proportional to the size of the vector. Because this method reduces initialization time by using even more space, it should be considered only when space is cheap, time is dear and the vector is sparse.</p>
-<p>10 Before the days of low-cost overnight deliveries, a store allowed customers to order items over the telephone, which they picked up a few days later. The store’s database used the customer’s telephone number as the primary key for retrieval (customers know their phone numbers and the keys are close to unique). How would you organize the store’s database to allow orders to be inserted and retrieved efficiently?</p>
-<p>11  In the early 1980’s Lockheed engineers transmitted daily a dozen drawings from a Computer Aided Design (CAD) system in their Sunnyvale, California, plant to a test station in Santa Cruz. Although the facilities were just 25 miles apart, an automobile courier service took over an hour (due to traffic jams and mountain roads) and cost a hundred dollars per day. Propose alternative data transmission schemes and estimate their cost.</p>
-<p>12  Pioneers of human space flight soon realized the need for writing implements that work well in the extreme environment of space. A popular urban legend asserts that the United States National Aeronautics and Space Administration (NASA) solved the problem with a million dollars of research to develop a special pen. According to the legend, how did the Soviets solve the same problem?</p>
+<p><code>One problem with trading more space to use less time is that initializing the space can itself take a great deal of time.</code></p>
+<ul>
+<li>space is cheap</li>
+<li>time is dear</li>
+<li>the vector is sparse</li>
+</ul>
+<p>reduces initializtion time by using even more space</p>
+<p>借助于两个额外的n元向量from、to和一个整数top，可以使用标识来初始化向量data[0..n-l]。如果元素data[i]已初始化，那么from[i]&lt;top并且to[from[i]] = i。因此，from是一个简单的标识，to和top一起确保了from中不会被写入内存里的随机内容。</p>
+<p>变量top初始为0，下面的代码实现对数组元素i的首次访问：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">from[i] = top
+</span></span><span class="line"><span class="cl">to[top] = i
+</span></span><span class="line"><span class="cl">data[i] = 0
+</span></span><span class="line"><span class="cl">top++
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>10 Before the days of low-cost overnight deliveries, a store allowed customers to order items over the telephone, which they picked up a few days later. The store’s database used the customer’s telephone number as the primary key for retrieval (customers know their phone numbers and the keys are close to unique). How would you organize the store’s database to allow orders to be inserted and retrieved efficiently?</p>
+<p>商店将纸质订单表格放在 10 * 10 的箱数组中，使用客户电话号码的最后两位作为散列索引。当客户打电话下订单时，将订单放到适当的箱中。当客户来取商品时，销售人员顺序搜索对应箱中的订单——这就是经典的“用顺序搜索来解决冲突的开放散列”。电话号码的最后两位数字非常接近于随机，因此是非常理想的散列函数，而最前面的两位数字则很不理想——为什么？一些市政机关使用类似的方案在记事本中记录信息。</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
