@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 26 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Decision Procedures</title>
+      <link>https://anjanavakil.github.io/post/decision-procedures/</link>
+      <pubDate>Wed, 28 Sep 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/decision-procedures/</guid>
+      <description>Decision Procedures An Algorithmic Point of View Foreword to the first edition 刚开始阅读的时候没注意，第二遍阅读的时候发现foreword是Randal E. Bryant写的，就觉得这个名字很熟悉，</description>
+    </item>
+    
     <item>
       <title>Formal Methods</title>
       <link>https://anjanavakil.github.io/post/formal-methods/</link>
@@ -33,7 +42,7 @@ We use deep design reviews, code reviews, static code analysis, stress testing, 
       <pubDate>Thu, 01 Sep 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/middleware/</guid>
-      <description>缓存中间件Redis Redis使用 Redis自定义注入Bean组件 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37</description>
+      <description>9.30更新：这本书应该不会再看下去了，本来想的是中文书自己没有基础可以一看，但发现干货真的不多，全文都是在贴代码，并且文字有点冗余。人生短</description>
     </item>
     
     <item>
@@ -42,7 +51,7 @@ We use deep design reviews, code reviews, static code analysis, stress testing, 
       <pubDate>Sat, 20 Aug 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/k8s/</guid>
-      <description>豆瓣🔗： Kubernetes网络权威指南：基础、原理与实践 容器网络虚拟化基础 macOS M1下使用docker运行linux(centos)： 1 docker run -it</description>
+      <description>豆瓣🔗： Kubernetes网络权威指南：基础、原理与实践 9.30更新：这本书应该不会再看下去了。本来想的是中文书自己没有基础可以一看，但其</description>
     </item>
     
     <item>
@@ -178,15 +187,6 @@ We use deep design reviews, code reviews, static code analysis, stress testing, 
       
       <guid>https://anjanavakil.github.io/post/vue/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>JVM</title>
-      <link>https://anjanavakil.github.io/post/jvm/</link>
-      <pubDate>Sun, 12 Jun 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/jvm/</guid>
-      <description>Java SE 8虚拟机规范：The Java® Virtual Machine Specification-Java SE 8 Edition 类加载子系统 运行时数据区概述及线程 Run-Time Data Areas The Java Virtual Machine defines various run-time data areas that are used during execution of a program. Some of these data areas are created on Java Virtual</description>
     </item>
     
   </channel>

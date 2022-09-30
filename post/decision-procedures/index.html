@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Archive - Anjana</title>
+  <title>Decision Procedures - Anjana</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="Anjana&#39;s personal website." />
+  <meta name="description" content="Decision Procedures An Algorithmic Point of View Foreword to the first edition 刚开始阅读的时候没注意，第二遍阅读的时候发现foreword是Randal E. Bryant写的，就觉得这个名字很熟悉，" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -34,8 +35,8 @@
 <meta name="generator" content="Hugo 0.93.0" />
 
 
-<link rel="canonical" href="https://anjanavakil.github.io/post/" />
-<link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="Anjana" />
+<link rel="canonical" href="https://anjanavakil.github.io/post/decision-procedures/" />
+
 
 
 
@@ -58,15 +59,20 @@
 
 
 
-<meta property="og:title" content="Posts" />
-<meta property="og:description" content="Anjana&#39;s personal website." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://anjanavakil.github.io/post/" />
+<meta property="og:title" content="Decision Procedures" />
+<meta property="og:description" content="Decision Procedures An Algorithmic Point of View Foreword to the first edition 刚开始阅读的时候没注意，第二遍阅读的时候发现foreword是Randal E. Bryant写的，就觉得这个名字很熟悉，" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/decision-procedures/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-09-28T08:15:48+08:00" />
+<meta property="article:modified_time" content="2022-09-28T08:15:48+08:00" />
 
-<meta itemprop="name" content="Posts">
-<meta itemprop="description" content="Anjana&#39;s personal website."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="Anjana&#39;s personal website."/>
+<meta itemprop="name" content="Decision Procedures">
+<meta itemprop="description" content="Decision Procedures An Algorithmic Point of View Foreword to the first edition 刚开始阅读的时候没注意，第二遍阅读的时候发现foreword是Randal E. Bryant写的，就觉得这个名字很熟悉，"><meta itemprop="datePublished" content="2022-09-28T08:15:48+08:00" />
+<meta itemprop="dateModified" content="2022-09-28T08:15:48+08:00" />
+<meta itemprop="wordCount" content="290">
+<meta itemprop="keywords" content="CS💻," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Decision Procedures"/>
+<meta name="twitter:description" content="Decision Procedures An Algorithmic Point of View Foreword to the first edition 刚开始阅读的时候没注意，第二遍阅读的时候发现foreword是Randal E. Bryant写的，就觉得这个名字很熟悉，"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -283,200 +289,175 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="archive" class="archive">
+          <article class="post bg-white">
     
-      <div class="collection-title">
-        <h2 class="archive-year">2022</h2>
+    <header class="post-header">
+      <h1 class="post-title">Decision Procedures</h1>
+      
+      <div class="post-meta">
+        <time datetime="2022-09-28" class="post-time">
+          2022-09-28
+        </time>
+        <div class="post-category">
+            <a href="https://anjanavakil.github.io/categories/cs/"> CS💻 </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
       </div>
+    </header>
 
-    <div class="archive-post">
-      <time datetime="2022-07-22" class="archive-post-time">
-        2022-07-22
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/java-source-code/" class="archive-post-link">
-          Java Source Code
-        </a>
-      </span>
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#foreword-to-the-first-edition">Foreword to the first edition</a></li>
+    <li><a href="#foreword-to-the-second-edition">Foreword to the second edition</a></li>
+    <li><a href="#preface">Preface</a>
+      <ul>
+        <li><a href="#which-theories-which-algorithms">Which Theories? Which Algorithms?</a></li>
+        <li><a href="#the-structure-and-nature-of-this-book">The Structure and Nature of This Book</a></li>
+      </ul>
+    </li>
+    <li><a href="#1-introduction-and-basic-concepts">1 Introduction and Basic Concepts</a>
+      <ul>
+        <li><a href="#11-two-approaches-to-formal-reasoning">1.1 Two Approaches to Formal Reasoning</a></li>
+        <li><a href="#12-basic-definitions">1.2 Basic Definitions</a></li>
+        <li><a href="#13-normal-forms-and-some-of-their-properties">1.3 Normal forms and Some of Their Properties</a></li>
+        <li><a href="#14-the-theoretical-point-of-view">1.4 The Theoretical Point of View</a></li>
+        <li><a href="#15-expressiveness-vs-decidability">1.5 Expressiveness vs. Decidability</a></li>
+        <li><a href="#16-boolean-structure-in-decision-problems">1.6 Boolean Structure in Decision Problems</a></li>
+        <li><a href="#17-logic-as-a-modeling-language">1.7 Logic as a Modeling Language</a></li>
+        <li><a href="#18-problems">1.8 Problems</a></li>
+        <li><a href="#19-glossary">1.9 Glossary</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-decision-procedures-for-propositional-logic">2 Decision Procedures for Propositional Logic</a>
+      <ul>
+        <li><a href="#21-propositional-logic">2.1 Propositional Logic</a></li>
+        <li><a href="#22-sat-solvers">2.2 SAT Solvers</a></li>
+        <li><a href="#23-problems">2.3 Problems</a></li>
+        <li><a href="#24-bibliographic-notes">2.4 Bibliographic Notes</a></li>
+        <li><a href="#25-glossary">2.5 Glossary</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h1 id="decision-procedures">Decision Procedures</h1>
+<p>An Algorithmic Point of View</p>
+<h2 id="foreword-to-the-first-edition">Foreword to the first edition</h2>
+<p>刚开始阅读的时候没注意，第二遍阅读的时候发现foreword是Randal E. Bryant写的，就觉得这个名字很熟悉，好像是CS:APP的作者（因为看过CS:APP书籍和那门课程）。上网一搜果然是CS:APP作者之一。Google Scholar显示他的研究方向是：Formal vertification和binary decision diagrams。</p>
+<h2 id="foreword-to-the-second-edition">Foreword to the second edition</h2>
+<h2 id="preface">Preface</h2>
+<p>A decision procedure is an algorithm that, given a decision problem, terminates with a correct yes.no answer.</p>
+<p>Satisfiability Modulo Theories(SMT)</p>
+<p>SMT solver: software that solves SMT formulas.</p>
+<h3 id="which-theories-which-algorithms">Which Theories? Which Algorithms?</h3>
+<h3 id="the-structure-and-nature-of-this-book">The Structure and Nature of This Book</h3>
+<h2 id="1-introduction-and-basic-concepts">1 Introduction and Basic Concepts</h2>
+<h3 id="11-two-approaches-to-formal-reasoning">1.1 Two Approaches to Formal Reasoning</h3>
+<h3 id="12-basic-definitions">1.2 Basic Definitions</h3>
+<h3 id="13-normal-forms-and-some-of-their-properties">1.3 Normal forms and Some of Their Properties</h3>
+<h3 id="14-the-theoretical-point-of-view">1.4 The Theoretical Point of View</h3>
+<h3 id="15-expressiveness-vs-decidability">1.5 Expressiveness vs. Decidability</h3>
+<h3 id="16-boolean-structure-in-decision-problems">1.6 Boolean Structure in Decision Problems</h3>
+<h3 id="17-logic-as-a-modeling-language">1.7 Logic as a Modeling Language</h3>
+<h3 id="18-problems">1.8 Problems</h3>
+<h3 id="19-glossary">1.9 Glossary</h3>
+<h2 id="2-decision-procedures-for-propositional-logic">2 Decision Procedures for Propositional Logic</h2>
+<h3 id="21-propositional-logic">2.1 Propositional Logic</h3>
+<h3 id="22-sat-solvers">2.2 SAT Solvers</h3>
+<h3 id="23-problems">2.3 Problems</h3>
+<h3 id="24-bibliographic-notes">2.4 Bibliographic Notes</h3>
+<h3 id="25-glossary">2.5 Glossary</h3>
+
     </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Anjana</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2022-09-28
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a href="https://github.com/gohugoio/hugoBasicExample" rel="noopener" target="_blank">See origin</a></span>
+  </p>
+</div>
+
+
+    
     
 
-    <div class="archive-post">
-      <time datetime="2022-07-21" class="archive-post-time">
-        2022-07-21
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/leetcode-queue/" class="archive-post-link">
-          LeetCode Queue
-        </a>
-      </span>
-    </div>
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/formal-methods/">
+            <span class="next-text nav-default">Formal Methods</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
     
 
-    <div class="archive-post">
-      <time datetime="2022-07-20" class="archive-post-time">
-        2022-07-20
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/leetcode-stack/" class="archive-post-link">
-          LeetCode Stack
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2022-07-18" class="archive-post-time">
-        2022-07-18
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/leetcode-dp/" class="archive-post-link">
-          LeetCode Dynamic Programming
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2022-07-15" class="archive-post-time">
-        2022-07-15
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/stringutils/" class="archive-post-link">
-          StringUtils: leftPad&#43;rightPad
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2022-07-11" class="archive-post-time">
-        2022-07-11
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/springbatch-notes/" class="archive-post-link">
-          Spring Batch
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2022-07-08" class="archive-post-time">
-        2022-07-08
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/leetcode-heap/" class="archive-post-link">
-          LeetCode Heap
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2022-07-05" class="archive-post-time">
-        2022-07-05
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/leetcode-tree/" class="archive-post-link">
-          LeetCode Tree
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2022-07-01" class="archive-post-time">
-        2022-07-01
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/leetcode-sort/" class="archive-post-link">
-          LeetCode Sort
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2022-06-20" class="archive-post-time">
-        2022-06-20
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/vue/" class="archive-post-link">
-          Vue
-        </a>
-      </span>
-    </div></section>
-
-
-
-
-
-
   
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
-      
-      <li >
-        <a href="/post/">1</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/post/page/2/">2</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/3/">3</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/4/">4</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/5/">5</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/6/">6</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/7/">7</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/8/">8</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/9/">9</a>
-      </li>
-      
-    </ul>
-  </nav>
-
-  
-  
-
-
-
-
 
         </div>
       </div>
