@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 28 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Effective C&#43;&#43;</title>
+      <link>https://anjanavakil.github.io/post/effective-c&#43;&#43;/</link>
+      <pubDate>Fri, 30 Sep 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/effective-c&#43;&#43;/</guid>
+      <description>豆瓣🔗: Effective C++ Third Edition 55 Specific Ways to Improve Your Programs and Designs C++ 提供了4种不同又相辅相成的编程泛型(programming paradigms): procedural-based object-based object-oriented generics Accustoming Yourself to C++ View C++ as a federation of languages Prefer consts, enums, and inlines to #defines</description>
+    </item>
+    
     <item>
       <title>Decision Procedures</title>
       <link>https://anjanavakil.github.io/post/decision-procedures/</link>
@@ -25,6 +34,17 @@
       <description>🔗: Use of Formal Methods at Amazon Web Services
 Use of Formal Methods at Amazon Web Services To safeguard that data, the core of each service relies on fault-tolerant distributed algorithms for replication, consistency, concurrency control, auto-scaling, load balancing, and other coordination tasks.
 We use deep design reviews, code reviews, static code analysis, stress testing, fault-injection testing, and many other techniques, but we still find that subtle bugs can hide in complex concurrent fault-tolerant systems.</description>
+    </item>
+    
+    <item>
+      <title>Architectural styles and the Design of Network-based Software Architectures</title>
+      <link>https://anjanavakil.github.io/post/architectural-styles/</link>
+      <pubDate>Tue, 20 Sep 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/architectural-styles/</guid>
+      <description>Architectural styles and the Design of Network-based Software Architectures Roy Thomas Fielding
+Acknowledgments The modern Web architecture is still defined more by the work of individual volunteers than by any single company.
+Introduction Software architecture research investigates methods for determining hwo best to partition a system, how componentes identify and communicate with each other, how information is communicated, how elements of a system can evolve independently, how all of the above can be described using formal and informal notations.</description>
     </item>
     
     <item>
@@ -169,24 +189,6 @@ We use deep design reviews, code reviews, static code analysis, stress testing, 
       
       <guid>https://anjanavakil.github.io/post/leetcode-tree/</guid>
       <description>LeetCode + 《剑指Offer II》刷题笔记。 树 二叉树的DFS 前序遍历 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&amp;lt;int&amp;gt; preorderTraversal(TreeNode* root) { vector&amp;lt;int&amp;gt; res; stack&amp;lt;TreeNode*&amp;gt; s; TreeNode* cur=root; while(cur || !s.empty()){ while(cur){ res.push_back(cur-&amp;gt;val); s.push(cur);</description>
-    </item>
-    
-    <item>
-      <title>LeetCode Sort</title>
-      <link>https://anjanavakil.github.io/post/leetcode-sort/</link>
-      <pubDate>Fri, 01 Jul 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/leetcode-sort/</guid>
-      <description>LeetCode + 《剑指Offer II》刷题笔记。 排序 Interval 56 Merge Intervals 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; merge(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; intervals) { sort(intervals.begin(),intervals.end()); vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; res; //avoid an edge case res.push_back(intervals[0]); for(int i=1;i&amp;lt;intervals.size();i++){ int start=intervals[i][0],end=intervals[i][1]; int lastEnd=res[res.size()-1][1]; if(start&amp;lt;=lastEnd){ //the reason of</description>
-    </item>
-    
-    <item>
-      <title>Vue</title>
-      <link>https://anjanavakil.github.io/post/vue/</link>
-      <pubDate>Mon, 20 Jun 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/vue/</guid>
-      <description></description>
     </item>
     
   </channel>

@@ -6,25 +6,14 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 28 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Decision Procedures</title>
-      <link>https://anjanavakil.github.io/post/decision-procedures/</link>
-      <pubDate>Wed, 28 Sep 2022 08:15:48 +0800</pubDate>
+      <title>Effective C&#43;&#43;</title>
+      <link>https://anjanavakil.github.io/post/effective-c&#43;&#43;/</link>
+      <pubDate>Fri, 30 Sep 2022 08:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/decision-procedures/</guid>
-      <description>Decision Procedures An Algorithmic Point of View Foreword to the first edition 刚开始阅读的时候没注意，第二遍阅读的时候发现foreword是Randal E. Bryant写的，就觉得这个名字很熟悉，</description>
-    </item>
-    
-    <item>
-      <title>Formal Methods</title>
-      <link>https://anjanavakil.github.io/post/formal-methods/</link>
-      <pubDate>Mon, 26 Sep 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/formal-methods/</guid>
-      <description>🔗: Use of Formal Methods at Amazon Web Services
-Use of Formal Methods at Amazon Web Services To safeguard that data, the core of each service relies on fault-tolerant distributed algorithms for replication, consistency, concurrency control, auto-scaling, load balancing, and other coordination tasks.
-We use deep design reviews, code reviews, static code analysis, stress testing, fault-injection testing, and many other techniques, but we still find that subtle bugs can hide in complex concurrent fault-tolerant systems.</description>
+      <guid>https://anjanavakil.github.io/post/effective-c&#43;&#43;/</guid>
+      <description>豆瓣🔗: Effective C++ Third Edition 55 Specific Ways to Improve Your Programs and Designs C++ 提供了4种不同又相辅相成的编程泛型(programming paradigms): procedural-based object-based object-oriented generics Accustoming Yourself to C++ View C++ as a federation of languages Prefer consts, enums, and inlines to #defines</description>
     </item>
     
     <item>
@@ -187,6 +176,15 @@ We use deep design reviews, code reviews, static code analysis, stress testing, 
       
       <guid>https://anjanavakil.github.io/post/vue/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>JVM</title>
+      <link>https://anjanavakil.github.io/post/jvm/</link>
+      <pubDate>Sun, 12 Jun 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/jvm/</guid>
+      <description>Java SE 8虚拟机规范：The Java® Virtual Machine Specification-Java SE 8 Edition 类加载子系统 运行时数据区概述及线程 Run-Time Data Areas The Java Virtual Machine defines various run-time data areas that are used during execution of a program. Some of these data areas are created on Java Virtual</description>
     </item>
     
   </channel>

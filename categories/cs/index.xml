@@ -6,25 +6,14 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 28 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Decision Procedures</title>
-      <link>https://anjanavakil.github.io/post/decision-procedures/</link>
-      <pubDate>Wed, 28 Sep 2022 08:15:48 +0800</pubDate>
+      <title>Effective C&#43;&#43;</title>
+      <link>https://anjanavakil.github.io/post/effective-c&#43;&#43;/</link>
+      <pubDate>Fri, 30 Sep 2022 08:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/decision-procedures/</guid>
-      <description>Decision Procedures An Algorithmic Point of View Foreword to the first edition 刚开始阅读的时候没注意，第二遍阅读的时候发现foreword是Randal E. Bryant写的，就觉得这个名字很熟悉，</description>
-    </item>
-    
-    <item>
-      <title>Formal Methods</title>
-      <link>https://anjanavakil.github.io/post/formal-methods/</link>
-      <pubDate>Mon, 26 Sep 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/formal-methods/</guid>
-      <description>🔗: Use of Formal Methods at Amazon Web Services
-Use of Formal Methods at Amazon Web Services To safeguard that data, the core of each service relies on fault-tolerant distributed algorithms for replication, consistency, concurrency control, auto-scaling, load balancing, and other coordination tasks.
-We use deep design reviews, code reviews, static code analysis, stress testing, fault-injection testing, and many other techniques, but we still find that subtle bugs can hide in complex concurrent fault-tolerant systems.</description>
+      <guid>https://anjanavakil.github.io/post/effective-c&#43;&#43;/</guid>
+      <description>豆瓣🔗: Effective C++ Third Edition 55 Specific Ways to Improve Your Programs and Designs C++ 提供了4种不同又相辅相成的编程泛型(programming paradigms): procedural-based object-based object-oriented generics Accustoming Yourself to C++ View C++ as a federation of languages Prefer consts, enums, and inlines to #defines</description>
     </item>
     
     <item>
@@ -189,6 +178,15 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
       
       <guid>https://anjanavakil.github.io/post/408/</guid>
       <description>CS 基础知识的笔记，不算是总结性的笔记，只是曾经备忘录上记录下来的和对于自己陌生的点，或许应该保存到blog上，抑或是考试教育的一种印证。 CO 1</description>
+    </item>
+    
+    <item>
+      <title>CS基础知识书籍推荐(已读)</title>
+      <link>https://anjanavakil.github.io/post/cs-book-recommendation/</link>
+      <pubDate>Sat, 15 Jan 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/cs-book-recommendation/</guid>
+      <description>豆瓣🔗： 《编码：隐匿在计算机软硬件背后的语言》 Code: The Hidden Language of Computer Hardware and Software 《计算机是怎样跑起来的》 《程序是怎样跑起来的》 《网络是怎样连接的》 《计算机系</description>
     </item>
     
   </channel>
