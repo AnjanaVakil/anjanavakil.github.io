@@ -69,7 +69,7 @@
 <meta itemprop="name" content="LeetCode String">
 <meta itemprop="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 字符串 014. 字符串中的变位词 剑指 Offer II 014. 字符串中的变位词 双指针 &#43; 哈希表 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"><meta itemprop="datePublished" content="2022-01-23T14:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-01-23T14:15:48+08:00" />
-<meta itemprop="wordCount" content="1883">
+<meta itemprop="wordCount" content="1996">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode String"/>
 <meta name="twitter:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 字符串 014. 字符串中的变位词 剑指 Offer II 014. 字符串中的变位词 双指针 &#43; 哈希表 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"/>
@@ -345,6 +345,11 @@
         <li><a href="#中心拓展">中心拓展</a></li>
       </ul>
     </li>
+    <li><a href="#777-swap-adjacent-in-lr-string">777 Swap Adjacent in LR String</a>
+      <ul>
+        <li><a href="#two-pointers">Two Pointers</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -412,8 +417,10 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>在上述函数checkInclusion中，第2个for循环中的<code>下标i</code>相当于<code>第2个指针</code>，指向<code>子字符串</code>的<code>最后一个字符</code>。第1个指针指向下标为<code>i-s1.length()</code>的位置。两个指针之间的子字符串的长度一直是字符串s1的长度。</p>
-<p>时间复杂度：O(m+n)。如果s1,s2的长度分别是m和n，基于双指针和哈希表的算法需要扫描字符串s1和s2各一次。</p>
-<p>空间复杂度是：O(1)。数组的长度是英文小写字母的个数（即26），是一个常数，也就是说，数组的大小不会随着输入字符串长度的变化而变化。</p>
+<ul>
+<li>时间复杂度：O(m+n)。如果s1,s2的长度分别是m和n，基于双指针和哈希表的算法需要扫描字符串s1和s2各一次。</li>
+<li>空间复杂度是：O(1)。数组的长度是英文小写字母的个数（即26），是一个常数，也就是说，数组的大小不会随着输入字符串长度的变化而变化。</li>
+</ul>
 <h2 id="015-字符串中的所有变位词">015. 字符串中的所有变位词</h2>
 <p><a href="https://leetcode-cn.com/problems/VabMRr/">剑指 Offer II 015. 字符串中的所有变位词</a></p>
 <div class="highlight"><div class="chroma">
@@ -542,8 +549,10 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>时间复杂度：O(m+n)。如果s,p的长度分别是m和n，基于双指针和哈希表的算法需要扫描字符串s和p各一次。</p>
-<p>空间复杂度是：O(1)</p>
+</div><ul>
+<li>时间复杂度：O(m+n)。如果s,p的长度分别是m和n，基于双指针和哈希表的算法需要扫描字符串s和p各一次。</li>
+<li>空间复杂度是：O(1)</li>
+</ul>
 <h2 id="016-不含重复字符的最长子字符串">016. 不含重复字符的最长子字符串</h2>
 <p><a href="https://leetcode-cn.com/problems/wtcaE1/">剑指 Offer II 016. 不含重复字符的最长子字符串</a></p>
 <p>注意：s 由英文字母、数字、符号和空格组成。</p>
@@ -768,8 +777,10 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>时间复杂度：O(|s|)，其中 |s| 是字符串 s 的长度。</p>
-<p>空间复杂度：O(1)</p>
+</div><ul>
+<li>时间复杂度：O(|s|)，其中 |s| 是字符串 s 的长度。</li>
+<li>空间复杂度：O(1)</li>
+</ul>
 <h2 id="019-最多删除一个字符得到回文">019. 最多删除一个字符得到回文</h2>
 <p><a href="https://leetcode-cn.com/problems/RQku0D/">剑指 Offer II 019. 最多删除一个字符得到回文</a></p>
 <p><code>s</code> 由小写英文字母组成。</p>
@@ -877,8 +888,10 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>时间复杂度：O(n^3)</p>
-<p>空间复杂度：O(1)</p>
+</div><ul>
+<li>时间复杂度：O(n^3)</li>
+<li>空间复杂度：O(1)</li>
+</ul>
 <h3 id="中心拓展">中心拓展</h3>
 <p>枚举每一个可能的回文中心，然后用两个指针分别向左右两边拓展，当两个指针指向的元素相同的时候就拓展，否则停止拓展。</p>
 <div class="highlight"><div class="chroma">
@@ -929,8 +942,66 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>时间复杂度：O(n^2)</p>
-<p>空间复杂度：O(1)</p>
+</div><ul>
+<li>时间复杂度：O(n^2)</li>
+<li>空间复杂度：O(1)</li>
+</ul>
+<h2 id="777-swap-adjacent-in-lr-string">777 Swap Adjacent in LR String</h2>
+<h3 id="two-pointers">Two Pointers</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">canTransform</span><span class="p">(</span><span class="n">string</span> <span class="n">start</span><span class="p">,</span> <span class="n">string</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">start</span><span class="p">.</span><span class="n">length</span><span class="p">()</span><span class="o">!=</span><span class="n">end</span><span class="p">.</span><span class="n">length</span><span class="p">())</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">start</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span> <span class="o">||</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;X&#39;</span><span class="p">)</span> <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span><span class="p">(</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">end</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;X&#39;</span><span class="p">)</span> <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">n</span> <span class="o">||</span> <span class="n">j</span><span class="o">==</span><span class="n">n</span><span class="p">)</span> <span class="k">return</span> <span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//relative order
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//L: true:startIndex&gt;endIndex false:else
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//R: true:startIndex&lt;endIndex false:else
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span><span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="n">end</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;L&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">j</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;R&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">i</span><span class="o">&gt;</span><span class="n">j</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(1)</li>
+</ul>
 
     </div>
 

@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="豆瓣🔗: Effective C&#43;&#43; Third Edition 55 Specific Ways to Improve Your Programs and Designs C&#43;&#43; 提供了4种不同又相辅相成的编程泛型(programming paradigms): procedural-based object-based object-oriented generics Accustoming Yourself to C&#43;&#43; View C&#43;&#43; as a federation of languages Prefer consts, enums, and inlines to #defines" />
+  <meta name="description" content="豆瓣🔗: 英文版：Effective C&#43;&#43; Third Edition 中文版：Effective C&#43;&#43; Effective C&#43;&#43; Scott Meyers Third Edition 55 Specific Ways to Improve Your Programs and Designs C&#43;&#43; 提供了4种不同又相辅相成的编程泛型(pr" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,19 +60,19 @@
 
 
 <meta property="og:title" content="Effective C&#43;&#43;" />
-<meta property="og:description" content="豆瓣🔗: Effective C&#43;&#43; Third Edition 55 Specific Ways to Improve Your Programs and Designs C&#43;&#43; 提供了4种不同又相辅相成的编程泛型(programming paradigms): procedural-based object-based object-oriented generics Accustoming Yourself to C&#43;&#43; View C&#43;&#43; as a federation of languages Prefer consts, enums, and inlines to #defines" />
+<meta property="og:description" content="豆瓣🔗: 英文版：Effective C&#43;&#43; Third Edition 中文版：Effective C&#43;&#43; Effective C&#43;&#43; Scott Meyers Third Edition 55 Specific Ways to Improve Your Programs and Designs C&#43;&#43; 提供了4种不同又相辅相成的编程泛型(pr" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/effective-c&#43;&#43;/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-09-30T08:15:48+08:00" />
 <meta property="article:modified_time" content="2022-09-30T08:15:48+08:00" />
 
 <meta itemprop="name" content="Effective C&#43;&#43;">
-<meta itemprop="description" content="豆瓣🔗: Effective C&#43;&#43; Third Edition 55 Specific Ways to Improve Your Programs and Designs C&#43;&#43; 提供了4种不同又相辅相成的编程泛型(programming paradigms): procedural-based object-based object-oriented generics Accustoming Yourself to C&#43;&#43; View C&#43;&#43; as a federation of languages Prefer consts, enums, and inlines to #defines"><meta itemprop="datePublished" content="2022-09-30T08:15:48+08:00" />
+<meta itemprop="description" content="豆瓣🔗: 英文版：Effective C&#43;&#43; Third Edition 中文版：Effective C&#43;&#43; Effective C&#43;&#43; Scott Meyers Third Edition 55 Specific Ways to Improve Your Programs and Designs C&#43;&#43; 提供了4种不同又相辅相成的编程泛型(pr"><meta itemprop="datePublished" content="2022-09-30T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-09-30T08:15:48+08:00" />
-<meta itemprop="wordCount" content="458">
-<meta itemprop="keywords" content="CS💻," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="wordCount" content="1423">
+<meta itemprop="keywords" content="CS BOOK📓," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Effective C&#43;&#43;"/>
-<meta name="twitter:description" content="豆瓣🔗: Effective C&#43;&#43; Third Edition 55 Specific Ways to Improve Your Programs and Designs C&#43;&#43; 提供了4种不同又相辅相成的编程泛型(programming paradigms): procedural-based object-based object-oriented generics Accustoming Yourself to C&#43;&#43; View C&#43;&#43; as a federation of languages Prefer consts, enums, and inlines to #defines"/>
+<meta name="twitter:description" content="豆瓣🔗: 英文版：Effective C&#43;&#43; Third Edition 中文版：Effective C&#43;&#43; Effective C&#43;&#43; Scott Meyers Third Edition 55 Specific Ways to Improve Your Programs and Designs C&#43;&#43; 提供了4种不同又相辅相成的编程泛型(pr"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -299,7 +299,7 @@
           2022-09-30
         </time>
         <div class="post-category">
-            <a href="https://anjanavakil.github.io/categories/cs/"> CS💻 </a>
+            <a href="https://anjanavakil.github.io/categories/cs-book/"> CS BOOK📓 </a>
             
           </div>
         
@@ -322,42 +322,91 @@
     <li><a href="#effective-c">Effective C++</a>
       <ul>
         <li><a href="#55-specific-ways-to-improve-your-programs-and-designs">55 Specific Ways to Improve Your Programs and Designs</a></li>
-        <li><a href="#accustoming-yourself-to-c">Accustoming Yourself to C++</a></li>
+      </ul>
+    </li>
+    <li><a href="#accustoming-yourself-to-c">Accustoming Yourself to C++</a>
+      <ul>
+        <li><a href="#view-c-as-a-federation-of-languages">View C++ as a federation of languages</a></li>
+        <li><a href="#prefer-consts-enums-and-inlines-to-defines">Prefer consts, enums, and inlines to #defines</a></li>
+        <li><a href="#use-const-whenever-possible">use const whenever possible</a></li>
+        <li><a href="#make-sure-the-objects-are-initialized-before-theyre-used">Make sure the objects are initialized before they&rsquo;re used</a></li>
         <li><a href="#constructors-destructors-and-assignment-operators">Constructors, Destructors, and Assignment Operators</a></li>
+        <li><a href="#know-what-functions-c-silently-writes-and-calls">Know what functions C++ silently writes and calls</a></li>
+        <li><a href="#explicitly-disallow-the-use-of-compiler-generated-functions-you-do-not-want">Explicitly disallow the use of compiler-generated functions you do not want</a></li>
+        <li><a href="#declare-destructors-virtual-in-polymorphic-base-classes">Declare destructors virtual in polymorphic base classes</a></li>
+        <li><a href="#prevent-exceptions-from-leaving-destructors">Prevent exceptions from leaving destructors</a></li>
+        <li><a href="#never-call-virtual-functions-during-construction-or-destruction">Never call virtual functions during construction or destruction</a></li>
+        <li><a href="#have-assignment-operators-return-a-reference-to-this">Have assignment operators return a reference to *this</a></li>
+        <li><a href="#handle-assignment-to-self-in-operator">Handle assignment to self in operator=</a></li>
+        <li><a href="#copy-all-parts-of-an-object">Copy all parts of an object</a></li>
       </ul>
     </li>
     <li><a href="#resource-management">Resource Management</a>
       <ul>
-        <li></li>
+        <li><a href="#use-objects-to-manage-resources">Use objects to manage resources</a></li>
+        <li><a href="#think-carefully-about-copying-behavior-in-resource-managing-classes">Think carefully about copying behavior in resource-managing classes</a></li>
         <li><a href="#provide-access-to-raw-resources-in-resource-managing-classes">Provide access to raw resources in resource-managing classes</a></li>
+        <li><a href="#use-the-same-form-in-corresponding-uses-of-new-and-delete">Use the same form in corresponding uses of new and delete</a></li>
+        <li><a href="#store-need-objects-in-smart-pointers-in-standalone-statements">Store need objects in smart pointers in standalone statements</a></li>
       </ul>
     </li>
     <li><a href="#design-and-declarations">Design and Declarations</a>
       <ul>
-        <li></li>
+        <li><a href="#make-interfaces-easy-to-use-correctly-and-hard-to-use-incorrectly">Make interfaces easy to use correctly and hard to use incorrectly</a></li>
         <li><a href="#treat-class-design-as-type-design">Treat class design as type design</a></li>
+        <li><a href="#prefeer-pass-by-reference-to-const-to-pass-by-value">Prefeer pass-by-reference-to-const to pass-by-value</a></li>
+        <li><a href="#dont-try-to-return-a-reference-when-you-must-return-an-object">Don&rsquo;t try to return a reference when you must return an object</a></li>
+        <li><a href="#declare-data-members-private">Declare data members private</a></li>
+        <li><a href="#prefer-non-member-non-friend-functions-to-member-functions">Prefer non-member non-friend functions to member functions</a></li>
+        <li><a href="#declare-non-member-functions-when-type-conversions-should-apply-to-all-parameters">Declare non-member functions when type conversions should apply to all parameters</a></li>
+        <li><a href="#consider-support-for-a-non-throwing-swap">Consider support for a non-throwing swap</a></li>
       </ul>
     </li>
     <li><a href="#implementations">Implementations</a>
       <ul>
-        <li></li>
+        <li><a href="#postpone-variable-definitions-as-long-as-possible">Postpone variable definitions as long as possible</a></li>
+        <li><a href="#minimize-casting">Minimize casting</a></li>
+        <li><a href="#avoid-returning-handles-to-object-internals">Avoid returning &ldquo;handles&rdquo; to object internals</a></li>
+        <li><a href="#strive-for-exception-safe-code">Strive for exception-safe code</a></li>
+        <li><a href="#understand-the-ins-and-outs-of-inlining">Understand the ins and outs of inlining</a></li>
+        <li><a href="#minimize-compilation-dependencies-between-files">Minimize compilation dependencies between files</a></li>
         <li><a href="#inheritance-and-object-oriented-design">Inheritance and Object-Oriented Design</a></li>
+        <li><a href="#make-sure-public-inheritance-models-is-a">Make sure public inheritance models &ldquo;is-a&rdquo;</a></li>
+        <li><a href="#avoid-hiding-inherited-names">Avoid hiding inherited names</a></li>
+        <li><a href="#differentiate-between-inheritance-of-interface-and-inheritance-of-implementation">Differentiate between inheritance of interface and inheritance of implementation.</a></li>
+        <li><a href="#consider-alternatives-to-virtual-functions">Consider alternatives to virtual functions</a></li>
+        <li><a href="#never-redefine-an-inherited-non-virtual-function">Never redefine an inherited non-virtual function</a></li>
+        <li><a href="#never-redefine-a-functionss-inherited-default-parameter-value">Never redefine a functions&rsquo;s inherited default parameter value</a></li>
+        <li><a href="#model-has-a-or-is-implemented-in-terms-of-through-composition">Model &ldquo;has-a&rdquo; or &ldquo;is-implemented-in-terms-of&rdquo; through composition</a></li>
+        <li><a href="#use-private-inheritance-judiciously">Use private inheritance judiciously</a></li>
+        <li><a href="#use-multiple-inheritance-judiciously">use multiple inheritance judiciously</a></li>
       </ul>
     </li>
     <li><a href="#templates-and-generic-programming">Templates and generic Programming</a>
       <ul>
-        <li></li>
+        <li><a href="#understand-implicit-interfaces-and-compile-time-polymorphism">Understand implicit interfaces and compile-time polymorphism</a></li>
+        <li><a href="#understand-the-two-meanings-of-typename">Understand the two meanings of typename</a></li>
         <li><a href="#know-how-to-access-names-in-templatized-base-calsses">Know how to access names in templatized base calsses</a></li>
+        <li><a href="#factor-parameter-independent-code-out-of-templates">Factor parameter-independent code out of templates</a></li>
+        <li><a href="#use-member-function-templates-to-accept-all-compatible-types">Use member function templates to accept &ldquo;all compatible types&rdquo;</a></li>
+        <li><a href="#define-non-member-functions-inside-templates-when-type-conversions-are-desired">Define non-member functions inside templates when type conversions are desired</a></li>
+        <li><a href="#use-traits-classes-fro-information-about-types">Use traits classes fro information about types</a></li>
+        <li><a href="#be-aware-of-template-metaprogramming">Be aware of template metaprogramming</a></li>
       </ul>
     </li>
     <li><a href="#customing-new-and-delete">Customing new and delete</a>
       <ul>
-        <li></li>
+        <li><a href="#understand-the-behavior-of-the-new-handler">Understand the behavior of the new-handler</a></li>
+        <li><a href="#understand-when-it-makes-sense-to-replace-new-and-delete">Understand when it makes sense to replace new and delete</a></li>
+        <li><a href="#adhere-to-convention-when-writing-new-and-delete">Adhere to convention when writing new and delete</a></li>
+        <li><a href="#write-placement-delete-if-you-write-placement-new">Write placement delete if you write placement new</a></li>
       </ul>
     </li>
     <li><a href="#miscellany">Miscellany</a>
       <ul>
-        <li></li>
+        <li><a href="#pay-attention-to-compiler-warnings">Pay attention to compiler warnings</a></li>
+        <li><a href="#familiarize-yourself-with-the-standard-library-including-tr1">Familiarize yourself with the standard library, including TR1</a></li>
+        <li><a href="#familiarize-yourself-with-boost">Familiarize yourself with Boost</a></li>
       </ul>
     </li>
   </ul>
@@ -368,8 +417,12 @@
     
     <div class="post-content">
       <p>豆瓣🔗:</p>
+<ul>
+<li>英文版：<a href="https://book.douban.com/subject/1754479/">Effective C++ Third Edition</a></li>
+<li>中文版：<a href="https://book.douban.com/subject/5387403/">Effective C++</a></li>
+</ul>
 <h2 id="effective-c">Effective C++</h2>
-<p>Third Edition</p>
+<p>Scott Meyers Third Edition</p>
 <h3 id="55-specific-ways-to-improve-your-programs-and-designs">55 Specific Ways to Improve Your Programs and Designs</h3>
 <p>C++ 提供了4种不同又相辅相成的编程泛型(programming paradigms):</p>
 <ul>
@@ -378,70 +431,392 @@
 <li>object-oriented</li>
 <li>generics</li>
 </ul>
-<h3 id="accustoming-yourself-to-c">Accustoming Yourself to C++</h3>
-<h4 id="view-c-as-a-federation-of-languages">View C++ as a federation of languages</h4>
-<h4 id="prefer-consts-enums-and-inlines-to-defines">Prefer consts, enums, and inlines to #defines</h4>
-<h4 id="use-const-whenever-possible">use const whenever possible</h4>
-<h4 id="make-sure-the-objects-are-initialized-before-theyre-used">Make sure the objects are initialized before they&rsquo;re used</h4>
-<h3 id="constructors-destructors-and-assignment-operators">Constructors, Destructors, and Assignment Operators</h3>
-<h4 id="know-what-functions-c-silently-writes-and-calls">Know what functions C++ silently writes and calls</h4>
-<h4 id="explicitly-disallow-the-use-of-compiler-generated-functions-you-do-not-want">Explicitly disallow the use of compiler-generated functions you do not want</h4>
-<h4 id="declare-destructors-virtual-in-polymorphic-base-classes">Declare destructors virtual in polymorphic base classes</h4>
-<h4 id="prevent-exceptions-from-leaving-destructors">Prevent exceptions from leaving destructors</h4>
-<h4 id="never-call-virtual-functions-during-construction-or-destruction">Never call virtual functions during construction or destruction</h4>
-<h4 id="have-assignment-operators-return-a-reference-to-this">Have assignment operators return a reference to *this</h4>
-<h4 id="handle-assignment-to-self-in-operator">Handle assignment to self in operator=</h4>
-<h4 id="copy-all-parts-of-an-object">Copy all parts of an object</h4>
+<h2 id="accustoming-yourself-to-c">Accustoming Yourself to C++</h2>
+<h3 id="view-c-as-a-federation-of-languages">View C++ as a federation of languages</h3>
+<p>C++: a multiparadigm programming language</p>
+<ul>
+<li>procedural</li>
+<li>object-oriented</li>
+<li>functional</li>
+<li>generic</li>
+<li>metaprogramming</li>
+</ul>
+<p>C++&rsquo;s four primary sublanguages:</p>
+<ul>
+<li>C</li>
+<li>Object-Oriented C++</li>
+<li>Template C++</li>
+<li>The STL</li>
+</ul>
+<p>内置 (C-like) 类型：pass-by-value 通常比 pass-by-reference 高效。</p>
+<p>从 C part of C++ 移往 Object-Oriented C++, 由于 用户自定义(user-defined) 构造函数和析构函数的存在，pass-by-reference-to-const 往往更好。 ——why?</p>
+<p>For example, <code>pass-by-value</code> is generally more efficient than <code>pass-by-reference</code> for built-in (i.e., C-like) types, but when you move from the C part of C++ to Object-Oriented C++, the existence of <code>user-defined constructors and destructors</code> means that <code>pass-by-reference-to-const</code> is usually better. This is especially the case when working in <code>Template C++</code>, because there, you don&rsquo;t even know the type of object you&rsquo;re dealing with. When you cross into the <code>STL</code>, however, you know that <code>iterators and function objects</code> are modeled on <code>pointers in C</code>, so for <code>iterator and function objects in the STL</code>, the <code>old C pass-by-value</code> rule applied again.</p>
+<p>Rules for effective C++ programming vary, depending on the part of C++ you are using.</p>
+<h3 id="prefer-consts-enums-and-inlines-to-defines">Prefer consts, enums, and inlines to #defines</h3>
+<p>This item might better be called &ldquo;Prefer the compiler to the preprocessor&rdquo;.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#define SPECT_RATIO 1.653
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">const</span> <span class="kt">double</span> <span class="n">AspectRation</span><span class="o">=</span><span class="mf">1.653</span><span class="p">;</span> <span class="c1">//uppercase names are usually for 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                                <span class="c1">//macros, hence the name change
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>define constant pointers:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">//To define a constant char*-based string in a header file
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="k">const</span> <span class="n">authorName</span><span class="o">=</span><span class="s">&#34;Scott Meyers&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//string objects are generally prferable to their char*-based progenitors
+</span></span></span><span class="line"><span class="cl"><span class="c1">//authorName if often better defined this way
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">authorName</span><span class="p">(</span><span class="s">&#34;Scott Meyers&#34;</span><span class="p">);</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>class-specific constants: make it a static member</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">//a declaration of NumTurns, not a definition
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">GamePlayer</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  	<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">NumTurns</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  	<span class="kt">int</span> <span class="n">scores</span><span class="p">[</span><span class="n">NumTurns</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  	<span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//a separate definition 
+</span></span></span><span class="line"><span class="cl"><span class="c1">//If you do take the address of a class constant, 
+</span></span></span><span class="line"><span class="cl"><span class="c1">//or if your compiler incorrectly insists on a definition even if you don&#39;t take the address
+</span></span></span><span class="line"><span class="cl"><span class="c1">//put this in an implementation file,not a header file.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">const</span> <span class="kt">int</span> <span class="n">GamePlayer</span><span class="o">::</span><span class="n">NumTurns</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">//put the initial value at the point definition
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">CostEstimate</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  	<span class="k">static</span> <span class="k">const</span> <span class="kt">double</span> <span class="n">FudgeFactor</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  	<span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">double</span> <span class="n">CostEstimate</span><span class="o">::</span><span class="n">FudgeFactor</span><span class="o">=</span><span class="mf">1.35</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>the values of an enumerated type can be used where ints are expected:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">GamePlayer</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  	<span class="k">enum</span> <span class="p">{</span><span class="n">NumTurns</span><span class="o">=</span><span class="mi">5</span><span class="p">};</span> <span class="c1">//&#34;the enum hack&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  	<span class="kt">int</span> <span class="n">scores</span><span class="p">[</span><span class="n">NumTurns</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  	<span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The enum hack:</p>
+<p>It&rsquo;s legal to take the address of a const, but is&rsquo;s not legal to take the address of an enum and #define.</p>
+<p>Also, through good compilers won&rsquo;t set aside storage for const objects of integral types (unless you create a pointer or reference to the object), sloppy compilers may, and you may not be willing to set aside memory for such objects. Like enums, #defines never result in that kind of unnecessary memory allocation.</p>
+<p>the enum back is a fundamental technique of template meta programming.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#define CALL_WITH_MAX(a,b) f((a)&gt;(b)?(a):(b))
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">CALL_WITH_MAX</span><span class="p">(</span><span class="o">++</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">);</span> <span class="c1">// a is incremented twice
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">CALL_WITH_MAX</span><span class="p">(</span><span class="o">++</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">+</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// a is incremented once
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>use a template for an inline function:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">inline</span> <span class="kt">void</span> <span class="n">callWithMax</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="o">&gt;</span><span class="n">b</span><span class="o">?</span><span class="nl">a</span><span class="p">:</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>For simple constants, prefer const obejcts or enums to #defines.</p>
+<p>For function-like macros, prefer inline functions to #defines.</p>
+<h3 id="use-const-whenever-possible">use const whenever possible</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">greeting</span><span class="p">[]</span><span class="o">=</span><span class="s">&#34;Hello&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="o">=</span><span class="n">greeting</span><span class="p">;</span> <span class="c1">//non-const pointer, non-const data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">p</span><span class="o">=</span><span class="n">greeting</span><span class="p">;</span> <span class="c1">//non-const pointer, const data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span><span class="o">*</span> <span class="k">const</span> <span class="n">p</span><span class="o">=</span><span class="n">greeting</span><span class="p">;</span> <span class="c1">//const pointer, non-const data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="k">const</span> <span class="n">p</span><span class="o">=</span><span class="n">greeting</span><span class="p">;</span> <span class="c1">//const pointer, const data
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>When what&rsquo;s pointed to is constant:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">f1</span><span class="p">(</span><span class="k">const</span> <span class="n">Widget</span> <span class="o">*</span><span class="n">pw</span><span class="p">);</span> <span class="c1">//f1 takes a pointer to a constant Widget object
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">f2</span><span class="p">(</span><span class="n">Widget</span> <span class="k">const</span> <span class="o">*</span><span class="n">pw</span><span class="p">);</span> <span class="c1">//so does f2
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>STL iterators:</p>
+<ul>
+<li>an iterator const: declare a pointer const (i.e., declaring a T* const pointer): the iterator isn&rsquo;t allowed to point to something different, but the thing is points to may be modifed.</li>
+<li>a const_iterator: an iterator that points to something that can&rsquo;t be modified (i.e., the STL analogue of const T* pointer)</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">iter</span><span class="o">=</span><span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="c1">//iter acts like a T* const
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">*</span><span class="n">iter</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span> <span class="c1">//OK, changes what iter points to
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">++</span><span class="n">iter</span><span class="p">;</span> <span class="c1">// error! iter is const
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">const_iterator</span> <span class="n">cIter</span><span class="o">=</span><span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="c1">//Citer acts like a const T*
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">*</span><span class="n">cIter</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span> <span class="c1">//error! *cIter is const
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">++</span><span class="n">cIter</span><span class="p">;</span> <span class="c1">//fine, changes cIter
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Rational</span> <span class="p">{...};</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">Rational</span> <span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="k">const</span> <span class="n">Rational</span><span class="o">&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="n">Rational</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//why should the result of operator* be a const object?
+</span></span></span><span class="line"><span class="cl"><span class="c1">//if it weren&#39;t, clients would be able to commit atrocities like this:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Rational</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="o">=</span><span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">=</span><span class="n">c</span><span class="p">)</span> <span class="p">...</span> <span class="c1">//oops, meant to do a comparison!
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="const-member-functions">const Member Functions</h4>
+<p>an important feature of C++: member functions differing only in their constness can be overloaded.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TextBlock</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  	<span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">char</span><span class="o">&amp;</span> <span class="k">operator</span><span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="n">size_t</span> <span class="n">position</span><span class="p">)</span> <span class="k">const</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">text</span><span class="p">[</span><span class="n">position</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 		<span class="kt">char</span><span class="o">&amp;</span> <span class="k">operator</span><span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="n">size_t</span> <span class="n">position</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">text</span><span class="p">[</span><span class="n">position</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  	<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">text</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">TextBlock</span> <span class="nf">tb</span><span class="p">(</span><span class="s">&#34;Hello&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">tb</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">TextBlock</span> <span class="nf">ctb</span><span class="p">(</span><span class="s">&#34;World&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ctb</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="k">const</span> <span class="n">TextBlock</span><span class="o">&amp;</span> <span class="n">ctb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ctb</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">tb</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">//fine
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">tb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="sc">&#39;x&#39;</span><span class="p">;</span> <span class="c1">//fine
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ctb</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">//fine
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ctb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="sc">&#39;x&#39;</span><span class="p">;</span> <span class="c1">//error!
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="make-sure-the-objects-are-initialized-before-theyre-used">Make sure the objects are initialized before they&rsquo;re used</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"></code></pre></td></tr></table>
+</div>
+</div><h3 id="constructors-destructors-and-assignment-operators">Constructors, Destructors, and Assignment Operators</h3>
+<h3 id="know-what-functions-c-silently-writes-and-calls">Know what functions C++ silently writes and calls</h3>
+<h3 id="explicitly-disallow-the-use-of-compiler-generated-functions-you-do-not-want">Explicitly disallow the use of compiler-generated functions you do not want</h3>
+<h3 id="declare-destructors-virtual-in-polymorphic-base-classes">Declare destructors virtual in polymorphic base classes</h3>
+<h3 id="prevent-exceptions-from-leaving-destructors">Prevent exceptions from leaving destructors</h3>
+<h3 id="never-call-virtual-functions-during-construction-or-destruction">Never call virtual functions during construction or destruction</h3>
+<h3 id="have-assignment-operators-return-a-reference-to-this">Have assignment operators return a reference to *this</h3>
+<h3 id="handle-assignment-to-self-in-operator">Handle assignment to self in operator=</h3>
+<h3 id="copy-all-parts-of-an-object">Copy all parts of an object</h3>
 <h2 id="resource-management">Resource Management</h2>
-<h4 id="use-objects-to-manage-resources">Use objects to manage resources</h4>
-<h4 id="think-carefully-about-copying-behavior-in-resource-managing-classes">Think carefully about copying behavior in resource-managing classes</h4>
+<h3 id="use-objects-to-manage-resources">Use objects to manage resources</h3>
+<h3 id="think-carefully-about-copying-behavior-in-resource-managing-classes">Think carefully about copying behavior in resource-managing classes</h3>
 <h3 id="provide-access-to-raw-resources-in-resource-managing-classes">Provide access to raw resources in resource-managing classes</h3>
-<h4 id="use-the-same-form-in-corresponding-uses-of-new-and-delete">Use the same form in corresponding uses of new and delete</h4>
-<h4 id="store-need-objects-in-smart-pointers-in-standalone-statements">Store need objects in smart pointers in standalone statements</h4>
+<h3 id="use-the-same-form-in-corresponding-uses-of-new-and-delete">Use the same form in corresponding uses of new and delete</h3>
+<h3 id="store-need-objects-in-smart-pointers-in-standalone-statements">Store need objects in smart pointers in standalone statements</h3>
 <h2 id="design-and-declarations">Design and Declarations</h2>
-<h4 id="make-interfaces-easy-to-use-correctly-and-hard-to-use-incorrectly">Make interfaces easy to use correctly and hard to use incorrectly</h4>
+<h3 id="make-interfaces-easy-to-use-correctly-and-hard-to-use-incorrectly">Make interfaces easy to use correctly and hard to use incorrectly</h3>
 <h3 id="treat-class-design-as-type-design">Treat class design as type design</h3>
-<h4 id="prefeer-pass-by-reference-to-const-to-pass-by-value">Prefeer pass-by-reference-to-const to pass-by-value</h4>
-<h4 id="dont-try-to-return-a-reference-when-you-must-return-an-object">Don&rsquo;t try to return a reference when you must return an object</h4>
-<h4 id="declare-data-members-private">Declare data members private</h4>
-<h4 id="prefer-non-member-non-friend-functions-to-member-functions">Prefer non-member non-friend functions to member functions</h4>
-<h4 id="declare-non-member-functions-when-type-conversions-should-apply-to-all-parameters">Declare non-member functions when type conversions should apply to all parameters</h4>
-<h4 id="consider-support-for-a-non-throwing-swap">Consider support for a non-throwing swap</h4>
+<h3 id="prefeer-pass-by-reference-to-const-to-pass-by-value">Prefeer pass-by-reference-to-const to pass-by-value</h3>
+<h3 id="dont-try-to-return-a-reference-when-you-must-return-an-object">Don&rsquo;t try to return a reference when you must return an object</h3>
+<h3 id="declare-data-members-private">Declare data members private</h3>
+<h3 id="prefer-non-member-non-friend-functions-to-member-functions">Prefer non-member non-friend functions to member functions</h3>
+<h3 id="declare-non-member-functions-when-type-conversions-should-apply-to-all-parameters">Declare non-member functions when type conversions should apply to all parameters</h3>
+<h3 id="consider-support-for-a-non-throwing-swap">Consider support for a non-throwing swap</h3>
 <h2 id="implementations">Implementations</h2>
-<h4 id="postpone-variable-definitions-as-long-as-possible">Postpone variable definitions as long as possible</h4>
-<h4 id="minimize-casting">Minimize casting</h4>
-<h4 id="avoid-returning-handles-to-object-internals">Avoid returning &ldquo;handles&rdquo; to object internals</h4>
-<h4 id="strive-for-exception-safe-code">Strive for exception-safe code</h4>
-<h4 id="understand-the-ins-and-outs-of-inlining">Understand the ins and outs of inlining</h4>
-<h4 id="minimize-compilation-dependencies-between-files">Minimize compilation dependencies between files</h4>
+<h3 id="postpone-variable-definitions-as-long-as-possible">Postpone variable definitions as long as possible</h3>
+<h3 id="minimize-casting">Minimize casting</h3>
+<h3 id="avoid-returning-handles-to-object-internals">Avoid returning &ldquo;handles&rdquo; to object internals</h3>
+<h3 id="strive-for-exception-safe-code">Strive for exception-safe code</h3>
+<h3 id="understand-the-ins-and-outs-of-inlining">Understand the ins and outs of inlining</h3>
+<h3 id="minimize-compilation-dependencies-between-files">Minimize compilation dependencies between files</h3>
 <h3 id="inheritance-and-object-oriented-design">Inheritance and Object-Oriented Design</h3>
-<h4 id="make-sure-public-inheritance-models-is-a">Make sure public inheritance models &ldquo;is-a&rdquo;</h4>
-<h4 id="avoid-hiding-inherited-names">Avoid hiding inherited names</h4>
-<h4 id="differentiate-between-inheritance-of-interface-and-inheritance-of-implementation">Differentiate between inheritance of interface and inheritance of implementation.</h4>
-<h4 id="consider-alternatives-to-virtual-functions">Consider alternatives to virtual functions</h4>
-<h4 id="never-redefine-an-inherited-non-virtual-function">Never redefine an inherited non-virtual function</h4>
-<h4 id="never-redefine-a-functionss-inherited-default-parameter-value">Never redefine a functions&rsquo;s inherited default parameter value</h4>
-<h4 id="model-has-a-or-is-implemented-in-terms-of-through-composition">Model &ldquo;has-a&rdquo; or &ldquo;is-implemented-in-terms-of&rdquo; through composition</h4>
-<h4 id="use-private-inheritance-judiciously">Use private inheritance judiciously</h4>
-<h4 id="use-multiple-inheritance-judiciously">use multiple inheritance judiciously</h4>
+<h3 id="make-sure-public-inheritance-models-is-a">Make sure public inheritance models &ldquo;is-a&rdquo;</h3>
+<h3 id="avoid-hiding-inherited-names">Avoid hiding inherited names</h3>
+<h3 id="differentiate-between-inheritance-of-interface-and-inheritance-of-implementation">Differentiate between inheritance of interface and inheritance of implementation.</h3>
+<h3 id="consider-alternatives-to-virtual-functions">Consider alternatives to virtual functions</h3>
+<h3 id="never-redefine-an-inherited-non-virtual-function">Never redefine an inherited non-virtual function</h3>
+<h3 id="never-redefine-a-functionss-inherited-default-parameter-value">Never redefine a functions&rsquo;s inherited default parameter value</h3>
+<h3 id="model-has-a-or-is-implemented-in-terms-of-through-composition">Model &ldquo;has-a&rdquo; or &ldquo;is-implemented-in-terms-of&rdquo; through composition</h3>
+<h3 id="use-private-inheritance-judiciously">Use private inheritance judiciously</h3>
+<h3 id="use-multiple-inheritance-judiciously">use multiple inheritance judiciously</h3>
 <h2 id="templates-and-generic-programming">Templates and generic Programming</h2>
-<h4 id="understand-implicit-interfaces-and-compile-time-polymorphism">Understand implicit interfaces and compile-time polymorphism</h4>
-<h4 id="understand-the-two-meanings-of-typename">Understand the two meanings of typename</h4>
+<h3 id="understand-implicit-interfaces-and-compile-time-polymorphism">Understand implicit interfaces and compile-time polymorphism</h3>
+<h3 id="understand-the-two-meanings-of-typename">Understand the two meanings of typename</h3>
 <h3 id="know-how-to-access-names-in-templatized-base-calsses">Know how to access names in templatized base calsses</h3>
-<h4 id="factor-parameter-independent-code-out-of-templates">Factor parameter-independent code out of templates</h4>
-<h4 id="use-member-function-templates-to-accept-all-compatible-types">Use member function templates to accept &ldquo;all compatible types&rdquo;</h4>
-<h4 id="define-non-member-functions-inside-templates-when-type-conversions-are-desired">Define non-member functions inside templates when type conversions are desired</h4>
-<h4 id="use-traits-classes-fro-information-about-types">Use traits classes fro information about types</h4>
-<h4 id="be-aware-of-template-metaprogramming">Be aware of template metaprogramming</h4>
+<h3 id="factor-parameter-independent-code-out-of-templates">Factor parameter-independent code out of templates</h3>
+<h3 id="use-member-function-templates-to-accept-all-compatible-types">Use member function templates to accept &ldquo;all compatible types&rdquo;</h3>
+<h3 id="define-non-member-functions-inside-templates-when-type-conversions-are-desired">Define non-member functions inside templates when type conversions are desired</h3>
+<h3 id="use-traits-classes-fro-information-about-types">Use traits classes fro information about types</h3>
+<h3 id="be-aware-of-template-metaprogramming">Be aware of template metaprogramming</h3>
 <h2 id="customing-new-and-delete">Customing new and delete</h2>
-<h4 id="understand-the-behavior-of-the-new-handler">Understand the behavior of the new-handler</h4>
-<h4 id="understand-when-it-makes-sense-to-replace-new-and-delete">Understand when it makes sense to replace new and delete</h4>
-<h4 id="adhere-to-convention-when-writing-new-and-delete">Adhere to convention when writing new and delete</h4>
-<h4 id="write-placement-delete-if-you-write-placement-new">Write placement delete if you write placement new</h4>
+<h3 id="understand-the-behavior-of-the-new-handler">Understand the behavior of the new-handler</h3>
+<h3 id="understand-when-it-makes-sense-to-replace-new-and-delete">Understand when it makes sense to replace new and delete</h3>
+<h3 id="adhere-to-convention-when-writing-new-and-delete">Adhere to convention when writing new and delete</h3>
+<h3 id="write-placement-delete-if-you-write-placement-new">Write placement delete if you write placement new</h3>
 <h2 id="miscellany">Miscellany</h2>
-<h4 id="pay-attention-to-compiler-warnings">Pay attention to compiler warnings</h4>
-<h4 id="familiarize-yourself-with-the-standard-library-including-tr1">Familiarize yourself with the standard library, including TR1</h4>
-<h4 id="familiarize-yourself-with-boost">Familiarize yourself with Boost</h4>
+<h3 id="pay-attention-to-compiler-warnings">Pay attention to compiler warnings</h3>
+<h3 id="familiarize-yourself-with-the-standard-library-including-tr1">Familiarize yourself with the standard library, including TR1</h3>
+<h3 id="familiarize-yourself-with-boost">Familiarize yourself with Boost</h3>
 
     </div>
 
@@ -472,7 +847,7 @@
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
+          <a href="https://anjanavakil.github.io/tags/cs-book/">CS BOOK📓</a>
           
         </div>
 

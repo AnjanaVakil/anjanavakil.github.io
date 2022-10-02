@@ -75,7 +75,7 @@ Introduction Software architecture research investigates methods for determining
 Acknowledgments The modern Web architecture is still defined more by the work of individual volunteers than by any single company.
 Introduction Software architecture research investigates methods for determining hwo best to partition a system, how componentes identify and communicate with each other, how information is communicated, how elements of a system can evolve independently, how all of the above can be described using formal and informal notations."><meta itemprop="datePublished" content="2022-09-20T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-09-20T08:15:48+08:00" />
-<meta itemprop="wordCount" content="1083">
+<meta itemprop="wordCount" content="1640">
 <meta itemprop="keywords" content="paper📋," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Architectural styles and the Design of Network-based Software Architectures"/>
 <meta name="twitter:description" content="Architectural styles and the Design of Network-based Software Architectures Roy Thomas Fielding
@@ -351,7 +351,15 @@ Introduction Software architecture research investigates methods for determining
         <li><a href="#24-summary">2.4 Summary</a></li>
       </ul>
     </li>
-    <li><a href="#chapter-3-network-based-architectural-styles">CHAPTER 3: Network-based Architectural Styles</a></li>
+    <li><a href="#chapter-3-network-based-architectural-styles">CHAPTER 3: Network-based Architectural Styles</a>
+      <ul>
+        <li><a href="#31-classification-methodology">3.1 Classification Methodology</a></li>
+        <li><a href="#32-data-flow-styles">3.2 Data-flow Styles</a></li>
+        <li><a href="#33-replication-styles">3.3 Replication Styles</a></li>
+        <li><a href="#34-hierarchical-styles">3.4 Hierarchical Styles</a></li>
+        <li><a href="#35-mobile-code-styles">3.5 Mobile Code Styles</a></li>
+      </ul>
+    </li>
     <li><a href="#chapter-4-designing-the-web-architecture-problems-and-insights">CHAPTER 4: Designing the Web Architecture: Problems and Insights</a></li>
     <li><a href="#chapter-5-representational-state-transferrest">CHAPTER 5: Representational State Transfer(REST)</a></li>
     <li><a href="#chapter-6-experience-and-evaluation">CHAPTER 6: Experience and Evaluation</a></li>
@@ -497,6 +505,50 @@ Introduction Software architecture research investigates methods for determining
 <h4 id="237-reliability">2.3.7 Reliability</h4>
 <h3 id="24-summary">2.4 Summary</h3>
 <h2 id="chapter-3-network-based-architectural-styles">CHAPTER 3: Network-based Architectural Styles</h2>
+<h3 id="31-classification-methodology">3.1 Classification Methodology</h3>
+<h4 id="311-selection-of-architectural-styles-for-classification">3.1.1 Selection of Architectural Styles for Classification</h4>
+<h4 id="312-style-induced-architectural-properties">3.1.2 Style-induced Architectural Properties</h4>
+<h4 id="313-visualization">3.1.3 Visualization</h4>
+<h3 id="32-data-flow-styles">3.2 Data-flow Styles</h3>
+<h4 id="321-pipe-and-filter-pf">3.2.1 Pipe and Filter (PF)</h4>
+<p>PF: referred to as a one-way data flow network.</p>
+<p>The constraint is that a filter must be completely independent of other filters (zero coupling): it must not share state, control thread, or identity with the other filters on its upstream and downstream interfaces.</p>
+<h4 id="322-uniform-pipe-and-filter-upf">3.2.2 Uniform Pipe and Filter (UPF)</h4>
+<p>The uniform pipe and filter style adds the constraint that all filters must have the same interface.</p>
+<h3 id="33-replication-styles">3.3 Replication Styles</h3>
+<h4 id="331-replicated-repository-rr">3.3.1 Replicated Repository (RR)</h4>
+<h4 id="332-cache-">3.3.2 Cache ($)</h4>
+<p>This form of replication is most often found in cases where the potential data set far exceeds the capacity of any one client, as in the WWW, or where complete access to the repository is unnecessary.</p>
+<p>The cache style becomes network-based when it is combined with a client-stateless-server style.</p>
+<h3 id="34-hierarchical-styles">3.4 Hierarchical Styles</h3>
+<h4 id="341-client-server-cs">3.4.1 Client-Server (CS)</h4>
+<p>The basic form of clinet-server does not constrain how application state is partitioned between client and server components. It is often referred to by the mechanisms used for the connector implementation, such as remote procedure call or message-oriented middleware.</p>
+<h4 id="342-layered-system-ls-and-layered-client-server-lcs">3.4.2 Layered System (LS) and Layered-Client-Server (LCS)</h4>
+<p>A layered System is organized hierarchically, each layer providing services to the layer above it and using services of the layer below it.</p>
+<p>Examples:</p>
+<ul>
+<li>the processing of layered communication protocols: TCP/IP and OSI protocol stack</li>
+<li>hardware interface libraries</li>
+</ul>
+<p>The primary disadvantage of layered system is that they add overhead and latency to the processing of data, reducing user-perceived performance.</p>
+<p>Layered-client-server add proxy and gateway components to the client-server style. These additional mediator components can be added in multiple layers to add features like load balancing and security checking to the system.</p>
+<p>LCS is also a solution to managing identity in a large scale districuted system, where complete knowledge of all servers would be prohibitively expensive. Instead, servers are organized in layers such that rarely used services are handled by intermediarites rather than directly by each client.</p>
+<h4 id="343-client-stateless-server-css">3.4.3 Client-Stateless-Server (CSS)</h4>
+<p>The client-stateless-server style derives from client-server with the additional constraint that no session state is allowed on the server component. Session state is kept entirely on the client.</p>
+<h4 id="344-client-cache-stateless-server-css">3.4.4 Client-Cache-Stateless-Server (C$SS)</h4>
+<p>Example: Sun Microsystems&rsquo; NFS</p>
+<h4 id="345-layered-client-cache-stateless-serverlcss">3.4.5 Layered-Client-Cache-Stateless-Server(LC$SS)</h4>
+<p>Example: the Internet domain name system (DNS)</p>
+<h4 id="346-remote-session-rs">3.4.6 Remote Session (RS)</h4>
+<p>The remote session style is a variant of client-server that attempts to minimize the complexity, or maximize the reuse, of the <code>client components</code> rather the server component. Each client initiates a session on the server and then invokes a series of services on the server, finally exiting the session. <code>Application state is kept entirely on the server.</code> This style is typically used when it is desired to access a remote service <code>using a generic client</code> (e.g., TELNET) or <code>via an interface that mimics a generic client</code> (e.g., FTP).</p>
+<h4 id="347-remote-data-access-rda">3.4.7 Remote Data Access (RDA)</h4>
+<p>The remote data access style is a variant of client-server that spread the application state across both client and server.</p>
+<p>The advantages of RDA are that a large data set can be iteratively reduced on the server side without transmitting it across the network, improving efficiency, and visibility is improved by using a standard query language.</p>
+<h3 id="35-mobile-code-styles">3.5 Mobile Code Styles</h3>
+<h4 id="351-virtual-machine-vm">3.5.1 Virtual Machine (VM)</h4>
+<h4 id="352-remote-evaluation-rev">3.5.2 Remote Evaluation (REV)</h4>
+<h4 id="353-code-on-demand-cod">3.5.3 Code on Demand (COD)</h4>
+<h4 id="354-layered-code-on-demand-client-cache-stateless-server-lcodcss">3.5.4 Layered-Code-on-Demand-Client-Cache-Stateless-Server (LCODC$SS)</h4>
 <h2 id="chapter-4-designing-the-web-architecture-problems-and-insights">CHAPTER 4: Designing the Web Architecture: Problems and Insights</h2>
 <h2 id="chapter-5-representational-state-transferrest">CHAPTER 5: Representational State Transfer(REST)</h2>
 <h2 id="chapter-6-experience-and-evaluation">CHAPTER 6: Experience and Evaluation</h2>

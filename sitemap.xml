@@ -23,14 +23,14 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/tags/cs/</loc>
+    <loc>https://anjanavakil.github.io/tags/cs-book/</loc>
     <lastmod>2022-09-30T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/categories/cs/</loc>
+    <loc>https://anjanavakil.github.io/categories/cs-book/</loc>
     <lastmod>2022-09-30T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -88,6 +88,20 @@
   <url>
     <loc>https://anjanavakil.github.io/post/architectural-styles/</loc>
     <lastmod>2022-09-20T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/cs/</loc>
+    <lastmod>2022-09-11T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/categories/cs/</loc>
+    <lastmod>2022-09-11T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

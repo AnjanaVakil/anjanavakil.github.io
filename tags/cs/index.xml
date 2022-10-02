@@ -6,16 +6,7 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 30 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Effective C&#43;&#43;</title>
-      <link>https://anjanavakil.github.io/post/effective-c&#43;&#43;/</link>
-      <pubDate>Fri, 30 Sep 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/effective-c&#43;&#43;/</guid>
-      <description>豆瓣🔗: Effective C++ Third Edition 55 Specific Ways to Improve Your Programs and Designs C++ 提供了4种不同又相辅相成的编程泛型(programming paradigms): procedural-based object-based object-oriented generics Accustoming Yourself to C++ View C++ as a federation of languages Prefer consts, enums, and inlines to #defines</description>
-    </item>
-    
+    <lastBuildDate>Sun, 11 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Software Engineering: A Practitioner&#39;s Approach</title>
       <link>https://anjanavakil.github.io/post/software-engineering/</link>
@@ -185,6 +176,15 @@
       
       <guid>https://anjanavakil.github.io/post/jvm/</guid>
       <description>Java SE 8虚拟机规范：The Java® Virtual Machine Specification-Java SE 8 Edition 类加载子系统 运行时数据区概述及线程 Run-Time Data Areas The Java Virtual Machine defines various run-time data areas that are used during execution of a program. Some of these data areas are created on Java Virtual</description>
+    </item>
+    
+    <item>
+      <title>Redis</title>
+      <link>https://anjanavakil.github.io/post/redis/</link>
+      <pubDate>Sun, 05 Jun 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/redis/</guid>
+      <description>官方文档： Redis documentation Redis Sentinel High availability with Redis Sentinel Redis Sentinel provides high availability for Redis when not using Redis Cluster. Running Sentinel However it is mandatory to use a configuration file when running Sentinel, as this file will be used by the system in order to save the current state that will be reloaded in case of restarts. Sentinel will simply refuse to start</description>
     </item>
     
   </channel>
