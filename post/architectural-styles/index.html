@@ -75,7 +75,7 @@ Introduction Software architecture research investigates methods for determining
 Acknowledgments The modern Web architecture is still defined more by the work of individual volunteers than by any single company.
 Introduction Software architecture research investigates methods for determining hwo best to partition a system, how componentes identify and communicate with each other, how information is communicated, how elements of a system can evolve independently, how all of the above can be described using formal and informal notations."><meta itemprop="datePublished" content="2022-09-20T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-09-20T08:15:48+08:00" />
-<meta itemprop="wordCount" content="1640">
+<meta itemprop="wordCount" content="2096">
 <meta itemprop="keywords" content="paper📋," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Architectural styles and the Design of Network-based Software Architectures"/>
 <meta name="twitter:description" content="Architectural styles and the Design of Network-based Software Architectures Roy Thomas Fielding
@@ -358,10 +358,25 @@ Introduction Software architecture research investigates methods for determining
         <li><a href="#33-replication-styles">3.3 Replication Styles</a></li>
         <li><a href="#34-hierarchical-styles">3.4 Hierarchical Styles</a></li>
         <li><a href="#35-mobile-code-styles">3.5 Mobile Code Styles</a></li>
+        <li><a href="#36-peer-to-peer-styles">3.6 Peer-to-Peer Styles</a></li>
+        <li><a href="#37-limitations">3.7 Limitations</a></li>
+        <li><a href="#38-related-work">3.8 Related Work</a></li>
+        <li><a href="#39-summary">3.9 Summary</a></li>
       </ul>
     </li>
-    <li><a href="#chapter-4-designing-the-web-architecture-problems-and-insights">CHAPTER 4: Designing the Web Architecture: Problems and Insights</a></li>
-    <li><a href="#chapter-5-representational-state-transferrest">CHAPTER 5: Representational State Transfer(REST)</a></li>
+    <li><a href="#chapter-4-designing-the-web-architecture-problems-and-insights">CHAPTER 4: Designing the Web Architecture: Problems and Insights</a>
+      <ul>
+        <li><a href="#41-www-application-domain-requirements">4.1 WWW Application Domain Requirements</a></li>
+        <li><a href="#42-problem">4.2 Problem</a></li>
+        <li><a href="#43-approach">4.3 Approach</a></li>
+        <li><a href="#44-summary">4.4 Summary</a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter-5-representational-state-transferrest">CHAPTER 5: Representational State Transfer(REST)</a>
+      <ul>
+        <li><a href="#51-deriving-rest">5.1 Deriving REST</a></li>
+      </ul>
+    </li>
     <li><a href="#chapter-6-experience-and-evaluation">CHAPTER 6: Experience and Evaluation</a></li>
   </ul>
 </nav>
@@ -545,12 +560,51 @@ Introduction Software architecture research investigates methods for determining
 <p>The remote data access style is a variant of client-server that spread the application state across both client and server.</p>
 <p>The advantages of RDA are that a large data set can be iteratively reduced on the server side without transmitting it across the network, improving efficiency, and visibility is improved by using a standard query language.</p>
 <h3 id="35-mobile-code-styles">3.5 Mobile Code Styles</h3>
+<p>In all of the mobile code styles, a data element is dynamically transformed into a component.</p>
 <h4 id="351-virtual-machine-vm">3.5.1 Virtual Machine (VM)</h4>
 <h4 id="352-remote-evaluation-rev">3.5.2 Remote Evaluation (REV)</h4>
+<p>The remote evaluation style assumes that the provide code will be executed in a sheltered environment, such that it won&rsquo;t impact   other clients of the same server aside from the resources being used.</p>
 <h4 id="353-code-on-demand-cod">3.5.3 Code on Demand (COD)</h4>
+<p>In the code-on-demand style, a client component has access to a set of resources, but not the know-how on how to process them. It sends a request to a remote server for the code representing that know-how, receives that code, and executes it locally.</p>
 <h4 id="354-layered-code-on-demand-client-cache-stateless-server-lcodcss">3.5.4 Layered-Code-on-Demand-Client-Cache-Stateless-Server (LCODC$SS)</h4>
+<p>LCODC$SS: the addition of code-on-demand to the layered-client-cache-stateless-server style.</p>
+<p>Example: HotJava Web browser[java.sun.com], which allows applets and protocol extensions to be downloaded as typed media.</p>
+<h4 id="355-mobile-agent-ma">3.5.5 Mobile Agent (MA)</h4>
+<h3 id="36-peer-to-peer-styles">3.6 Peer-to-Peer Styles</h3>
+<h4 id="361-event-based-integration-ebi">3.6.1 Event-based Integration (EBI)</h4>
+<h4 id="362-c2">3.6.2 C2</h4>
+<h4 id="363-distributed-object">3.6.3 Distributed Object</h4>
+<h4 id="364-brokered-distributed-object">3.6.4 Brokered Distributed Object</h4>
+<h3 id="37-limitations">3.7 Limitations</h3>
+<h3 id="38-related-work">3.8 Related Work</h3>
+<h4 id="381-classification-of-architectural-styles-and-patterns">3.8.1 Classification Of Architectural Styles and Patterns</h4>
+<h4 id="382-distributed-systems-and-programming-paradigms">3.8.2 Distributed Systems and Programming Paradigms</h4>
+<h4 id="383-middleware">3.8.3 Middleware</h4>
+<p>These services are called middleware because they act as a layer above the OS and networking software and below industry-specific applications.</p>
+<h3 id="39-summary">3.9 Summary</h3>
 <h2 id="chapter-4-designing-the-web-architecture-problems-and-insights">CHAPTER 4: Designing the Web Architecture: Problems and Insights</h2>
+<h3 id="41-www-application-domain-requirements">4.1 WWW Application Domain Requirements</h3>
+<p>Web&rsquo;s major goal was to be a shared information space through which people and machines could communicate.</p>
+<h4 id="411-low-entry-barrier">4.1.1 Low Entry-barrier</h4>
+<p>Since information within large databases is often much easier to access via a search interface rather than browsing, the Web also incorporated the ability to perform simple queries by providing user-entered data to a service and rendering the result as hypermedia.</p>
+<h4 id="412-extensibility">4.1.2 Extensibility</h4>
+<p>A system intending to be as long-lived as the Web must be prepared for change.</p>
+<h4 id="413-distributed-hypermedia">4.1.3 Distributed Hypermedia</h4>
+<p>The Web architecture must be designed for large-grain data transfer.</p>
+<h4 id="414-internet-scale">4.1.4 Internet-scale</h4>
+<p>Suppliers of information services must be able to cope with the demands of anarchic scalability and the independent deployment of software components.</p>
+<h5 id="4141-anarchic-scalability">4.1.4.1 Anarchic Scalability</h5>
+<p>Anarchic scalability refers to the need for architectural elemtns to continue operating when they are subjected to an unanticipated load, or when given malformed or maliciously constructed data, since they may be communicating with elements outside their organizational control.</p>
+<p>This requires that the architecture be capable of communicating authentication data and authorization controls.</p>
+<h5 id="4142-independent-deployment">4.1.4.2 Independent Deployment</h5>
+<h3 id="42-problem">4.2 Problem</h3>
+<h3 id="43-approach">4.3 Approach</h3>
+<p>That is, over the past six years I have been constructing models, adding constraints to the architectural style, and testing their affect on the Web&rsquo;s protocol standards via experimental extensions to client and server software.</p>
+<h3 id="44-summary">4.4 Summary</h3>
+<p>The challenge is to develop a method for designing improvements to an architecture such that the improvements can be evaluated prior to their deployment.</p>
 <h2 id="chapter-5-representational-state-transferrest">CHAPTER 5: Representational State Transfer(REST)</h2>
+<p>REST is a hybrid style derived from several of the network-based architectural styles described in Chapter 3 and combined with additional constraints that define a uniform connector interface.</p>
+<h3 id="51-deriving-rest">5.1 Deriving REST</h3>
 <h2 id="chapter-6-experience-and-evaluation">CHAPTER 6: Experience and Evaluation</h2>
 
     </div>

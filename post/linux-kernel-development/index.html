@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Aha! Algorithms 啊哈！算法 - Anjana</title>
+  <title>Linux Kernel Development - Anjana</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少" />
+  <meta name="description" content="豆瓣🔗: 英文版： Linux Kernel Development 中文版： 《Linux内核设计与实现》 1 Introduction to the Linux Kernel 2 Getting Started with the Kernel 1 2 3 4 5 # git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git Cloning into &amp;#39;linux-2.6&amp;#39;... remote: Enumerating objects: 4084, done. ... # cd linux-2.6 This command creates a configuration based on the" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.93.0" />
 
 
-<link rel="canonical" href="https://anjanavakil.github.io/post/pp-aha-algorithms/" />
+<link rel="canonical" href="https://anjanavakil.github.io/post/linux-kernel-development/" />
 
 
 
@@ -59,20 +59,20 @@
 
 
 
-<meta property="og:title" content="Aha! Algorithms 啊哈！算法" />
-<meta property="og:description" content="《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少" />
+<meta property="og:title" content="Linux Kernel Development" />
+<meta property="og:description" content="豆瓣🔗: 英文版： Linux Kernel Development 中文版： 《Linux内核设计与实现》 1 Introduction to the Linux Kernel 2 Getting Started with the Kernel 1 2 3 4 5 # git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git Cloning into &#39;linux-2.6&#39;... remote: Enumerating objects: 4084, done. ... # cd linux-2.6 This command creates a configuration based on the" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://anjanavakil.github.io/post/pp-aha-algorithms/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-03-25T20:15:48+08:00" />
-<meta property="article:modified_time" content="2022-03-25T20:15:48+08:00" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/linux-kernel-development/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-10-05T08:15:48+08:00" />
+<meta property="article:modified_time" content="2022-10-05T08:15:48+08:00" />
 
-<meta itemprop="name" content="Aha! Algorithms 啊哈！算法">
-<meta itemprop="description" content="《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少"><meta itemprop="datePublished" content="2022-03-25T20:15:48+08:00" />
-<meta itemprop="dateModified" content="2022-03-25T20:15:48+08:00" />
-<meta itemprop="wordCount" content="1804">
-<meta itemprop="keywords" content="Algorithm🪺,CS💻," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Aha! Algorithms 啊哈！算法"/>
-<meta name="twitter:description" content="《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少"/>
+<meta itemprop="name" content="Linux Kernel Development">
+<meta itemprop="description" content="豆瓣🔗: 英文版： Linux Kernel Development 中文版： 《Linux内核设计与实现》 1 Introduction to the Linux Kernel 2 Getting Started with the Kernel 1 2 3 4 5 # git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git Cloning into &#39;linux-2.6&#39;... remote: Enumerating objects: 4084, done. ... # cd linux-2.6 This command creates a configuration based on the"><meta itemprop="datePublished" content="2022-10-05T08:15:48+08:00" />
+<meta itemprop="dateModified" content="2022-10-05T08:15:48+08:00" />
+<meta itemprop="wordCount" content="344">
+<meta itemprop="keywords" content="CS BOOK📓," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux Kernel Development"/>
+<meta name="twitter:description" content="豆瓣🔗: 英文版： Linux Kernel Development 中文版： 《Linux内核设计与实现》 1 Introduction to the Linux Kernel 2 Getting Started with the Kernel 1 2 3 4 5 # git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git Cloning into &#39;linux-2.6&#39;... remote: Enumerating objects: 4084, done. ... # cd linux-2.6 This command creates a configuration based on the"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -292,14 +292,14 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">Aha! Algorithms 啊哈！算法</h1>
+      <h1 class="post-title">Linux Kernel Development</h1>
       
       <div class="post-meta">
-        <time datetime="2022-03-25" class="post-time">
-          2022-03-25
+        <time datetime="2022-10-05" class="post-time">
+          2022-10-05
         </time>
         <div class="post-category">
-            <a href="https://anjanavakil.github.io/categories/programming-pearls/"> Programming Pearls🐚 </a>
+            <a href="https://anjanavakil.github.io/categories/cs-book/"> CS BOOK📓 </a>
             
           </div>
         
@@ -319,8 +319,21 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#三个问题">三个问题</a></li>
-    <li><a href="#习题">习题</a></li>
+    <li><a href="#1-introduction-to-the-linux-kernel">1 Introduction to the Linux Kernel</a></li>
+    <li><a href="#2-getting-started-with-the-kernel">2 Getting Started with the Kernel</a></li>
+    <li><a href="#3-process-management">3 Process Management</a></li>
+    <li><a href="#4-process-scheduling">4 Process Scheduling</a></li>
+    <li><a href="#5-system-calls">5 System Calls</a></li>
+    <li><a href="#6-kernel-data-structures">6 Kernel Data Structures</a></li>
+    <li><a href="#7-interrupts-and-interrupt-handlers">7 Interrupts and Interrupt Handlers</a></li>
+    <li><a href="#8-bottom-halves-and-deferring-work">8 Bottom Halves and Deferring Work</a></li>
+    <li><a href="#9-an-introduction-to-kernel-synchronization">9 An Introduction to Kernel Synchronization</a></li>
+    <li><a href="#10-kernel-synchronization-methods">10 Kernel Synchronization Methods</a></li>
+    <li><a href="#11-timers-and-time-management">11 Timers and Time Management</a></li>
+    <li><a href="#12-memory-management">12 Memory Management</a></li>
+    <li><a href="#13-the-virtual-file-system">13 The virtual File system</a></li>
+    <li><a href="#14-the-block-io-layer">14 The Block I/O layer</a></li>
+    <li><a href="#15-the-process-address-space">15 The Process Address Space</a></li>
   </ul>
 </nav>
   </div>
@@ -328,65 +341,145 @@
 
     
     <div class="post-content">
-      <p>《编程珠玑》的笔记。</p>
-<h1 id="column-2-aha-algorithms">Column 2: Aha! Algorithms</h1>
-<h2 id="三个问题">三个问题</h2>
-<p>A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少缺失一个这样的数——为什么？）。</p>
-<p>在具有足够内存的情况下，如何解决该问题？</p>
-<p>如果有几个外部的“临时”文件可用，但是仅有几百字节的内存，又该如何解决该问题？</p>
-<blockquote>
-<p>输入为顺序文件（考虑磁带或磁盘——虽然磁盘可以随机读写，但是从头至尾读取文件通常会快得多）。文件包含最多40亿个随机排列的32位整数，而我们需要找出一个不存在于该文件中的32位整数。（至少缺少一个整数，因为一共有2^32也就是4 294 967 296个这样的整数。）如果有足够的内存，可以采用第1章中介绍的位图技术，使用536 870 912个8位字节形成位图来表示已看到的整数。</p>
-</blockquote>
-<p>2^32=4,294,967,296</p>
-<p>2^32/8=536,870,912</p>
-<blockquote>
-<p>然而，该问题还问到在仅有几百个字节内存和几个稀疏顺序文件的情况下如何找到缺失的整数？为了采用二分搜索技术，就必须定义一个范围、在该范围内表示元素的方式以及用来确定哪一半范围存在缺失整数的探测方法。如何来实现呢？</p>
-</blockquote>
-<p>解答：</p>
-<p>我们从表示每个整数的32位的视角来考虑二分搜索。算法的第一趟（最多）读取40亿个输入整数，并把起始位为0的整数写入一个顺序文件，把起始位为1的整数写入另一个顺序文件。</p>
-<p>这两个文件中，有一个文件最多包含20亿个整数,我们接下来将该文件用作当前输入并重复探测过程，但这次探测的是第二个位。如果原始的输入文件包含 n个元素，那么第一趟将读取 n 个整数，第二趟最多读取 n/2 个整数，第三趟最多读取n/4个整数，依此类推，所以总的运行时间正比于n。</p>
-<p>通过排序文件并扫描，我们也能够找到缺失的整数，但是这样做会导致运行时间正比于nlogn。</p>
-<p>B.将一个n元一维向量向左旋转i个位置。例如，当n=8且i=3时，向量abcdefgh旋转为defghabc。简单的代码使用一个n元的中间向量在n步内完成该工作。</p>
-<p>能否仅使用数十个额外字节的存储空间，在正比于n的时间内完成向量的旋转?</p>
-<p>该问题在应用程序中以各种不同的伪装出现：</p>
+      <p>豆瓣🔗:</p>
 <ul>
-<li>
-<p>一些编程语言中，该功能是向量的一个基本操作</p>
+<li>英文版：
+<ul>
+<li><a href="https://book.douban.com/subject/3291901/">Linux Kernel Development</a></li>
+</ul>
 </li>
-<li>
-<p>旋转操作对应于交换相邻的不同大小的内存块：每当拖动文件中的一块文字到其他地方时，就要求程序交换两块内存中的内容</p>
+<li>中文版：
+<ul>
+<li><a href="https://book.douban.com/subject/6097773/">《Linux内核设计与实现》</a></li>
+</ul>
 </li>
 </ul>
-<p>在许多应用场合下，<code>运行时间</code>和<code>存储空间</code>的约束会很严格。</p>
-<p>LeetCode类似题：<a href="https://leetcode-cn.com/problems/rotate-array/">189. Rotate Array</a></p>
-<p>1、使用额外的数组</p>
-<ul>
-<li>将x的前i个元素复制到一个临时数组中</li>
-<li>将余下的n－i个元素向左移动i个位置</li>
-<li>将最初的i个元素从临时数组中复制到x中余下的位置。</li>
-</ul>
-<p>2、定义一个函数将x向左旋转一个位置（其时间正比于n）然后调用该函数i次。</p>
-<p>该方法产生了过多的运行时间消耗。</p>
-<p>3、有限的资源</p>
-<p>移动x[0]到临时变量t，然后移动x[i]至x[0]，x[2i]至x[i]，依此类推（将x中的所有下标对n取模），直至返回到取x[0]中的元素，此时改为从t取值然后终止过程。</p>
-<p>当i为3且n为12时，元素按如下顺序移动。</p>
-<p><img src="/image/pp-aha-algorithms1.png" alt="aha-algorithms"></p>
-<p>如果该过程没有移动全部元素，就从x[1]开始再次进行移动，直到所有的元素都已经移动为止。</p>
-<p>4、</p>
-<p><img src="/image/pp-aha-algorithms2.png" alt="aha-algorithms"></p>
-<p>我们将问题看做是把数组ab转换成ba，同时假定我们拥有一个函数可以将数组中特定部分的元素求逆。</p>
-<p><img src="/image/pp-aha-algorithms3.png" alt="aha-algorithms"></p>
-<p>作者提到：</p>
-<blockquote>
-<p>Kernighan 报告称在第一次执行的时候程序就正确运行了，而他们先前基于链表的处理相似任务的代码则包含几个错误。该代码用在几个文本处理系统中，其中包括我最初用于录入本章内容的文本编辑器。Ken Thompson在1971年编写了编辑器和这种求逆代码，甚至在那时就主张把该代码当作一种常识。</p>
-</blockquote>
-<p>C.给定一个英语字典，找出其中的所有变位词集合。例如，“pots”、“stop”和“tops”互为变位词，因为每一个单词都可以通过改变其他单词中字母的顺序来得到。</p>
-<h2 id="习题">习题</h2>
-<p>1.考虑查找给定输入单词的所有变位词问题。仅给定单词和字典的情况下，如何解决该问题？</p>
-<p>如果有一些时间和空间可以在响应任何查询之前预先处理字典，又会如何？</p>
-<p>2.给定包含4 300 000 000个32位整数的顺序文件，如何找出一个出现至少两次的整数？</p>
-<p>3.前面涉及了两个需要精巧代码来实现的向量旋转算法。将其分别作为独立的程序实现。在每个程序中，i和n的最大公约数如何出现？</p>
-<p>4.几位读者指出，既然所有的三个旋转算法需要的运行时间都正比于n，杂技算法的运行速度显然是求逆算法的两倍。杂技算法对数组中的每个元素仅存储和读取一次，而求逆算法需要两次。在实际的计算机上进行实验以比较两者的速度差异，特别注意内存引用位置附近的问题。</p>
+<h2 id="1-introduction-to-the-linux-kernel">1 Introduction to the Linux Kernel</h2>
+<h2 id="2-getting-started-with-the-kernel">2 Getting Started with the Kernel</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git</span>
+</span></span><span class="line"><span class="cl">Cloning into <span class="s1">&#39;linux-2.6&#39;</span>...
+</span></span><span class="line"><span class="cl">remote: Enumerating objects: 4084, <span class="k">done</span>.
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="c1"># cd linux-2.6</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This command creates a configuration based on the defaults for your architecture:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># make defconfig</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>bug:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># make defconfig
+</span></span><span class="line"><span class="cl">make defconfig *** Default configuration is based on &#39;multi_v7_defconfig&#39; 
+</span></span><span class="line"><span class="cl">ld: unknown option: --version 
+</span></span><span class="line"><span class="cl">ld: unknown linker 
+</span></span><span class="line"><span class="cl">scripts/Kconfig.include:56: Sorry, this linker is not supported. 
+</span></span><span class="line"><span class="cl">make[2]: *** [defconfig] Error 1 
+</span></span><span class="line"><span class="cl">make[1]: *** [defconfig] Error 2 
+</span></span><span class="line"><span class="cl">make: *** [__sub-make] Error 2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>solution: <a href="https://edwardhalferty.com/2021/12/11/configuring-the-linux-kernel-from-macos/">Configuring the Linux Kernel from MacOS</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># make</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>bug:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># make
+</span></span><span class="line"><span class="cl">  HOSTCC  scripts/sorttable
+</span></span><span class="line"><span class="cl">scripts/sorttable.c:27:10: fatal error: &#39;elf.h&#39; file not found
+</span></span><span class="line"><span class="cl">#include &lt;elf.h&gt;
+</span></span><span class="line"><span class="cl">         ^~~~~~~
+</span></span><span class="line"><span class="cl">1 error generated.
+</span></span><span class="line"><span class="cl">make[2]: *** [scripts/sorttable] Error 1
+</span></span><span class="line"><span class="cl">make[1]: *** [scripts] Error 2
+</span></span><span class="line"><span class="cl">make: *** [__sub-make] Error 2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>bug:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># make
+</span></span><span class="line"><span class="cl">  SYNC    include/generated/autoconf.h
+</span></span><span class="line"><span class="cl">ld: unknown option: --version
+</span></span><span class="line"><span class="cl">ld: unknown linker
+</span></span><span class="line"><span class="cl">  CC      scripts/mod/empty.o
+</span></span><span class="line"><span class="cl">./scripts/check-local-export: line 17: shopt: lastpipe: invalid shell option name
+</span></span><span class="line"><span class="cl">make[2]: *** [scripts/mod/empty.o] Error 1
+</span></span><span class="line"><span class="cl">make[2]: *** Deleting file `scripts/mod/empty.o&#39;
+</span></span><span class="line"><span class="cl">make[1]: *** [prepare0] Error 2
+</span></span><span class="line"><span class="cl">make: *** [__sub-make] Error 2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>solution: <a href="https://ixx.life/notes/cross-compile-linux-on-macos/">macOS交叉编译Linux避坑指南</a></p>
+<p>（不知道是哪位大佬的避坑指南，但的确macOS遇到的好几个问题都一样）</p>
+<h2 id="3-process-management">3 Process Management</h2>
+<h2 id="4-process-scheduling">4 Process Scheduling</h2>
+<h2 id="5-system-calls">5 System Calls</h2>
+<h2 id="6-kernel-data-structures">6 Kernel Data Structures</h2>
+<h2 id="7-interrupts-and-interrupt-handlers">7 Interrupts and Interrupt Handlers</h2>
+<h2 id="8-bottom-halves-and-deferring-work">8 Bottom Halves and Deferring Work</h2>
+<h2 id="9-an-introduction-to-kernel-synchronization">9 An Introduction to Kernel Synchronization</h2>
+<h2 id="10-kernel-synchronization-methods">10 Kernel Synchronization Methods</h2>
+<h2 id="11-timers-and-time-management">11 Timers and Time Management</h2>
+<h2 id="12-memory-management">12 Memory Management</h2>
+<h2 id="13-the-virtual-file-system">13 The virtual File system</h2>
+<h2 id="14-the-block-io-layer">14 The Block I/O layer</h2>
+<h2 id="15-the-process-address-space">15 The Process Address Space</h2>
 
     </div>
 
@@ -400,7 +493,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2022-03-25
+      2022-10-05
       
     </span>
   </p>
@@ -417,30 +510,16 @@
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="https://anjanavakil.github.io/tags/algorithm/">Algorithm🪺</a>
-          <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
+          <a href="https://anjanavakil.github.io/tags/cs-book/">CS BOOK📓</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/springboot-notes/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">Spring Boot</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
         
-          <a class="next" href="/post/pp-cracking-the-oyster/">
-            <span class="next-text nav-default">Cracking the Oyster 开篇</span>
+          <a class="next" href="/post/joel-on-software/">
+            <span class="next-text nav-default">Joel on Software</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

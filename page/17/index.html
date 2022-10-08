@@ -295,7 +295,41 @@
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/effective-java-try-with-resources/">Prefer try-with-resources to try-finally</a>
+      <a class="post-link" href="/post/effective-java-comparable/">implement Comparable</a>
+    </h1>
+    
+    <div class="post-meta">
+      <time datetime="2022-03-23" class="post-time">
+        2022-03-23
+      </time>
+      <div class="post-category">
+          <a href="https://anjanavakil.github.io/categories/effective-java/"> Effective Java📕 </a>
+          
+        </div>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 14: Consider implementing Comparable 考虑实现 Comparable 接口 Virtually all of the value classes in the Java platform libraries, as well as all enum types, implement Comparable. If you are writing a value class with an obvious natural ordering, such as alphabetical
+    </div>
+    <div class="read-more">
+      <a href="/post/effective-java-comparable/" class="read-more-link">Read more</a>
+    </div>
+    
+  </div>
+</article>
+
+  
+    <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/post/effective-java-overriding-equals/">override equals</a>
     </h1>
     
     <div class="post-meta">
@@ -315,10 +349,10 @@
   <div class="post-content">
     
     <div class="post-summary">
-      Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 9: Prefer try-with-resources to try-finally 使用 try-with-resources 优于 try-finally try-finally 1 2 3 4 5 6 7 8 9 // try-finally - No longer the best way to close resources! static String firstLineOfFile(String path) throws IOException { BufferedReader br = new BufferedReader(new FileReader(path));
+      Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 10: Obey the general contract when overriding equals 覆盖 equals 方法时请遵守通用约定 Not to override the equals method 1. Each instance of the class is inherently unique. This is true for classes such as Thread that
     </div>
     <div class="read-more">
-      <a href="/post/effective-java-try-with-resources/" class="read-more-link">Read more</a>
+      <a href="/post/effective-java-overriding-equals/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -329,12 +363,12 @@
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/effective-java-builder/">Builder</a>
+      <a class="post-link" href="/post/effective-java-gc/">Memory Leaks &#43; Garbage Collect</a>
     </h1>
     
     <div class="post-meta">
-      <time datetime="2022-03-21" class="post-time">
-        2022-03-21
+      <time datetime="2022-03-22" class="post-time">
+        2022-03-22
       </time>
       <div class="post-category">
           <a href="https://anjanavakil.github.io/categories/effective-java/"> Effective Java📕 </a>
@@ -349,44 +383,10 @@
   <div class="post-content">
     
     <div class="post-summary">
-      Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 2: Consider a builder when faced with many constructor parameters 当构造函数有多个参数时，考虑使用builder模式 1. Telescoping constructor pattern - does not scale well! 1
+      Effective Java 的笔记，代码、英语原文为主，批注、翻译为辅。 Item 7: Eliminate obsolete object references 消除过时的对象引用 Incorrect Version 一个简单的Stack实现的例子： 1 2 3 4 5 6 7 8 9 10 11 12 13
     </div>
     <div class="read-more">
-      <a href="/post/effective-java-builder/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/coders-at-work-brad-fitzpatrick/">Coders At Work: Brad Fitzpatrick</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2022-03-20" class="post-time">
-        2022-03-20
-      </time>
-      <div class="post-category">
-          <a href="https://anjanavakil.github.io/categories/cs/"> CS💻 </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      Brad Fitzpatrick 书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。 1、学习东西 Seibel: It does seem that while you were writing all this stuff because you needed it, you
-    </div>
-    <div class="read-more">
-      <a href="/post/coders-at-work-brad-fitzpatrick/" class="read-more-link">Read more</a>
+      <a href="/post/effective-java-gc/" class="read-more-link">Read more</a>
     </div>
     
   </div>
@@ -1145,6 +1145,27 @@
 
       
 
+        
+
+        
+        
+
+          
+          
+          
+
+            
+
+          
+
+        
+        
+
+        
+        
+
+      
+
       
       
       <li><a href="/page/18/">»</a></li>
@@ -1152,7 +1173,7 @@
 
       
       
-      <li><a href="/page/29/">»»</a></li>
+      <li><a href="/page/30/">»»</a></li>
       
 
       </ul>

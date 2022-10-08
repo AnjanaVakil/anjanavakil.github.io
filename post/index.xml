@@ -6,7 +6,34 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 30 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux Kernel Development</title>
+      <link>https://anjanavakil.github.io/post/linux-kernel-development/</link>
+      <pubDate>Wed, 05 Oct 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/linux-kernel-development/</guid>
+      <description>豆瓣🔗: 英文版： Linux Kernel Development 中文版： 《Linux内核设计与实现》 1 Introduction to the Linux Kernel 2 Getting Started with the Kernel 1 2 3 4 5 # git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git Cloning into &amp;#39;linux-2.6&amp;#39;... remote: Enumerating objects: 4084, done. ... # cd linux-2.6 This command creates a configuration based on the</description>
+    </item>
+    
+    <item>
+      <title>Joel on Software</title>
+      <link>https://anjanavakil.github.io/post/joel-on-software/</link>
+      <pubDate>Tue, 04 Oct 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/joel-on-software/</guid>
+      <description>豆瓣🔗: 英文版： Joel on Software More Joel on Software 中文版： 《软件随想录 卷1》 《软件随想录 卷2》 作者BLOG： Joel Spolsky: https://www.joelonsoftware.com/ 电子书看多了真的需要换纸质书籍读读。这本书是阮</description>
+    </item>
+    
+    <item>
+      <title>Hackers and Painters: Big Ideas from the Computer Age</title>
+      <link>https://anjanavakil.github.io/post/hackers-and-painters/</link>
+      <pubDate>Sat, 01 Oct 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/hackers-and-painters/</guid>
+      <description>豆瓣🔗: 英文版： Hackers &amp;amp; Painters: Big Ideas from the Computer Age 中文版： 《黑客与画家》 作者BLOG： Paul Graham: http://www.paulgraham.com/ 《黑客与画家》零零散散加起来应该算是看过两遍了。第一遍（大一or</description>
+    </item>
+    
     <item>
       <title>Effective C&#43;&#43;</title>
       <link>https://anjanavakil.github.io/post/effective-c&#43;&#43;/</link>
@@ -84,6 +111,15 @@ Introduction Software architecture research investigates methods for determining
     </item>
     
     <item>
+      <title>LeetCode Greedy</title>
+      <link>https://anjanavakil.github.io/post/leetcode-greedy/</link>
+      <pubDate>Fri, 05 Aug 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/leetcode-greedy/</guid>
+      <description>LeetCode + 《剑指Offer II》刷题笔记。 贪心 870 Advantage Shuffle 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 class Solution { public int[] advantageCount(int[] nums1, int[] nums2) { int n=nums1.length; TreeMap&amp;lt;Integer,Integer&amp;gt; map=new TreeMap&amp;lt;&amp;gt;(); for(int num:nums1){ map.put(num,map.getOrDefault(num,0)+1); } int[] ans=new int[n]; for(int i=0;i&amp;lt;n;i++){</description>
+    </item>
+    
+    <item>
       <title>Java Concurrency-JUC</title>
       <link>https://anjanavakil.github.io/post/juc/</link>
       <pubDate>Mon, 01 Aug 2022 08:15:48 +0800</pubDate>
@@ -153,42 +189,6 @@ Introduction Software architecture research investigates methods for determining
       
       <guid>https://anjanavakil.github.io/post/leetcode-dp/</guid>
       <description>LeetCode + 《剑指Offer II》刷题笔记。 动态规划 1D DP 70 Climbing Stairs 1 2 3 4 5 6 7 8 9 10 11 12 class Solution { public: int climbStairs(int n) { vector&amp;lt;int&amp;gt; dp(n+1); dp[0]=1; dp[1]=1; for(int i=2;i&amp;lt;=n;i++){ dp[i]=dp[i-1]+dp[i-2]; } return dp[n]; } }; 时间复杂度：O(n) 空</description>
-    </item>
-    
-    <item>
-      <title>StringUtils: leftPad&#43;rightPad</title>
-      <link>https://anjanavakil.github.io/post/stringutils/</link>
-      <pubDate>Fri, 15 Jul 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/stringutils/</guid>
-      <description>StringUtils的leftpad和righted方法源码分析 依赖： 1 2 3 4 5 6 &amp;lt;!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 --&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.commons&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;commons-lang3&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.12.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; leftPad: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19</description>
-    </item>
-    
-    <item>
-      <title>Spring Batch</title>
-      <link>https://anjanavakil.github.io/post/springbatch-notes/</link>
-      <pubDate>Mon, 11 Jul 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/springbatch-notes/</guid>
-      <description>官网示例： Creating a Batch Service Create a Business Class Person.java: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 package com.example.batchprocessing; public class Person { private String lastName; private String firstName; public Person() { } public Person(String firstName,</description>
-    </item>
-    
-    <item>
-      <title>LeetCode Heap</title>
-      <link>https://anjanavakil.github.io/post/leetcode-heap/</link>
-      <pubDate>Fri, 08 Jul 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/leetcode-heap/</guid>
-      <description>LeetCode + 《剑指Offer II》刷题笔记。 堆 如果面试题需要求出一个动态数据集合中的最大值或最小值，那么可以考虑使用堆来解决问题。最小堆经常用来求取</description>
-    </item>
-    
-    <item>
-      <title>LeetCode Tree</title>
-      <link>https://anjanavakil.github.io/post/leetcode-tree/</link>
-      <pubDate>Tue, 05 Jul 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/leetcode-tree/</guid>
-      <description>LeetCode + 《剑指Offer II》刷题笔记。 树 二叉树的DFS 前序遍历 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&amp;lt;int&amp;gt; preorderTraversal(TreeNode* root) { vector&amp;lt;int&amp;gt; res; stack&amp;lt;TreeNode*&amp;gt; s; TreeNode* cur=root; while(cur || !s.empty()){ while(cur){ res.push_back(cur-&amp;gt;val); s.push(cur);</description>
     </item>
     
   </channel>

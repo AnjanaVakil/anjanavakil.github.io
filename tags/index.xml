@@ -6,11 +6,11 @@
     <description>Recent content in Tags on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 30 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CS BOOK📓</title>
       <link>https://anjanavakil.github.io/tags/cs-book/</link>
-      <pubDate>Fri, 30 Sep 2022 08:15:48 +0800</pubDate>
+      <pubDate>Wed, 05 Oct 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/tags/cs-book/</guid>
       <description></description>
@@ -35,18 +35,9 @@
     </item>
     
     <item>
-      <title>Java☕️</title>
-      <link>https://anjanavakil.github.io/tags/java%EF%B8%8F/</link>
-      <pubDate>Mon, 01 Aug 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/tags/java%EF%B8%8F/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Algorithm🪺</title>
       <link>https://anjanavakil.github.io/tags/algorithm/</link>
-      <pubDate>Thu, 28 Jul 2022 08:15:48 +0800</pubDate>
+      <pubDate>Fri, 05 Aug 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/tags/algorithm/</guid>
       <description></description>
@@ -55,9 +46,18 @@
     <item>
       <title>LeetCode🌲</title>
       <link>https://anjanavakil.github.io/tags/leetcode/</link>
-      <pubDate>Thu, 28 Jul 2022 08:15:48 +0800</pubDate>
+      <pubDate>Fri, 05 Aug 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/tags/leetcode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java☕️</title>
+      <link>https://anjanavakil.github.io/tags/java%EF%B8%8F/</link>
+      <pubDate>Mon, 01 Aug 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/tags/java%EF%B8%8F/</guid>
       <description></description>
     </item>
     
