@@ -69,7 +69,7 @@
 <meta itemprop="name" content="LeetCode Number">
 <meta itemprop="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 整数 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&lt;=被除数的绝对"><meta itemprop="datePublished" content="2022-01-20T14:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-01-20T14:15:48+08:00" />
-<meta itemprop="wordCount" content="4062">
+<meta itemprop="wordCount" content="4271">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode Number"/>
 <meta name="twitter:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 整数 001. 整数除法 剑指 Offer II 001. 整数除法 由于是整数除法并且除数不等于0，因此商的绝对值一定&lt;=被除数的绝对"/>
@@ -342,6 +342,7 @@
         <li><a href="#使用map优化">使用map优化</a></li>
       </ul>
     </li>
+    <li><a href="#50-powx-n">50 Pow(x, n)</a></li>
   </ul>
 </nav>
   </div>
@@ -1293,7 +1294,102 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h2 id="50-powx-n">50 Pow(x, n)</h2>
+<p>求 x^n  最简单的方法是通过循环将 n 个 x 乘起来，时间复杂度为 O(n) 。</p>
+<p>快速幂法 可将时间复杂度降低至 O(log n)。</p>
+<p>快速幂+递归</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">quickMul</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">N</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">N</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mf">1.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">double</span> <span class="n">y</span><span class="o">=</span><span class="n">quickMul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">N</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="o">?</span><span class="n">y</span><span class="o">*</span><span class="nl">y</span><span class="p">:</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="nf">myPow</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">long</span> <span class="kt">long</span> <span class="n">N</span><span class="o">=</span><span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">n</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">?</span><span class="n">quickMul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">:</span><span class="mf">1.0</span><span class="o">/</span><span class="n">quickMul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="n">N</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
+</div><ul>
+<li>
+<p>时间复杂度：O(logn)</p>
+</li>
+<li>
+<p>空间复杂度：O(logn)</p>
+</li>
+</ul>
+<p>快速幂+迭代</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">quickMul</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">N</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">N</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mf">1.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">double</span> <span class="n">res</span><span class="o">=</span><span class="mf">1.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="n">N</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">N</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">res</span><span class="o">*=</span><span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">x</span><span class="o">*=</span><span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">N</span><span class="o">&gt;&gt;=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="nf">myPow</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">long</span> <span class="kt">long</span> <span class="n">N</span><span class="o">=</span><span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">n</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">?</span><span class="n">quickMul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">:</span><span class="mf">1.0</span><span class="o">/</span><span class="n">quickMul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="n">N</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>时间复杂度：O(logn)</p>
+</li>
+<li>
+<p>空间复杂度：O(1)</p>
+</li>
+</ul>
+
     </div>
 
     

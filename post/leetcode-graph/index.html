@@ -69,7 +69,7 @@
 <meta itemprop="name" content="LeetCode Graph">
 <meta itemprop="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 图 图的搜索 如果要求在无权图中找出两个节点之间的最短距离，那么广度优先搜索可能是更合适的算法。 如果面试题要"><meta itemprop="datePublished" content="2022-07-28T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-07-28T08:15:48+08:00" />
-<meta itemprop="wordCount" content="7878">
+<meta itemprop="wordCount" content="8059">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode Graph"/>
 <meta name="twitter:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 图 图的搜索 如果要求在无权图中找出两个节点之间的最短距离，那么广度优先搜索可能是更合适的算法。 如果面试题要"/>
@@ -354,6 +354,7 @@
         <li><a href="#54-spiral-matrix">54 Spiral Matrix</a></li>
         <li><a href="#48-rotate-image">48 Rotate Image</a></li>
         <li><a href="#79-word-search">79 Word Search</a></li>
+        <li><a href="#36-valid-sudoku">36 Valid Sudoku</a></li>
       </ul>
     </li>
   </ul>
@@ -3312,6 +3313,112 @@ inDegree[seq[i]]++;
 </li>
 <li>
 <p>空间复杂度：O(mn)</p>
+</li>
+</ul>
+<h3 id="36-valid-sudoku">36 Valid Sudoku</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">isValidSudoku</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&gt;&amp;</span> <span class="n">board</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="n">unordered_set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">row</span><span class="p">,</span><span class="n">column</span><span class="p">,</span><span class="n">box</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">9</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">9</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">char</span> <span class="n">ch</span><span class="o">=</span><span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">ch</span><span class="o">==</span><span class="sc">&#39;.&#39;</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">num</span><span class="o">=</span><span class="n">ch</span><span class="o">-</span><span class="sc">&#39;0&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">id</span><span class="o">=</span><span class="n">j</span><span class="o">/</span><span class="mi">3</span><span class="o">+</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">count</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">||</span> <span class="n">column</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">count</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">||</span> <span class="n">box</span><span class="p">[</span><span class="n">id</span><span class="p">].</span><span class="n">count</span><span class="p">(</span><span class="n">num</span><span class="p">))</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">insert</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">column</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">insert</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">box</span><span class="p">[</span><span class="n">id</span><span class="p">].</span><span class="n">insert</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>时间复杂度：O(1)</p>
+</li>
+<li>
+<p>空间复杂度：O(1)</p>
+</li>
+</ul>
+<p>大多数的哈希表计数问题，都能转换为使用数组解决。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">isValidSudoku</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&gt;&amp;</span> <span class="n">board</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">row</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">)),</span><span class="n">column</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">)),</span><span class="n">box</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">9</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">9</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">char</span> <span class="n">ch</span><span class="o">=</span><span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">ch</span><span class="o">==</span><span class="sc">&#39;.&#39;</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">num</span><span class="o">=</span><span class="n">ch</span><span class="o">-</span><span class="sc">&#39;0&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">id</span><span class="o">=</span><span class="n">j</span><span class="o">/</span><span class="mi">3</span><span class="o">+</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">num</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span> <span class="o">||</span> <span class="n">column</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">num</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span> <span class="o">||</span> <span class="n">box</span><span class="p">[</span><span class="n">id</span><span class="p">][</span><span class="n">num</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">num</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">column</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">num</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">box</span><span class="p">[</span><span class="n">id</span><span class="p">][</span><span class="n">num</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>时间复杂度：O(1)</p>
+</li>
+<li>
+<p>空间复杂度：O(1)</p>
 </li>
 </ul>
 

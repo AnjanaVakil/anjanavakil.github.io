@@ -69,7 +69,7 @@
 <meta itemprop="name" content="LeetCode Backtrack">
 <meta itemprop="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 回溯法 用回溯法解决问题的过程可以形象地用一个树形结构表示，求解问题的每个步骤可以看作树中的一个节点。如果"><meta itemprop="datePublished" content="2022-01-26T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-01-26T08:15:48+08:00" />
-<meta itemprop="wordCount" content="3533">
+<meta itemprop="wordCount" content="3730">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode Backtrack"/>
 <meta name="twitter:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 回溯法 用回溯法解决问题的过程可以形象地用一个树形结构表示，求解问题的每个步骤可以看作树中的一个节点。如果"/>
@@ -325,12 +325,11 @@
     <li><a href="#39-combination-sumhttpsleetcodecomproblemscombination-sum"><a href="https://leetcode.com/problems/combination-sum/">39. Combination Sum</a></a></li>
     <li><a href="#082-含有重复元素集合的组合">082. 含有重复元素集合的组合</a></li>
     <li><a href="#083-没有重复元素集合的全排列">083. 没有重复元素集合的全排列</a></li>
-    <li><a href="#084-含有重复元素集合的全排列">084. 含有重复元素集合的全排列</a>
-      <ul>
-        <li><a href="#40-combination-sum-iihttpsleetcodecomproblemscombination-sum-ii"><a href="https://leetcode.com/problems/combination-sum-ii/">40. Combination Sum II</a></a></li>
-        <li><a href="#78-subsetshttpsleetcodecomproblemssubsets"><a href="https://leetcode.com/problems/subsets/">78. Subsets</a></a></li>
-      </ul>
-    </li>
+    <li><a href="#084-含有重复元素集合的全排列">084. 含有重复元素集合的全排列</a></li>
+    <li><a href="#17-letter-combinations-of-a-phone-number">17 Letter Combinations of a Phone Number</a></li>
+    <li><a href="#22-generate-parentheses">22 Generate Parentheses</a></li>
+    <li><a href="#40-combination-sum-iihttpsleetcodecomproblemscombination-sum-ii"><a href="https://leetcode.com/problems/combination-sum-ii/">40. Combination Sum II</a></a></li>
+    <li><a href="#78-subsetshttpsleetcodecomproblemssubsets"><a href="https://leetcode.com/problems/subsets/">78. Subsets</a></a></li>
   </ul>
 </nav>
   </div>
@@ -912,10 +911,148 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>递归函数backtrack中使用了一个set，用来保存已经交换到排列下标为i的位置的所有值。只有当一个数值之前没有被交换到第i位时才做交换，否则直接跳过。</p>
-<p>推荐 <a href="https://www.youtube.com/c/NeetCode/videos">NeetCode</a> 的视频，虽然是用Python写的代码，但是前面的图解和讲解帮助很大。</p>
-<h3 id="40-combination-sum-iihttpsleetcodecomproblemscombination-sum-ii"><a href="https://leetcode.com/problems/combination-sum-ii/">40. Combination Sum II</a></h3>
+<h2 id="17-letter-combinations-of-a-phone-number">17 Letter Combinations of a Phone Number</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;</span> <span class="n">phoneMap</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="sc">&#39;2&#39;</span><span class="p">,</span> <span class="s">&#34;abc&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="sc">&#39;3&#39;</span><span class="p">,</span> <span class="s">&#34;def&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="sc">&#39;4&#39;</span><span class="p">,</span> <span class="s">&#34;ghi&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="sc">&#39;5&#39;</span><span class="p">,</span> <span class="s">&#34;jkl&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="sc">&#39;6&#39;</span><span class="p">,</span> <span class="s">&#34;mno&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="sc">&#39;7&#39;</span><span class="p">,</span> <span class="s">&#34;pqrs&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="sc">&#39;8&#39;</span><span class="p">,</span> <span class="s">&#34;tuv&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="sc">&#39;9&#39;</span><span class="p">,</span> <span class="s">&#34;wxyz&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">letterCombinations</span><span class="p">(</span><span class="n">string</span> <span class="n">digits</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">digits</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">string</span> <span class="n">combination</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">backtrack</span><span class="p">(</span><span class="n">combination</span><span class="p">,</span><span class="n">digits</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">backtrack</span><span class="p">(</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">combination</span><span class="p">,</span><span class="n">string</span> <span class="n">digits</span><span class="p">,</span><span class="kt">int</span> <span class="n">index</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">index</span><span class="o">==</span><span class="n">digits</span><span class="p">.</span><span class="n">length</span><span class="p">()){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">combination</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">char</span> <span class="n">digit</span><span class="o">=</span><span class="n">digits</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="n">string</span> <span class="n">letters</span><span class="o">=</span><span class="n">phoneMap</span><span class="p">[</span><span class="n">digit</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span><span class="p">(</span><span class="kt">char</span> <span class="nl">letter</span><span class="p">:</span><span class="n">letters</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">combination</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">letter</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">backtrack</span><span class="p">(</span><span class="n">combination</span><span class="p">,</span><span class="n">digits</span><span class="p">,</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">combination</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>时间复杂度：O(3^m*4^n)</li>
+<li>空间复杂度：O(m+n)</li>
+</ul>
+<h2 id="22-generate-parentheses">22 Generate Parentheses</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">generateParenthesis</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">string</span> <span class="n">cur</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">backtrack</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">backtrack</span><span class="p">(</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">cur</span><span class="p">,</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="kt">int</span> <span class="n">numLeft</span><span class="p">,</span><span class="kt">int</span> <span class="n">numRight</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">==</span><span class="n">n</span><span class="o">*</span><span class="mi">2</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">cur</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">numLeft</span><span class="o">&lt;</span><span class="n">n</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cur</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="sc">&#39;(&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">backtrack</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">numLeft</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">numRight</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cur</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">numRight</span><span class="o">&lt;</span><span class="n">numLeft</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cur</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="sc">&#39;)&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">backtrack</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">numLeft</span><span class="p">,</span><span class="n">numRight</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cur</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>推荐 <a href="https://www.youtube.com/c/NeetCode/videos">NeetCode</a> 的视频，虽然是用Python写的代码，但是前面的图解和讲解帮助很大。</p>
+<h2 id="40-combination-sum-iihttpsleetcodecomproblemscombination-sum-ii"><a href="https://leetcode.com/problems/combination-sum-ii/">40. Combination Sum II</a></h2>
 <p><a href="https://www.youtube.com/watch?v=rSA3t6BDDwg&amp;t=3s">Combination Sum II - Backtracking - Leetcode 40 - Python</a></p>
-<h3 id="78-subsetshttpsleetcodecomproblemssubsets"><a href="https://leetcode.com/problems/subsets/">78. Subsets</a></h3>
+<h2 id="78-subsetshttpsleetcodecomproblemssubsets"><a href="https://leetcode.com/problems/subsets/">78. Subsets</a></h2>
 
     </div>
 

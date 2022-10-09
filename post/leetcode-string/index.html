@@ -69,7 +69,7 @@
 <meta itemprop="name" content="LeetCode String">
 <meta itemprop="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 字符串 014. 字符串中的变位词 剑指 Offer II 014. 字符串中的变位词 双指针 &#43; 哈希表 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"><meta itemprop="datePublished" content="2022-01-23T14:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-01-23T14:15:48+08:00" />
-<meta itemprop="wordCount" content="1996">
+<meta itemprop="wordCount" content="2510">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode String"/>
 <meta name="twitter:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 字符串 014. 字符串中的变位词 剑指 Offer II 014. 字符串中的变位词 双指针 &#43; 哈希表 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"/>
@@ -350,6 +350,8 @@
         <li><a href="#two-pointers">Two Pointers</a></li>
       </ul>
     </li>
+    <li><a href="#49-group-anagrams">49 Group Anagrams</a></li>
+    <li><a href="#8-string-to-integer-atoi">8 String to Integer (atoi)</a></li>
   </ul>
 </nav>
   </div>
@@ -994,6 +996,209 @@
 </span></span><span class="line"><span class="cl">            <span class="n">j</span><span class="o">++</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(1)</li>
+</ul>
+<h2 id="49-group-anagrams">49 Group Anagrams</h2>
+<p>Sort:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&gt;</span> <span class="n">groupAnagrams</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&amp;</span> <span class="n">strs</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&gt;</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&gt;</span> <span class="n">mp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="n">string</span> <span class="nl">str</span><span class="p">:</span><span class="n">strs</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">string</span> <span class="n">temp</span><span class="o">=</span><span class="n">str</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sort</span><span class="p">(</span><span class="n">temp</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">temp</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mp</span><span class="p">[</span><span class="n">temp</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">it</span><span class="o">=</span><span class="n">mp</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="n">it</span><span class="o">!=</span><span class="n">mp</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="n">it</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>时间复杂度：O(nklogk)</li>
+<li>空间复杂度：O(nk)</li>
+</ul>
+<h2 id="8-string-to-integer-atoi">8 String to Integer (atoi)</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">myAtoi</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">char</span><span class="o">[]</span> <span class="n">chars</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">chars</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//1.去空格
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="o">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">len</span> <span class="o">&amp;&amp;</span> <span class="n">chars</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">==</span> <span class="sc">&#39; &#39;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">index</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//2.排除极端情况 &#34;    &#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">index</span> <span class="o">==</span> <span class="n">len</span><span class="o">)</span> <span class="k">return</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//3.设置符号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">sign</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">char</span> <span class="n">firstChar</span> <span class="o">=</span> <span class="n">chars</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">firstChar</span> <span class="o">==</span> <span class="sc">&#39;-&#39;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">index</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sign</span> <span class="o">=</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">firstChar</span> <span class="o">==</span> <span class="sc">&#39;+&#39;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">index</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="n">0</span><span class="o">,</span> <span class="n">last</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="c1">//last 记录上一次的res，以此来判断是否溢出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="o">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">len</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">chars</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">&lt;</span> <span class="sc">&#39;0&#39;</span> <span class="o">||</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="sc">&#39;9&#39;</span><span class="o">)</span> <span class="k">break</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">tem</span> <span class="o">=</span> <span class="n">c</span> <span class="o">-</span> <span class="sc">&#39;0&#39;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">last</span> <span class="o">=</span> <span class="n">res</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">*</span> <span class="n">10</span> <span class="o">+</span> <span class="n">tem</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">last</span> <span class="o">!=</span> <span class="n">res</span> <span class="o">/</span> <span class="n">10</span><span class="o">)</span>  <span class="c1">//如果不相等就是溢出了
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">return</span> <span class="o">(</span><span class="n">sign</span> <span class="o">==</span> <span class="o">(-</span><span class="n">1</span><span class="o">))</span> <span class="o">?</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">index</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span> <span class="o">*</span> <span class="n">sign</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>但这个代码使用C++过不了，会报Runtime Error: signed integer overflow.</p>
+<blockquote>
+<p><strong>Line 24: Char 20: runtime error: signed integer overflow: 912834723 * 10 cannot be represented in type &lsquo;int&rsquo; (solution.cpp) SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior prog_joined.cpp:33:20</strong></p>
+</blockquote>
+<ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(1)</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">myAtoi</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">len</span><span class="o">=</span><span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">sign</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="n">index</span><span class="o">&lt;</span><span class="n">len</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39; &#39;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">index</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">index</span><span class="o">==</span><span class="n">len</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;-&#39;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">index</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sign</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span><span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;+&#39;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">index</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">res</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="n">index</span><span class="o">&lt;</span><span class="n">len</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">&gt;</span><span class="sc">&#39;9&#39;</span> <span class="o">||</span> <span class="n">s</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">&lt;</span><span class="sc">&#39;0&#39;</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">char</span> <span class="n">curChar</span><span class="o">=</span><span class="n">s</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">&gt;</span> <span class="n">INT_MAX</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">||</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="n">INT_MAX</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">curChar</span> <span class="o">-</span> <span class="sc">&#39;0&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">INT_MAX</span> <span class="o">%</span> <span class="mi">10</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">INT_MAX</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">&lt;</span> <span class="n">INT_MIN</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">||</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="n">INT_MIN</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">curChar</span> <span class="o">-</span> <span class="sc">&#39;0&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="p">(</span><span class="n">INT_MIN</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">INT_MIN</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span><span class="o">=</span><span class="n">res</span><span class="o">*</span><span class="mi">10</span><span class="o">+</span><span class="n">sign</span><span class="o">*</span><span class="p">(</span><span class="n">curChar</span><span class="o">-</span><span class="sc">&#39;0&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">index</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
