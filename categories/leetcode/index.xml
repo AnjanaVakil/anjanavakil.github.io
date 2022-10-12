@@ -67,7 +67,7 @@
       <pubDate>Tue, 05 Jul 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/leetcode-tree/</guid>
-      <description>LeetCode + 《剑指Offer II》刷题笔记。 树 二叉树的DFS 前序遍历 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&amp;lt;int&amp;gt; preorderTraversal(TreeNode* root) { vector&amp;lt;int&amp;gt; res; stack&amp;lt;TreeNode*&amp;gt; s; TreeNode* cur=root; while(cur || !s.empty()){ while(cur){ res.push_back(cur-&amp;gt;val); s.push(cur);</description>
+      <description>LeetCode + 《剑指Offer II》刷题笔记。 树 二叉树的DFS Preorder Traversal 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&amp;lt;int&amp;gt; preorderTraversal(TreeNode* root) { vector&amp;lt;int&amp;gt; res; stack&amp;lt;TreeNode*&amp;gt; s; TreeNode* cur=root; while(cur || !s.empty()){ while(cur){ res.push_back(cur-&amp;gt;val); s.push(cur); cur=cur-&amp;gt;left; }</description>
     </item>
     
     <item>

@@ -51,7 +51,7 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/post/investment/</loc>
+    <loc>https://anjanavakil.github.io/post/naval-ravikant/</loc>
     <lastmod>2022-10-11T19:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -88,6 +88,13 @@
   <url>
     <loc>https://anjanavakil.github.io/post/joel-on-software/</loc>
     <lastmod>2022-10-04T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/stock-trading-wisdom/</loc>
+    <lastmod>2022-10-02T19:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -436,6 +443,27 @@
   </url>
   
   <url>
+    <loc>https://anjanavakil.github.io/tags/book-review/</loc>
+    <lastmod>2022-04-20T19:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/categories/book/</loc>
+    <lastmod>2022-04-20T19:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/the-privileged-poor/</loc>
+    <lastmod>2022-04-20T19:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://anjanavakil.github.io/post/the-fenix-project2/</loc>
     <lastmod>2022-04-02T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -585,20 +613,6 @@
   <url>
     <loc>https://anjanavakil.github.io/post/designing-data-intensive_applications/</loc>
     <lastmod>2022-03-17T22:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/book-review/</loc>
-    <lastmod>2022-03-16T21:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/categories/book/</loc>
-    <lastmod>2022-03-16T21:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
