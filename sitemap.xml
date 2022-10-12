@@ -10,48 +10,76 @@
   
   <url>
     <loc>https://anjanavakil.github.io/</loc>
-    <lastmod>2022-10-05T08:15:48+08:00</lastmod>
+    <lastmod>2022-10-11T19:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/categories/</loc>
-    <lastmod>2022-10-05T08:15:48+08:00</lastmod>
+    <lastmod>2022-10-11T19:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/tags/cs-book/</loc>
-    <lastmod>2022-10-05T08:15:48+08:00</lastmod>
+    <loc>https://anjanavakil.github.io/tags/finance/</loc>
+    <lastmod>2022-10-11T19:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/categories/cs-book/</loc>
-    <lastmod>2022-10-05T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/post/linux-kernel-development/</loc>
-    <lastmod>2022-10-05T08:15:48+08:00</lastmod>
+    <loc>https://anjanavakil.github.io/categories/finance/</loc>
+    <lastmod>2022-10-11T19:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/post/</loc>
-    <lastmod>2022-10-05T08:15:48+08:00</lastmod>
+    <lastmod>2022-10-11T19:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/tags/</loc>
+    <lastmod>2022-10-11T19:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/investment/</loc>
+    <lastmod>2022-10-11T19:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/cpp/</loc>
+    <lastmod>2022-10-10T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/cs-book/</loc>
+    <lastmod>2022-10-10T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/categories/cs-book/</loc>
+    <lastmod>2022-10-10T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/linux-kernel-development/</loc>
     <lastmod>2022-10-05T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -312,20 +340,6 @@
   <url>
     <loc>https://anjanavakil.github.io/post/jvm/</loc>
     <lastmod>2022-06-12T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/finance/</loc>
-    <lastmod>2022-06-10T14:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/categories/finance/</loc>
-    <lastmod>2022-06-10T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

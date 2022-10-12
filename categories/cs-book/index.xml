@@ -6,7 +6,18 @@
     <description>Recent content in CS BOOK📓 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs-book/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs-book/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43; Notes</title>
+      <link>https://anjanavakil.github.io/post/cpp/</link>
+      <pubDate>Mon, 10 Oct 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/cpp/</guid>
+      <description>C++ Introduction to C++11 and C++14 with Example Code Snippet
+4 Lamba Expressions of Lambda Functions 1  [firstPart](secondPart) TypeYouReturn{ BodyOfLambda}(acctualParameters);   lambda function:
+1  double dUpperPart=[]{double dX, double dY}double{return dX*dX+dY*dY;}   1 2 3 4  vector&amp;lt;int&amp;gt; iVector; for_each(begin(iVector),end(iVector),[](int n){ if(n%2==0) cout &amp;lt;&amp;lt; n &amp;lt;&amp;lt; endl; });   5 Static Assertion 1  static_assert(evaluateExpression, stringMessage);   1  static_assert(sizeof(long long int)&amp;gt;=16;&amp;#34;This is unexpected&amp;#34;);   7 move and &amp;amp;&amp;amp; 1 2  MovableClass(MovableClass&amp;amp;&amp;amp;); MOvableClass&amp;amp;&amp;amp; operator=(MovableClass&amp;amp;&amp;amp;);   8 Few Notes about Pointers unique_ptr: If something has ownership it could not be shared, but it is movable.</description>
+    </item>
+    
     <item>
       <title>Linux Kernel Development</title>
       <link>https://anjanavakil.github.io/post/linux-kernel-development/</link>
