@@ -6,18 +6,7 @@
     <description>Recent content in CS BOOK📓 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs-book/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>C&#43;&#43; Notes</title>
-      <link>https://anjanavakil.github.io/post/cpp/</link>
-      <pubDate>Mon, 10 Oct 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/cpp/</guid>
-      <description>C++ Introduction to C++11 and C++14 with Example Code Snippet
-4 Lamba Expressions of Lambda Functions 1  [firstPart](secondPart) TypeYouReturn{ BodyOfLambda}(acctualParameters);   lambda function:
-1  double dUpperPart=[]{double dX, double dY}double{return dX*dX+dY*dY;}   1 2 3 4  vector&amp;lt;int&amp;gt; iVector; for_each(begin(iVector),end(iVector),[](int n){ if(n%2==0) cout &amp;lt;&amp;lt; n &amp;lt;&amp;lt; endl; });   5 Static Assertion 1  static_assert(evaluateExpression, stringMessage);   1  static_assert(sizeof(long long int)&amp;gt;=16;&amp;#34;This is unexpected&amp;#34;);   7 move and &amp;amp;&amp;amp; 1 2  MovableClass(MovableClass&amp;amp;&amp;amp;); MOvableClass&amp;amp;&amp;amp; operator=(MovableClass&amp;amp;&amp;amp;);   8 Few Notes about Pointers unique_ptr: If something has ownership it could not be shared, but it is movable.</description>
-    </item>
-    
+    <lastBuildDate>Wed, 05 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs-book/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux Kernel Development</title>
       <link>https://anjanavakil.github.io/post/linux-kernel-development/</link>
@@ -52,6 +41,105 @@
       
       <guid>https://anjanavakil.github.io/post/effective-c&#43;&#43;/</guid>
       <description>豆瓣🔗: 英文版：Effective C++ Third Edition 中文版：Effective C++ Effective C++ Scott Meyers Third Edition 55 Specific Ways to Improve Your Programs and Designs C++ 提供了4种不同又相辅相成的编程泛型(pr</description>
+    </item>
+    
+    <item>
+      <title>Software Engineering: A Practitioner&#39;s Approach</title>
+      <link>https://anjanavakil.github.io/post/software-engineering/</link>
+      <pubDate>Sun, 11 Sep 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/software-engineering/</guid>
+      <description>研一&amp;quot;软件工程与软件过程&amp;quot;课程书籍——SEPA(Software Engineering: A Practitioner&amp;rsquo;s Approach)笔记。 PREFACE CHAPTER 1: Software And Software Engineering KEY CONCEPTS: application domains characteristics of</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://anjanavakil.github.io/post/k8s/</link>
+      <pubDate>Sat, 20 Aug 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/k8s/</guid>
+      <description>豆瓣🔗： Kubernetes网络权威指南：基础、原理与实践 9.30更新：这本书应该不会再看下去了。豆瓣评价不多且差评蛮多，有几个好评才决定看</description>
+    </item>
+    
+    <item>
+      <title>《凤凰架构》架构师的视角</title>
+      <link>https://anjanavakil.github.io/post/the-fenix-project2/</link>
+      <pubDate>Sat, 02 Apr 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/the-fenix-project2/</guid>
+      <description>架构师的视角 第2章 访问远程服务 2.1 远程服务调用 2.1.1 进程间通信 调用本地方法： 1 2 3 4 5 6 7 8 // Caller: 调用者，代码里的main() // Callee: 被调用者，代码里的</description>
+    </item>
+    
+    <item>
+      <title>《凤凰架构》演进中的架构</title>
+      <link>https://anjanavakil.github.io/post/the-fenix-project1/</link>
+      <pubDate>Fri, 01 Apr 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/the-fenix-project1/</guid>
+      <description>豆瓣🔗：《凤凰架构：构建可靠的大型分布式系统》 演进中的架构 第1章 服务架构演进史 架构并不是被发明出来的，而是持续演进的结果。 1.1 原始分布式时代 调</description>
+    </item>
+    
+    <item>
+      <title>Coders At Work: Brad Fitzpatrick</title>
+      <link>https://anjanavakil.github.io/post/coders-at-work-brad-fitzpatrick/</link>
+      <pubDate>Sun, 20 Mar 2022 15:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/coders-at-work-brad-fitzpatrick/</guid>
+      <description>Brad Fitzpatrick 书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。 1、学习东西 Seibel: It does seem that while you were writing all this stuff because you needed it, you</description>
+    </item>
+    
+    <item>
+      <title>Coders At Work: Jamie Zawinski</title>
+      <link>https://anjanavakil.github.io/post/coders-at-work-jamie-zawinski/</link>
+      <pubDate>Sun, 20 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/coders-at-work-jamie-zawinski/</guid>
+      <description>豆瓣🔗: Coders At Work 《编程人生：15位软件先驱访谈录》 第一次读这本书读的是英文版，说实话当时读的云里雾里的😶‍🌫️，读了一章就丢下了，没有太大收获</description>
+    </item>
+    
+    <item>
+      <title>《编写可读代码的艺术》</title>
+      <link>https://anjanavakil.github.io/post/the-art-of-readable-code/</link>
+      <pubDate>Fri, 04 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/the-art-of-readable-code/</guid>
+      <description>豆瓣🔗：《编写可读代码的艺术》 关于编码规范和编写高质量代码类的书籍，印象中第一本看完的应该是《阿里巴巴Java开发手册》，《编写可读代码的艺</description>
+    </item>
+    
+    <item>
+      <title>Code: The Hidden Language of Computer Hardware and Software</title>
+      <link>https://anjanavakil.github.io/post/code/</link>
+      <pubDate>Fri, 25 Feb 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/code/</guid>
+      <description>豆瓣🔗：Code: The Hidden Language of Computer Hardware and Software 第一遍读的是中文版，寒假期间重读了英文版。这应该是第一本读完的英文专业书籍。读的过程中还是稍微有些困难的，</description>
+    </item>
+    
+    <item>
+      <title>CS基础知识书籍推荐(已读)</title>
+      <link>https://anjanavakil.github.io/post/cs-book-recommendation/</link>
+      <pubDate>Sat, 15 Jan 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/cs-book-recommendation/</guid>
+      <description>豆瓣🔗： 《编码：隐匿在计算机软硬件背后的语言》 Code: The Hidden Language of Computer Hardware and Software 《计算机是怎样跑起来的》 《程序是怎样跑起来的》 《网络是怎样连接的》 《计算机系</description>
+    </item>
+    
+    <item>
+      <title>《Wireshark网络分析XXX》</title>
+      <link>https://anjanavakil.github.io/post/wireshark-network-analyse/</link>
+      <pubDate>Thu, 30 Dec 2021 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/wireshark-network-analyse/</guid>
+      <description>豆瓣🔗： 《Wireshark网络分析就这么简单》 《Wireshark网络分析的艺术》 林沛满先生关于Wireshark的两本书：《Wiresh</description>
+    </item>
+    
+    <item>
+      <title>Operating Systems: Three Easy Pieces(OSTEP)</title>
+      <link>https://anjanavakil.github.io/post/ostep/</link>
+      <pubDate>Tue, 28 Dec 2021 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/ostep/</guid>
+      <description>豆瓣🔗：《操作系统导论》 Operating Systems: Three Easy Pieces 十分推荐的一本好书，10月3号开始阅读，大概花了13h看完，做了大约200多条笔记（后面学习到读书过程中不</description>
     </item>
     
   </channel>

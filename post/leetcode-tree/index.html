@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 树 二叉树的DFS Preorder Traversal 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&amp;lt;int&amp;gt; preorderTraversal(TreeNode* root) { vector&amp;lt;int&amp;gt; res; stack&amp;lt;TreeNode*&amp;gt; s; TreeNode* cur=root; while(cur || !s.empty()){ while(cur){ res.push_back(cur-&amp;gt;val); s.push(cur); cur=cur-&amp;gt;left; }" />
+  <meta name="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 树 二叉树的DFS Preorder Traversal 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 class Solution { public: vector&amp;lt;int&amp;gt; preorderTraversal(TreeNode* root) { vector&amp;lt;int&amp;gt; res; stack&amp;lt;TreeNode*&amp;gt; s; TreeNode* cur=root; while(cur || !s.empty()){ while(cur){ res.push_back(cur-&amp;gt;val); s.push(cur); cur=cur-&amp;gt;left; } cur=s.top();" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,19 +60,19 @@
 
 
 <meta property="og:title" content="LeetCode Tree" />
-<meta property="og:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 树 二叉树的DFS Preorder Traversal 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&lt;int&gt; preorderTraversal(TreeNode* root) { vector&lt;int&gt; res; stack&lt;TreeNode*&gt; s; TreeNode* cur=root; while(cur || !s.empty()){ while(cur){ res.push_back(cur-&gt;val); s.push(cur); cur=cur-&gt;left; }" />
+<meta property="og:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 树 二叉树的DFS Preorder Traversal 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 class Solution { public: vector&lt;int&gt; preorderTraversal(TreeNode* root) { vector&lt;int&gt; res; stack&lt;TreeNode*&gt; s; TreeNode* cur=root; while(cur || !s.empty()){ while(cur){ res.push_back(cur-&gt;val); s.push(cur); cur=cur-&gt;left; } cur=s.top();" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/leetcode-tree/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-07-05T08:15:48+08:00" />
 <meta property="article:modified_time" content="2022-07-05T08:15:48+08:00" />
 
 <meta itemprop="name" content="LeetCode Tree">
-<meta itemprop="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 树 二叉树的DFS Preorder Traversal 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&lt;int&gt; preorderTraversal(TreeNode* root) { vector&lt;int&gt; res; stack&lt;TreeNode*&gt; s; TreeNode* cur=root; while(cur || !s.empty()){ while(cur){ res.push_back(cur-&gt;val); s.push(cur); cur=cur-&gt;left; }"><meta itemprop="datePublished" content="2022-07-05T08:15:48+08:00" />
+<meta itemprop="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 树 二叉树的DFS Preorder Traversal 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 class Solution { public: vector&lt;int&gt; preorderTraversal(TreeNode* root) { vector&lt;int&gt; res; stack&lt;TreeNode*&gt; s; TreeNode* cur=root; while(cur || !s.empty()){ while(cur){ res.push_back(cur-&gt;val); s.push(cur); cur=cur-&gt;left; } cur=s.top();"><meta itemprop="datePublished" content="2022-07-05T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-07-05T08:15:48+08:00" />
-<meta itemprop="wordCount" content="9038">
+<meta itemprop="wordCount" content="9111">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode Tree"/>
-<meta name="twitter:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 树 二叉树的DFS Preorder Traversal 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&lt;int&gt; preorderTraversal(TreeNode* root) { vector&lt;int&gt; res; stack&lt;TreeNode*&gt; s; TreeNode* cur=root; while(cur || !s.empty()){ while(cur){ res.push_back(cur-&gt;val); s.push(cur); cur=cur-&gt;left; }"/>
+<meta name="twitter:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 树 二叉树的DFS Preorder Traversal 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 class Solution { public: vector&lt;int&gt; preorderTraversal(TreeNode* root) { vector&lt;int&gt; res; stack&lt;TreeNode*&gt; s; TreeNode* cur=root; while(cur || !s.empty()){ while(cur){ res.push_back(cur-&gt;val); s.push(cur); cur=cur-&gt;left; } cur=s.top();"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -332,6 +332,7 @@
         <li><a href="#437-path-sum-iii">437 Path Sum III</a></li>
         <li><a href="#101-symmetric-tree">101 Symmetric Tree</a></li>
         <li><a href="#110-balanced-binary-tree">110 Balanced Binary Tree</a></li>
+        <li><a href="#114-flatten-binary-tree-to-linked-list">114 Flatten Binary Tree to Linked List</a></li>
       </ul>
     </li>
     <li><a href="#二叉树的bfs">二叉树的BFS</a>
@@ -420,7 +421,6 @@
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
-</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
@@ -438,7 +438,6 @@
 </span></span><span class="line"><span class="cl">            <span class="n">cur</span><span class="o">=</span><span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">            <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">            <span class="n">cur</span><span class="o">=</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
@@ -1185,6 +1184,45 @@
 <li>空间复杂度：O(n)</li>
 </ul>
 <h3 id="110-balanced-binary-tree">110 Balanced Binary Tree</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">isBalanced</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">left</span><span class="o">=</span><span class="n">getHeight</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">right</span><span class="o">=</span><span class="n">getHeight</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">left</span><span class="o">-</span><span class="n">right</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="n">isBalanced</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">isBalanced</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="nf">getHeight</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">root</span><span class="o">==</span><span class="k">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">max</span><span class="p">(</span><span class="n">getHeight</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">),</span><span class="n">getHeight</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(n)</li>
+</ul>
+<h3 id="114-flatten-binary-tree-to-linked-list">114 Flatten Binary Tree to Linked List</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code></code></pre></td>
@@ -3764,8 +3802,8 @@
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/leetcode-sort/">
-            <span class="next-text nav-default">LeetCode Sort</span>
+          <a class="next" href="/post/naval-ravikant/">
+            <span class="next-text nav-default">《纳瓦尔宝典》</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

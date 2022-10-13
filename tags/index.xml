@@ -6,20 +6,20 @@
     <description>Recent content in Tags on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 11 Oct 2022 19:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>FINANCE💰</title>
-      <link>https://anjanavakil.github.io/tags/finance/</link>
-      <pubDate>Tue, 11 Oct 2022 19:15:48 +0800</pubDate>
+      <title>CS💻</title>
+      <link>https://anjanavakil.github.io/tags/cs/</link>
+      <pubDate>Mon, 10 Oct 2022 08:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/tags/finance/</guid>
+      <guid>https://anjanavakil.github.io/tags/cs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CS BOOK📓</title>
       <link>https://anjanavakil.github.io/tags/cs-book/</link>
-      <pubDate>Mon, 10 Oct 2022 08:15:48 +0800</pubDate>
+      <pubDate>Wed, 05 Oct 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/tags/cs-book/</guid>
       <description></description>
@@ -31,15 +31,6 @@
       <pubDate>Wed, 28 Sep 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/tags/paper/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CS💻</title>
-      <link>https://anjanavakil.github.io/tags/cs/</link>
-      <pubDate>Sun, 11 Sep 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/tags/cs/</guid>
       <description></description>
     </item>
     
@@ -71,20 +62,20 @@
     </item>
     
     <item>
-      <title>BOOK-SUMMARY📑</title>
-      <link>https://anjanavakil.github.io/tags/book-summary/</link>
-      <pubDate>Mon, 25 Jul 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/tags/book-summary/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>BOOK📚</title>
       <link>https://anjanavakil.github.io/tags/book/</link>
       <pubDate>Mon, 25 Jul 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/tags/book/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FINANCE💰</title>
+      <link>https://anjanavakil.github.io/tags/finance/</link>
+      <pubDate>Sat, 02 Jul 2022 19:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/tags/finance/</guid>
       <description></description>
     </item>
     
@@ -103,6 +94,15 @@
       <pubDate>Wed, 20 Apr 2022 19:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/tags/book-review/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BOOK-SUMMARY📑</title>
+      <link>https://anjanavakil.github.io/tags/book-summary/</link>
+      <pubDate>Fri, 04 Mar 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/tags/book-summary/</guid>
       <description></description>
     </item>
     

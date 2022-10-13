@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Linux Kernel Development">
 <meta itemprop="description" content="豆瓣🔗: 英文版： Linux Kernel Development 中文版： 《Linux内核设计与实现》 1 Introduction to the Linux Kernel 2 Getting Started with the Kernel 1 2 3 4 5 # git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git Cloning into &#39;linux-2.6&#39;... remote: Enumerating objects: 4084, done. ... # cd linux-2.6 This command creates a configuration based on the"><meta itemprop="datePublished" content="2022-10-05T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-10-05T08:15:48+08:00" />
-<meta itemprop="wordCount" content="344">
+<meta itemprop="wordCount" content="1407">
 <meta itemprop="keywords" content="CS BOOK📓," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux Kernel Development"/>
 <meta name="twitter:description" content="豆瓣🔗: 英文版： Linux Kernel Development 中文版： 《Linux内核设计与实现》 1 Introduction to the Linux Kernel 2 Getting Started with the Kernel 1 2 3 4 5 # git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git Cloning into &#39;linux-2.6&#39;... remote: Enumerating objects: 4084, done. ... # cd linux-2.6 This command creates a configuration based on the"/>
@@ -320,11 +320,29 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#1-introduction-to-the-linux-kernel">1 Introduction to the Linux Kernel</a></li>
-    <li><a href="#2-getting-started-with-the-kernel">2 Getting Started with the Kernel</a></li>
-    <li><a href="#3-process-management">3 Process Management</a></li>
+    <li><a href="#2-getting-started-with-the-kernel">2 Getting Started with the Kernel</a>
+      <ul>
+        <li><a href="#a-beast-of-a-different-nature">A Beast of a Different Nature</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-process-management">3 Process Management</a>
+      <ul>
+        <li><a href="#process-descriptor-and-the-task-structure">Process Descriptor and the Task Structure</a></li>
+        <li><a href="#allocating-the-process-descriptor">Allocating the Process Descriptor</a></li>
+        <li><a href="#process-state">Process State</a></li>
+        <li><a href="#manipulating-the-current-process-state">Manipulating the Current Process State</a></li>
+        <li><a href="#the-process-family-tree">The Process Family Tree</a></li>
+        <li><a href="#the-linux-implementation-of-threads">The Linux Implementation of Threads</a></li>
+      </ul>
+    </li>
     <li><a href="#4-process-scheduling">4 Process Scheduling</a></li>
     <li><a href="#5-system-calls">5 System Calls</a></li>
-    <li><a href="#6-kernel-data-structures">6 Kernel Data Structures</a></li>
+    <li><a href="#6-kernel-data-structures">6 Kernel Data Structures</a>
+      <ul>
+        <li><a href="#red-black-trees">Red-Black Trees</a></li>
+      </ul>
+    </li>
     <li><a href="#7-interrupts-and-interrupt-handlers">7 Interrupts and Interrupt Handlers</a></li>
     <li><a href="#8-bottom-halves-and-deferring-work">8 Bottom Halves and Deferring Work</a></li>
     <li><a href="#9-an-introduction-to-kernel-synchronization">9 An Introduction to Kernel Synchronization</a></li>
@@ -405,6 +423,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>solution: <a href="https://edwardhalferty.com/2021/12/11/configuring-the-linux-kernel-from-macos/">Configuring the Linux Kernel from MacOS</a></p>
+<hr>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -467,11 +486,392 @@
 </div>
 </div><p>solution: <a href="https://ixx.life/notes/cross-compile-linux-on-macos/">macOS交叉编译Linux避坑指南</a></p>
 <p>（不知道是哪位大佬的避坑指南，但的确macOS遇到的好几个问题都一样）</p>
+<hr>
+<h3 id="a-beast-of-a-different-nature">A Beast of a Different Nature</h3>
+<ul>
+<li>
+<p>The kernel has access to neither the C library nor the standard C headers.</p>
+</li>
+<li>
+<p>The kernel is coded in GNU C.</p>
+</li>
+<li>
+<p>The kernel lacks the memory protection afforded to user-space.</p>
+</li>
+<li>
+<p>The kernel cannot easily execute floating-point stack.</p>
+</li>
+<li>
+<p>The kernel has a small per-process fixed-size stak.</p>
+</li>
+<li>
+<p>Because the kernel has asynchronous interrupts, is preemptive, and supports SMP, synchronization and concurrency are major concerns within the kernel.</p>
+</li>
+<li>
+<p>Portability is important.</p>
+</li>
+</ul>
+<h4 id="no-libc-or-standard-headers">No libc or Standard Headers</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">printk</span><span class="p">(</span><span class="s">&#34;Hello world! A string &#39;%s&#39; and an integer &#39;%d&#39;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">str</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">printk</span><span class="p">(</span><span class="n">KERN_ERR</span> <span class="s">&#34;this is an error!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="inline-functions">Inline Functions</h4>
+<p>upside:</p>
+<ul>
+<li>eliminates the overhead of functions invocation and return (register saving and restore)</li>
+<li>allows for potentially greater optimization as the compiler can optimize both the caller and the called function as one.</li>
+</ul>
+<p>downside (<code>nothing in life is free</code>):</p>
+<ul>
+<li>code size increases because the contents of the function are copied into all the callers, which increase memory consumption and instruction cache footprint (占用空间).</li>
+</ul>
+<hr>
+<p>从 &ldquo;nothing in life is free&rdquo; 想起了 “There&rsquo;s no such thing as a free lunch. 天下没有免费的午餐” 和</p>
+<blockquote>
+<p>She was still too young to know that life never gives anything for nothing, and that a price is always exacted for what fate bestows.</p>
+<p>她那时候还太年轻,不知道所有命运赠予的礼物,早已在暗中标好了价格</p>
+<p>——[茨威格] 《断头王后》</p>
+</blockquote>
+<p>计算机中“空间换时间”和“时间换空间”不也是同样的道理。Every coin has two sides.</p>
+<hr>
+<p>Kernel developers use inline functions for small time-critical functions.</p>
+<p>Making large functions inline, especially those used more than once or that are not exceedingly time critical, is frowned upon.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">//The function declaration must precede any usage.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="n">wolf</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">tail_size</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Inline Assembly</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">low</span><span class="p">,</span><span class="n">high</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">asm</span> <span class="nf">volatile</span><span class="p">(</span><span class="s">&#34;rdtsc&#34;</span><span class="o">:</span> <span class="s">&#34;=a&#34;</span><span class="p">(</span><span class="n">low</span><span class="p">),</span><span class="s">&#34;=b&#34;</span><span class="p">(</span><span class="n">high</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* low and high now contain the lower and upper 32-bits of the 64-bit tsc*/</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="branch-annotation">Branch Annotation</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="n">error</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* ... */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="n">unlikely</span><span class="p">(</span><span class="n">error</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* ... */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="n">likely</span><span class="p">(</span><span class="n">error</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* ... */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="conclusion">Conclusion</h3>
+<p><code>The most important step on the road to Linux development is the realization that the kernel is not something to fear. Unfamiliar, sure. Insurmountable? Not at all.</code></p>
+<p>很喜欢这句💪。</p>
 <h2 id="3-process-management">3 Process Management</h2>
+<h3 id="process-descriptor-and-the-task-structure">Process Descriptor and the Task Structure</h3>
+<p><code>the task list</code>: circular doubly linked list 循环双向链表</p>
+<p>Each element in the task list is a <code>process descriptor</code> of the type <code>struct task_struct</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">task_struct</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">state</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">prio</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">policy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">task_struct</span> <span class="o">*</span><span class="n">parent</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">list_head</span> <span class="n">tasks</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pid_t</span> <span class="n">pid</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="allocating-the-process-descriptor">Allocating the Process Descriptor</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">thread_info</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">task_struct</span> <span class="o">*</span><span class="n">task</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">exec_domain</span> <span class="o">*</span><span class="n">exec_domain</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_u32</span> <span class="n">status</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_u32</span> <span class="n">status</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_u32</span> <span class="n">cpu</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">preempt_count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mm_segment_t</span> <span class="n">addr_limit</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">restart_block</span> <span class="n">restart_block</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="o">*</span><span class="n">sysenter_return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">uaccess_err</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="process-state">Process State</h3>
+<ul>
+<li>TASK_RUNNING</li>
+<li>TASK_INTERRUPTIBLE</li>
+<li>TASK_UNINTERRUPTIBLE</li>
+<li>_TASK_TRACED</li>
+<li>_TASK_STOPPED</li>
+</ul>
+<h3 id="manipulating-the-current-process-state">Manipulating the Current Process State</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">set_task_state</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">state</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">task</span><span class="o">-&gt;</span><span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">set_current_state</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">set_task_state</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="the-process-family-tree">The Process Family Tree</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">task_stuct</span> <span class="o">*</span><span class="n">my_parent</span><span class="o">=</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">parent</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">task_struct</span> <span class="o">*</span><span class="n">task</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">list_head</span> <span class="o">*</span><span class="n">list</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">list_for_each</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">  	<span class="n">task</span><span class="o">=</span><span class="n">list_entry</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="k">struct</span> <span class="n">task_struct</span><span class="p">,</span> <span class="n">sibling</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">task_struct</span> <span class="o">*</span><span class="n">task</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="n">current</span><span class="p">;</span> <span class="n">task</span><span class="o">!=&amp;</span><span class="n">init_task</span><span class="p">;</span> <span class="n">task</span><span class="o">=</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">parent</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="n">list_entry</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">tasks</span><span class="p">.</span><span class="n">next</span><span class="p">;</span> <span class="k">struct</span> <span class="n">task_struct</span><span class="p">,</span> <span class="n">tasks</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">list_entry</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">tasks</span><span class="p">.</span><span class="n">prev</span><span class="p">;</span> <span class="k">struct</span> <span class="n">task_struct</span><span class="p">,</span> <span class="n">tasks</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">task_struct</span> <span class="o">*</span><span class="n">task</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">for_each_process</span><span class="p">(</span><span class="n">task</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">  	<span class="n">printk</span><span class="p">(</span><span class="s">&#34;%s[%d]</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">task</span><span class="o">-&gt;</span><span class="n">comm</span><span class="p">,</span> <span class="n">task</span><span class="o">-&gt;</span><span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="the-linux-implementation-of-threads">The Linux Implementation of Threads</h3>
+<p>Linux implements all threads as standard processes.</p>
 <h2 id="4-process-scheduling">4 Process Scheduling</h2>
 <h2 id="5-system-calls">5 System Calls</h2>
 <h2 id="6-kernel-data-structures">6 Kernel Data Structures</h2>
-<h2 id="7-interrupts-and-interrupt-handlers">7 Interrupts and Interrupt Handlers</h2>
+<h3 id="red-black-trees">Red-Black Trees</h3>
+<p>Linux&rsquo;s primary binary tree data structure is the read-black tree.</p>
+<p>Red-black trees remain semi-balanced by enforcing that the following six properties remain true:</p>
+<ol>
+<li>All nodes are either red or black.</li>
+<li>Leaf nodes are black.</li>
+<li>Leaf nodes do not contain data.</li>
+<li>All non-leaf nodes have two children.</li>
+<li>If a node is red, both of its children are black.</li>
+<li>The path from a node to one of its leaves contains the same number of black nodes as the shortest path to any of its other leaves.</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * red-black trees properties:  https://en.wikipedia.org/wiki/Rbtree
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *  1) A node is either red or black
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *  2) The root is black
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *  3) All leaves (NULL) are black
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *  4) Both children of every red node are black
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *  5) Every simple path from root to leaves contains the same number
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *     of black nodes.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *  4 and 5 give the O(log n) guarantee, since 4 implies you cannot have two
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *  consecutive red nodes in a path and every red node is therefore followed by
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *  a black. So if B is the number of black nodes on every simple path (as per
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *  5), then the longest possible path due to 4 is 2B.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *  We shall indicate color with case, where black nodes are uppercase and red
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *  nodes will be lowercase. Unknown color nodes shall be drawn as red within
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *  parentheses and have some accompanying text comment.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="rbtrees">rbtrees</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">rb_root</span> <span class="n">root</span><span class="o">=</span><span class="n">RB_ROOT</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>a search of Linux&rsquo;s page cache for a chunk of a file (represented by an inode and offset pair).</p>
+<p>Each inode has its own rbtree, keyed off of page offsets into file.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">page</span> <span class="o">*</span> <span class="nf">rb_search_page_cache</span><span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="n">inode</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">offset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">rb_node</span> <span class="o">*</span><span class="n">n</span><span class="o">=</span><span class="n">inode</span><span class="o">-&gt;</span><span class="n">i_rb_page_cache</span><span class="p">.</span><span class="n">rb_node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  	<span class="k">while</span><span class="p">(</span><span class="n">n</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">      	<span class="k">struct</span> <span class="n">page</span> <span class="o">*</span><span class="n">page</span><span class="o">=</span><span class="n">rb_entyry</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="k">struct</span> <span class="n">page</span><span class="p">,</span> <span class="n">rb_page_cache</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      	<span class="k">if</span><span class="p">(</span><span class="n">offset</span> <span class="o">&lt;</span> <span class="n">page</span><span class="o">-&gt;</span><span class="n">offset</span><span class="p">)</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="o">-&gt;</span><span class="n">rb_left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      	<span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">offset</span> <span class="o">&gt;</span> <span class="n">page</span><span class="o">-&gt;</span><span class="n">offset</span><span class="p">)</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="o">-&gt;</span><span class="n">rb_right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      	<span class="k">else</span> <span class="k">return</span> <span class="n">page</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  	<span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Insert:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">page</span> <span class="o">*</span> <span class="nf">rb_insert_page_cache</span><span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="n">inode</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">offset</span><span class="p">,</span> <span class="k">struct</span> <span class="n">rb_node</span> <span class="o">*</span><span class="n">node</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">rb_node</span> <span class="o">*</span><span class="n">p</span><span class="o">=&amp;</span><span class="n">inode</span><span class="o">-&gt;</span><span class="n">i_rb_page_cache</span><span class="p">.</span><span class="n">rb_node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">rb_node</span> <span class="o">*</span><span class="n">parent</span><span class="o">=</span><span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">page</span> <span class="o">*</span><span class="n">page</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">      <span class="n">parent</span><span class="o">=*</span><span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">page</span><span class="o">=</span><span class="n">rb_entry</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="k">struct</span> <span class="n">page</span><span class="p">,</span> <span class="n">rb_page_cache</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">      <span class="k">if</span><span class="p">(</span><span class="n">offset</span> <span class="o">&lt;</span> <span class="n">page</span><span class="o">-&gt;</span><span class="n">offset</span><span class="p">)</span> <span class="n">p</span><span class="o">=&amp;</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">rb_left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">offset</span> <span class="o">&gt;</span> <span class="n">page</span><span class="o">-&gt;</span><span class="n">offset</span><span class="p">)</span> <span class="n">p</span><span class="o">=&amp;</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">rb_right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span> <span class="k">return</span> <span class="n">page</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">rb_link_node</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rb_insert_color</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">inode</span><span class="o">-&gt;</span><span class="n">i_rb_page_cache</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="7-interrupts-and-interrupt-handlers">7 Interrupts and Interrupt Handlers</h2>
 <h2 id="8-bottom-halves-and-deferring-work">8 Bottom Halves and Deferring Work</h2>
 <h2 id="9-an-introduction-to-kernel-synchronization">9 An Introduction to Kernel Synchronization</h2>
 <h2 id="10-kernel-synchronization-methods">10 Kernel Synchronization Methods</h2>

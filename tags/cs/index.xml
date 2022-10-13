@@ -6,14 +6,16 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 11 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Software Engineering: A Practitioner&#39;s Approach</title>
-      <link>https://anjanavakil.github.io/post/software-engineering/</link>
-      <pubDate>Sun, 11 Sep 2022 08:15:48 +0800</pubDate>
+      <title>C&#43;&#43; Notes</title>
+      <link>https://anjanavakil.github.io/post/cpp/</link>
+      <pubDate>Mon, 10 Oct 2022 08:15:48 +0800</pubDate>
       
-      <guid>https://anjanavakil.github.io/post/software-engineering/</guid>
-      <description>研一&amp;quot;软件工程与软件过程&amp;quot;课程书籍——SEPA(Software Engineering: A Practitioner&amp;rsquo;s Approach)笔记。 PREFACE CHAPTER 1: Software And Software Engineering KEY CONCEPTS: application domains characteristics of</description>
+      <guid>https://anjanavakil.github.io/post/cpp/</guid>
+      <description>C++ Introduction to C++11 and C++14 with Example Code Snippet
+4 Lamba Expressions of Lambda Functions 1  [firstPart](secondPart) TypeYouReturn{ BodyOfLambda}(acctualParameters);   lambda function:
+1  double dUpperPart=[]{double dX, double dY}double{return dX*dX+dY*dY;}   1 2 3 4  vector&amp;lt;int&amp;gt; iVector; for_each(begin(iVector),end(iVector),[](int n){ if(n%2==0) cout &amp;lt;&amp;lt; n &amp;lt;&amp;lt; endl; });   5 Static Assertion 1  static_assert(evaluateExpression, stringMessage);   1  static_assert(sizeof(long long int)&amp;gt;=16;&amp;#34;This is unexpected&amp;#34;);   7 move and &amp;amp;&amp;amp; 1 2  MovableClass(MovableClass&amp;amp;&amp;amp;); MOvableClass&amp;amp;&amp;amp; operator=(MovableClass&amp;amp;&amp;amp;);   8 Few Notes about Pointers unique_ptr: If something has ownership it could not be shared, but it is movable.</description>
     </item>
     
     <item>
@@ -23,15 +25,6 @@
       
       <guid>https://anjanavakil.github.io/post/middleware/</guid>
       <description>9.30更新：这本书应该不会再看下去了，本来想的是中文书自己没有基础可以一看，但发现干货真的不多，全文都是在贴代码，并且文字有点冗余。人生短</description>
-    </item>
-    
-    <item>
-      <title>Kubernetes</title>
-      <link>https://anjanavakil.github.io/post/k8s/</link>
-      <pubDate>Sat, 20 Aug 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/k8s/</guid>
-      <description>豆瓣🔗： Kubernetes网络权威指南：基础、原理与实践 9.30更新：这本书应该不会再看下去了。本来想的是中文书自己没有基础可以一看，但其</description>
     </item>
     
     <item>
@@ -157,7 +150,7 @@
       <pubDate>Tue, 05 Jul 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/leetcode-tree/</guid>
-      <description>LeetCode + 《剑指Offer II》刷题笔记。 树 二叉树的DFS Preorder Traversal 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&amp;lt;int&amp;gt; preorderTraversal(TreeNode* root) { vector&amp;lt;int&amp;gt; res; stack&amp;lt;TreeNode*&amp;gt; s; TreeNode* cur=root; while(cur || !s.empty()){ while(cur){ res.push_back(cur-&amp;gt;val); s.push(cur); cur=cur-&amp;gt;left; }</description>
+      <description>LeetCode + 《剑指Offer II》刷题笔记。 树 二叉树的DFS Preorder Traversal 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 class Solution { public: vector&amp;lt;int&amp;gt; preorderTraversal(TreeNode* root) { vector&amp;lt;int&amp;gt; res; stack&amp;lt;TreeNode*&amp;gt; s; TreeNode* cur=root; while(cur || !s.empty()){ while(cur){ res.push_back(cur-&amp;gt;val); s.push(cur); cur=cur-&amp;gt;left; } cur=s.top();</description>
     </item>
     
     <item>
@@ -185,6 +178,15 @@
       
       <guid>https://anjanavakil.github.io/post/jvm/</guid>
       <description>Java SE 8虚拟机规范：The Java® Virtual Machine Specification-Java SE 8 Edition 类加载子系统 运行时数据区概述及线程 Run-Time Data Areas The Java Virtual Machine defines various run-time data areas that are used during execution of a program. Some of these data areas are created on Java Virtual</description>
+    </item>
+    
+    <item>
+      <title>Redis</title>
+      <link>https://anjanavakil.github.io/post/redis/</link>
+      <pubDate>Sun, 05 Jun 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/redis/</guid>
+      <description>官方文档： Redis documentation Redis Sentinel High availability with Redis Sentinel Redis Sentinel provides high availability for Redis when not using Redis Cluster. Running Sentinel However it is mandatory to use a configuration file when running Sentinel, as this file will be used by the system in order to save the current state that will be reloaded in case of restarts. Sentinel will simply refuse to start</description>
     </item>
     
   </channel>

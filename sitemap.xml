@@ -10,49 +10,7 @@
   
   <url>
     <loc>https://anjanavakil.github.io/</loc>
-    <lastmod>2022-10-11T19:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/categories/</loc>
-    <lastmod>2022-10-11T19:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/finance/</loc>
-    <lastmod>2022-10-11T19:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/categories/finance/</loc>
-    <lastmod>2022-10-11T19:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/post/</loc>
-    <lastmod>2022-10-11T19:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/</loc>
-    <lastmod>2022-10-11T19:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/post/naval-ravikant/</loc>
-    <lastmod>2022-10-11T19:15:48+08:00</lastmod>
+    <lastmod>2022-10-10T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -65,15 +23,50 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/tags/cs-book/</loc>
+    <loc>https://anjanavakil.github.io/categories/</loc>
     <lastmod>2022-10-10T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/categories/cs-book/</loc>
+    <loc>https://anjanavakil.github.io/tags/cs/</loc>
     <lastmod>2022-10-10T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/categories/cs/</loc>
+    <lastmod>2022-10-10T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/</loc>
+    <lastmod>2022-10-10T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/</loc>
+    <lastmod>2022-10-10T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/cs-book/</loc>
+    <lastmod>2022-10-05T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/categories/cs-book/</loc>
+    <lastmod>2022-10-05T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -88,13 +81,6 @@
   <url>
     <loc>https://anjanavakil.github.io/post/joel-on-software/</loc>
     <lastmod>2022-10-04T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/post/stock-trading-wisdom/</loc>
-    <lastmod>2022-10-02T19:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -144,20 +130,6 @@
   <url>
     <loc>https://anjanavakil.github.io/post/architectural-styles/</loc>
     <lastmod>2022-09-20T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/tags/cs/</loc>
-    <lastmod>2022-09-11T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://anjanavakil.github.io/categories/cs/</loc>
-    <lastmod>2022-09-11T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -254,13 +226,6 @@
   </url>
   
   <url>
-    <loc>https://anjanavakil.github.io/tags/book-summary/</loc>
-    <lastmod>2022-07-25T08:15:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://anjanavakil.github.io/tags/book/</loc>
     <lastmod>2022-07-25T08:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -326,6 +291,27 @@
   <url>
     <loc>https://anjanavakil.github.io/post/leetcode-tree/</loc>
     <lastmod>2022-07-05T08:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/tags/finance/</loc>
+    <lastmod>2022-07-02T19:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/categories/finance/</loc>
+    <lastmod>2022-07-02T19:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/naval-ravikant/</loc>
+    <lastmod>2022-07-02T19:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -632,6 +618,13 @@
   </url>
   
   <url>
+    <loc>https://anjanavakil.github.io/tags/book-summary/</loc>
+    <lastmod>2022-03-04T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://anjanavakil.github.io/post/the-art-of-readable-code/</loc>
     <lastmod>2022-03-04T14:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -844,6 +837,13 @@
   <url>
     <loc>https://anjanavakil.github.io/post/nanjing-massacre/</loc>
     <lastmod>2021-12-28T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/stock-trading-wisdom/</loc>
+    <lastmod>2021-12-02T19:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
