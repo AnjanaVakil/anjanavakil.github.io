@@ -163,15 +163,6 @@
     </item>
     
     <item>
-      <title>Vue</title>
-      <link>https://anjanavakil.github.io/post/vue/</link>
-      <pubDate>Mon, 20 Jun 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/vue/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>JVM</title>
       <link>https://anjanavakil.github.io/post/jvm/</link>
       <pubDate>Sun, 12 Jun 2022 08:15:48 +0800</pubDate>
@@ -187,6 +178,15 @@
       
       <guid>https://anjanavakil.github.io/post/redis/</guid>
       <description>官方文档： Redis documentation Redis Sentinel High availability with Redis Sentinel Redis Sentinel provides high availability for Redis when not using Redis Cluster. Running Sentinel However it is mandatory to use a configuration file when running Sentinel, as this file will be used by the system in order to save the current state that will be reloaded in case of restarts. Sentinel will simply refuse to start</description>
+    </item>
+    
+    <item>
+      <title>精彩video</title>
+      <link>https://anjanavakil.github.io/post/video/</link>
+      <pubDate>Thu, 02 Jun 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/video/</guid>
+      <description>网络上看过的精彩讲座/课程/录像/视频等： Jul 15: A Philosophy of Software Design | John Ousterhout | Talks at Google John Ousterhout, Professor of Computer Science at Stanford University, discusses complex techniques on how to become a more confident coder. John is excited to announce that he just published the first edition of a new</description>
     </item>
     
   </channel>
