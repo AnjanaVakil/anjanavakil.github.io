@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="C&#43;&#43; Introduction to C&#43;&#43;11 and C&#43;&#43;14 with Example Code Snippet
+  <meta name="description" content="GDB GDB Tutorial: Some Cool Tips to Debug C/C&#43;&#43; Code
+C&#43;&#43; Introduction to C&#43;&#43;11 and C&#43;&#43;14 with Example Code Snippet
 4 Lamba Expressions of Lambda Functions 1  [firstPart](secondPart) TypeYouReturn{ BodyOfLambda}(acctualParameters);   lambda function:
 1  double dUpperPart=[]{double dX, double dY}double{return dX*dX&#43;dY*dY;}   1 2 3 4  vector&amp;lt;int&amp;gt; iVector; for_each(begin(iVector),end(iVector),[](int n){ if(n%2==0) cout &amp;lt;&amp;lt; n &amp;lt;&amp;lt; endl; });   5 Static Assertion 1  static_assert(evaluateExpression, stringMessage);   1  static_assert(sizeof(long long int)&amp;gt;=16;&amp;#34;This is unexpected&amp;#34;);   7 move and &amp;amp;&amp;amp; 1 2  MovableClass(MovableClass&amp;amp;&amp;amp;); MOvableClass&amp;amp;&amp;amp; operator=(MovableClass&amp;amp;&amp;amp;);   8 Few Notes about Pointers unique_ptr: If something has ownership it could not be shared, but it is movable." />
 
@@ -62,7 +63,8 @@
 
 
 <meta property="og:title" content="C&#43;&#43; Notes" />
-<meta property="og:description" content="C&#43;&#43; Introduction to C&#43;&#43;11 and C&#43;&#43;14 with Example Code Snippet
+<meta property="og:description" content="GDB GDB Tutorial: Some Cool Tips to Debug C/C&#43;&#43; Code
+C&#43;&#43; Introduction to C&#43;&#43;11 and C&#43;&#43;14 with Example Code Snippet
 4 Lamba Expressions of Lambda Functions 1  [firstPart](secondPart) TypeYouReturn{ BodyOfLambda}(acctualParameters);   lambda function:
 1  double dUpperPart=[]{double dX, double dY}double{return dX*dX&#43;dY*dY;}   1 2 3 4  vector&lt;int&gt; iVector; for_each(begin(iVector),end(iVector),[](int n){ if(n%2==0) cout &lt;&lt; n &lt;&lt; endl; });   5 Static Assertion 1  static_assert(evaluateExpression, stringMessage);   1  static_assert(sizeof(long long int)&gt;=16;&#34;This is unexpected&#34;);   7 move and &amp;&amp; 1 2  MovableClass(MovableClass&amp;&amp;); MOvableClass&amp;&amp; operator=(MovableClass&amp;&amp;);   8 Few Notes about Pointers unique_ptr: If something has ownership it could not be shared, but it is movable." />
 <meta property="og:type" content="article" />
@@ -71,14 +73,16 @@
 <meta property="article:modified_time" content="2022-10-10T08:15:48+08:00" />
 
 <meta itemprop="name" content="C&#43;&#43; Notes">
-<meta itemprop="description" content="C&#43;&#43; Introduction to C&#43;&#43;11 and C&#43;&#43;14 with Example Code Snippet
+<meta itemprop="description" content="GDB GDB Tutorial: Some Cool Tips to Debug C/C&#43;&#43; Code
+C&#43;&#43; Introduction to C&#43;&#43;11 and C&#43;&#43;14 with Example Code Snippet
 4 Lamba Expressions of Lambda Functions 1  [firstPart](secondPart) TypeYouReturn{ BodyOfLambda}(acctualParameters);   lambda function:
 1  double dUpperPart=[]{double dX, double dY}double{return dX*dX&#43;dY*dY;}   1 2 3 4  vector&lt;int&gt; iVector; for_each(begin(iVector),end(iVector),[](int n){ if(n%2==0) cout &lt;&lt; n &lt;&lt; endl; });   5 Static Assertion 1  static_assert(evaluateExpression, stringMessage);   1  static_assert(sizeof(long long int)&gt;=16;&#34;This is unexpected&#34;);   7 move and &amp;&amp; 1 2  MovableClass(MovableClass&amp;&amp;); MOvableClass&amp;&amp; operator=(MovableClass&amp;&amp;);   8 Few Notes about Pointers unique_ptr: If something has ownership it could not be shared, but it is movable."><meta itemprop="datePublished" content="2022-10-10T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-10-10T08:15:48+08:00" />
-<meta itemprop="wordCount" content="156">
+<meta itemprop="wordCount" content="166">
 <meta itemprop="keywords" content="CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="C&#43;&#43; Notes"/>
-<meta name="twitter:description" content="C&#43;&#43; Introduction to C&#43;&#43;11 and C&#43;&#43;14 with Example Code Snippet
+<meta name="twitter:description" content="GDB GDB Tutorial: Some Cool Tips to Debug C/C&#43;&#43; Code
+C&#43;&#43; Introduction to C&#43;&#43;11 and C&#43;&#43;14 with Example Code Snippet
 4 Lamba Expressions of Lambda Functions 1  [firstPart](secondPart) TypeYouReturn{ BodyOfLambda}(acctualParameters);   lambda function:
 1  double dUpperPart=[]{double dX, double dY}double{return dX*dX&#43;dY*dY;}   1 2 3 4  vector&lt;int&gt; iVector; for_each(begin(iVector),end(iVector),[](int n){ if(n%2==0) cout &lt;&lt; n &lt;&lt; endl; });   5 Static Assertion 1  static_assert(evaluateExpression, stringMessage);   1  static_assert(sizeof(long long int)&gt;=16;&#34;This is unexpected&#34;);   7 move and &amp;&amp; 1 2  MovableClass(MovableClass&amp;&amp;); MOvableClass&amp;&amp; operator=(MovableClass&amp;&amp;);   8 Few Notes about Pointers unique_ptr: If something has ownership it could not be shared, but it is movable."/>
 
@@ -327,6 +331,7 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
+    <li><a href="#gdb">GDB</a></li>
     <li><a href="#c">C++</a>
       <ul>
         <li><a href="#4-lamba-expressions-of-lambda-functions">4 Lamba Expressions of Lambda Functions</a></li>
@@ -343,7 +348,9 @@
 
     
     <div class="post-content">
-      <h2 id="c">C++</h2>
+      <h2 id="gdb">GDB</h2>
+<p><a href="https://www.techbeamers.com/how-to-use-gdb-top-debugging-tips/">GDB Tutorial: Some Cool Tips to Debug C/C++ Code</a></p>
+<h2 id="c">C++</h2>
 <p><a href="https://www.thegeekstuff.com/2016/02/c-plus-plus-11/">Introduction to C++11 and C++14 with Example Code Snippet</a></p>
 <h3 id="4-lamba-expressions-of-lambda-functions">4 Lamba Expressions of Lambda Functions</h3>
 <div class="highlight"><div class="chroma">
@@ -507,19 +514,6 @@
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/practice/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">Practice</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
         
           <a class="next" href="/post/linux-kernel-development/">
             <span class="next-text nav-default">Linux Kernel Development</span>
