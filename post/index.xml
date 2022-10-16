@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Practice</title>
+      <link>https://anjanavakil.github.io/post/practice/</link>
+      <pubDate>Sat, 15 Oct 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/practice/</guid>
+      <description>发现自己是不是实践太少？多动手。 low level memory exploits Running a Buffer Overflow Attack Running a Buffer Overflow Attack</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43; Notes</title>
       <link>https://anjanavakil.github.io/post/cpp/</link>
@@ -182,15 +191,6 @@ Introduction Software architecture research investigates methods for determining
       
       <guid>https://anjanavakil.github.io/post/leetcode-queue/</guid>
       <description>LeetCode + 《剑指Offer II》刷题笔记。 队列 滑动窗口 剑指 Offer II 041. 滑动窗口的平均值 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 class MovingAverage { public: queue&amp;lt;int&amp;gt; q; int</description>
-    </item>
-    
-    <item>
-      <title>LeetCode Stack</title>
-      <link>https://anjanavakil.github.io/post/leetcode-stack/</link>
-      <pubDate>Wed, 20 Jul 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/leetcode-stack/</guid>
-      <description>LeetCode + 《剑指Offer II》刷题笔记。 栈 剑指 Offer II 036. 后缀表达式 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 class Solution { public: int evalRPN(vector&amp;lt;string&amp;gt;&amp;amp; tokens) { stack&amp;lt;int&amp;gt; s; int a,b,res; for(string&amp;amp;</description>
     </item>
     
   </channel>

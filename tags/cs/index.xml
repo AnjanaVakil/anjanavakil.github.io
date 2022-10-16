@@ -6,7 +6,16 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Practice</title>
+      <link>https://anjanavakil.github.io/post/practice/</link>
+      <pubDate>Sat, 15 Oct 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/practice/</guid>
+      <description>发现自己是不是实践太少？多动手。 low level memory exploits Running a Buffer Overflow Attack Running a Buffer Overflow Attack</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43; Notes</title>
       <link>https://anjanavakil.github.io/post/cpp/</link>
@@ -178,15 +187,6 @@
       
       <guid>https://anjanavakil.github.io/post/redis/</guid>
       <description>官方文档： Redis documentation Redis Sentinel High availability with Redis Sentinel Redis Sentinel provides high availability for Redis when not using Redis Cluster. Running Sentinel However it is mandatory to use a configuration file when running Sentinel, as this file will be used by the system in order to save the current state that will be reloaded in case of restarts. Sentinel will simply refuse to start</description>
-    </item>
-    
-    <item>
-      <title>精彩video</title>
-      <link>https://anjanavakil.github.io/post/video/</link>
-      <pubDate>Thu, 02 Jun 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/video/</guid>
-      <description>网络上看过的精彩讲座/课程/录像/视频等： Jul 15: A Philosophy of Software Design | John Ousterhout | Talks at Google John Ousterhout, Professor of Computer Science at Stanford University, discusses complex techniques on how to become a more confident coder. John is excited to announce that he just published the first edition of a new</description>
     </item>
     
   </channel>

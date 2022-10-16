@@ -6,7 +6,16 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Practice</title>
+      <link>https://anjanavakil.github.io/post/practice/</link>
+      <pubDate>Sat, 15 Oct 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/practice/</guid>
+      <description>发现自己是不是实践太少？多动手。 low level memory exploits Running a Buffer Overflow Attack Running a Buffer Overflow Attack</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43; Notes</title>
       <link>https://anjanavakil.github.io/post/cpp/</link>
@@ -79,17 +88,6 @@
       
       <guid>https://anjanavakil.github.io/post/study/</guid>
       <description>SpringCloud学习 开发阶段，用热部署Devtools，但是一旦上线，应该关掉热部署。 客户消费者端口：80端口(一般用户都是80端口)</description>
-    </item>
-    
-    <item>
-      <title>Designing Data-Intensive Applications Notes</title>
-      <link>https://anjanavakil.github.io/post/designing-data-intensive_applications/</link>
-      <pubDate>Thu, 17 Mar 2022 22:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/designing-data-intensive_applications/</guid>
-      <description>atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.
-In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.
-REST REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP.</description>
     </item>
     
     <item>

@@ -98,6 +98,15 @@
     </item>
     
     <item>
+      <title>Designing Data-Intensive Applications Notes</title>
+      <link>https://anjanavakil.github.io/post/designing-data-intensive_applications/</link>
+      <pubDate>Thu, 17 Mar 2022 22:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/designing-data-intensive_applications/</guid>
+      <description>豆瓣🔗： atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation. In the context of transactions: grouping together a set of writes that must either all</description>
+    </item>
+    
+    <item>
       <title>《编写可读代码的艺术》</title>
       <link>https://anjanavakil.github.io/post/the-art-of-readable-code/</link>
       <pubDate>Fri, 04 Mar 2022 14:15:48 +0800</pubDate>

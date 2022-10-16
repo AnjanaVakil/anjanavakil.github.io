@@ -23,9 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.
-In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.
-REST REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP." />
+  <meta name="description" content="豆瓣🔗： atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation. In the context of transactions: grouping together a set of writes that must either all" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -62,25 +60,19 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
 
 
 <meta property="og:title" content="Designing Data-Intensive Applications Notes" />
-<meta property="og:description" content="atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.
-In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.
-REST REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP." />
+<meta property="og:description" content="豆瓣🔗： atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation. In the context of transactions: grouping together a set of writes that must either all" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/designing-data-intensive_applications/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-03-17T22:15:48+08:00" />
 <meta property="article:modified_time" content="2022-03-17T22:15:48+08:00" />
 
 <meta itemprop="name" content="Designing Data-Intensive Applications Notes">
-<meta itemprop="description" content="atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.
-In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.
-REST REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP."><meta itemprop="datePublished" content="2022-03-17T22:15:48+08:00" />
+<meta itemprop="description" content="豆瓣🔗： atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation. In the context of transactions: grouping together a set of writes that must either all"><meta itemprop="datePublished" content="2022-03-17T22:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-03-17T22:15:48+08:00" />
-<meta itemprop="wordCount" content="265">
-<meta itemprop="keywords" content="BOOK📚,CS💻," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="wordCount" content="1096">
+<meta itemprop="keywords" content="CS BOOK📓," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Designing Data-Intensive Applications Notes"/>
-<meta name="twitter:description" content="atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.
-In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.
-REST REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP."/>
+<meta name="twitter:description" content="豆瓣🔗： atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation. In the context of transactions: grouping together a set of writes that must either all"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -307,7 +299,7 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
           2022-03-17
         </time>
         <div class="post-category">
-            <a href="https://anjanavakil.github.io/categories/cs/"> CS💻 </a>
+            <a href="https://anjanavakil.github.io/categories/cs-book/"> CS BOOK📓 </a>
             
           </div>
         
@@ -333,6 +325,7 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
         <li><a href="#rest">REST</a></li>
         <li><a href="#message-brokermessage-queuemessage-oriented-middleware">message broker/message queue/message-oriented middleware</a></li>
         <li><a href="#references">References</a></li>
+        <li><a href="#reading-notes">Reading Notes:</a></li>
       </ul>
     </li>
   </ul>
@@ -342,19 +335,136 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
 
     
     <div class="post-content">
-      <h3 id="atomic">atomic</h3>
-<p>In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.</p>
-<p>In the context of transactions: grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.</p>
+      <ul>
+<li>豆瓣🔗：</li>
+</ul>
+<h3 id="atomic">atomic</h3>
+<p>In the context of <code>concurrent operations</code>: describing an operation that appears to take effect at <code>a single point</code> in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.</p>
+<p>In the context of <code>transactions</code>: grouping together a set of writes that must either all be <code>committed or all be rolled back</code>, even if faults occur.</p>
 <h3 id="rest">REST</h3>
 <p>REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP. It emphasizes simple data formats, using URLs for identifying resources and using HTTP features for cache control, authentication, and content type negotiation. REST has been gaining popularity compared to SOAP, at least in the context of cross-organizational service integration, and is often associated with microservices. An API designed according to the principles of REST is called RESTful.</p>
 <h3 id="message-brokermessage-queuemessage-oriented-middleware">message broker/message queue/message-oriented middleware</h3>
 <p>Using a message broker has several advantages compared to direct RPC:</p>
-<p>It can act as a buffer if the recipient is unavailable or overloaded, and thus improve system reliability.</p>
+<p>It can act as a <code>buffer</code> if the recipient is unavailable or overloaded, and thus improve system reliability.</p>
 <p>It can automatically redeliver messages to a process that has crashed, and thus prevent messages from being lost.</p>
 <p>It avoids the sender needing to know the IP address and port number of the recipient (which is particularly useful in a cloud deployment where virtual machines often come and go).</p>
 <p>It allows one message to be sent to several recipients. It logically decouples the sender from the recipient (the sender just publishes messages and doesn’t care who consumes them).</p>
 <h3 id="references">References</h3>
 <p>Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems by Martin Kleppmann</p>
+<h3 id="reading-notes">Reading Notes:</h3>
+<p>1、</p>
+<ul>
+<li>数据密集：Big-Data</li>
+<li>计算密集：Deeping-Learning、HPC(High-Performance-Computing)</li>
+</ul>
+<p>2、FOSS: Free and Open Source Software</p>
+<p>3、back pressure(背压)=flow control(流量控制)</p>
+<p>4、byzantine fault(拜占庭错误)：转发任何类型（矛盾的or虚假的）的消息</p>
+<p>5、failover: the leadership role from one node to another node</p>
+<h4 id="ch1">CH1</h4>
+<p>1、</p>
+<p>Redis: datastores/message queues</p>
+<p>Apache Kafka: message queues/database-like durability guarantees 持久化存储保证</p>
+<p>2、</p>
+<p>Memcached</p>
+<p>Elasticsearch/Solr: full-text search server</p>
+<p>main database</p>
+<p>3、</p>
+<ul>
+<li>水平拓展：单个节点——&gt;分布式多机环境
+<ul>
+<li>无状态服务：容易</li>
+<li>有状态服务：复杂</li>
+</ul>
+</li>
+<li>垂直拓展</li>
+</ul>
+<h4 id="ch2">CH2</h4>
+<p>1、网络、层次模型——&gt;关系模型(RDBMS+SQL)</p>
+<p>NoSQL:Not only SQL</p>
+<ul>
+<li>比RDB更好的拓展需求：very large datasets, very high write throughput</li>
+<li>free and open source software over commercial database products</li>
+<li>specialized query operations that are not well supported by the rational model</li>
+<li>for a more dynamic and expressive data model</li>
+</ul>
+<p>2、ORM(Objected-Reational Mapping frameworks): ActiveRecord, Hibernate</p>
+<p>3、Document-oriented Database: MongoDB, RethinkDB, CouchDB, Espresso</p>
+<p>无模式（读时模式）：数据的结构是隐式的，只有在读取时才解释。类似于：动态（运行时）类型检查</p>
+<p>写时模式（rational database）：模式是显式的，确保数据写入时都必须遵循。类似于：静态（编译时）类型检查</p>
+<p>4、property graph: Neo4j, Titan, InfiniteGraph</p>
+<h4 id="ch3">CH3</h4>
+<p>1、storage engines</p>
+<ul>
+<li>log-structured</li>
+<li>page-oriented: B-trees</li>
+</ul>
+<p>2、the hash table&rsquo;s limitations:</p>
+<ul>
+<li>the hash table must fit in memory</li>
+<li>it is difficult to make an on-disk hash map perform well
+<ul>
+<li>a lot of random access I/O</li>
+<li>expensive to grow when it becomes full</li>
+<li>hash collisions require fiddly logic</li>
+</ul>
+</li>
+<li>Range queries are not efficient</li>
+</ul>
+<p>3、</p>
+<p>SSTable: Sorted String Table</p>
+<p>Log-Structured Merge-Tree(LSM-Tree)</p>
+<p>Lucene: an indexing engine for full-text search used by Elasticsearch and Solr</p>
+<p>Bloom filters: <code>memory-efficient</code> data structure for approximating the content of a set: if a key does not appear in the database.</p>
+<p>4、B-Tree: fixed-size blocks/pages</p>
+<p>read/write one page at a time</p>
+<p>individual keys(a leaf page):</p>
+<ul>
+<li>inline</li>
+<li>references to the pages where the values can be found</li>
+</ul>
+<p>an additional data structure on a disk: a write-ahead log(WAL,redo log) 预写日志/重做日志（仅支持追加）</p>
+<p>B-Tree: faster for reads</p>
+<ul>
+<li>先写WAL</li>
+<li>后修改树本身的页</li>
+</ul>
+<p>LSM-Tree: faster for writes</p>
+<p>5、</p>
+<ul>
+<li>clustered index: stroring <code>all row data</code> within the index</li>
+<li>nonclustered index: storing <code>only references to the data</code> with the index</li>
+</ul>
+<p>6、</p>
+<ul>
+<li>materialized view</li>
+<li>standard(virtual) view</li>
+</ul>
+<p>7、</p>
+<p>OLTP(Online Transaction Processing)</p>
+<ul>
+<li>log-structured school: BitCask, SSTable, LSM-Tree, LevelDB, Cassandra, HBase, Lucene</li>
+<li>update-in-place school: B-Tree(RDB, NoSQL)</li>
+</ul>
+<h4 id="ch4">CH4</h4>
+<p>1、</p>
+<p>in-memory representation——&gt;a byte sequence</p>
+<ul>
+<li>encoding</li>
+<li>serialization</li>
+<li>marshalling</li>
+</ul>
+<p>a byte sequence——&gt;in-memory representation</p>
+<ul>
+<li>decoding</li>
+<li>derialization</li>
+<li>unmarshalling</li>
+</ul>
+<h4 id="part-2-distributed-data">PART 2 Distributed Data</h4>
+<h4 id="ch5">CH5</h4>
+<p>1、</p>
+<p>2、</p>
+<p>3、</p>
 
     </div>
 
@@ -385,8 +495,7 @@ REST REST is not a protocol, but rather a design philosophy that builds upon the
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="https://anjanavakil.github.io/tags/book/">BOOK📚</a>
-          <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
+          <a href="https://anjanavakil.github.io/tags/cs-book/">CS BOOK📓</a>
           
         </div>
 
