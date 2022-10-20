@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Hackers and Painters: Big Ideas from the Computer Age">
 <meta itemprop="description" content="豆瓣🔗: 英文版： Hackers &amp; Painters: Big Ideas from the Computer Age 中文版： 《黑客与画家》 作者BLOG： Paul Graham: http://www.paulgraham.com/ 《黑客与画家》零零散散加起来应该算是看过两遍了。第一遍（大一or"><meta itemprop="datePublished" content="2022-10-01T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-10-01T08:15:48+08:00" />
-<meta itemprop="wordCount" content="4432">
+<meta itemprop="wordCount" content="4275">
 <meta itemprop="keywords" content="CS BOOK📓," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hackers and Painters: Big Ideas from the Computer Age"/>
 <meta name="twitter:description" content="豆瓣🔗: 英文版： Hackers &amp; Painters: Big Ideas from the Computer Age 中文版： 《黑客与画家》 作者BLOG： Paul Graham: http://www.paulgraham.com/ 《黑客与画家》零零散散加起来应该算是看过两遍了。第一遍（大一or"/>
@@ -367,97 +367,146 @@
 </ul>
 <p>《黑客与画家》零零散散加起来应该算是看过两遍了。第一遍（大一or大二）看到计算机专业好多人推荐这本书，从头到尾认真读了一遍，但当时好像没什么大的感触，现在完全回忆不起来当时的阅读体会。很多人都说好，但自己完全没get到。第二次读（中文+英文）是大四，尽管还是有很多地方没有很深刻的体会和理解，但有点看懂Paul Graham的反讽和幽默了。阅读过程中有会心一笑的时候，尤其是他在书中多次提到罗伯特·莫里斯（Robert Morris）和对微软的讽刺。</p>
 <hr>
+<blockquote>
 <p>选择天使投资人的时候，最好选择那些自己有过创业经验的人。</p>
+</blockquote>
+<blockquote>
 <p>Unix操作系统创始人丹尼斯·里奇和肯·汤普森，经典巨著《计算机程序设计艺术》的作者、斯坦福大学计算机教授高德纳，Linux操作系统创始人莱纳斯·托沃兹，“开源运动”创始人埃里克·雷蒙德，微软公司创始人比尔·盖茨等。</p>
+</blockquote>
 <h2 id="致读者">致读者</h2>
+<blockquote>
 <p>我们还要遗憾地告诉读者，微软公司的公关顾问在读完第5章后，不同意授权我们使用他们手中的比尔·盖茨照片。我们因此要感谢新墨西哥州阿尔伯克基（Albuquerque）市警察局提供第89页上的替代照片￼。</p>
-<p>Sometimes what the hackers do is called &ldquo;software engineering,&rdquo; but this term is just as misleading. Good software designers are no more engineers than architects are.</p>
+</blockquote>
+<p><code>Sometimes what the hackers do is called &quot;software engineering,&quot; but this term is just as misleading. Good software designers are no more engineers than architects are.</code></p>
 <blockquote>
 <p>有时，黑客做的事情被称为“软件工程”（software engineering），但是这个词也是误导的。与其说优秀的软件设计师是工程师，还不如说是建筑师。</p>
 </blockquote>
+<blockquote>
 <p>编程语言首要的特性应该是允许动态扩展（malleable）。编程语言是用来帮助思考程序的，而不是用来表达你已经想好的程序。它应该是一支铅笔，而不是一支钢笔。如果大家都像学校教的那样编程，那么静态类型￼（static typing）是一个不错的概念。但是，我认识的黑客，没有一个人喜欢用静态类型语言编程。我们需要的是一种可以随意涂抹、擦擦改改的语言，我们不想正襟危坐，把一个盛满各种变量类型的茶杯，小心翼翼放在自己的膝盖上，为了与一丝不苟的编译器大婶交谈，努力地挑选词语，确保变量类型匹配，好让自己显得礼貌又周到。</p>
+</blockquote>
+<blockquote>
 <p>眼下想必每个人都知道，过早优化（premature optimization）是一件危险的事情。</p>
+</blockquote>
+<blockquote>
 <p>程序写出来是给人看的，附带能在机器上运行。</p>
+</blockquote>
 <h2 id="前言">前言</h2>
-<p>Good hackers develop a habit of questioning everything.</p>
+<p><code> Good hackers develop a habit of questioning everything.</code></p>
 <blockquote>
 <p>优秀的黑客养成了一种质疑一切的习惯。</p>
 </blockquote>
 <h2 id="1-为什么书呆子不受欢迎">1 为什么书呆子不受欢迎</h2>
-<p>Nerds serve two masters. They want to be popular, certainly, but they want even more to be smart.</p>
+<p><code>Nerds serve two masters. They want to be popular, certainly, but they want even more to be smart.</code></p>
 <blockquote>
 <p>“书呆子”的目标具有两重性。他们毫无疑问想让自己受欢迎，但是他们更愿意让自己聪明。</p>
 </blockquote>
-<p>The cause of this problem is the same as the cause of so many present ills: specialization. As jobs become more specialized, we have to train longer for them. Kids in pre-industrial times started working at about 14 at the latest; kids on farms, where most people lived, began far earlier. Now kids who go to college don&rsquo;t start working full-time till 21 or 22. With some degrees, like MDs and PhDs, you may not finish your training till 30.</p>
+<p><code>The cause of this problem is the same as the cause of so many present ills: specialization. As jobs become more specialized, we have to train longer for them. Kids in pre-industrial times started working at about 14 at the latest; kids on farms, where most people lived, began far earlier. Now kids who go to college don't start working full-time till 21 or 22. With some degrees, like MDs and PhDs, you may not finish your training till 30.</code></p>
 <blockquote>
 <p>它与当前的其他许多难题有着共同的起因，那就是“专业化”（specialization）。当工作的专业程度越来越高时，我们就必须接受更长时间的训练。工业化时代来临之前，儿童最晚大约在14岁就要参加工作，如果是在农庄（那个时代大多数人生活在农村），参加工作的时间就更早。如今，只要一个青少年读大学，他就要等到21岁或22岁才开始全职工作。如果再读更高的学位，比如医学博士或哲学博士，可能要拖到30岁才能完成学业。</p>
 </blockquote>
 <h2 id="2-黑客与画家">2 黑客与画家</h2>
-<p>So why do universities and research labs continue to judge hackers by publications? For the same reason that &ldquo;scholastic aptitude&rdquo; gets measured by simple-minded standardized tests, or the productivity of program mers by lines of code. These tests are easy to apply, and there is nothing so tempting as an easy test that kind of works.</p>
+<p><code>So why do universities and research labs continue to judge hackers by publications? For the same reason that &quot;scholastic aptitude&quot; gets measured by simple-minded standardized tests, or the productivity of program mers by lines of code. These tests are easy to apply, and there is nothing so tempting as an easy test that kind of works.</code></p>
 <blockquote>
 <p>那么，为什么大学和实验室还把论文数量作为考核黑客工作的指标呢？这种事情其实在日常生活中普遍存在，比如，我们使用简单的标准化测试考核学生的“学术能力倾向”（scholastic aptitude），再比如，我们使用代码的行数考核程序员的工作效率。这样的考核容易实施，而容易实施的考核总是首先被采用。</p>
 </blockquote>
+<blockquote>
 <p>一页写满了数学公式的纸真是令人印象深刻啊。（小窍门：用希腊字母表示变量名会令人印象更深刻。）因此，你就受到巨大的诱惑，去解决那些能够用数学公式处理的问题，而不是去解决真正重要的问题。</p>
-<p>Universities and research labs force hackers to be scientists, and companies force them to be engineers.</p>
+</blockquote>
+<p><code>Universities and research labs force hackers to be scientists, and companies force them to be engineers.</code></p>
 <blockquote>
 <p>大学和实验室强迫黑客成为科学家，企业强迫黑客成为工程师。</p>
 </blockquote>
-<p>When I got to Yahoo, I found that what hacking meant to them was implementing software, not designing it.Programmers were seen as technicians who translated the visions (if that is the word) of product managers into code.</p>
+<p><code>When I got to Yahoo, I found that what hacking meant to them was implementing software, not designing it.Programmers were seen as technicians who translated the visions (if that is the word) of product managers into code.</code></p>
 <blockquote>
 <p>等我来到雅虎以后，发现在他们看来，“黑客”的工作就是用软件实现某个功能，而不是设计软件。在那里，程序员被当作技工，职责就是将产品经理的“构想”（如果这个词是这么用的话）翻译成代码。</p>
 </blockquote>
-<p>这似乎是大公司的普遍情况。大公司这样安排的原因是为了减少结果的标准差。因为实际上只有很少一部分黑客懂得如何正确设计软件，公司的管理层很难正确识别到底应该把设计软件的任务交给谁。所以，大部分公司不把设计软件的职责交给一个优秀的黑客，而是交给一个委员会，黑客的作用仅仅是实现那个委员会的设计</p>
-<p>Big companies want to decrease the standard deviation of design outcomes because they want to avoid disasters. But when you damp oscillations, you lose the high points as well as the low. This is not a problem for big companies, because they don&rsquo;t win by making great products.</p>
 <blockquote>
-<p>大公司为了避免设计上的灾难，选择了减少设计结果的标准差。但是当你排斥差异的时候，你不仅将失败的可能性排除在外，也将获得高利润的可能性排除在外。这对大公司来说不是问题，因为生产特别优秀的产品不是它们的获胜手段。大公司只要做到不太烂，就能赢。</p>
+<p>这似乎是大公司的普遍情况。大公司这样安排的原因是为了减少结果的标准差。因为实际上只有很少一部分黑客懂得如何正确设计软件，公司的管理层很难正确识别到底应该把设计软件的任务交给谁。所以，大部分公司不把设计软件的职责交给一个优秀的黑客，而是交给一个委员会，黑客的作用仅仅是实现那个委员会的设计</p>
 </blockquote>
-<p>Big companies win by sucking less than other big companies.</p>
-<p>有些荒诞悲哀，但确是这样。当今世界处处体现出马太效应：大公司的垄断和创业公司的夹缝求生、贫富差距加剧等等。</p>
+<p><code>Big companies want to decrease the standard deviation of design outcomes because they want to avoid disasters. But when you damp oscillations, you lose the high points as well as the low. This is not a problem for big companies, because they don't win by making great products.</code></p>
+<blockquote>
+<p>大公司为了避免设计上的灾难，选择了减少设计结果的标准差。但是当你排斥差异的时候，你不仅将失败的可能性排除在外，也将获得高利润的可能性排除在外。这对大公司来说不是问题，因为生产特别优秀的产品不是它们的获胜手段。</p>
+</blockquote>
+<p><code>Big companies win by sucking less than other big companies.</code></p>
 <blockquote>
 <p>大公司只要做到不太烂，就能赢。</p>
 </blockquote>
+<p>有些荒诞悲哀，但确是这样。当今世界处处体现出马太效应：大公司的垄断和创业公司的夹缝求生、贫富差距加剧等等。</p>
+<blockquote>
 <p>“微软不鼓励雇员为开源项目做贡献，甚至业余时间也不行。但是，如此之多的一流黑客都在从事开源项目，所以这个政策主要的效果，可能就是使得微软公司很难雇到一流的程序员。”</p>
+</blockquote>
 <p>哈哈哈～大佬都这么爱怼微软嘛。是这里的“注”，所以自己保留一份怀疑。</p>
 <blockquote>
 <p>我们面试程序员的时候，主要关注的事情就是业余时间他们写了什么软件。因为如果你不爱一件事，你不可能把它做得真正优秀，要是你很热爱编程，你就不可避免地会开发你自己的项目。</p>
 </blockquote>
-<p>我们面试程序员的时候，主要关注的事情就是业余时间他们写了什么软件。因为如果你不爱一件事，你不可能把它做得真正优秀，要是你很热爱编程，你就不可避免地会开发你自己的项目。</p>
 <p>看Coders At Work《编程人生》的访谈时，几乎所有的大师都是从小就开始接触计算机自己动手编程的。</p>
 <blockquote>
 <p>大多数黑客不是通过大学课程学会编程的，他们从实践中学习，13岁时就自己动手写程序了。即使上了大学，黑客学习编程依然主要通过自己写程序。</p>
 </blockquote>
-<p>最近看Effective Java深入学习Java时会看源码，不由感叹Java注释的完整精细和javadoc工具的便捷。源码看得太少，但已经在尽量有意识从源码中学习了😭。</p>
+<p>最近看Effective Java深入学习Java时会看源码，不由感叹Java注释的完整精细和Javadoc工具的便捷。源码看得太少，但已经在尽量有意识从源码中学习了😭。</p>
 <blockquote>
 <p>正确的合作方法是将项目分割成严格定义的模块，每一个模块由一个人明确负责。模块与模块之间的接口经过精心设计，如果可能的话，最好把文档说明写得像编程语言规范那样清晰。</p>
 </blockquote>
-<p>正确的合作方法是将项目分割成严格定义的模块，每一个模块由一个人明确负责。模块与模块之间的接口经过精心设计，如果可能的话，最好把文档说明写得像编程语言规范那样清晰。</p>
 <h2 id="4-良好的坏习惯">4 良好的坏习惯</h2>
+<blockquote>
 <p>我的另一个朋友，曾经因为入侵计算机，受到了政府的调查。最近，这种行为已经被认定为一种犯罪，但是联邦调查局发现，通行的调查方法不适用于黑客。警方总是从犯罪动机开始调查。常见的犯罪动机不外乎毒品、金钱、性、仇恨等。满足智力上的好奇心并不在FBI的犯罪动机清单之上。</p>
+</blockquote>
 <h2 id="5-另一条路">5 另一条路</h2>
+<blockquote>
 <p>应用服务供应商（Application Service Provider），简称ASP。</p>
+</blockquote>
+<blockquote>
 <p>有一种编程方法叫做“函数式编程”（functional programming），它对你会有帮助，可以避免一些副作用。函数式编程在学术文献中研究得比较多，在商业软件中用得比较少。但是，对于互联网软件，它却很有用。很难用纯粹的“函数式编程”完成整个程序，但是它可以用来编写一些重要的部分，使得这些部分易于调试，因为它们不包含“状态”（state），非常便于不断进行小幅的修改和测试。</p>
+</blockquote>
 <h3 id="用户的胜利">用户的胜利</h3>
+<blockquote>
 <p>“你的电脑”这个概念正慢慢成为过去时，取而代之的是“你的数据”。你应该可以从任何电脑上获取你的数据。或者更准确地说，在任何终端设备上获取你的数据，终端设备不一定是电脑。</p>
+</blockquote>
 <h3 id="代码之城">代码之城</h3>
+<blockquote>
 <p>我们的大多数竞争者使用C和C++，这使得他们的软件明显不如我们，因为（不考虑其他原因）他们无法解决CGI脚本不能识别用户状态的问题。</p>
+</blockquote>
 <h3 id="全身心投入">全身心投入</h3>
+<blockquote>
 <p>计划这个词，只是将构思束之高阁的另一种表达方式。只要想到好的构思，我们就立刻着手实现。</p>
+</blockquote>
 <h3 id="逆向的人月神话">逆向的《人月神话》</h3>
+<blockquote>
 <p>正如《人月神话》一书中所指出的，向一个项目增加人手，往往会拖慢项目进程。随着参与人数的增加，人与人之间需要的沟通呈现指数式￼增长。人数越来越多，开会讨论各个部分如何协同工作所需的时间越来越长，无法预见的互相影响越多越大，产生的bug也越来越多。</p>
+</blockquote>
 <h2 id="9-设计者的品味">9 设计者的品味</h2>
+<blockquote>
 <p>喜欢一件东西，却不知道为什么自己喜欢它，原因可能是这件东西是美的，但也可能因为他们的母亲也拥有同样的东西，或者杂志上某个明星使用它，或者仅仅因为它的价格很昂贵。人类的思想就是没有经过整理的无数杂念的混合。</p>
+</blockquote>
+<p><code>人类的思想就是没有经过整理的无数杂念的混合。</code></p>
+<blockquote>
 <p>推动人才成批涌现的最大因素就是，让有天赋的人聚在一起，共同解决某个难题。互相激励比天赋更重要，达·芬奇之所以成为达·芬奇，主要原因不仅仅是他的天赋，更重要的是他生活在当时的佛罗伦萨，而不是米兰。</p>
+</blockquote>
 <h3 id="机器语言">机器语言</h3>
+<blockquote>
 <p>一个操作所需的代码越多，就越难避免bug，也越难发现它们。</p>
+</blockquote>
 <h3 id="语言的战争">语言的战争</h3>
+<blockquote>
 <p>一些黑客只喜欢自己用的语言，反感其他所有的语言。另一些黑客则说所有的语言都一样。事实介于这两个极端之间。语言之间确实有差别，但是很难确定地说哪一种语言是最好的。这个领域依然还在快速发展。</p>
+</blockquote>
 <h3 id="面向对象编程">面向对象编程</h3>
+<blockquote>
 <p>面向对象编程的优点在于，如果你需要修改程序，计算另一种图形的面积，比如三角形，你只需要再另外增加一块相应的代码就可以了，甚至可以不修改程序的其他部分。但是，批评者会反驳说，这种方法的缺点是，由于增加代码不用考虑其他部分，结果往往导致写出性能不佳甚至有副作用的代码，就好比造房子不考虑已经完成的部分一样。</p>
+</blockquote>
 <h2 id="11-一百年后的编程语言">11 一百年后的编程语言</h2>
+<blockquote>
 <p>很多数据结构存在的原因都与计算机的速度有关。比如，今天的许多语言都同时有字符串和列表。从语义上看，字符串或多或少可以理解成列表的一个子集，其中的每一个元素都是字符。那么，为什么还需要把字符串单列为一种数据类型呢？完全可以不这么做。只是为了提高效率，所以字符串才会存在。但是，这种以加快运行速度为目的、却使得编程语言的语义大大复杂的行为，很不可取。编程语言设置字符串似乎就是一个过早优化的例子。</p>
+</blockquote>
+<blockquote>
 <p>正确做法应该是将语言的语义与语言的实现予以分离。在语义上不需要同时存在列表和字符串，单单列表就够了。而在实现上做好编译器优化，使它在必要时把字符串作为连续字节的形式处理。</p>
+</blockquote>
+<blockquote>
 <p>对于大多数程序，速度不是最关键的因素，所以你通常不需要费心考虑这种硬件层面上的微观管理。随着计算机速度越来越快，这一点已经越发明显了。</p>
+</blockquote>
+<blockquote>
 <p>另一种消耗硬件性能的方法就是，在应用软件与硬件之间设置很多的软件层。这也是我们已经看到的一种趋势，许多新兴的语言就被编译成字节码。</p>
+</blockquote>
 
     </div>
 
@@ -478,7 +527,7 @@
   
   <p class="copyright-item">
     <span class="item-title">License</span>
-    <span class="item-content"><a href="https://github.com/gohugoio/hugoBasicExample" rel="noopener" target="_blank">See origin</a></span>
+    <span class="item-content">原创文章，如需转载请注明作者和出处。谢谢！</span>
   </p>
 </div>
 

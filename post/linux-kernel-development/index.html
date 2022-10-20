@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Linux Kernel Development">
 <meta itemprop="description" content="豆瓣🔗: 英文版： Linux Kernel Development 中文版： 《Linux内核设计与实现》 1 Introduction to the Linux Kernel 2 Getting Started with the Kernel 1 2 3 4 5 # git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git Cloning into &#39;linux-2.6&#39;... remote: Enumerating objects: 4084, done. ... # cd linux-2.6 This command creates a configuration based on the"><meta itemprop="datePublished" content="2022-10-05T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-10-05T08:15:48+08:00" />
-<meta itemprop="wordCount" content="1407">
+<meta itemprop="wordCount" content="1408">
 <meta itemprop="keywords" content="CS BOOK📓," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux Kernel Development"/>
 <meta name="twitter:description" content="豆瓣🔗: 英文版： Linux Kernel Development 中文版： 《Linux内核设计与实现》 1 Introduction to the Linux Kernel 2 Getting Started with the Kernel 1 2 3 4 5 # git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git Cloning into &#39;linux-2.6&#39;... remote: Enumerating objects: 4084, done. ... # cd linux-2.6 This command creates a configuration based on the"/>
@@ -502,7 +502,7 @@
 <p>The kernel cannot easily execute floating-point stack.</p>
 </li>
 <li>
-<p>The kernel has a small per-process fixed-size stak.</p>
+<p>The kernel has a small per-process fixed-size stack.</p>
 </li>
 <li>
 <p>Because the kernel has asynchronous interrupts, is preemptive, and supports SMP, synchronization and concurrency are major concerns within the kernel.</p>
@@ -538,7 +538,7 @@
 <p>从 &ldquo;nothing in life is free&rdquo; 想起了 “There&rsquo;s no such thing as a free lunch. 天下没有免费的午餐” 和</p>
 <blockquote>
 <p>She was still too young to know that life never gives anything for nothing, and that a price is always exacted for what fate bestows.</p>
-<p>她那时候还太年轻,不知道所有命运赠予的礼物,早已在暗中标好了价格</p>
+<p>她那时候还太年轻,不知道所有命运赠予的礼物,早已在暗中标好了价格。</p>
 <p>——[茨威格] 《断头王后》</p>
 </blockquote>
 <p>计算机中“空间换时间”和“时间换空间”不也是同样的道理。Every coin has two sides.</p>
@@ -708,7 +708,7 @@
 </span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">task_struct</span> <span class="o">*</span><span class="n">task</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">list_head</span> <span class="o">*</span><span class="n">list</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">list_for_each</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">  	<span class="n">task</span><span class="o">=</span><span class="n">list_entry</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="k">struct</span> <span class="n">task_struct</span><span class="p">,</span> <span class="n">sibling</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">task</span><span class="o">=</span><span class="n">list_entry</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="k">struct</span> <span class="n">task_struct</span><span class="p">,</span> <span class="n">sibling</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">task_struct</span> <span class="o">*</span><span class="n">task</span><span class="p">;</span>
@@ -719,7 +719,7 @@
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">task_struct</span> <span class="o">*</span><span class="n">task</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">for_each_process</span><span class="p">(</span><span class="n">task</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">  	<span class="n">printk</span><span class="p">(</span><span class="s">&#34;%s[%d]</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">task</span><span class="o">-&gt;</span><span class="n">comm</span><span class="p">,</span> <span class="n">task</span><span class="o">-&gt;</span><span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">printk</span><span class="p">(</span><span class="s">&#34;%s[%d]</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">task</span><span class="o">-&gt;</span><span class="n">comm</span><span class="p">,</span> <span class="n">task</span><span class="o">-&gt;</span><span class="n">pid</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -900,7 +900,7 @@
   
   <p class="copyright-item">
     <span class="item-title">License</span>
-    <span class="item-content"><a href="https://github.com/gohugoio/hugoBasicExample" rel="noopener" target="_blank">See origin</a></span>
+    <span class="item-content">原创文章，如需转载请注明作者和出处。谢谢！</span>
   </p>
 </div>
 

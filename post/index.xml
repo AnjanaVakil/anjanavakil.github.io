@@ -13,10 +13,7 @@
       <pubDate>Mon, 10 Oct 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/cpp/</guid>
-      <description>GDB GDB Tutorial: Some Cool Tips to Debug C/C++ Code
-C++ Introduction to C++11 and C++14 with Example Code Snippet
-4 Lamba Expressions of Lambda Functions 1  [firstPart](secondPart) TypeYouReturn{ BodyOfLambda}(acctualParameters);   lambda function:
-1  double dUpperPart=[]{double dX, double dY}double{return dX*dX+dY*dY;}   1 2 3 4  vector&amp;lt;int&amp;gt; iVector; for_each(begin(iVector),end(iVector),[](int n){ if(n%2==0) cout &amp;lt;&amp;lt; n &amp;lt;&amp;lt; endl; });   5 Static Assertion 1  static_assert(evaluateExpression, stringMessage);   1  static_assert(sizeof(long long int)&amp;gt;=16;&amp;#34;This is unexpected&amp;#34;);   7 move and &amp;amp;&amp;amp; 1 2  MovableClass(MovableClass&amp;amp;&amp;amp;); MOvableClass&amp;amp;&amp;amp; operator=(MovableClass&amp;amp;&amp;amp;);   8 Few Notes about Pointers unique_ptr: If something has ownership it could not be shared, but it is movable.</description>
+      <description>GDB GDB Tutorial: Some Cool Tips to Debug C/C++ Code C++ Introduction to C++11 and C++14 with Example Code Snippet 4 Lamba Expressions of Lambda Functions 1 [firstPart](secondPart) TypeYouReturn{BodyOfLambda}(actualParameters); lambda function: 1 double dUpperPart=[]{double dX, double dY}double{return dX*dX+dY*dY;} 1 2 3 4 vector&amp;lt;int&amp;gt; iVector; for_each(begin(iVector),end(iVector),[](int n){ if(n%2==0) cout &amp;lt;&amp;lt; n &amp;lt;&amp;lt; endl; }); 5 Static Assertion 1 static_assert(evaluateExpression, stringMessage); 1 static_assert(sizeof(long long int)&amp;gt;=16;&amp;#34;This is unexpected&amp;#34;); 7 move and &amp;amp;&amp;amp; 1</description>
     </item>
     
     <item>
@@ -52,7 +49,7 @@ C++ Introduction to C++11 and C++14 with Example Code Snippet
       <pubDate>Fri, 30 Sep 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/effective-c&#43;&#43;/</guid>
-      <description>豆瓣🔗: 英文版：Effective C++ Third Edition 中文版：Effective C++ Effective C++ Scott Meyers Third Edition 55 Specific Ways to Improve Your Programs and Designs C++ 提供了4种不同又相辅相成的编程泛型(pr</description>
+      <description>豆瓣🔗: 英文版：Effective C++: 55 Specific Ways to Improve Your Programs and Designs 中文版：Effective C++: 改善程序与设计的55个具体做法 Effective C++ Scott Meyers 55 Specific Ways to Improve Your Programs and Designs C++</description>
     </item>
     
     <item>
@@ -70,9 +67,7 @@ C++ Introduction to C++11 and C++14 with Example Code Snippet
       <pubDate>Mon, 26 Sep 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/formal-methods/</guid>
-      <description>🔗: Use of Formal Methods at Amazon Web Services
-Use of Formal Methods at Amazon Web Services To safeguard that data, the core of each service relies on fault-tolerant distributed algorithms for replication, consistency, concurrency control, auto-scaling, load balancing, and other coordination tasks.
-We use deep design reviews, code reviews, static code analysis, stress testing, fault-injection testing, and many other techniques, but we still find that subtle bugs can hide in complex concurrent fault-tolerant systems.</description>
+      <description>🔗: Use of Formal Methods at Amazon Web Services Use of Formal Methods at Amazon Web Services To safeguard that data, the core of each service relies on fault-tolerant distributed algorithms for replication, consistency, concurrency control, auto-scaling, load balancing, and other coordination tasks. We use deep design reviews, code reviews, static code analysis, stress testing, fault-injection testing, and many other techniques, but we still find that subtle bugs can</description>
     </item>
     
     <item>
@@ -81,9 +76,7 @@ We use deep design reviews, code reviews, static code analysis, stress testing, 
       <pubDate>Tue, 20 Sep 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/architectural-styles/</guid>
-      <description>Architectural styles and the Design of Network-based Software Architectures Roy Thomas Fielding
-Acknowledgments The modern Web architecture is still defined more by the work of individual volunteers than by any single company.
-Introduction Software architecture research investigates methods for determining hwo best to partition a system, how componentes identify and communicate with each other, how information is communicated, how elements of a system can evolve independently, how all of the above can be described using formal and informal notations.</description>
+      <description>Architectural styles and the Design of Network-based Software Architectures Roy Thomas Fielding Acknowledgments The modern Web architecture is still defined more by the work of individual volunteers than by any single company. Introduction Software architecture research investigates methods for determining how best to partition a system, how components identify and communicate with each other, how information is communicated, how elements of a system can evolve independently, how all of the</description>
     </item>
     
     <item>
