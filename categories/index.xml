@@ -6,7 +6,16 @@
     <description>Recent content in Categories on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>paper📋</title>
+      <link>https://anjanavakil.github.io/categories/paper/</link>
+      <pubDate>Tue, 18 Oct 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/categories/paper/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>CS💻</title>
       <link>https://anjanavakil.github.io/categories/cs/</link>
@@ -22,15 +31,6 @@
       <pubDate>Wed, 05 Oct 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/categories/cs-book/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>paper📋</title>
-      <link>https://anjanavakil.github.io/categories/paper/</link>
-      <pubDate>Wed, 28 Sep 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/categories/paper/</guid>
       <description></description>
     </item>
     

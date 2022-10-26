@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="The Missing Semester of Your CS Education 🔗: The Missing Semester of Your CS Education Topic 1: The Shell The $ tells you that you are not the root user (more on that later). If you want to provide an argument that contains spaces or other special characters (e.g., a directory named “My Photos”), you can either quote the" />
+  <meta name="description" content="The Missing Semester of Your CS Education 🔗: The Missing Semester of Your CS Education Topic 1: The Shell The $ tells you that you are not the root user. If you want to provide an argument that contains spaces or other special characters (e.g., a directory named “My Photos”), you can either quote the argument with &#39; or" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,19 +60,19 @@
 
 
 <meta property="og:title" content="The Missing Semester of Your CS Education" />
-<meta property="og:description" content="The Missing Semester of Your CS Education 🔗: The Missing Semester of Your CS Education Topic 1: The Shell The $ tells you that you are not the root user (more on that later). If you want to provide an argument that contains spaces or other special characters (e.g., a directory named “My Photos”), you can either quote the" />
+<meta property="og:description" content="The Missing Semester of Your CS Education 🔗: The Missing Semester of Your CS Education Topic 1: The Shell The $ tells you that you are not the root user. If you want to provide an argument that contains spaces or other special characters (e.g., a directory named “My Photos”), you can either quote the argument with &#39; or" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/missing-semester/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-05-25T08:15:48+08:00" />
 <meta property="article:modified_time" content="2022-05-25T08:15:48+08:00" />
 
 <meta itemprop="name" content="The Missing Semester of Your CS Education">
-<meta itemprop="description" content="The Missing Semester of Your CS Education 🔗: The Missing Semester of Your CS Education Topic 1: The Shell The $ tells you that you are not the root user (more on that later). If you want to provide an argument that contains spaces or other special characters (e.g., a directory named “My Photos”), you can either quote the"><meta itemprop="datePublished" content="2022-05-25T08:15:48+08:00" />
+<meta itemprop="description" content="The Missing Semester of Your CS Education 🔗: The Missing Semester of Your CS Education Topic 1: The Shell The $ tells you that you are not the root user. If you want to provide an argument that contains spaces or other special characters (e.g., a directory named “My Photos”), you can either quote the argument with &#39; or"><meta itemprop="datePublished" content="2022-05-25T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-05-25T08:15:48+08:00" />
-<meta itemprop="wordCount" content="462">
+<meta itemprop="wordCount" content="1671">
 <meta itemprop="keywords" content="CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="The Missing Semester of Your CS Education"/>
-<meta name="twitter:description" content="The Missing Semester of Your CS Education 🔗: The Missing Semester of Your CS Education Topic 1: The Shell The $ tells you that you are not the root user (more on that later). If you want to provide an argument that contains spaces or other special characters (e.g., a directory named “My Photos”), you can either quote the"/>
+<meta name="twitter:description" content="The Missing Semester of Your CS Education 🔗: The Missing Semester of Your CS Education Topic 1: The Shell The $ tells you that you are not the root user. If you want to provide an argument that contains spaces or other special characters (e.g., a directory named “My Photos”), you can either quote the argument with &#39; or"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -319,10 +319,19 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#the-missing-semester-of-your-cs-education">The Missing Semester of Your CS Education</a>
+    <li><a href="#the-missing-semester-of-your-cs-education">The Missing Semester of Your CS Education</a></li>
+    <li><a href="#topic-1-the-shell">Topic 1: The Shell</a>
       <ul>
-        <li><a href="#topic-1-the-shell">Topic 1: The Shell</a></li>
         <li><a href="#shell-scripting">Shell Scripting</a></li>
+        <li><a href="#shell-tools">shell Tools</a></li>
+      </ul>
+    </li>
+    <li><a href="#editors-vim">Editors (Vim)</a>
+      <ul>
+        <li><a href="#basics">Basics</a></li>
+        <li><a href="#buffers-tabs-and-windows">Buffers, tabs, and windows</a></li>
+        <li><a href="#movement">Movement</a></li>
+        <li><a href="#edits">Edits</a></li>
       </ul>
     </li>
   </ul>
@@ -336,8 +345,8 @@
 <ul>
 <li>🔗: <a href="https://missing.csail.mit.edu/">The Missing Semester of Your CS Education</a></li>
 </ul>
-<h3 id="topic-1-the-shell">Topic 1: The Shell</h3>
-<p>The <code>$</code> tells you that you are not the root user (more on that later).</p>
+<h2 id="topic-1-the-shell">Topic 1: The Shell</h2>
+<p>The <code>$</code> tells you that you are not the root user.</p>
 <p>If you want to provide an argument that contains spaces or other special characters (e.g., a directory named “My Photos”), you can either quote the argument with <code>'</code> or <code>&quot;</code> (<code>&quot;My Photos&quot;</code>), or escape just the relevant characters with <code>\</code> (<code>My\ Photos</code>).</p>
 <p>One thing you need to be root in order to do is writing to the <code>sysfs</code> file system mounted under <code>/sys</code>. <code>sysfs</code> exposes a number of kernel parameters as files, so that you can easily reconfigure the kernel on the fly without specialized tools. <strong>Note that sysfs does not exist on Windows or macOS.</strong></p>
 <p>Operations like <code>|</code>, <code>&gt;</code>, and <code>&lt;</code> are done <em>by the shell</em>, not by the individual program. <code>echo</code> and friends do not “know” about <code>|</code>.</p>
@@ -374,16 +383,296 @@
 </div>
 </div><p>Unlike other scripting languages, bash uses a variety of special variables to refer to arguments, error codes, and other relevant variables.</p>
 <ul>
-<li><code>$0</code> - Name of the script</li>
-<li><code>$1</code> to <code>$9</code> - Arguments to the script. <code>$1</code> is the first argument and so on.</li>
-<li><code>$@</code> - All the arguments</li>
-<li><code>$#</code> - Number of arguments</li>
-<li><code>$?</code> - Return code of the previous command</li>
-<li><code>$$</code> - Process identification number (PID) for the current script</li>
-<li><code>!!</code> - Entire last command, including arguments. A common pattern is to execute a command only for it to fail due to missing permissions; you can quickly re-execute the command with sudo by doing <code>sudo !!</code></li>
-<li><code>$_</code> - Last argument from the last command. If you are in an interactive shell, you can also quickly get this value by typing <code>Esc</code> followed by <code>.</code> or <code>Alt+.</code></li>
+<li>
+<p><code>$0</code> - Name of the script</p>
+</li>
+<li>
+<p><code>$1</code> to <code>$9</code> - Arguments to the script. <code>$1</code> is the first argument and so on.</p>
+</li>
+<li>
+<p><code>$@</code> - All the arguments</p>
+</li>
+<li>
+<p><code>$#</code> - Number of arguments</p>
+</li>
+<li>
+<p><code>$?</code> - Return code of the previous command</p>
+</li>
+<li>
+<p><code>$$</code> - Process identification number (PID) for the current script</p>
+</li>
+<li>
+<p><code>!!</code> - Entire last command, including arguments. A common pattern is to execute a command only for it to fail due to missing permissions; you can quickly re-execute the command with sudo by doing <code>sudo !!</code></p>
+<p>学CS学了这么久，才知道这个快速恢复上一个命令的快捷方式。遇到很多次permissions denied都是手动敲sudo和剩下命令，的确是够蠢🙃。</p>
+</li>
+<li>
+<p><code>$_</code> - Last argument from the last command. If you are in an interactive shell, you can also quickly get this value by typing <code>Esc</code> followed by <code>.</code> or <code>Alt+.</code></p>
+</li>
 </ul>
 <p><code>diff &lt;(ls foo) &lt;(ls bar)</code> will show differences between files in dirs <code>foo</code> and <code>bar</code>.</p>
+<h4 id="shell-globbing">shell globbing</h4>
+<ul>
+<li>Wildcards - Whenever you want to perform some sort of wildcard matching, you can use <code>?</code> and <code>*</code> to match one or any amount of characters respectively.</li>
+<li>Curly braces <code>{}</code> - Whenever you have a common substring in a series of commands, you can use curly braces for bash to expand this automatically. This comes in very handy when moving or converting files.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">convert image.<span class="o">{</span>png,jpg<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Will expand to</span>
+</span></span><span class="line"><span class="cl">convert image.png image.jpg
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cp /path/to/project/<span class="o">{</span>foo,bar,baz<span class="o">}</span>.sh /newpath
+</span></span><span class="line"><span class="cl"><span class="c1"># Will expand to</span>
+</span></span><span class="line"><span class="cl">cp /path/to/project/foo.sh /path/to/project/bar.sh /path/to/project/baz.sh /newpath
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Globbing techniques can also be combined</span>
+</span></span><span class="line"><span class="cl">mv *<span class="o">{</span>.py,.sh<span class="o">}</span> folder
+</span></span><span class="line"><span class="cl"><span class="c1"># Will move all *.py and *.sh files</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkdir foo bar
+</span></span><span class="line"><span class="cl"><span class="c1"># This creates files foo/a, foo/b, ... foo/h, bar/a, bar/b, ... bar/h</span>
+</span></span><span class="line"><span class="cl">touch <span class="o">{</span>foo,bar<span class="o">}</span>/<span class="o">{</span>a..h<span class="o">}</span>
+</span></span><span class="line"><span class="cl">touch foo/x bar/y
+</span></span><span class="line"><span class="cl"><span class="c1"># Show differences between files in foo and bar</span>
+</span></span><span class="line"><span class="cl">diff &lt;<span class="o">(</span>ls foo<span class="o">)</span> &lt;<span class="o">(</span>ls bar<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Outputs</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &lt; x</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ---</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &gt; y</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="shell-tools">shell Tools</h3>
+<h4 id="finding-how-to-use-commands">Finding how to use commands</h4>
+<p>Sometimes manpages can provide overly detailed descriptions of the commands, making it hard to decipher what flags/syntax to use for common use cases. <a href="https://tldr.sh/">TLDR pages</a> are a nifty complementary solution that focuses on giving example use cases of a command so you can quickly figure out which options to use. For instance, I find myself referring back to the tldr pages for <a href="https://tldr.ostera.io/tar"><code>tar</code></a> and <a href="https://tldr.ostera.io/ffmpeg"><code>ffmpeg</code></a> way more often than the manpages.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ tldr tar
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  tar
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  Archiving utility.
+</span></span><span class="line"><span class="cl">  Often combined with a compression method, such as gzip or bzip2.
+</span></span><span class="line"><span class="cl">  More information: https://www.gnu.org/software/tar.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  - <span class="o">[</span>c<span class="o">]</span>reate an archive and write it to a <span class="o">[</span>f<span class="o">]</span>ile:
+</span></span><span class="line"><span class="cl">    tar cf target.tar file1 file2 file3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  - <span class="o">[</span>c<span class="o">]</span>reate a g<span class="o">[</span>z<span class="o">]</span>ipped archive and write it to a <span class="o">[</span>f<span class="o">]</span>ile:
+</span></span><span class="line"><span class="cl">    tar czf target.tar.gz file1 file2 file3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  - <span class="o">[</span>c<span class="o">]</span>reate a g<span class="o">[</span>z<span class="o">]</span>ipped archive from a directory using relative paths:
+</span></span><span class="line"><span class="cl">    tar czf target.tar.gz --directory<span class="o">=</span>path/to/directory .
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  - E<span class="o">[</span>x<span class="o">]</span>tract a <span class="o">(</span>compressed<span class="o">)</span> archive <span class="o">[</span>f<span class="o">]</span>ile into the current directory <span class="o">[</span>v<span class="o">]</span>erbosely:
+</span></span><span class="line"><span class="cl">    tar xvf source.tar<span class="o">[</span>.gz<span class="p">|</span>.bz2<span class="p">|</span>.xz<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  - E<span class="o">[</span>x<span class="o">]</span>tract a <span class="o">(</span>compressed<span class="o">)</span> archive <span class="o">[</span>f<span class="o">]</span>ile into the target directory:
+</span></span><span class="line"><span class="cl">    tar xf source.tar<span class="o">[</span>.gz<span class="p">|</span>.bz2<span class="p">|</span>.xz<span class="o">]</span> --directory<span class="o">=</span>directory
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  - <span class="o">[</span>c<span class="o">]</span>reate a compressed archive and write it to a <span class="o">[</span>f<span class="o">]</span>ile, using <span class="o">[</span>a<span class="o">]</span>rchive suffix to determine the compression program:
+</span></span><span class="line"><span class="cl">    tar caf target.tar.xz file1 file2 file3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  - Lis<span class="o">[</span>t<span class="o">]</span> the contents of a tar <span class="o">[</span>f<span class="o">]</span>ile <span class="o">[</span>v<span class="o">]</span>erbosely:
+</span></span><span class="line"><span class="cl">    tar tvf source.tar
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  - E<span class="o">[</span>x<span class="o">]</span>tract files matching a pattern from an archive <span class="o">[</span>f<span class="o">]</span>ile:
+</span></span><span class="line"><span class="cl">    tar xf source.tar --wildcards <span class="s2">&#34;*.html&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>TLDR 展示也太清晰了！</p>
+<h4 id="finding-files">Finding files</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Find all directories named src</span>
+</span></span><span class="line"><span class="cl">find . -name src -type d
+</span></span><span class="line"><span class="cl"><span class="c1"># Find all python files that have a folder named test in their path</span>
+</span></span><span class="line"><span class="cl">find . -path <span class="s1">&#39;*/test/*.py&#39;</span> -type f
+</span></span><span class="line"><span class="cl"><span class="c1"># Find all files modified in the last day</span>
+</span></span><span class="line"><span class="cl">find . -mtime -1
+</span></span><span class="line"><span class="cl"><span class="c1"># Find all zip files with size in range 500k to 10M</span>
+</span></span><span class="line"><span class="cl">find . -size +500k -size -10M -name <span class="s1">&#39;*.tar.gz&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Delete all files with .tmp extension</span>
+</span></span><span class="line"><span class="cl">find . -name <span class="s1">&#39;*.tmp&#39;</span> -exec rm <span class="o">{}</span> <span class="se">\;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Find all PNG files and convert them to JPG</span>
+</span></span><span class="line"><span class="cl">find . -name <span class="s1">&#39;*.png&#39;</span> -exec convert <span class="o">{}</span> <span class="o">{}</span>.jpg <span class="se">\
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="finding-shell-commands">Finding shell commands</h4>
+<p>If we want to search there we can pipe that output to <code>grep</code> and search for patterns. <code>history | grep find</code> will print commands that contain the substring “find”.</p>
+<p>In most shells, you can make use of <code>Ctrl+R</code> to perform backwards search through your history. After pressing <code>Ctrl+R</code>, you can type a substring you want to match for commands in your history. As you keep pressing it, you will cycle through the matches in your history. This can also be enabled with the UP/DOWN arrows in <a href="https://github.com/zsh-users/zsh-history-substring-search">zsh</a>. A nice addition on top of <code>Ctrl+R</code> comes with using <a href="https://github.com/junegunn/fzf/wiki/Configuring-shell-key-bindings#ctrl-r">fzf</a> bindings. <code>fzf</code> is a general-purpose fuzzy finder that can be used with many commands. Here it is used to fuzzily match through your history and present results in a convenient and visually pleasing manner.</p>
+<h2 id="editors-vim">Editors (Vim)</h2>
+<p>Vim has multiple operating modes.</p>
+<ul>
+<li><strong>Normal</strong>: for moving around a file and making edits</li>
+<li><strong>Insert</strong>: for inserting text</li>
+<li><strong>Replace</strong>: for replacing text</li>
+<li><strong>Visual</strong> (plain, line, or block): for selecting blocks of text</li>
+<li><strong>Command-line</strong>: for running a command</li>
+</ul>
+<p>You change modes by pressing <code>&lt;ESC&gt;</code> (the escape key) to switch from any mode back to Normal mode. From Normal mode, enter Insert mode with <code>i</code>, Replace mode with <code>R</code>, Visual mode with <code>v</code>, Visual Line mode with <code>V</code>, Visual Block mode with <code>&lt;C-v&gt;</code> (Ctrl-V, sometimes also written <code>^V</code>), and Command-line mode with <code>:</code>.</p>
+<h3 id="basics">Basics</h3>
+<h3 id="buffers-tabs-and-windows">Buffers, tabs, and windows</h3>
+<p>Vim maintains a set of open files, called “buffers”. A Vim session has a number of tabs, each of which has a number of windows (split panes). Each window shows a single buffer. Unlike other programs you are familiar with, like web browsers, there is not a 1-to-1 correspondence between buffers and windows; windows are merely views. A given buffer may be open in <em>multiple</em> windows, even within the same tab. This can be quite handy, for example, to view two different parts of a file at the same time.</p>
+<p>By default, Vim opens with a single tab, which contains a single window.</p>
+<h3 id="movement">Movement</h3>
+<p>You should spend most of your time in Normal mode, using movement commands to navigate the buffer. Movements in Vim are also called “nouns”, because they refer to chunks of text.</p>
+<ul>
+<li>
+<p>Basic movement: <code>hjkl</code> (left, down, up, right)</p>
+</li>
+<li>
+<p>Words: <code>w</code> (next word), <code>b</code> (beginning of word), <code>e</code> (end of word)</p>
+</li>
+<li>
+<p>Lines: <code>0</code> (beginning of line), <code>^</code> (first non-blank character), <code>$</code> (end of line)</p>
+</li>
+<li>
+<p>Screen: <code>H</code> (top of screen), <code>M</code> (middle of screen), <code>L</code> (bottom of screen)</p>
+</li>
+<li>
+<p>Scroll: <code>Ctrl-u</code> (up), <code>Ctrl-d</code> (down)</p>
+</li>
+<li>
+<p>File: <code>gg</code> (beginning of file), <code>G</code> (end of file)</p>
+</li>
+<li>
+<p>Line numbers: <code>:{number}&lt;CR&gt;</code> or <code>{number}G</code> (line {number})</p>
+</li>
+<li>
+<p>Misc: <code>%</code> (corresponding item)</p>
+</li>
+<li>
+<p>Search: <code>/{regex}</code>, <code>n</code> / <code>N</code> for navigating matches</p>
+</li>
+</ul>
+<h3 id="edits">Edits</h3>
+<ul>
+<li>
+<p><code>i</code>enter Insert mode</p>
+<ul>
+<li>but for manipulating/deleting text, want to use something more than backspace</li>
+</ul>
+</li>
+<li>
+<p><code>o</code> / <code>O</code> insert line below / above</p>
+</li>
+<li>
+<p><code>d{motion}</code>delete {motion}</p>
+<ul>
+<li>e.g. <code>dw</code> is delete word, <code>d$</code> is delete to end of line, <code>d0</code> is delete to beginning of line</li>
+</ul>
+</li>
+<li>
+<p><code>c{motion}</code>change {motion}</p>
+<ul>
+<li>e.g. <code>cw</code> is change word</li>
+<li>like <code>d{motion}</code> followed by <code>i</code></li>
+</ul>
+</li>
+<li>
+<p><code>x</code> delete character (equal do <code>dl</code>)</p>
+</li>
+<li>
+<p><code>s</code> substitute character (equal to <code>cl</code>)</p>
+</li>
+<li>
+<p>Visual mode + manipulation</p>
+<ul>
+<li>select text, <code>d</code> to delete it or <code>c</code> to change it</li>
+</ul>
+</li>
+<li>
+<p><code>u</code> to undo, <code>&lt;C-r&gt;</code> to redo</p>
+</li>
+<li>
+<p><code>y</code> to copy / “yank” (some other commands like <code>d</code> also copy)</p>
+</li>
+<li>
+<p><code>p</code> to paste</p>
+</li>
+<li>
+<p>Lots more to learn: e.g. <code>~</code> flips the case of a character</p>
+</li>
+</ul>
 
     </div>
 

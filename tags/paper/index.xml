@@ -6,7 +6,16 @@
     <description>Recent content in paper📋 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 28 Sep 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/paper/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/paper/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SDN/NFV</title>
+      <link>https://anjanavakil.github.io/post/sdn_nfv/</link>
+      <pubDate>Tue, 18 Oct 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/sdn_nfv/</guid>
+      <description>Networking Slicing for 5G with SDN/NFV: Concepts, Architectures, and Challenges Abstract Introduction Network slices: Through technologies like software-defined networking (SDN) and network functions virtualization (NFV), network softwarization can provide the programmability, flexibility, and modularity that is required to create multiple logical (virtual) networks, each tailored for a given use case, on top of a common network. The concept of separated virtual networks deployed over a single network is indeed not</description>
+    </item>
+    
     <item>
       <title>Decision Procedures</title>
       <link>https://anjanavakil.github.io/post/decision-procedures/</link>

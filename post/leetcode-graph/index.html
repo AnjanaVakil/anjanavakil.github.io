@@ -69,7 +69,7 @@
 <meta itemprop="name" content="LeetCode Graph">
 <meta itemprop="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 图 图的搜索 如果要求在无权图中找出两个节点之间的最短距离，那么广度优先搜索可能是更合适的算法。 如果面试题要"><meta itemprop="datePublished" content="2022-07-28T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-07-28T08:15:48+08:00" />
-<meta itemprop="wordCount" content="8478">
+<meta itemprop="wordCount" content="8618">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode Graph"/>
 <meta name="twitter:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 图 图的搜索 如果要求在无权图中找出两个节点之间的最短距离，那么广度优先搜索可能是更合适的算法。 如果面试题要"/>
@@ -331,6 +331,7 @@
         <li><a href="#417-pacific-atlantic-water-flow">417 Pacific Atlantic Water Flow</a></li>
         <li><a href="#200-number-of-islands">200 Number of Islands</a></li>
         <li><a href="#886-possible-bipartition">886 Possible Bipartition</a></li>
+        <li><a href="#934-shortest-bridge">934 Shortest Bridge</a></li>
       </ul>
     </li>
     <li><a href="#拓扑排序-topological-sort">拓扑排序 Topological Sort</a>
@@ -1828,10 +1829,34 @@
 <p>空间复杂度：O(n+m)</p>
 </li>
 </ul>
+<h3 id="934-shortest-bridge">934 Shortest Bridge</h3>
+<p>求最少的翻转 0 的数目等价于求<code>矩阵中两个岛的最短距离</code>，因此BFS来找到矩阵中两个块的最短距离。首先找到其中一座岛，然后将其不断向外延伸一圈，直到到达了另一座岛，延伸的圈数即为最短距离。BFS时，将已经遍历过的位置标记为 −1。</p>
+<h4 id="bfs-5">BFS</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"></code></pre></td></tr></table>
+</div>
+</div><h4 id="dfs-3">DFS</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>时间复杂度：O(n+m)</p>
+</li>
+<li>
+<p>空间复杂度：O(n+m)</p>
+</li>
+</ul>
 <h2 id="拓扑排序-topological-sort">拓扑排序 Topological Sort</h2>
 <p>一种常用的拓扑排序算法是每次从有向无环图中取出一个入度为0的节点添加到拓扑排序序列之中，然后删除该节点及所有以它为起点的边。重复这个步骤，直到<code>图为空或图中不存在入度为0</code>的节点。如果最终图为空，那么图是<code>有向无环图</code>，此时就找到了该图的一个拓扑排序序列。如果最终<code>图不为空并且已经不存在入度为0</code>的节点，那么图中一定有环。</p>
 <h3 id="207-course-schedule">207 Course Schedule</h3>
-<h4 id="bfs-5">BFS</h4>
+<h4 id="bfs-6">BFS</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1910,7 +1935,7 @@
 <p>空间复杂度：O(m+n)</p>
 </li>
 </ul>
-<h4 id="dfs-3">DFS</h4>
+<h4 id="dfs-4">DFS</h4>
 <p>通过 DFS 判断图中是否有环。</p>
 <p>算法流程：
 借助一个标志列表 visit，用于判断每个节点 i （课程）的状态：</p>
@@ -2071,7 +2096,7 @@
 </li>
 </ul>
 <h3 id="剑指-offer-ii-114-外星文字典httpsleetcodecnproblemsjf1jut"><a href="https://leetcode.cn/problems/Jf1JuT/">剑指 Offer II 114. 外星文字典</a></h3>
-<h4 id="bfs-6">BFS</h4>
+<h4 id="bfs-7">BFS</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -2301,7 +2326,7 @@ inDegree[seq[i]]++;
 <h2 id="并查集-union-find">并查集 Union Find</h2>
 <h3 id="547-number-of-provinces">547 Number of Provinces</h3>
 <p>输入的矩阵isConnected是沿着对角线对称的。矩阵isConnected对角线上的所有数字都是1。</p>
-<h4 id="bfs-7">BFS</h4>
+<h4 id="bfs-8">BFS</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -2368,7 +2393,7 @@ inDegree[seq[i]]++;
 <p>空间复杂度：O(n)</p>
 </li>
 </ul>
-<h4 id="dfs-4">DFS</h4>
+<h4 id="dfs-5">DFS</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -2884,7 +2909,7 @@ inDegree[seq[i]]++;
 <p>空间复杂度：O(n)</p>
 </li>
 </ul>
-<h4 id="bfs-8">BFS</h4>
+<h4 id="bfs-9">BFS</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -3481,7 +3506,7 @@ inDegree[seq[i]]++;
 <p>空间复杂度：O(mn)</p>
 </li>
 </ul>
-<h4 id="dfs-5">DFS</h4>
+<h4 id="dfs-6">DFS</h4>
 <p>为了防止重复遍历相同的位置，需要额外维护一个与 board 等大的 visited 数组，用于标识每个位置是否被访问过。每次遍历相邻位置时，需要跳过已经被访问的位置。</p>
 <p>官方解（自己写的一直TLE😭）</p>
 <div class="highlight"><div class="chroma">

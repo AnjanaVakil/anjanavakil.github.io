@@ -67,7 +67,7 @@
       <pubDate>Wed, 25 May 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/missing-semester/</guid>
-      <description>The Missing Semester of Your CS Education 🔗: The Missing Semester of Your CS Education Topic 1: The Shell The $ tells you that you are not the root user (more on that later). If you want to provide an argument that contains spaces or other special characters (e.g., a directory named “My Photos”), you can either quote the</description>
+      <description>The Missing Semester of Your CS Education 🔗: The Missing Semester of Your CS Education Topic 1: The Shell The $ tells you that you are not the root user. If you want to provide an argument that contains spaces or other special characters (e.g., a directory named “My Photos”), you can either quote the argument with &#39; or</description>
     </item>
     
     <item>
