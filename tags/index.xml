@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 18 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Nov 2022 14:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algorithm🪺</title>
+      <link>https://anjanavakil.github.io/tags/algorithm/</link>
+      <pubDate>Sun, 13 Nov 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CS💻</title>
+      <link>https://anjanavakil.github.io/tags/cs/</link>
+      <pubDate>Sun, 13 Nov 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/tags/cs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LeetCode🌲</title>
+      <link>https://anjanavakil.github.io/tags/leetcode/</link>
+      <pubDate>Sun, 13 Nov 2022 14:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/tags/leetcode/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>paper📋</title>
       <link>https://anjanavakil.github.io/tags/paper/</link>
@@ -17,38 +44,11 @@
     </item>
     
     <item>
-      <title>CS💻</title>
-      <link>https://anjanavakil.github.io/tags/cs/</link>
-      <pubDate>Mon, 10 Oct 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/tags/cs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>CS BOOK📓</title>
       <link>https://anjanavakil.github.io/tags/cs-book/</link>
       <pubDate>Wed, 05 Oct 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/tags/cs-book/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Algorithm🪺</title>
-      <link>https://anjanavakil.github.io/tags/algorithm/</link>
-      <pubDate>Fri, 05 Aug 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/tags/algorithm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>LeetCode🌲</title>
-      <link>https://anjanavakil.github.io/tags/leetcode/</link>
-      <pubDate>Fri, 05 Aug 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/tags/leetcode/</guid>
       <description></description>
     </item>
     

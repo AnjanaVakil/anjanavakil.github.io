@@ -69,7 +69,7 @@
 <meta itemprop="name" content="LeetCode LinkedList">
 <meta itemprop="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 链表 单向链表 定义 1 2 3 4 5 6 7 8 public class ListNode { public int val; public ListNode next; public ListNode(int val) { this.val = val; } } 链表插入 1 2 3 4 5 6 7 8 9 10 11 public ListNode"><meta itemprop="datePublished" content="2022-01-28T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-01-28T08:15:48+08:00" />
-<meta itemprop="wordCount" content="1918">
+<meta itemprop="wordCount" content="2002">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode LinkedList"/>
 <meta name="twitter:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 链表 单向链表 定义 1 2 3 4 5 6 7 8 public class ListNode { public int val; public ListNode next; public ListNode(int val) { this.val = val; } } 链表插入 1 2 3 4 5 6 7 8 9 10 11 public ListNode"/>
@@ -344,6 +344,7 @@
         <li><a href="#206-reverse-linked-list">206 Reverse Linked List</a></li>
         <li><a href="#143-reorder-list">143 Reorder List</a></li>
         <li><a href="#237-delete-node-in-a-linked-list">237 Delete Node in a Linked List</a></li>
+        <li><a href="#2-add-two-numbers">2 Add Two Numbers</a></li>
       </ul>
     </li>
   </ul>
@@ -905,6 +906,63 @@
 </div>
 </div><ul>
 <li>时间复杂度 O(1)</li>
+<li>空间复杂度 O(1)</li>
+</ul>
+<h3 id="2-add-two-numbers">2 Add Two Numbers</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ListNode</span><span class="o">*</span> <span class="n">addTwoNumbers</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">l1</span><span class="p">,</span> <span class="n">ListNode</span><span class="o">*</span> <span class="n">l2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="o">*</span><span class="n">dummynode</span><span class="o">=</span><span class="k">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span> <span class="o">*</span><span class="n">cur</span><span class="o">=</span><span class="n">dummynode</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">carry</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="n">l1</span> <span class="o">||</span> <span class="n">l2</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">l1</span><span class="o">?</span><span class="n">l1</span><span class="o">-&gt;</span><span class="nl">val</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="n">l2</span><span class="o">?</span><span class="n">l2</span><span class="o">-&gt;</span><span class="nl">val</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">carry</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ListNode</span> <span class="o">*</span><span class="n">node</span><span class="o">=</span><span class="k">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="n">sum</span><span class="o">%</span><span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cur</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="n">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cur</span><span class="o">=</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">carry</span><span class="o">=</span><span class="n">sum</span><span class="o">/</span><span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span> <span class="n">l1</span><span class="o">=</span><span class="n">l1</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span> <span class="n">l2</span><span class="o">=</span><span class="n">l2</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">carry</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cur</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">=</span><span class="k">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="n">carry</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">dummynode</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>时间复杂度 O(max(m,n))</li>
 <li>空间复杂度 O(1)</li>
 </ul>
 

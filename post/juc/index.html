@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Java Concurrency-JUC">
 <meta itemprop="description" content="Package java.util.concurrent Description Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that provide useful functionality and are otherwise tedious or difficult to implement. Here are brief descriptions of the main components. See also the java.util.concurrent.locks and java.util.concurrent.atomic packages. Executors Interfaces. Executoris a simple standardized interface for defining custom thread-like subsystems, including thread pools, asynchronous I/O, and lightweight"><meta itemprop="datePublished" content="2022-08-01T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-08-01T08:15:48+08:00" />
-<meta itemprop="wordCount" content="48598">
+<meta itemprop="wordCount" content="48600">
 <meta itemprop="keywords" content="Java☕️,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java Concurrency-JUC"/>
 <meta name="twitter:description" content="Package java.util.concurrent Description Utility classes commonly useful in concurrent programming. This package includes a few small standardized extensible frameworks, as well as some classes that provide useful functionality and are otherwise tedious or difficult to implement. Here are brief descriptions of the main components. See also the java.util.concurrent.locks and java.util.concurrent.atomic packages. Executors Interfaces. Executoris a simple standardized interface for defining custom thread-like subsystems, including thread pools, asynchronous I/O, and lightweight"/>
@@ -536,7 +536,7 @@
 <li>they are guaranteed to traverse elements as they existed upon construction exactly once, and may (but are not guaranteed to) reflect any modifications subsequent to construction.</li>
 </ul>
 <h3 id="memory-consistency-properties">Memory Consistency Properties</h3>
-<p><a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.4.5">Chapter 17 of the Java Language Specification</a> defines the <em>happens-before</em> relation on memory operations such as reads and writes of shared variables. The results of a write by one thread are guaranteed to be visible to a read by another thread only if the write operation <em>happens-before</em> the read operation. The <code>synchronized</code> and <code>volatile</code> constructs, as well as the <code>Thread.start()</code> and <code>Thread.join()</code> methods, can form <em>happens-before</em>relationships. In particular:</p>
+<p><a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.4.5">Chapter 17 of the Java Language Specification</a> defines the <em>happens-before</em> relation on memory operations such as reads and writes of shared variables. The results of a write by one thread are guaranteed to be visible to a read by another thread only if the write operation <em>happens-before</em> the read operation. The <code>synchronized</code> and <code>volatile</code> constructs, as well as the <code>Thread.start()</code> and <code>Thread.join()</code> methods, can form <em>happens-before</em> relationships. In particular:</p>
 <ul>
 <li>Each action in a thread <em>happens-before</em> every action in that thread that comes later in the program&rsquo;s order.</li>
 <li>An unlock (<code>synchronized</code> block or method exit) of a monitor <em>happens-before</em> every subsequent lock (<code>synchronized</code> block or method entry) of that same monitor. And because the <em>happens-before</em> relation is transitive, all actions of a thread prior to unlocking <em>happen-before</em> all actions subsequent to any thread locking that monitor.</li>
@@ -556,7 +556,7 @@
 <p>Actions taken by the asynchronous computation represented by a <code>Future</code> <em>happen-before</em> actions subsequent to the retrieval of the result via <code>Future.get()</code> in another thread.</p>
 </li>
 <li>
-<p>Actions prior to &ldquo;releasing&rdquo; synchronizer methods such as <code>Lock.unlock</code>, <code>Semaphore.release</code>, and <code>CountDownLatch.countDown</code> <em>happen-before</em>actions subsequent to a successful &ldquo;acquiring&rdquo; method such as <code>Lock.lock</code>, <code>Semaphore.acquire</code>, <code>Condition.await</code>, and <code>CountDownLatch.await</code>on the same synchronizer object in another thread.</p>
+<p>Actions prior to &ldquo;releasing&rdquo; synchronizer methods such as <code>Lock.unlock</code>, <code>Semaphore.release</code>, and <code>CountDownLatch.countDown</code> <em>happen-before</em> actions subsequent to a successful &ldquo;acquiring&rdquo; method such as <code>Lock.lock</code>, <code>Semaphore.acquire</code>, <code>Condition.await</code>, and <code>CountDownLatch.await</code>on the same synchronizer object in another thread.</p>
 </li>
 <li>
 <p>For each pair of threads that successfully exchange objects via an <code>Exchanger</code>, actions prior to the <code>exchange()</code> in each thread <em>happen-before</em> those subsequent to the corresponding <code>exchange()</code> in another thread.</p>
@@ -570,7 +570,7 @@
 </li>
 </ul>
 <h2 id="unsafe">Unsafe</h2>
-<p>JDK的rt.jar包中的Unsafe类提供了硬件级别的原子性操作，Unsafe类中的方法都是native方法，它们使用JNI的方式访问本地C++ 实现库。</p>
+<p>JDK的rt.jar包中的Unsafe类提供了硬件级别的原子性操作，Unsafe类中的方法都是native方法，它们使用JNI的方式访问本地C++实现库。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -3497,11 +3497,11 @@ Exception in thread &ldquo;t2&rdquo; java.lang.IllegalMonitorStateException</p>
 </blockquote>
 <p>原子性指的是一个操作是不可中断的，即使是在多线程环境下，一个操作一旦开始就不会被其他线程影响。</p>
 <blockquote>
-<p>public void add()
-{
-i++;</p>
-<p>//不具备原子性，该操作是先读取值，然后写回一个新值，相当于原来的值加上1，分3步完成
-}</p>
+<p>public void add()</p>
+<p>{</p>
+<p>i++;</p>
+<p>//不具备原子性，该操作是先读取值，然后写回一个新值，相当于原来的值加上1，分3步完成</p>
+<p>}</p>
 </blockquote>
 <p>如果第二个线程在第一个线程读取旧值和写回新值期间读取i的域值，那么第二个线程就会与第一个线程一起看到同一个值，并执行相同值的加1操作，这也就造成了线程安全失败，因此对于add方法必须使用synchronized修饰，以便保证线程安全。</p>
 <h3 id="3指令禁重排">3、指令禁重排</h3>
