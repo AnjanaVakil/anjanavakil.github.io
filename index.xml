@@ -6,7 +6,7 @@
     <description>Recent content on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 13 Nov 2022 14:15:48 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 27 Nov 2022 22:15:48 +0800</lastBuildDate>
     
         <atom:link href="https://anjanavakil.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -24,6 +24,149 @@
 &lt;p&gt;任何时候，都要真诚。&lt;/p&gt;
 &lt;p&gt;如果春天要来，大地就使它一点点地完成🍃。&lt;/p&gt;
 &lt;p&gt;“Think before you speak. Read before you think.”  —— Fran Lebowitz&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Designing Data-Intensive Applications Notes</title>
+      <link>https://anjanavakil.github.io/post/designing-data-intensive_applications/</link>
+      <pubDate>Sun, 27 Nov 2022 22:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/designing-data-intensive_applications/</guid>
+      
+        <description>&lt;p&gt;豆瓣🔗：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;英文：&lt;a href=&#34;https://book.douban.com/subject/26197294/&#34;&gt;Designing Data-Intensive Applications&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;中文：&lt;a href=&#34;https://book.douban.com/subject/30329536/&#34;&gt;《数据密集型应用系统设计》&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;atomic&#34;&gt;atomic&lt;/h3&gt;
+&lt;p&gt;In the context of &lt;code&gt;concurrent operations&lt;/code&gt;: describing an operation that appears to take effect at &lt;code&gt;a single point&lt;/code&gt; in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.&lt;/p&gt;
+&lt;p&gt;In the context of &lt;code&gt;transactions&lt;/code&gt;: grouping together a set of writes that must either all be &lt;code&gt;committed or all be rolled back&lt;/code&gt;, even if faults occur.&lt;/p&gt;
+&lt;h3 id=&#34;rest&#34;&gt;REST&lt;/h3&gt;
+&lt;p&gt;REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP. It emphasizes simple data formats, using URLs for identifying resources and using HTTP features for cache control, authentication, and content type negotiation. REST has been gaining popularity compared to SOAP, at least in the context of cross-organizational service integration, and is often associated with microservices. An API designed according to the principles of REST is called RESTful.&lt;/p&gt;
+&lt;h3 id=&#34;message-brokermessage-queuemessage-oriented-middleware&#34;&gt;message broker/message queue/message-oriented middleware&lt;/h3&gt;
+&lt;p&gt;Using a message broker has several advantages compared to direct RPC:&lt;/p&gt;
+&lt;p&gt;It can act as a &lt;code&gt;buffer&lt;/code&gt; if the recipient is unavailable or overloaded, and thus improve system reliability.&lt;/p&gt;
+&lt;p&gt;It can automatically redeliver messages to a process that has crashed, and thus prevent messages from being lost.&lt;/p&gt;
+&lt;p&gt;It avoids the sender needing to know the IP address and port number of the recipient (which is particularly useful in a cloud deployment where virtual machines often come and go).&lt;/p&gt;
+&lt;p&gt;It allows one message to be sent to several recipients. It logically decouples the sender from the recipient (the sender just publishes messages and doesn’t care who consumes them).&lt;/p&gt;
+&lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
+&lt;p&gt;Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems by Martin Kleppmann&lt;/p&gt;
+&lt;h3 id=&#34;reading-notes&#34;&gt;Reading Notes:&lt;/h3&gt;
+&lt;p&gt;1、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据密集：Big-Data&lt;/li&gt;
+&lt;li&gt;计算密集：Deeping-Learning、HPC(High-Performance-Computing)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2、FOSS: Free and Open Source Software&lt;/p&gt;
+&lt;p&gt;3、back pressure(背压)=flow control(流量控制)&lt;/p&gt;
+&lt;p&gt;4、byzantine fault(拜占庭错误)：转发任何类型（矛盾的or虚假的）的消息&lt;/p&gt;
+&lt;p&gt;5、failover: the leadership role from one node to another node&lt;/p&gt;
+&lt;h4 id=&#34;ch1&#34;&gt;CH1&lt;/h4&gt;
+&lt;p&gt;1、&lt;/p&gt;
+&lt;p&gt;Redis: datastores/message queues&lt;/p&gt;
+&lt;p&gt;Apache Kafka: message queues/database-like durability guarantees 持久化存储保证&lt;/p&gt;
+&lt;p&gt;2、&lt;/p&gt;
+&lt;p&gt;Memcached&lt;/p&gt;
+&lt;p&gt;Elasticsearch/Solr: full-text search server&lt;/p&gt;
+&lt;p&gt;main database&lt;/p&gt;
+&lt;p&gt;3、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;水平拓展：单个节点——&amp;gt;分布式多机环境
+&lt;ul&gt;
+&lt;li&gt;无状态服务：容易&lt;/li&gt;
+&lt;li&gt;有状态服务：复杂&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;垂直拓展&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;ch2&#34;&gt;CH2&lt;/h4&gt;
+&lt;p&gt;1、网络、层次模型——&amp;gt;关系模型(RDBMS+SQL)&lt;/p&gt;
+&lt;p&gt;NoSQL:Not only SQL&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;比RDB更好的拓展需求：very large datasets, very high write throughput&lt;/li&gt;
+&lt;li&gt;free and open source software over commercial database products&lt;/li&gt;
+&lt;li&gt;specialized query operations that are not well supported by the rational model&lt;/li&gt;
+&lt;li&gt;for a more dynamic and expressive data model&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2、ORM(Objected-Reational Mapping frameworks): ActiveRecord, Hibernate&lt;/p&gt;
+&lt;p&gt;3、Document-oriented Database: MongoDB, RethinkDB, CouchDB, Espresso&lt;/p&gt;
+&lt;p&gt;无模式（读时模式）：数据的结构是隐式的，只有在读取时才解释。类似于：动态（运行时）类型检查&lt;/p&gt;
+&lt;p&gt;写时模式（rational database）：模式是显式的，确保数据写入时都必须遵循。类似于：静态（编译时）类型检查&lt;/p&gt;
+&lt;p&gt;4、property graph: Neo4j, Titan, InfiniteGraph&lt;/p&gt;
+&lt;h4 id=&#34;ch3&#34;&gt;CH3&lt;/h4&gt;
+&lt;p&gt;1、storage engines&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;log-structured&lt;/li&gt;
+&lt;li&gt;page-oriented: B-trees&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2、the hash table&amp;rsquo;s limitations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the hash table must fit in memory&lt;/li&gt;
+&lt;li&gt;it is difficult to make an on-disk hash map perform well
+&lt;ul&gt;
+&lt;li&gt;a lot of random access I/O&lt;/li&gt;
+&lt;li&gt;expensive to grow when it becomes full&lt;/li&gt;
+&lt;li&gt;hash collisions require fiddly logic&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Range queries are not efficient&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;3、&lt;/p&gt;
+&lt;p&gt;SSTable: Sorted String Table&lt;/p&gt;
+&lt;p&gt;Log-Structured Merge-Tree(LSM-Tree)&lt;/p&gt;
+&lt;p&gt;Lucene: an indexing engine for full-text search used by Elasticsearch and Solr&lt;/p&gt;
+&lt;p&gt;Bloom filters: &lt;code&gt;memory-efficient&lt;/code&gt; data structure for approximating the content of a set: if a key does not appear in the database.&lt;/p&gt;
+&lt;p&gt;4、B-Tree: fixed-size blocks/pages&lt;/p&gt;
+&lt;p&gt;read/write one page at a time&lt;/p&gt;
+&lt;p&gt;individual keys(a leaf page):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;inline&lt;/li&gt;
+&lt;li&gt;references to the pages where the values can be found&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;an additional data structure on a disk: a write-ahead log(WAL,redo log) 预写日志/重做日志（仅支持追加）&lt;/p&gt;
+&lt;p&gt;B-Tree: faster for reads&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先写WAL&lt;/li&gt;
+&lt;li&gt;后修改树本身的页&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;LSM-Tree: faster for writes&lt;/p&gt;
+&lt;p&gt;5、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;clustered index: stroring &lt;code&gt;all row data&lt;/code&gt; within the index&lt;/li&gt;
+&lt;li&gt;nonclustered index: storing &lt;code&gt;only references to the data&lt;/code&gt; with the index&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;6、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;materialized view&lt;/li&gt;
+&lt;li&gt;standard(virtual) view&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;7、&lt;/p&gt;
+&lt;p&gt;OLTP(Online Transaction Processing)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;log-structured school: BitCask, SSTable, LSM-Tree, LevelDB, Cassandra, HBase, Lucene&lt;/li&gt;
+&lt;li&gt;update-in-place school: B-Tree(RDB, NoSQL)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;ch4&#34;&gt;CH4&lt;/h4&gt;
+&lt;p&gt;1、&lt;/p&gt;
+&lt;p&gt;in-memory representation——&amp;gt;a byte sequence&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;encoding&lt;/li&gt;
+&lt;li&gt;serialization&lt;/li&gt;
+&lt;li&gt;marshalling&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;a byte sequence——&amp;gt;in-memory representation&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;decoding&lt;/li&gt;
+&lt;li&gt;derialization&lt;/li&gt;
+&lt;li&gt;unmarshalling&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;part-2-distributed-data&#34;&gt;PART 2 Distributed Data&lt;/h4&gt;
+&lt;h4 id=&#34;ch5&#34;&gt;CH5&lt;/h4&gt;
+&lt;p&gt;1、&lt;/p&gt;
+&lt;p&gt;2、&lt;/p&gt;
+&lt;p&gt;3、&lt;/p&gt;
 </description>
       
     </item>
@@ -16751,124 +16894,6 @@ inDegree[seq[i]]++;
 &lt;p&gt;空间复杂度：O(1)&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>The Effective Engineer</title>
-      <link>https://anjanavakil.github.io/post/the-effective-engineer/</link>
-      <pubDate>Mon, 25 Jul 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/the-effective-engineer/</guid>
-      
-        <description>&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;豆瓣🔗：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://book.douban.com/subject/26360716/&#34;&gt;The Effective Engineer: How to Leverage Your Efforts in Software Engineering to Make a Disproportionate and Meaningful Impact&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Talks at Google🔗:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=BnIz7H5ruy0&amp;amp;t=2692s&#34;&gt;The Effective Engineer | Edmond Lau | Talks at Google&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;大概是3、4月份读的英文版，发现7月份出了翻译版，对我来说中规中矩的书籍吧。发现读了挺多书但做到的少得可怜，实践好难🤧，但还是要觉察自己的行为和心理，去努力实现。&lt;/p&gt;
-&lt;p&gt;笔记：&lt;/p&gt;
-&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;There will always be more effectiveness techniques to learn.&lt;/p&gt;
-&lt;p&gt;This book examines and describes what it means to be an effective engineer, and it distills the key lessons that I’ve learned.&lt;/p&gt;
-&lt;p&gt;So what makes an effective engineer? Intuitively, we have some notion of which engineers we consider to be effective. They’re the people who get things done. They’re the ones who ship products that users love, launch features that customers pay for, build tools that boost team productivity, and deploy systems that help companies scale. Effective engineers produce results.&lt;/p&gt;
-&lt;p&gt;An effective engineer, therefore, is defined by the rate at which he or she produces value per unit of time worked.&lt;/p&gt;
-&lt;p&gt;Despite being a book for software engineers, you won’t find a single line of code in The Effective Engineer.&lt;/p&gt;
-&lt;p&gt;More important for effectiveness, but often overlooked by engineers, are the meta-skills. These skills help you determine where to focus your time and energy so that more of your effort translates into impact.&lt;/p&gt;
-&lt;p&gt;And even though everyone’s narrative was different, many common themes emerged.&lt;/p&gt;
-&lt;p&gt;Whether you want to increase your impact on the world, get promoted more quickly, waste less time grinding away at mindless tasks, or work fewer hours without sacrificing results, The Effective Engineer gives you the tools you need.&lt;/p&gt;
-&lt;h2 id=&#34;focus-on-high-leverage-activities&#34;&gt;Focus on High-Leverage Activities&lt;/h2&gt;
-&lt;p&gt;Mentoring activities included everything from reviewing code, outlining technical skills to learn, and pair programming, to discussing engineering tradeoffs, explaining how to prioritize better, and offering guidance on how to work well with different team members.&lt;/p&gt;
-&lt;p&gt;Mentors also planned a sequence of starter tasks and projects to increase the new hires’ mastery of our systems.&lt;/p&gt;
-&lt;p&gt;Codelabs, an idea I borrowed from Google, were documents that explained why we designed core abstractions, described how to use them, walked through the relevant code, and provided exercises to validate understanding.&lt;/p&gt;
-&lt;p&gt;Effective engineers aren’t the ones trying to get more things done by working more hours. They’re the ones who get things done efficiently—and who focus their limited time on the tasks that produce the most value.&lt;/p&gt;
-&lt;p&gt;Another way of thinking about leverage is the commonly-mentioned Pareto principle, or 80–20 rule—the notion that for many activities, 80% of the impact comes from 20% of the work. That 20% comprises the high-leverage activities, activities that produce a disproportionately high impact for a relatively small time investment.&lt;/p&gt;
-&lt;p&gt;engineers viewed recruiting and interviews as distractions from getting their work done&lt;/p&gt;
-&lt;p&gt;—an attitude that’s common to engineers at many companies.&lt;/p&gt;
-&lt;h3 id=&#34;key-takeaways&#34;&gt;Key Takeaways&lt;/h3&gt;
-&lt;p&gt;•  Use leverage to measure your engineering effectiveness. Focus on what generates the highest return on investment for your time spent.&lt;/p&gt;
-&lt;p&gt;•  Systematically increase the leverage of your time. Find ways to get an activity done more quickly, to increase the impact of an activity, or to shift to activities with higher leverage.&lt;/p&gt;
-&lt;p&gt;•  Focus your effort on leverage points. Time is your most limited asset. Identify the habits that produce disproportionately high impact for the time you invest.&lt;/p&gt;
-&lt;h2 id=&#34;optimize-for-learning&#34;&gt;Optimize for Learning&lt;/h2&gt;
-&lt;p&gt;I dug around in the source code of libraries written by early Google legends like Jeff Dean and Sanjay Ghemawat&lt;/p&gt;
-&lt;p&gt;I attended tech talks given by renowned architects like Joshua Bloch, who designed core Java libraries, and Guido van Rossum, the creator of the Python programming language.&lt;/p&gt;
-&lt;p&gt;And with each transition, I’ve optimized for learning and found myself growing, both professionally and personally, more than I could ever have done if I had stayed within the comforts of the Googleplex.&lt;/p&gt;
-&lt;p&gt;That year was a formative experience for me.&lt;/p&gt;
-&lt;p&gt;I also stretched the limits of my own comfort zone.&lt;/p&gt;
-&lt;p&gt;still have ample space to improve, but I learned that like many other skills, engaging in dialogue with strangers gets better with effort and practice.&lt;/p&gt;
-&lt;p&gt;People with a fixed mindset believe that “human qualities are carved in stone” and that they’re born with a predetermined amount of intelligence—either they’re smart or they’re not.&lt;/p&gt;
-&lt;p&gt;They may initially lack aptitude in certain areas, but they view challenges and failures as opportunities to learn.&lt;/p&gt;
-&lt;p&gt;he studied new web technologies, distilled relevant engineering lessons from her PhD, and practiced for the whiteboard interviews common at many engineering companies—and she got the job.&lt;/p&gt;
-&lt;p&gt;means accepting responsibility for each aspect of a situation that you can change—anything from improving your conversational skills to mastering a new engineering focus—rather than blaming failures and shortcomings on things outside your control.&lt;/p&gt;
-&lt;p&gt;means optimizing for experiences where you learn rather than for experiences where you effortlessly succeed.&lt;/p&gt;
-&lt;p&gt;Compounding leads to an exponential growth curve.&lt;/p&gt;
-&lt;p&gt;Knowledge gives you a foundation, enabling you to gain more knowledge even faster.&lt;/p&gt;
-&lt;p&gt;When companies pay you for cushy and unchallenging 9-to-5 jobs, Cohen argues, “what they are actually doing is paying you to accept a much lower intellectual growth rate.&lt;/p&gt;
-&lt;p&gt;Similarly, setting yourself up for long-term success requires thinking of yourself as a startup or product in beta, a work-in-progress that needs to be invested in and iterated on every single day.&lt;/p&gt;
-&lt;p&gt;What will you learn today to improve yourself by 1%? That 1% is a high-leverage investment to develop the skills and the knowledge to make use of future opportunities&lt;/p&gt;
-&lt;p&gt;Some work environments are more conducive than others for supporting a high personal and professional growth rate&lt;/p&gt;
-&lt;p&gt;Here are six major factors to consider when choosing a new job or team and the questions you should be asking for each of them:&lt;/p&gt;
-&lt;h2 id=&#34;fast-growth&#34;&gt;Fast growth.&lt;/h2&gt;
-&lt;p&gt;Google, for example, invests significant resources in its engEDU program—a set of classes, professional seminars, design documents, and programming guides geared toward helping employees grow as engineers and leaders.&lt;/p&gt;
-&lt;p&gt;Facebook has a six-week onboarding program called Bootcamp, where new engineers learn about the company’s tools and focus areas and do their initial hands-on development.&lt;/p&gt;
-&lt;p&gt;Surrounding yourself with people who are smarter, more talented, and more creative than you means surrounding yourself with potential teachers and mentors.&lt;/p&gt;
-&lt;p&gt;my three years at Quora, for example, I had opportunities to work on a broad range of technical challenges (including experimentation tools, real-time analytics frameworks, site speed, infrastructure, recommendations, spam detection, and mobile development) as well as organizational challenges (including training interviewers, creating onboarding resources, building the mentoring program, and coordinating the internship program). It would have been difficult to work on such a diversity of projects at a larger company, where the problems might be tackled by specialized teams and where the processes might already be well-established.&lt;/p&gt;
-&lt;h2 id=&#34;adjacent-disciplines&#34;&gt;adjacent disciplines&lt;/h2&gt;
-&lt;p&gt;These are the disciplines related to your core role and where increased familiarity can make you more self-sufficient and effective.&lt;/p&gt;
-&lt;p&gt;If you’re a product engineer, adjacent disciplines might include product management, user research, or even backend engineering. If you’re an infrastructure engineer, they might include machine learning, database internals, or web development. If you’re a growth engineer, adjacent disciplines might be data science, marketing, or behavioral psychology.&lt;/p&gt;
-&lt;p&gt;Whichever route you decide, here are ten suggestions to take advantage of the resources available to you at work:&lt;/p&gt;
-&lt;p&gt;Study code for core abstractions written by the best engineers at your company.&lt;/p&gt;
-&lt;p&gt;You can also do the same with any well-designed, open source projects that your company uses or is considering using.&lt;/p&gt;
-&lt;h2 id=&#34;write-more-code&#34;&gt;Write more code.&lt;/h2&gt;
-&lt;p&gt;Since actively programming expends more effort than passively reading code, you’ll find that practicing the craft is a high-leverage activity for improving your programming skills.&lt;/p&gt;
-&lt;p&gt;Google, for instance, has a wide array of codelabs that teach core abstractions and guides of best practices for various languages, all written by veteran engineers.&lt;/p&gt;
-&lt;p&gt;Optimize for getting good, thoughtful feedback rather than for lowering the barrier to getting your work checked in.&lt;/p&gt;
-&lt;p&gt;These could be courses offered on the company campus, at nearby universities, or online through educational initiatives like Coursera, edX, Udemy or Udacity. Online education is exploding; you can easily sign up for classes in machine learning, mobile development, computer networking, compilers, and more, many of them taught by professors from world-class institutions like Stanford or MIT.&lt;/p&gt;
-&lt;h2 id=&#34;work-on-a-diversity-of-projects&#34;&gt;Work on a diversity of projects.&lt;/h2&gt;
-&lt;p&gt;If you find yourself always doing similar tasks using similar methods, it’s going to be hard to pick up new skills.&lt;/p&gt;
-&lt;p&gt;Moreover, research on learning confirms that the interleaved practice of different skills is more effective than repeated, massed practice of a single skill at preparing people to tackle unfamiliar problems.&lt;/p&gt;
-&lt;p&gt;Fear of failure often holds us back, causing us to give up before we even try.&lt;/p&gt;
-&lt;p&gt;Learning opportunities aren’t limited to the workplace. We should always be asking: How can I improve? How could I have done this better? What should I learn next to best prepare me for the future?&lt;/p&gt;
-&lt;p&gt;but the practice of adopting a growth mindset toward them still makes us better learners and more willing to stretch beyond our comfort zone.&lt;/p&gt;
-&lt;p&gt;Here are ten starting points to help inspire a habit of learning outside of the workplace:&lt;/p&gt;
-&lt;h2 id=&#34;read-books&#34;&gt;Read books.&lt;/h2&gt;
-&lt;p&gt;Bill Gates reads a lot and mostly non-fiction, using books to discover how the world works.&lt;/p&gt;
-&lt;p&gt;Books offer a way for you to learn from the lessons and mistakes of others: you can re-apply that knowledge without having to start from scratch. This is such a high-leverage investment that I’ve actually trained myself to speed read.&lt;/p&gt;
-&lt;p&gt;When you write to teach other people, you gain a deeper understanding of ideas you’re already familiar with and pinpoint the details that you didn’t fully understand. That’s the technique that Physics Nobel Prize winner Richard Feynman used to learn faster. 34&lt;/p&gt;
-&lt;p&gt;These days, platforms like Blogger, Tumblr, Wordpress, Medium, and Quora make it easy. Presenting at conferences can have similar benefits.&lt;/p&gt;
-&lt;p&gt;But by adopting a growth mindset and optimizing for learning, you’ll be best prepared to make the most of whatever opportunities do come your way.&lt;/p&gt;
-&lt;h3 id=&#34;key-takeaways-1&#34;&gt;Key Takeaways&lt;/h3&gt;
-&lt;p&gt;View failures and challenges through a growth mindset, and see them as opportunities to learn.&lt;/p&gt;
-&lt;p&gt;Learning compounds like interest. The more you learn, the easier it is to apply prior insights and lessons to learn new things.&lt;/p&gt;
-&lt;p&gt;Locate learning opportunities outside of the workplace. Challenge yourself to become better by just 1% a day. Not all of your learning will necessarily relate to engineering skills, but being a happier and better learner will help you become a more effective engineer in the long run.&lt;/p&gt;
-&lt;h2 id=&#34;prioritize-regularly&#34;&gt;Prioritize Regularly&lt;/h2&gt;
-&lt;p&gt;No matter how much of an expert you might be, a well-designed checklist can significantly improve your outcomes.&lt;/p&gt;
-&lt;p&gt;That value is measured in terms of products shipped, users acquired, business metrics moved, or sales made, rather than in terms of hours worked, tasks completed, lines of code written, or meetings attended.&lt;/p&gt;
-&lt;p&gt;Quadrant 2 activities include planning our career goals, building stronger relationships, reading books and articles for professional development, adopting new productivity and efficiency habits, building tools to improve our workflows, investing in useful abstractions, ensuring that infrastructure will continue to scale, learning new programming languages, speaking at conferences, and mentoring our teammates to help them be more productive.&lt;/p&gt;
-&lt;p&gt;One piece of advice that I consistently give my mentees is to carve out time to invest in skills development. Their productivity might slow down at first, but with time, the new tools and workflows that they learn will increase their effectiveness and easily compensate for the initial loss.&lt;/p&gt;
-&lt;p&gt;Subconscious followup is important because procrastination primarily stems from a reluctance to expend the initial activation energy on a task.&lt;/p&gt;
-&lt;p&gt;To increase my focus, I block off sites like Facebook, Twitter, etc. through my /etc/hosts file 28 and use a timer program called Focus Booster to time my 25-minute sessions.&lt;/p&gt;
-&lt;h2 id=&#34;invest-in-iteration-speed&#34;&gt;Invest in Iteration Speed&lt;/h2&gt;
-&lt;p&gt;The key is to be mindful of which of your common, everyday actions slow you down, and then figure out how to perform those actions more efficiently.&lt;/p&gt;
-&lt;h3 id=&#34;key-takeaways-2&#34;&gt;Key Takeaways&lt;/h3&gt;
-&lt;p&gt;•  The faster you can iterate, the more you can learn. Conversely, when you move too slowly trying to avoid mistakes, you lose opportunities.&lt;/p&gt;
-&lt;p&gt;•  Invest in tooling. Faster compile times, faster deployment cycles, and faster turnaround times for development all provide time-saving benefits that compound the more you use them.&lt;/p&gt;
-&lt;p&gt;•  Optimize your debugging workflow. Don’t underestimate how much time gets spent validating that your code works. Invest enough time to shorten those workflows.&lt;/p&gt;
-&lt;p&gt;•  Master the fundamentals of your craft. Get comfortable and efficient with the development environment that you use on a daily basis. This will pay off dividends throughout your career.&lt;/p&gt;
-&lt;p&gt;•  Take a holistic view of your iteration loop. Don’t ignore any organizational and team-related bottlenecks that may be within your circle of influence.&lt;/p&gt;
-&lt;h2 id=&#34;appendix&#34;&gt;Appendix&lt;/h2&gt;
-&lt;p&gt;“putting first things first,” I learned that people tend to neglect important but non-urgent activities and spend a lot of time dealing with tasks like emails, phone calls, and meetings that may be urgent but ultimately unimportant.&lt;/p&gt;
-&lt;p&gt;Recommended Blogs To Follow&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://martinfowler.com/&#34;&gt;http://martinfowler.com/&lt;/a&gt;. Martin Fowler, author of the book Refactoring, writes about how to maximize the productivity of software teams and provides detailed write-ups of common programming patterns.&lt;/p&gt;
-&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
-&lt;p&gt;Paul Graham, “Maker’s Schedule, Manager’s Schedule,” July 2009, &lt;a href=&#34;http://www.paulgraham.com/makersschedule.html&#34;&gt;http://www.paulgraham.com/makersschedule.html&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;On any Linux-based system (like a Mac), you can add a line like 127.0.0.1 &lt;a href=&#34;http://www.facebook.com&#34;&gt;www.facebook.com&lt;/a&gt; to route network requests to that domain to localhost, effectively blocking the site.&lt;/p&gt;
 </description>
       
     </item>
