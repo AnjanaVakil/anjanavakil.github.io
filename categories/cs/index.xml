@@ -6,7 +6,16 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Oct 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Nov 2022 22:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CMU 15-445/645 NOTES</title>
+      <link>https://anjanavakil.github.io/post/cmu15-445/</link>
+      <pubDate>Mon, 28 Nov 2022 22:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/cmu15-445/</guid>
+      <description>Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL slides</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43; Notes</title>
       <link>https://anjanavakil.github.io/post/cpp/</link>

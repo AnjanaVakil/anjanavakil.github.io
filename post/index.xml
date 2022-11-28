@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 27 Nov 2022 22:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Nov 2022 22:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CMU 15-445/645 NOTES</title>
+      <link>https://anjanavakil.github.io/post/cmu15-445/</link>
+      <pubDate>Mon, 28 Nov 2022 22:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/cmu15-445/</guid>
+      <description>Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL slides</description>
+    </item>
+    
     <item>
       <title>Designing Data-Intensive Applications Notes</title>
       <link>https://anjanavakil.github.io/post/designing-data-intensive_applications/</link>
@@ -176,15 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/leetcode-graph/</guid>
       <description>LeetCode + 《剑指Offer II》刷题笔记。 图 图的搜索 如果要求在无权图中找出两个节点之间的最短距离，那么广度优先搜索可能是更合适的算法。 如果面试题要</description>
-    </item>
-    
-    <item>
-      <title>The Effective Engineer</title>
-      <link>https://anjanavakil.github.io/post/the-effective-engineer/</link>
-      <pubDate>Mon, 25 Jul 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/the-effective-engineer/</guid>
-      <description>豆瓣🔗： The Effective Engineer: How to Leverage Your Efforts in Software Engineering to Make a Disproportionate and Meaningful Impact Talks at Google🔗: The Effective Engineer | Edmond Lau | Talks at Google 大概是3、4月份读的英文版，发现7月份出了翻译版，对我来</description>
     </item>
     
   </channel>
