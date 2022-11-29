@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Designing Data-Intensive Applications Notes">
 <meta itemprop="description" content="豆瓣🔗： 英文：Designing Data-Intensive Applications 中文：《数据密集型应用系统设计》 atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “hal"><meta itemprop="datePublished" content="2022-11-27T22:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-11-27T22:15:48+08:00" />
-<meta itemprop="wordCount" content="1126">
+<meta itemprop="wordCount" content="1313">
 <meta itemprop="keywords" content="CS BOOK📓," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Designing Data-Intensive Applications Notes"/>
 <meta name="twitter:description" content="豆瓣🔗： 英文：Designing Data-Intensive Applications 中文：《数据密集型应用系统设计》 atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “hal"/>
@@ -326,6 +326,13 @@
         <li><a href="#message-brokermessage-queuemessage-oriented-middleware">message broker/message queue/message-oriented middleware</a></li>
         <li><a href="#references">References</a></li>
         <li><a href="#reading-notes">Reading Notes:</a></li>
+        <li><a href="#chapter-3-数据存储与检索">Chapter 3 数据存储与检索</a></li>
+        <li><a href="#storage-engines">storage engines</a></li>
+        <li><a href="#sstable">SSTable</a></li>
+        <li><a href="#lsm-tree">LSM-Tree</a></li>
+        <li><a href="#b-tree">B-Tree</a></li>
+        <li><a href="#index">Index</a></li>
+        <li><a href="#view">View</a></li>
       </ul>
     </li>
   </ul>
@@ -396,14 +403,23 @@
 <p>写时模式（rational database）：模式是显式的，确保数据写入时都必须遵循。类似于：静态（编译时）类型检查</p>
 <p>4、property graph: Neo4j, Titan, InfiniteGraph</p>
 <h4 id="ch3">CH3</h4>
-<p>1、storage engines</p>
+<h3 id="chapter-3-数据存储与检索">Chapter 3 数据存储与检索</h3>
+<h3 id="storage-engines">storage engines</h3>
+<p>存储引擎：</p>
 <ul>
-<li>log-structured</li>
-<li>page-oriented: B-trees</li>
+<li>
+<p>log-structured ～: 日志结构</p>
+<ul>
+<li>仅支持追加式更新的log</li>
 </ul>
-<p>2、the hash table&rsquo;s limitations:</p>
+</li>
+<li>
+<p>page-oriented ～: 面向页 B-tree</p>
+</li>
+</ul>
+<p>the hash table&rsquo;s limitations:</p>
 <ul>
-<li>the hash table must fit in memory</li>
+<li>the hash table must fit in memory：哈希表必须全部放入内存。</li>
 <li>it is difficult to make an on-disk hash map perform well
 <ul>
 <li>a lot of random access I/O</li>
@@ -411,38 +427,64 @@
 <li>hash collisions require fiddly logic</li>
 </ul>
 </li>
-<li>Range queries are not efficient</li>
+<li>Range queries are not efficient：只能采用逐个查找的方式查询每一个键。</li>
 </ul>
-<p>3、</p>
-<p>SSTable: Sorted String Table</p>
-<p>Log-Structured Merge-Tree(LSM-Tree)</p>
-<p>Lucene: an indexing engine for full-text search used by Elasticsearch and Solr</p>
+<h3 id="sstable">SSTable</h3>
+<p>SSTable</p>
+<ul>
+<li>Sorted String Table 排序字符串表</li>
+<li>按key-value对的顺序<strong>按键key</strong>排序</li>
+</ul>
+<h3 id="lsm-tree">LSM-Tree</h3>
+<p>Log-Structured Merge-Tree(LSM-Tree) 日志结构的合并树</p>
+<p>LSM存储引擎：基于合并和压缩排序文件原理的存储引擎。</p>
+<p>Lucene</p>
+<ul>
+<li>an indexing engine for full-text search used by Elasticsearch and Solr 索引引擎</li>
+<li>key: 单词（词条）</li>
+<li>value: 所有包含该单词的文档ID的列表（倒排表）</li>
+</ul>
 <p>Bloom filters: <code>memory-efficient</code> data structure for approximating the content of a set: if a key does not appear in the database.</p>
-<p>4、B-Tree: fixed-size blocks/pages</p>
+<h3 id="b-tree">B-Tree</h3>
+<ul>
+<li>
+<p>fixed-size blocks/pages</p>
+</li>
+<li>
 <p>read/write one page at a time</p>
+</li>
+<li>
 <p>individual keys(a leaf page):</p>
 <ul>
-<li>inline</li>
-<li>references to the pages where the values can be found</li>
+<li>
+<p>inline</p>
+</li>
+<li>
+<p>references to the pages where the values can be found</p>
+</li>
 </ul>
+</li>
+<li>
 <p>an additional data structure on a disk: a write-ahead log(WAL,redo log) 预写日志/重做日志（仅支持追加）</p>
+</li>
+</ul>
+<p>分支因子：B-Tree中一个页所包含的子页引用数量</p>
 <p>B-Tree: faster for reads</p>
 <ul>
 <li>先写WAL</li>
-<li>后修改树本身的页</li>
+<li>后修改树本身的页（还可能发生页分裂）</li>
 </ul>
 <p>LSM-Tree: faster for writes</p>
-<p>5、</p>
+<h3 id="index">Index</h3>
 <ul>
-<li>clustered index: stroring <code>all row data</code> within the index</li>
+<li>clustered index: storing <code>all row data</code> within the index</li>
 <li>nonclustered index: storing <code>only references to the data</code> with the index</li>
 </ul>
-<p>6、</p>
+<h3 id="view">View</h3>
 <ul>
 <li>materialized view</li>
 <li>standard(virtual) view</li>
 </ul>
-<p>7、</p>
 <p>OLTP(Online Transaction Processing)</p>
 <ul>
 <li>log-structured school: BitCask, SSTable, LSM-Tree, LevelDB, Cassandra, HBase, Lucene</li>

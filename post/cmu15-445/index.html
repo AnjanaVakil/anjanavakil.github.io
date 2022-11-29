@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL slides" />
+  <meta name="description" content="Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL Slides" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,19 +60,19 @@
 
 
 <meta property="og:title" content="CMU 15-445/645 NOTES" />
-<meta property="og:description" content="Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL slides" />
+<meta property="og:description" content="Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL Slides" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/cmu15-445/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-11-28T22:15:48+08:00" />
 <meta property="article:modified_time" content="2022-11-28T22:15:48+08:00" />
 
 <meta itemprop="name" content="CMU 15-445/645 NOTES">
-<meta itemprop="description" content="Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL slides"><meta itemprop="datePublished" content="2022-11-28T22:15:48+08:00" />
+<meta itemprop="description" content="Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL Slides"><meta itemprop="datePublished" content="2022-11-28T22:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-11-28T22:15:48+08:00" />
-<meta itemprop="wordCount" content="108">
+<meta itemprop="wordCount" content="322">
 <meta itemprop="keywords" content="CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CMU 15-445/645 NOTES"/>
-<meta name="twitter:description" content="Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL slides"/>
+<meta name="twitter:description" content="Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL Slides"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -326,7 +326,7 @@
     </li>
     <li><a href="#lecture-02-advanced-sql">Lecture #02: Advanced SQL</a>
       <ul>
-        <li><a href="#slides-1">slides</a></li>
+        <li><a href="#slides-1">Slides</a></li>
       </ul>
     </li>
     <li><a href="#homework1-sql">Homework1: SQL</a></li>
@@ -353,13 +353,22 @@
 </ul>
 <p>n-ary Relation = Table with n columns</p>
 <h4 id="relational-algebra-join">Relational Algebra: JOIN</h4>
-<p><img src="/image/cmu15-445-JOIN.png" alt="cmu15-445-JOIN"></p>
+<p><img src="/image/cmu15-445-JOIN.jpg" alt="cmu15-445-JOIN"></p>
 <h4 id="databases-are-ubiquitous">Databases are ubiquitous.</h4>
 <h2 id="lecture-02-advanced-sql">Lecture #02: Advanced SQL</h2>
-<h3 id="slides-1">slides</h3>
+<h3 id="slides-1">Slides</h3>
 <p>SQL is based on bags(duplicates) not sets(no duplicates).</p>
 <h4 id="group-by">Group By</h4>
 <p>Non-aggregated values in SELECT output clause must appear in GROUP BY clause.</p>
+<p><img src="/image/cmu15-445-nested-queries1.jpg" alt="cmu15-445-nested-queries1"></p>
+<p>为了快速学完直接看slides的，发现SQL部分还是有不懂的地方，居然想着得过且过😳，不会就跳过吧。幸好看了video，<code>Easy has a cost.</code> 不要偷懒，多重复几次总会搞懂的。</p>
+<p><img src="/image/cmu15-445-nested-queries2.png" alt="cmu15-445-nested-queries2"></p>
+<p>MySQL:</p>
+<p><img src="/image/cmu15-445-nested-queries3.png" alt="cmu15-445-nested-queries3"></p>
+<p>切换到MySQL之前的版本可以用该语句查询，但其实结果不正确。</p>
+<p><img src="/image/cmu15-445-nested-queries4.png" alt="cmu15-445-nested-queries4"></p>
+<p>查询student表，发现结果是错误的。</p>
+<p>看了video知道哪里错了，还是要多实践。Andy会在课堂演示，想起了本科一位年轻教师（为数不多会在课堂拿自己笔记本电脑写代码投屏给我们看的），也是位好老师。</p>
 <h2 id="homework1-sql">Homework1: SQL</h2>
 <h2 id="project1-buffer-pool-manager">Project1: Buffer Pool Manager</h2>
 <h2 id="homework2-storage--indexes">Homework2: Storage &amp; Indexes</h2>
