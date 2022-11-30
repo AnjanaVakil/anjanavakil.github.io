@@ -243,9 +243,33 @@
 &lt;/ul&gt;
 &lt;h4 id=&#34;part-2-distributed-data&#34;&gt;PART 2 Distributed Data&lt;/h4&gt;
 &lt;h4 id=&#34;ch5&#34;&gt;CH5&lt;/h4&gt;
-&lt;p&gt;1、&lt;/p&gt;
-&lt;p&gt;2、&lt;/p&gt;
-&lt;p&gt;3、&lt;/p&gt;
+&lt;h2 id=&#34;chapter-9-一致性与共识&#34;&gt;Chapter 9: 一致性与共识&lt;/h2&gt;
+&lt;h3 id=&#34;可线性化原子一致性强一致性&#34;&gt;可线性化（原子一致性、强一致性）&lt;/h3&gt;
+&lt;p&gt;可线性化 Linearizability ：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;读写寄存器（单个对象）的最新值保证&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;两阶段加锁&lt;/li&gt;
+&lt;li&gt;实际以串行执行&lt;/li&gt;
+&lt;li&gt;关系型数据库中主键的约束，需要线性化保证；外键/属性约束，并不一定要求线性化&lt;/li&gt;
+&lt;li&gt;多核CPU上的内存：非线性化（除非使用了内存屏障/fence指令）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;放弃线性化的原因：为了性能，而不是容错&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可串行化 Serializability ：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;事务的隔离属性&lt;/li&gt;
+&lt;li&gt;用来确保事务执行的结果与串行执行的结果完全相同&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;cap定理&#34;&gt;CAP定理&lt;/h3&gt;
+&lt;p&gt;“网络分区的情况下，选择一致还是可用”&lt;/p&gt;
 </description>
       
     </item>
