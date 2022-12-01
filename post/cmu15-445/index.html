@@ -69,7 +69,7 @@
 <meta itemprop="name" content="CMU 15-445/645 NOTES">
 <meta itemprop="description" content="Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL Slides"><meta itemprop="datePublished" content="2022-11-28T22:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-11-28T22:15:48+08:00" />
-<meta itemprop="wordCount" content="322">
+<meta itemprop="wordCount" content="729">
 <meta itemprop="keywords" content="CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CMU 15-445/645 NOTES"/>
 <meta name="twitter:description" content="Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL Slides"/>
@@ -330,6 +330,12 @@
       </ul>
     </li>
     <li><a href="#homework1-sql">Homework1: SQL</a></li>
+    <li><a href="#lecture-03-database-storage-i">Lecture #03: Database Storage I</a>
+      <ul>
+        <li><a href="#slides-2">Slides</a></li>
+      </ul>
+    </li>
+    <li><a href="#lecture-04-database-storage-ii">Lecture #04: Database Storage II</a></li>
     <li><a href="#project1-buffer-pool-manager">Project1: Buffer Pool Manager</a></li>
     <li><a href="#homework2-storage--indexes">Homework2: Storage &amp; Indexes</a></li>
     <li><a href="#project2-btree-index">Project2: B+Tree Index</a></li>
@@ -370,6 +376,67 @@
 <p>查询student表，发现结果是错误的。</p>
 <p>看了video知道哪里错了，还是要多实践。Andy会在课堂演示，想起了本科一位年轻教师（为数不多会在课堂拿自己笔记本电脑写代码投屏给我们看的），也是位好老师。</p>
 <h2 id="homework1-sql">Homework1: SQL</h2>
+<p>Q10没搞懂意思，所以只有85/100。</p>
+<h2 id="lecture-03-database-storage-i">Lecture #03: Database Storage I</h2>
+<h3 id="slides-2">Slides</h3>
+<h4 id="sequential-vs-random-access">Sequential VS. Random Access</h4>
+<p>DBMS will want to maximize sequential access.</p>
+<p>Allocating multiple pages at the same time is called an <code>extent</code>.</p>
+<h4 id="memory-mappingmmap">memory mapping(mmap)❌</h4>
+<p>The DBMS can use memory mapping(mmap) to store the contents of a file into the address space of a program.</p>
+<p>Unfortunately, this means that if mmap hits a <code>page fault</code>, the process will be <code>blocked</code>.</p>
+<p>What if we allow multiple threads to access the mmap files to hide page fault stalls?</p>
+<p>This works good enough for read-only access. It is complicated when there are multiple writers&hellip;</p>
+<p>solutions:</p>
+<ul>
+<li>madvise: Tell the OS how you expect to read centrain pages.</li>
+<li>mlock: Tell the OS that memory ranges cannot be paged out.</li>
+<li>msync: Tell the OS to flush memory ranges out to disk.</li>
+</ul>
+<p>哈哈哈，slides中有“The OS is not your friend.”，这是DB调侃OS嘛😂。</p>
+<h4 id="file-storage">File Storage</h4>
+<p>Three different notions of &ldquo;pages&rdquo; in a DBMS:</p>
+<ul>
+<li>Hardware Page(usually 4kB)</li>
+<li>OS Page(usually 4KB)</li>
+<li>Database Page(512B-16KB) 发现Database Pages的大小差异好大。</li>
+</ul>
+<h4 id="page-layout">Page Layout</h4>
+<h5 id="1-slotted-pages">1. Slotted-pages</h5>
+<ul>
+<li>Page maps slots to offsets.</li>
+<li>Header keeps track of
+<ul>
+<li>the number of used slots</li>
+<li>the offset of the <code>starting location</code> of the <code>last used slot</code></li>
+<li>a slot array: the location of the <code>start</code> of each tuple</li>
+</ul>
+</li>
+<li>To add a tuple
+<ul>
+<li>the slot array will grow from the beginning to the end</li>
+<li>the data of the tuples will grow from end to the beginning</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-log-structured">2. Log-structured</h5>
+<ul>
+<li>Only store log records</li>
+<li>Fast writes, potentially slow reads(DBMS can have indexes to avoid long reads)</li>
+<li>periodically compact the log——&gt; the DBMS ends up with write amplification</li>
+</ul>
+<h4 id="tuple-layout">Tuple Layout</h4>
+<h5 id="tuple-header-contains-meta-data-about-the-tuple">Tuple Header: Contains meta-data about the tuple</h5>
+<h5 id="tuple-data-actual-data-for-attributes">Tuple Data: Actual data for attributes</h5>
+<h5 id="unique-identifier">Unique Identifier</h5>
+<p><strong>Record IDS</strong></p>
+<p>Each tuple is assigned a unique record identifier.</p>
+<ul>
+<li>most common: page_id+offset/slot</li>
+<li>Can also contain file location info</li>
+</ul>
+<p>An application cannot rely on these IDs to mean anything. 不太懂什么意思？</p>
+<h2 id="lecture-04-database-storage-ii">Lecture #04: Database Storage II</h2>
 <h2 id="project1-buffer-pool-manager">Project1: Buffer Pool Manager</h2>
 <h2 id="homework2-storage--indexes">Homework2: Storage &amp; Indexes</h2>
 <h2 id="project2-btree-index">Project2: B+Tree Index</h2>
