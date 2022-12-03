@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Anjana</title>
+  <title>MIT 6.824: Distributed Systems &amp; Paper Reading - Anjana</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="Anjana&#39;s personal website." />
+  <meta name="description" content="跟的是Spring 2022。 刚开始还惊讶CS自学指南的MIT6.824: Distributed System预计学时为什么是200小时，学了几天终于知道为什么需要" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -34,8 +35,8 @@
 <meta name="generator" content="Hugo 0.93.0" />
 
 
-<link rel="canonical" href="https://anjanavakil.github.io/" />
-<link href="/index.xml" rel="alternate" type="application/rss+xml" title="Anjana" />
+<link rel="canonical" href="https://anjanavakil.github.io/post/mit6_824/" />
+
 
 
 
@@ -58,15 +59,20 @@
 
 
 
-<meta property="og:title" content="Anjana" />
-<meta property="og:description" content="Anjana&#39;s personal website." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://anjanavakil.github.io/" />
+<meta property="og:title" content="MIT 6.824: Distributed Systems &amp; Paper Reading" />
+<meta property="og:description" content="跟的是Spring 2022。 刚开始还惊讶CS自学指南的MIT6.824: Distributed System预计学时为什么是200小时，学了几天终于知道为什么需要" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://anjanavakil.github.io/post/mit6_824/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-12-01T08:15:48+08:00" />
+<meta property="article:modified_time" content="2022-12-02T08:15:48+08:00" />
 
-<meta itemprop="name" content="Anjana">
-<meta itemprop="description" content="Anjana&#39;s personal website."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Anjana"/>
-<meta name="twitter:description" content="Anjana&#39;s personal website."/>
+<meta itemprop="name" content="MIT 6.824: Distributed Systems &amp; Paper Reading">
+<meta itemprop="description" content="跟的是Spring 2022。 刚开始还惊讶CS自学指南的MIT6.824: Distributed System预计学时为什么是200小时，学了几天终于知道为什么需要"><meta itemprop="datePublished" content="2022-12-01T08:15:48+08:00" />
+<meta itemprop="dateModified" content="2022-12-02T08:15:48+08:00" />
+<meta itemprop="wordCount" content="388">
+<meta itemprop="keywords" content="CS💻," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MIT 6.824: Distributed Systems &amp; Paper Reading"/>
+<meta name="twitter:description" content="跟的是Spring 2022。 刚开始还惊讶CS自学指南的MIT6.824: Distributed System预计学时为什么是200小时，学了几天终于知道为什么需要"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -283,1068 +289,192 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="posts" class="posts">
-  
-  
+          <article class="post bg-white">
     
-  
-  
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+    <header class="post-header">
+      <h1 class="post-title">MIT 6.824: Distributed Systems &amp; Paper Reading</h1>
       
-      <a class="post-link" href="/post/linux-kernel-development/">Linux Kernel Development</a>
-    </h1>
+      <div class="post-meta">
+        <time datetime="2022-12-01" class="post-time">
+          2022-12-01
+        </time>
+        <div class="post-category">
+            <a href="https://anjanavakil.github.io/categories/cs/"> CS💻 </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
     
-    <div class="post-meta">
-      <time datetime="2022-10-05" class="post-time">
-        2022-10-05
-      </time>
-      <div class="post-category">
-          <a href="https://anjanavakil.github.io/categories/cs-book/"> CS BOOK📓 </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
     
-    <div class="post-summary">
-      豆瓣🔗: 英文版： Linux Kernel Development 中文版： 《Linux内核设计与实现》 1 Introduction to the Linux Kernel 2 Getting Started with the Kernel 1 2 3 4 5 # git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git Cloning into &#39;linux-2.6&#39;... remote: Enumerating objects: 4084, done. ... # cd linux-2.6 This command creates a configuration based on the
-    </div>
-    <div class="read-more">
-      <a href="/post/linux-kernel-development/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/joel-on-software/">Joel on Software</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2022-10-04" class="post-time">
-        2022-10-04
-      </time>
-      <div class="post-category">
-          <a href="https://anjanavakil.github.io/categories/cs-book/"> CS BOOK📓 </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      豆瓣🔗: 英文版： Joel on Software More Joel on Software 中文版： 《软件随想录 卷1》 《软件随想录 卷2》 作者BLOG： Joel Spolsky: https://www.joelonsoftware.com/ 电子书看多了真的需要换纸质书籍读读。这本书是阮
-    </div>
-    <div class="read-more">
-      <a href="/post/joel-on-software/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/hackers-and-painters/">Hackers and Painters: Big Ideas from the Computer Age</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2022-10-01" class="post-time">
-        2022-10-01
-      </time>
-      <div class="post-category">
-          <a href="https://anjanavakil.github.io/categories/cs-book/"> CS BOOK📓 </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      豆瓣🔗: 英文版： Hackers &amp; Painters: Big Ideas from the Computer Age 中文版： 《黑客与画家》 作者BLOG： Paul Graham: http://www.paulgraham.com/ 《黑客与画家》零零散散加起来应该算是看过两遍了。第一遍（大一or
-    </div>
-    <div class="read-more">
-      <a href="/post/hackers-and-painters/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-</section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-    <nav class="pagination">
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#lec-4-primary-backup-replication">LEC 4: Primary-Backup Replication</a>
       <ul>
-
-      
-      
-      <li><a href="/">««</a></li>
-      
-
-      
-      
-      <li><a href="/page/2/">«</a></li>
-      
-
-      
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-              
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/">
-              1
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-              
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/2/">
-              2
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-              
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-          <li class="active">
-            <a href="/page/3/">
-              3
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-              
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/4/">
-              4
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-              
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/5/">
-              5
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-              
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/6/">
-              6
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-              
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/7/">
-              7
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-              
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/8/">
-              8
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-              
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/9/">
-              9
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-              
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/10/">
-              10
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-              
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/11/">
-              11
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-              
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/12/">
-              12
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-              
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-          <li class="">
-            <a href="/page/13/">
-              13
-            </a>
-          </li>
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-        
-
-        
-        
-
-          
-          
-          
-
-            
-            
-
-          
-          
-          
-
-        
-        
-
-        
-        
-
-      
-
-      
-      
-      <li><a href="/page/4/">»</a></li>
-      
-
-      
-      
-      <li><a href="/page/33/">»»</a></li>
-      
-
+        <li><a href="#video">video</a></li>
       </ul>
-    </nav>
+    </li>
+    <li><a href="#the-design-of-a-practical-system-for-fault-tolerant-virtual-machines">The Design of a Practical System for Fault-Tolerant Virtual Machines</a>
+      <ul>
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#1-introduction">1 Introduction</a></li>
+        <li><a href="#2-basic-ft-design">2 Basic FT Design</a></li>
+        <li><a href="#3-fractical-implementation-of-ft">3 Fractical Implementation of FT</a></li>
+        <li><a href="#4-design-alternatives">4 Design Alternatives</a></li>
+        <li><a href="#5-performance-evaluation">5 Performance Evaluation</a></li>
+        <li><a href="#6-related-work">6 Related Work</a></li>
+        <li><a href="#7-conclusion-and-future-work">7 Conclusion and Future Work</a></li>
+      </ul>
+    </li>
+    <li><a href="#let-5-fault-tolerance-raft1">LET 5: Fault Tolerance: Raft(1)</a>
+      <ul>
+        <li><a href="#video-1">Video:</a></li>
+      </ul>
+    </li>
+    <li><a href="#in-search-of-an-understandable-consensus-algorithm">In Search of an Understandable Consensus Algorithm</a></li>
+    <li><a href="#let-7-fault-tolerance-raft2">LET 7: Fault Tolerance: Raft(2)</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p>跟的是Spring 2022。</p>
+<p>刚开始还惊讶<code>CS自学指南</code>的<a href="https://csdiy.wiki/%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/MIT6.824/">MIT6.824: Distributed System</a>预计学时为什么是200小时，学了几天终于知道为什么需要这么长时间了，不说Project的难度，就每节课几乎都超过15页的Paper也需要花很多时间阅读。真是一篇Paper翻来覆去地阅读，也才获得几分理解。</p>
+<h2 id="lec-4-primary-backup-replication">LEC 4: Primary-Backup Replication</h2>
+<h3 id="video">video</h3>
+<p>2 approaches:</p>
+<ul>
+<li>state transfer</li>
+<li>replicated state machine</li>
+</ul>
+<h2 id="the-design-of-a-practical-system-for-fault-tolerant-virtual-machines">The Design of a Practical System for Fault-Tolerant Virtual Machines</h2>
+<h3 id="abstract">Abstract</h3>
+<h3 id="1-introduction">1 Introduction</h3>
+<p>primary/backup approach and replicate servers:</p>
+<ul>
+<li>ship changes to all state of the primary: need large bandwidth (particular in memory)</li>
+<li>state machine approach:
+<ul>
+<li>less extra infromation need to keep the primary and backup in sync</li>
+<li>the low bandwidth</li>
+</ul>
+</li>
+</ul>
+<p>This paper only attempt to deal with <code>fail-stop failures</code>, which are server failures that can be detected before the failing server causes an incorrect internally visible action.</p>
+<h3 id="2-basic-ft-design">2 Basic FT Design</h3>
+<h4 id="21-deterministic-replay-implementation">2.1 Deterministic Replay Implementation</h4>
+<h4 id="22-ft-protocol">2.2 FT Protocol</h4>
+<h4 id="23-detecting-and-responding-to-failure">2.3 Detecting and Responding to Failure</h4>
+<h3 id="3-fractical-implementation-of-ft">3 Fractical Implementation of FT</h3>
+<h4 id="31-starting-and-restarting-ft-vms">3.1 Starting and Restarting FT VMs</h4>
+<h4 id="32-managing-the-logging-channel">3.2 Managing the Logging Channel</h4>
+<h4 id="33-operation-on-ft-vms">3.3 Operation on FT VMs</h4>
+<h4 id="34-implementation-issues-for-disk-ios">3.4 Implementation Issues for Disk IOs</h4>
+<h4 id="35-implementation-issues-for-network-io">3.5 Implementation Issues for Network IO</h4>
+<h3 id="4-design-alternatives">4 Design Alternatives</h3>
+<h4 id="41-shared-vs-non-shared-disk">4.1 Shared vs. Non-shared Disk</h4>
+<h4 id="42-executing-disk-reads-on-the-backup-vm">4.2 Executing Disk Reads on the Backup VM</h4>
+<h3 id="5-performance-evaluation">5 Performance Evaluation</h3>
+<h4 id="51-basic-performance-results">5.1 Basic Performance Results</h4>
+<h4 id="52-network-benchmarks">5.2 Network Benchmarks</h4>
+<h3 id="6-related-work">6 Related Work</h3>
+<h3 id="7-conclusion-and-future-work">7 Conclusion and Future Work</h3>
+<h2 id="let-5-fault-tolerance-raft1">LET 5: Fault Tolerance: Raft(1)</h2>
+<h3 id="video-1">Video:</h3>
+<p>Majority vote: out of <code>all of the servers</code> not just alive servers.</p>
+<p>e.g.</p>
+<p>2 of 3</p>
+<p>2f+1 ——&gt; f failures: still keep going <code>Quorum Systems</code></p>
+<p>Any two majorites overlap in at least <code>one server</code> ——&gt; Raft rely on to avoid split brain.</p>
+<h2 id="in-search-of-an-understandable-consensus-algorithm">In Search of an Understandable Consensus Algorithm</h2>
+<h2 id="let-7-fault-tolerance-raft2">LET 7: Fault Tolerance: Raft(2)</h2>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Anjana</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2022-12-02
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content">原创文章，如需转载请注明作者和出处。谢谢！</span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://anjanavakil.github.io/tags/cs/">CS💻</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/cmu15-445/">
+            <span class="next-text nav-default">CMU 15-445/645 NOTES</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
   
 
+  
+  
 
+  
 
+  
+  
 
+  
+
+  
+
+  
+
+    
+
+  
 
         </div>
       </div>

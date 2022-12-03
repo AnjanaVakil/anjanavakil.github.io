@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Anjana" />
-  <meta name="description" content="Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL Slides" />
+  <meta name="description" content="Lecture #01: Course Introduction and the Relational Model Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL SQL is" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,19 +60,19 @@
 
 
 <meta property="og:title" content="CMU 15-445/645 NOTES" />
-<meta property="og:description" content="Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL Slides" />
+<meta property="og:description" content="Lecture #01: Course Introduction and the Relational Model Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL SQL is" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://anjanavakil.github.io/post/cmu15-445/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-11-28T22:15:48+08:00" />
 <meta property="article:modified_time" content="2022-11-28T22:15:48+08:00" />
 
 <meta itemprop="name" content="CMU 15-445/645 NOTES">
-<meta itemprop="description" content="Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL Slides"><meta itemprop="datePublished" content="2022-11-28T22:15:48+08:00" />
+<meta itemprop="description" content="Lecture #01: Course Introduction and the Relational Model Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL SQL is"><meta itemprop="datePublished" content="2022-11-28T22:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-11-28T22:15:48+08:00" />
-<meta itemprop="wordCount" content="729">
+<meta itemprop="wordCount" content="1026">
 <meta itemprop="keywords" content="CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CMU 15-445/645 NOTES"/>
-<meta name="twitter:description" content="Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL Slides"/>
+<meta name="twitter:description" content="Lecture #01: Course Introduction and the Relational Model Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL SQL is"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -321,25 +321,43 @@
   <ul>
     <li><a href="#lecture-01-course-introduction-and-the-relational-model">Lecture #01: Course Introduction and the Relational Model</a>
       <ul>
-        <li><a href="#slides">Slides</a></li>
+        <li><a href="#relational-model">Relational Model</a></li>
+        <li><a href="#relational-algebra-join">Relational Algebra: JOIN</a></li>
       </ul>
     </li>
     <li><a href="#lecture-02-advanced-sql">Lecture #02: Advanced SQL</a>
       <ul>
-        <li><a href="#slides-1">Slides</a></li>
+        <li><a href="#group-by">Group By</a></li>
       </ul>
     </li>
-    <li><a href="#homework1-sql">Homework1: SQL</a></li>
+    <li><a href="#homework-1-sql">Homework 1: SQL</a></li>
     <li><a href="#lecture-03-database-storage-i">Lecture #03: Database Storage I</a>
       <ul>
-        <li><a href="#slides-2">Slides</a></li>
+        <li><a href="#sequential-vs-random-access">Sequential VS. Random Access</a></li>
+        <li><a href="#memory-mappingmmap">memory mapping(mmap)❌</a></li>
+        <li><a href="#file-storage">File Storage</a></li>
+        <li><a href="#page-layout">Page Layout</a></li>
+        <li><a href="#tuple-layout">Tuple Layout</a></li>
       </ul>
     </li>
-    <li><a href="#lecture-04-database-storage-ii">Lecture #04: Database Storage II</a></li>
-    <li><a href="#project1-buffer-pool-manager">Project1: Buffer Pool Manager</a></li>
-    <li><a href="#homework2-storage--indexes">Homework2: Storage &amp; Indexes</a></li>
-    <li><a href="#project2-btree-index">Project2: B+Tree Index</a></li>
-    <li><a href="#homework3-query-execution">Homework3: Query Execution</a></li>
+    <li><a href="#lecture-04-database-storage-ii">Lecture #04: Database Storage II</a>
+      <ul>
+        <li><a href="#data-representation">Data Representation</a></li>
+      </ul>
+    </li>
+    <li><a href="#lecture-05-storage-models--compression">Lecture #05: Storage Models &amp; Compression</a>
+      <ul>
+        <li><a href="#n-ary-storage-model">N-ary storage model</a></li>
+        <li><a href="#decomposition-storage-modeldsm">Decomposition storage model(DSM)</a></li>
+        <li><a href="#compression-granularity">Compression Granularity</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </li>
+    <li><a href="#project-0-c-primer">Project 0: C++ Primer</a></li>
+    <li><a href="#project-1-buffer-pool-manager">Project 1: Buffer Pool Manager</a></li>
+    <li><a href="#homework-2-storage--indexes">Homework 2: Storage &amp; Indexes</a></li>
+    <li><a href="#project-2-btree-index">Project 2: B+Tree Index</a></li>
+    <li><a href="#homework-3-query-execution">Homework 3: Query Execution</a></li>
   </ul>
 </nav>
   </div>
@@ -348,8 +366,7 @@
     
     <div class="post-content">
       <h2 id="lecture-01-course-introduction-and-the-relational-model">Lecture #01: Course Introduction and the Relational Model</h2>
-<h3 id="slides">Slides</h3>
-<h4 id="relational-model">Relational Model</h4>
+<h3 id="relational-model">Relational Model</h3>
 <p>The relational model defines a database abstraction based on relations to avoid maintenance overhead.</p>
 <p>Key tenets:</p>
 <ul>
@@ -358,13 +375,12 @@
 <li>Access data through high-level language, DBMS figures out best execution strategy.</li>
 </ul>
 <p>n-ary Relation = Table with n columns</p>
-<h4 id="relational-algebra-join">Relational Algebra: JOIN</h4>
+<h3 id="relational-algebra-join">Relational Algebra: JOIN</h3>
 <p><img src="/image/cmu15-445-JOIN.jpg" alt="cmu15-445-JOIN"></p>
 <h4 id="databases-are-ubiquitous">Databases are ubiquitous.</h4>
 <h2 id="lecture-02-advanced-sql">Lecture #02: Advanced SQL</h2>
-<h3 id="slides-1">Slides</h3>
 <p>SQL is based on bags(duplicates) not sets(no duplicates).</p>
-<h4 id="group-by">Group By</h4>
+<h3 id="group-by">Group By</h3>
 <p>Non-aggregated values in SELECT output clause must appear in GROUP BY clause.</p>
 <p><img src="/image/cmu15-445-nested-queries1.jpg" alt="cmu15-445-nested-queries1"></p>
 <p>为了快速学完直接看slides的，发现SQL部分还是有不懂的地方，居然想着得过且过😳，不会就跳过吧。幸好看了video，<code>Easy has a cost.</code> 不要偷懒，多重复几次总会搞懂的。</p>
@@ -375,14 +391,13 @@
 <p><img src="/image/cmu15-445-nested-queries4.png" alt="cmu15-445-nested-queries4"></p>
 <p>查询student表，发现结果是错误的。</p>
 <p>看了video知道哪里错了，还是要多实践。Andy会在课堂演示，想起了本科一位年轻教师（为数不多会在课堂拿自己笔记本电脑写代码投屏给我们看的），也是位好老师。</p>
-<h2 id="homework1-sql">Homework1: SQL</h2>
+<h2 id="homework-1-sql">Homework 1: SQL</h2>
 <p>Q10没搞懂意思，所以只有85/100。</p>
 <h2 id="lecture-03-database-storage-i">Lecture #03: Database Storage I</h2>
-<h3 id="slides-2">Slides</h3>
-<h4 id="sequential-vs-random-access">Sequential VS. Random Access</h4>
+<h3 id="sequential-vs-random-access">Sequential VS. Random Access</h3>
 <p>DBMS will want to maximize sequential access.</p>
 <p>Allocating multiple pages at the same time is called an <code>extent</code>.</p>
-<h4 id="memory-mappingmmap">memory mapping(mmap)❌</h4>
+<h3 id="memory-mappingmmap">memory mapping(mmap)❌</h3>
 <p>The DBMS can use memory mapping(mmap) to store the contents of a file into the address space of a program.</p>
 <p>Unfortunately, this means that if mmap hits a <code>page fault</code>, the process will be <code>blocked</code>.</p>
 <p>What if we allow multiple threads to access the mmap files to hide page fault stalls?</p>
@@ -394,14 +409,14 @@
 <li>msync: Tell the OS to flush memory ranges out to disk.</li>
 </ul>
 <p>哈哈哈，slides中有“The OS is not your friend.”，这是DB调侃OS嘛😂。</p>
-<h4 id="file-storage">File Storage</h4>
+<h3 id="file-storage">File Storage</h3>
 <p>Three different notions of &ldquo;pages&rdquo; in a DBMS:</p>
 <ul>
 <li>Hardware Page(usually 4kB)</li>
 <li>OS Page(usually 4KB)</li>
 <li>Database Page(512B-16KB) 发现Database Pages的大小差异好大。</li>
 </ul>
-<h4 id="page-layout">Page Layout</h4>
+<h3 id="page-layout">Page Layout</h3>
 <h5 id="1-slotted-pages">1. Slotted-pages</h5>
 <ul>
 <li>Page maps slots to offsets.</li>
@@ -425,7 +440,7 @@
 <li>Fast writes, potentially slow reads(DBMS can have indexes to avoid long reads)</li>
 <li>periodically compact the log——&gt; the DBMS ends up with write amplification</li>
 </ul>
-<h4 id="tuple-layout">Tuple Layout</h4>
+<h3 id="tuple-layout">Tuple Layout</h3>
 <h5 id="tuple-header-contains-meta-data-about-the-tuple">Tuple Header: Contains meta-data about the tuple</h5>
 <h5 id="tuple-data-actual-data-for-attributes">Tuple Data: Actual data for attributes</h5>
 <h5 id="unique-identifier">Unique Identifier</h5>
@@ -437,10 +452,98 @@
 </ul>
 <p>An application cannot rely on these IDs to mean anything. 不太懂什么意思？</p>
 <h2 id="lecture-04-database-storage-ii">Lecture #04: Database Storage II</h2>
-<h2 id="project1-buffer-pool-manager">Project1: Buffer Pool Manager</h2>
-<h2 id="homework2-storage--indexes">Homework2: Storage &amp; Indexes</h2>
-<h2 id="project2-btree-index">Project2: B+Tree Index</h2>
-<h2 id="homework3-query-execution">Homework3: Query Execution</h2>
+<h3 id="data-representation">Data Representation</h3>
+<h4 id="lager-vaues">Lager vaues</h4>
+<p>DBMS uses separate <code>overflow</code> storage pages.</p>
+<h4 id="external-vaule-storage">External vaule storage</h4>
+<p>external file treated as a <code>BLOB</code> type.</p>
+<p>The DBMS cannot manipulate the contents of an external file.</p>
+<ul>
+<li>No durability protections</li>
+<li>No transaction protections</li>
+</ul>
+<h4 id="system-catalogs">System catalogs</h4>
+<p>A DBMS stores <code>meta-data</code> about databases in its <code>internal catalogs</code>.</p>
+<ul>
+<li>Tables, columns, indexes, views</li>
+<li>Users, permissions</li>
+<li>Internal statistics</li>
+</ul>
+<h2 id="lecture-05-storage-models--compression">Lecture #05: Storage Models &amp; Compression</h2>
+<h3 id="n-ary-storage-model">N-ary storage model</h3>
+<p>cons:</p>
+<ul>
+<li>Fast inserts, updates, and deletes</li>
+<li>Good for quries that need the entire tuple</li>
+</ul>
+<p>pros:</p>
+<ul>
+<li>Not good for scanning large portions of the table and/or a subset of the attributes</li>
+</ul>
+<h3 id="decomposition-storage-modeldsm">Decomposition storage model(DSM)</h3>
+<p>&ldquo;column store&rdquo;: stores the values of a <code>single attribute</code> for <code>all tuples</code> contiguously in a page.</p>
+<p>cons:</p>
+<ul>
+<li>Reduce the amount wasted I/O</li>
+<li>Better query processing and data compression</li>
+</ul>
+<p>pros:</p>
+<ul>
+<li>Slow for point queries, inserts, updates, and deletes because of tuple splitting/stitching</li>
+</ul>
+<h3 id="compression-granularity">Compression Granularity</h3>
+<h4 id="block-level">Block-Level</h4>
+<h4 id="tuple-level">Tuple-Level</h4>
+<h4 id="attribute-level">Attribute-Level</h4>
+<h4 id="column-level">Column-Level</h4>
+<h5 id="columnar-compression">Columnar Compression</h5>
+<p>Run-Length Encoding</p>
+<ul>
+<li>RLE Triplet: (Value, Offset, Length)</li>
+</ul>
+<p>Bit-Packing Encoding</p>
+<ul>
+<li>look-up table</li>
+</ul>
+<p>Bitmap Encoding</p>
+<ul>
+<li>The <code>i</code>th position in the Bitmap &lt;——&gt; <code>i</code>th tuple in the table</li>
+<li>Only practical if the value cardinality is low.</li>
+</ul>
+<p>Delta Encoding</p>
+<ul>
+<li>Recording the difference values that follow each other in the same column</li>
+</ul>
+<p>Incremental Encoding</p>
+<ul>
+<li>avoids duplicating common prefixes/suffixes between consecutive tuples</li>
+<li>works best with <code>sorted data</code></li>
+</ul>
+<p>Dictionary Encoding</p>
+<ul>
+<li>Build a data structure</li>
+<li>maps <code>variable-length</code> values ——&gt; a <code>smaller integer identifier</code></li>
+<li>Most widely used compression schema in DBMSs</li>
+</ul>
+<h3 id="conclusion">Conclusion</h3>
+<p>OLTP=Row Store</p>
+<ul>
+<li><code>Fast</code> operations that only <code>read/update</code> a <code>small</code> amount of data each time</li>
+</ul>
+<p>OLAP=Column Store</p>
+<ul>
+<li>Complex queries that read <code>a lot of data</code> to compute aggregates</li>
+</ul>
+<h2 id="project-0-c-primer">Project 0: C++ Primer</h2>
+<h2 id="project-1-buffer-pool-manager">Project 1: Buffer Pool Manager</h2>
+<h2 id="homework-2-storage--indexes">Homework 2: Storage &amp; Indexes</h2>
+<p>Storage Models</p>
+<p>Cuckoo Hashing</p>
+<p>Extendible Hashing</p>
+<p>B+Tree</p>
+<p>有在iPad上手写认真做。</p>
+<h2 id="project-2-btree-index">Project 2: B+Tree Index</h2>
+<h2 id="homework-3-query-execution">Homework 3: Query Execution</h2>
 
     </div>
 
@@ -478,6 +581,19 @@
       
       <nav class="post-nav">
         
+          <a class="prev" href="/post/mit6_824/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">MIT 6.824: Distributed Systems &amp; Paper Reading</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         
           <a class="next" href="/post/designing-data-intensive_applications/">
             <span class="next-text nav-default">Designing Data-Intensive Applications Notes</span>

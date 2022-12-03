@@ -6,14 +6,23 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 28 Nov 2022 22:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Dec 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MIT 6.824: Distributed Systems &amp; Paper Reading</title>
+      <link>https://anjanavakil.github.io/post/mit6_824/</link>
+      <pubDate>Thu, 01 Dec 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/mit6_824/</guid>
+      <description>跟的是Spring 2022。 刚开始还惊讶CS自学指南的MIT6.824: Distributed System预计学时为什么是200小时，学了几天终于知道为什么需要</description>
+    </item>
+    
     <item>
       <title>CMU 15-445/645 NOTES</title>
       <link>https://anjanavakil.github.io/post/cmu15-445/</link>
       <pubDate>Mon, 28 Nov 2022 22:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/cmu15-445/</guid>
-      <description>Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL Slides</description>
+      <description>Lecture #01: Course Introduction and the Relational Model Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL SQL is</description>
     </item>
     
     <item>

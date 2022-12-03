@@ -6,14 +6,23 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 28 Nov 2022 22:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Dec 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MIT 6.824: Distributed Systems &amp; Paper Reading</title>
+      <link>https://anjanavakil.github.io/post/mit6_824/</link>
+      <pubDate>Thu, 01 Dec 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/mit6_824/</guid>
+      <description>跟的是Spring 2022。 刚开始还惊讶CS自学指南的MIT6.824: Distributed System预计学时为什么是200小时，学了几天终于知道为什么需要</description>
+    </item>
+    
     <item>
       <title>CMU 15-445/645 NOTES</title>
       <link>https://anjanavakil.github.io/post/cmu15-445/</link>
       <pubDate>Mon, 28 Nov 2022 22:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/cmu15-445/</guid>
-      <description>Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL Slides</description>
+      <description>Lecture #01: Course Introduction and the Relational Model Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL SQL is</description>
     </item>
     
     <item>
@@ -176,15 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/sql/</guid>
       <description>Difference between count() 参考🔗： What is the Difference Between COUNT(*), COUNT(1), COUNT(column name), and COUNT(DISTINCT column name)? 很不错的文章，果然还是看英文靠谱点。 The COUNT() function belongs to SQL’s aggregate functions. It counts the number of rows that satisfy the criteria defined in the parentheses. It does not return the rows</description>
-    </item>
-    
-    <item>
-      <title>LeetCode Graph</title>
-      <link>https://anjanavakil.github.io/post/leetcode-graph/</link>
-      <pubDate>Thu, 28 Jul 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/leetcode-graph/</guid>
-      <description>LeetCode + 《剑指Offer II》刷题笔记。 图 图的搜索 如果要求在无权图中找出两个节点之间的最短距离，那么广度优先搜索可能是更合适的算法。 如果面试题要</description>
     </item>
     
   </channel>

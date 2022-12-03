@@ -6,14 +6,23 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 28 Nov 2022 22:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Dec 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MIT 6.824: Distributed Systems &amp; Paper Reading</title>
+      <link>https://anjanavakil.github.io/post/mit6_824/</link>
+      <pubDate>Thu, 01 Dec 2022 08:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/mit6_824/</guid>
+      <description>跟的是Spring 2022。 刚开始还惊讶CS自学指南的MIT6.824: Distributed System预计学时为什么是200小时，学了几天终于知道为什么需要</description>
+    </item>
+    
     <item>
       <title>CMU 15-445/645 NOTES</title>
       <link>https://anjanavakil.github.io/post/cmu15-445/</link>
       <pubDate>Mon, 28 Nov 2022 22:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/cmu15-445/</guid>
-      <description>Lecture #01: Course Introduction and the Relational Model Slides Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL Slides</description>
+      <description>Lecture #01: Course Introduction and the Relational Model Relational Model The relational model defines a database abstraction based on relations to avoid maintenance overhead. Key tenets: Store database in simple data structures(relations). Physical storage left up to the DBMS implementation. Access data through high-level language, DBMS figures out best execution strategy. n-ary Relation = Table with n columns Relational Algebra: JOIN Databases are ubiquitous. Lecture #02: Advanced SQL SQL is</description>
     </item>
     
     <item>
@@ -176,15 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/leetcode-tree/</guid>
       <description>LeetCode + 《剑指Offer II》刷题笔记。 树 二叉树的DFS Preorder Traversal 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 class Solution { public: vector&amp;lt;int&amp;gt; preorderTraversal(TreeNode* root) { vector&amp;lt;int&amp;gt; res; stack&amp;lt;TreeNode*&amp;gt; s; TreeNode* cur=root; while(cur || !s.empty()){ while(cur){ res.push_back(cur-&amp;gt;val); s.push(cur); cur=cur-&amp;gt;left; } cur=s.top();</description>
-    </item>
-    
-    <item>
-      <title>LeetCode Sort</title>
-      <link>https://anjanavakil.github.io/post/leetcode-sort/</link>
-      <pubDate>Fri, 01 Jul 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/leetcode-sort/</guid>
-      <description>LeetCode + 《剑指Offer II》刷题笔记。 排序 Interval 56 Merge Intervals 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; merge(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; intervals) { sort(intervals.begin(),intervals.end()); vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; res; //avoid an edge case res.push_back(intervals[0]); for(int i=1;i&amp;lt;intervals.size();i++){ int start=intervals[i][0],end=intervals[i][1]; int lastEnd=res[res.size()-1][1]; if(start&amp;lt;=lastEnd){ //the reason of</description>
     </item>
     
   </channel>
