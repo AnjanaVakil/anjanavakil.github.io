@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Designing Data-Intensive Applications Notes">
 <meta itemprop="description" content="豆瓣🔗： 英文：Designing Data-Intensive Applications 中文：《数据密集型应用系统设计》 atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “hal"><meta itemprop="datePublished" content="2022-11-27T22:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-11-27T22:15:48+08:00" />
-<meta itemprop="wordCount" content="1519">
+<meta itemprop="wordCount" content="2483">
 <meta itemprop="keywords" content="CS BOOK📓," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Designing Data-Intensive Applications Notes"/>
 <meta name="twitter:description" content="豆瓣🔗： 英文：Designing Data-Intensive Applications 中文：《数据密集型应用系统设计》 atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “hal"/>
@@ -341,6 +341,12 @@
         <li><a href="#cap定理">CAP定理</a></li>
       </ul>
     </li>
+    <li><a href="#chapter-10-batch-processing批处理系统">Chapter 10: Batch Processing批处理系统</a>
+      <ul>
+        <li><a href="#batch-processing-with-unix-tools">Batch Processing with Unix Tools</a></li>
+        <li><a href="#mapreduct-and-distributed-filesystems">MapReduct and Distributed Filesystems</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -539,6 +545,144 @@
 </ul>
 <h3 id="cap定理">CAP定理</h3>
 <p>“网络分区的情况下，选择一致还是可用”</p>
+<h2 id="chapter-10-batch-processing批处理系统">Chapter 10: Batch Processing批处理系统</h2>
+<p>As usual, history has a tendency of repeating itself.</p>
+<blockquote>
+<p>the ideas and lessons from Unix carry over to large-scale, heterogeneous distributed data systems.</p>
+<p>UNIX的思想和经验普遍见于大规模、异构分布式数据系统。</p>
+</blockquote>
+<h3 id="batch-processing-with-unix-tools">Batch Processing with Unix Tools</h3>
+<h4 id="simple-log-analysis简单日志分析">Simple Log analysis简单日志分析</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cat /var/log/nginx/access.log <span class="p">|</span>
+</span></span><span class="line"><span class="cl">awk <span class="s1">&#39;{print $7}&#39;</span> <span class="p">|</span>
+</span></span><span class="line"><span class="cl">sort <span class="p">|</span>
+</span></span><span class="line"><span class="cl">uniq -c <span class="p">|</span>
+</span></span><span class="line"><span class="cl">sort -r -n <span class="p">|</span>
+</span></span><span class="line"><span class="cl">head -n <span class="m">5</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>in a matter of seconds</code> 在几秒钟内</p>
+<h5 id="chains-of-commands-versus-custom-program">Chains of commands versus custom program</h5>
+<p>a simple program to do the same thing</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">counts</span><span class="o">=</span><span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;/var/log/nginx/access.log&#39;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">  <span class="n">file</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">    <span class="n">url</span><span class="o">=</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">counts</span><span class="o">[</span><span class="n">url</span><span class="o">]+=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">top5</span><span class="o">=</span><span class="n">counts</span><span class="o">.</span><span class="n">map</span><span class="p">{</span><span class="o">|</span><span class="n">url</span><span class="p">,</span><span class="n">count</span><span class="o">|</span> <span class="o">[</span><span class="n">count</span><span class="p">,</span><span class="n">url</span><span class="o">]</span><span class="p">}</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">reverse</span><span class="o">[</span><span class="mi">0</span><span class="o">...</span><span class="mi">5</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">top5</span><span class="o">.</span><span class="n">each</span><span class="p">{</span><span class="o">|</span><span class="n">count</span><span class="p">,</span><span class="n">url</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">count</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">url</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="sorting-versus-in-memory-aggregation">Sorting versus in-memory aggregation</h5>
+<p>排序 VS 内存聚合</p>
+<p>排序：</p>
+<ul>
+<li>
+<p>UNIX流水线</p>
+</li>
+<li>
+<p>job&rsquo;s working set is larger than the available memory: make efficient use of disks 高效地使用磁盘</p>
+</li>
+<li>
+<p>SSTables and LSM-Tables</p>
+<ul>
+<li>chunks of data can be sorted in memory</li>
+<li>written out to disk as segment files</li>
+<li>multiple sorted segments can be merged into a larger sorted file</li>
+</ul>
+</li>
+<li>
+<p>Merge-sort has sequential access patterns that perform well on disks. ? 不太理解这句。</p>
+</li>
+</ul>
+<p>内存聚合：</p>
+<ul>
+<li>Ruby脚本使用一个URL的内存哈希表</li>
+<li>适用于大多数中小型网站（取决于URL的不同个数）</li>
+</ul>
+<p>发现中文翻译的确不太好。中文副标题为“排序与内存聚合”，刚开始还没反应过来这其实是对日志文件的两种不同处理方式。去翻英文版，发现标题为<code>Sorting versus in-memory aggregation</code>，使用了<code>versus</code>,马上可以体会到对日志分析的不同处理方法。还是读英文版吧，毕竟是第一手而不是又经过另一个人翻译有偏差的二手资料。阮一峰翻译好的一部分原因是他会保留一些英文表示，可以理解为该书翻译是为了更多读者可以看懂，但versus使用一个“与”代替反而失掉了准确性😅。</p>
+<h4 id="the-unix-philosophy-unix设计哲学">The Unix Philosophy UNIX设计哲学</h4>
+<h5 id="a-uniform-interface-统一接口">A uniform interface 统一接口</h5>
+<p>interface: file文件（file Descriptor文件描述符)</p>
+<p>A file is just an ordered sequence of bytes.</p>
+<ul>
+<li>an actual file on the filesystem</li>
+<li>a <code>communication channel</code> to<code>another process</code>(Unix socket, stdin, stdout)</li>
+<li>a device driver (say /dev/audio or /dev/Ip0)</li>
+<li>a socket representating a TCP connection</li>
+</ul>
+<h5 id="separation-of-logic-and-wiring-逻辑与布线分离">Separation of logic and wiring 逻辑与布线分离</h5>
+<p>比如这个，英文为“Separation of logic and wiring”，也是很明显英文容易理解，当时读中文就在想这什么意思。</p>
+<p>stdin、stdout</p>
+<p>pros:</p>
+<ul>
+<li>loose coupling松耦合/late binding后期绑定/inversion of control控制反转</li>
+</ul>
+<p>cons:</p>
+<ul>
+<li>不利于多个输入输出的程序 Programs that need multiple inputs or outputs are possible but tricky. ？不太懂</li>
+<li>Can&rsquo;t pipe a program&rsquo;s output into a network connection.  ？不太懂</li>
+</ul>
+<h5 id="transparentcy-and-experimentation-透明与测试">Transparentcy and experimentation 透明与测试</h5>
+<h3 id="mapreduct-and-distributed-filesystems">MapReduct and Distributed Filesystems</h3>
+<blockquote>
+<p>有意思的类比：<code>MapReduce有点像分布在数千台机器上的UNIX工具。</code></p>
+</blockquote>
+<p>A single MapReduce job is comparable to a single Unix process.</p>
+<ul>
+<li>takes one/more inputs</li>
+<li>produces one/more outputs:
+<ul>
+<li>are written once in a sequential fashion</li>
+<li>not modifying any existing part of a file once it has been written</li>
+</ul>
+</li>
+</ul>
+<h4 id="hdfs">HDFS</h4>
+<p>shard-nothing approach: HDFS</p>
+<ul>
+<li>requires no special hardware</li>
+<li>only computers connected by a <code>conventional datacenter network</code>.</li>
+</ul>
+<p>shard-disk approach</p>
+<ul>
+<li>Network Attached Storage(NAS)</li>
+<li>Storage Area Network(SAN)</li>
+<li>implemented by a <code>centralized storage appliance</code>集中存储设备, often using custom hardware and special network <code>infrastructure</code> such as Fibre Channel</li>
+</ul>
+<p><code>NameNode</code>: a center server keeps track of which file blocks are stored on which machine.</p>
+<h4 id="mapreduce-job-execution">MapReduce Job Execution</h4>
+<p>The sorting is performed in stages. 分阶段进行排序。</p>
+<p>MapReduce discards the partial output of a <code>failed job</code>.</p>
 
     </div>
 

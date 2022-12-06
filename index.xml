@@ -477,6 +477,144 @@
 &lt;/ul&gt;
 &lt;h3 id=&#34;cap定理&#34;&gt;CAP定理&lt;/h3&gt;
 &lt;p&gt;“网络分区的情况下，选择一致还是可用”&lt;/p&gt;
+&lt;h2 id=&#34;chapter-10-batch-processing批处理系统&#34;&gt;Chapter 10: Batch Processing批处理系统&lt;/h2&gt;
+&lt;p&gt;As usual, history has a tendency of repeating itself.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;the ideas and lessons from Unix carry over to large-scale, heterogeneous distributed data systems.&lt;/p&gt;
+&lt;p&gt;UNIX的思想和经验普遍见于大规模、异构分布式数据系统。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;batch-processing-with-unix-tools&#34;&gt;Batch Processing with Unix Tools&lt;/h3&gt;
+&lt;h4 id=&#34;simple-log-analysis简单日志分析&#34;&gt;Simple Log analysis简单日志分析&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat /var/log/nginx/access.log &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;awk &lt;span class=&#34;s1&#34;&gt;&amp;#39;{print $7}&amp;#39;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sort &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;uniq -c &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sort -r -n &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;head -n &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;in a matter of seconds&lt;/code&gt; 在几秒钟内&lt;/p&gt;
+&lt;h5 id=&#34;chains-of-commands-versus-custom-program&#34;&gt;Chains of commands versus custom program&lt;/h5&gt;
+&lt;p&gt;a simple program to do the same thing&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;counts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;no&#34;&gt;Hash&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;new&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;no&#34;&gt;File&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;/var/log/nginx/access.log&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;each&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;line&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;line&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;split&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;counts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]+=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;top5&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;counts&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;map&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sort&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reverse&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;top5&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;each&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;puts&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;#{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;#{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h5 id=&#34;sorting-versus-in-memory-aggregation&#34;&gt;Sorting versus in-memory aggregation&lt;/h5&gt;
+&lt;p&gt;排序 VS 内存聚合&lt;/p&gt;
+&lt;p&gt;排序：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;UNIX流水线&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;job&amp;rsquo;s working set is larger than the available memory: make efficient use of disks 高效地使用磁盘&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SSTables and LSM-Tables&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;chunks of data can be sorted in memory&lt;/li&gt;
+&lt;li&gt;written out to disk as segment files&lt;/li&gt;
+&lt;li&gt;multiple sorted segments can be merged into a larger sorted file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Merge-sort has sequential access patterns that perform well on disks. ? 不太理解这句。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;内存聚合：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ruby脚本使用一个URL的内存哈希表&lt;/li&gt;
+&lt;li&gt;适用于大多数中小型网站（取决于URL的不同个数）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;发现中文翻译的确不太好。中文副标题为“排序与内存聚合”，刚开始还没反应过来这其实是对日志文件的两种不同处理方式。去翻英文版，发现标题为&lt;code&gt;Sorting versus in-memory aggregation&lt;/code&gt;，使用了&lt;code&gt;versus&lt;/code&gt;,马上可以体会到对日志分析的不同处理方法。还是读英文版吧，毕竟是第一手而不是又经过另一个人翻译有偏差的二手资料。阮一峰翻译好的一部分原因是他会保留一些英文表示，可以理解为该书翻译是为了更多读者可以看懂，但versus使用一个“与”代替反而失掉了准确性😅。&lt;/p&gt;
+&lt;h4 id=&#34;the-unix-philosophy-unix设计哲学&#34;&gt;The Unix Philosophy UNIX设计哲学&lt;/h4&gt;
+&lt;h5 id=&#34;a-uniform-interface-统一接口&#34;&gt;A uniform interface 统一接口&lt;/h5&gt;
+&lt;p&gt;interface: file文件（file Descriptor文件描述符)&lt;/p&gt;
+&lt;p&gt;A file is just an ordered sequence of bytes.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;an actual file on the filesystem&lt;/li&gt;
+&lt;li&gt;a &lt;code&gt;communication channel&lt;/code&gt; to&lt;code&gt;another process&lt;/code&gt;(Unix socket, stdin, stdout)&lt;/li&gt;
+&lt;li&gt;a device driver (say /dev/audio or /dev/Ip0)&lt;/li&gt;
+&lt;li&gt;a socket representating a TCP connection&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;separation-of-logic-and-wiring-逻辑与布线分离&#34;&gt;Separation of logic and wiring 逻辑与布线分离&lt;/h5&gt;
+&lt;p&gt;比如这个，英文为“Separation of logic and wiring”，也是很明显英文容易理解，当时读中文就在想这什么意思。&lt;/p&gt;
+&lt;p&gt;stdin、stdout&lt;/p&gt;
+&lt;p&gt;pros:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;loose coupling松耦合/late binding后期绑定/inversion of control控制反转&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;cons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不利于多个输入输出的程序 Programs that need multiple inputs or outputs are possible but tricky. ？不太懂&lt;/li&gt;
+&lt;li&gt;Can&amp;rsquo;t pipe a program&amp;rsquo;s output into a network connection.  ？不太懂&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;transparentcy-and-experimentation-透明与测试&#34;&gt;Transparentcy and experimentation 透明与测试&lt;/h5&gt;
+&lt;h3 id=&#34;mapreduct-and-distributed-filesystems&#34;&gt;MapReduct and Distributed Filesystems&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有意思的类比：&lt;code&gt;MapReduce有点像分布在数千台机器上的UNIX工具。&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A single MapReduce job is comparable to a single Unix process.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;takes one/more inputs&lt;/li&gt;
+&lt;li&gt;produces one/more outputs:
+&lt;ul&gt;
+&lt;li&gt;are written once in a sequential fashion&lt;/li&gt;
+&lt;li&gt;not modifying any existing part of a file once it has been written&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;hdfs&#34;&gt;HDFS&lt;/h4&gt;
+&lt;p&gt;shard-nothing approach: HDFS&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;requires no special hardware&lt;/li&gt;
+&lt;li&gt;only computers connected by a &lt;code&gt;conventional datacenter network&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;shard-disk approach&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Network Attached Storage(NAS)&lt;/li&gt;
+&lt;li&gt;Storage Area Network(SAN)&lt;/li&gt;
+&lt;li&gt;implemented by a &lt;code&gt;centralized storage appliance&lt;/code&gt;集中存储设备, often using custom hardware and special network &lt;code&gt;infrastructure&lt;/code&gt; such as Fibre Channel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;NameNode&lt;/code&gt;: a center server keeps track of which file blocks are stored on which machine.&lt;/p&gt;
+&lt;h4 id=&#34;mapreduce-job-execution&#34;&gt;MapReduce Job Execution&lt;/h4&gt;
+&lt;p&gt;The sorting is performed in stages. 分阶段进行排序。&lt;/p&gt;
+&lt;p&gt;MapReduce discards the partial output of a &lt;code&gt;failed job&lt;/code&gt;.&lt;/p&gt;
 </description>
       
     </item>
