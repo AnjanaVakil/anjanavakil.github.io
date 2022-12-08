@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Designing Data-Intensive Applications Notes">
 <meta itemprop="description" content="豆瓣🔗： 英文：Designing Data-Intensive Applications 中文：《数据密集型应用系统设计》 atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “hal"><meta itemprop="datePublished" content="2022-11-27T22:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-11-27T22:15:48+08:00" />
-<meta itemprop="wordCount" content="2483">
+<meta itemprop="wordCount" content="3054">
 <meta itemprop="keywords" content="CS BOOK📓," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Designing Data-Intensive Applications Notes"/>
 <meta name="twitter:description" content="豆瓣🔗： 英文：Designing Data-Intensive Applications 中文：《数据密集型应用系统设计》 atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “hal"/>
@@ -335,6 +335,13 @@
         <li><a href="#view">View</a></li>
       </ul>
     </li>
+    <li><a href="#chapter-5-replication">Chapter 5: Replication</a>
+      <ul>
+        <li><a href="#主存复制">主存复制</a></li>
+        <li><a href="#多主节点复制">多主节点复制</a></li>
+        <li><a href="#无主节点复制">无主节点复制</a></li>
+      </ul>
+    </li>
     <li><a href="#chapter-9-一致性与共识">Chapter 9: 一致性与共识</a>
       <ul>
         <li><a href="#可线性化原子一致性强一致性">可线性化（原子一致性、强一致性）</a></li>
@@ -489,13 +496,13 @@
 <p>LSM-Tree: faster for writes</p>
 <h3 id="index">Index</h3>
 <ul>
-<li>clustered index: storing <code>all row data</code> within the index</li>
-<li>nonclustered index: storing <code>only references to the data</code> with the index</li>
+<li>clustered index: storing <code>all row data</code> within the index 在索引中直接存储行数据</li>
+<li>nonclustered index: storing <code>only references to the data</code> with the index 仅存储索引中数据的引用</li>
 </ul>
 <h3 id="view">View</h3>
 <ul>
-<li>materialized view</li>
-<li>standard(virtual) view</li>
+<li>materialized view： 查询结果的实际副本，并被写到磁盘。</li>
+<li>standard(virtual) view：编写查询的快捷方式。从虚拟存储中读取时，SQL引擎将其动态拓展到视图的底层查询，然后处理拓展查询。</li>
 </ul>
 <p>OLTP(Online Transaction Processing)</p>
 <ul>
@@ -517,7 +524,56 @@
 <li>unmarshalling</li>
 </ul>
 <h4 id="part-2-distributed-data">PART 2 Distributed Data</h4>
-<h4 id="ch5">CH5</h4>
+<h2 id="chapter-5-replication">Chapter 5: Replication</h2>
+<p>数据复制的难点：需要复制的数据不是一成不变的，是持续变化的。</p>
+<p>复制数据变化的3种发放：</p>
+<ul>
+<li>主存复制</li>
+<li>多主节点复制</li>
+<li>无主节点复制</li>
+</ul>
+<h3 id="主存复制">主存复制</h3>
+<ul>
+<li>只有主节点可以接受写请求</li>
+<li>客户端角度，从节点都是只读的</li>
+</ul>
+<h4 id="同步复制与异步复制">同步复制与异步复制</h4>
+<p>半同步：某一个从节点是同步的，其他节点则是异步模式</p>
+<p>全异步：</p>
+<ul>
+<li>无法保证数据的持久化（主节点失败且不可恢复，复制到从节点的写请求会丢失）</li>
+<li>主节点可以继续响应从节点，系统的吞吐性能更好</li>
+</ul>
+<h4 id="处理节点失效">处理节点失效</h4>
+<p>从节点失效：追赶式恢复</p>
+<p>主节点失效：节点切换</p>
+<p>脑裂：两个从节点同时自认为是主节点</p>
+<h4 id="复制日志的实现">复制日志的实现</h4>
+<h5 id="基于语句">基于语句</h5>
+<p>不适用的场景：</p>
+<ul>
+<li>任何调用<code>非确定性函数</code>的语句：NOW()、RAND()
+<ul>
+<li>主节点在记录操作语句时，将<code>非确定性函</code>数替换为执行之后的<code>确定性结果</code></li>
+<li>但需要考虑很多边界条件</li>
+</ul>
+</li>
+<li>使用了<code>自增列</code>、<code>依赖于DB的现有数据</code>的语句</li>
+<li>有副作用的语句：触发器、存储过程、用户定义的函数</li>
+</ul>
+<h5 id="基于预写日志wal">基于预写日志WAL</h5>
+<p>缺点：</p>
+<ul>
+<li>日志描述的数据结果WAL非常底层：哪些磁盘块的哪些字节发生改变</li>
+<li>复制方案和存储引擎紧密耦合</li>
+</ul>
+<h5 id="基于行的逻辑日志">基于行的逻辑日志</h5>
+<p>逻辑日志</p>
+<p>e.g., MySQL的二进制日志binlog</p>
+<h5 id="基于触发器">基于触发器</h5>
+<p>应用程序层进行复制控制</p>
+<h3 id="多主节点复制">多主节点复制</h3>
+<h3 id="无主节点复制">无主节点复制</h3>
 <h2 id="chapter-9-一致性与共识">Chapter 9: 一致性与共识</h2>
 <h3 id="可线性化原子一致性强一致性">可线性化（原子一致性、强一致性）</h3>
 <p>可线性化 Linearizability ：</p>
