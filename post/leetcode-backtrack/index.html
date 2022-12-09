@@ -69,7 +69,7 @@
 <meta itemprop="name" content="">
 <meta itemprop="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 回溯法 用回溯法解决问题的过程可以形象地用一个树形结构表示，求解问题的每个步骤可以看作树中的一个节点。如果"><meta itemprop="datePublished" content="2022-01-26T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-01-26T08:15:48+08:00" />
-<meta itemprop="wordCount" content="4179">
+<meta itemprop="wordCount" content="4257">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
 <meta name="twitter:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 回溯法 用回溯法解决问题的过程可以形象地用一个树形结构表示，求解问题的每个步骤可以看作树中的一个节点。如果"/>
@@ -323,6 +323,7 @@
     <li><a href="#079-所有子集">079. 所有子集</a></li>
     <li><a href="#080-含有-k-个元素的组合">080. 含有 k 个元素的组合</a></li>
     <li><a href="#39-combination-sumhttpsleetcodecomproblemscombination-sum"><a href="https://leetcode.com/problems/combination-sum/">39. Combination Sum</a></a></li>
+    <li><a href="#40-combination-sum-ii">40 Combination Sum II</a></li>
     <li><a href="#082-含有重复元素集合的组合">082. 含有重复元素集合的组合</a></li>
     <li><a href="#083-没有重复元素集合的全排列">083. 没有重复元素集合的全排列</a></li>
     <li><a href="#084-含有重复元素集合的全排列">084. 含有重复元素集合的全排列</a></li>
@@ -621,7 +622,70 @@
 <p>空间复杂度：O(target)</p>
 </li>
 </ul>
-<h2 id="082-含有重复元素集合的组合">082. 含有重复元素集合的组合</h2>
+<h2 id="40-combination-sum-ii">40 Combination Sum II</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">combinationSum2</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">candidates</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sort</span><span class="p">(</span><span class="n">candidates</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">candidates</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dfs</span><span class="p">(</span><span class="n">candidates</span><span class="p">,</span><span class="n">target</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">candidates</span><span class="p">,</span><span class="kt">int</span> <span class="n">target</span><span class="p">,</span><span class="kt">int</span> <span class="n">cur</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">target</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">cur</span><span class="o">==</span><span class="n">candidates</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">target</span><span class="o">-</span><span class="n">candidates</span><span class="p">[</span><span class="n">cur</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">candidates</span><span class="p">[</span><span class="n">cur</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dfs</span><span class="p">(</span><span class="n">candidates</span><span class="p">,</span><span class="n">target</span><span class="o">-</span><span class="n">candidates</span><span class="p">[</span><span class="n">cur</span><span class="p">],</span><span class="n">cur</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">next</span><span class="o">=</span><span class="n">cur</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span><span class="p">(</span><span class="n">next</span><span class="o">&lt;</span><span class="n">candidates</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">candidates</span><span class="p">[</span><span class="n">next</span><span class="p">]</span><span class="o">==</span><span class="n">candidates</span><span class="p">[</span><span class="n">cur</span><span class="p">]){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">next</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dfs</span><span class="p">(</span><span class="n">candidates</span><span class="p">,</span><span class="n">target</span><span class="p">,</span><span class="n">next</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="082-含有重复元素集合的组合">082. 含有重复元素集合的组合</h2>
 <p><a href="https://leetcode-cn.com/problems/4sjJUc/">剑指 Offer II 082. 含有重复元素集合的组合</a></p>
 <p><code>candidates</code> 中的每个数字在每个组合中只能使用一次，<code>解集不能包含重复的组合</code>。</p>
 <p>输入的集合中有重复的数字但输出不得包含重复的组合。如果输入的集合中有重复的数字，不经过特殊处理将产生重复的组合。例如，从集合[2，2，2]中选出2个数字本来能组成3个组合，但3个组合都是[2，2]，因此它们是重复的组合，在本题中只能算1个。另外，组合不考虑数字的顺序，如组合[2，2，4]、[2，4，2]和[4，2，2]只能算一个组合。</p>
