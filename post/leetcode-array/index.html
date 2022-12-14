@@ -69,7 +69,7 @@
 <meta itemprop="name" content="LeetCode Array">
 <meta itemprop="description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 数组 006. 排序数组中两个数字之和 剑指 Offer II 006. 排序数组中两个数字之和 二分查找 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 class"><meta itemprop="datePublished" content="2022-01-22T14:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-01-22T14:15:48+08:00" />
-<meta itemprop="wordCount" content="3492">
+<meta itemprop="wordCount" content="3583">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻,LeetCode🌲," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCode Array"/>
 <meta name="twitter:description" content="LeetCode &#43; 《剑指Offer II》刷题笔记。 数组 006. 排序数组中两个数字之和 剑指 Offer II 006. 排序数组中两个数字之和 二分查找 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 class"/>
@@ -365,6 +365,7 @@
         <li><a href="#prefix-sumhash-table">Prefix Sum+Hash Table</a></li>
       </ul>
     </li>
+    <li><a href="#剑指-offer-57---ii-和为s的连续正数序列">剑指 Offer 57 - II. 和为s的连续正数序列</a></li>
   </ul>
 </nav>
   </div>
@@ -1690,7 +1691,61 @@
 <li>时间复杂度：O(n)</li>
 <li>空间复杂度：O(n)</li>
 </ul>
-
+<h2 id="剑指-offer-57---ii-和为s的连续正数序列">剑指 Offer 57 - II. 和为s的连续正数序列</h2>
+<p>滑动窗口+双指针（这个写法很妙）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">findContinuousSequence</span><span class="p">(</span><span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">left</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">right</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="n">left</span><span class="o">&lt;</span><span class="n">right</span><span class="p">;){</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="p">(</span><span class="n">left</span><span class="o">+</span><span class="n">right</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">right</span><span class="o">-</span><span class="n">left</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">sum</span><span class="o">==</span><span class="n">target</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">left</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">right</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">t</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="n">res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">t</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">                <span class="n">left</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span><span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">sum</span><span class="o">&gt;</span><span class="n">target</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">left</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span><span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">sum</span><span class="o">&lt;</span><span class="n">target</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">right</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     

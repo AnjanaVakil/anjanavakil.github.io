@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Designing Data-Intensive Applications Notes">
 <meta itemprop="description" content="豆瓣🔗： 英文：Designing Data-Intensive Applications 中文：《数据密集型应用系统设计》 atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “hal"><meta itemprop="datePublished" content="2022-11-27T22:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-11-27T22:15:48+08:00" />
-<meta itemprop="wordCount" content="3054">
+<meta itemprop="wordCount" content="3625">
 <meta itemprop="keywords" content="CS BOOK📓," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Designing Data-Intensive Applications Notes"/>
 <meta name="twitter:description" content="豆瓣🔗： 英文：Designing Data-Intensive Applications 中文：《数据密集型应用系统设计》 atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “hal"/>
@@ -322,11 +322,13 @@
     <li>
       <ul>
         <li><a href="#atomic">atomic</a></li>
-        <li><a href="#rest">REST</a></li>
         <li><a href="#message-brokermessage-queuemessage-oriented-middleware">message broker/message queue/message-oriented middleware</a></li>
         <li><a href="#references">References</a></li>
         <li><a href="#reading-notes">Reading Notes:</a></li>
-        <li><a href="#chapter-3-数据存储与检索">Chapter 3 数据存储与检索</a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter-3-数据存储与检索">Chapter 3 数据存储与检索</a>
+      <ul>
         <li><a href="#storage-engines">storage engines</a></li>
         <li><a href="#sstable">SSTable</a></li>
         <li><a href="#lsm-tree">LSM-Tree</a></li>
@@ -335,6 +337,13 @@
         <li><a href="#view">View</a></li>
       </ul>
     </li>
+    <li><a href="#chapter-4-数据编码与演化">Chapter 4 数据编码与演化</a>
+      <ul>
+        <li><a href="#rest">REST</a></li>
+        <li><a href="#rpc">RPC</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-2-distributed-data">PART 2 Distributed Data</a></li>
     <li><a href="#chapter-5-replication">Chapter 5: Replication</a>
       <ul>
         <li><a href="#主存复制">主存复制</a></li>
@@ -354,6 +363,7 @@
         <li><a href="#mapreduct-and-distributed-filesystems">MapReduct and Distributed Filesystems</a></li>
       </ul>
     </li>
+    <li><a href="#chapter11-流处理系统">Chapter11: 流处理系统</a></li>
   </ul>
 </nav>
   </div>
@@ -369,8 +379,6 @@
 <h3 id="atomic">atomic</h3>
 <p>In the context of <code>concurrent operations</code>: describing an operation that appears to take effect at <code>a single point</code> in time, so another concurrent process can never encounter the operation in a “half-finished” state. See also isolation.</p>
 <p>In the context of <code>transactions</code>: grouping together a set of writes that must either all be <code>committed or all be rolled back</code>, even if faults occur.</p>
-<h3 id="rest">REST</h3>
-<p>REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP. It emphasizes simple data formats, using URLs for identifying resources and using HTTP features for cache control, authentication, and content type negotiation. REST has been gaining popularity compared to SOAP, at least in the context of cross-organizational service integration, and is often associated with microservices. An API designed according to the principles of REST is called RESTful.</p>
 <h3 id="message-brokermessage-queuemessage-oriented-middleware">message broker/message queue/message-oriented middleware</h3>
 <p>Using a message broker has several advantages compared to direct RPC:</p>
 <p>It can act as a <code>buffer</code> if the recipient is unavailable or overloaded, and thus improve system reliability.</p>
@@ -421,8 +429,7 @@
 <p>无模式（读时模式）：数据的结构是隐式的，只有在读取时才解释。类似于：动态（运行时）类型检查</p>
 <p>写时模式（rational database）：模式是显式的，确保数据写入时都必须遵循。类似于：静态（编译时）类型检查</p>
 <p>4、property graph: Neo4j, Titan, InfiniteGraph</p>
-<h4 id="ch3">CH3</h4>
-<h3 id="chapter-3-数据存储与检索">Chapter 3 数据存储与检索</h3>
+<h2 id="chapter-3-数据存储与检索">Chapter 3 数据存储与检索</h2>
 <h3 id="storage-engines">storage engines</h3>
 <p>存储引擎：</p>
 <ul>
@@ -435,6 +442,14 @@
 <li>
 <p>page-oriented ～: 面向页 B-tree</p>
 </li>
+</ul>
+<p>哈希索引</p>
+<p>key: 键值</p>
+<p>value: 数据文件（追加式）中特定的字节偏移量<code>byte offset</code></p>
+<p>cons:</p>
+<ul>
+<li>hashmap保存在内存中(需要所有的key都可以放在内存中)</li>
+<li>区间查询效率不高：kitty00000~kitty99999 只能逐一查找每一个key</li>
 </ul>
 <p>the hash table&rsquo;s limitations:</p>
 <ul>
@@ -494,10 +509,25 @@
 <li>后修改树本身的页（还可能发生页分裂）</li>
 </ul>
 <p>LSM-Tree: faster for writes</p>
+<p>写放大：在DB内，由于一次数据库写入请求导致的多次磁盘写（SSD只能承受有限次地擦除覆盖，因此尤为关注写放大指标）</p>
 <h3 id="index">Index</h3>
+<p>索引：</p>
 <ul>
-<li>clustered index: storing <code>all row data</code> within the index 在索引中直接存储行数据</li>
-<li>nonclustered index: storing <code>only references to the data</code> with the index 仅存储索引中数据的引用</li>
+<li>加速读查询</li>
+<li>减慢写速度</li>
+<li>还需要更多的工作来保证事务性</li>
+</ul>
+<p>clustered index: storing <code>all row data</code> within the index 在索引中直接存储行数据</p>
+<ul>
+<li>MySQL的InnoDB存储引擎中，表的<code>主键</code>始终是<code>聚集索引</code>，<code>二级索引</code>引用<code>主键</code>（而不是堆文件位置）</li>
+</ul>
+<p>nonclustered index: storing <code>only references to the data</code> with the index 仅存储索引中数据的引用</p>
+<p>多列索引（级联索引）：</p>
+<p>key: <code>表的多个列</code>/<code>文档的多个字段</code>组合成一个键</p>
+<p>内存数据库更快的原因：</p>
+<ul>
+<li>并不是它们不需要从磁盘读取</li>
+<li>是因为它们避免使用<code>写磁盘的格式</code>对<code>内存数据结构编码</code>的开销</li>
 </ul>
 <h3 id="view">View</h3>
 <ul>
@@ -509,21 +539,52 @@
 <li>log-structured school: BitCask, SSTable, LSM-Tree, LevelDB, Cassandra, HBase, Lucene</li>
 <li>update-in-place school: B-Tree(RDB, NoSQL)</li>
 </ul>
-<h4 id="ch4">CH4</h4>
-<p>1、</p>
+<h2 id="chapter-4-数据编码与演化">Chapter 4 数据编码与演化</h2>
+<p>编码的</p>
+<ul>
+<li>backward compatibility</li>
+<li>forward compatibility</li>
+</ul>
+<p>in-memory representation: objects, structs, lists, arrays, hash tables, trees</p>
+<p>a byte sequence: some kind of self-contained sequence of bytes: JSON document</p>
 <p>in-memory representation——&gt;a byte sequence</p>
 <ul>
 <li>encoding</li>
 <li>serialization</li>
-<li>marshalling</li>
+<li>marshaling</li>
 </ul>
 <p>a byte sequence——&gt;in-memory representation</p>
 <ul>
 <li>decoding</li>
-<li>derialization</li>
-<li>unmarshalling</li>
+<li>deserialization</li>
+<li>unmarshaling</li>
 </ul>
-<h4 id="part-2-distributed-data">PART 2 Distributed Data</h4>
+<p>服务器：可以是另一项服务的客户端</p>
+<p>Web应用Server：作为database的client</p>
+<h3 id="rest">REST</h3>
+<p>REST is not a protocol, but rather a <code>design philosophy</code> that builds upon the principles of <code>HTTP</code>. It</p>
+<ul>
+<li>emphasizes simple data formats,</li>
+<li>using URLs for identifying resources</li>
+<li>using HTTP features for cache control, authentication, and content type negotiation.</li>
+</ul>
+<p>REST has been gaining popularity compared to SOAP, at least in the context of cross-organizational service integration, and is often associated with microservices. An API designed according to the principles of REST is called RESTful.</p>
+<h3 id="rpc">RPC</h3>
+<p>服务发现：client查询在哪个IP地址和端口号上获得特定的服务。</p>
+<p>RPC框架：侧重于同一组织内多项服务之间（通常在同一数据中心内）的请求。</p>
+<p>RPC——&gt;databases: asynchronous message-passing system 异步消息传递系统</p>
+<ul>
+<li>message broker</li>
+<li>message queue</li>
+<li>message-oriented middleware</li>
+</ul>
+<p>FOSS开源: RabbitMQ, ActiveMQ, Apache Kafka</p>
+<p>pros:</p>
+<ul>
+<li>don&rsquo;t enforce any particular data model, can use any encoding format</li>
+<li>change publishers and consumers independently and deploy them in any order</li>
+</ul>
+<h2 id="part-2-distributed-data">PART 2 Distributed Data</h2>
 <h2 id="chapter-5-replication">Chapter 5: Replication</h2>
 <p>数据复制的难点：需要复制的数据不是一成不变的，是持续变化的。</p>
 <p>复制数据变化的3种发放：</p>
@@ -688,7 +749,7 @@
 <p>发现中文翻译的确不太好。中文副标题为“排序与内存聚合”，刚开始还没反应过来这其实是对日志文件的两种不同处理方式。去翻英文版，发现标题为<code>Sorting versus in-memory aggregation</code>，使用了<code>versus</code>,马上可以体会到对日志分析的不同处理方法。还是读英文版吧，毕竟是第一手而不是又经过另一个人翻译有偏差的二手资料。阮一峰翻译好的一部分原因是他会保留一些英文表示，可以理解为该书翻译是为了更多读者可以看懂，但versus使用一个“与”代替反而失掉了准确性😅。</p>
 <h4 id="the-unix-philosophy-unix设计哲学">The Unix Philosophy UNIX设计哲学</h4>
 <h5 id="a-uniform-interface-统一接口">A uniform interface 统一接口</h5>
-<p>interface: file文件（file Descriptor文件描述符)</p>
+<p>interface: file文件（file descriptor文件描述符)</p>
 <p>A file is just an ordered sequence of bytes.</p>
 <ul>
 <li>an actual file on the filesystem</li>
@@ -739,6 +800,13 @@
 <h4 id="mapreduce-job-execution">MapReduce Job Execution</h4>
 <p>The sorting is performed in stages. 分阶段进行排序。</p>
 <p>MapReduce discards the partial output of a <code>failed job</code>.</p>
+<h2 id="chapter11-流处理系统">Chapter11: 流处理系统</h2>
+<p>日志消息代理结合了：</p>
+<ul>
+<li>数据库的持久存储</li>
+<li>消息队列的低延迟</li>
+</ul>
+<p>e.g., Apache Kafka</p>
 
     </div>
 

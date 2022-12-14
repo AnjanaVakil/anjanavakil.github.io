@@ -69,7 +69,7 @@
 <meta itemprop="name" content="MIT 6.824: Distributed Systems &amp; Paper Reading">
 <meta itemprop="description" content="跟的是Spring 2022。 刚开始还惊讶CS自学指南的MIT6.824: Distributed System预计学时为什么是200小时，学了几天终于知道为什么需要"><meta itemprop="datePublished" content="2022-12-01T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-12-02T08:15:48+08:00" />
-<meta itemprop="wordCount" content="388">
+<meta itemprop="wordCount" content="434">
 <meta itemprop="keywords" content="CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MIT 6.824: Distributed Systems &amp; Paper Reading"/>
 <meta name="twitter:description" content="跟的是Spring 2022。 刚开始还惊讶CS自学指南的MIT6.824: Distributed System预计学时为什么是200小时，学了几天终于知道为什么需要"/>
@@ -319,6 +319,8 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
+    <li><a href="#lab1-mapreduce">Lab1: MapReduce</a></li>
+    <li><a href="#lec-2-rpc-and-threads">LEC 2 RPC and Threads</a></li>
     <li><a href="#lec-4-primary-backup-replication">LEC 4: Primary-Backup Replication</a>
       <ul>
         <li><a href="#video">video</a></li>
@@ -352,6 +354,35 @@
     <div class="post-content">
       <p>跟的是Spring 2022。</p>
 <p>刚开始还惊讶<code>CS自学指南</code>的<a href="https://csdiy.wiki/%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/MIT6.824/">MIT6.824: Distributed System</a>预计学时为什么是200小时，学了几天终于知道为什么需要这么长时间了，不说Project的难度，就每节课几乎都超过15页的Paper也需要花很多时间阅读。真是一篇Paper翻来覆去地阅读，也才获得几分理解。</p>
+<h2 id="lab1-mapreduce">Lab1: MapReduce</h2>
+<h2 id="lec-2-rpc-and-threads">LEC 2 RPC and Threads</h2>
+<p>Go:</p>
+<ul>
+<li>
+<p>Threads: go routines</p>
+</li>
+<li>
+<p>Locking</p>
+</li>
+<li>
+<p>synchronization</p>
+</li>
+<li>
+<p>convenient RPC package</p>
+</li>
+<li>
+<p>type safe</p>
+</li>
+<li>
+<p>memory safe</p>
+</li>
+</ul>
+<p>Reasons to use threads:</p>
+<ul>
+<li>I/O concurrency</li>
+<li>multi-core parallelism</li>
+<li>convenience: in a loop sleeps for a second and then does the periodic thing and then sleeps again</li>
+</ul>
 <h2 id="lec-4-primary-backup-replication">LEC 4: Primary-Backup Replication</h2>
 <h3 id="video">video</h3>
 <p>2 approaches:</p>
