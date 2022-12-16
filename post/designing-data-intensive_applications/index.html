@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Designing Data-Intensive Applications Notes">
 <meta itemprop="description" content="豆瓣🔗： 英文：Designing Data-Intensive Applications 中文：《数据密集型应用系统设计》 atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “hal"><meta itemprop="datePublished" content="2022-11-27T22:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-11-27T22:15:48+08:00" />
-<meta itemprop="wordCount" content="3625">
+<meta itemprop="wordCount" content="4046">
 <meta itemprop="keywords" content="CS BOOK📓," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Designing Data-Intensive Applications Notes"/>
 <meta name="twitter:description" content="豆瓣🔗： 英文：Designing Data-Intensive Applications 中文：《数据密集型应用系统设计》 atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “hal"/>
@@ -351,6 +351,14 @@
         <li><a href="#无主节点复制">无主节点复制</a></li>
       </ul>
     </li>
+    <li><a href="#chapter-6-partitioning数据分区">Chapter 6: Partitioning数据分区</a>
+      <ul>
+        <li><a href="#partitionssharding-分区分片">partitions/sharding 分区/分片</a></li>
+        <li><a href="#二级索引的分区">二级索引的分区</a></li>
+        <li><a href="#请求路由">请求路由</a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter-7-transactions事务">Chapter 7: Transactions事务</a></li>
     <li><a href="#chapter-9-一致性与共识">Chapter 9: 一致性与共识</a>
       <ul>
         <li><a href="#可线性化原子一致性强一致性">可线性化（原子一致性、强一致性）</a></li>
@@ -416,7 +424,7 @@
 <li>垂直拓展</li>
 </ul>
 <h4 id="ch2">CH2</h4>
-<p>1、网络、层次模型——&gt;关系模型(RDBMS+SQL)</p>
+<p>1、网状、层次模型 ——&gt; 关系模型(RDBMS+SQL)</p>
 <p>NoSQL:Not only SQL</p>
 <ul>
 <li>比RDB更好的拓展需求：very large datasets, very high write throughput</li>
@@ -635,6 +643,59 @@
 <p>应用程序层进行复制控制</p>
 <h3 id="多主节点复制">多主节点复制</h3>
 <h3 id="无主节点复制">无主节点复制</h3>
+<h2 id="chapter-6-partitioning数据分区">Chapter 6: Partitioning数据分区</h2>
+<h3 id="partitionssharding-分区分片">partitions/sharding 分区/分片</h3>
+<p>MongoDB, Elasticsearch, SdrCloud: shard</p>
+<p>HBase: region</p>
+<p>Bigtable: tablet</p>
+<p>Cassandra, Rick: vnode</p>
+<p>Couchbase: vBucket</p>
+<p>编程语言内置的hash函数可能并不适合分区：同一个key在不同的process中可能返回不同的value</p>
+<ul>
+<li>Java的Object.hashcode</li>
+<li>Ruby的Object#hash</li>
+</ul>
+<h3 id="二级索引的分区">二级索引的分区</h3>
+<ul>
+<li>基于分档的分区
+<ul>
+<li>本地索引</li>
+<li>写入只更新一个分区</li>
+<li>分散scatter/聚集gather：读取二级索引时</li>
+</ul>
+</li>
+<li>基于词条的分区
+<ul>
+<li>以待查找的关键字本身作为索引：基于索引值</li>
+<li>读取：单个分区</li>
+<li>写入：更新二级索引的多个分区</li>
+</ul>
+</li>
+</ul>
+<h3 id="请求路由">请求路由</h3>
+<p>服务发现</p>
+<p>分布式数据系统：Zookeeper跟踪集群范围内的元数据</p>
+<h2 id="chapter-7-transactions事务">Chapter 7: Transactions事务</h2>
+<p>事务</p>
+<ul>
+<li>将应用程序的多个读、写操作捆绑在一起成为<code>一个逻辑操作单元</code></li>
+<li>针对多个对象、多个操作</li>
+</ul>
+<p>NoSQL：并不具有事务语义。leaving the database in a partially update state.</p>
+<p>弱隔离（非串行化）级别：</p>
+<ul>
+<li>Read-Uncommited:
+<ul>
+<li>只防止脏写，不防止脏读</li>
+</ul>
+</li>
+<li>Read-Commited:
+<ul>
+<li>防止脏读：读DB时，只能看到已成功提交的data</li>
+<li>防止脏写：写DB时，只会覆盖已成功提交的data</li>
+</ul>
+</li>
+</ul>
 <h2 id="chapter-9-一致性与共识">Chapter 9: 一致性与共识</h2>
 <h3 id="可线性化原子一致性强一致性">可线性化（原子一致性、强一致性）</h3>
 <p>可线性化 Linearizability ：</p>

@@ -360,7 +360,7 @@
 &lt;li&gt;垂直拓展&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;ch2&#34;&gt;CH2&lt;/h4&gt;
-&lt;p&gt;1、网络、层次模型——&amp;gt;关系模型(RDBMS+SQL)&lt;/p&gt;
+&lt;p&gt;1、网状、层次模型 ——&amp;gt; 关系模型(RDBMS+SQL)&lt;/p&gt;
 &lt;p&gt;NoSQL:Not only SQL&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;比RDB更好的拓展需求：very large datasets, very high write throughput&lt;/li&gt;
@@ -579,6 +579,59 @@
 &lt;p&gt;应用程序层进行复制控制&lt;/p&gt;
 &lt;h3 id=&#34;多主节点复制&#34;&gt;多主节点复制&lt;/h3&gt;
 &lt;h3 id=&#34;无主节点复制&#34;&gt;无主节点复制&lt;/h3&gt;
+&lt;h2 id=&#34;chapter-6-partitioning数据分区&#34;&gt;Chapter 6: Partitioning数据分区&lt;/h2&gt;
+&lt;h3 id=&#34;partitionssharding-分区分片&#34;&gt;partitions/sharding 分区/分片&lt;/h3&gt;
+&lt;p&gt;MongoDB, Elasticsearch, SdrCloud: shard&lt;/p&gt;
+&lt;p&gt;HBase: region&lt;/p&gt;
+&lt;p&gt;Bigtable: tablet&lt;/p&gt;
+&lt;p&gt;Cassandra, Rick: vnode&lt;/p&gt;
+&lt;p&gt;Couchbase: vBucket&lt;/p&gt;
+&lt;p&gt;编程语言内置的hash函数可能并不适合分区：同一个key在不同的process中可能返回不同的value&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Java的Object.hashcode&lt;/li&gt;
+&lt;li&gt;Ruby的Object#hash&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;二级索引的分区&#34;&gt;二级索引的分区&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;基于分档的分区
+&lt;ul&gt;
+&lt;li&gt;本地索引&lt;/li&gt;
+&lt;li&gt;写入只更新一个分区&lt;/li&gt;
+&lt;li&gt;分散scatter/聚集gather：读取二级索引时&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;基于词条的分区
+&lt;ul&gt;
+&lt;li&gt;以待查找的关键字本身作为索引：基于索引值&lt;/li&gt;
+&lt;li&gt;读取：单个分区&lt;/li&gt;
+&lt;li&gt;写入：更新二级索引的多个分区&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;请求路由&#34;&gt;请求路由&lt;/h3&gt;
+&lt;p&gt;服务发现&lt;/p&gt;
+&lt;p&gt;分布式数据系统：Zookeeper跟踪集群范围内的元数据&lt;/p&gt;
+&lt;h2 id=&#34;chapter-7-transactions事务&#34;&gt;Chapter 7: Transactions事务&lt;/h2&gt;
+&lt;p&gt;事务&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将应用程序的多个读、写操作捆绑在一起成为&lt;code&gt;一个逻辑操作单元&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;针对多个对象、多个操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;NoSQL：并不具有事务语义。leaving the database in a partially update state.&lt;/p&gt;
+&lt;p&gt;弱隔离（非串行化）级别：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Read-Uncommited:
+&lt;ul&gt;
+&lt;li&gt;只防止脏写，不防止脏读&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Read-Commited:
+&lt;ul&gt;
+&lt;li&gt;防止脏读：读DB时，只能看到已成功提交的data&lt;/li&gt;
+&lt;li&gt;防止脏写：写DB时，只会覆盖已成功提交的data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;chapter-9-一致性与共识&#34;&gt;Chapter 9: 一致性与共识&lt;/h2&gt;
 &lt;h3 id=&#34;可线性化原子一致性强一致性&#34;&gt;可线性化（原子一致性、强一致性）&lt;/h3&gt;
 &lt;p&gt;可线性化 Linearizability ：&lt;/p&gt;
