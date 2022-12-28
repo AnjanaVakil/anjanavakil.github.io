@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Designing Data-Intensive Applications Notes">
 <meta itemprop="description" content="豆瓣🔗： 英文：Designing Data-Intensive Applications 中文：《数据密集型应用系统设计》 atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “hal"><meta itemprop="datePublished" content="2022-11-27T22:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-11-27T22:15:48+08:00" />
-<meta itemprop="wordCount" content="4046">
+<meta itemprop="wordCount" content="4234">
 <meta itemprop="keywords" content="CS BOOK📓," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Designing Data-Intensive Applications Notes"/>
 <meta name="twitter:description" content="豆瓣🔗： 英文：Designing Data-Intensive Applications 中文：《数据密集型应用系统设计》 atomic In the context of concurrent operations: describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a “hal"/>
@@ -354,11 +354,16 @@
     <li><a href="#chapter-6-partitioning数据分区">Chapter 6: Partitioning数据分区</a>
       <ul>
         <li><a href="#partitionssharding-分区分片">partitions/sharding 分区/分片</a></li>
+        <li><a href="#分区方法">分区方法</a></li>
         <li><a href="#二级索引的分区">二级索引的分区</a></li>
         <li><a href="#请求路由">请求路由</a></li>
       </ul>
     </li>
-    <li><a href="#chapter-7-transactions事务">Chapter 7: Transactions事务</a></li>
+    <li><a href="#chapter-7-transactions事务">Chapter 7: Transactions事务</a>
+      <ul>
+        <li><a href="#快照隔离级别与可重复读">快照隔离级别与可重复读</a></li>
+      </ul>
+    </li>
     <li><a href="#chapter-9-一致性与共识">Chapter 9: 一致性与共识</a>
       <ul>
         <li><a href="#可线性化原子一致性强一致性">可线性化（原子一致性、强一致性）</a></li>
@@ -645,15 +650,20 @@
 <h3 id="无主节点复制">无主节点复制</h3>
 <h2 id="chapter-6-partitioning数据分区">Chapter 6: Partitioning数据分区</h2>
 <h3 id="partitionssharding-分区分片">partitions/sharding 分区/分片</h3>
-<p>MongoDB, Elasticsearch, SdrCloud: shard</p>
+<p>MongoDB, Elasticsearch, SolrCloud: shard</p>
 <p>HBase: region</p>
 <p>Bigtable: tablet</p>
-<p>Cassandra, Rick: vnode</p>
+<p>Cassandra, Riak: vnode</p>
 <p>Couchbase: vBucket</p>
 <p>编程语言内置的hash函数可能并不适合分区：同一个key在不同的process中可能返回不同的value</p>
 <ul>
 <li>Java的Object.hashcode</li>
 <li>Ruby的Object#hash</li>
+</ul>
+<h3 id="分区方法">分区方法</h3>
+<ul>
+<li>基于关键字区间的分区</li>
+<li>哈希分区</li>
 </ul>
 <h3 id="二级索引的分区">二级索引的分区</h3>
 <ul>
@@ -696,6 +706,27 @@
 </ul>
 </li>
 </ul>
+<h3 id="快照隔离级别与可重复读">快照隔离级别与可重复读</h3>
+<p>异常现象：nonrepeatable read/read skew</p>
+<p>采用快照隔离的例子：PostgreSQL, MySQL的InnoDB, Oracle, SQL Server</p>
+<p>实现机制：MVCC(Multi-Version Concurrency Control)</p>
+<p>2PL(two-phase locking):</p>
+<ul>
+<li>可以保证串行化</li>
+<li>性能差且无法拓展</li>
+</ul>
+<p>弱隔离（非串行化）级别：</p>
+<ul>
+<li>性能不错</li>
+<li>容易引发各种边界条件
+<ul>
+<li>更新丢失</li>
+<li>写倾斜</li>
+<li>幻读</li>
+</ul>
+</li>
+</ul>
+<p>最近新的算法：SSI(Serializable Snapshot Isolation)</p>
 <h2 id="chapter-9-一致性与共识">Chapter 9: 一致性与共识</h2>
 <h3 id="可线性化原子一致性强一致性">可线性化（原子一致性、强一致性）</h3>
 <p>可线性化 Linearizability ：</p>
