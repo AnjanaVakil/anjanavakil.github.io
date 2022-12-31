@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Aha! Algorithms 啊哈！算法">
 <meta itemprop="description" content="《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少"><meta itemprop="datePublished" content="2022-03-25T20:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-03-25T20:15:48+08:00" />
-<meta itemprop="wordCount" content="2179">
+<meta itemprop="wordCount" content="2546">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Aha! Algorithms 啊哈！算法"/>
 <meta name="twitter:description" content="《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少"/>
@@ -330,6 +330,17 @@
       <ul>
         <li><a href="#整数取模">整数取模%</a></li>
         <li><a href="#函数宏和内联代码">函数、宏和内联代码</a></li>
+        <li><a href="#二分搜索">二分搜索</a></li>
+      </ul>
+    </li>
+    <li><a href="#代码调优法则">代码调优法则</a>
+      <ul>
+        <li><a href="#空间换时间">空间换时间</a></li>
+        <li><a href="#时间换空间">时间换空间</a></li>
+        <li><a href="#循环法则">循环法则</a></li>
+        <li><a href="#逻辑法则">逻辑法则</a></li>
+        <li><a href="#过程法则">过程法则</a></li>
+        <li><a href="#表达式法则">表达式法则</a></li>
       </ul>
     </li>
   </ul>
@@ -428,6 +439,69 @@
 <p>rotdist=10 代码在内存中每隔10个字才访问一次，因此大部分运行时间用于将RAM内容读入高速缓存。</p>
 <p>对内存的访问占用了大量的运行时间，减少计算时间是毫无意义的。</p>
 <h3 id="函数宏和内联代码">函数、宏和内联代码</h3>
+<h3 id="二分搜索">二分搜索</h3>
+<h2 id="代码调优法则">代码调优法则</h2>
+<h3 id="空间换时间">空间换时间</h3>
+<p>修改数据结构</p>
+<ul>
+<li>在数据结构中增加额外的信息</li>
+<li>修改数据结构中的信息使之更易访问</li>
+</ul>
+<p>存储预先计算好的结果</p>
+<p>高速缓存</p>
+<p>懒惰求值</p>
+<h3 id="时间换空间">时间换空间</h3>
+<p>堆积</p>
+<p>解释程序</p>
+<h3 id="循环法则">循环法则</h3>
+<p>将代码移出循环</p>
+<p>合并测试条件</p>
+<ul>
+<li>高效的内循环应该包含尽量少的测试条件，最好只有一个。</li>
+<li>应用：哨兵</li>
+</ul>
+<p>循环展开</p>
+<ul>
+<li>避免管道延迟</li>
+<li>减少分支</li>
+<li>增加指令级的并行性</li>
+</ul>
+<p>注：但真心觉得循环展开代码可读性不好。</p>
+<p>删除赋值</p>
+<p>消除无条件分支</p>
+<p>循环合并</p>
+<h3 id="逻辑法则">逻辑法则</h3>
+<p>利用等价的代数表达式</p>
+<p>短路单调函数</p>
+<p>对测试条件重新排序</p>
+<p>预先计算逻辑函数</p>
+<p>消除布尔变量</p>
+<h3 id="过程法则">过程法则</h3>
+<p>打破函数层次</p>
+<p>协同程序：</p>
+<ul>
+<li>将多趟算法转换为单趟算法</li>
+<li>管道</li>
+</ul>
+<p>递归函数转换</p>
+<ul>
+<li>递归——&gt;迭代</li>
+<li>消除尾递归</li>
+</ul>
+<p>并行性</p>
+<h3 id="表达式法则">表达式法则</h3>
+<p>编译时初始化</p>
+<ul>
+<li>在程序执行前，对尽可能多的变量初始化</li>
+</ul>
+<p>利用等价的代数表达式</p>
+<ul>
+<li>2的幂运算——&gt;左移/右移</li>
+<li>乘法——&gt;加法</li>
+</ul>
+<p>消除公共子表达式</p>
+<p>成对计算</p>
+<p>利用计算机字的并行性</p>
 
     </div>
 
