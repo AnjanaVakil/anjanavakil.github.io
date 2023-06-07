@@ -10,14 +10,14 @@
   
   <url>
     <loc>https://anjanavakil.github.io/</loc>
-    <lastmod>2022-12-30T21:15:48+08:00</lastmod>
+    <lastmod>2023-06-01T21:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/categories/</loc>
-    <lastmod>2022-12-30T21:15:48+08:00</lastmod>
+    <lastmod>2023-06-01T21:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,14 +38,14 @@
   
   <url>
     <loc>https://anjanavakil.github.io/post/</loc>
-    <lastmod>2022-12-30T21:15:48+08:00</lastmod>
+    <lastmod>2023-06-01T21:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/tags/</loc>
-    <lastmod>2022-12-30T21:15:48+08:00</lastmod>
+    <lastmod>2023-06-01T21:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -80,7 +80,7 @@
   
   <url>
     <loc>https://anjanavakil.github.io/tags/cs/</loc>
-    <lastmod>2022-12-02T08:15:48+08:00</lastmod>
+    <lastmod>2023-06-01T21:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -332,14 +332,14 @@
   
   <url>
     <loc>https://anjanavakil.github.io/categories/growth/</loc>
-    <lastmod>2022-07-15T21:15:48+08:00</lastmod>
+    <lastmod>2023-06-01T21:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://anjanavakil.github.io/post/video/</loc>
-    <lastmod>2022-07-15T21:15:48+08:00</lastmod>
+    <lastmod>2023-06-01T21:15:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -893,6 +893,18 @@
   <url>
     <loc>https://anjanavakil.github.io/post/a-brief-history-of-america/</loc>
     <lastmod>2021-11-12T14:15:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/dc-computer/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://anjanavakil.github.io/post/gfs/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
