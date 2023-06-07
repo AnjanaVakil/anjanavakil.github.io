@@ -6,7 +6,7 @@
     <description>Recent content on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 30 Dec 2022 21:15:48 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 01 Jun 2023 21:15:48 +0800</lastBuildDate>
     
         <atom:link href="https://anjanavakil.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -24,6 +24,122 @@
 &lt;p&gt;任何时候，都要真诚。&lt;/p&gt;
 &lt;p&gt;如果春天要来，大地就使它一点点地完成🍃。&lt;/p&gt;
 &lt;p&gt;“Think before you speak. Read before you think.”  —— Fran Lebowitz&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>精彩videos</title>
+      <link>https://anjanavakil.github.io/post/video/</link>
+      <pubDate>Thu, 01 Jun 2023 21:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/video/</guid>
+      
+        <description>&lt;p&gt;网络上看过的&lt;strong&gt;精彩&lt;/strong&gt;讲座/课程/录像/视频等：&lt;/p&gt;
+&lt;h2 id=&#34;a-philosophy-of-software-design--john-ousterhout--talks-at-google&#34;&gt;A Philosophy of Software Design | John Ousterhout | Talks at Google&lt;/h2&gt;
+&lt;p&gt;Jul 15&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=bmSAYlu0NcY&amp;amp;t=1456s&#34;&gt;A Philosophy of Software Design | John Ousterhout | Talks at Google&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;John Ousterhout, Professor of Computer Science at Stanford University, discusses complex techniques on how to become a more confident coder.  John is excited to announce that he just published the first edition of a new book on software design, based on material from a software design class he has been teaching at Stanford for the last several years.&lt;/p&gt;
+&lt;p&gt;Prior to joining Stanford, John spent 14 years in industry where he founded two companies, preceded by another 14 years as a professor at Berkeley. Over the course of his career, Professor Ousterhout has built a number of influential systems (Sprite OS, Tcl.Tk, log structured file systems, Raft, RAMcloud, etc) and has taught several courses on software design. In this talk, he synthesizes these experiences into an insightful and provocative discussion on how to (and how not to) design software.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;老教授太幽默了，看视频的过程中真的会笑出声来🤣，尤其是他的举例和模仿自己学生抱怨写单元测试和文档的语调，太有趣了。&lt;/p&gt;
+&lt;p&gt;一些摘抄：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We will invest in good design today because most of the code we develop today is going to be in the future. And so if we mess things up today, we are slowing ourselves down for the future.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;raft&#34;&gt;Raft&lt;/h2&gt;
+&lt;p&gt;Aug 11&lt;/p&gt;
+&lt;p&gt;关于Raft的可视化网页：&lt;a href=&#34;http://thesecretlivesofdata.com/raft/&#34;&gt;Raft: Understandable Distributed Consensus&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;project-code-rush---the-beginnings-of-netscape--mozilla-documentary&#34;&gt;Project Code Rush - The Beginnings of Netscape / Mozilla Documentary&lt;/h2&gt;
+&lt;p&gt;Oct 15&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=4Q7FTjhvZ7Y&#34;&gt;Project Code Rush - The Beginnings of Netscape / Mozilla Documentary&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There’s no stability in here. So the very kind of weird irony is that very people who are inventing the future can’t see their own future.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;耳目一新的论点。&lt;/p&gt;
+&lt;p&gt;终于看完了这个很久之前就想看的纪录片👏。&lt;/p&gt;
+&lt;h2 id=&#34;john-carmack-receives-honorary-degree&#34;&gt;John Carmack Receives Honorary Degree&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=YOZnqjHkULc&#34;&gt;John Carmack Receives Honorary Degree&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Oct 16&lt;/p&gt;
+&lt;p&gt;忙了一天，早上被系统环境问题折磨，下午画UML图按触摸板按得手疼🙃（尽管MacBook触摸板很好用）。最近一直盯着电脑敲键盘，慢慢会习惯这种强度吧，毕竟发现也是自己想要做的事情。&lt;/p&gt;
+&lt;p&gt;晚上休息看了John Carmack的这个视频，本来想浅浅记录下一些句子，没想到自己跟着视频一个字符一个单词地敲了这么多。很多话真的是莫大的鼓励，就在想，很多东西到底需要重复多少遍才可以轻而易举呢？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;So almost everything that we work with has really great depths to explore. Now you can&amp;rsquo;t know everything, but you should look at this as you can know anything, anything that you turn your attention to, you choose to focus on, you can understand nothing is magic and you can tear things apart if you need to find the details.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Now knowing all the details can have some consequences because sometimes the details are really ugly or even frightening to think about and this can lead to people thinking: no, things aren’t awesome, they’re actually horrible if you look at it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I take the more optimistic view that this means that’s tons of opportunities, especially with the exponential growth of Moore’s law slowing down. Being able to dig deep into our systems and find efficiencies there is one of the ways that we can continue delivering significant value.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;5年前上传的视频。不知道是自己长大了还是时代真的变了，疫情核酸裁员就业难，仿佛是最坏的时代。但“危机”，有‘危“才有”机“，代表着更多的机会。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Now to really understand the details you have to understand history. Many times things are the way they are for important and valid historical reasons but sometimes things are the way they are because we didn’t know any better or because we didn’t have time to actually make something good.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;有意思的观点，所以计算机也有必要了解历史？一门课程一本书刚开始都会讲历史，也看过一些计算机相关历史发展的书籍，但大部分都是美国人发明的倒是真的😮‍💨。&lt;/p&gt;
+&lt;p&gt;（这边英文实在没精力写啦）作者不鼓励重复造轮子，但是尝试去做或许会造出更好的轮子。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Whatever path you’re on, I advocate for long, hard work. You hear a lot about work-life balance, working smarter not harder and that’s all fine but there’s a quality to obsession that’s really hard to match any other way.&lt;/p&gt;
+&lt;p&gt;Sometimes important insights come only from a total immersion in a problem or fileld and even when the work is mundane there’s value that you can extract from that.&lt;/p&gt;
+&lt;p&gt;Mastery comes from practice.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I urge you to embrace the grind. Pay attention to the details, fill your products would give a damn. You’re building the future.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;zero-knowledge-proofs&#34;&gt;Zero-knowledge Proofs&lt;/h2&gt;
+&lt;p&gt;Dec 29&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=fOGdb1CTu5c&#34;&gt;Computer Scientist Explains One Concept in 5 Levels of Difficulty | WIRED&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Computer scientist Amit Sahai, PhD, is asked to explain the concept of zero-knowledge proofs to 5 different people; a child, a teen, a college student, a grad student, and an expert. Using a variety of techniques, Amit breaks down what zero-knowledge proofs are and why it&amp;rsquo;s so exciting in the world of cryptography.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;好久没看到这么有创意的视频了👏。&lt;/p&gt;
+&lt;h2 id=&#34;command-line-heroes&#34;&gt;Command Line Heroes&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.bilibili.com/video/BV1He4y1S7R8/?spm_id_from=333.999.0.0&amp;amp;vd_source=33418daa3b7e78f3596ab092f4bcb6c2&#34;&gt;command line heroes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Dec 30&lt;/p&gt;
+&lt;p&gt;从我的基础出发，Red Hat的这个podcast词汇语句都很高级。尽管看的中英文字幕，还是觉得挺有难度的，适合用来学英语。&lt;/p&gt;
+&lt;h2 id=&#34;the-hows-and-whys-of-a-distributed-sql-database-by-alex-robinson&#34;&gt;&amp;ldquo;The hows and whys of a distributed SQL database&amp;rdquo; by Alex Robinson&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=6OFeuNy39Qg&#34;&gt;&amp;ldquo;The hows and whys of a distributed SQL database&amp;rdquo; by Alex Robinson&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;做“云计算技术”小组survey时关于NewSQL看的视频。&lt;/p&gt;
+&lt;h2 id=&#34;stop-searching-for-your-passion--terri-trespicio--tedxkc&#34;&gt;Stop searching for your passion | Terri Trespicio | TEDxKC&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=6MBaFL7sCb8&#34;&gt;https://www.youtube.com/watch?v=6MBaFL7sCb8&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2023.4.4中午被标题吸引偶然点开的一个视频，有点被解开心中的一点疑惑。看到身边朋友都有自己追求和喜欢的东西，而自己却不知道未来要干什么，一度很难受。但看完这个视频，整个人突然被打开。手敲下这些句子，很戳中当下的自己。&lt;/p&gt;
+&lt;p&gt;we don’t know what we’re passionate about, we don’t know what we’re supposed to do.&lt;/p&gt;
+&lt;p&gt;Anyway, I was such a mess when I was in my twenties.&lt;/p&gt;
+&lt;p&gt;太符合当下了。&lt;/p&gt;
+&lt;p&gt;Passion is not a plan, it is a feeling. And feelings change. You can be passionate about a person one day, or a job, and then not&lt;/p&gt;
+&lt;p&gt;passionate the next.&lt;/p&gt;
+&lt;p&gt;之前自己的泡泡世界里一切都是理想和高尚的，后来意识到人基因和天性的自私性，人是会变的。允许遗憾、愚蠢、丑恶、虚伪、虚荣。&lt;/p&gt;
+&lt;p&gt;You don&amp;rsquo;t create your life first, and then live it. You create it by living it, not agonizing about it.&lt;/p&gt;
+&lt;p&gt;突然意识到怎么过好生活也是教育缺失的一块，以成绩为导向，没有强调人的多样性。所以需要学习去找到自己的节奏过好生活。&lt;/p&gt;
+&lt;p&gt;Success fueled passion more than passion fueled success.&lt;/p&gt;
+&lt;p&gt;You don&amp;rsquo;t follow your passion, your passion follows you.&lt;/p&gt;
+&lt;p&gt;很多事情是做好了之后才会喜欢。&lt;/p&gt;
+&lt;p&gt;Not everything you do needs to fit into your &amp;ldquo;passion&amp;rdquo;. Just try things. Go out there and try things.&lt;/p&gt;
+&lt;p&gt;Passion is not a job, a sport, or a hobby, it is the full force of your attention and energy that you give to whatever is right in front of you.&lt;/p&gt;
+&lt;p&gt;We all think we know the kind of person we are and the kind of person we could love, but sometimes we’re wrong. Blissfully wrong.&lt;/p&gt;
+&lt;p&gt;I love not knowing what I’m going to be doing five years from now or what I will be into. And that’s okay, it’s okay not to know.&lt;/p&gt;
+&lt;p&gt;spend your time and attention solving your favorite problems.&lt;/p&gt;
+&lt;p&gt;今天又看了一遍，太棒了！有时候，就是这么一个偶然的视频，会带来很多东西。&lt;/p&gt;
+&lt;h2 id=&#34;the-inside-story-of-chatgpts-astonishing-potential--greg-brockman--ted&#34;&gt;The Inside Story of ChatGPT’s Astonishing Potential | Greg Brockman | TED&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=C_78DM8fG6E&#34;&gt;https://www.youtube.com/watch?v=C_78DM8fG6E&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;被这个ChatGPT演示震惊到的部分：只是扔进去了一个Excel文件，就可以给出柱状图、折线图、词云，并且根据feedback调整。未来应该会有更多意想不到的应用和ChatGPT结合。的确被blow the mind。&lt;/p&gt;
+&lt;h2 id=&#34;brian-chesky-co-founder-and-ceo-of-airbnb-designing-a-10-star-experience&#34;&gt;Brian Chesky, Co-Founder and CEO of Airbnb: Designing a 10-star Experience&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=V6h_EDcj12k&amp;amp;t=888s&#34;&gt;https://www.youtube.com/watch?v=V6h_EDcj12k&amp;amp;t=888s&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;好有趣的一个视频，全程被吸引看完。&lt;/p&gt;
+&lt;h2 id=&#34;sam-altman-on-choosing-projects-creating-value-and-finding-purpose&#34;&gt;Sam Altman on Choosing Projects, Creating Value, and Finding Purpose&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=uEl2KUZ3JWA&#34;&gt;https://www.youtube.com/watch?v=uEl2KUZ3JWA&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;很喜欢的视频，太懒太麻烦没有做过多笔记。但完全被Sam说的所吸引，当Sam提到失败时完全不care，只要有一个成功就可以，就比如2022年末OpenAI推出的ChatGPT。&lt;/p&gt;
+&lt;p&gt;I realized that most of them will fail and I don’t care and then the ones that as long as the ones that work really work.&lt;/p&gt;
+&lt;h2 id=&#34;transformers-explained-understand-the-model-behind-gpt-bert-and-t5&#34;&gt;Transformers, explained: Understand the model behind GPT, BERT, and T5&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=SZorAJ4I-sA&#34;&gt;https://www.youtube.com/watch?v=SZorAJ4I-sA&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;讲Transformers的视频，很喜欢的语速。&lt;/p&gt;
+&lt;h2 id=&#34;advice-for-machine-learning-beginners--andrej-karpathy-and-lex-fridman&#34;&gt;Advice for machine learning beginners | Andrej Karpathy and Lex Fridman&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=I2ZK3ngNvvI&#34;&gt;https://www.youtube.com/watch?v=I2ZK3ngNvvI&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;随手记下的笔记：&lt;/p&gt;
+&lt;p&gt;only compare yourself to you from some time ago like say a year ago are you better than you a year ago&lt;/p&gt;
+&lt;p&gt;感觉本科毕业的一年并没有干成什么，但自己却不后悔。23岁的我突然多了很多感恩和很多自信，失败又怎么样呢？我还不是好好活着，永远都有路走的，永远都不要放弃。让自己的脑子充满感恩积极的事情。&lt;/p&gt;
+&lt;p&gt;you will waste time doing something wrong. yes you will eventually figure out it’s not right. you will accumulate scar tissue and next time you’ll grow stronger.&lt;/p&gt;
 </description>
       
     </item>
@@ -6590,352 +6706,6 @@
 &lt;h3 id=&#34;容器组网&#34;&gt;容器组网&lt;/h3&gt;
 &lt;h1 id=&#34;kubernetes网络&#34;&gt;Kubernetes网络&lt;/h1&gt;
 &lt;h1 id=&#34;istio网络&#34;&gt;Istio网络&lt;/h1&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Go</title>
-      <link>https://anjanavakil.github.io/post/go/</link>
-      <pubDate>Thu, 11 Aug 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/go/</guid>
-      
-        <description>&lt;p&gt;编程语言都是相通的，所以通过记录与其他语言不同的部分学习Go语言。&lt;/p&gt;
-&lt;p&gt;Reference: &lt;a href=&#34;https://www.runoob.com/go/go-tutorial.html&#34;&gt;Go 语言教程&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;go基础语法&#34;&gt;Go基础语法&lt;/h3&gt;
-&lt;p&gt;1、当标识符（包括常量、变量、类型、函数名、结构字段等等）以一个大写字母开头，如：Group1，那么使用这种形式的标识符的对象就可以被外部包的代码所使用（客户端程序需要先导入这个包），这被称为导出（像面向对象语言中的 public）；标识符如果以小写字母开头，则对包外是不可见的，但是他们在整个包的内部是可见并且可用的（像面向对象语言中的 protected ）&lt;/p&gt;
-&lt;p&gt;2、需要注意的是 &lt;strong&gt;{&lt;/strong&gt; 不能单独放在一行，所以以下代码在运行时会产生错误：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;package&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;main&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 错误，{ 不能在单独的行上
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;nx&#34;&gt;fmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;3、在 Go 程序中，一行代表一个语句结束。每个语句不需要像 C 家族中的其它语言一样以分号 ; 结尾，因为这些工作都将由 Go 编译器自动完成。&lt;/p&gt;
-&lt;p&gt;如果你打算将多个语句写在同一行，它们则必须使用 ; 人为区分，但在实际开发中我们并不鼓励这种做法。&lt;/p&gt;
-&lt;h3 id=&#34;go语言变量&#34;&gt;Go语言变量&lt;/h3&gt;
-&lt;p&gt;Go 语言变量名由字母、数字、下划线组成，其中首个字符不能为数字。&lt;/p&gt;
-&lt;p&gt;声明变量的一般形式是使用 var 关键字：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;identifier&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;type&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;可以一次声明多个变量：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;identifier1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;identifier2&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;type&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;声明新的变量， := 是一个声明语句。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;intVal := 1&lt;/strong&gt; 相等于：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;var intVal int 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;intVal =1 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;可以将 var f string = &amp;ldquo;Runoob&amp;rdquo; 简写为 f := &amp;ldquo;Runoob&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;常量的定义格式：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;const identifier [type] = value
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;go语言数组&#34;&gt;Go语言数组&lt;/h3&gt;
-&lt;p&gt;数组初始化：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;var balance = [5]float32{1000.0, 2.0, 3.4, 7.0, 50.0}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;也可以通过字面量在声明数组的同时快速初始化数组：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;balance := [5]float32{1000.0, 2.0, 3.4, 7.0, 50.0}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;如果数组长度不确定，可以使用 &lt;strong&gt;&amp;hellip;&lt;/strong&gt; 代替数组的长度，编译器会根据元素个数自行推断数组的长度：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;var balance = [...]float32{1000.0, 2.0, 3.4, 7.0, 50.0}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;或
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;balance := [...]float32{1000.0, 2.0, 3.4, 7.0, 50.0}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;如果设置了数组的长度，还可以通过指定下标来初始化元素：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;//  将索引为 1 和 3 的元素初始化
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;balance := [5]float32{1:2.0,3:7.0}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;go语言切片slice&#34;&gt;Go语言切片(Slice)&lt;/h3&gt;
-&lt;p&gt;Go 语言切片是对数组的抽象。&lt;/p&gt;
-&lt;p&gt;Go 数组的长度不可改变，在特定场景中这样的集合就不太适用，Go 中提供了一种灵活，功能强悍的内置类型切片(&amp;ldquo;动态数组&amp;rdquo;)，与数组相比切片的长度是不固定的，可以追加元素，在追加时可能使切片的容量增大。&lt;/p&gt;
-&lt;p&gt;定义切片&lt;/p&gt;
-&lt;p&gt;你可以声明一个未指定大小的数组来定义切片：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;identifier&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;type&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;切片不需要说明长度。&lt;/p&gt;
-&lt;p&gt;或使用 &lt;strong&gt;make()&lt;/strong&gt; 函数来创建切片:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;slice1&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([]&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;也可以简写为&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;slice1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([]&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;也可以指定容量，其中 &lt;strong&gt;capacity&lt;/strong&gt; 为可选参数。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([]&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;capacity&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这里 len 是数组的长度并且也是切片的初始长度。&lt;/p&gt;
-&lt;h4 id=&#34;切片初始化&#34;&gt;切片初始化&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;直接初始化切片，&lt;strong&gt;[]&lt;/strong&gt; 表示是切片类型，&lt;strong&gt;{1,2,3}&lt;/strong&gt; 初始化值依次是 &lt;strong&gt;1,2,3&lt;/strong&gt;，其 &lt;strong&gt;cap=len=3&lt;/strong&gt;。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[:]&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;初始化切片 &lt;strong&gt;s&lt;/strong&gt;，是数组 arr 的引用。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;startIndex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;endIndex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;将 arr 中从下标 startIndex 到 endIndex-1 下的元素创建为一个新的切片。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;startIndex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:]&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;默认 endIndex 时将表示一直到arr的最后一个元素。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[:&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;endIndex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;默认 startIndex 时将表示从 arr 的第一个元素开始。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;s1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;startIndex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;endIndex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;通过切片 s 初始化切片 s1。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;s :=make([]int,len,cap) 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;通过内置函数 &lt;strong&gt;make()&lt;/strong&gt; 初始化切片&lt;strong&gt;s&lt;/strong&gt;，&lt;strong&gt;[]int&lt;/strong&gt; 标识为其元素类型为 int 的切片。&lt;/p&gt;
-&lt;h3 id=&#34;go语言范围range&#34;&gt;Go语言范围(Range)&lt;/h3&gt;
-&lt;p&gt;Go 语言中 range 关键字用于 for 循环中迭代数组(array)、切片(slice)、通道(channel)或集合(map)的元素。在数组和切片中它返回元素的索引和索引对应的值，在集合中返回 key-value 对。&lt;/p&gt;
-&lt;p&gt;for 循环的 range 格式可以对 slice、map、数组、字符串等进行迭代循环。格式如下：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;range&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;oldMap&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;newMap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;以上代码中的 key 和 value 是可以省略。&lt;/p&gt;
-&lt;p&gt;如果只想读取 key，格式如下：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;key&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;range&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;oldMap&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;或者这样：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;range&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;oldMap&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;如果只想读取 value，格式如下：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;range&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;oldMap&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;定义-map&#34;&gt;定义 Map&lt;/h3&gt;
-&lt;p&gt;可以使用内建函数 make 也可以使用 map 关键字来定义 Map:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/* 声明变量，默认 map 是 nil */
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;var map_variable map[key_data_type]value_data_type
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/* 使用 make 函数 */
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;map_variable := make(map[key_data_type]value_data_type)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;如果不初始化 map，那么就会创建一个 nil map。nil map 不能用来存放键值对。&lt;/p&gt;
-&lt;h3 id=&#34;go-错误处理&#34;&gt;Go 错误处理&lt;/h3&gt;
-&lt;p&gt;Go 语言通过内置的错误接口提供了非常简单的错误处理机制。&lt;/p&gt;
-&lt;p&gt;error类型是一个接口类型，定义：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;type error interface {
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    Error() string
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;可以在编码中通过实现 error 接口类型来生成错误信息。&lt;/p&gt;
-&lt;p&gt;函数通常在最后的返回值中返回错误信息。使用errors.New 可返回一个错误信息。&lt;/p&gt;
-&lt;h3 id=&#34;go-并发&#34;&gt;Go 并发&lt;/h3&gt;
-&lt;p&gt;Go 语言支持并发，我们只需要通过 go 关键字来开启 goroutine 即可。&lt;/p&gt;
-&lt;p&gt;goroutine 是轻量级线程，goroutine 的调度是由 Golang 运行时进行管理的。&lt;/p&gt;
-&lt;p&gt;goroutine 语法格式：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go 函数名( 参数列表 )
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;通道channel&#34;&gt;通道（channel）&lt;/h4&gt;
-&lt;p&gt;通道（channel）是用来传递数据的一个数据结构。&lt;/p&gt;
-&lt;p&gt;通道可用于两个 goroutine 之间通过传递一个指定类型的值来同步运行和通讯。操作符 &lt;code&gt;&amp;lt;-&lt;/code&gt; 用于指定通道的方向，发送或接收。如果未指定方向，则为双向通道。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ch &amp;lt;- v    // 把 v 发送到通道 ch
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;v := &amp;lt;-ch  // 从 ch 接收数据
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;           // 并把值赋给 v
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;声明一个通道很简单，我们使用chan关键字即可，通道在使用前必须先创建：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ch := make(chan int)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：默认情况下，通道是不带缓冲区的。发送端发送数据，同时必须有接收端相应的接收数据。&lt;/p&gt;
 </description>
       
     </item>

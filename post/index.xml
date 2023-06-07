@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 30 Dec 2022 21:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Jun 2023 21:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>精彩videos</title>
+      <link>https://anjanavakil.github.io/post/video/</link>
+      <pubDate>Thu, 01 Jun 2023 21:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/video/</guid>
+      <description>网络上看过的精彩讲座/课程/录像/视频等： A Philosophy of Software Design | John Ousterhout | Talks at Google Jul 15 A Philosophy of Software Design | John Ousterhout | Talks at Google John Ousterhout, Professor of Computer Science at Stanford University, discusses complex techniques on how to become a more confident coder. John is excited</description>
+    </item>
+    
     <item>
       <title>The Innovators</title>
       <link>https://anjanavakil.github.io/post/innovators/</link>
@@ -176,15 +185,6 @@
       
       <guid>https://anjanavakil.github.io/post/go/</guid>
       <description>编程语言都是相通的，所以通过记录与其他语言不同的部分学习Go语言。 Reference: Go 语言教程 Go基础语法 1、当标识符（包括常量、变量、类型、函数名、结构字</description>
-    </item>
-    
-    <item>
-      <title>LeetCode Greedy</title>
-      <link>https://anjanavakil.github.io/post/leetcode-greedy/</link>
-      <pubDate>Fri, 05 Aug 2022 08:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/leetcode-greedy/</guid>
-      <description>LeetCode + 《剑指Offer II》刷题笔记。 贪心 870 Advantage Shuffle 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 class Solution { public int[] advantageCount(int[] nums1, int[] nums2) { int n=nums1.length; TreeMap&amp;lt;Integer,Integer&amp;gt; map=new TreeMap&amp;lt;&amp;gt;(); for(int num:nums1){ map.put(num,map.getOrDefault(num,0)+1); } int[] ans=new int[n]; for(int i=0;i&amp;lt;n;i++){</description>
     </item>
     
   </channel>
