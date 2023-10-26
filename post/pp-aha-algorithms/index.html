@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Aha! Algorithms 啊哈！算法">
 <meta itemprop="description" content="《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少"><meta itemprop="datePublished" content="2022-03-25T20:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-03-25T20:15:48+08:00" />
-<meta itemprop="wordCount" content="2546">
+<meta itemprop="wordCount" content="1804">
 <meta itemprop="keywords" content="Algorithm🪺,CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Aha! Algorithms 啊哈！算法"/>
 <meta name="twitter:description" content="《编程珠玑》的笔记。 Column 2: Aha! Algorithms 三个问题 A.给定一个最多包含40亿个随机排列的32位整数的顺序文件，找出一个不在文件中的32位整数（在文件中至少"/>
@@ -321,28 +321,6 @@
   <ul>
     <li><a href="#三个问题">三个问题</a></li>
     <li><a href="#习题">习题</a></li>
-    <li><a href="#chapter-9-代码调优">Chapter 9: 代码调优</a>
-      <ul>
-        <li><a href="#高速缓存">高速缓存</a></li>
-      </ul>
-    </li>
-    <li><a href="#急救方案">急救方案</a>
-      <ul>
-        <li><a href="#整数取模">整数取模%</a></li>
-        <li><a href="#函数宏和内联代码">函数、宏和内联代码</a></li>
-        <li><a href="#二分搜索">二分搜索</a></li>
-      </ul>
-    </li>
-    <li><a href="#代码调优法则">代码调优法则</a>
-      <ul>
-        <li><a href="#空间换时间">空间换时间</a></li>
-        <li><a href="#时间换空间">时间换空间</a></li>
-        <li><a href="#循环法则">循环法则</a></li>
-        <li><a href="#逻辑法则">逻辑法则</a></li>
-        <li><a href="#过程法则">过程法则</a></li>
-        <li><a href="#表达式法则">表达式法则</a></li>
-      </ul>
-    </li>
   </ul>
 </nav>
   </div>
@@ -409,99 +387,6 @@
 <p>2.给定包含4 300 000 000个32位整数的顺序文件，如何找出一个出现至少两次的整数？</p>
 <p>3.前面涉及了两个需要精巧代码来实现的向量旋转算法。将其分别作为独立的程序实现。在每个程序中，i和n的最大公约数如何出现？</p>
 <p>4.几位读者指出，既然所有的三个旋转算法需要的运行时间都正比于n，杂技算法的运行速度显然是求逆算法的两倍。杂技算法对数组中的每个元素仅存储和读取一次，而求逆算法需要两次。在实际的计算机上进行实验以比较两者的速度差异，特别注意内存引用位置附近的问题。</p>
-<h2 id="chapter-9-代码调优">Chapter 9: 代码调优</h2>
-<h3 id="高速缓存">高速缓存</h3>
-<p>性能监视：程序大部分时间都花在内存分配函数malloc上了。</p>
-<p>在内存分配程序中插入几行计数代码后，发现最常见记录类型的空间分配次数是次常见记录类型的30倍。</p>
-<p>解决方法：应用高速缓存，将最常见类型的空闲记录缓存在一个<code>链表</code>中。</p>
-<p>通过性能监视识别出程序中的“热点”，然后使用高速缓存减少其运行时间。</p>
-<h2 id="急救方案">急救方案</h2>
-<h3 id="整数取模">整数取模%</h3>
-<p>C语言的模运算符%开销较大：大多数算术运算需要约10ns，而模运算需要约100ns。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">k</span><span class="o">=</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="n">rotdist</span><span class="p">)</span><span class="o">%</span><span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="err">可以改为：</span>
-</span></span><span class="line"><span class="cl"><span class="n">k</span><span class="o">=</span><span class="n">j</span><span class="o">+</span><span class="n">rotdist</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="n">k</span><span class="o">&gt;=</span><span class="n">n</span><span class="p">)</span> <span class="n">k</span><span class="o">-=</span><span class="n">n</span><span class="p">;</span> 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>rotdist=1 程序的运行时间：从119ns下降至57ns，速度几乎提高了一倍。</p>
-<p>rotdist=10 程序的运行时间都是206ns。</p>
-<p>原因：</p>
-<p>rotdist=1 算法顺序访问内存，模运算决定了程序的运行时间。</p>
-<p>rotdist=10 代码在内存中每隔10个字才访问一次，因此大部分运行时间用于将RAM内容读入高速缓存。</p>
-<p>对内存的访问占用了大量的运行时间，减少计算时间是毫无意义的。</p>
-<h3 id="函数宏和内联代码">函数、宏和内联代码</h3>
-<h3 id="二分搜索">二分搜索</h3>
-<h2 id="代码调优法则">代码调优法则</h2>
-<h3 id="空间换时间">空间换时间</h3>
-<p>修改数据结构</p>
-<ul>
-<li>在数据结构中增加额外的信息</li>
-<li>修改数据结构中的信息使之更易访问</li>
-</ul>
-<p>存储预先计算好的结果</p>
-<p>高速缓存</p>
-<p>懒惰求值</p>
-<h3 id="时间换空间">时间换空间</h3>
-<p>堆积</p>
-<p>解释程序</p>
-<h3 id="循环法则">循环法则</h3>
-<p>将代码移出循环</p>
-<p>合并测试条件</p>
-<ul>
-<li>高效的内循环应该包含尽量少的测试条件，最好只有一个。</li>
-<li>应用：哨兵</li>
-</ul>
-<p>循环展开</p>
-<ul>
-<li>避免管道延迟</li>
-<li>减少分支</li>
-<li>增加指令级的并行性</li>
-</ul>
-<p>注：但真心觉得循环展开代码可读性不好。</p>
-<p>删除赋值</p>
-<p>消除无条件分支</p>
-<p>循环合并</p>
-<h3 id="逻辑法则">逻辑法则</h3>
-<p>利用等价的代数表达式</p>
-<p>短路单调函数</p>
-<p>对测试条件重新排序</p>
-<p>预先计算逻辑函数</p>
-<p>消除布尔变量</p>
-<h3 id="过程法则">过程法则</h3>
-<p>打破函数层次</p>
-<p>协同程序：</p>
-<ul>
-<li>将多趟算法转换为单趟算法</li>
-<li>管道</li>
-</ul>
-<p>递归函数转换</p>
-<ul>
-<li>递归——&gt;迭代</li>
-<li>消除尾递归</li>
-</ul>
-<p>并行性</p>
-<h3 id="表达式法则">表达式法则</h3>
-<p>编译时初始化</p>
-<ul>
-<li>在程序执行前，对尽可能多的变量初始化</li>
-</ul>
-<p>利用等价的代数表达式</p>
-<ul>
-<li>2的幂运算——&gt;左移/右移</li>
-<li>乘法——&gt;加法</li>
-</ul>
-<p>消除公共子表达式</p>
-<p>成对计算</p>
-<p>利用计算机字的并行性</p>
 
     </div>
 
@@ -621,7 +506,7 @@
 
     </a>
   
-    <a href="https://www.douban.com/people/AnjanaVakil/?_i=6110490bFXB4OS" rel="me noopener" class="iconfont"
+    <a href="https://www.douban.com/people/188748525/?_i=5959211pTN39WJ,5959254pTN39WJ" rel="me noopener" class="iconfont"
       title="douban"  target="_blank"
       >
       <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"

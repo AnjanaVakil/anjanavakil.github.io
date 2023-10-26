@@ -94,7 +94,7 @@
       <pubDate>Wed, 18 May 2022 08:15:48 +0800</pubDate>
       
       <guid>https://anjanavakil.github.io/post/database/</guid>
-      <description>讲座🔗： （特邀报告）李国良老师：数据库发展趋势和挑战 数据库发展趋势： 智能化：AI融合 云原生：高弹性 分布式：大数据 关系型数据库RDB: SQL OLT</description>
+      <description>Oracle Sequence序列 Oracle / PLSQL: Sequences (Autonumber) Oracle NEXTVAL function tips CREATE SEQUENCE 值得注意的几点： When a sequence number is generated, the sequence is incremented, independent of the transaction committing or rolling back. If two users concurrently increment the same sequence, then the sequence numbers each user acquires may have gaps, because sequence numbers are</description>
     </item>
     
     <item>

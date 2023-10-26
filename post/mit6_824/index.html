@@ -69,7 +69,7 @@
 <meta itemprop="name" content="MIT 6.824: Distributed Systems &amp; Paper Reading">
 <meta itemprop="description" content="跟的是Spring 2022。 刚开始还惊讶CS自学指南的MIT6.824: Distributed System预计学时为什么是200小时，学了几天终于知道为什么需要"><meta itemprop="datePublished" content="2022-12-01T08:15:48+08:00" />
 <meta itemprop="dateModified" content="2022-12-02T08:15:48+08:00" />
-<meta itemprop="wordCount" content="952">
+<meta itemprop="wordCount" content="388">
 <meta itemprop="keywords" content="CS💻," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MIT 6.824: Distributed Systems &amp; Paper Reading"/>
 <meta name="twitter:description" content="跟的是Spring 2022。 刚开始还惊讶CS自学指南的MIT6.824: Distributed System预计学时为什么是200小时，学了几天终于知道为什么需要"/>
@@ -319,8 +319,6 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#lab1-mapreduce">Lab1: MapReduce</a></li>
-    <li><a href="#lec-2-rpc-and-threads">LEC 2 RPC and Threads</a></li>
     <li><a href="#lec-4-primary-backup-replication">LEC 4: Primary-Backup Replication</a>
       <ul>
         <li><a href="#video">video</a></li>
@@ -331,7 +329,7 @@
         <li><a href="#abstract">Abstract</a></li>
         <li><a href="#1-introduction">1 Introduction</a></li>
         <li><a href="#2-basic-ft-design">2 Basic FT Design</a></li>
-        <li><a href="#3-practical-implementation-of-ft">3 Practical Implementation of FT</a></li>
+        <li><a href="#3-fractical-implementation-of-ft">3 Fractical Implementation of FT</a></li>
         <li><a href="#4-design-alternatives">4 Design Alternatives</a></li>
         <li><a href="#5-performance-evaluation">5 Performance Evaluation</a></li>
         <li><a href="#6-related-work">6 Related Work</a></li>
@@ -345,14 +343,6 @@
     </li>
     <li><a href="#in-search-of-an-understandable-consensus-algorithm">In Search of an Understandable Consensus Algorithm</a></li>
     <li><a href="#let-7-fault-tolerance-raft2">LET 7: Fault Tolerance: Raft(2)</a></li>
-    <li><a href="#no-compromises-distributed-transactions-with-consistency-availability-and-performance">No compromises: distributed transactions with consistency, availability, and performance.</a>
-      <ul>
-        <li><a href="#abstract-1">Abstract</a></li>
-        <li><a href="#1-introduction-1">1. Introduction</a></li>
-      </ul>
-    </li>
-    <li><a href="#2-hardware-trends">2. Hardware trends</a></li>
-    <li><a href="#7-related-work">7. Related Work</a></li>
   </ul>
 </nav>
   </div>
@@ -362,35 +352,6 @@
     <div class="post-content">
       <p>跟的是Spring 2022。</p>
 <p>刚开始还惊讶<code>CS自学指南</code>的<a href="https://csdiy.wiki/%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/MIT6.824/">MIT6.824: Distributed System</a>预计学时为什么是200小时，学了几天终于知道为什么需要这么长时间了，不说Project的难度，就每节课几乎都超过15页的Paper也需要花很多时间阅读。真是一篇Paper翻来覆去地阅读，也才获得几分理解。</p>
-<h2 id="lab1-mapreduce">Lab1: MapReduce</h2>
-<h2 id="lec-2-rpc-and-threads">LEC 2 RPC and Threads</h2>
-<p>Go:</p>
-<ul>
-<li>
-<p>Threads: go routines</p>
-</li>
-<li>
-<p>Locking</p>
-</li>
-<li>
-<p>synchronization</p>
-</li>
-<li>
-<p>convenient RPC package</p>
-</li>
-<li>
-<p>type safe</p>
-</li>
-<li>
-<p>memory safe</p>
-</li>
-</ul>
-<p>Reasons to use threads:</p>
-<ul>
-<li>I/O concurrency</li>
-<li>multi-core parallelism</li>
-<li>convenience: in a loop sleeps for a second and then does the periodic thing and then sleeps again</li>
-</ul>
 <h2 id="lec-4-primary-backup-replication">LEC 4: Primary-Backup Replication</h2>
 <h3 id="video">video</h3>
 <p>2 approaches:</p>
@@ -416,7 +377,7 @@
 <h4 id="21-deterministic-replay-implementation">2.1 Deterministic Replay Implementation</h4>
 <h4 id="22-ft-protocol">2.2 FT Protocol</h4>
 <h4 id="23-detecting-and-responding-to-failure">2.3 Detecting and Responding to Failure</h4>
-<h3 id="3-practical-implementation-of-ft">3 Practical Implementation of FT</h3>
+<h3 id="3-fractical-implementation-of-ft">3 Fractical Implementation of FT</h3>
 <h4 id="31-starting-and-restarting-ft-vms">3.1 Starting and Restarting FT VMs</h4>
 <h4 id="32-managing-the-logging-channel">3.2 Managing the Logging Channel</h4>
 <h4 id="33-operation-on-ft-vms">3.3 Operation on FT VMs</h4>
@@ -439,66 +400,6 @@
 <p>Any two majorites overlap in at least <code>one server</code> ——&gt; Raft rely on to avoid split brain.</p>
 <h2 id="in-search-of-an-understandable-consensus-algorithm">In Search of an Understandable Consensus Algorithm</h2>
 <h2 id="let-7-fault-tolerance-raft2">LET 7: Fault Tolerance: Raft(2)</h2>
-<h2 id="no-compromises-distributed-transactions-with-consistency-availability-and-performance">No compromises: distributed transactions with consistency, availability, and performance.</h2>
-<p>被标题吸引的论文🌚，就如同最近对世界上是否真有完美的人的疑惑（以前不相信有，现在开始怀疑）。</p>
-<h3 id="abstract-1">Abstract</h3>
-<p>以前system designers对分布式系统事务的妥协</p>
-<ul>
-<li>avoid transactions completely 完全避免事务</li>
-<li>weaken consistency guarantees 弱一致性保证</li>
-<li>single-machine transactions 单机事务：require programmers to partition data 需要程序员对数据分区</li>
-</ul>
-<p>FaRM:</p>
-<ul>
-<li><code>main memory</code> distributed computing platform</li>
-<li>provide distributed transactions</li>
-<li>不妥协的关键：
-<ul>
-<li>the design of new transaction, replication, and recovery protocols</li>
-<li>commodity networks with RDMA: Remote Directed Memory Access 远程的直接内存访问DMA（在两个或多个计算机进行通讯时使用DMA）</li>
-<li>NVM: non-volatile DRAM 非易失性存储</li>
-</ul>
-</li>
-</ul>
-<h3 id="1-introduction-1">1. Introduction</h3>
-<p>Three principles to address these CPU bottlenecks:</p>
-<ul>
-<li>reducing message counts:
-<ul>
-<li><code>vertical Paxos</code> with primary-backup replication</li>
-<li><code>unreplicated coordinators</code> that communicate directly with primaries and backups.</li>
-</ul>
-</li>
-<li>using one-sided RDMA reads and writes instead of messages</li>
-<li>exploiting parallelism effectively</li>
-</ul>
-<p>Four phase commit protocol (optimistic concurrency control 乐观并发控制):</p>
-<ul>
-<li>lock: eliminate the messages to backups</li>
-<li>validation</li>
-<li>commit backup</li>
-<li>commit primary</li>
-</ul>
-<p><code>reduces CPU overhead</code> by using one-sided RDMA operations</p>
-<ul>
-<li>uses no remote CPU</li>
-<li>use no foreground CPU at backups</li>
-<li>lazily truncating logs to update objects in-place: use CPU in the background</li>
-</ul>
-<h2 id="2-hardware-trends">2. Hardware trends</h2>
-<p>Lithium-ion n. 锂离子</p>
-<blockquote>
-<p><strong>不间断电源</strong>（<strong>UPS</strong>，即 <strong>Uninterruptible Power Supply</strong>）是在电网异常（如停电、欠压、干扰或浪涌（涌浪电流））的情况下不间断的为电器负载设备提供后备交流电源，维持电器正常运作的设备。</p>
-</blockquote>
-<p><code>A distributed UPS effectively makes DRAM durable.</code></p>
-<p>当power failure发生时，distributed UPS 使用<code>电池能源</code>将<code>内存内容</code>保存到commodity SSD。主要通过两个方面提升了性能：</p>
-<ul>
-<li>避免 synchronous write同步写入SSD</li>
-<li>延长了SSD寿命：因为只有failure发生的时候才写入</li>
-</ul>
-<h2 id="7-related-work">7. Related Work</h2>
-<p>Spanner: 2f+1 replicas</p>
-<p>FaRM: f+1 replicas</p>
 
     </div>
 
@@ -536,19 +437,6 @@
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/spoken_eng/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">SPOKEN ENGLISH</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
         
           <a class="next" href="/post/cmu15-445/">
             <span class="next-text nav-default">CMU 15-445/645 NOTES</span>
@@ -617,7 +505,7 @@
 
     </a>
   
-    <a href="https://www.douban.com/people/AnjanaVakil/?_i=6110490bFXB4OS" rel="me noopener" class="iconfont"
+    <a href="https://www.douban.com/people/188748525/?_i=5959211pTN39WJ,5959254pTN39WJ" rel="me noopener" class="iconfont"
       title="douban"  target="_blank"
       >
       <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"

@@ -6,16 +6,7 @@
     <description>Recent content in CS💻 on Anjana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 01 Jun 2023 21:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>精彩videos</title>
-      <link>https://anjanavakil.github.io/post/video/</link>
-      <pubDate>Thu, 01 Jun 2023 21:15:48 +0800</pubDate>
-      
-      <guid>https://anjanavakil.github.io/post/video/</guid>
-      <description>网络上看过的精彩讲座/课程/录像/视频等： A Philosophy of Software Design | John Ousterhout | Talks at Google Jul 15 A Philosophy of Software Design | John Ousterhout | Talks at Google John Ousterhout, Professor of Computer Science at Stanford University, discusses complex techniques on how to become a more confident coder. John is excited</description>
-    </item>
-    
+    <lastBuildDate>Thu, 01 Dec 2022 08:15:48 +0800</lastBuildDate><atom:link href="https://anjanavakil.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MIT 6.824: Distributed Systems &amp; Paper Reading</title>
       <link>https://anjanavakil.github.io/post/mit6_824/</link>
@@ -149,6 +140,15 @@
       
       <guid>https://anjanavakil.github.io/post/leetcode-dp/</guid>
       <description>LeetCode + 《剑指Offer II》刷题笔记。 动态规划 1D DP 70 Climbing Stairs 1 2 3 4 5 6 7 8 9 10 11 12 class Solution { public: int climbStairs(int n) { vector&amp;lt;int&amp;gt; dp(n+1); dp[0]=1; dp[1]=1; for(int i=2;i&amp;lt;=n;i++){ dp[i]=dp[i-1]+dp[i-2]; } return dp[n]; } }; 时间复杂度：O(n) 空</description>
+    </item>
+    
+    <item>
+      <title>精彩video</title>
+      <link>https://anjanavakil.github.io/post/video/</link>
+      <pubDate>Fri, 15 Jul 2022 21:15:48 +0800</pubDate>
+      
+      <guid>https://anjanavakil.github.io/post/video/</guid>
+      <description>网络上看过的精彩讲座/课程/录像/视频等： A Philosophy of Software Design | John Ousterhout | Talks at Google Jul 15 A Philosophy of Software Design | John Ousterhout | Talks at Google John Ousterhout, Professor of Computer Science at Stanford University, discusses complex techniques on how to become a more confident coder. John is excited</description>
     </item>
     
     <item>
