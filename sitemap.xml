@@ -883,4 +883,10 @@
     <priority>0.5</priority>
   </url>
   
+  <url>
+    <loc>https://anjanavakil.github.io/post/red-packet/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
 </urlset>
